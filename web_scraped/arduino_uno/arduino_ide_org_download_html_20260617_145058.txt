@@ -1,0 +1,32 @@
+Source URL: https://arduino-ide.org/download.html
+Scraped: 2026-06-17T14:50:58.281405
+============================================================
+
+## Arduino IDE Technical Specifications
+
+**Latest Release:** Arduino IDE 2.3.4 (January 2025)
+
+### System Compatibility
+- **Windows:** Windows 10 and later (64-bit and 32-bit builds available)
+- **macOS:** macOS 10.15 and later (Intel and Apple Silicon builds)
+- **Linux:** Most major distributions (64-bit and ARM64 AppImage)
+
+### Download Options
+- **Windows:** Installer EXE and ZIP portable versions
+- **macOS:** DMG disk image
+- **Linux:** AppImage and tarball formats
+
+### Security Features
+- All installers and binaries are digitally signed
+- SHA-256 checksums provided for integrity verification
+- Known false positive issue with some antivirus software (heuristic scanning of USB drivers/hardware ports)
+
+### Open Source & Transparency
+- Fully open source with publicly available source code
+- Reproducible build processes from publicly accessible repositories
+- Community-reviewed and audited codebase
+- Advanced users can compile from source using repository documentation
+
+### Legacy Support
+- Arduino IDE 1.8.19 available for compatibility requirements
+- IDE 2.x recommended for all new projects

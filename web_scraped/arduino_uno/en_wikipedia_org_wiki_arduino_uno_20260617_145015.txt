@@ -1,0 +1,42 @@
+Source URL: https://en.wikipedia.org/wiki/Arduino_Uno
+Scraped: 2026-06-17T14:50:15.336894
+============================================================
+
+The Arduino Uno is a series of open‑source single‑board microcontrollers.  
+
+**Uno R1–R3 (AVR‑based)**  
+- Microcontroller: Microchip ATmega328P (8‑bit AVR core)  
+- Clock speed: 16 MHz (maximum 20 MHz at 5 V)  
+- Memory: 32 KB flash (0.5 KB reserved for bootloader), 2 KB SRAM, 1 KB EEPROM  
+- Peripherals: 1 USART (configured as 8N1 UART), 1 SPI, 1 I²C  
+- Operating voltage: 5 V (IC tolerates 1.8–5.5 V; some third‑party variants support 3.3 V)  
+- Digital I/O: 14 pins, of which 6 provide PWM (pins 3, 5, 6, 9, 10, 11)  
+- Analog input: 6 pins (10‑bit ADC)  
+- Current per I/O pin: 20 mA; 3.3 V pin can source up to 50 mA  
+- Physical size: 68.6 mm × 53.4 mm; weight ≈ 25 g  
+- Power options: USB‑B (4.75–5.25 V per USB spec) or 5.5 mm/2.1 mm barrel jack (official boards accept 6–20 V, 7–12 V recommended); VIN pin on shield header mirrors barrel‑jack voltage range without reverse‑voltage protection.  
+
+**Uno R4 (Renesas‑based)**  
+Two variants: R4 Minima and R4 WiFi share a common core.  
+- Microcontroller: Renesas R7FA4M1AB (32‑bit ARM Cortex‑M4F with single‑precision FPU)  
+- Clock speed: 48 MHz  
+- Memory: 256 KB flash + boot ROM, 32 KB SRAM (configured as 16 KB ECC + 16 KB parity), 8 KB EEPROM (data flash)  
+- Peripherals: 4 USART, 2 SPI, 2 I²C  
+- Operating voltage: 5 V (IC tolerates 1.6–5.5 V)  
+- Digital I/O: retained Uno pinout (14 digital, 6 PWM, 6 analog)  
+- Power: USB‑C connector; barrel‑jack and VIN pin accept up to 24 V DC  
+- Additional features (Minima): 10‑pin SWD (5×2 1.27 mm) header for debug/programming  
+- Additional features (WiFi):  
+  * Wi‑Fi/Bluetooth coprocessor – Espressif ESP32‑S3‑MINI (240 MHz, IEEE 802.11 b/g/n, Bluetooth 5 LE) with a 6‑pin programming header  
+  * 12 × 8 LED matrix driven via Charlieplexing on 11 GPIO pins  
+  * Qwiic I²C connector (4‑pin 1.00 mm JST SH, 3.3 V bus only)  
+  * RTC battery header (VRTC) for connecting a 1.6–3.6 V backup battery  
+  * Remote‑Off header pin (OFF) for power‑control signaling  
+
+**Uno Q (Qualcomm‑based, announced Oct 2025)**  
+- Supports Linux and Wi‑Fi  
+- Incorporates a Qualcomm co‑processor (specific model not detailed in the source)  
+- Includes an LED matrix and Bluetooth connectivity  
+- Retains the Uno form factor, pin layout and power compatibility with earlier Uno boards.  
+
+These points capture the core technical specifications, numeric values, and salient features described in the source text.

@@ -1,0 +1,32 @@
+Source URL: https://docs.arduino.cc/hardware/uno-r4-wifi
+Scraped: 2026-06-17T14:53:37.419297
+============================================================
+
+**Arduino UNO R4 WiFi – Technical Summary**
+
+- **Microcontroller:** Renesas RA4M1 (Arm® Cortex‑M4)  
+  - Clock speed: 48 MHz  
+  - SRAM: 32 kB  
+  - Flash memory: 256 kB  
+  - Integrated peripherals: RTC (real‑time clock), 12‑bit DAC, CAN bus, USB HID support  
+
+- **Wireless Module:** ESP32‑S3 providing Wi‑Fi® and Bluetooth® connectivity; can be programmed separately via a dedicated header.  
+
+- **Operating Voltage:** 5 V for the RA4M1 MCU and all GPIO pins.  
+
+- **Power Input:** VIN pin or barrel jack, accepting 6 V–24 V.  
+
+- **LED Matrix:** On‑board 12 × 8 (96‑LED) matrix for direct visual prototyping.  
+
+- **Connectivity:**  
+  - Qwiic (I²C) connector for plug‑and‑play peripheral attachment.  
+  - Standard Arduino headers for shields and accessories.  
+
+- **Additional Features:**  
+  - Built‑in RTC with alarm capability.  
+  - 12‑bit DAC for audio or analog output.  
+  - USB HID support enabling mouse/keyboard emulation.  
+
+- **Software & Cloud:** Fully compatible with the Arduino Cloud platform; includes 3 months of Arduino Cloud Maker plan.  
+
+- **Documentation Available:** Pinout PDF, datasheet, schematics, CAD (STEP) files, user manual, and specific guides for the LED matrix, RTC, DAC, and HID functionality.

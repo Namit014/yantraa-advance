@@ -1,0 +1,34 @@
+Source URL: https://store.arduino.cc/products/uno-r4-minima
+Scraped: 2026-06-17T14:54:22.062318
+============================================================
+
+**Arduino UNO® R4 Minima – Key Technical Specs**
+
+- **Microcontroller**: Renesas RA4M1 (Arm Cortex‑M4)
+- **Core Clock**: 48 MHz  
+- **Flash Memory**: 256 kB  
+- **SRAM**: 32 kB  
+- **Operating Voltage**: 5 V (same as UNO R3)
+- **Input Voltage (VIN)**: 6 V – 24 V DC (24 V tolerance)
+- **Digital I/O Pins**: 14  
+- **Analog Input Pins**: 6 (12‑bit ADC)  
+- **DAC Output**: 1 × 12‑bit DAC  
+- **PWM Channels**: 6  
+- **Peripherals**:
+  - UART: 1  
+  - I²C: 1  
+  - SPI: 1  
+  - CAN BUS: 1 (with built‑in CAN transceiver)
+- **Current per I/O Pin**: 8 mA  
+- **USB Interface**: USB‑C® (for programming and HID output)  
+- **Dimensions**: 68.85 mm × 53.34 mm  
+- **Conformities**: UKCA, FCC, REACH, CE, RoHS, RCM, ISED/IC  
+
+**Additional Features**
+
+- Full compatibility with Arduino UNO R3 shields and accessories (same form factor, pinout, and 5 V logic).  
+- Built‑in SWD (Serial Wire Debug) connector for debugging the Cortex‑M4 core.  
+- Native HID support: can emulate mouse or keyboard when connected via USB‑C.  
+- Expanded peripheral set (DAC, CAN, OP‑AMP) for more complex projects.  
+
+These specifications provide the essential technical details needed to evaluate the UNO R4 Minima for design or development work.

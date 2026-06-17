@@ -1,0 +1,24 @@
+Source URL: https://spectrum.ieee.org/robotic-construction-platform-creates-large-buildings-on-demand
+Scraped: 2026-06-06T13:55:44.008659
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+* Technical Specifications:
+	+ Digital Construction Platform (DCP) is an automated construction system capable of customized on-site fabrication of architectural-scale structures.
+	+ The DCP uses additive construction techniques to build large structures safely, quickly, and even (in some cases) renewably.
+	+ The robot arm has a maximum printable volume of 2,786 cubic meters.
+	+ The system cost is US $244,500.
+* Facts:
+	+ The DCP has a battery-powered design with an option for more solar panels to be attached.
+	+ The robot has a top speed of 0.5 meters per second.
+	+ The DCP can potentially run forever, or as long as you have sun.
+* Numbers:
+	+ 14.6-meter-wide, 3.7-meter-tall hemispherical open dome
+	+ 1.728 cubic meters per hour printing rate
+	+ 2,786 cubic meters maximum printable volume
+* Descriptions:
+	+ The DCP uses a sprayer at the end of the small arm that combines two chemicals into a liquid polyurethane foam that rapidly expands and hardens.
+	+ The construction technique involves creating a concrete formwork: Two foam walls, one nested inside the other, with a space in the middle that can be poured with concrete or backfilled with dirt or other materials.
+	+ The foam dries quickly, allowing for the creation of a dome or flat roof.
+	+ Rebar and chains can be autonomously embedded or welded into rigid shapes for additional support.

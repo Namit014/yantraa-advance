@@ -40,6 +40,12 @@ def read_pdf(file_path):
     return "\n".join(text)
 
 
+def read_text(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+
 def read_image(file_path):
     """
     Read image as base64 string for vision model processing.

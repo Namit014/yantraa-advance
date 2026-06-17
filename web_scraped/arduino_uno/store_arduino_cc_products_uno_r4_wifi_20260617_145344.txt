@@ -1,0 +1,5 @@
+Source URL: https://store.arduino.cc/products/uno-r4-wifi
+Scraped: 2026-06-17T14:53:44.255435
+============================================================
+
+The Arduino UNO R4 WiFi features a 12x8 LED matrix with characteristics suitable for animations and plotting sensor data. It is powered via a bright LED matrix and does not require additional external hardware for basic operations. The board includes a Qwiic connector for easy interfacing with other devices in the Qwiic ecosystem.
