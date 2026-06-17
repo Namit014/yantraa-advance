@@ -204,7 +204,8 @@ OUTPUT FORMAT:
         if os.path.exists(hebi_path):
             with open(hebi_path, "r", encoding="utf-8") as f:
                 hebi_data = json.load(f)
-                component_graph_text += "KNOWN HEBI CAD COMPONENTS:\n" + json.dumps(hebi_data) + "\n\n"
+                minimized_hebi = [{"name": c.get("name"), "category": c.get("category")} for c in hebi_data.get("components", [])]
+                component_graph_text += "KNOWN HEBI CAD COMPONENTS:\n" + json.dumps(minimized_hebi) + "\n\n"
     except Exception as e:
         print(f"[api/design] Could not load component graphs: {e}")
 
@@ -265,7 +266,11 @@ USER REQUEST:
         "welding": "welding_cad.stp",
         "articulated": "Articulated_robot_cad.STEP",
         "inspection": "inspection_robot_cad.STEP",
-        "palletizing": "palletizing_robot_cad.STEP"
+        "palletizing": "palletizing_robot_cad.STEP",
+        "humanoid": "humanoid.step",
+        "machine tending": "machine_tending_robot.stp",
+        "in-pipe": "InPipeInspectionRobot.STEP",
+        "in pipe": "InPipeInspectionRobot.STEP"
     }
     
     # Dynamically add HEBI CADs
@@ -275,14 +280,25 @@ USER REQUEST:
                 hebi_data = json.load(f)
                 for comp in hebi_data.get("components", []):
                     known_cads[comp["name"].lower()] = comp["filename"]
+                    
+                    folder_name = comp.get("folder", "").lower().replace("_", " ")
+                    known_cads[folder_name] = comp["filename"]
+                    
+                    if "_" in comp.get("folder", ""):
+                        short_name = comp["folder"].split("_", 1)[1].lower().replace("_", " ")
+                        known_cads[short_name] = comp["filename"]
     except Exception:
         pass
     
-    query_lower = query.lower()
+    # Extract all text from BOM to match against
+    bom_text = " ".join([b.get("name", "").lower() for b in bom])
+    search_text = query.lower() + " " + bom_text
+    
     for key, filename in known_cads.items():
-        if key in query_lower:
+        if key in search_text:
             cad_available = True
             cad_url = f"/cad/{filename}"
+            print(f"[api/design] CAD matched: {key} -> {filename}")
             break
             
     # Fallback to checking retrieved search points for robot names
