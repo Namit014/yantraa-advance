@@ -1,0 +1,794 @@
+{
+    "categories": {
+        "Actuators": [
+            "A-2020-05",
+            "A-2020-08",
+            "A-2200-08",
+            "A-2200-08_RA",
+            "A-2269-01_R-Series_Double_Shoulder",
+            "A-2438-02",
+            "A-2475-05-noCap",
+            "A-2475-05",
+            "A-2475-08-noCap",
+            "A-2475-08",
+            "A-2488-25-XX",
+            "A-2581-01_T-Series_Double_Shoulder",
+            "A-2610-25",
+            "A-2610-25_noCap",
+            "A-2700-25",
+            "A-2700-25_noCap",
+            "A-2700-25_rightAngle"
+        ],
+        "End_Effectors": [
+            "A-2055-01_Gripper_Assembly",
+            "A-2143-02",
+            "A-2255-01_Gripper_Spool",
+            "A-2292-01",
+            "PM-2292-01",
+            "PM-2546-01",
+            "PM-2555-01"
+        ],
+        "Structural_and_Mounts": [
+            "A-2090-02",
+            "A-2096-02_Six_Tube_Adapter",
+            "A-2118-01",
+            "A-2188-02",
+            "A-2218-01_Output_Tube_Adapter",
+            "A-2218-01_Output_Tube_Adapter_w_Cover",
+            "A-2219-01_Input_Tube_Adapter",
+            "A-2219-01_Input_Tube_Adapter_w_Cover",
+            "A-2220-01_Light_Right_Angle_Bracket",
+            "A-2220-01_Light_Right_Angle_Bracket_w_Cover",
+            "A-2221-01_Heavy_Right_Angle_Bracket_Inside",
+            "A-2221-01-Heavy_Right_Angle_Bracket_Outside",
+            "A-2222-01_Heavy_Right_Angle_Bracket_Inside",
+            "A-2222-01_Heavy_Right_Angle_Bracket_Outside",
+            "A-2223-01_Output_Mid_Tube_Adapter",
+            "A-2224-01_Mid_Tube_Adapter",
+            "A-2225-01_Output_Inline_Tube_Adapter",
+            "A-2226-01_Input_Inline_Tube_Adapter",
+            "A-2227-01_Wheel_Adapter",
+            "A-2228-01_T-Slot_Right_Angle_Adapter",
+            "A-2231-01",
+            "A-2232-01",
+            "A-2235-01",
+            "A-2263-57-30_Gas_Spring",
+            "A-2499-01",
+            "A-2605-01_CR1_Right_Angle_Mount",
+            "A-2606-01_CR1_InLine_Mount",
+            "A-2607-01_CR1_TSlot_InLine_Mount",
+            "A-2630-01_T_Slot_Right_Angle_Adapter_R25",
+            "A-2631-01_Output_Tube_Adapter_R25",
+            "A-2632-01_Input_Tube_Adapter_R25",
+            "A-2634-01_Input_Tube_Adapter_R25_to_R8",
+            "A-2635-01_Heavy_Right_Angle_Bracket_Inside_R25",
+            "A-2635-01_Heavy_Right_Angle_Bracket_Outside_R25",
+            "A-2636-01_Light_Right_Angle_Bracket_R25",
+            "A-2638-01_Output_Tube_Adapter_Cover_R25",
+            "A-2639-01_Input_Tube_Adapter_Cover_R25",
+            "A-2640-01_Input_Tube_Adapter_Cover_R25-R8",
+            "A-2641-01_Light_Right_Angle_Bracket_Cover_R25",
+            "A-2642-01_Heavy_Right_Angle_Bracket_Cover_R25",
+            "A-2643-01_Input_Mid-Tube_Adapter_R25",
+            "A-2644-01_Output_Mid-Tube_Adapter_R25",
+            "A-2645-01_Output_In-Line_Tube_Adapter_R25",
+            "A-2646-01_Input_In-Line_Tube_Adapter_R25",
+            "A-2651-01_Input_Mid-Tube_Adapter_R25-R8",
+            "A-2669-01_H-Series_Output_Adapter",
+            "A-2670-01_H-Series_Input_Adapter",
+            "A-2711-01",
+            "A-2754-100",
+            "A-2754-150",
+            "A-2754-200",
+            "A-2754-300",
+            "PM-2148-01",
+            "PM-2148-02",
+            "PM-2519-01",
+            "PM-3230-300",
+            "PM-3230-500",
+            "PP-2074-08"
+        ],
+        "Electronics_and_Power": [
+            "A-2256-01",
+            "PCBA-2052-01",
+            "A-2432-01",
+            "A-2433-01_Motor_Driver_RJ45",
+            "A-2433-02_Motor_Driver_Fiber",
+            "A-2463-01",
+            "A-2473-01",
+            "A-2525-01",
+            "A-2545-01_IO_Utility_Board",
+            "A-2768-01"
+        ],
+        "Full_Systems": [
+            "A-2363-01",
+            "A-2403-02",
+            "A-2403-02_wArm"
+        ],
+        "Sensors": [
+            "A-2530-01",
+            "A-2530-02"
+        ]
+    },
+    "components": [
+        {
+            "name": "A-2020-05",
+            "folder": "A-2020-05_X5_Actuator",
+            "category": "Actuators",
+            "filename": "A-2020-05.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2020-08",
+            "folder": "A-2020-08_X8_Actuator",
+            "category": "Actuators",
+            "filename": "A-2020-08.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2055-01_Gripper_Assembly",
+            "folder": "A-2055-01_Gripper_Assembly",
+            "category": "End_Effectors",
+            "filename": "A-2055-01_Gripper_Assembly.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2090-02",
+            "folder": "A-2090-02_Output_Tube_Adapter_Cover",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2090-02.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2096-02_Six_Tube_Adapter",
+            "folder": "A-2096-02_Six_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2096-02_Six_Tube_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2118-01",
+            "folder": "A-2118-01_Tube_to_Tube_T_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2118-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2143-02",
+            "folder": "A-2143-02_Aluminum_Parallel_Gripper_Add-on_v2",
+            "category": "End_Effectors",
+            "filename": "A-2143-02.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2188-02",
+            "folder": "A-2188-02_Spring_Tube_Mount",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2188-02.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2200-08",
+            "folder": "A-2200-08-XX-X_R8_Actuator",
+            "category": "Actuators",
+            "filename": "A-2200-08.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2200-08_RA",
+            "folder": "A-2200-08-XX-X_R8_Actuator",
+            "category": "Actuators",
+            "filename": "A-2200-08_RA.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2218-01_Output_Tube_Adapter",
+            "folder": "A-2218-01_Output_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2218-01_Output_Tube_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2218-01_Output_Tube_Adapter_w_Cover",
+            "folder": "A-2218-01_Output_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2218-01_Output_Tube_Adapter_w_Cover.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2219-01_Input_Tube_Adapter",
+            "folder": "A-2219-01_Input_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2219-01_Input_Tube_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2219-01_Input_Tube_Adapter_w_Cover",
+            "folder": "A-2219-01_Input_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2219-01_Input_Tube_Adapter_w_Cover.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2220-01_Light_Right_Angle_Bracket",
+            "folder": "A-2220-01_Light_Right_Angle_Bracket",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2220-01_Light_Right_Angle_Bracket.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2220-01_Light_Right_Angle_Bracket_w_Cover",
+            "folder": "A-2220-01_Light_Right_Angle_Bracket",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2220-01_Light_Right_Angle_Bracket_w_Cover.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside",
+            "folder": "A-2221-01_Heavy_Right_Angle_Bracket_Inside",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2221-01_Heavy_Right_Angle_Bracket_Inside.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2221-01-Heavy_Right_Angle_Bracket_Outside",
+            "folder": "A-2221-01_Heavy_Right_Angle_Bracket_Outside",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2221-01-Heavy_Right_Angle_Bracket_Outside.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2222-01_Heavy_Right_Angle_Bracket_Inside",
+            "folder": "A-2222-01_Heavy_Right_Angle_Bracket_Inside",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2222-01_Heavy_Right_Angle_Bracket_Inside.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2222-01_Heavy_Right_Angle_Bracket_Outside",
+            "folder": "A-2222-01_Heavy_Right_Angle_Bracket_Outside",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2222-01_Heavy_Right_Angle_Bracket_Outside.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2223-01_Output_Mid_Tube_Adapter",
+            "folder": "A-2223-01_Output_Mid_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2223-01_Output_Mid_Tube_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2224-01_Mid_Tube_Adapter",
+            "folder": "A-2224-01_Input_Mid_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2224-01_Mid_Tube_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2225-01_Output_Inline_Tube_Adapter",
+            "folder": "A-2225-01_Output_Inline_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2225-01_Output_Inline_Tube_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2226-01_Input_Inline_Tube_Adapter",
+            "folder": "A-2226-01_Input_Inline_Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2226-01_Input_Inline_Tube_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2227-01_Wheel_Adapter",
+            "folder": "A-2227-01_Wheel_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2227-01_Wheel_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2228-01_T-Slot_Right_Angle_Adapter",
+            "folder": "A-2228-01_T-Slot_Right_Angle_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2228-01_T-Slot_Right_Angle_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2231-01",
+            "folder": "A-2231-01_R-Series_Housing_Tube_Adapter_Cover",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2231-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2232-01",
+            "folder": "A-2232-01_R-Series_Heavy_90_Bracket_Cover",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2232-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2235-01",
+            "folder": "A-2235-01_R-Series_Light_90_Bracket_Cover",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2235-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2255-01_Gripper_Spool",
+            "folder": "A-2255-01_Gripper_Spool",
+            "category": "End_Effectors",
+            "filename": "A-2255-01_Gripper_Spool.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2256-01",
+            "folder": "A-2256-01_POF-Ethernet_Converter",
+            "category": "Electronics_and_Power",
+            "filename": "A-2256-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PCBA-2052-01",
+            "folder": "A-2256-01_POF-Ethernet_Converter",
+            "category": "Electronics_and_Power",
+            "filename": "PCBA-2052-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2263-57-30_Gas_Spring",
+            "folder": "A-2263-57-30_Gas_Spring",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2263-57-30_Gas_Spring.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2269-01_R-Series_Double_Shoulder",
+            "folder": "A-2269-01_R-Series_Double_Shoulder",
+            "category": "Actuators",
+            "filename": "A-2269-01_R-Series_Double_Shoulder.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2292-01",
+            "folder": "A-2292-01_Gripper_Assembly",
+            "category": "End_Effectors",
+            "filename": "A-2292-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2363-01",
+            "folder": "A-2323-01_Tready",
+            "category": "Full_Systems",
+            "filename": "A-2363-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2403-02",
+            "folder": "A-2403-02_Maggie",
+            "category": "Full_Systems",
+            "filename": "A-2403-02.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2403-02_wArm",
+            "folder": "A-2403-02_Maggie",
+            "category": "Full_Systems",
+            "filename": "A-2403-02_wArm.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2432-01",
+            "folder": "A-2432-01_IO_Board",
+            "category": "Electronics_and_Power",
+            "filename": "A-2432-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2433-01_Motor_Driver_RJ45",
+            "folder": "A-2433-01_Motor_Driver_RJ45",
+            "category": "Electronics_and_Power",
+            "filename": "A-2433-01_Motor_Driver_RJ45.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2433-02_Motor_Driver_Fiber",
+            "folder": "A-2433-02_Motor_Driver_Fiber",
+            "category": "Electronics_and_Power",
+            "filename": "A-2433-02_Motor_Driver_Fiber.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2438-02",
+            "folder": "A-2438-02_Track_Actuator",
+            "category": "Actuators",
+            "filename": "A-2438-02.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2463-01",
+            "folder": "A-2463-01_Wattman_Battery",
+            "category": "Electronics_and_Power",
+            "filename": "A-2463-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2473-01",
+            "folder": "A-2473-01_Battery_Cap",
+            "category": "Electronics_and_Power",
+            "filename": "A-2473-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2475-05-noCap",
+            "folder": "A-2475-05-XX-X_T5_Actuator",
+            "category": "Actuators",
+            "filename": "A-2475-05-noCap.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2475-05",
+            "folder": "A-2475-05-XX-X_T5_Actuator",
+            "category": "Actuators",
+            "filename": "A-2475-05.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2475-08-noCap",
+            "folder": "A-2475-08-XX-X_T8_Actuator",
+            "category": "Actuators",
+            "filename": "A-2475-08-noCap.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2475-08",
+            "folder": "A-2475-08-XX-X_T8_Actuator",
+            "category": "Actuators",
+            "filename": "A-2475-08.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2488-25-XX",
+            "folder": "A-2488-25-XX_H25_Actuator",
+            "category": "Actuators",
+            "filename": "A-2488-25-XX.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2499-01",
+            "folder": "A-2499-01_H25_Collar_Clamp",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2499-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2525-01",
+            "folder": "A-2525-01_Wattman_Battery_w_Cap",
+            "category": "Electronics_and_Power",
+            "filename": "A-2525-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2530-01",
+            "folder": "A-2530-01_HEBI_Inspection_Camera_Subconn",
+            "category": "Sensors",
+            "filename": "A-2530-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2530-02",
+            "folder": "A-2530-02_HEBI_Inspection_Camera_RJ45",
+            "category": "Sensors",
+            "filename": "A-2530-02.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2545-01_IO_Utility_Board",
+            "folder": "A-2545-01_IO_Utility_Board",
+            "category": "Electronics_and_Power",
+            "filename": "A-2545-01_IO_Utility_Board.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2581-01_T-Series_Double_Shoulder",
+            "folder": "A-2581-01_T-Series_Double_Shoulder",
+            "category": "Actuators",
+            "filename": "A-2581-01_T-Series_Double_Shoulder.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2605-01_CR1_Right_Angle_Mount",
+            "folder": "A-2605-01_CR1_Right_Angle_Mount",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2605-01_CR1_Right_Angle_Mount.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2606-01_CR1_InLine_Mount",
+            "folder": "A-2606-01_CR1_InLine_Mount",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2606-01_CR1_InLine_Mount.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2607-01_CR1_TSlot_InLine_Mount",
+            "folder": "A-2607-01_CR1_TSlot_InLine_Mount",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2607-01_CR1_TSlot_InLine_Mount.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2610-25",
+            "folder": "A-2610-25-XX-X_T25_Actuator",
+            "category": "Actuators",
+            "filename": "A-2610-25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2610-25_noCap",
+            "folder": "A-2610-25-XX-X_T25_Actuator",
+            "category": "Actuators",
+            "filename": "A-2610-25_noCap.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2630-01_T_Slot_Right_Angle_Adapter_R25",
+            "folder": "A-2630-01_T_Slot_Right_Angle_Adapter_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2630-01_T_Slot_Right_Angle_Adapter_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2631-01_Output_Tube_Adapter_R25",
+            "folder": "A-2631-01_Output_Tube_Adapter_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2631-01_Output_Tube_Adapter_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2632-01_Input_Tube_Adapter_R25",
+            "folder": "A-2632-01_Input_Tube_Adapter_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2632-01_Input_Tube_Adapter_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2634-01_Input_Tube_Adapter_R25_to_R8",
+            "folder": "A-2634-01_Input_Tube_Adapter_R25_to_R8",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2634-01_Input_Tube_Adapter_R25_to_R8.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2635-01_Heavy_Right_Angle_Bracket_Inside_R25",
+            "folder": "A-2635-01_Heavy_Right_Angle_Bracket_Inside_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2635-01_Heavy_Right_Angle_Bracket_Inside_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2635-01_Heavy_Right_Angle_Bracket_Outside_R25",
+            "folder": "A-2635-01_Heavy_Right_Angle_Bracket_Outside_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2635-01_Heavy_Right_Angle_Bracket_Outside_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2636-01_Light_Right_Angle_Bracket_R25",
+            "folder": "A-2636-01_Light_Right_Angle_Bracket_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2636-01_Light_Right_Angle_Bracket_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2638-01_Output_Tube_Adapter_Cover_R25",
+            "folder": "A-2638-01_Output_Tube_Adapter_Cover_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2638-01_Output_Tube_Adapter_Cover_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2639-01_Input_Tube_Adapter_Cover_R25",
+            "folder": "A-2639-01_Input_Tube_Adapter_Cover_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2639-01_Input_Tube_Adapter_Cover_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2640-01_Input_Tube_Adapter_Cover_R25-R8",
+            "folder": "A-2640-01_Input_Tube_Adapter_Cover_R25-R8",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2640-01_Input_Tube_Adapter_Cover_R25-R8.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2641-01_Light_Right_Angle_Bracket_Cover_R25",
+            "folder": "A-2641-01_Light_Right_Angle_Bracket_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2641-01_Light_Right_Angle_Bracket_Cover_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2642-01_Heavy_Right_Angle_Bracket_Cover_R25",
+            "folder": "A-2642-01_Heavy_Right_Angle_Bracket_Cover_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2642-01_Heavy_Right_Angle_Bracket_Cover_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2643-01_Input_Mid-Tube_Adapter_R25",
+            "folder": "A-2643-01_Input_Mid-Tube_Adapter_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2643-01_Input_Mid-Tube_Adapter_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2644-01_Output_Mid-Tube_Adapter_R25",
+            "folder": "A-2644-01_Output_Mid-Tube_Adapter_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2644-01_Output_Mid-Tube_Adapter_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2645-01_Output_In-Line_Tube_Adapter_R25",
+            "folder": "A-2645-01_Output_In-Line_Tube_Adapter_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2645-01_Output_In-Line_Tube_Adapter_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2646-01_Input_In-Line_Tube_Adapter_R25",
+            "folder": "A-2646-01_Input_In-Line_Tube_Adapter_R25",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2646-01_Input_In-Line_Tube_Adapter_R25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2651-01_Input_Mid-Tube_Adapter_R25-R8",
+            "folder": "A-2651-01_Input_Mid-Tube_Adapter_R25-R8",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2651-01_Input_Mid-Tube_Adapter_R25-R8.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2669-01_H-Series_Output_Adapter",
+            "folder": "A-2669-01_H25_Output_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2669-01_H-Series_Output_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2670-01_H-Series_Input_Adapter",
+            "folder": "A-2670-01_H25_Input_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2670-01_H-Series_Input_Adapter.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2700-25",
+            "folder": "A-2700-25-XX-X_R25_Actuator",
+            "category": "Actuators",
+            "filename": "A-2700-25.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2700-25_noCap",
+            "folder": "A-2700-25-XX-X_R25_Actuator",
+            "category": "Actuators",
+            "filename": "A-2700-25_noCap.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2700-25_rightAngle",
+            "folder": "A-2700-25-XX-X_R25_Actuator",
+            "category": "Actuators",
+            "filename": "A-2700-25_rightAngle.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2711-01",
+            "folder": "A-2711-01_H25_Back-to-Back_Spacer",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2711-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2754-100",
+            "folder": "A-2754-XXX_H25_Arm_Link",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2754-100.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2754-150",
+            "folder": "A-2754-XXX_H25_Arm_Link",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2754-150.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2754-200",
+            "folder": "A-2754-XXX_H25_Arm_Link",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2754-200.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2754-300",
+            "folder": "A-2754-XXX_H25_Arm_Link",
+            "category": "Structural_and_Mounts",
+            "filename": "A-2754-300.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "A-2768-01",
+            "folder": "A-2768-01_IO_Utility_Board_Heatsink",
+            "category": "Electronics_and_Power",
+            "filename": "A-2768-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PM-2148-01",
+            "folder": "PM-2148-01_X5&8_Tube_Clamp",
+            "category": "Structural_and_Mounts",
+            "filename": "PM-2148-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PM-2148-02",
+            "folder": "PM-2148-02_X5&8_Tube_Clamp",
+            "category": "Structural_and_Mounts",
+            "filename": "PM-2148-02.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PM-2292-01",
+            "folder": "PM-2292-01_Spool_For_Wire_Actuated_Gripper",
+            "category": "End_Effectors",
+            "filename": "PM-2292-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PM-2519-01",
+            "folder": "PM-2519-01_R-Series_Housing_Mid-Tube_Adapter",
+            "category": "Structural_and_Mounts",
+            "filename": "PM-2519-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PM-2546-01",
+            "folder": "PM-2546-01_Gripper_Housing_R-Series",
+            "category": "End_Effectors",
+            "filename": "PM-2546-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PM-2555-01",
+            "folder": "PM-2555-01_R-Series_Gripper_Spool_Cover",
+            "category": "End_Effectors",
+            "filename": "PM-2555-01.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PM-3230-300",
+            "folder": "PM-3230-XX_1_75inOD_Indexed_Tube",
+            "category": "Structural_and_Mounts",
+            "filename": "PM-3230-300.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PM-3230-500",
+            "folder": "PM-3230-XX_1_75inOD_Indexed_Tube",
+            "category": "Structural_and_Mounts",
+            "filename": "PM-3230-500.STEP",
+            "type": "Hardware"
+        },
+        {
+            "name": "PP-2074-08",
+            "folder": "PP-2074-08_8in_Rubber_Wheel",
+            "category": "Structural_and_Mounts",
+            "filename": "PP-2074-08.STEP",
+            "type": "Hardware"
+        }
+    ]
+}
