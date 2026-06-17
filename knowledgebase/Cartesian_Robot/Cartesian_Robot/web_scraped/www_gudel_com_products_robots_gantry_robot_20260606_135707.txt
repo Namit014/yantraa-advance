@@ -1,0 +1,29 @@
+Source URL: https://www.gudel.com/products/robots/gantry-robot
+Scraped: 2026-06-06T13:57:07.531157
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Gantry Robot Specifications**
+
+* Can handle components up to several tonnes with extreme accuracy, speed, and repeatability
+* Can be supplied with up to three drive axes as standard, with the option of fitting three more rotary axes
+* Modular design for easy integration with other automatic machining, welding, or robot assembly equipment
+
+**Service Products**
+
+* Güdel Support: provides prompt assistance in the event of a malfunction, with remote maintenance facility and worldwide spare parts network
+* Güdel Protect: maintains installation and replaces wear parts at the right time to prevent malfunctions
+* Güdel Improve: optimizes processes and machines using retrofit solutions and employee training
+
+**Related Products**
+
+* 2-Axis ZP: double-axis gantry system for flexible positioning of legs
+* 3-Axis FP: portal gantries for large work areas
+* High-performance angle gearboxes: ideal for all types of angular drives
+* 1-Axis EP: single-axis module with high modularity and payload range
+* Linear guideways: basic elements of linear systems, including guideway rollers, flat rails, and base supports
+
+Additional information:
+
+* Güdel provides updates on latest product developments, news, events, and website content through Güdel Newsletter

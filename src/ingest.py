@@ -2,7 +2,8 @@ from loader import (
     load_files,
     read_docx,
     read_pdf,
-    read_image
+    read_image,
+    read_text
 )
 
 from chunker import (
@@ -57,7 +58,9 @@ def ingest():
 
             if file_type not in [
                 ".docx",
-                ".pdf"
+                ".pdf",
+                ".md",
+                ".txt"
             ]:
                 continue
 
@@ -69,9 +72,15 @@ def ingest():
                     file_path
                 )
 
-            else:
+            elif file_type == ".pdf":
 
                 text = read_pdf(
+                    file_path
+                )
+                
+            elif file_type in [".md", ".txt"]:
+
+                text = read_text(
                     file_path
                 )
 
