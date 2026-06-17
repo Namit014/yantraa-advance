@@ -1,0 +1,62 @@
+[
+    {
+        "component_name": "NEMA17 Stepper Motor",
+        "category": "Actuator",
+        "quantity": "5",
+        "robot_subsystem": "Drive System"
+    },
+    {
+        "component_name": "GT2 Timing Belt",
+        "category": "Mechanical",
+        "quantity": "4",
+        "robot_subsystem": "Transmission"
+    },
+    {
+        "component_name": "GT2 Pulley (16T/20T)",
+        "category": "Mechanical",
+        "quantity": "8",
+        "robot_subsystem": "Transmission"
+    },
+    {
+        "component_name": "608ZZ Bearing",
+        "category": "Mechanical",
+        "quantity": "10+",
+        "robot_subsystem": "Joints"
+    },
+    {
+        "component_name": "8mm Smooth Rod",
+        "category": "Mechanical",
+        "quantity": "5",
+        "robot_subsystem": "Joints"
+    },
+    {
+        "component_name": "Arduino Mega 2560",
+        "category": "Compute",
+        "quantity": "1",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "component_name": "RAMPS 1.4 Shield",
+        "category": "Electronics",
+        "quantity": "1",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "component_name": "A4988/DRV8825 Stepper Driver",
+        "category": "Electronics",
+        "quantity": "5",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "component_name": "12V 10A+ Power Supply",
+        "category": "Power",
+        "quantity": "1",
+        "robot_subsystem": "Power System"
+    },
+    {
+        "component_name": "3D Printed Structural Parts",
+        "category": "Structure",
+        "quantity": "1 set",
+        "robot_subsystem": "Structure"
+    }
+]

@@ -1,0 +1,24 @@
+{
+    "repository_assemblies": [
+        "Base_Assembly.SLDASM",
+        "Axis2_Shoulder_Assembly.SLDASM",
+        "Axis3_Elbow_Assembly.SLDASM",
+        "Axis4_Wrist_Assembly.SLDASM",
+        "Axis5_Gripper_Assembly.SLDASM"
+    ],
+    "part_categories": [
+        "3D Printed Structural",
+        "Fasteners (M3, M4, M8)",
+        "Bearings (608ZZ, 688ZZ)",
+        "Shafts (8mm)",
+        "Motors (NEMA17)",
+        "Pulleys (GT2)"
+    ],
+    "mechanical_subsystems": [
+        "Base Pivot",
+        "Shoulder Joint",
+        "Elbow Joint",
+        "Wrist Pitch/Roll",
+        "Gripper Assembly"
+    ]
+}

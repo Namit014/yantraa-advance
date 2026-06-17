@@ -1,0 +1,38 @@
+{
+    "name": "Moveo",
+    "children": [
+        {
+            "name": "Base",
+            "children": [
+                {
+                    "name": "Shoulder",
+                    "children": [
+                        {
+                            "name": "Upper Arm",
+                            "children": [
+                                {
+                                    "name": "Elbow",
+                                    "children": [
+                                        {
+                                            "name": "Forearm",
+                                            "children": [
+                                                {
+                                                    "name": "Wrist",
+                                                    "children": [
+                                                        {
+                                                            "name": "Gripper"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

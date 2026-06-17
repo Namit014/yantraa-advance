@@ -1,0 +1,49 @@
+{
+    "connections": [
+        {
+            "source": "NEMA17 Stepper Motor",
+            "target": "Timing Pulley",
+            "connection_type": "Mechanical (Shaft coupling)"
+        },
+        {
+            "source": "Timing Pulley",
+            "target": "Timing Belt",
+            "connection_type": "Mechanical (Mesh)"
+        },
+        {
+            "source": "Timing Belt",
+            "target": "Joint Shaft",
+            "connection_type": "Mechanical (Pulley)"
+        },
+        {
+            "source": "Joint Shaft",
+            "target": "Bearing",
+            "connection_type": "Mechanical (Support)"
+        },
+        {
+            "source": "Bearing",
+            "target": "Robot Link",
+            "connection_type": "Mechanical (Press fit)"
+        },
+        {
+            "source": "Arduino Mega",
+            "target": "RAMPS 1.4",
+            "connection_type": "Electrical (Header pins)"
+        },
+        {
+            "source": "RAMPS 1.4",
+            "target": "Stepper Driver",
+            "connection_type": "Electrical (Socket)"
+        },
+        {
+            "source": "Stepper Driver",
+            "target": "NEMA17 Stepper Motor",
+            "connection_type": "Electrical (Wiring)"
+        },
+        {
+            "source": "Power Supply",
+            "target": "RAMPS 1.4",
+            "connection_type": "Power (Screw terminal)"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "name": "BCN3D Moveo",
+    "children": [
+        {
+            "name": "Base Subsystem",
+            "children": [
+                {
+                    "name": "Base Mount"
+                },
+                {
+                    "name": "Axis 1 (Pan)"
+                }
+            ]
+        },
+        {
+            "name": "Arm Assembly",
+            "children": [
+                {
+                    "name": "Shoulder (Axis 2)"
+                },
+                {
+                    "name": "Upper Arm"
+                },
+                {
+                    "name": "Elbow (Axis 3)"
+                },
+                {
+                    "name": "Forearm"
+                }
+            ]
+        },
+        {
+            "name": "Wrist & End Effector",
+            "children": [
+                {
+                    "name": "Wrist Pitch (Axis 4)"
+                },
+                {
+                    "name": "Wrist Roll (Axis 5)"
+                },
+                {
+                    "name": "Gripper"
+                }
+            ]
+        },
+        {
+            "name": "Control Electronics",
+            "children": [
+                {
+                    "name": "Arduino Mega"
+                },
+                {
+                    "name": "RAMPS 1.4"
+                }
+            ]
+        }
+    ]
+}

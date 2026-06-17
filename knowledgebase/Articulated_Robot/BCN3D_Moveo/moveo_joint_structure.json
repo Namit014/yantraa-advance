@@ -1,0 +1,37 @@
+[
+    {
+        "joint_name": "Axis 1 (Base Pan)",
+        "parent_link": "Base",
+        "child_link": "Rotating Base",
+        "actuator": "NEMA 17 Stepper",
+        "transmission": "Planetary Gear / Belt"
+    },
+    {
+        "joint_name": "Axis 2 (Shoulder Pitch)",
+        "parent_link": "Rotating Base",
+        "child_link": "Upper Arm",
+        "actuator": "NEMA 17 Stepper",
+        "transmission": "Timing Belt and Pulley"
+    },
+    {
+        "joint_name": "Axis 3 (Elbow Pitch)",
+        "parent_link": "Upper Arm",
+        "child_link": "Forearm",
+        "actuator": "NEMA 17 Stepper",
+        "transmission": "Timing Belt and Pulley"
+    },
+    {
+        "joint_name": "Axis 4 (Wrist Pitch)",
+        "parent_link": "Forearm",
+        "child_link": "Wrist Base",
+        "actuator": "NEMA 17 Stepper",
+        "transmission": "Timing Belt and Pulley"
+    },
+    {
+        "joint_name": "Axis 5 (Wrist Roll)",
+        "parent_link": "Wrist Base",
+        "child_link": "Gripper Mount",
+        "actuator": "NEMA 17 Stepper",
+        "transmission": "Direct Drive / Belt"
+    }
+]
