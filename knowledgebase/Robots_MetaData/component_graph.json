@@ -1,0 +1,251 @@
+{
+    "robots": {
+        "SO-100 & SO-101 Arms": {
+            "name": "SO-100 & SO-101 Arms"
+        },
+        "moss-robot-arms": {
+            "name": "moss-robot-arms"
+        },
+        "SO-ARM107": {
+            "name": "SO-ARM107"
+        },
+        "ElRobot": {
+            "name": "ElRobot"
+        },
+        "PingTi-Arm": {
+            "name": "PingTi-Arm"
+        },
+        "AlohaMini": {
+            "name": "AlohaMini"
+        },
+        "XLeRobot": {
+            "name": "XLeRobot"
+        },
+        "bambot": {
+            "name": "bambot"
+        },
+        "LeRobot-S0-100-Models": {
+            "name": "LeRobot-S0-100-Models"
+        },
+        "assembler0": {
+            "name": "assembler0"
+        },
+        "pgripper": {
+            "name": "pgripper"
+        },
+        "koch-v1-1": {
+            "name": "koch-v1-1"
+        },
+        "omx": {
+            "name": "omx"
+        },
+        "robot-task-kit": {
+            "name": "robot-task-kit"
+        },
+        "Hugging Face rectangular prism": {
+            "name": "Hugging Face rectangular prism"
+        },
+        "Self-Fusing Silicone Rubber": {
+            "name": "Self-Fusing Silicone Rubber"
+        },
+        "Foam Tape": {
+            "name": "Foam Tape"
+        }
+    },
+    "components": {
+        "Feetech STS3215": {
+            "type": "Motor"
+        },
+        "Vinmooog Webcam": {
+            "type": "Camera"
+        },
+        "32x32mm UVC Module": {
+            "type": "Camera"
+        },
+        "RealSense\u2122 D405": {
+            "type": "Camera"
+        },
+        "RealSense\u2122 D435": {
+            "type": "Camera"
+        },
+        "PincOpen": {
+            "type": "Gripper"
+        },
+        "Symmetrical Gripper": {
+            "type": "Gripper"
+        },
+        "SO101-Parallel-Gripper": {
+            "type": "Gripper"
+        },
+        "SO-ARM Compliant Gripper": {
+            "type": "Gripper"
+        },
+        "XLeRobot Compliant Gripper": {
+            "type": "Gripper"
+        },
+        "SO-ARM100-101-Parallel-Gripper": {
+            "type": "Gripper"
+        },
+        "Dynamixel": {
+            "type": "Motor"
+        },
+        "SVPRO 1080P": {
+            "type": "Camera"
+        },
+        "Innomaker 1080P USB2.0": {
+            "type": "Camera"
+        }
+    },
+    "edges": [
+        {
+            "source": "Feetech STS3215",
+            "target": "SO-100 & SO-101 Arms",
+            "relation": "powers"
+        },
+        {
+            "source": "Vinmooog Webcam",
+            "target": "SO-100 & SO-101 Arms",
+            "relation": "compatible_with"
+        },
+        {
+            "source": "32x32mm UVC Module",
+            "target": "SO-100 & SO-101 Arms",
+            "relation": "compatible_with"
+        },
+        {
+            "source": "RealSense\u2122 D405",
+            "target": "SO-100 & SO-101 Arms",
+            "relation": "compatible_with"
+        },
+        {
+            "source": "RealSense\u2122 D435",
+            "target": "SO-100 & SO-101 Arms",
+            "relation": "compatible_with"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "moss-robot-arms",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "SO-ARM107",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "ElRobot",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "PingTi-Arm",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "AlohaMini",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "XLeRobot",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "bambot",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "PincOpen",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "Symmetrical Gripper",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "LeRobot-S0-100-Models",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "assembler0",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "SO101-Parallel-Gripper",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "pgripper",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "SO-ARM Compliant Gripper",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "XLeRobot Compliant Gripper",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "SO-ARM100-101-Parallel-Gripper",
+            "relation": "powers"
+        },
+        {
+            "source": "Feetech STS3215",
+            "target": "koch-v1-1",
+            "relation": "powers"
+        },
+        {
+            "source": "SVPRO 1080P",
+            "target": "koch-v1-1",
+            "relation": "compatible_with"
+        },
+        {
+            "source": "Dynamixel",
+            "target": "omx",
+            "relation": "powers"
+        },
+        {
+            "source": "Dynamixel",
+            "target": "robot-task-kit",
+            "relation": "powers"
+        },
+        {
+            "source": "Dynamixel",
+            "target": "Hugging Face rectangular prism",
+            "relation": "powers"
+        },
+        {
+            "source": "Dynamixel",
+            "target": "Self-Fusing Silicone Rubber",
+            "relation": "powers"
+        },
+        {
+            "source": "Dynamixel",
+            "target": "Foam Tape",
+            "relation": "powers"
+        },
+        {
+            "source": "Innomaker 1080P USB2.0",
+            "target": "Foam Tape",
+            "relation": "compatible_with"
+        },
+        {
+            "source": "Vinmooog Webcam",
+            "target": "Foam Tape",
+            "relation": "compatible_with"
+        }
+    ]
+}

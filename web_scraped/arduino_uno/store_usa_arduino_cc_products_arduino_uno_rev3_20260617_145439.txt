@@ -1,0 +1,34 @@
+Source URL: https://store-usa.arduino.cc/products/arduino-uno-rev3
+Scraped: 2026-06-17T14:54:39.426620
+============================================================
+
+**Arduino Uno Rev3 – Technical Specifications**
+
+- **Microcontroller**: ATmega328P  
+- **Operating Voltage**: 5 V  
+- **Input Voltage (recommended)**: 7 – 12 V  
+- **Input Voltage (maximum)**: 6 – 20 V  
+- **Digital I/O Pins**: 14 (6 capable of PWM output)  
+- **PWM Digital I/O Pins**: 6  
+- **Analog Input Pins**: 6  
+- **Maximum DC Current per I/O Pin**: 20 mA  
+- **Maximum DC Current for 3.3 V Pin**: 50 mA  
+- **Flash Memory**: 32 KB (0.5 KB used by bootloader)  
+- **SRAM**: 2 KB  
+- **EEPROM**: 1 KB  
+- **Clock Speed**: 16 MHz (CSTCE16M0V53‑R0 resonator)  
+- **Built‑in LED (LED_BUILTIN)**: Pin 13  
+- **Dimensions**: 68.6 mm × 53.4 mm  
+- **Weight**: 25 g (0.05 kg)  
+
+**Key Features**
+
+- USB connection, power jack (2.1 mm center‑positive) and battery terminals (GND, Vin).  
+- ICSP header for in‑circuit programming.  
+- Reset button and a resettable polyfuse (protects USB port from shorts/over‑current; trips at >500 mA).  
+- Powered automatically from USB or external supply (6 – 20 V).  
+- External supply recommended: 7 – 12 V (lower may cause instability; higher risks regulator overheating).  
+- 5 V regulated output via the 5 V pin; 3.3 V regulated output via the 3V3 pin (max 50 mA).  
+- IOREF pin provides the voltage reference for accessories/shields.  
+
+These consolidated figures capture the essential electrical, mechanical, and power characteristics of the Arduino Uno Rev3 board.

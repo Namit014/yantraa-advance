@@ -1,0 +1,24 @@
+Source URL: https://docs.arduino.cc/hardware/uno-r4-minima
+Scraped: 2026-06-17T14:53:17.170886
+============================================================
+
+The Arduino UNO R4 Minima features a 32-bit Renesas RA4M1 microcontroller (Arm® Cortex®-M4 architecture) with an operating voltage of 5V. Key specifications include:
+
+- **Digital I/O Pins**: 14  
+- **Analog Input Resolution**: Up to 14-bit (6 analog inputs)  
+- **Clock Speed**: 48 MHz  
+- **Memory**:  
+  - 32 kB SRAM  
+  - 256 kB Flash Memory  
+  - 8 kB EEPROM  
+- **Built-in Features**:  
+  - 12-bit Digital-to-Analog Converter (DAC)  
+  - Real-Time Clock (RTC) for time/date tracking and alarms  
+  - Human Interface Device (HID) support for keyboard/mouse emulation  
+- **Power Supply**:  
+  - USB-C connector  
+  - VIN pin supports 6–24V input  
+- **Connectivity**:  
+  - CAN Bus interface (requires external transceiver)  
+
+Notable for its 5V-only design, USB-C port, and enhanced 32-bit performance compared to earlier UNO models. Documentation includes pinout, schematics, CAD files, and user manual.

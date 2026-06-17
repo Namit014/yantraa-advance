@@ -1,0 +1,5 @@
+Source URL: https://en.wikipedia.org/wiki/Arduino_UNO
+Scraped: 2026-06-17T14:50:21.061391
+============================================================
+
+The Arduino Uno features an 8-bit AVR microcontroller (ATmega328P) supporting 16 MHz clock speed, up to 32 KB flash memory (2 KB used by bootloader), 6 analog I/O pins, 6 digital PWM pins, and 20 mA current capability. It includes a 64-pin SMD package with headers matching other models. Memory storage is expandable via SRAM, EEPROM, and with bootloader support. Physical dimensions are 68.6 mm × 53.4 mm, and it operates at 5 V or higher. The board supports USB connections (USB-B, miniUSB, microUSB, USB-C) and a variety of digital and analog I/O. It includes 5 minute character illuminator (uno), optional R7FA4M1AB ARM Cortex-M4 ARM Cortex-M3 processor, and additional features such as USB BREAKOUT, 10-pin SWD header, 6-pin LED matrix, 240 MHz ESP32-S3 coprocessor, and remote management via WIFI with ESP32-S3 coprocessor. The Uno can be powered by USB 3.0 or 5V/3.3V sources (7–12 V recommended).
