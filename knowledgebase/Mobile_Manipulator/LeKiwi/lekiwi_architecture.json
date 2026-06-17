@@ -1,0 +1,27 @@
+{
+    "name": "LeKiwi",
+    "children": [
+        {
+            "name": "Mobile Base",
+            "children": [
+                {
+                    "name": "Drive System"
+                },
+                {
+                    "name": "Power System"
+                },
+                {
+                    "name": "Vision System"
+                }
+            ]
+        },
+        {
+            "name": "SO-101 Arm",
+            "children": [
+                {
+                    "name": "End Effector"
+                }
+            ]
+        }
+    ]
+}

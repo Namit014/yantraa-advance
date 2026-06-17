@@ -1,0 +1,50 @@
+[
+    {
+        "component_name": "4-inch Omni wheels",
+        "category": "Mechanical",
+        "quantity": "3",
+        "robot_subsystem": "Mobile Base"
+    },
+    {
+        "component_name": "STS3215 servos",
+        "category": "Actuator",
+        "quantity": "3 (base) + 6 (arm)",
+        "robot_subsystem": "Drive System / Arm"
+    },
+    {
+        "component_name": "Servo driver board",
+        "category": "Electronics",
+        "quantity": "1",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "component_name": "Raspberry Pi 5 (4GB)",
+        "category": "Compute",
+        "quantity": "1",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "component_name": "USB Camera",
+        "category": "Sensor",
+        "quantity": "2",
+        "robot_subsystem": "Vision System"
+    },
+    {
+        "component_name": "Battery (5V Powerbank or 12V Li-ion)",
+        "category": "Power",
+        "quantity": "1",
+        "robot_subsystem": "Power System"
+    },
+    {
+        "component_name": "M2/M3/M4 Assorted Screw Set",
+        "category": "Hardware",
+        "quantity": "1 set",
+        "robot_subsystem": "Structural"
+    },
+    {
+        "component_name": "3D Printed Plates & Mounts",
+        "category": "Mechanical",
+        "quantity": "1 set",
+        "robot_subsystem": "Structural"
+    }
+]

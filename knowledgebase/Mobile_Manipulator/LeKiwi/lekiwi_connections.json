@@ -1,0 +1,40 @@
+{
+    "connections": [
+        {
+            "source": "STS3215 Servo",
+            "target": "Wheel Hub"
+        },
+        {
+            "source": "Wheel Hub",
+            "target": "Omni Wheel"
+        },
+        {
+            "source": "Battery",
+            "target": "Servo Driver"
+        },
+        {
+            "source": "Battery",
+            "target": "Raspberry Pi 5"
+        },
+        {
+            "source": "Servo Driver",
+            "target": "Raspberry Pi 5"
+        },
+        {
+            "source": "Servo Driver",
+            "target": "STS3215 Servo"
+        },
+        {
+            "source": "Raspberry Pi 5",
+            "target": "Base USB Camera"
+        },
+        {
+            "source": "Raspberry Pi 5",
+            "target": "Wrist USB Camera"
+        },
+        {
+            "source": "Raspberry Pi 5",
+            "target": "Arm Controller (SO-100/SO-101)"
+        }
+    ]
+}

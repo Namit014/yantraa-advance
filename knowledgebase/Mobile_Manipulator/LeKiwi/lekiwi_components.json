@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Omni wheels",
+        "description": "4-inch omni-directional wheels for holonomic movement."
+    },
+    {
+        "name": "STS3215 servos",
+        "description": "Used for driving the omni wheels and operating the robotic arm."
+    },
+    {
+        "name": "Servo driver",
+        "description": "Controls the STS3215 servos."
+    },
+    {
+        "name": "Raspberry Pi 5",
+        "description": "Main compute unit for running LeRobot software and connecting cameras."
+    },
+    {
+        "name": "USB cameras",
+        "description": "Provides base and wrist visual feedback."
+    },
+    {
+        "name": "Battery system",
+        "description": "Provides power; configurations include a 5V laptop power bank or a 12V Li-ion battery."
+    },
+    {
+        "name": "SO-100 / SO-101 arm",
+        "description": "6-DOF articulated robotic arm mounted on the mobile base."
+    },
+    {
+        "name": "Gripper",
+        "description": "End effector attached to the robotic arm."
+    },
+    {
+        "name": "Mounting hardware",
+        "description": "Assorted M2, M3, and M4 screws and nuts, plus 3D printed standardized base plates."
+    }
+]
