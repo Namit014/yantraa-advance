@@ -20,7 +20,7 @@ import {
 
 interface CADTabProps {
     currentQuery?: string;
-    cadUrl?: string | null;
+    cadUrls?: string[] | null;
     designData?: any;
 }
 
@@ -672,7 +672,7 @@ function FallbackAssembly({ designData }: { designData: any }) {
     );
 }
 
-export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
+export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
     const [meshes, setMeshes] = useState<LoadedMesh[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -815,14 +815,14 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
     };
 
     useEffect(() => {
-        if (!cadUrl) {
+        if (!cadUrls || cadUrls.length === 0) {
             setMeshes([]);
             return;
         }
 
         let isMounted = true;
 
-        async function loadStep() {
+        async function loadStepFiles() {
             setIsLoading(true);
             setError(null);
             
@@ -836,64 +836,74 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                     locateFile: (name: string) => `/${name}`
                 });
 
-                // Fetch STEP file
-                const res = await fetch(cadUrl!);
-                if (!res.ok) throw new Error("Failed to download CAD file.");
-                const buffer = await res.arrayBuffer();
-                
-                // Parse the STEP file directly
-                const fileBuffer = new Uint8Array(buffer);
-                const result = occt.ReadStepFile(fileBuffer, null);
-                
-                if (!result || !result.meshes || result.meshes.length === 0) {
-                    throw new Error("No valid meshes found in the CAD file.");
-                }
-
                 const loadedMeshes: LoadedMesh[] = [];
-                let i = 0;
-                
-                for (const m of result.meshes) {
-                    const geometry = new THREE.BufferGeometry();
-                    
-                    geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
-                    if (m.attributes.normal) {
-                        geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
-                    }
-                    const index = Uint32Array.from(m.index.array);
-                    geometry.setIndex(new THREE.BufferAttribute(index, 1));
-                    
-                    geometry.computeVertexNormals();
-                    geometry.computeBoundingBox();
-                    geometry.computeBoundingSphere();
+                let globalMeshId = 0;
 
-                    let color = null;
-                    if (m.color) {
-                        color = new THREE.Color(m.color[0], m.color[1], m.color[2]);
+                // Load all step files concurrently
+                const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
+                    const res = await fetch(url);
+                    if (!res.ok) throw new Error(`Failed to download CAD file: ${url}`);
+                    const buffer = await res.arrayBuffer();
+                    
+                    const fileBuffer = new Uint8Array(buffer);
+                    const result = occt.ReadStepFile(fileBuffer, null);
+                    
+                    if (!result || !result.meshes || result.meshes.length === 0) {
+                        console.warn(`No valid meshes found in CAD file: ${url}`);
+                        return;
                     }
+                    
+                    // Add X-axis offset based on file index to space them out initially
+                    const offsetMatrix = new THREE.Matrix4().makeTranslation(fileIndex * 150, 0, 0);
 
-                    loadedMeshes.push({
-                        id: `mesh-${i++}`,
-                        geometry,
-                        color,
-                        name: m.name || `Component ${i}`
-                    });
-                }
-                
+                    for (const m of result.meshes) {
+                        const geometry = new THREE.BufferGeometry();
+                        
+                        geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
+                        if (m.attributes.normal) {
+                            geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
+                        }
+                        const index = Uint32Array.from(m.index.array);
+                        geometry.setIndex(new THREE.BufferAttribute(index, 1));
+                        
+                        // Apply the initial spacing offset
+                        geometry.applyMatrix4(offsetMatrix);
+                        
+                        geometry.computeVertexNormals();
+                        geometry.computeBoundingBox();
+                        geometry.computeBoundingSphere();
+
+                        let color = null;
+                        if (m.color) {
+                            color = new THREE.Color(m.color[0], m.color[1], m.color[2]);
+                        }
+
+                        loadedMeshes.push({
+                            id: `mesh-${fileIndex}-${globalMeshId++}`,
+                            geometry,
+                            color,
+                            name: m.name || `Component ${globalMeshId}`
+                        });
+                    }
+                });
+
+                await Promise.all(fetchPromises);
+
                 if (isMounted) {
                     setMeshes(loadedMeshes);
                 }
             } catch (err: any) {
                 console.error("CAD load error:", err);
-                if (isMounted) setError(err.message || "Failed to parse the CAD file.");
+                if (isMounted) setError(err.message || "Failed to parse the CAD files.");
             } finally {
                 if (isMounted) setIsLoading(false);
             }
         }
 
-        loadStep();
+        loadStepFiles();
 
         return () => { isMounted = false; };
-    }, [cadUrl]);
+    }, [cadUrls]);
 
     return (
         <div className="relative w-full h-full bg-[#060810] overflow-hidden rounded-xl border border-neutral-800 select-none">
@@ -1115,7 +1125,7 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
             )}
 
             {/* Empty State Overlay */}
-            {!cadUrl && !designData && !isLoading && !error && (
+            {(!cadUrls || cadUrls.length === 0) && !designData && !isLoading && !error && (
                 <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#060810]/50 backdrop-blur-sm gap-4">
                     <Box size={40} className="text-neutral-500" />
                     <span className="text-neutral-400 text-sm font-medium">No 3D CAD available for this model yet.</span>
@@ -1172,7 +1182,7 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                                 <Center bottom>
                                     <CADModel 
                                         meshes={meshes} 
-                                        url={cadUrl!} 
+                                        url={cadUrls ? cadUrls[0] : ''}
                                         explosion={explosion}
                                         hoveredMesh={hoveredMesh}
                                         setHoveredMesh={setHoveredMesh}

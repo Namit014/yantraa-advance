@@ -27,6 +27,7 @@ class DesignResponse(BaseModel):
     validation: List[Dict[str, Any]]
     cad_available: bool = False
     cad_url: Optional[str] = None
+    cad_urls: List[str] = []
     chat_reply: Optional[str] = None
 
 def _strip_markdown_json(text: str) -> str:
@@ -222,6 +223,9 @@ USER REQUEST:
         synthesis_data = json.loads(cleaned_synthesis)
     except Exception as e:
         print(f"[api/design] Phase 3 Synthesis parsing failed: {e}")
+        with open("debug_synthesis.txt", "w", encoding="utf-8") as debug_file:
+            debug_file.write(raw_synthesis)
+        print(f"[api/design] RAW LLM OUTPUT WAS:\n{raw_synthesis[:1000]}...\n---")
         synthesis_data = {
             "subsystems": [{"name": "Control Subsystem", "components": [{"id": "mcu_fallback", "name": "Microcontroller", "role": "Main processor", "voltage": "5V", "interface": "GPIO"}]}],
             "connections": [],
@@ -256,21 +260,23 @@ USER REQUEST:
     cad_url = None
     
     known_cads = {
-        "autonomous mobile": "Automate_mobile_Robot.step",
-        "agv": "AVGs_robot_cad.step",
-        "cartesian": "cartesian_robot_cad.stp",
-        "cobot": "cobot_robot_cad.stp",
-        "delta": "DeltaRobot2.STEP",
-        "painting": "painting_robot_cad.stp",
-        "scara": "scara_robot_cad.stp",
-        "welding": "welding_cad.stp",
-        "articulated": "Articulated_robot_cad.STEP",
-        "inspection": "inspection_robot_cad.STEP",
-        "palletizing": "palletizing_robot_cad.STEP",
-        "humanoid": "humanoid.step",
-        "machine tending": "machine_tending_robot.stp",
-        "in-pipe": "InPipeInspectionRobot.STEP",
-        "in pipe": "InPipeInspectionRobot.STEP"
+        "autonomous mobile": "Robot_Automate_mobile_Robot.step",
+        "agv": "Robot_AVGs_robot_cad.step",
+        "cartesian": "Robot_cartesian_robot_cad.step",
+        "cobot": "Robot_cobot_robot_cad.step",
+        "delta": "Robot_DeltaRobot2.step",
+        "painting": "Robot_painting_robot_cad.step",
+        "scara": "Robot_scara_robot_cad.step",
+        "welding": "Robot_welding_cad.step",
+        "articulated": "Robot_Articulated_robot_cad.step",
+        "inspection": "Robot_inspection_robot_cad.step",
+        "palletizing": "Robot_palletizing_robot_cad.step",
+        "humanoid": "Robot_humanoid.step",
+        "machine tending": "Robot_machine_tending_robot.step",
+        "in-pipe": "Robot_InPipeInspectionRobot.step",
+        "in pipe": "Robot_InPipeInspectionRobot.step",
+        "pipeline": "Robot_InPipeInspectionRobot.step",
+        "corrosion": "Robot_InPipeInspectionRobot.step"
     }
     
     # Dynamically add HEBI CADs
@@ -278,31 +284,42 @@ USER REQUEST:
         if os.path.exists(hebi_path):
             with open(hebi_path, "r", encoding="utf-8") as f:
                 hebi_data = json.load(f)
-                for comp in hebi_data.get("components", []):
-                    known_cads[comp["name"].lower()] = comp["filename"]
-                    
-                    folder_name = comp.get("folder", "").lower().replace("_", " ")
-                    known_cads[folder_name] = comp["filename"]
-                    
-                    if "_" in comp.get("folder", ""):
-                        short_name = comp["folder"].split("_", 1)[1].lower().replace("_", " ")
-                        known_cads[short_name] = comp["filename"]
-    except Exception:
-        pass
+                for cat, items in hebi_data.get("categories", {}).items():
+                    for item in items:
+                        filename = f"{item}.step"
+                        # Add full name e.g. "actuator a-2020-05"
+                        known_cads[item.lower().replace("_", " ")] = filename
+                        
+                        # Add specific part identifier e.g. "a-2020-05"
+                        parts = item.split("_")
+                        if len(parts) > 1:
+                            known_cads[parts[1].lower()] = filename
+                            known_cads[parts[1].lower().replace("-", " ")] = filename
+    except Exception as e:
+        print(f"[api/design] Error loading HEBI cads: {e}")
     
     # Extract all text from BOM to match against
-    bom_text = " ".join([b.get("name", "").lower() for b in bom])
-    search_text = query.lower() + " " + bom_text
+    matched_cads = set()
     
-    for key, filename in known_cads.items():
-        if key in search_text:
-            cad_available = True
-            cad_url = f"/cad/{filename}"
-            print(f"[api/design] CAD matched: {key} -> {filename}")
-            break
+    # Check each BOM item
+    for b in bom:
+        name = b.get("name", "").lower()
+        desc = b.get("description", "").lower()
+        search_text = f"{name} {desc}"
+        
+        for key, filename in known_cads.items():
+            if key in search_text:
+                matched_cads.add(filename)
+                
+    # Fallback to monolithic robots if modular assembly yielded nothing
+    if len(matched_cads) == 0:
+        query_lower = query.lower()
+        for key, filename in known_cads.items():
+            if key in query_lower:
+                matched_cads.add(filename)
             
     # Fallback to checking retrieved search points for robot names
-    if not cad_available:
+    if not matched_cads:
         try:
             points = retriever_instance.search(query, top_k=5)
             for pt in points:
@@ -312,15 +329,16 @@ USER REQUEST:
                     r_lower = robot_val.lower()
                     for key, filename in known_cads.items():
                         if key.replace(" ", "_") in r_lower or key in r_lower:
-                            cad_available = True
-                            cad_url = f"/cad/{filename}"
-                            break
-                if cad_available:
-                    break
+                            matched_cads.add(filename)
         except Exception:
             pass
 
+    cad_available = len(matched_cads) > 0
+    cad_urls = [f"/api/cad/{f}" for f in matched_cads]
+    cad_url = cad_urls[0] if cad_urls else None
+    
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")
+    print(f"[api/design] CADs matched: {cad_urls}")
 
     return DesignResponse(
         subsystems=subsystems,
@@ -329,5 +347,6 @@ USER REQUEST:
         missing=missing,
         validation=validation,
         cad_available=cad_available,
-        cad_url=cad_url
+        cad_url=cad_url,
+        cad_urls=cad_urls
     )
