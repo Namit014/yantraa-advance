@@ -1,0 +1,42 @@
+Source URL: https://components101.com/microcontrollers/arduino-uno
+Scraped: 2026-06-17T14:51:56.346099
+============================================================
+
+**Technical Specifications and Pin Configuration of Arduino Uno R3:**  
+
+- **Microcontroller**: ATmega328P (8-bit AVR family).  
+- **Operating Voltage**: 5V.  
+- **Recommended Input Voltage**: 7–12V; **Input Voltage Limits**: 6–20V (external power supply via VIN pin).  
+- **Analog Input Pins**: 6 (A0–A5), 10-bit resolution (0–1023 range).  
+- **Digital I/O Pins**: 14 total (0–13), with **6 PWM-capable pins** (3, 5, 6, 9, 10, 11).  
+- **DC Current Limits**:  
+  - 40 mA per I/O pin.  
+  - 50 mA maximum on the 3.3V pin.  
+- **Memory**:  
+  - Flash: 32 KB (0.5 KB reserved for bootloader).  
+  - SRAM: 2 KB.  
+  - EEPROM: 1 KB.  
+- **Clock Speed**: 16 MHz.  
+- **Power Pins**:  
+  - **VIN**: Accepts external power (7–12V recommended).  
+  - **5V**: Regulated output (powers microcontroller and peripherals).  
+  - **3.3V**: Regulated output (50 mA max).  
+  - **GND**: Ground reference.  
+- **Special Function Pins**:  
+  - **Reset**: Triggers microcontroller reset.  
+  - **AREF**: External analog reference voltage input.  
+  - **ICSP Header**: MISO (pin 12), MOSI (pin 11), SCK (pin 13) for SPI programming/peripherals.  
+- **Communication Pins**:  
+  - **Serial (UART)**: RX (pin 0), TX (pin 1) for TTL data transmission.  
+  - **I2C**: SDA (A4), SCL (A5).  
+  - **SPI**: Shared with ICSP header.  
+- **PWM Functionality**: Pins 3, 5, 6, 9, 10, and 11 support 8-bit PWM output.  
+- **Applications**: Prototyping, DIY electronics, multi-I/O projects, educational use.  
+- **Power Sources**: USB, VIN, or DC barrel jack.  
+
+**Key Notes**:  
+- Analog pins (A0–A5) can function as digital I/O.  
+- Exceeding 5V on I/O pins risks microcontroller damage.  
+- ICSP header enables direct microcontroller programming or advanced peripherals.  
+
+**Reference**: Complete details in the [Arduino UNO Datasheet](link).

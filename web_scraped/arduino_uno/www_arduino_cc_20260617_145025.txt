@@ -1,0 +1,5 @@
+Source URL: https://www.arduino.cc/
+Scraped: 2026-06-17T14:50:25.029464
+============================================================
+
+The Arduino UNO board supports advanced computing and real-time control for high-performance applications. It integrates cloud capabilities through Dynamic Web Demo instances to drive IoT projects automatically. Educational kits such as Arduino R4 Starter Kit and Maker Two offer hands-on learning for innovators. Product features include offline operation with Battery Runner, professional mechanics, and task-oriented expansion libraries. Platforms like ARTchod and MoToS connect the UNO to mobile and cloud services, enabling remote monitoring and data collection. Open Source resources and community forums support continuous learning and customization.

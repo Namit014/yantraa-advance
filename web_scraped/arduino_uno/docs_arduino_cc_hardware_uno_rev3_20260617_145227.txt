@@ -1,0 +1,20 @@
+Source URL: https://docs.arduino.cc/hardware/uno-rev3
+Scraped: 2026-06-17T14:52:27.437774
+============================================================
+
+**Arduino UNO R3**
+
+- **Microcontroller:** ATmega328P  
+  - 16 MHz ceramic resonator  
+  - 1 KB EEPROM (preserved when powered off)  
+  - Not soldered to the board, so the chip is replaceable
+
+- **Digital I/O:** 14 pins (6 capable of PWM output)  
+- **Analog inputs:** 6 channels  
+- **Power options:**  
+  - USB serial interface for programming and power  
+  - Barrel jack (standard 9 V battery or AC‑to‑DC adapter)  
+- **On‑board features:** ICSP header, reset button  
+- **Connectivity:** USB, power jack, barrel plug (fits a 9 V battery)  
+
+The UNO R3 provides all hardware needed to run and program an ATmega328P, making it an ideal starter board for electronics and coding projects.
