@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Torso",
+        "description": "Main structural body housing the PC, battery, and subcontroller."
+    },
+    {
+        "name": "Head",
+        "description": "Contains the vision system (camera) and pan-tilt neck servos."
+    },
+    {
+        "name": "Arms",
+        "description": "3-DOF manipulators (shoulder pitch, shoulder roll, elbow pitch)."
+    },
+    {
+        "name": "Legs",
+        "description": "6-DOF bipedal legs (hip yaw, hip roll, hip pitch, knee pitch, ankle pitch, ankle roll)."
+    },
+    {
+        "name": "Dynamixel Servos",
+        "description": "Smart actuators providing joint movement and feedback."
+    },
+    {
+        "name": "Main PC",
+        "description": "High-level compute unit for vision processing and motion planning."
+    },
+    {
+        "name": "Subcontroller",
+        "description": "Low-level board communicating with Dynamixel bus and reading IMU data."
+    },
+    {
+        "name": "Camera",
+        "description": "USB camera for ball/goal tracking."
+    },
+    {
+        "name": "IMU",
+        "description": "Inertial Measurement Unit for balancing and posture control."
+    },
+    {
+        "name": "LiPo Battery",
+        "description": "High-current power source for motors and PC."
+    }
+]

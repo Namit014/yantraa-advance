@@ -1,0 +1,49 @@
+[
+    {
+        "component_name": "Dynamixel MX-106 / XH-430",
+        "category": "Actuator",
+        "quantity": "12",
+        "robot_subsystem": "Legs"
+    },
+    {
+        "component_name": "Dynamixel MX-64",
+        "category": "Actuator",
+        "quantity": "8",
+        "robot_subsystem": "Arms / Neck"
+    },
+    {
+        "component_name": "Main PC (Intel NUC/BRIX)",
+        "category": "Compute",
+        "quantity": "1",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "LiPo Battery (3S / 4S)": "Power",
+        "quantity": "1",
+        "robot_subsystem": "Power System"
+    },
+    {
+        "component_name": "Subcontroller Board",
+        "category": "Electronics",
+        "quantity": "1",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "component_name": "Logitech C920 / WebCam",
+        "category": "Sensor",
+        "quantity": "1",
+        "robot_subsystem": "Vision System"
+    },
+    {
+        "component_name": "6-axis IMU",
+        "category": "Sensor",
+        "quantity": "1",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "component_name": "3D Printed Exoskeleton",
+        "category": "Structure",
+        "quantity": "1 set",
+        "robot_subsystem": "Structure"
+    }
+]

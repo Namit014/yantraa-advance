@@ -1,0 +1,39 @@
+{
+    "connections": [
+        {
+            "source": "LiPo Battery",
+            "target": "Subcontroller",
+            "connection_type": "Electrical (Power)"
+        },
+        {
+            "source": "LiPo Battery",
+            "target": "Main PC",
+            "connection_type": "Electrical (Power via Regulator)"
+        },
+        {
+            "source": "Main PC",
+            "target": "Subcontroller",
+            "connection_type": "Data (USB / Serial)"
+        },
+        {
+            "source": "Main PC",
+            "target": "Camera",
+            "connection_type": "Data (USB)"
+        },
+        {
+            "source": "Subcontroller",
+            "target": "IMU",
+            "connection_type": "Data (I2C/SPI)"
+        },
+        {
+            "source": "Subcontroller",
+            "target": "Dynamixel Servos",
+            "connection_type": "Data + Power (RS485 Daisy Chain)"
+        },
+        {
+            "source": "Dynamixel Servos",
+            "target": "Joint Linkage",
+            "connection_type": "Mechanical (Horn / Frame)"
+        }
+    ]
+}

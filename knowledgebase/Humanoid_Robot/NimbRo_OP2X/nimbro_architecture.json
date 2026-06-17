@@ -1,0 +1,80 @@
+{
+    "name": "NimbRo Humanoid",
+    "children": [
+        {
+            "name": "Head",
+            "children": [
+                {
+                    "name": "Neck Pan/Tilt Servos"
+                },
+                {
+                    "name": "Camera"
+                }
+            ]
+        },
+        {
+            "name": "Torso",
+            "children": [
+                {
+                    "name": "Main PC"
+                },
+                {
+                    "name": "Subcontroller & IMU"
+                },
+                {
+                    "name": "Battery"
+                }
+            ]
+        },
+        {
+            "name": "Left Arm",
+            "children": [
+                {
+                    "name": "Shoulder Pitch/Roll"
+                },
+                {
+                    "name": "Elbow Pitch"
+                }
+            ]
+        },
+        {
+            "name": "Right Arm",
+            "children": [
+                {
+                    "name": "Shoulder Pitch/Roll"
+                },
+                {
+                    "name": "Elbow Pitch"
+                }
+            ]
+        },
+        {
+            "name": "Left Leg",
+            "children": [
+                {
+                    "name": "Hip Yaw/Roll/Pitch"
+                },
+                {
+                    "name": "Knee Pitch"
+                },
+                {
+                    "name": "Ankle Pitch/Roll"
+                }
+            ]
+        },
+        {
+            "name": "Right Leg",
+            "children": [
+                {
+                    "name": "Hip Yaw/Roll/Pitch"
+                },
+                {
+                    "name": "Knee Pitch"
+                },
+                {
+                    "name": "Ankle Pitch/Roll"
+                }
+            ]
+        }
+    ]
+}
