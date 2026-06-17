@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Chassis",
+        "description": "Main structural body holding all electronics and motors."
+    },
+    {
+        "name": "Wheel",
+        "description": "Rubber tire on a plastic rim for locomotion."
+    },
+    {
+        "name": "DC Motor",
+        "description": "TT gear motor providing drive power to the wheels."
+    },
+    {
+        "name": "Motor Driver",
+        "description": "H-bridge controller (e.g. L298N) controlling DC motors."
+    },
+    {
+        "name": "Battery",
+        "description": "Power source, typically 18650 cells or LiPo."
+    },
+    {
+        "name": "Raspberry Pi",
+        "description": "Main compute unit handling video streaming, networking, and hardware control."
+    },
+    {
+        "name": "Camera Module",
+        "description": "Captures video for telepresence and vision processing."
+    },
+    {
+        "name": "Pan Servo",
+        "description": "Micro servo controlling horizontal camera movement."
+    },
+    {
+        "name": "Tilt Servo",
+        "description": "Micro servo controlling vertical camera movement."
+    },
+    {
+        "name": "Gripper",
+        "description": "Optional end effector for grabbing objects."
+    },
+    {
+        "name": "Arm Extension",
+        "description": "Optional linkage to extend gripper reach."
+    },
+    {
+        "name": "Power Distribution Components",
+        "description": "Voltage regulators (UBEC) and switches."
+    },
+    {
+        "name": "Mounting Brackets",
+        "description": "3D printed parts holding sensors, servos, and camera."
+    },
+    {
+        "name": "Fasteners",
+        "description": "M2/M3 screws, nuts, and standoffs."
+    }
+]

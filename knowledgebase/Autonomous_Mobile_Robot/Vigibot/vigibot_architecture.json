@@ -1,0 +1,74 @@
+{
+    "name": "Vigibot",
+    "children": [
+        {
+            "name": "Chassis",
+            "children": [
+                {
+                    "name": "Base Plates"
+                },
+                {
+                    "name": "Mounting Brackets"
+                }
+            ]
+        },
+        {
+            "name": "Drive System",
+            "children": [
+                {
+                    "name": "DC Motors"
+                },
+                {
+                    "name": "Wheels"
+                },
+                {
+                    "name": "Motor Driver"
+                }
+            ]
+        },
+        {
+            "name": "Power System",
+            "children": [
+                {
+                    "name": "Battery"
+                },
+                {
+                    "name": "Power Distribution Components"
+                }
+            ]
+        },
+        {
+            "name": "Vision System",
+            "children": [
+                {
+                    "name": "Camera Module"
+                },
+                {
+                    "name": "Pan Servo"
+                },
+                {
+                    "name": "Tilt Servo"
+                }
+            ]
+        },
+        {
+            "name": "Control System",
+            "children": [
+                {
+                    "name": "Raspberry Pi"
+                }
+            ]
+        },
+        {
+            "name": "Optional Manipulation System",
+            "children": [
+                {
+                    "name": "Arm Extension"
+                },
+                {
+                    "name": "Gripper"
+                }
+            ]
+        }
+    ]
+}

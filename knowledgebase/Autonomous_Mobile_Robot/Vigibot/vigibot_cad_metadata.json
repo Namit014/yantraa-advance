@@ -1,0 +1,22 @@
+{
+    "repository_assemblies": [
+        "Vigibot_Main_Assembly.step",
+        "Pan_Tilt_Subassembly.step",
+        "Drive_Train_Subassembly.step",
+        "Gripper_Subassembly.step"
+    ],
+    "part_categories": [
+        "Chassis Plates",
+        "Motor Mounts",
+        "Camera Mounts",
+        "Wheels",
+        "Servos",
+        "Fasteners"
+    ],
+    "mechanical_subsystems": [
+        "Drive Train",
+        "Pan-Tilt Unit",
+        "End Effector / Gripper",
+        "Electronics Deck"
+    ]
+}

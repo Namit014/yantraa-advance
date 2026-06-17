@@ -1,0 +1,28 @@
+{
+    "Drive_System": [
+        "DC Motor",
+        "Wheel",
+        "Motor Driver"
+    ],
+    "Vision_System": [
+        "Camera Module",
+        "Pan Servo",
+        "Tilt Servo"
+    ],
+    "Control_System": [
+        "Raspberry Pi"
+    ],
+    "Power_System": [
+        "Battery",
+        "Power Distribution Components"
+    ],
+    "Manipulation_System": [
+        "Gripper",
+        "Arm Extension"
+    ],
+    "Structure": [
+        "Chassis",
+        "Mounting Brackets",
+        "Fasteners"
+    ]
+}

@@ -1,0 +1,62 @@
+[
+    {
+        "component_name": "Chassis Plate",
+        "category": "Mechanical",
+        "quantity": "1 set",
+        "robot_subsystem": "Chassis"
+    },
+    {
+        "component_name": "DC Gear Motor (TT Motor)",
+        "category": "Actuator",
+        "quantity": "4",
+        "robot_subsystem": "Drive System"
+    },
+    {
+        "component_name": "Robot Wheel",
+        "category": "Mechanical",
+        "quantity": "4",
+        "robot_subsystem": "Drive System"
+    },
+    {
+        "component_name": "L298N / TB6612 Motor Driver",
+        "category": "Electronics",
+        "quantity": "1",
+        "robot_subsystem": "Drive System"
+    },
+    {
+        "component_name": "Raspberry Pi",
+        "category": "Compute",
+        "quantity": "1",
+        "robot_subsystem": "Control System"
+    },
+    {
+        "component_name": "Micro Servo (SG90/MG90S)",
+        "category": "Actuator",
+        "quantity": "2-3",
+        "robot_subsystem": "Vision System / Manipulation"
+    },
+    {
+        "component_name": "Raspberry Pi Camera",
+        "category": "Sensor",
+        "quantity": "1",
+        "robot_subsystem": "Vision System"
+    },
+    {
+        "component_name": "18650 Battery Pack",
+        "category": "Power",
+        "quantity": "1",
+        "robot_subsystem": "Power System"
+    },
+    {
+        "component_name": "5V Step-Down Converter",
+        "category": "Power",
+        "quantity": "1",
+        "robot_subsystem": "Power System"
+    },
+    {
+        "component_name": "M3 Standoffs & Screws",
+        "category": "Hardware",
+        "quantity": "1 set",
+        "robot_subsystem": "Structure"
+    }
+]

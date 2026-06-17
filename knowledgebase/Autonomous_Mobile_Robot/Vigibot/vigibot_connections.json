@@ -1,0 +1,64 @@
+{
+    "connections": [
+        {
+            "source": "Battery",
+            "target": "Power Distribution Components",
+            "connection_type": "Electrical (Power)"
+        },
+        {
+            "source": "Power Distribution Components",
+            "target": "Motor Driver",
+            "connection_type": "Electrical (Power)"
+        },
+        {
+            "source": "Power Distribution Components",
+            "target": "Raspberry Pi",
+            "connection_type": "Electrical (5V Power)"
+        },
+        {
+            "source": "Raspberry Pi",
+            "target": "Motor Driver",
+            "connection_type": "Logic (PWM/GPIO)"
+        },
+        {
+            "source": "Motor Driver",
+            "target": "DC Motor",
+            "connection_type": "Electrical (High Current)"
+        },
+        {
+            "source": "DC Motor",
+            "target": "Wheel",
+            "connection_type": "Mechanical (Shaft)"
+        },
+        {
+            "source": "Raspberry Pi",
+            "target": "Camera Module",
+            "connection_type": "Data (CSI Ribbon Cable)"
+        },
+        {
+            "source": "Raspberry Pi",
+            "target": "Pan Servo",
+            "connection_type": "Logic (PWM)"
+        },
+        {
+            "source": "Raspberry Pi",
+            "target": "Tilt Servo",
+            "connection_type": "Logic (PWM)"
+        },
+        {
+            "source": "Pan Servo",
+            "target": "Mounting Brackets",
+            "connection_type": "Mechanical (Mount)"
+        },
+        {
+            "source": "Tilt Servo",
+            "target": "Camera Module",
+            "connection_type": "Mechanical (Mount)"
+        },
+        {
+            "source": "Raspberry Pi",
+            "target": "Gripper",
+            "connection_type": "Logic (PWM)"
+        }
+    ]
+}
