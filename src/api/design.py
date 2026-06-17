@@ -43,7 +43,7 @@ def _strip_markdown_json(text: str) -> str:
         return cleaned[arr_start : arr_end + 1]
     return cleaned.strip()
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/owl-alpha") -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/auto") -> str:
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
@@ -192,7 +192,23 @@ OUTPUT FORMAT:
   ]
 }"""
 
-    synthesis_prompt = f"""RETRIEVED COMPONENTS:
+    # Load component graph if available
+    component_graph_text = ""
+    cg_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "component_graph.json")
+    hebi_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "hebi_components.json")
+    try:
+        if os.path.exists(cg_path):
+            with open(cg_path, "r", encoding="utf-8") as f:
+                cg_data = json.load(f)
+                component_graph_text += "KNOWN COMPONENT GRAPH (from LeRobotDepot):\n" + json.dumps(cg_data) + "\n\n"
+        if os.path.exists(hebi_path):
+            with open(hebi_path, "r", encoding="utf-8") as f:
+                hebi_data = json.load(f)
+                component_graph_text += "KNOWN HEBI CAD COMPONENTS:\n" + json.dumps(hebi_data) + "\n\n"
+    except Exception as e:
+        print(f"[api/design] Could not load component graphs: {e}")
+
+    synthesis_prompt = f"""{component_graph_text}RETRIEVED COMPONENTS:
 {rag_results}
 
 USER REQUEST:
@@ -251,6 +267,16 @@ USER REQUEST:
         "inspection": "inspection_robot_cad.STEP",
         "palletizing": "palletizing_robot_cad.STEP"
     }
+    
+    # Dynamically add HEBI CADs
+    try:
+        if os.path.exists(hebi_path):
+            with open(hebi_path, "r", encoding="utf-8") as f:
+                hebi_data = json.load(f)
+                for comp in hebi_data.get("components", []):
+                    known_cads[comp["name"].lower()] = comp["filename"]
+    except Exception:
+        pass
     
     query_lower = query.lower()
     for key, filename in known_cads.items():
