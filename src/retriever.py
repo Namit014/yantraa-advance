@@ -263,7 +263,8 @@ class Retriever:
             "articulated": "Articulated_robot_cad.STEP",
             "inspection": "inspection_robot_cad.STEP",
             "scara": "scara_robot_cad.stp",
-            "welding": "welding_cad.stp"
+            "welding": "welding_cad.stp",
+            "humanoid": "humanoid.step"
         }
         
         query_lower = query.lower()
