@@ -1,0 +1,38 @@
+Source URL: https://iamlab-cmu.github.io/delta-arrays/delta_module/
+Scraped: 2026-06-08T21:25:49.165100
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Component List:**
+
+* Actuonix L12 100mm Linear Servo (12)
+* FDM printed enclosure (1)
+* FDM printed star-shaped mounts (4)
+* Adafruit Feather M0 (1)
+* Adafruit FeatherWing DC and Stepper Motor Driver (3)
+* ADS1015 ADC (3)
+* Plexiglass Delta Module Holder (1)
+* 8-32 ½” Button Head Screw (-pack of 100) (1)
+* McMaster Female Threaded Standoff 3-½” Long, 8-32 Thread (5)
+* McMaster Male-Female Threaded Standoff 1-½” Long, 8-32 Thread (5)
+* McMaster 8-32 ⅞” Button Head Screw (pack of 100) (1)
+* McMaster 8-32 Hex Nut (pack of 100) (1)
+* SLA printed fingertip clip (4)
+* FDM printed soft parallelogram links (4)
+* FDM printed fingertips (4)
+
+**Assembly Instructions:**
+
+* Attach 3 linear actuators to 4 star-shaped mounts using 8-32 screws.
+* Insert 12 actuators into square-shaped holes of 2 Plexiglass delta robot holders.
+* Attach 1-½” Long spacers between star-shaped mounts and lower plexiglass holders.
+* Attach 3-½” Long spacers between 2 plexiglass holders.
+* Attach delta links to linear actuators.
+* Attach Fingertip Clip Holders to end effector plates of delta robots and super glue Fingertips on top.
+
+**Electronics:**
+
+* Modifying the delta shield to produce PCB for distributing power to all motors.
+* Attaching ADC and motor drivers to single shield design.
+* Shorting all VCC and GND pins manually to achieve the final result.

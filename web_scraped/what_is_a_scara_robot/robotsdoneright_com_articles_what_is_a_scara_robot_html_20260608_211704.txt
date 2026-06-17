@@ -1,0 +1,38 @@
+Source URL: https://robotsdoneright.com/Articles/what-is-a-scara-robot.html
+Scraped: 2026-06-08T21:17:04.996582
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**What is a SCARA Robot?**
+
+* A type of industrial robot
+* Originally developed in 1978 for assembly applications
+* Definition: Selective Compliance Articulated Robot Arm (formerly Selective Compliance Assembly Robot Arm)
+
+**Specifications**
+
+* Small industrial robots, typically pedestal or floor mounted, with some models wall-mounted (e.g., FANUC's SR series)
+* Payload capacity: 0.5 kg to 20 kg
+* Reach: generally 1,000 mm or less
+* Number of axes: typically 4, with 3-axis models available (e.g., FANUC SR-3ia)
+* Axes configuration: dynamic and rigid movements (X and Y axes flexible, Z axis fixed)
+
+**Benefits**
+
+* Fastest type of robot due to fewer joints to control and move
+* Best price-to-performance ratio due to fewer components and materials used in their construction
+* Affordable alternative to other robot types, including used options (e.g., buying a used FANUC SR-6ia)
+* Suitable for assembly processes, material handling, and other industrial applications (e.g., 3D printing, inspection, palletizing, dispensing)
+
+**Applications**
+
+* Assembly automation (e.g., inserting bolts, high-speed assemblies, as used in FANUC SR-12ia)
+* Material handling (e.g., pick and place, packaging)
+* Inspection and dispensing
+* 3D printing and palletizing
+
+**Relevant Products and Services**
+
+* FANUC SR series robots (e.g., FANUC SR-3ia, FANUC SR-6ia, FANUC SR-12ia)
+* Used robots available for purchase or sale at Robots Done Right

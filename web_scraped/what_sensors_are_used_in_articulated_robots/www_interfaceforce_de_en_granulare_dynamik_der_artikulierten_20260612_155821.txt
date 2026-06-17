@@ -1,0 +1,32 @@
+Source URL: https://www.interfaceforce.de/en/granulare-dynamik-der-artikulierten-robotersensorik/
+Scraped: 2026-06-12T15:58:21.583509
+============================================================
+
+**Technical Specifications and Facts Extracted:**
+
+1. **Articulation and Sensor Evolution**  
+   - Early robots relied on **single-axis sensors** (limit switches, encoders) for position tracking, assuming static environments.  
+   - Modern systems require **multi-axis sensors** (3- and 6-axis) to measure forces, torques, and dynamic interactions in real time.  
+
+2. **Key Multi-Axis Sensors**  
+   - **6-axis load cells**: Measure forces (X, Y, Z) and moments (roll, pitch, yaw) at joints for real-time load monitoring.  
+   - **3-axis mini load cells** (e.g., Interface 3A40): Lightweight sensors for gripper feedback, detecting vertical force and lateral resistance without added mass.  
+   - **BX8-HD44** and **BX8 DAQ systems**: Enable real-time processing of multi-channel data for force compensation and dynamic adjustments.  
+
+3. **Applications and Components**  
+   - **Swivel/pivot joints**: Tested for moment loads (torsional forces) during extended arm operations or offset payloads.  
+   - **End effectors (EOAT)**: Equipped with force-torque sensors for variable grip forces, critical for medical, surgical, or precision tasks.  
+   - **Haptic feedback systems**: Bidirectional force response validation using synchronized multi-axis sensors for tactile data accuracy.  
+   - **Surface finishing tools**: Force-sensing tool heads adjust normal force to prevent indentation or lifting on curved surfaces.  
+
+4. **Testing and Stability**  
+   - **Turntable/base tests**: 3-axis force plates on robot foundations monitor center of gravity (CoG) shifts and stability under dynamic loads.  
+   - **Real-time compensation**: TwinCiti BX8 system subtracts arm weight (tare) to isolate payload forces in 3D space, enabling dynamic CoG compensation.  
+
+5. **Tool Wear Monitoring**  
+   - **BlueDAQ software**: Tracks torque-force ratios to detect tool dullness or material buildup via changes in rotational resistance.  
+
+6. **Dynamic Interaction Metrics**  
+   - Multi-axis sensors detect micro-vibrations and shear forces for slip detection, enabling real-time clamping force adjustments.  
+
+**Summary**: Multi-axis sensor integration (6-axis load cells, DAQ systems) and real-time data processing enable precise articulation analysis, environmental interaction monitoring, and dynamic compensation in modern robots, replacing legacy single-axis position tracking.

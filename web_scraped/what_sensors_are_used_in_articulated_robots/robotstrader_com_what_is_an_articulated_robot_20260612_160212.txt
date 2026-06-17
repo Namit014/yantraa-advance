@@ -1,0 +1,37 @@
+Source URL: https://robotstrader.com/what-is-an-articulated-robot/
+Scraped: 2026-06-12T16:02:12.787405
+============================================================
+
+**Articulated Robot Specifications and Technical Overview**
+
+**Definition**
+An articulated robot is an industrial robotic arm featuring multiple rotary joints that mimic human movement. It utilizes multiple rotary axes to determine its degrees of freedom (DOF).
+
+**Axis Configurations**
+*   **4-Axis Robots:** Used primarily for pick-and-place and palletizing operations.
+*   **6-Axis Robots:** The most common configuration; provides full Cartesian (X, Y, Z) movement and wrist rotation.
+*   **7-Axis Robots:** Offers enhanced flexibility for intricate assembly and welding tasks.
+
+**Key Technical Components**
+*   **Robot Controller:** The central processing unit (CPU) that executes motion algorithms and processes sensor data and operator inputs.
+*   **Teach Pendant:** A handheld interface used for manual guidance, programming, testing, and troubleshooting.
+*   **RV Reducers (Strain Wave Gear):** Components that provide high torque with minimal backlash to ensure precise positioning and load handling.
+*   **Servo Motors:** Drive the joints by converting electrical energy into mechanical motion for precise torque and movement control.
+
+**Motion and Programming**
+*   **Kinematics:** Robots operate via Cartesian coordinates (X, Y, Z) combined with rotational movements (roll, pitch, yaw). The controller translates these Cartesian inputs into specific joint angles.
+*   **Manufacturer-Specific Programming Languages:**
+    *   **Fanuc:** KAREL and TP (Teach Pendant Language)
+    *   **ABB:** RAPID
+    *   **KUKA:** KRL (KUKA Robot Language)
+    *   **Yaskawa:** INFORM
+    *   **Universal Robots:** URScript (Python-based)
+
+**Industry Applications and Model Examples**
+*   **Automotive (Welding, painting, assembly):** Fanuc R-2000iC, ABB IRB 6700.
+*   **Electronics (Soldering, circuit board assembly, micro-assembly):** ABB IRB 1200, Fanuc LR Mate series.
+*   **Aerospace (Drilling, riveting, composite material handling):** KUKA Titan Series, Fanuc M-900iB.
+*   **Warehousing & Logistics (Palletizing, sorting, packaging):** Yaskawa MotoPick, Fanuc M-410 Series.
+
+**Comparative Advantages**
+Compared to SCARA and Cartesian robots, articulated robots provide greater flexibility for maneuvering around obstacles in confined spaces, an expanded range of motion for multi-step operations, and higher precision for assembly and welding.

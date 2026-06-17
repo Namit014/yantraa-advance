@@ -1,0 +1,37 @@
+Source URL: https://blog.item24.com/en/solutions/example-applications-en-en-en-en-en/autonomous-weeding-robot-for-a-future-without-herbicides/
+Scraped: 2026-06-06T16:24:13.420079
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Rowesys (Robotic Weeding System) Specifications:**
+
+* Weight: 300 kg
+* Dimensions: 2100 x 940 x 1200 mm
+* Speed: 0.2 m/s (while removing weeds), maximum speed: 1 m/s (3.6 km/h)
+* Weighing and processing mechanism: small ploughs dip about 2 cm into the ground, separate weeds from roots, and leave ripped-out plants on the surface to dry out
+* Sensors/Cameras:
+	+ Front camera: identifies rows of sugar beet and positions the robot accordingly
+	+ Vertical camera: recognizes individual sugar beet plants and weeds, and differentiates between the two
+* Frame structure: made from aluminum profiles from item MB Building Kit System
+* Electronics: enclosed in a futuristic, minimalist aluminum hull
+* Wheels: attached to the frame structure
+* Motors: attached to the frame structure
+
+**Technical Details:**
+
+* The weeding robot travels at 0.2 m/s while removing weeds
+* The ploughshares are opened or closed depending on the information from the second camera
+* The robot is fully autonomous once it reaches the actual field, but manual controls are required for navigation
+* The internal electronics are enclosed in a futuristic, minimalist aluminum hull
+
+**Item Profile Technology:**
+
+* item profile technology was used in the frame structure of the weeding robot
+* The flexibility and stability of the item profiles were beneficial for the project
+* The item Engineeringtool saved time and made the ordering, design, and manufacturing process easier
+
+**Automation and Sustainability:**
+
+* The project is part of a focus on sustainable agriculture and the United Nations' Sustainable Development Goals (SDGs)
+* The University of Applied Sciences and Arts Northwestern Switzerland (HAWK-Friedrichshafen) is also involved in this focus area

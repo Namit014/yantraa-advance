@@ -1,0 +1,27 @@
+Source URL: https://builtin.com/robotics/rescue-robots
+Scraped: 2026-06-08T11:46:32.207281
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Water Rescue Robots**
+
+* Pliant Energy Systems: Velox - amphibious robot that can swim through water, skate along ice, and push through snow.
+* Hydronalix: Emergency Integrated Lifesaving Lanyard (EMILY) - 4-foot, 26-pound remote-controlled robot that acts as a hybrid flotation buoy-lifeboat.
+	+ Features: can cruise along at speeds of up to 23 miles per hour, can carry up to 5 people, and has a Kevlar-reinforced hull.
+* VideoRay: Search-and-rescue/recovery system - remote-operated, video-enabled, joystick-controlled vehicle that employs high-powered lights, multi-beam sonar imaging, GPS, and metal gauges.
+
+**Search and Rescue Robots**
+
+* Boston Dynamics: Atlas - humanoid robot capable of performing basic but potentially life-saving tasks in dangerous conditions.
+* Teledyne FLIR: SkyRanger drone - ideal for search and rescue, equipped with infrared and daylight cameras to detect humans in rough terrain and hidden locations.
+* DEEP Robotics: Jueying X20 - quadruped robot that can traverse rough terrain in extreme weather conditions, and can carry equipment like oxygen tanks.
+
+**Earthquake and Fire Robots**
+
+* DEEP Robotics: Jueying X20 - quadruped robot that can traverse rough terrain in extreme weather conditions, and can carry equipment like oxygen tanks.
+* Zebro - autonomous robot that works together via a "swarming algorithm" to search through otherwise non-navigable aftermaths of earthquakes.
+* Howe & Howe Technologies: Thermite RS1 and RS3 - firefighting robots powered by 24-horsepower diesel engines, controlled remotely, and capable of blasting out up to 2500 gallons of water and foam per minute.
+* Shark Robotics: Colossus - fireproof robot that can blast 660 gallons of water per minute, and can also haul firefighting equipment, transport wounded victims, and trigger its 360-degree, high-definition thermal camera.
+
+Note: These technical specifications are based on the information provided in the text and may not be exhaustive or up-to-date.

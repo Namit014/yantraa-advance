@@ -1,0 +1,28 @@
+Source URL: https://en.wikipedia.org/wiki/HELLO
+Scraped: 2026-06-10T15:00:10.847552
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+* Timeline:
+	+ 1826: First use of "Hello" in writing in the U.S. in the Norwich Courier
+	+ 1833: Use of "Hello" in the book "The Sketches and Eccentricities of Col. David Crockett, of West Tennessee"
+	+ 1840: Use of "Hallo" as a word
+	+ 1860s: Widespread use of "Hello" in literature
+	+ 1877: Thomas Edison uses "Hello!" as a telephone greeting
+	+ 1880: First use of "Hello" in a letter
+	+ 1889: "Hello-girls" become associated with central telephone exchange operators
+	+ 1918: A novel uses the spelling "Halloa" in the context of telephone conversations
+* Etymology:
+	+ "Hello" is an alteration of "halo", "holo", and "haloon"
+	+ "Hallo" is a modification of "holla", perhaps from Old French "hola" (ho, ho! + la, there, from Latin illac, that way)
+	+ "Hullo" is a chief British variant of "hello"
+* Telephone:
+	+ Thomas Edison is credited with popularizing "hullo" as a telephone greeting
+	+ Alexander Graham Bell answers calls by saying "ahoy ahoy"
+	+ First use of "Hello" on the telephone is credited to Thomas Edison in 1877
+* Statistics:
+	+ Edison suggests that "Hello!" can be heard 10 to 20 feet away
+	+ First cost of sender and receiver to manufacture is only $7.00
+
+Note: The extracted information is limited to the technical specifications, facts, numbers, and descriptions contained in the provided text, and does not include interpretive or analytical insights.

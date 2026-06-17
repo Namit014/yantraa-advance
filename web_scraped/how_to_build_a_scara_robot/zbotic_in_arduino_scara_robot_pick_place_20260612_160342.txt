@@ -1,0 +1,97 @@
+Source URL: https://zbotic.in/arduino-scara-robot-pick-place/
+Scraped: 2026-06-12T16:03:42.761961
+============================================================
+
+**Scara robot – technicalspecifications and build facts**
+
+A SCARA (Selective‑Compliance Assembly Robot Arm) uses two revolute (rotational) joints in the horizontal plane to position the arm in X‑Y and a single prismatic (linear) joint for vertical Z‑axis motion. This geometry gives:
+
+- High repeatability – error accumulates on only two axes.  
+- Fast horizontal travel – lightweight links enable rapid sweeping motions.  
+- Suitability for flat‑surface tasks such as sorting, packing, assembly‑line simulation, and PCB component placement.  
+- Simplified kinematics – the 2‑D inverse‑kinematics solution can be solved analytically without numerical iteration.
+
+**Mechanical design**
+
+- **Link lengths**: Upper arm (shoulder‑to‑elbow) L1 = 150 mm, Forearm (elbow‑to‑tool) L2 = 120 mm.  
+- **Joint configuration**:  
+  - Shoulder servomotor drives a 150 mm acrylic link.  
+  - Elbow servomotor drives a 120 mm acrylic link.  
+  - Ratio 150 : 120 provides a practical workspace without singularities.  
+- **Z‑axis actuation**: Typically an MG996R high‑torque servo or a NEMA‑17 stepper driving a linear rail or rack‑and‑pinion to lift the end‑effector.  
+- **End‑effector**: Small SG90 micro‑servo operating a gripper claw, or a 5 V mini vacuum pump with suction cup for pick‑and‑place using suction.  
+- **Structure**: Acrylic or 3‑D‑printed links with bearing/bronze‑bushing pivots, M3 screws, nuts, and standoffs for assembly.  
+- **Mounting hardware**: Rigid aluminium servo brackets (pack of 2) for each joint to eliminate flex and preserve repeatability.
+
+**Electronics and power**
+
+- **Controller**: Arduino Mega 2560 (provides sufficient PWM pins for 4+ servos).  
+- **Servomotors**:    - 3 × MG996R high‑torque servos (shoulder, elbow, Z‑axis).    - 1 × SG90 micro‑servo (gripper).  
+- **Power supply**: Dedicated 5 V 3 A regulated supply. **Never** power servos from the Arduino 5 V pin; the combined stall current of three MG996R servos can reach 3–4 A.  
+- **Wiring summary**:  
+  - Signal wires → Arduino Mega PWM pins (e.g., 2, 3, 4, 5).  
+  - Power (red) → external 5 V supply positive.    - Ground (black/brown) → external 5 V supply negative **and** Arduino GND (shared ground required).  
+  - Arduino powered via USB or 12 V barrel jack to Vin.  
+  - A 470 µF, 6.3 V capacitor placed across the servo power rails to smooth voltage spikes and prevent Arduino resets.  
+- **Servo shield / breadboard**: Used for distributing servo power and simplifying connections.
+
+**Kinematics**
+
+Inverse kinematics converts a desired Cartesian point (x, y) in the robot’s workspace to joint angles θ₁ (shoulder) and θ₂ (elbow):
+
+```c
+float L1 = 150.0;   // mm
+float L2 = 120.0;   // mm
+
+void inverseKinematics(float x, float y, float &theta1, float &theta2) {
+    float d = sqrt(x*x + y*y);                     // distance to target
+    d = constrain(d, fabs(L1-L2)+1, L1+L2-1);       // clamp to reachable range
+
+    float cosT2 = (x*x + y*y - L1*L1 - L2*L2) / (2*L1*L2);
+    cosT2 = constrain(cosT2, -1.0, 1.0);
+    theta2 = degrees(acos(cosT2));                 // elbow‑down solution
+
+    float k1 = L1 + L2 * cos(radians(theta2));
+    float k2 = L2 * sin(radians(theta2));
+    theta1 = degrees(atan2(y, x) - atan2(k2, k1));  // shoulder angle
+}
+```
+
+- The equations produce two possible configurations (elbow‑up / elbow‑down); the elbow‑down solution is typically preferred for tabletop picks.  
+- Joint angles are mapped to servo positions with calibrated offsets:  
+  - `servo.write(90 + theta1)` for the shoulder.  
+  - `servo.write(90 - theta2)` for the elbow.    - Z‑axis angle set directly (e.g., `zAxis.write(zDeg)`).
+
+**Control loop (example excerpt)**
+
+```cvoid moveTo(float x, float y, int zDeg) {
+    float t1, t2;
+    inverseKinematics(x, y, t1, t2);
+    shoulder.write(90 + t1);
+    elbow.write(90 - t2);
+    zAxis.write(zDeg);
+    delay(300);
+}
+```
+
+The loop demonstrates a pick‑and‑place sequence:  
+1. Position above the target, lower Z, close gripper, raise Z, move to place coordinates, lower Z, open gripper, raise Z, repeat.
+
+**Calibration and tuning checklist**
+
+- Determine servo zero offsets by commanding each servo to 90° and measuring the actual physical angle; apply the offset in the kinematic mapping.  
+- Measure link lengths precisely; a 2 mm error in L1 or L2 can cause several millimetres of positioning error at full extension.  
+- Use a sweeping motion rather than direct `servo.write()` to reduce mechanical shock and improve speed control.  
+- Validate the workspace by drawing the theoretical annulus (radii |L1‑L2| to L1+L2) on paper and confirming the tool tip reaches expected points.  
+- Calibrate gripper open and close angles to achieve firm grasping without stripping the servo.
+
+**Summary of key quantitative data**
+
+- L1 = 150 mm, L2 = 120 mm.  
+- Servomotor torque: MG996R (high‑torque), SG90 (micro‑gripper).  
+- Power requirement: 5 V 3 A dedicated supply.  
+- Control board: Arduino Mega 2560 (≥4 PWM channels).  
+- Movement steps: sample rates of ~300 ms per joint transition; fine‑grained speed control via incremental angle increments.  
+- Calibration tolerances: servo zero offset (± few degrees), link length accuracy (±2 mm).  
+
+These specifications constitute all the technical facts required to build a functional Arduino‑controlled SCARA pick‑and‑place robot from the provided source text.

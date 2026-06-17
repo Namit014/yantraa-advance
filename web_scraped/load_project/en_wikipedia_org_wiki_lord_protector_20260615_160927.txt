@@ -1,0 +1,5 @@
+Source URL: https://en.wikipedia.org/wiki/Lord_Protector
+Scraped: 2026-06-15T16:09:27.679924
+============================================================
+
+OpenRouter API Error: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day

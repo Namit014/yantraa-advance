@@ -1,0 +1,33 @@
+Source URL: https://www.militaryaerospace.com/uncrewed/article/14310416/qinetiq-unmanned-bomb-disposal-robots
+Scraped: 2026-06-06T15:34:46.159797
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**MK 2 Man Transportable Robotic System (MTRS)**
+
+* Provides stand-off capability to detect, identify, and dispose of IEDs and related hazards using unmanned ground vehicles equipped with special IED-disposal payloads.
+* Can locate, identify, and clear land mines, unexploded ordnance, and IEDs in the path of maneuvering Army or Joint forces.
+
+**Talon System**
+
+* Lightweight vehicles designed for IED and explosive ordnance disposal, reconnaissance, communications, countering CBRNE threats, security, heavy lift, defense, and rescue missions.
+* Can move as fast as 6 miles per hour.
+* Transportable by one person.
+* Works in bad weather and rugged terrain.
+* High payload capacity and payload-to-weight ratios.
+
+**Talon V**
+
+* 16 I/O ports, including Interoperability Profile (IOP) A and B connectors.
+* JAUS AS4-compliant software.
+* Supports plug and play discovery of IOP devices.
+* Offers a variety of high-definition and standard-definition camera options, including an optional, dual-purpose Thermal/Daytime zoom camera.
+* Heavy-lift multiple-degree-of-freedom arm manipulator.
+* Supports a variety of third-party and legacy Talon manipulators.
+
+**Order Details**
+
+* $11 million order to QinetiQ North America for option year three of production, engineering support, and post-production support of the MK 2 MTRS and Talon systems.
+* Production of systems, depot-level repair parts, initial spares kits, consumables, repair parts, and approved accessories.
+* Work to be done at locations to be determined on individual task orders, with completion expected by March 2026.

@@ -1,0 +1,11 @@
+qdrant-client
+langchain-text-splitters
+python-docx
+pypdf
+numpy
+pandas
+openpyxl
+fastapi
+uvicorn
+python-dotenv
+requests

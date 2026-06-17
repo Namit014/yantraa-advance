@@ -1,0 +1,24 @@
+Source URL: https://www.bbc.co.uk/newsround/articles/c86ed499gp3o
+Scraped: 2026-06-06T16:04:32.292358
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions about Edward Warchocki, a robot in Poland:
+
+* Edward Warchocki is a humanoid robot brought to Poland from China by business partners Radosław Grzelaczyk and Bartosz Idzik.
+* Equipment:
+	+ Wears a sporty rucksack
+	+ Has a diamond-encrusted watch
+* Functions:
+	+ Chases wild boar out of Warsaw
+	+ Shouts "go away!" in Polish to scare away the boar
+	+ Posts about his efforts on social media
+* Notable events:
+	+ Visited the Polish parliament and met with many MPs
+	+ Met with Poland's Minister for Finance and Economy
+	+ Appeared on national TV
+	+ Regularly chats with residents of Warsaw on the street
+* Notable dates:
+	+ 16 April 2026: Edward became a viral influencer in Poland
+	+ 9 April 2025: World's smallest wireless flying robot takes flight (related article)
+	+ 22 October 2023: Meet the robots with jobs helping humans (related article)
+	+ 21 January: Robot learns how to lip sync using AI and YouTube (related article)

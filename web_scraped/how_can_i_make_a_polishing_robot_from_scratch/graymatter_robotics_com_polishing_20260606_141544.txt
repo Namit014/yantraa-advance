@@ -1,0 +1,31 @@
+Source URL: https://graymatter-robotics.com/polishing/
+Scraped: 2026-06-06T14:15:44.260032
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Product Overview**
+
+* Scan&Polish is an AI-powered polishing solution that scans and polishes at the push of a button.
+* It is designed to augment the workforce, maximize capacity and quality, and is the only fully autonomous robotic solution in high-mix manufacturing.
+
+**Key Features**
+
+* FLEXIBLE: polishes various shapes, sizes, and materials, handles high-mix without retooling or programming.
+* EASY TO USE: intuitively designed for shop floor workers to scan and polish at the push of a button.
+* CONSISTENT: delivers consistent, high-quality finishes at unmatched speed and reliable performance all day.
+* AUTOMATIC COMPOUND DISPENSER: applies polishing compounds with precision, adjusting flow and pattern based on material and polishing stage.
+* AUTOMATIC TOOL CHANGER: automatically switches tools to approach flat surfaces with larger tool diameter and switches to a smaller tool to work on curved and intricate features.
+* GENERATE UNIQUE MODELS: utilizes high-fidelity sensors to swiftly scan and model parts within minutes, creating a precise, unique working model for each component.
+
+**Configurations**
+
+* Single Arm & Rail: simplifies operations with a single rail or pedestal/plate, available in 4, 8, and 12 meters.
+* Dual-Arm & Rails: maximizes productivity with a high-performance dual-arm and rails loading system, ideal for tackling larger projects.
+* MOBILE ARM & RAIL: brings efficiency to a new level with a mobile configuration featuring a 4 meter rail for horizontal setups.
+
+**Benefits**
+
+* Reduces labor shortages, quality issues, and production slowdowns.
+* Achieves cost savings and alleviates years of backlog.
+* Free automation readiness assessment (valued at $500K) from the expert engineering team at no cost.

@@ -1,0 +1,25 @@
+Source URL: https://locorobo.co/robots-in-disaster-response/
+Scraped: 2026-06-08T11:47:03.796634
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Role of Robots in Disaster Response:**
+
+* Robots can operate in environments that are too dangerous or inaccessible for humans.
+* They can navigate through rubble, enter unstable structures, and traverse hazardous terrains.
+* Robots can quickly locate survivors in disaster zones or collapsed buildings using thermal imaging and sound detection.
+* They can safely assess and mitigate risks in situations involving chemical spills or radiation.
+
+**Real-World Examples:**
+
+* 9/11 Response (2001): PackBot was deployed to navigate the rubble of the World Trade Center and provided valuable data and helped locate survivors.
+* Hurricane Harvey (2017): Drones were used to survey flooded areas, locate stranded individuals, and deliver supplies.
+* California Wildfires (2018): Drones were deployed to map affected areas, monitor fire spread, and assess damage.
+
+**Future of Robotics in Disaster Response:**
+
+* Advances in AI, machine learning, and robotics are paving the way for even more sophisticated machines.
+* Swarms of autonomous drones working together to map disaster zones or humanoid robots capable of performing complex rescue operations in unstable environments are possibilities.
+
+Note: The article does not provide specific technical specifications, numbers, or facts about the robots used in the mentioned real-world examples. The extracted information focuses on the role of robots in disaster response and the potential for future advancements in the field.

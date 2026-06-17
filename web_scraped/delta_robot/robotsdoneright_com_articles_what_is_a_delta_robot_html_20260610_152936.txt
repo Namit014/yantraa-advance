@@ -1,0 +1,46 @@
+Source URL: https://robotsdoneright.com/Articles/what-is-a-delta-robot.html
+Scraped: 2026-06-10T15:29:36.525255
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**What is a Delta Robot?**
+
+* A type of parallel-link robot with a parallelogram arm design
+* Also known as spider robots due to their arm design
+
+**Design and Features**
+
+* Three to four carbon-fiber, lightweight arms extend downward from the main robot body
+* Arms are jointed in the middle, causing them to bend inward and connect to a small tooling plate
+* Each arm is connected to a motor located within the main robot body
+* Motors coordinate movements of the arms in up and down motions
+* Joint movements cause the tooling plate to move across X, Y, and Z axes, creating a cylindrical work envelope
+
+**Speed and Acceleration**
+
+* Designed for high speed and high acceleration
+* Main weight of the robot is stationary, allowing for low inertia and fast operating speeds
+
+**Applications**
+
+* Ideal for assembly, dispensing, pick and place, material handling, part transfer, and packaging robotic applications
+* Suitable for lightweight parts with simple geometries
+* Can be integrated with additional robotic technology such as force sensors and vision
+
+**Specifications**
+
+* Payload capacities:
+	+ M-1ia: 1 kg
+	+ M-2ia: wider work envelope
+* Speeds:
+	+ Up to 300 parts per minute
+* Throughput rates:
+	+ Dramatically high throughput rates
+
+**Industry Use**
+
+* Deployed in food, electronic, medical, and pharmaceutical industries for lightweight assembly processes
+* Capable of increasing productivity and reducing cycle times
+
+Note: The extracted information is a summary of the article's technical content, with all unnecessary text removed.

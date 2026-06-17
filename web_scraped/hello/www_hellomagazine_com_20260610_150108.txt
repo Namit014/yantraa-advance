@@ -1,0 +1,25 @@
+Source URL: https://www.hellomagazine.com/
+Scraped: 2026-06-10T15:01:08.934319
+============================================================
+
+I've extracted the relevant technical specifications, facts, numbers, and descriptions from the provided text. Here's the output:
+
+* Fashion:
+	+ Kurt Geiger: New collection with prices under £200
+	+ FatFace: New summer collection with prices and descriptions
+* Beauty:
+	+ French retinol cream for wrinkles: £22 / $46
+* Parenting:
+	+ Matt Damon: Remarks on parenting in Hollywood
+	+ Pink: Real reason for hosting Tony's
+* Homes:
+	+ Peter Phillips and Harriet Sperling's private marital cottage on 730-acre estate
+	+ Prince Harry and Meghan Markle's £6.3m secret holiday home near Princess Eugenie
+* Technology:
+	+ Microdramas: Next big thing in entertainment thanks to TikTok
+* Celebrity:
+	+ Ashley James: Life lessons from 40s
+	+ Shazia Mirza: Finding confidence and midlife rupture
+	+ Queen Camilla: Statement look at Peter Phillips' wedding
+
+Note that I've removed all navigation menus, ads, and boilerplate text to provide a clean and concise output.

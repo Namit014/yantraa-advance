@@ -1,0 +1,41 @@
+Source URL: https://grokipedia.com/page/scara
+Scraped: 2026-06-08T12:31:07.094727
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Technical Specifications:**
+
+* Four axes: two rotary joints for radial and transverse motion, a prismatic joint for vertical travel, and a rotational wrist for orientation
+* Selective compliance in the X-Y plane, allowing flexibility in horizontal movements
+* Rigidity in the Z-axis for precise vertical positioning
+* Ability to operate at high speeds and accurate operations in assembly and material handling
+* Payloads: from 1 to 20 kg
+* Reaches: up to 1 meter
+* Cycle times: critical in industries like electronics, automotive, and pharmaceuticals
+* Precision: down to micron levels
+
+**Key Advantages:**
+
+* Compact footprint
+* Cylindrical work envelope suited for benchtop integration
+* Simplified programming via inverse kinematics for the two primary arm joints
+* High-speed and accurate operations in assembly and material handling
+* Adaptability across small-scale assembly to high-volume packaging lines
+
+**Related Concepts:**
+
+* Parallelogram linkage: a structural element in SCARA designs where two parallel links connected by revolute joints maintain constant orientation of the end-effector during horizontal motion
+* Cartesian robots: use orthogonal linear axes for movement in a rectangular workspace
+* Delta robots: parallel kinematic structures using multiple arms connected via parallelogram linkages to achieve high-speed planar motion
+* Tricept robots: hybrid variants integrating a parallel three-degree-of-freedom platform with a serial wrist
+
+**History:**
+
+* Invention: 1978 by Professor Hiroshi Makino at Yamanashi University in Japan
+* First prototype: developed in 1978
+* Second prototype: developed in 1980, refining the design for improved performance
+* Patent: filed by Makino in 1979 (granted in 1982)
+* Initial testing: focused on electronic component assembly, demonstrating the robot's effectiveness in tasks such as placing parts on printed circuit boards
+* Commercial adoption: began in 1981, with industrial partners such as Sankyo Seiki, Hirata, Pentel, and NEC marketing their own versions of SCARA-type robots
+* Early commercial models: released in 1983, such as the Epson SSR-H series and Yamaha Motor's YAMAHA SCARA robot

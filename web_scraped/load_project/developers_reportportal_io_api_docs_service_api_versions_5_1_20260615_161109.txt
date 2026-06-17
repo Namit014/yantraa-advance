@@ -1,0 +1,9 @@
+Source URL: https://developers.reportportal.io/api-docs/service-api/versions/5.13/get-project-subject-name/
+Scraped: 2026-06-15T16:11:09.365634
+============================================================
+
+**API Endpoint:** `/v1/activities/:projectName/subjectName`  
+**HTTP Method:** `GET`  
+**Purpose:** Retrieve a list of activity subject names filtered within the current project.  
+**Requirements:** Accessible only for requests made within the context of the current project.  
+**Success Response:** Returns a `200 OK` status.

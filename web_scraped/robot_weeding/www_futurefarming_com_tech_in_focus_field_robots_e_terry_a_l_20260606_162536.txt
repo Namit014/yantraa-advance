@@ -1,0 +1,32 @@
+Source URL: https://www.futurefarming.com/tech-in-focus/field-robots/e-terry-a-lightweight-weeding-robot-for-mechanical-in-row-weed-control/
+Scraped: 2026-06-06T16:25:36.856226
+============================================================
+
+Here are the technical specifications extracted from the article:
+
+**E-TERRY Lightweight Weeding Robot**
+
+**Key Features:**
+
+* 3-wheeled design with ultra-flexible chassis for adaptable row spacing and crop type
+* Patented, modular drivetrain with three individual in-wheel hub motors for precise speed control, zero-turn maneuverability, and independent wheel steering
+* Powered by interchangeable lithium-ion batteries, providing up to 11 hours of runtime with a full 6-module configuration
+* Weighs approximately 500 kg, with a robust build and low ground pressure
+* Track width is adjustable from 1.5 to 3.0 meters (5 to 10 ft) and height can be adapted to different crop stages
+* Foldable chassis fits into a standard van for easy transport
+
+**Technical Capabilities:**
+
+* AI-based phenotyping system recognizes crops with an accuracy of over 95% and targets weeds with a precision of up to 5 mm
+* Collects agronomic data, including weed density and biomass, for data-driven field management
+* Navigation system combines RTK GPS with AI-based visual navigation using cameras to detect crop rows
+* Safety features include dual LiDAR sensors for obstacle detection, zone-based human and animal monitoring, and real-time environment mapping, compliant with ISO 18497 safety standards
+
+**Performance:**
+
+* Can work at speeds of up to 1.5 km per hour and cover approximately 3 hectares in a 9-hour working day
+* Transport speed is up to 3.5 km per hour
+
+**Service Model:**
+
+* Offered as a service at a rate of €1,000 per hectare, eliminating the need for upfront investment

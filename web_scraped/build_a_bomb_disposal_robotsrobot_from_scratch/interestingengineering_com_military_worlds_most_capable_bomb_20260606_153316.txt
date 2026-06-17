@@ -1,0 +1,42 @@
+Source URL: https://interestingengineering.com/military/worlds-most-capable-bomb-disposal-robots
+Scraped: 2026-06-06T15:33:16.869934
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**T4 Bomb Disposal Robot**
+
+* Designed for operations in crowded and difficult environments like subways, airports, and even hospitals
+* Features:
+	+ Sturdy all-terrain treads
+	+ Movable manipulation arm with haptic feedback
+	+ Camera system for enhanced visibility
+	+ Skid steer track system for mobility
+	+ Ability to climb stairs and traverse steep slopes
+* Specifications:
+	+ Runtime: over 7 hours with 6 BB-2590 batteries
+	+ Line-Of-Sight (LOS) range: over 3300 ft
+	+ Non-LOS range: exceeding 660 ft
+	+ Operating temperature range: -4°F to +140°F
+	+ Electromagnetic interference-shielded
+	+ Maximum fording depth: 12 inches
+	+ Sealed with IP66 for durability in various environmental conditions
+* Weight: approximately 220 pounds (100 kilograms)
+
+**T4 Robot Capabilities**
+
+* Can fit through short aisles in buses, trains, and airplanes
+* Can climb stairs
+* Can unzzip bags and open glove boxes with ease
+* Replaces older fleet of large EOD robots with T7 systems
+* Features advanced haptic feedback, reducing training demands and enhancing mission efficiency
+
+**Contract**
+
+* The British Army has placed a £21 million deal with L3Harris Technologies
+* The contract includes:
+	+ Provision of 50 T4 EOD robots
+	+ In-country support
+	+ Maintenance
+	+ Training
+* The robots will be used by the 29 EOD & Search Group and the Diving Threat and Exploitation Group, Royal Gibraltar Regiment (RG) and Cyprus Operational Support Unit (COSU)

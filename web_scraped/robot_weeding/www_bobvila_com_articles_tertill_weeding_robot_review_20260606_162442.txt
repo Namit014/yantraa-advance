@@ -1,0 +1,41 @@
+Source URL: https://www.bobvila.com/articles/tertill-weeding-robot-review/
+Scraped: 2026-06-06T16:24:42.886364
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Product**: Tertill Weeding Robot
+
+**Features**:
+
+* Autonomous maintenance of up to 200 square feet of garden space
+* Minimal maintenance required
+* Powered by sunlight, with weatherproof construction
+* Can eliminate nearly all hoeing, hand weeding, and herbicide applications
+* Can work in gardens surrounded by a 4-inch-high barrier with no gaps (e.g. wood, stone, brick, wire fence, or plastic)
+
+**Dimensions and Weight**:
+
+* Diameter: 8.6 inches (4.3 cm)
+* Height: 4.5 inches (11.4 cm)
+* Weight: 2.5 pounds (1.14 kg)
+
+**Specifications**:
+
+* Solar panel: 4.3 x 5.3 inches (10.9 x 13.5 cm)
+* Motorized wheels: 4
+* String-trimmer blade: replaceable, lasts about a month
+* Lithium-ion battery: charged by sunlight, operates between 70-85% charge
+* Operating cycle: 2-5 minutes of trimming, 20 minutes of recharging
+* Total running time per day: 2 hours, adequate for about 200 square feet of garden space
+
+**Economic Analysis**:
+
+* Price: $349
+* Labor savings: $15 per hour, the Tertill pays for itself in about a year and a half for gardeners who work in mild climates year-round
+* Half-year gardeners would reap the payoff in three gardening seasons
+
+**Recommendations**:
+
+* Not for container gardens, flower beds, or other garden spaces without ample room to maneuver
+* Not secured by a PIN or other theft deterrent, so it should only be used in secure gardens.

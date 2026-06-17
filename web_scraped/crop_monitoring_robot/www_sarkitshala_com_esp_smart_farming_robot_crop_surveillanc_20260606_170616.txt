@@ -1,0 +1,46 @@
+Source URL: https://www.sarkitshala.com/esp/smart-farming-robot-crop-surveillance
+Scraped: 2026-06-06T17:06:16.509586
+============================================================
+
+Here is the extracted technical specification, fact, number, and description:
+
+**Components:**
+
+1. ESP32 development board
+2. Motor driver (L298N or similar)
+3. DC motors (2 units)
+4. ESP32-CAM camera module
+5. DHT11 or DHT22 sensor (for temperature and humidity)
+6. Light sensor (e.g., LDR)
+7. Power supply (e.g., 7.4V LiPo battery)
+8. Chassis for the robot
+9. Wheels (2 or 4 depending on design)
+10. Jumper wires and breadboard
+
+**Pin Configuration:**
+
+1. GPIO 12 (Motor A) - Motor A control pin
+2. GPIO 13 (Motor B) - Motor B control pin
+3. GPIO 15 (DHT11 sensor) - DHT11 sensor data pin
+4. GPIO 4 (LDR sensor) - Light-dependent resistor (LDR) connected to GPIO 4
+5. GPIO 2 (Camera module) - ESP32-CAM camera module connected to GPIO 2
+
+**Code:**
+
+1. Includes necessary libraries: <WiFi.h>, <DHT.h>, <Servo.h>, and <ESP32CAM.h>
+2. Defines various constants: WiFi SSID and password, DHT sensor pin, LDR sensor pin, motor control pins, and camera data pin
+3. Initializes motorA and motorB using Servo library
+4. Reads temperature and humidity data from DHT sensor
+5. Reads light level from LDR sensor
+6. Changes motorA and motorB speed based on temperature and light level
+
+**Formulas:**
+
+1. Power (W) = Voltage (V) × Current (I)
+
+**Applications:**
+
+1. Automated crop surveillance for precision farming
+2. Monitoring environmental conditions (temperature, humidity, light) for crop health
+3. Early detection of issues like pest infestations or diseases in crops
+4. Improving farm management and reducing human labor through robotics and automation

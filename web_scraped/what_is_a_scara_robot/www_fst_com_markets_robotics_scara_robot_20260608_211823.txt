@@ -1,0 +1,54 @@
+Source URL: https://www.fst.com/markets/robotics/scara-robot/
+Scraped: 2026-06-08T21:18:23.190123
+============================================================
+
+Here are the relevant technical specifications, facts, and descriptions extracted from the text:
+
+**SCARA Robots**
+
+* Type: Serial Kinematics, 3 rotary axes and 1 linear axis
+* Degrees of freedom: 4
+* Compact footprint, robustness, and cost-effectiveness compared to models with multiple axes
+* High repeatability and long service life
+* Capable of performing pick-and-place tasks, gluing, joining, and assembly operations
+
+**Construction**
+
+* Fixed base with a rotating swivel arm as the first axis
+* Rest of kinematic chain connected to this arm via joint (second axis)
+* Integrated vertical and rotatable Z-axis (third axis)
+* End effector, such as a gripper, can be attached here for additional linear motion (fourth axis)
+
+**Applications**
+
+* Electrical and electronics industries
+* Pharmaceuticals
+* Food
+* Plastics
+* Metal processing
+* Assembly robots
+* Pick-and-place tasks
+* Gluing, joining, and assembly operations
+* Operating machinery
+
+**Seal Performance and Service Life**
+
+* Factors affecting seal performance and service life: professional installation, suitable installation space, operating conditions, and lubricants
+* Freudenberg Sealing Technologies' sealing solutions for SCARA robots:
+	+ Deliver dependable sealing
+	+ Extend service life
+	+ Enhance the efficiency of robotics applications
+
+**High-Performance Materials for SCARA Robots**
+
+* Examples: 75 FKM 585 PLUS, EPDM 291, 386 Fluoroprene XP40, XP42, NBR 430
+* Factors to consider when selecting a gasket material: pressure and temperature, chemical exposure, contamination, required service life and maintenance cycles
+
+**Services**
+
+* Service test benches
+* Material selection and recommendation
+* Installation and commissioning
+* Maintenance and repair
+
+Note that some information, such as the company's news and stories, has been removed as per your instruction to focus only on technical specifications, facts, numbers, and descriptions.

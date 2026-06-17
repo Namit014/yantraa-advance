@@ -1,0 +1,45 @@
+Source URL: https://medium.com/@samlisisi456/how-can-i-make-a-hybrid-drone-eb0da161c5e5
+Scraped: 2026-06-06T15:42:02.930965
+============================================================
+
+Here are the extracted technical specifications, facts, and descriptions:
+
+**Conceptualization and Needs Gathering:**
+
+* Flight range
+* Endurance
+* Speed
+* Cargo capacity
+
+**Component Selection and Mechanical Design:**
+
+* Frame design for holding fixed-wing and quadcopter parts
+* Batteries
+* Electronic speed controllers (ESCs)
+* Propellers
+* Motors
+* Other electronic parts
+
+**Design and Integration of Wings:**
+
+* Wingspan
+* Airfoil form
+* Wing positioning
+* Retraction mechanisms for smooth storage
+
+**Integration of Flight Controller and Software:**
+
+* Flight controller capable of managing fixed-wing and quadcopter flying modes
+* Flight control software for navigation, stability, and control
+* Smooth transition between flying modes
+
+**Testing and Improvement:**
+
+* Extensive testing in a controlled setting
+* Data collection and evaluation
+* Modification of software, hardware, or design as needed
+
+**Sharing and Documentation:**
+
+* Recording software development, testing, component selection, and design processes
+* Sharing knowledge and discoveries with the drone community for further development of hybrid drone technology

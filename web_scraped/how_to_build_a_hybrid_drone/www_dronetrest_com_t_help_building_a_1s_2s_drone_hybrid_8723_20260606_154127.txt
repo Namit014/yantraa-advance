@@ -1,0 +1,38 @@
+Source URL: https://www.dronetrest.com/t/help-building-a-1s-2s-drone-hybrid/8723
+Scraped: 2026-06-06T15:41:27.105815
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Motors:**
+* Racerstar 802, 15,000 KV (Up to 2S Brushless Motor, 1mm Shaft)
+
+**Frame:**
+* BetaFPV Beta65, 65mm
+
+**Flight Controller:**
+* URUAV Crazybee F4 PRO V2
+
+**Camera:**
+* Caddx Turbo EOS2, 1200TVL, 2.1mm, 160°, 13CMOS, 169 Mini FPV Camera
+
+**Camera VTX:**
+* Happymodel Mobula7 Upgrade, 5.8G, 40CH, 25mW, 200mW, Switchable VTX
+
+**DVR:**
+* HGLRC DVR Nano, Mini Video Recorder, Supports Record Playback, SD Card for FPV Camera
+
+**Other:**
+* Mobula6, 19000KV, 20g
+* BetaFPV Meteor65, 15-16g max + quad-blade props
+* BetaFPV 2.67g, 1s-only board
+* RunCam Nano 2, AIO camera
+* FX950TW, AIO camera/VTX, with 3D printed mount
+* NBD beeeye mount, for camera mount
+* TW Razor Skin canopy, for extra protection
+* BetaFPV AIO, with two mounts and canopy for extra protection
+* External RX, for external receiver
+* 200mw + VTX, for external transmitter
+* Goggle DVR, DVR board
+
+Note: The text is a build log and discussion forum post, and the information is presented in a conversational and informal style. Some technical details may be missing or not clearly stated. Additionally, the text is quite long, and some parts may be redundant or not relevant to the extraction of technical specifications.

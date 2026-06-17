@@ -1,0 +1,76 @@
+Source URL: https://provenrobotics.ai/types-of-sensors-in-robots/
+Scraped: 2026-06-12T16:01:57.807359
+============================================================
+
+**Technical specifications, facts, numbersand descriptions extracted from the source**
+
+- **Context**
+  - Article title: “20 Types of Sensors in Robots” (published May 9, 2024).  
+  - Robots have evolved from simple mechanical arms to systems equipped with sophisticated sensors that enable perception, navigation, safe human interaction and autonomous operation.  
+  - Sensors act as the “sensory organs” of robots, allowing them to detect distance, orientation, temperature, sound, light and more.
+
+- **Sensor 1 – Ultrasonic**
+  - **Functionality:** Emits high‑frequency sound waves and measures the time taken for the echoes to return, thereby calculating distance.  
+  - **Applications:** Obstacle detection, proximity sensing, indoor navigation.    - **Real‑life example:** *Pepper* (SoftBank Robotics) uses ultrasonic sensors for obstacle avoidance in crowded environments.
+
+- **Sensor 2 – Infrared (IR)**
+  - **Functionality:** Detects infrared radiation emitted by objects; intensity is used to infer proximity, motion or temperature.  
+  - **Applications:** Object detection, line‑following, temperature sensing.  
+  - **Real‑life example:** *NAO* (SoftBank Robotics) employs IR sensors for proximity detection and thermal sensing in human‑robot interaction.
+
+- **Sensor 3 – LiDAR (Light Detection and Ranging)**
+  - **Functionality:** Emits laser pulses and measures the return time to construct detailed 3‑D maps of the surroundings.  
+  - **Applications:** Navigation, simultaneous localisation and mapping (SLAM), localization.    - **Real‑life example:** *BellaBot* (PuduTech) uses LiDAR for navigation and obstacle avoidance in restaurant settings.
+
+- **Sensor 4 – Camera (Vision)**
+  - **Functionality:** Captures images or video; advanced image‑processing algorithms identify objects, recognize patterns and support navigation.  
+  - **Applications:** Object recognition, navigation, surveillance, inspection.  
+  - **Real‑life example:** *KettyBot* (Keenon Robotics) integrates cameras for facial recognition and navigation assistance in retail environments.
+
+- **Sensor 5 – Tactile**
+  - **Functionality:** Provides a sense of touch by detecting contact, pressure and force on a surface.  
+  - **Applications:** Robotic grippers, prosthetic hands, collaborative robots (cobots) requiring dexterity and sensitivity.  
+  - **Real‑life example:** *DOBOT Magician* (educational robotic arm) incorporates tactile sensors to respond to touch during interactive tasks.
+
+- **Sensor 6 – Force/Torque**
+  - **Functionality:** Measures both magnitude and direction of force or torque applied to an object.  
+  - **Applications:** Manipulation, assembly, polishing, force‑controlled machining, quality control.  
+  - **Real‑life example:** *Double 3* (Double Robotics) uses force/torque sensors to ensure smooth, precise remote‑communication interactions.
+
+- **Sensor 7 – Gyroscope**
+  - **Functionality:** Measures angular velocity (rate of rotation) about one or more axes.  
+  - **Applications:** Stabilisation, attitude control and precise maneuvering in drones, humanoids and mobile robots.  
+
+- **Sensor 8 – Accelerometer**
+  - **Functionality:** Detects changes in velocity or acceleration along one or more axes, providing data on tilt, movement and vibration.  
+  - **Applications:** Balancing robots, wearable devices, motion‑controlled gadgets, gesture recognition, inertial navigation.  
+
+- **Sensor 9 – Compass (Magnetometer)**
+  - **Functionality:** Determines heading relative to Earth’s magnetic field.  
+  - **Applications:** Navigation and orientation control in mobile robots, UAVs and underwater robots.  
+
+- **Sensor 10 – Temperature**
+  - **Functionality:** Measures ambient temperature to monitor thermal conditions and prevent overheating.  
+  - **Applications:** Thermal management, environmental monitoring and safety systems.  
+
+- **Sensor 11 – Humidity**
+  - **Functionality:** Measures moisture content or relative humidity of the surrounding air.    - **Applications:** Humidity control in agricultural robots, climate‑controlled facilities and HVAC systems.  
+
+- **Sensor 12 – Pressure**
+  - **Functionality:** Quantifies force exerted by fluids or gases on a surface; provides data on pressure, altitude, depth or weight.  
+  - **Applications:** Pressure sensing in grippers, pneumatic systems and underwater vehicles for depth measurement and leak detection.  
+
+- **Sensor 13 – Proximity**
+  - **Functionality:** Detects the presence or absence of nearby objects without physical contact by emitting electromagnetic fields or beams and sensing changes in intensity.  
+  - **Applications:** Obstacle detection, object counting and navigation assistance in industrial automation and smart devices.  
+
+- **Sensor 14 – Hall Effect**
+  - **Functionality:** Detects magnetic fields and generates a voltage proportional to field strength.  
+  - **Applications:** Motor control, position feedback and speed measurement in robotics, electric vehicles and industrial machinery.  - **Sensor 15 – Strain Gauge**
+  - **Functionality:** Measures deformation (strain) of an object under applied force by detecting resistance changes.  
+  - **Applications:** Robotic limbs, load cells and structural health monitoring for force measurement and stress analysis.  
+
+- **Additional factual notes**
+  - The article promises coverage of **20 sensor types**, but only **15** are detailed before the text is truncated.  
+  - All examples cited (Pepper, NAO, BellaBot, KettyBot, DOBOT Magician, Double 3) are real robots mentioned in the source.  
+  - No numerical sensor specifications (e.g., frequency, range, resolution) are provided in the excerpt; only functional descriptions and application contexts are included.

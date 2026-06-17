@@ -1,0 +1,40 @@
+Source URL: https://newscrewdriver.com/category/laser-cutting/
+Scraped: 2026-06-06T14:02:38.434256
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Laser Cutting and 3D Printing**
+
+* MeArm robot arm built out of commodity micro servos and laser-cut acrylic
+* Laser-cut DXF file available for open-sourced design
+* Limitations: multiple CAD software unable to load DXF file
+
+**Circuit Board and 3D Printing**
+
+* Melding circuit components into 3D-printed plastic
+* Using soldering iron to heat up wires and melt into plastic
+* Components melted into plastic more secure than traditional placement
+* Electrical tape used to guard against short-circuiting
+
+**LED Test Fixtures**
+
+* Square, circular, and triangular LED cavities tested
+* Teardrop shape cavity resulted in significant light loss
+* Minimizing cavity sizes and conforming curve cavities achieved best results
+* Small curve in front of LED point broke up central beam and sent light to edges
+* Frosted edge reduced reflections and enhanced overall illumination
+
+**Acrylic Edge Illumination**
+
+* Positioning LED at edge of acrylic sheet
+* Goal: direct light to illuminate all edges of acrylic sheet
+* 3D-printed test fixture with 75mm x 75mm test piece, 10mm wide border, and LED
+* Observation area at outside edge and bottom of fixture
+* Aluminum foil lining the bottom of the test fixture to reflect light back into acrylic
+
+**Limitations and Future Work**
+
+* Additional experimentation and testing needed to determine best methods for edge illumination and reducing light loss
+* Future work to apply learned concepts to future acrylic projects
+* Scanning for relevant Google results and continued experimentation

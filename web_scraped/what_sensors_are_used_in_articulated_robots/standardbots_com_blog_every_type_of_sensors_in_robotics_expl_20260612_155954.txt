@@ -1,0 +1,15 @@
+Source URL: https://standardbots.com/blog/every-type-of-sensors-in-robotics---explained
+Scraped: 2026-06-12T15:59:54.102324
+============================================================
+
+Robotics sensors enable machines to sense and interpret their environments. Key sensor categories include:
+
+- **Position and Motion Sensors**: Encoders, gyros; crucial for precise movement in arms and mobile robots.
+- **Proximity Sensors**: IR sensors for short-range detection; ultrasonic sensors for distance; capacitive sensors for detecting nearby objects.
+- **Vision and Camera Sensors**: 2D/3D cameras, depth sensors for object recognition; computer vision for navigation and inspection.
+- **Force and Torque Sensors**: Measure pressure and rotational force; vital for grip control and delicate tasks.
+- **Range Sensors**: Ultrasonic sensors (low cost); laser/LiDAR sensors (high accuracy) for obstacle avoidance and mapping.
+- **Tactile and Touch Sensors**: Capacitive, pressure pads, artificial skin for contact feedback and precise manipulation.
+- **Environmental Sensors**: Temperature sensors, gas detectors, humidity sensors, and air quality monitors for safe operation.
+
+Together, these sensors allow robots to perform tasks accurately, adapt to dynamic conditions, and safely interact with humans and objects.

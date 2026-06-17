@@ -1,0 +1,48 @@
+Source URL: https://www.deltaww.com/en-US/products/SCARA-Robot
+Scraped: 2026-06-10T15:29:28.129470
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the provided text:
+
+**Product List**
+
+* DRS30L3 Series
+* DRS40C4 Series
+* DRS40L3SS2 Series
+* DRS50L3SS2 Series
+* DRS50L6SS2 Series
+* DRS60L6SO Series
+* DRS60C6 Series
+* DRS60H6 Series
+* DRS85HC Series
+* DRS60L6SS2 Series
+* DRS70L6SS2 Series
+* DRS60/70/80LC Series
+* DRS60LA/70LA/80LA Series
+* DRS80LM Series
+* DRSA0LM Series
+* DRS65FA Series
+* DRSA2LM Series
+* DRSA0LMSS2 Series
+
+**Key Components**
+
+* Robot Controller
+* Peripheral Devices
+* Machine Vision Systems
+* Servo Systems - AC Servo Motors and Drives
+* Motion Control
+* Host PAC
+* Linear Stage – LU Series
+* Smart Sensor
+* Touch Panel HMI - Human Machine Interfaces
+* Industrial Power
+* Industrial Ethernet Solution
+
+**Discontinued Products**
+
+* DRS40L3 Series (replaced by DRS40L3SS2 Series)
+* DRS50L6 Series (replaced by DRS50L6SS2 Series, discontinued in 2026/Q4)
+* DRS70L6 Series (replaced by DRS70L6SS2 Series, discontinued in 2026/Q4)
+
+No other relevant information was found in the provided text.

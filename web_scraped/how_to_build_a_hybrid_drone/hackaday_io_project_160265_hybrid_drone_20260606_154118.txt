@@ -1,0 +1,29 @@
+Source URL: https://hackaday.io/project/160265-hybrid-drone
+Scraped: 2026-06-06T15:41:18.952581
+============================================================
+
+**Hybrid Drone Technical Specifications**
+
+* **PlutoX Drone**: Modularity, allowing for easy addition of motor and wheel support, and using 400 rpm brushed motors and 600 mAh batteries.
+* **3D Printed Wheels and Motor Support**: Designed to hold wheels and motor for rover mode.
+* **Cygnus IDE**: Software development environment.
+* **Pluto App**: Control software.
+* **AutoStabilization**: Uses magnetometer data to maintain straight direction.
+* **Error Correction**: RC input performs correction.
+* **Motor Direction**: Forward (M2 and M3), Reverse (M2 and M3), Right (M2 forward, M3 reverse), Left (M2 reverse, M3 forward).
+* **Auto-Stabilization**: Uses data from drone's magnetometer and yaw angle to move rover in straight line.
+
+**Project Details**
+
+* The objective is to create a hybrid drone that can fly and walk on the ground.
+* The project uses a PlutoX controller, with an add-on breakout board to enable rover mode.
+* The drone is controlled using a phone (controller).
+* The project aims to bring together drone and rover capabilities, with the help of simple coding.
+
+**Components**
+
+1. PlutoX Connectors and Accessories
+2. 400 RPM motors
+3. 3D Printed wheels and wheel support
+4. Cygnus IDE
+5. Pluto App

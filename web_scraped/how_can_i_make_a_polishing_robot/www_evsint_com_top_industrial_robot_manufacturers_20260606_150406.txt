@@ -1,0 +1,44 @@
+Source URL: https://www.evsint.com/top-industrial-robot-manufacturers/
+Scraped: 2026-06-06T15:04:06.429276
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Top 10 Industrial Robot Manufacturers by Market Share 2026:**
+
+1. ABB (Switzerland) - ~13% revenue share
+	* Known for: Broadest robot and automation portfolio, spanning small assembly arms to heavy six-axis machines
+	* IRB family, TrueMove and QuickMove motion control, and mature multi-robot coordination
+2. Epson (Japan) - ~13% revenue share
+	* Known for: Leading SCARA sales for twelve straight years, quietly dominates small, fast assembly
+	* Edge: Sheer volume and reliability in a category that rarely makes headlines
+3. FANUC (Japan) - ~11% revenue share
+	* Known for: Precision and reliability specialist, precise repeatability (±0.02 millimeters)
+	* Instantly recognizable yellow arms run everywhere in automotive body shops, CNC machine tending, and electronics
+4. Yaskawa (Japan) - ~8% revenue share
+	* Known for: Roots in servo motors and motion control, perennial favorite for arc and spot welding
+	* Smooth, fast motion and tight path accuracy
+5. Kawasaki (Japan) - ~8% revenue share
+	* Known for: Built Japan's first industrial robot, interest in flexible, smaller-footprint automation
+	* duAro dual-arm, designed for working in spaces sized for a human operator
+6. KUKA (Germany) - ~6% revenue share
+	* Known for: Heavy payloads and handling feel, premium option in the category
+	* Deeply embedded in European automotive manufacturing, large six-axis robots for body framing, spot welding, and heavy material transfer
+7. Denso (Japan) - ~4% revenue share
+	* Known for: Compact automotive-electronics assembly, semiconductor cleanroom precision
+8. Comau (Italy) - ~1% revenue share
+	* Known for: Automotive body-in-white welding, Italian roots in metal manufacturing
+9. Stäubli (Switzerland) - <1% revenue share (specialist)
+	* Known for: Semiconductor cleanroom precision, trying to stay specialized
+10. Nachi (Japan) - <1% revenue share (specialist)
+	* Known for: Heavy-payload handling, often a specialist in this area
+
+**Additional Facts:**
+
+* The top industrial robot manufacturers account for roughly 60% of the global market
+* The top 10 vendors' combined share slipped from 64.6% in 2023 to 62.3% in 2024, a sign that smaller and regional players are slowly taking ground
+* The leaders remain remarkably stable
+* The distinction between industrial robots and collaborative robots (cobots) matters, as several companies here, including ABB, FANUC, and KUKA, also sell cobot lines
+* Revenue share and unit share are different lenses, and this article uses both metrics
+
+I hope this extracted information meets your requirements! Let me know if you need any further assistance.

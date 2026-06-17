@@ -1,0 +1,28 @@
+Source URL: https://link.springer.com/article/10.1007/s00170-023-10887-3
+Scraped: 2026-06-06T14:15:54.668233
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+* Accuracy Improvement and Process Flow Adaption for Robot Machining (Chapter)
+* Automated Polishing System of Free-Form Surface Path Generation based on Industrial Arm Robot (Article)
+* CAD/CAM-based Position/Force Controller for a Mold Polishing Robot (Article)
+* Coordinated Multirobot Control System Based on Spherical Amphibious Robots (Article)
+* Cybernetic and Mechatronics (Journal)
+* High-Precision Grinding and Polishing of Robots for Complex Surface (Article)
+* Industrial Robot Polishing Systems (Diverse)
+* Multi-Robot Polishing Control Technology (Diverse)
+* Pneumatic Polishing Force Control System Based on High-Speed On/Off with PWM Controlling (Article)
+* Posture Optimization in Robot-Assisted Machining Operations (Article)
+* Review of Development and Application of Industrial Robot Technology (Article)
+* Robot Polishing Force Control Technology (Diverse)
+* Robot Polishing Path Planning (Diverse)
+* Robot Polishing Trajectory Planning (Diverse)
+* Robot Polishing Vibration Control (Diverse)
+* Robotic Polishing Systems (Diverse)
+* The Alternative Text for this Image (Figures 1-35)
+* The International Journal of Advanced Manufacturing Technology (Journal)
+* Teleoperation of Multiple Social Robots (Article)
+* Upfront Computation to Reduce Global Communication at Run Time in Multirobot Task Allocation (Article)
+
+Note: Since the article contains a large number of figures with generated alternative text, I have only included the relevant technical specifications, facts, numbers, and descriptions and excluded the figures.

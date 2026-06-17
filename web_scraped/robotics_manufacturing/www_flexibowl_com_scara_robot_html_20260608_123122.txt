@@ -1,0 +1,71 @@
+Source URL: https://www.flexibowl.com/scara-robot.html
+Scraped: 2026-06-08T12:31:22.643751
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**SCARA Robot Characteristics:**
+
+* High reliability
+* High accuracy
+* Speed
+* Minimum maintenance
+* Ease of use
+* Extremely compact design
+
+**FlexiBowl:**
+
+* Enables flexible feeding of entire families of parts
+* Does not require retooling cost for product changeovers
+* Feeds parts in a matter of seconds
+* Combines servomotor and impulse generator for non-vibratory feeding
+* Can feed parts of all sizes
+* Replaces other parts feeders in industries such as automotive, electronics, and cosmetics
+
+**Scara Robot Configuration:**
+
+* 4-axis SCARA robot
+* Inner link rotates about the World Z-axis
+* Outer link rotates about a Z elbow joint
+* Wrist axis moves up and down and rotates about Z
+
+**Advantages of SCARA Robots:**
+
+* Can operate at higher speed and with optional cleanroom specifications
+* Can achieve tolerances lower than 10 microns
+* Compact layout makes them easily re-located in temporary or remote applications
+* Suitable for applications with a smaller field of operation and where floor space is limited
+
+**Limitations of SCARA Robots:**
+
+* Typically only capable of carrying a lighter payload (up to 2 kg nominal, 10 kg maximum)
+* Limited dexterity and flexibility compared to six-axis robots
+* Circular envelope does not suit all applications
+
+**How a SCARA Robot Works:**
+
+* 4-axis manipulator with motion in the X-Y and Z planes and 360-degree rotational movement about the Z-axis
+* Uses inverse kinematics and data interpolation to move dynamically, quickly, and intelligently
+
+**When to Use a SCARA Robot:**
+
+* For pick-and-place or assembly operations when high speed and high accuracy are required
+* For flexible assembly operations, such as in the automotive and electronics industries
+
+**Why SCARA Robots are Preferred for Assembly Operations:**
+
+* Provides substantial rigidity for the robot in the vertical direction, but flexibility in the horizontal plane
+* Ideal for many assembly tasks, such as in the automotive and electronics industries
+
+**SCARA Robot Advantages:**
+
+* Can operate at a higher speed
+* Can operate in a cleanroom environment
+* Can achieve tolerances lower than 10 microns
+* Compact layout makes them easily re-located in temporary or remote applications
+* Suits applications with a smaller field of operation and where floor space is limited
+
+**SCARA Robot Disadvantages:**
+
+* Typically only capable of carrying a lighter payload
+* Limited dexterity and flexibility compared to six-axis robots

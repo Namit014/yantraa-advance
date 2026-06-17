@@ -1,0 +1,59 @@
+Source URL: https://etcnmachining.com/blog/polishing/
+Scraped: 2026-06-06T14:16:48.992494
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions:
+
+**Materials:**
+
+* Aluminum
+* Brass
+* Copper
+* Magnesium
+* Stainless Steel
+* Titanium
+* ABS (acrylonitrile)
+* Acrylic (PMMA)
+* Nylon
+* PAI(Torlon)
+* PEEK
+* PEI (Ultem)
+* POM (Delrin/Acetal)
+* PTFE(Teflon)
+
+**Polishing:**
+
+* Steps:
+	1. Clean the item
+	2. Identify the right kind of polish agent
+	3. Apply a little amount of polish and rub it into the surface
+	4. Keep up light pressure uniformly until you attain your desired level of glossiness
+	5. Use another separate dry cloth to buff away the remaining polish on the surface
+
+**Polishing Agents:**
+
+* Selecting the right polishing agent based on the material being polished (e.g. metal, wood, plastics)
+* Examples:
+	+ Metals: use a polish that goes hand in hand with the metal (brass, silver, aluminum)
+	+ Wood: use a polish that not only shines but also protects the grain of the wood
+	+ Plastics: use specialized polishes that avoid unwanted damage
+
+**Polishing vs. Grinding:**
+
+* Grinding is about shaping the object to your liking, using brute force
+* Polishing is about giving the surface a shiny appearance, using gentler methods
+
+**Essential Tools:**
+
+* Rotary polishers
+* Orbital polishers
+* Polishing pads (e.g. foam, wool, microfiber)
+
+**Technical Details:**
+
+* Rotary polishers: designed for precision and control, perfect for scrubbing away deep scratches
+* Orbital polishers: designed for gentler operation, perfect for beginners or not-so-damaging tasks
+* Polishing pads: come in different materials and textures, each suitable for different stages of the polishing process
+* Abrasive materials: remove layers from the surface one by one until it is smooth
+
+Let me know if you need further assistance!

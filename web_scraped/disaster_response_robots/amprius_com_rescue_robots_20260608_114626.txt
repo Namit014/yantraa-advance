@@ -1,0 +1,43 @@
+Source URL: https://amprius.com/rescue-robots/
+Scraped: 2026-06-08T11:46:26.086416
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Types of Rescue Robots:**
+
+* Unmanned Aerial Vehicles (UAVs) or drones
+* Land robots (ground-based rescue vehicles)
+* Water rescue robots (unmanned underwater vehicles (UUVs) or remotely operated vehicles (ROVs))
+
+**Key Features and Technologies:**
+
+* Artificial Intelligence (AI) for data analysis, decision-making, and task completion
+* Sensors (e.g., cameras, thermal imaging, LiDAR, proximity sensors, gas sensors, acoustic sensors)
+* Global Positioning System (GPS) for navigation and mapping
+* Energy-dense batteries for extended operation
+
+**Benefits of Using Rescue Robots:**
+
+* Increased safety for human rescuers
+* Enhanced efficiency and speed in search and rescue operations
+* Ability to access hard-to-reach or hazardous areas
+* Faster disaster response, leading to more lives saved
+
+**Applications:**
+
+* Earthquakes: Rescue robots can navigate through rubble and debris, identifying and reaching trapped victims
+* Floods: Underwater robots can search for victims trapped below the water's surface
+* Wildfires: Rescue robots built with heat-resistant materials can aid in firefighting scenarios
+
+**Examples of Successful Rescue Missions:**
+
+* Drone Helps in Search and Rescue Efforts After 7.8-Magnitude Earthquake in Syria and Turkey
+* University of Illinois Students Develop Drone-Based System to Assess Structural Damage After 7.1-Magnitude Earthquake in Mexico City
+* Hyrodnalix's Emergency Integrated Lifesaving Lanyard (EMILY) for rescue operations in water
+
+**Notes:**
+
+* Researchers are experimenting with robots modeled after snakes to aid in search and rescue operations
+* The RoBoa, developed by ETH Zurich, has flexible parts and carries sensors, cameras, and speakers to navigate through rubble and debris
+* Drones can be equipped with thermal cameras, multi-spectral cameras, or high-resolution photography to aid in assessment and damage mitigation

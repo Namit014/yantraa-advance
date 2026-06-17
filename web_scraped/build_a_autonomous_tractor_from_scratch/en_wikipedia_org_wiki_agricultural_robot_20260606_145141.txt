@@ -1,0 +1,41 @@
+Source URL: https://en.wikipedia.org/wiki/Agricultural_robot
+Scraped: 2026-06-06T14:51:41.381724
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the Wikipedia article on agricultural robots:
+
+**Market Size:** The agricultural robots market is expected to reach $170.74 billion by 2032 (According to Verified Market Research).
+
+**Applications:**
+
+* Harvesting stage
+* Weed control
+* Planting seeds
+* Harvesting
+* Environmental monitoring
+* Soil analysis
+
+**Designs:**
+
+* End effector: device found at the end of the robotic arm, used for various agricultural operations
+* Manipulator: allows the gripper and end effector to navigate through their environment
+* Gripper: grasping device used for harvesting the target crop
+* End effector designs:
+	+ Harvesting: designed to grasp, cut, and push bunches of grapes
+	+ Berry thinning: designed to cut off rachis branches and extract the bunch of grapes
+	+ Spraying: designed to distribute chemical liquid evenly across the bunch
+	+ Bagging: designed to contain the grapes in bunches
+* Manipulator design:
+	+ Four-bar parallel links that maintain the gripper's position and height
+	+ Pneumatic actuators: motors which produce linear and rotary motion by converting compressed air into energy
+* Gripper design:
+	+ Two mechanical fingers that can move in synchrony
+	+ Equipped with a sharp blade in the procedure that required plants to be cut for harvesting
+
+**Development:**
+
+* Early development of robotics in agriculture dated back to the 1920s
+* Research on automatic vehicle guidance began in the 1920s and 1950s
+* Autonomous agricultural vehicles developed in the 1960s
+* Development of robots in agriculture continued to advance as technologies in other sectors developed
+* Concept of autonomous agricultural vehicles was not perfect, still needing a cable system to guide their path, until the 1980s following the development of the computer.

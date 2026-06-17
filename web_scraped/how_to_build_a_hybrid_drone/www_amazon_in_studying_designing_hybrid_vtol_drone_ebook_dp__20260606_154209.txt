@@ -1,0 +1,26 @@
+Source URL: https://www.amazon.in/Studying-Designing-Hybrid-VTOL-Drone-ebook/dp/B08KVSYM44
+Scraped: 2026-06-06T15:42:09.933429
+============================================================
+
+After processing the raw text, I extracted the following technical specifications, facts, numbers, and descriptions related to the study and design of hybrid VTOL drones:
+
+**General Information**
+
+* Format: Kindle Edition
+* Author: Varun Sharma
+* Publication date: 7 October 2020
+* Language: English
+* Reading age: 12-18 years
+* Grade level: 10-12
+* ISBN-13: 978-1716526879
+
+**Book Details**
+
+* The book contains a project about understanding VTOL drones and designing your own DIY drone.
+* It focuses on the study and design of hybrid VTOL drones.
+
+**Technical Specifications**
+
+* No specific technical specifications, facts, numbers, or descriptions are mentioned in the provided text. The text primarily consists of book details, customer reviews, and navigation menus. It appears that the book is a general introduction to designing hybrid VTOL drones rather than a technical guide.
+
+Please note that I was unable to extract any specific technical specifications, facts, numbers, or descriptions as they are not explicitly mentioned in the provided text. If you have any further questions or would like me to assist you with something else, feel free to ask!

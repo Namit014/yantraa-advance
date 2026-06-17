@@ -1,0 +1,33 @@
+Source URL: https://graymatter-robotics.com/polishing/
+Scraped: 2026-06-06T15:06:18.112411
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the source text:
+
+**Key Features:**
+
+* AI-powered polishing solution that scans and polishes at the push of a button
+* Fully autonomous robotic solution for high-mix manufacturing
+* Polishes various shapes, sizes, and materials without retooling or programming
+* Easy to use, intuitively designed for shop floor workers
+* Delivers consistent, high-quality finishes at unmatched speed and reliability
+
+**Technical Specifications:**
+
+* AUTOMATIC COMPUND DISPENSER: applies polishing compounds with precision, adjusting flow and pattern based on material and polishing stage
+* AUTOMATIC TOOL CHANGER: switches tools to approach flat surfaces with larger tool diameter and switches to a smaller tool to work on curved and intricate features
+* GENERATE UNIQUE MODELS: utilizes high-fidelity sensors to quickly scan and model parts, creating precise, unique working models for each component
+
+**Configurations:**
+
+* Single Arm & Rail: 4, 8, and 12 meter options, designed for sanding, buffing, or polishing
+* Dual-Arm & Rails: designed for high efficiency, uses two rails and two robots simultaneously to tackle larger projects
+* MOBILE ARM & RAIL: 4 meter rail for horizontal setups, flexible and moving system for large surfaces and lower-force applications
+
+**Benefits:**
+
+* Augments workforce and maximizes capacity and quality
+* Delivers cost savings and alleviates years of backlog
+* Can solve labor shortages, quality issues, and production slowdowns
+
+Let me know if you'd like me to extract anything else!

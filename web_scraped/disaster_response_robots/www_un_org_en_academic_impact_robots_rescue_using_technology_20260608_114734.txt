@@ -1,0 +1,21 @@
+Source URL: https://www.un.org/en/academic-impact/robots-rescue-using-technology-mitigate-effects-natural-disasters
+Scraped: 2026-06-08T11:47:34.358072
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+* Development of rescue robots to assist in search and rescue of people following a disaster
+* Nagaoka University of Technology (NUT) is a world-leading institution in development of disaster response robots
+* Robots have improved dramatically over the years, including mechanical reliability when employed in the field
+* Innovation is critical in robot technology, which can foster employment and economic development
+* According to the 2019 International Telecommunications Union report, "the growing dexterity of robots makes them suitable in disaster situations that are too dangerous for humans or rescue animals"
+* Breakthroughs are being achieved in Japan, where there is the possibility for commercialization of robots designed specifically for disasters
+* A 6.8 magnitude earthquake occurred in the Chuetsu district of Niigata Prefecture in 2004, resulting in 68 deaths, 4,795 injured people, and about 16,000 collapsed homes
+* The earthquake damage was estimated to be more than 2 times the annual budget of Niigata Prefecture
+* Nagaoka University of Technology partnered with the Nagaoka Iron Industrial Youth Research Association to develop rescue robots
+* Rescue robots are specifically designed to assist in the search and rescue of persons following a disaster
+* NUT has partnered with several local companies to increase development and production capabilities
+* Students are involved in the research and development of rescue robots, including the NuTech R team, which has successfully participated in competitions in Japan
+* The development of this type of robot is critical in a country where natural disasters are not an uncommon occurrence
+
+Note: The text is written in a narrative style, so I removed all the navigation menus, ads, and boilerplate to extract only the relevant technical specifications, facts, numbers, and descriptions.

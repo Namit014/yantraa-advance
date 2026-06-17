@@ -1,0 +1,31 @@
+Source URL: https://www.universal-robots.com/applications/sanding-polishing/
+Scraped: 2026-06-06T15:06:36.520542
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Sanding and Polishing Robots**
+
+* Collaborative robots (cobots) offer a flexible solution for polishing or sanding tasks.
+* Cobots adjust position to achieve the desired force, making them suitable for tasks that require a specific, often delicate touch.
+* They improve product safety by making surfaces easier to clean, reducing susceptibility to corrosion, increasing wear resistance, and enhancing adhesion for coatings.
+* Cobots can increase production, streamline finishing processes, and enhance workplace safety.
+
+**Case Studies**
+
+* Paradigm Electronics: increased throughput by 50% with the use of UR10 cobots for polishing.
+* All Axis Machining: automated six operations, including CNC machine-tending, sanding, and deburring, boosting spindle uptime from 8 to 20 hours daily.
+* Pentik: implemented two UR10 cobots to scale production, boost workstation efficiency tenfold, and preserve the unique handmade feel of its products.
+
+**UR MarketPlace**
+
+* Application kits: useful for those who can install their own solution but are looking for a compatible set of end-effectors, software, and other accessories.
+* Components: single products that can be combined with UR robots to create an entire solution, including end-effectors, 7th axis, software, or teach pendants.
+* Solutions: flexible and easy to integrate, ideal for a plug-and-play solution with low risk, a manageable budget, and on-site setup.
+
+**Why Universal Robots?**
+
+* Tried. Tested. Trusted: Universal Robots has deployed over 100,000 cobots into every manufacturing industry.
+* Flexible: UR cobots meet the demands for flexibility head-on with industry-leading ease-of-use, intuitive programming, and a powerful back-end for OEMs and developers to add value and meet specific needs.
+* Worker-safe, worker-friendly: UR cobots have developed the most complete set of safety tools and functions in the industry, allowing manufacturing teams to work safely side-by-side with UR cobots.
+* Return on Investment (ROI): usually measured in months, not years, for UR cobot-based systems.

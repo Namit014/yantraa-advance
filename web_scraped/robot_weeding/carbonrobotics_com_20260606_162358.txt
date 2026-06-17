@@ -1,0 +1,38 @@
+Source URL: https://carbonrobotics.com/
+Scraped: 2026-06-06T16:23:58.291355
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the raw scraped web text:
+
+**LaserWeeder G2**
+
+* Increase farm profits
+* Cost reduction: up to 80% vs. traditional weed control
+* Eliminate hand labor, reduce costs, and address labor shortages
+* No herbicide purchasing or application
+* No soil disruption or root damage
+* Increase yield: 5-50% validated by farmers and third-party trials
+* Eliminate weeds before they compete with crops for water and nutrients
+* Payback period: 1-3 years on a machine lasting 7-10 years
+
+**Carbon ATK**
+
+* The most dependable tractor autonomy solution
+* Designed and tested for the demands of commercial agriculture
+* Relies on Large Plant Model (LPM) trained on the world's largest, most diverse, and fastest-growing agricultural dataset
+* 150M labeled plants in 15 countries and 100+ crops
+* Reliable across diverse field conditions and crop types
+* Installs on existing tractors (Deere 6R, 8R, 8RX, 8RT 2019+ series)
+* Seamless manual override retains all stock tractor controls
+* Retains manual and autonomous operation with a simple press of a button
+* Remote operator supervision in real-time and takes control when situations arise
+
+**Trusted by Top Growers Worldwide**
+
+* 15 countries
+* Featured grower stories from Rio Fresh Farms, Terra Gold Farms, and others
+* What growers are saying:
+	+ "LaserWeeder is a necessity now." - Steve Gill, Owner, Gills Onions
+	+ "Soon after adopting the LaserWeeder, we reduced our chemical use by 70%..." - Mick Cox, Production Manager, Riviera Farms
+	+ "We are already seeing larger size onions, better tops, better color, and better plant vigor." - Julie Locke, Agronomist, CVS Ag
+	+ "We saved a bunch of money on our labor bill since purchasing the LaserWeeder..." - Jordan Hungenberg, Co-Owner, Hungenberg Produce Co.

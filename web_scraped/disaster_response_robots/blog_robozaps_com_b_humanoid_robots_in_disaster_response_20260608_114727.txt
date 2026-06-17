@@ -1,0 +1,57 @@
+Source URL: https://blog.robozaps.com/b/humanoid-robots-in-disaster-response
+Scraped: 2026-06-08T11:47:27.643143
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Key Statistics:**
+
+* Search and rescue robotics market valued at over $27 billion in 2025 and projected to reach $70.33 billion by 2030 (14.79% CAGR)
+* Quadrupling natural disaster frequency since 1970
+* Rapid advances in AI autonomy
+
+**Robot Categories:**
+
+* Ground crawlers (snake robots, tracked vehicles)
+* Aerial drones (thermal imaging, 3D mapping)
+* Aquatic robots (flood rescue, underwater search)
+* Quadrupeds (terrain traversal)
+* Humanoid robots (door/valve operation, tool use, stair climbing)
+
+**Purpose-Built Disaster Humanoids:**
+
+* IIT's WALK-MAN (1.85 m, 102 kg, 33 DoF)
+* Centauro hybrid (1.5 m, 93 kg, wheel-legged)
+* Boston Dynamics Atlas
+
+**Challenges:**
+
+* Battery life limits most robots to 1-4 hours of operation
+* Wireless communication fails inside collapsed structures
+* Robots still require human supervision for complex life-or-death decisions
+
+**Timeline:**
+
+* 1995: Oklahoma City bombing and Kobe earthquake inspire the field of disaster robotics
+* 2001: First robotic deployment at Ground Zero on September 11
+* 2005: Aerial and aquatic drones used for damage assessment and survivor location in Hurricane Katrina
+* 2011: iRobot PackBot and Warrior used in Fukushima Daiichi nuclear disaster
+* 2013: DARPA unveils Atlas humanoid robot
+* 2015: DARPA Robotics Challenge Finals, where Team KAIST's DRC-HUBO won
+* 2016: IIT WALK-MAN disaster scenario test
+* 2017: Carnegie Mellon snake robots deployed in Mexico City earthquake
+* 2018: Centauro hybrid robot unveiled
+* 2019: Shark Robotics' Colossus firefighting robot saved Notre-Dame Cathedral
+* 2023: Turkey-Syria earthquake, where multiple drone and ground robot teams were deployed
+* 2025: MIT SPROUT robot and CES 2025 humanoid surge
+* 2026: Next-gen humanoids enter field testing
+
+**DARPA Robotics Challenge:**
+
+* 2012-2015: The single most important event in proving that humanoid robots could perform disaster response tasks
+* 8 sequential tasks: Drive a vehicle, walk across rubble, open a door, turn a valve, cut through a wall, surprise task, climb stairs, cross uneven terrain
+* DRC Task Requirements: Each robot had to complete 8 sequential tasks within 60 minutes
+
+**Awards:**
+
+* DRC Finals Results (June 2015): Top finishers in the DARPA Robotics Challenge Finals, where 25 humanoid robots from 5 countries competed in disaster tasks.

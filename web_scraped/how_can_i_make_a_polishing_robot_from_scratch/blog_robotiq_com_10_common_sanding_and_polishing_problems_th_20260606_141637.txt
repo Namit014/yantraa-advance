@@ -1,0 +1,28 @@
+Source URL: https://blog.robotiq.com/10-common-sanding-and-polishing-problems-that-robots-eliminate
+Scraped: 2026-06-06T14:16:37.814311
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+* 10 common sanding and polishing problems that robots can eliminate:
+	1. Sanding syndrome
+	2. Edge rounding
+	3. Corner mistakes
+	4. Flaw fixation
+	5. Sanding bias
+	6. Tilting edge
+	7. Speeding up
+	8. Inconsistent speed
+	9. Pressing down
+	10. Being human
+* Description of sanding syndrome: "a psychological disorder caused by fussy attention to detail combined with brain-rotting boredom"
+* Edge rounding: unintentional rounding of the edge of the workpiece, especially when sanding soft materials like wood or plastic
+* Corner mistakes: unintentional rounding, cupping, or otherwise messing up the corners of the workpiece
+* Flaw fixation: focusing on the flaws and ignoring the good things, leading to an uneven finish
+* Sanding bias: paying more attention to one face of the workpiece because it is most visible
+* Tilting edge: wearing down the edge of the abrasive and causing an inconsistent finish by tilting the sanding tool onto its edge
+* Speeding up: speeding up to complete the task sooner, but producing an inconsistent surface finish
+* Inconsistent speed: varying the speed of the sanding or polishing tool, leading to an uneven finish
+* Pressing down: applying too much pressure onto the surface, leading to a bad surface finish or damage to the motor of the tool
+
+Let me know if you need anything else!

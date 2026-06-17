@@ -1,0 +1,50 @@
+Source URL: https://howtorobot.com/expert-insight/scara-robots
+Scraped: 2026-06-08T21:17:35.532264
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**SCARA Robots:**
+
+* Definition: Selective Compliance Assembly/Articulated Robot Arm (SCARA)
+* Characteristic: Big swivel joint and ball screw
+* Unique feature: Speed, compactness, and precision
+* Industries that use SCARA robots: Electronics, Telecommunications, Food and beverage, Retail manufacturing, Automotive, Pharmaceuticals
+
+**Applications:**
+
+* Assembly
+* Disassembly
+* Picking and placing
+* Material handling
+* PCB soldering
+* Dispensing
+
+**Strengths:**
+
+* Speed
+* Precision
+* Compactness
+
+**Limitations:**
+
+* Small range of motion
+* Small payload capacity
+* Selective compliance (can be a limitation for applications requiring mechanical flexibility)
+
+**When to use a SCARA:**
+
+* If the application requires small, high-speed, and high-precision operations
+* If the application is in one of the industries listed above
+* If the robot is designed for small component assembly and handling
+
+**Cost:**
+
+* Lower upfront cost compared to other robot types due to fewer components and smaller size
+* Requires integration costs, including physical installation, programming, setup, and safety mitigation
+* Requires ongoing maintenance schedules, including greasing, mechanical inspections, and performance tests
+
+**When to use a SCARA:**
+
+* For entry-level robot users to begin their automation journey
+* For projects with a specific business case and application fit

@@ -1,0 +1,46 @@
+Source URL: https://aiforgood.itu.int/autonomous-robots-for-disaster-management/
+Scraped: 2026-06-08T11:47:57.215002
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Autonomous Robots**
+
+* Equipped with artificial intelligence and advanced sensors
+* Can navigate through complex and hazardous environments
+* Can gather data and perform specific tasks with minimal human intervention
+* Valuable assets in disaster response scenarios where human access may be limited or dangerous
+
+**Drones**
+
+* Used in disaster response scenarios, such as after Hurricane Katrina in the United States
+* Faces challenges due to a top-down, policy-driven approach, necessitating coordination among local agencies
+* Can be controlled by a single human through natural body motions
+* Potential applications:
+	+ Maneuvering through buildings and confined spaces
+	+ Establishing communication networks in areas where traditional infrastructure is lacking
+	+ Inspecting and collecting data
+
+**Data Integration and Meaningful Communication**
+
+* Effective communication plays a key role in disaster response
+* Robust communication infrastructure is crucial for connecting data from various devices
+* Data integration is important for enabling a more efficient and responsive reaction to emergency situations
+* Meaningful communication is critical for disaster response, with a focus on attaching significance to the collected data
+
+**Statistics**
+
+* In 2022, there were over 400 disasters worldwide, resulting in a staggering loss of 31,000 lives and a daunting economic toll exceeding $220 billion in direct costs
+* Drones have been used after hurricane Katrina in the United States
+
+**Experts' Quotes**
+
+* "The aim is that the drones will not require training from a person flying it, making it a more immersive experience." - Dario Floreano, Director of the Laboratory of Intelligent Systems at EPFL
+* "Data is not information, until it is associated with meaning." - Dominick Romano, Founder of Drainpipe.io
+* "The colossal impact of recent disasters underscores the urgency for innovative technological solutions." - No specific expert quoted
+
+**General Information**
+
+* The importance of disaster resilience in the face of escalating challenges posed by disasters
+* The need for innovative technological solutions in disaster management, including the integration of autonomous robots and drones
+* The emphasis on meaningful data management and communication in disaster response

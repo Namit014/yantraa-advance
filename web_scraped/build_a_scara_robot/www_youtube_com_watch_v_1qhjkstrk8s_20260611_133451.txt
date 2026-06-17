@@ -1,0 +1,11 @@
+Source URL: https://www.youtube.com/watch?v=1QHJksTrk8s
+Scraped: 2026-06-11T13:34:51.028425
+============================================================
+
+I've extracted the technical specifications and relevant information from the provided text. However, please note that the input text appears to be a YouTube video description, and the information is limited. Here is what I was able to extract:
+
+* SCARA Robot: A type of robot arm system.
+
+If you're looking to build your own Arduino-based robot, this information might not be sufficient. A SCARA robot is a type of robot arm system that uses a SCARA (Selective Compliance Assembly Robot Arm) design. This design allows for high precision and flexibility in the movement of the robot's arm.
+
+Please note that I was unable to extract any further information as the provided text is very concise. If you're looking for a more comprehensive guide, you may need to search for additional resources or tutorials on building your own Arduino-based robot.

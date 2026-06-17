@@ -1,0 +1,48 @@
+Source URL: https://robophil.com/insights/farming-robots-from-crop-monitoring-to-harvesting/
+Scraped: 2026-06-06T17:07:02.942599
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Farming Robots:**
+
+* Monitoring: capturing data about plant health, soil moisture, pest infestations, disease onset, nutrient stress, and more.
+* Scouting: capturing NDVI, detecting water stress, disease hotspots, or pest damage.
+* Weeding: using vision to distinguish weeds from crops and then mechanically removing weeds or applying spot herbicide only where required.
+* Fertilization: analyzing soil nutrient levels and only depositing fertilizer where needed, in optimal amounts.
+* Harvesting: requiring gentle handling, recognition of ripeness, and adaptability to variation in plant geometry.
+* Examples: FarmWise (mechanical weeding), Swiss company Gamaya (hyperspectral drone cameras), and AHPPEBot (tomato harvesting robot).
+
+**Enabling Technologies:**
+
+* Sensing:
+	+ RGB/multispectral/hyperspectral cameras
+	+ LiDAR/depth sensors/stereo vision
+	+ Proximity/touch sensors
+	+ Environmental sensors (soil moisture probes, temperature/humidity, nutrient sensors)
+* Navigation:
+	+ GPS/RTK/precision localization
+	+ IMUs, wheel encoders, odometry
+* Control:
+	+ Path planning algorithms
+	+ Row-following/visual servoing
+	+ Motion control & actuation
+	+ Manipulation/grasp planning
+	+ Machine learning/AI/computer vision models
+* Connectivity:
+	+ Edge computing
+	+ Cloud & IoT integration
+	+ Agronomic models & decision support systems
+
+**Key Numbers:**
+
+* 86.7% harvest success rate of AHPPEBot (tomato harvesting robot)
+* 2 Fresh Consulting +2 Ground rovers / mobile robots
+* +3 howtorobot.com +3
+
+**Technical Descriptions:**
+
+* Agricultural sector transformation: robots are no longer sci-fi curiosities but real, practical tools helping farmers monitor crops, optimize inputs, and harvest produce.
+* Benefit: precision farming, labor savings, reduced chemical usage and cost, and environmental impact.
+* Limitation: deployment challenges, compatibility with existing workflows, and talent recruitment.
+* Real-world examples: Swiss company Gamaya (hyperspectral drone cameras), FarmWise (mechanical weeding), and AHPPEBot (tomato harvesting robot).

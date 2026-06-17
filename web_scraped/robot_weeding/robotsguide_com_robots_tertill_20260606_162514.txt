@@ -1,0 +1,46 @@
+Source URL: https://robotsguide.com/robots/tertill
+Scraped: 2026-06-06T16:25:14.239031
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Specifications:**
+
+* Uses capacitive and inertial sensing
+* 4-wheel drive and extreme camber wheels for maneuverability in outdoor environments
+* Rugged weatherproof shell and large solar panel
+* Width: 21 cm
+* Height: 12 cm
+* Length: 21 cm
+* Weight: 1.1 kg
+* Speed: 0.44 km/h
+
+**Sensors:**
+
+* Capacitive sensors to detect plants, weeds, and conductive obstacles
+* Wheel rotation sensors to detect and control the motion of its wheels
+* Accelerometers and gyros to detect non-conductive obstacles and avoid dangerous slopes
+
+**Actuators:**
+
+* Four brushed DC motors drive the wheels
+* One brushed DC motor powers the weed whacker
+
+**Degrees of Freedom (DoF):**
+
+* 5 (drive wheels: 4 DoF; whacker: 1 DoF)
+
+**Materials:**
+
+* Polycarbonate ABS plastic, rubber gaskets
+
+**Compute:**
+
+* Main CPU: nRF52832 BLE processor from Nordic
+* Software: Custom-built
+
+**Power:**
+
+* Solar-powered
+* Weeds in 2-5 minute intervals for 1-2 hours a day
+* Cost: $350

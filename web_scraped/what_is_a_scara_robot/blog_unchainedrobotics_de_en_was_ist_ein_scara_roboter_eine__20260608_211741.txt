@@ -1,0 +1,32 @@
+Source URL: https://blog.unchainedrobotics.de/en/was-ist-ein-scara-roboter-eine-kurze-einführung-in-die-welt-der-scara-roboter
+Scraped: 2026-06-08T21:17:41.073467
+============================================================
+
+Here is the extracted technical information:
+
+**What is a SCARA robot?**
+
+* A type of industrial robot used in manufacturing and assembly processes
+* Equipped with a horizontal arm that moves in two directions, allowing it to reach and manipulate objects within a limited working area
+* Known for high precision and speed, making them well-suited for tasks that require precise movements or handling of small parts
+
+**How do SCARA robots differ from other types of robots?**
+
+* Constructed differently, with a limited range of motion in the vertical plane
+* Typically smaller and more compact compared to 6-axis robots
+* Faster and more precise than 6-axis robots, making them suitable for tasks that require high-speed assembly or handling of small parts
+
+**Advantages of SCARA robots**
+
+* Generally less expensive than other industrial robots, such as 6-axis robots
+* Faster and more accurate, making them well-suited for tasks that require precise and repeatable movements
+* Often used in small parts assembly lines, where they can perform tiny tasks quickly and accurately, improving overall efficiency and reducing the risk of errors
+
+**Common processes automated with SCARA robots**
+
+* Assembly: precise assembly of small parts, fastening screws, inserting pins, or assembling small components
+* Pick and place: picking and placing small parts or components with a high degree of precision
+* Packaging: packaging products for shipping or storage
+* Dispensing: dispensing small quantities of liquids or other materials with high accuracy
+
+Please note that the original text contains additional information, such as prices and references to specific products and manufacturers. I have removed these to provide a clean, technical extraction of the relevant information.

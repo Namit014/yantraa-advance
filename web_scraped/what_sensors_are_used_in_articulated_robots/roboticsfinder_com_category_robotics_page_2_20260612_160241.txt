@@ -1,0 +1,13 @@
+Source URL: https://roboticsfinder.com/category/robotics/page/2/
+Scraped: 2026-06-12T16:02:41.145803
+============================================================
+
+**Silver Nanowire Sensors for Robotics — Jan. 16, 2015**
+
+Researchers at North Carolina State University developed a silver-based nanowire sensor for wearable robotic devices, including exoskeletons and prosthetics. The sensor monitors pressure, finger touch, strain, and bioelectronic changes. It is constructed with silver wires as conductors and Ecoflex silicone between them as an electric insulator. The sensor is movable, stretchable, and responds to pressure changes in real time within 40 milliseconds. It can stretch up to 150% of its original shape. An electric charge is stored between the layers; when the sensor is stretched or deformed, the change is interpreted as energy and measured. The sensor can detect walking, running, and jumping from a squatting position, and may provide environmental feedback, movement monitoring, and kinesthetic feedback for robotic prosthetic users.
+
+**C-Bot for Physical Therapy Modalities — Dec. 26, 2014**
+
+C-Bot, from Spain-based FisioBot, is described as a collaborative robot entering commercialization. It is designed as an automated physical therapy room with two robotic arms for administering treatment. The system is intended for simple procedures and modalities including vacuum/suction therapy, hot air therapy, electrotherapy, and laser therapy. Treatment depth and intensity can be adjusted. The robot is designed with a limit on physical pressure for human safety. Use involves a 3D scan of the patient’s body, producing an identification card and body map, after which selected treatments are administered; simultaneous treatments are possible.
+
+**Gennaris Bionic Vision System — Nov

@@ -1,0 +1,35 @@
+Source URL: https://www.firgelliauto.com/en-nz/blogs/mechanisms/delta-robot
+Scraped: 2026-06-08T21:25:27.582055
+============================================================
+
+Here is the extracted technical specification:
+
+**Delta Robot:**
+
+* Design: Parallel kinematic manipulator with 3 (or 4) light arms hung from a fixed overhead base
+* Motor arrangement: Each motor is located in the fixed overhead base and drives an upper arm
+* Parallelogram linkages: Three motor-driven upper arms each have a parallelogram linkage at their tips, which connects to the end-effector platform
+* End-effector platform: Small, triangular plate that mounts the gripper, vacuum cup, or tool (typically 60-150 mm across)
+* Mass reduction: Moving mass is just the three lightweight carbon-fiber forearms and the small end-effector
+* Acceleration: Can pull 10 g or more of acceleration on the tool tip
+* Workspace: Curved, dome-shaped volume (not a rectangular box)
+* Ball-joint play: 0.2 mm of joint slop can become 0.3-0.5 mm at the tool tip
+* Stack gain: Sets the nominal multiplier for end-effector position error
+* Low and high estimates: Use ranges of 0.3-0.5 mm and 0.3-0.5 mm for end-effector position error
+* Platform tilt: Small-angle geometric estimate across the end-effector width
+* Key components:
+	+ Fixed Base Plate: Triangular overhead frame carries the three servo motors, gearheads, and the controller mounting
+	+ Upper Arms: Three rigid arms, each driven directly by a base-mounted servo through a 50:1 to 100:1 gearhead (typically 200-400 mm long)
+	+ Parallelogram Forearms: Pairs of parallel rods, 6-12 mm in diameter, terminated in ball joints at both ends
+	+ Ball Joints: Spring-loaded or magnetically retained ball-and-socket joints at all 12 connection points (4 per arm)
+	+ End-Effector Platform: Small, triangular plate that mounts the gripper, vacuum cup, or tool
+* Optional Fourth Axis: Telescoping splined shaft running from the center of the base to the center of the end-effector, driven by a fourth motor (adds tool rotation)
+* Real-world applications:
+	+ Food Packaging: ABB FlexPicker IRB 360 sorting individual chocolates, biscuits, and pralines
+	+ Pharmaceutical: Fanuc M-1iA placing pills, vials, and blister-pack components
+	+ Electronics Assembly: Adept Quattro s650H placing connectors, small PCBs, and labels on consumer electronics lines
+	+ 3D Printing: Delta-style printers like the FLSUN V400 and the original Rostock design
+	+ Education and Research: Hobby and classroom kits like the uFactory uArm Swift Pro and the Dobot Magician
+	+ Logistics Sorting: Multiple delta robots in parallel sorting parcels, mail, and small items on Amazon and DHL fulfillment lines
+
+Note: I removed navigation menus, ads, and boilerplate text to provide the relevant technical specifications, facts, numbers, and descriptions.

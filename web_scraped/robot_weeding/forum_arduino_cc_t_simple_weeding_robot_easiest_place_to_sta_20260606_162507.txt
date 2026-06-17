@@ -1,0 +1,29 @@
+Source URL: https://forum.arduino.cc/t/simple-weeding-robot-easiest-place-to-start/593635
+Scraped: 2026-06-06T16:25:07.352819
+============================================================
+
+**Technical Specifications:**
+
+* Robot size: 15cm
+* Wheels: 3D printed with spikes for disturbance and soil rotation
+* Strimmer: Small, vertically-mounted motor for constant spinning
+* Distance/Collision detection: Ultrasonic sensor consideration
+* Motor: High rpm motor for strimmer
+* chassis: Zumobot kit as a base, with potential for custom 3D printed parts
+* Sensors: Ultrasonic sensor for distance/collision detection
+* Power: Battery power for robot (modeled after other small robots, such as those used for weed removing)
+
+**General Guidance:**
+
+* The goal is to create a small, simple robot that can effectively remove weeds and disturb the soil, without relying on more advanced technologies like neural networks or precision weed detection
+* The concept is to create a robot that can "bounce around" randomly, using the wheel spikes to disturb the soil and cut down weeds with a small strimmer
+* The robot will not be "smart" and will not be able to distinguish between wanted and unwanted plants, but rather will simply hack away at the top growth of any plant that happens to be in its path
+* By using the wheel spikes and strimmer, the robot can create a disturbance in the soil that will make it difficult for surface seeds to germinate, and can also exhaust the energy of the weeds over time
+
+**Notes and Opinions:**
+
+* The project may be more complex than initially thought, and may require additional time and effort to complete
+* Some respondents expressed concern about the robot's ability to effectively remove weeds, and suggested that more substantial robots might be necessary for the task
+* Others proposed alternative approaches, such as using a Roomba-like bot that can detect and avoid plants
+* The concept of relentless weeding, where the robot can continually hack away at the top growth of weeds, was seen as a potential advantage over traditional weeding methods
+* The idea of a drag tail for a two-wheeled robot was also proposed as a way to create a similar effect, making it difficult for surface seeds to germinate.

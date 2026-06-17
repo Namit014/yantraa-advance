@@ -1,0 +1,66 @@
+Source URL: https://www.troysupply.com/oem-4-axis-delta-robot-parallel-robot_p171.html
+Scraped: 2026-06-08T21:25:18.051907
+============================================================
+
+**Technical Specifications:**
+
+* OEM 4-axis Delta Robot Parallel Robot:
+	+ Working diameter: 400mm-1200mm
+	+ Rated payload: 1-3kg
+	+ KEBA teach pendant
+* TR600D-4W:
+	+ Freedom of movement: 4 axis
+	+ Repeat positioning accuracy: ±0.1mm
+	+ Rated load: 1kg
+	+ Working space: X=600mm, Y=200mm, φ=600mm
+	+ Operating speed: 0.4s/beat (25/3.05/25mm)
+	+ Visual positioning module: Optional (130W camera, lens, light source)
+	+ Movement instructions: PTP, LINE, PICK, PLACE
+	+ Angle positioning accuracy: 0.5°
+	+ Speed: 70-150 times/min
+	+ HMI: 7-inch pendant
+	+ Noise level: <70db
+	+ Robot quality: 67kg
+	+ Protection level: IP56
+	+ Power input: 220V
+	+ Rated power: 3kw
+	+ Installation method: Upside-down
+	+ Drive way: AC Servo drive
+	+ Maximum speed: 6m/s
+* High speed industrial Delta Robot:
+	+ Working diameter: 400mm-1200mm
+	+ Rated payload: 1-3kg
+	+ KEBA teach pendant
+* TR750D-H:
+	+ High configuration ensures high performance and high cost performance
+	+ Using imported Panasonic servo motors
+	+ High precision planetary reducers
+	+ Payload: 1kg to 15kg
+	+ Working diameter: 350mm-1400mm
+* China Top of High Speed Delta Robot:
+	+ Working diameter: 400mm-1200mm
+	+ Rated payload: 1-3kg
+	+ KEBA teach pendant
+* TR5-7CO Cobot:
+	+ 6-axis vertical multi-joint Cobot
+	+ Effective load: 5KG
+	+ Adapt to various different application scenarios
+	+ Customize five or six axes according to customer needs
+* Helios:
+	+ Industrial-grade motion positioning accuracy: 10mm
+	+ Arm manipulation accuracy: ±0.1mm
+	+ Full body degrees of freedom: 42
+	+ Multimodal fusion perception: Pose-Vision-Force control strategy: Tactic of Pose + Vision + Force
+	+ Maximum payload per arm: 5kg
+
+**Other Information:**
+
+* China best of Digital metallographic microscope TVN-MT60_B:
+	+ Main features: Stable atmosphere, operation is more flexible
+	+ Integrates various observation functions such as bright field, dark field, polarized light, and DIC differential interference
+* Face mask cartoning machine:
+	+ PLC programmable control system
+	+ Adjustable speed
+	+ Visualization of efficiency
+	+ Accurate display of faults
+	+ Timely elimination

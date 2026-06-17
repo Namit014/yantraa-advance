@@ -1,0 +1,48 @@
+Source URL: https://roboticsandautomationnews.com/2025/09/05/agricultural-robots-precision-farming-and-autonomous-harvesting/94109/
+Scraped: 2026-06-06T17:06:47.699193
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions:
+
+**Market Momentum:**
+
+* Global agricultural robotics market valued at $7.34 billion in 2024, with forecasts expecting it to grow to $26.35 billion by 2032 (CAGR ~18.3 percent)
+* Another analysis estimates $14.74 billion in 2024, projecting a rise to $48.06 billion by 2030 (CAGR ~23 percent)
+* Broader "robots and drones" segment expected to increase from $7.43 billion in 2025 to $24.26 billion by 2034 (CAGR ~14 percent)
+
+**Precision Spraying:**
+
+* John Deere's See & Spray technology reduces herbicide usage by an average 59 percent across corn, soybean, and cotton operations
+* 1 million acres were treated with See & Spray in 2024, yielding the same average savings of 3-4 bushels per acre
+
+**Other High-ROI Use Cases:**
+
+* Laser weeding: up to 80 percent reduction in herbicide use, 1-2 seasons
+* Robotic harvesting: up to 50 percent cut in seasonal labor costs, operates 24/7
+* Drone scouting: saves $10-$15/acre in scouting costs, enables targeted inputs
+* Smart irrigation: 20-30 percent water savings, less manual labor
+
+**Robotic Harvesting:**
+
+* A strawberry-picking robot can harvest a 25-acre field in just three days, replacing a crew of around 30 workers
+* For apples, current robots pick at a pace of one fruit every 5-10 seconds, compared to humans who usually manage one per second
+* Pruning robots are under development to address costs, given that pruning can account for up to 25 percent of labor in fruit/vine operations
+
+**Autonomous Tractors and Mobility Platforms:**
+
+* John Deere's second-generation fully autonomous tractors, orchard sprayers, and remote dump truck "Dusty" are designed to run without drivers using advanced camera, LiDAR, and AI systems
+* Farmers have already deployed first-gen autonomous tractors since 2022 for planting prep
+* Deere aims for fully autonomous corn and soybean systems by 2030
+
+**Broader Efficiency Gains via Digital Agriculture:**
+
+* Precision agriculture can boost yields by 9-13 percent, while variable-rate irrigation can save ~25 percent water without hurting output
+* Automated livestock systems, like milking robots, and greenhouse automation reduce labor and improve consistency
+
+**Investment Observations:**
+
+* Market size and growth: $20-50 billion+ within the next decade
+* North America leads adoption
+* Quantifiable ROI: herbicide savings of nearly 60 percent, yield boosts, labor reductions
+* Strong corporate momentum: John Deere's strategic acquisitions and expansion of pilot programs validate long-term vision
+* Engineering complexity and opportunity: harvesting remains challenging, but success in greenhouse and specialty contexts provides a clear R&D roadmap.

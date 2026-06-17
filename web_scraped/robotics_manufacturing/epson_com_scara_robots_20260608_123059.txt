@@ -1,0 +1,50 @@
+Source URL: https://epson.com/scara-robots
+Scraped: 2026-06-08T12:30:59.295232
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the source text:
+
+**Epson SCARA Robots**
+
+* Over 300 models available
+* Reach: 175-1,000 mm
+* Max payloads: up to 50 kg
+* Repeatability: down to 5 microns
+
+**GX Series**
+
+* High-power-density robot line
+* Fast production speeds and smooth motion control
+* Higher payloads
+* Reach: 175-1,000 mm
+* Max payloads: 1-20 kg
+* Cycle time: starting at 0.28 s
+
+**LS Series**
+
+* Fast, compact, and low-cost solutions
+* Reach: 400-1,000 mm
+* Max payloads: 3-50 kg
+* Cycle time: starting at 0.39 s
+
+**RS-Series**
+
+* Zero-footprint robots
+* Flexible SCARA robots available in the market
+* Reach: 350-550 mm
+* Max payloads: 4-6 kg
+* Cycle time: starting at 0.32 s
+
+**T Series**
+
+* Compact design with strong performance
+* Simple setup
+* Reach: 400-600 mm
+* Max payloads: 3-6 kg
+* Cycle time: starting at 0.46 s
+
+**General Specifications**
+
+* High acceleration, smooth motion, and fast settling times
+* Vast lineup of models available in various configurations to meet application needs
+* Epson RC+ development software with a simple user interface, integrated debugger, and advanced 3D simulator

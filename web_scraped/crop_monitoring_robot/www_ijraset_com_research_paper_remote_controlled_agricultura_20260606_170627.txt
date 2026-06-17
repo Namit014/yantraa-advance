@@ -1,0 +1,44 @@
+Source URL: https://www.ijraset.com/research-paper/remote-controlled-agricultural-robot
+Scraped: 2026-06-06T17:06:27.874143
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Project Overview**
+
+* Agri Bot is a remote-controlled agricultural robot that integrates robotics, IoT, and mobile application development.
+* It is designed to execute precise agricultural tasks such as digging, filling, seed sowing, and fertilizer dispensing.
+* The system uses an Arduino UNO microcontroller, ESP32 camera module, servo motors, and various sensors.
+
+**Hardware Components**
+
+* Arduino UNO microcontroller
+* ESP32 camera module
+* Servo motors
+* Various sensors
+
+**Software Features**
+
+* MIT App Inventor-based mobile application for remote control and monitoring
+* Bluetooth communication for user interface
+
+**Technical Specifications (Missing due to Limited Context)**
+
+* None explicitly mentioned in the text; only a brief overview of the system's capabilities and features is provided.
+
+**Potential Applications and Future Developments**
+
+* Autonomous navigation
+* Sustainable power solutions
+* Data analytics for decision support
+* Enhanced remote monitoring
+* Machine learning for crop recognition
+* Obstacle detection sensors for crop recognition
+* Swarm robotics for scalable and adaptable farming practices
+
+**Literature Review**
+
+* References to existing research on agricultural robotics, precision agriculture, and automation in the agricultural sector.
+* Discussion of the importance of automation in addressing labor shortages and low productivity in the agricultural sector.
+
+Please note that due to the limited context provided, I was unable to extract specific technical specifications (such as speed, capacity, or resolution). If you have any further context or information, I would be happy to assist you in extracting more detailed technical specifications.

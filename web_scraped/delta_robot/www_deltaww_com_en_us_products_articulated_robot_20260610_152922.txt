@@ -1,0 +1,38 @@
+Source URL: https://www.deltaww.com/en-US/products/Articulated-Robot
+Scraped: 2026-06-10T15:29:22.083699
+============================================================
+
+Here is the extracted technical information from the source text:
+
+**Articulated Robots**
+
+* Product list:
+	+ DRV70L Series
+	+ DRV90L Series
+	+ DRVA1L7 Series
+	+ DRVA1LC Series
+	+ DRV70L7R65 Series
+	+ DRV90L7R65 Series
+	+ DRVA8LN Series
+
+**Peripheral Devices**
+
+* Machine Vision
+* Servo Systems:
+	+ AC Servo Motors and Drives
+	+ Motion Control
+* Host PAC LU
+* Ball Screw Driven Linear Module
+* Smart Sensor
+* Touch Panel
+* HMI - Human Machine Interfaces (Industrial Power)
+
+**Industrial Power**
+
+* Industrial Ethernet Solution
+
+**Resources & Tools**
+
+* Download Center
+
+Note that I have removed all navigation menus, ads, and boilerplate text, and condensed the information into a clear and concise format. I have also rewritten the text to improve its readability and clarity.

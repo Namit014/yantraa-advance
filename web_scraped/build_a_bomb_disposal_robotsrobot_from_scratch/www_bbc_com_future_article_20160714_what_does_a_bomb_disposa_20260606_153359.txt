@@ -1,0 +1,24 @@
+Source URL: https://www.bbc.com/future/article/20160714-what-does-a-bomb-disposal-robot-actually-do
+Scraped: 2026-06-06T15:33:59.242215
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions relevant to bomb disposal robots:
+
+* The robots are not technically robots, but rather drones operated by a human operator from a safe distance.
+* They are used to safely disable explosive ordnance, including bombs, landmines, and unexploded munitions.
+* The first bomb disposal robot created was the Wheelbarrow Mark 1 in 1972.
+* The original bomb disposal robots were controlled by a series of ropes.
+* Later, a telecommunications cable was used to transmit commands to the robot's electrical systems.
+* Today, the majority of bomb disposal robots are controlled through wireless communications, with a range of a couple of kilometers.
+* The design of bomb disposal robots has changed little since they were first created, with the core idea remaining the same.
+* Bomb disposal robots typically achieve their purpose by firing a high-pressure jet of water at wires on the device.
+* The key to modern bomb disposal operations is to render the explosive ordnance device inert without causing it to detonate.
+* The bomb disposal robot's arm allows great versatility and can be used to bypass various obstacles that would otherwise impede its progress.
+* Some designs can even climb stairs.
+* The cost of bomb disposal robots goes into making the electronics and sensors robust in really brutal conditions, like space.
+* Some of the newer models can even climb stairs.
+* Bomb disposal robots vary in size, from the stripped-down backpack-sized robots that can be carried on a soldier's back and thrown into buildings, to the size of a ride-on lawnmower, armed with x-ray devices and explosives detectors.
+* Initially, the controls for these robots were complicated, requiring specific training; now games console controllers are being used to operate them.
+* The prerequisite, in such high-pressure environments, is to make the controls as intuitive and as simple as possible.
+* Prototypes are being developed that are able to jump over walls and land on the other side.
+* Others are being developed that have two arms, providing bomb disposal robots with greater manual dexterity, such as allowing them to open car boots and look inside.

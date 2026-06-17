@@ -1,0 +1,49 @@
+Source URL: https://en.wikipedia.org/wiki/Bomb_disposal
+Scraped: 2026-06-06T15:33:00.829632
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the Wikipedia article on "Bomb Disposal":
+
+**History of Bomb Disposal**
+
+* 1874: The first professional civilian bomb squad was established by Colonel Sir Vivian Dering Majendie, who investigated an explosion on the Regent's Canal.
+* 1875: Majendie framed the Explosives Act, the first modern legislation for explosives control.
+* 1881-85: Majendie advised on the handling and dismantling of explosives during the Fenian dynamite campaign.
+* 1903: The New York City Police Department established its first bomb squad, known as the "Italian Squad".
+* World War I: Bomb disposal became a formalized profession, with the British dedicating a section of Ordnance Examiners to handle the growing problem of unexploded bombs.
+* World War II: The Germans developed delayed-action fuzes, which were later employed during the Spanish Civil War and World War II.
+* 1936-37: The Germans used unexploded bombs (UXBs) during the Spanish Civil War.
+* 1939: The British first encountered UXBs, which were easily dealt with by Royal Air Force or Air Raid Precautions personnel.
+* 1940: The British realized they needed professionals to deal with the coming problem of UXBs and created 25 "Bomb Disposal Companies".
+* 1941: The United States established a formal bomb disposal school under the Ordnance Corps.
+* 1947: The US Army started attending a new school at Indian Head, Maryland, under U.S. Navy direction.
+* Post-World War II: The Ammunition Technicians of the Royal Logistic Corps (RLC) became highly experienced in bomb disposal, dealing with bombs planted by the Provisional Irish Republican Army (PIRA) and other groups.
+
+**Techniques and Tools**
+
+* Remote methods for handling and dismantling explosives
+* Delayed-action fuzes
+* Anti-handling devices, such as the Luftwaffe's ZUS40 anti-removal bomb fuze
+* Methods and equipment devised by scientists and technical staff to render bombs safe
+* Bomb fuzes incorporating anti-handling devices, designed to kill bomb disposal personnel
+* Use of scientists and technical staff to devise methods and equipment to render bombs safe
+
+**Organizations and Units**
+
+* Royal Engineers
+* Royal Air Force
+* Air Raid Precautions personnel
+* Ordnance Examiners
+* UK's bomb disposal units during World War II
+* US Army Ordnance Bomb Disposal School
+* Naval Mine Disposal School at the Naval Gun Factory, Washington, D.C.
+* US Navy, Underwater Demolition Teams (UDTs) or the U.S. Navy Frogmen
+* US Army Bomb Disposal companies
+* US Navy Bureau of Naval Weapons
+* EOD Technology Center
+* Ammunition Technicians of the Royal Logistic Corps (RLC)
+
+**Other**
+
+* The term "bomb disposal" is an all-encompassing term to describe the separate, but interrelated functions in the military fields of explosive ordnance disposal (EOD) and improvised explosive device disposal (IEDD), and the public safety roles of public safety bomb disposal (PSBD) and the bomb squad.
+* The problem of UXBs was further complicated when Royal Engineer bomb disposal personnel began to encounter munitions fitted with anti-handling devices.

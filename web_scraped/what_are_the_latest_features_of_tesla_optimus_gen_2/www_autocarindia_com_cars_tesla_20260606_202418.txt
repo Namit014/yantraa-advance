@@ -1,0 +1,39 @@
+Source URL: https://www.autocarindia.com/cars/tesla
+Scraped: 2026-06-06T20:24:18.223522
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Tesla Car Prices in India (June 2026)**
+
+* Tesla Model Y RWD: ₹59.89 lakh (ex-showroom)
+* Tesla Model Y Long Range RWD: ₹67.89 lakh (ex-showroom)
+
+**Upcoming Tesla Cars in India (2026)**
+
+* Tesla Model 3: Expected launch date 2026, estimated price ₹55.00 - 60.00 lakh (ex-showroom)
+
+**Tesla Car Latest Updates**
+
+* April 2026: Production of Model S and Model X stopped
+* October 2025: Tesla Model Y Long Range variant gets a bigger battery pack and 39km additional range
+* August 2025: Global-spec Tesla Model Y Performance AWD revealed
+* June 2025: 2025 Tesla Model X updated globally with more range and new features
+* March 2025: Tesla Model 3 homologation initiated in India
+
+**Tesla Model Y Variants**
+
+* 2 variants:
+	+ Base variant: ??? (ex-showroom)
+	+ Long Range variant: ₹67.89 lakh (ex-showroom)
+
+**Electric Range and Seating Capacity**
+
+* Tesla Model Y: 500-661 km electric range, 5-6 seater
+
+**Other Key Details**
+
+* All Tesla cars in India come with the option to purchase the Full Self-Driving (FSD) capability for an additional ₹6 lakh
+* FSD Supervised features will be made available through future over-the-air software updates, pending regulatory clearance and ecosystem development
+
+Let me know if you'd like me to extract any additional information.

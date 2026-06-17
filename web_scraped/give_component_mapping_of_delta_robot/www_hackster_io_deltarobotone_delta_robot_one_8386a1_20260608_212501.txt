@@ -1,0 +1,50 @@
+Source URL: https://www.hackster.io/deltarobotone/delta-robot-one-8386a1
+Scraped: 2026-06-08T21:25:01.682423
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Robot Specifications**
+
+* Name: Delta-Robot One
+* Type: Smart open source robotics project for makers and students
+* Combines: Electronics, Mechanics, and Informatics in one system
+* Robot assembly: Kit-based with layer system and clickable mechanical solution
+* Color customization: Available for some parts
+
+**Electronics**
+
+* Hardware components:
+	+ Arduino UNO (1)
+* Software apps and online services:
+	+ One Smart Control Mobile
+	+ One Smart Control Desktop
+* Arduino Library: Provides functions for the interface (e.g. move.ptp(position x, position y, position z))
+* Python package: One Easy Protocol for communication and control
+
+**Mechanics**
+
+* Layer system: Designed for easy assembly
+* Magnetic gripper: Provided by Adafruit
+* Servo motor: Tower Pro MG92B (previously Tower Pro MG91)
+	+ Gear: Metal
+	+ Dimension: 22.8x12x31 mm
+	+ Torque: 3.1kg/cm (4.8v)
+	+ Speed: 0.13sec/60degree (4.8v)
+	+ Voltage: 4.8-6.6v
+* Pillar package: Provided by i.materialise.com
+
+**Software**
+
+* Windows 10 Application: One Smart Control Desktop
+	+ Written in C++ using Qt-Creator IDE and Qt-Framework
+	+ Provides basic functions of the robot (e.g. moving, changing light, and gripper state)
+	+ Integrated flowchart tool
+
+**Schematics and Documentation**
+
+* All schematics available in Fritzing version
+* Drawings and part lists available for electronics and mechanics
+* Robot assembly video clip available
+
+Note that this extraction focuses on the technical specifications, facts, numbers, and descriptions in the provided text, and does not include boilerplate or navigation menus.

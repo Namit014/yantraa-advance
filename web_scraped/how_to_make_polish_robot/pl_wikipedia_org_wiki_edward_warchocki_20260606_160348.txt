@@ -1,0 +1,33 @@
+Source URL: https://pl.wikipedia.org/wiki/Edward_Warchocki
+Scraped: 2026-06-06T16:03:48.809403
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the Wikipedia article:
+
+**Dimensions and Mass:**
+
+* Height: 132 cm
+* Mass: around 35 kg
+
+**Speed:**
+
+* Up to 2 m/s
+
+**Power Source:**
+
+* Akumulatorowe (acumulator-based)
+
+**Lidar and AI Systems:**
+
+* System mapowania przestrzeni 3D (3D space mapping system)
+* Mody sztucznej inteligencji (modules of artificial intelligence) for face and voice recognition
+
+**Other Characteristics:**
+
+* Czarne wąsy (black sideburns) for personalization
+
+**Social Media Platforms:**
+
+* TikTok
+* Instagram
+* YouTube

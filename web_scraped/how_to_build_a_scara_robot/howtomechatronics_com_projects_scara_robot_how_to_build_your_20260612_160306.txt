@@ -1,0 +1,45 @@
+Source URL: https://howtomechatronics.com/projects/scara-robot-how-to-build-your-own-arduino-based-robot/
+Scraped: 2026-06-12T16:03:06.982996
+============================================================
+
+The SCARA robot described has 4 degrees of freedom. It is driven by four NEMA 17 stepper motors, each paired with an A4988 driver on a CNC shield controlled by an Arduino UNO. The end‑effector gripper is actuated by an MG996R servo motor.
+
+**Mechanical reductions**  
+- Joint 1: 20 : 1 reduction, achieved in two stages with custom GT2 pulleys.  
+- Joint 2: 16 : 1 reduction, also achieved in two stages with custom GT2 pulleys.  
+- Joint 3: 4 : 1 reduction, achieved with a single‑stage reduction.  
+
+**Bearings**  
+- Thrust ball bearing: 1 × 40 × 60 × 13 mm.  
+- Thrust ball bearing: 2 × 35 × 52 × 12 mm.  
+- Radial ball bearing: 5 × 8 × 22 × 7 mm.  
+- Additional 608 ball bearings (2) used for the middle pulley.
+
+**Linear motion components**  
+- Four smooth rods: 10 mm diameter, 400 mm length.  
+- Linear ball bearings: 10 mm (four units).  
+- Lead screw for Z‑axis: 8 mm diameter, 400 mm nominal length; to fit the configuration the screw must be 20 mm shorter (≈380 mm) or the Z motor can be raised by 20 mm using spacer nuts.  
+
+**Belts and pulleys**  
+- GT2 closed‑loop belts: 200 mm and 300 mm lengths.  
+- GT2 pulleys are 3D printable; tooth count can be varied parametrically to adjust size.
+
+**Fasteners (examples)**  
+- Radial ball bearing for joint 1: 35 mm inner, 47 mm outer diameter.  
+- Thrust bearing for joint 1: 40 mm inner, 60 mm outer diameter.  
+- Joint coupling secured with four M4 × 55 mm bolts and self‑locking nuts.  
+- Middle pulley secured with a 45 mm M8 bolt, washer, and self‑locking nut (using two 608 bearings).  
+
+**Other hardware**  
+- Various M3, M4, and M5 bolts and nuts as required for assembly.  
+
+**3D‑printed parts**  
+- Designed for printing on printers with smaller beds (e.g., Creality CR‑10, Ender 3).  
+- Printed primarily in PLA+ (blue) for most parts; PLA used for pulleys and gripper.  
+- Print time ≈120 hours at 60 mm/s; base alone ≈32 hours.  
+- Horizontal expansion of –0.1 mm applied in slicer for better fit.  
+
+**Software/Control**  
+- GUI created in Processing environment providing forward and inverse kinematics control via sliders.  
+- Allows simultaneous display of joint angles and end‑effector X, Y, Z coordinates.  
+- Features “Save” and “Run” buttons for storing and looping movements, with adjustable speed and acceleration.

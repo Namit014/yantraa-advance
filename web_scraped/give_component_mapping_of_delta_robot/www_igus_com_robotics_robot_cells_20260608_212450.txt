@@ -1,0 +1,23 @@
+Source URL: https://www.igus.com/robotics/robot-cells
+Scraped: 2026-06-08T21:24:50.785138
+============================================================
+
+Here are the technical specifications and facts extracted from the text:
+
+* Maximum throughput: Achieve maximum throughput with high-speed delta robots, engineered for rapid pick-and-place applications and precise material handling.
+* Characteristics:
+	+ Lightweight
+	+ Grease-free
+	+ High-performance polymers and carbon fiber components
+	+ Minimizes moving mass
+* Features:
+	+ Fast cycle times
+	+ High accuracy
+* Applications:
+	+ Automating packaging
+	+ Electronics assembly
+	+ Small-part sorting
+* Compatibility:
+	+ Compatible with vision systems, available through the RBTX marketplace
+
+Note that the text does not provide specific numbers, such as speed, accuracy, or production capacity, as these values are not mentioned. The text focuses on the general features, benefits, and applications of the Delta Pick and Place Robot.

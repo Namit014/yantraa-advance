@@ -1,0 +1,44 @@
+Source URL: https://robotics.omron.com/products/industrial-robots/scara/
+Scraped: 2026-06-08T12:30:53.500498
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**SCARA Robots**
+
+* Models: i4L, i4H, eCobra
+* Payload capacities:
+	+ i4L: up to 5 kg
+	+ i4H: up to 15 kg
+	+ eCobra: up to 5.5 kg
+* Maximum reach options:
+	+ i4L: 350 mm, 450 mm, 550 mm
+	+ i4H: 650 mm, 750 mm, 850 mm
+	+ eCobra: 600 mm, 800 mm
+* Cycle times:
+	+ i4L: 0.38-0.57 s
+	+ i4H: 0.31-0.50 s
+	+ eCobra: 0.39-0.73 s (at 2 kg)
+* Number of axes: 4
+* Protection class options:
+	+ IP20/IP65
+	+ Cleanroom C10
+	+ ESD
+	+ Food-grade IP20
+* Robot controller options:
+	+ Integrated controller: NJ501-R
+	+ Standard control: NJ501-R
+	+ Stand-alone control: OMRON NJ501-R
+
+**Automation Software**
+
+* ACE (Automation Control Environment) software
+* Allows configuration and synchronization of robots, vision, and feeding systems
+* Boosts productivity and consistency
+
+**Service**
+
+* Global support for SCARA robots
+* Training and safety services to ensure maximum robot uptime and optimal performance
+
+Note: I removed all navigation menus, ads, and boilerplate text, and extracted only the relevant technical specifications, facts, numbers, and descriptions.

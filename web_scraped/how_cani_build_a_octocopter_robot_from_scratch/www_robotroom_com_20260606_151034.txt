@@ -1,0 +1,33 @@
+Source URL: https://www.robotroom.com/
+Scraped: 2026-06-06T15:10:34.164494
+============================================================
+
+Here is the extracted technical information:
+
+**Circuitry and Electronics**
+
+* 5V Regulator Cap for 9V Battery: reuse a simple 1V regulator circuit
+* Linear Regulator: 1.35V low-dropout linear regulator
+* Resistor Forming Tool: 3D print tool with improvements
+* Upgrading Magnifying Desk Lamp to LEDs: replace fluorescent bulbs with circular T9 LED bulbs
+* Identifying Bad Capacitors: inspect for bulging, crusty, or lifting off the PCB
+* Generating Waveforms with Paper Discs: use a light sensor and LED to generate various waveforms
+
+**Robotics and Machining**
+
+* Robot Building for Beginners: a beginner's book on how to build a robot
+* Intermediate Robot Building: learn how to make a robot power supply, create an infrared obstacle sensor, and more
+* 3D Printed Spool and Wire Soldering Holder: print a spool and attach it to a base
+* Mercury Battery Replacement Regulator: use a 1.35V low-dropout linear regulator
+
+**PCBs and Electronics**
+
+* Printed Circuit Board (PCB) Survey: features and requirements for hobbyists, students, and small shops
+
+**Miscellaneous**
+
+* LED Tester with Display: a self-contained current-limited LED tester with voltage drop, current, and recommended resistor display
+* 3D Printed Trimpot Thumb Dial: create colorful finger-friendly dials for trimmer potentiometers
+* Leveling a 3D Printer: use a thickness gauge, magnet, and multimeter in continuity mode to set the extruder nozzle height
+
+Note that I extracted only the technical specifications, facts, numbers, and descriptions from the provided text. Let me know if you need any further assistance!

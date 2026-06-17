@@ -1,0 +1,39 @@
+Source URL: https://robotsdoneright.com/Articles/what-is-a-scara-robot.html?srsltid=AfmBOoqUQEd55uTdiUmkT7bbSMdP7d6Y4l4TJNlu6hERAQKgc76RZSiD
+Scraped: 2026-06-08T12:31:30.457245
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**What is a SCARA Robot?**
+
+* A type of industrial robot
+* Originally developed in 1978 for assembly applications, now used for various tasks
+
+**Specifications:**
+
+* Small industrial robots, typically pedal-mounted or floor-mounted, with some wall-mounted models (e.g., FANUC SR series)
+* Low payloads: 0.5 kg to 20 kg
+* Reach: typically 1,000 mm or less
+* Four-axis configuration (standard, with some three-axis models):
+	+ X, Y, and Z axes: dynamic and rigid movements
+	+ Z axis: fixed, rigid movement
+* 360 degrees of rotational movement around the Z axis (cylindrical work envelope)
+
+**Advantages:**
+
+* Fastest type of robot based on four-axis configuration
+* Best price-to-performance ratio due to fewer axes, smaller size, and reduced component and material usage
+* Affordable alternative: buying used FANUC SR-6ia scara robots can be a cost-effective option
+
+**Applications:**
+
+* Assembly automation, including:
+	+ High-speed assemblies (e.g., FANUC SR-12ia excels at assembly tasks)
+* Material handling processes:
+	+ Pick and place
+	+ Packaging
+* Other applications:
+	+ 3D printing
+	+ Inspection
+	+ Palletizing
+	+ Dispensing

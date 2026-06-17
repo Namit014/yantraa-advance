@@ -1,0 +1,29 @@
+Source URL: https://hackaday.io/project/166306-hybrid-generator-for-drones
+Scraped: 2026-06-06T15:41:12.118992
+============================================================
+
+After processing the text, I extracted the following technical specifications and details:
+
+**Description:**
+The hybrid generator is designed for medium and large UAV systems to extend the total range and improve flight time. It is suitable for UAVs able to lift 3.5 kg plus the fuel weight, with a maximum power usage of 2 KW.
+
+** Specifications:**
+
+* Fuel consumption: 600g/kwh
+* Generator weight: 3500g
+* Maximum flight time achievable: 8.3 hours (eight rotors configuration)
+* Max flight time achieved with their drones: 4 hours
+
+**Project Overview:**
+The project started by connecting a brushless motor to a 26cc gas engine and trying to generate some power by rectifying the output with a simple circuit and capacitor. The power control module was a simple servo connected to Arduino (via PWM) that controlled the system to produce just enough power and burn the right amount of fuel.
+
+**Technical Details:**
+
+* The project used a Pixhawk flight controller, which ran well on other drones but gave navigation problems on this one.
+* An automatic start system was developed using the electric generator as a motor during the start-up.
+* The generator was running very smoothly, producing only 500W.
+* The electronics were compressed into a small box.
+* The project worked on 1000W and 2000W generators, with massive work done to adapt the rest of the generator.
+* Most of the engines did not have a cooling system, so they designed and built those parts.
+* In the last months, they had many tests on their hybrid drone, achieving fuel consumption of less than 1L per hour.
+* The project aimed to make the hybrid drone affordable and easy to use for every drone user, with a goal to sell those drones at affordable prices.

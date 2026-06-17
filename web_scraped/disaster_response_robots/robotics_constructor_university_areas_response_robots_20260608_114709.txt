@@ -1,0 +1,19 @@
+Source URL: https://robotics.constructor.university/areas/response-robots/
+Scraped: 2026-06-08T11:47:09.726537
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions:
+
+* Rescue robots can be used to:
+	+ Inspect collapsed structures
+	+ Assess the situation
+	+ Search and locate victims
+* Engineering and scientific challenges in this domain include:
+	+ Designing robots for harsh environmental conditions in disasters
+	+ Implementing advanced capabilities like intelligent behaviors to free them from constant supervision by operators
+* Related projects and activities:
+	+ Underwater bridge inspection in the context of floods
+	+ 3D mapping in unstructured environments
+	+ Robot developments using the CubeSystem
+
+Note: The text does not provide concrete numbers or specific technical specifications, so there is limited information to extract. However, the above points summarize the main concepts and challenges related to the use of rescue robots in disaster missions and the related research projects and activities.

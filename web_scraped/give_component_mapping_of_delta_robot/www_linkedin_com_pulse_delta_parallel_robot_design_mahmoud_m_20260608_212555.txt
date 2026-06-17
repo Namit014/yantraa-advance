@@ -1,0 +1,40 @@
+Source URL: https://www.linkedin.com/pulse/delta-parallel-robot-design-mahmoud-mohsen
+Scraped: 2026-06-08T21:25:55.319369
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Delta Robot Design and Simulation**
+
+* Delta parallel robot definition: a type of parallel robot with three arms connected to universal joints at the base, using parallelograms in the arms to maintain the orientation of the end effector.
+* Components: Fixed Frame (Base), Proximal Link (Active Link), Distal Link (Passive Link), Spherical/ball joints, Revolute Joints, Moving Platform (end-effector)
+
+**Kinematics Study**
+
+* Inverse Kinematics: solving for joint angles (theta1, theta2, theta3) given end effector coordinates (x0, y0, z0)
+* Forward Kinematics: solving for end effector coordinates (x0, y0, z0) given joint angles (theta1, theta2, theta3)
+* Workspace: the total volume swept out by the tool center point located on the mobile platform, as the robot executes all possible motions
+
+**Dynamics Study**
+
+* Acceleration and Deceleration: simulation of delta robot using Matlab Simulink Multibody Library to demonstrate the effect of inertia load on motors' torque
+* Oscillations and Vibrations: simulation of delta robot using Matlab Simulink Multibody Library to demonstrate the effect of inertia load on motors' torque, with sharp edges causing impulse in torque load, resulting in oscillation
+* Joints Limitations: simulation of delta robot using Matlab Simulink Multibody Library to demonstrate the effect of joints' limitations on motors' torque
+
+**Material Selection and Motor Choice**
+
+* Links selection: recommend using light and stiff materials, such as carbon fiber tubes or aluminum tubes, to minimize torque load and prevent oscillation while stopping and starting.
+* Motors selection: recommend high-torque and resolution motors, such as servo or stepper motors with speed control, for better performance and control.
+
+**End-Effector Mechanism and Tool Choice**
+
+* Examples of end-effector mechanisms:
+	+ Pneumatic suction for light objects pick and place applications
+	+ Electromagnet for magnetic material such as metal boxes, tools or nuts
+	+ Driller mechanism with additional 3 DoF for CNC applications
+	+ Plastic Heater nozzle for 3D printers
+
+**Control Methods and Codes**
+
+* Simulation of delta robot using Matlab Simulink Multibody Library to demonstrate the effect of inertia load on motors' torque
+* Real-time position of the robot plotting its torque, velocity, acceleration, and position profiles for analysis and optimization

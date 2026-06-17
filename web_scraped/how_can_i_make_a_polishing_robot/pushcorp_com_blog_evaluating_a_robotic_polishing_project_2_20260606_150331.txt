@@ -1,0 +1,28 @@
+Source URL: https://pushcorp.com/blog/evaluating-a-robotic-polishing-project-2/
+Scraped: 2026-06-06T15:03:31.658104
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+* Benefits of robotic automation:
+	+ Improved consistency
+	+ Reduced part-to-part variation
+	+ Enhanced quality
+* Evaluation of a robotic polishing project:
+	+ Definition of the project scope and goals
+	+ Measurement of the annual production volume and parts required per hour for each part number or reference
+	+ Establishment of the required finish (quantifiable or aesthetic)
+* Polishing requirements:
+	+ Understanding the current process and how it is actually done
+	+ Observation of the floor and listening to the operators
+	+ Assessing the variability or consistency of the parts when they reach polishing
+* Importance of robotics and automation experience:
+	+ Implementation will go more smoothly at a company that already uses robots
+* Factors affecting project success:
+	+ Having a project champion involved from the outset
+	+ Understanding the process
+* Other considerations:
+	+ Establishing the key factor in achieving a satisfactory ROI (annual production volume and parts required per hour for each part number or reference)
+	+ The importance of keeping a part everyone agrees is acceptable for comparison with the production parts
+
+Note that the article is written for a general audience, and some of the technical terms may not be explicitly defined. However, the text provides a good overview of the benefits and best practices for evaluating and implementing robotic polishing projects.

@@ -1,0 +1,40 @@
+Source URL: https://seer-robotics.ai/
+Scraped: 2026-06-06T15:34:06.171567
+============================================================
+
+After processing the provided text, I have extracted the relevant technical specifications, facts, numbers, and descriptions for you. Here is the cleaned and organized output:
+
+**Robot Controllers**
+
+* SEER Robotics' AI Delivery Robot P300
+* SEER Robotics' Embodied Wheeled Humanoid Robot Base C1-D
+
+**Software**
+
+* M4 Smart Logistics Management System
+
+**Robotics Products**
+
+* Autonomous Forklifts
+* Lifting Robots (including Base Robots)
+* Other Robots
+* Accessories
+* Solutions
+
+**Industry Cases**
+
+* SEER Robotics' upgrade of warehouse automation for 3PL industry
+
+**News & Events**
+
+* Launch of AI Delivery Robot P300 (2026/05/28)
+* Invitation to LOGISTICS & AUTOMATION 2026 exhibition (2026/05/27)
+* Launch of Embodied Wheeled Humanoid Robot Base C1-D (2026/05/27)
+
+**Company Information**
+
+* E-mail: contact@seer-robotics.ai
+* Address: Building 3, No. 799, Dangui Road, Pudong New Area, Shanghai, P.R. China
+* Contact: ceo@seer-robotics.ai
+
+Please note that this extraction focuses on the technical aspects and information provided by the source text. If you need further clarification or more details, please let me know, and I'll be happy to help.

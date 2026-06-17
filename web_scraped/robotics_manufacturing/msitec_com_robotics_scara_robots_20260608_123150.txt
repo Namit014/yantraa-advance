@@ -1,0 +1,57 @@
+Source URL: https://msitec.com/robotics/scara-robots/
+Scraped: 2026-06-08T12:31:50.312559
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions from the article:
+
+**Omron i4L SCARA Robots**
+
+* Max Payload: 5 kg
+* Reach range: 600mm (23.6")
+* Number of Axis: 4
+* Mounting: Table, Wall
+* Features:
+	+ High inertia and high duty ratings
+	+ Fast cycle times with high duty ratings
+	+ Powerful servos motors handle payloads up to 5kg with ease
+	+ Programmed with Omron's renowned "Automation Control Environment" (ACE) software package
+* Download options: Brochure, Datasheets, and more
+
+**Omron Cobra SCARA Robots**
+
+* Series: Cobra 450, Cobra 500, Cobra 650
+* Max Payload: 5 kg
+* Reach range: 450, 500, 650 mm
+* Number of Axis: 4
+* Features:
+	+ High-resolution, absolute encoders
+	+ High-efficiency, low-inertia Harmonic Drives and a lightweight arm
+	+ 8 kHz servo update rate
+	+ Integrated 10/100 Base-T Ethernet TCP/IP for control
+* Available options: Cleanrooms and ESD for static electricity control
+* Download options: e-Cobra Datasheets, Omron Brochure, and more
+
+**Omron eCobra SCARA Robots**
+
+* Series: eCobra 600, eCobra 800, eCobra 800 Large
+* Max Payload: 5.5 kg
+* Reach range: 600, 800, 800 mm
+* Number of Axis: 4
+* Features:
+	+ Amplifiers and controls embedded into the robot for maximum floor space and reduced installation costs
+	+ Three performance levels (Lite, Standard, and Pro) based on a common hardware platform
+	+ Direct PLC programming in Standard and Pro performance tiers
+	+ Adept ACE provides an effective way to deploy applications
+* Download options: e-Cobra Datasheets, Omron Brochure, and more
+
+**Motoman SCARA Robots**
+
+* Series: MYS450F, MYS650F, MYS850F
+* High-speed, zero footprint, compact
+* Ideal for small part processing, assembly, material handling, and other applications
+* Features:
+	+ Powerful and cost-effective performance
+	+ Easy-to-integrate vision functionality
+	+ Highly flexible and redeployable when production needs change
+
+Note: The above extraction includes only the technical specifications, facts, numbers, and descriptions from the article, without any additional information not present in the original text.

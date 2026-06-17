@@ -1,0 +1,46 @@
+Source URL: https://blog.orientalmotor.com/how-to-build-a-scara-robot-horizontal-articulated-robot-with-off-the-shelf-products
+Scraped: 2026-06-11T13:34:32.927509
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**SCARA Robot Specifications:**
+
+* Number of axes: 5 (3 links + lift + electric gripper)
+* Robot control: MRC01
+* Payload: 0.7 kg
+* Maximum speed:
+	+ 500 mm/s (maximum speed at gripper tip)
+	+ 500 mm/s (Axis 1)
+	+ 500 mm/s (Axis 2)
+	+ 40 mm/s (Axis 3)
+	+ 156 mm/s (Axis 4 and 5)
+* Device main power: 115 VAC
+* Drive/control power supply: 24 VDC
+* Mass (SCARA robot part): 4 kg
+
+**Components:**
+
+* Axis 1: Hollow rotary actuator (DGM85R-AZAK)
+* Axis 2: Hollow rotary actuator (DGM60-AZAK)
+* Axis 3: αSTEP harmonic geared type (AZM24AK-HS50)
+* Axis 4: Compact cylinder (DR28T1A03-AZAKD-F)
+* Axis 5: Compact gripper (EH3-AZAKH)
+* Robot controller: MRC01
+* Other components:
+	+ EtherNet/IP
+	+ Motor cables (3m long)
+	+ DC power cables (1m long)
+	+ Cables for RS-485 communication (0.1m long)
+
+**Other notes:**
+
+* Total estimated cost: ~$11,969
+* Typical 5-axis SCARA robots: $15,000 to $25,000
+* Time to set up the MRC01: 2 hours (estimated)
+* 3D simulation: available for robot program simulation
+* Control of end effector axis: possible
+* Compatible with AZ series and electric actuators
+* Products used for each axis: see above
+
+Please let me know if you would like me to extract anything else.

@@ -1,0 +1,53 @@
+Source URL: https://docs.mlrun.org/en/latest/projects/load-project.html
+Scraped: 2026-06-15T16:10:59.186004
+============================================================
+
+**Project Loading and Execution – MLRun**
+
+- **Storage & Versioning**  
+  - Project code, metadata, and configuration are kept in source‑control systems (e.g., Git) or compressed archives (zip, tar).  
+  - The project root contains a `project.yaml` file that defines metadata and references project files.
+
+- **SDK Loading** (`load_project`)  
+  - Loads a project from a local directory, a Git repository, or a zip/tar archive.  
+  - Signature: `load_project(name, url, secrets=None, init_git=False, clone=False, user_project=False)`  
+  - If *url* is omitted, the function searches for a Git repo in the current context directory; `init_git=True` will initialize a repo if none exists.  
+  - *secrets* can hold repository credentials for private Git access.  
+  - Returns a `project` object that can be used to edit project elements (functions, workflows, artifacts, etc.).  
+  - Example:  
+    ```python
+    project = load_project(
+        name="myproj",
+        url="git://github.com/mlrun/project-archive.git"
+    )
+    project.run("main", arguments={"data": data_url})
+    ```
+
+- **CLI Loading** (`mlrun project`)  
+  - Load a project into the current directory:  
+    ```
+    mlrun project -n myproj --url "git://github.com/mlrun/project-demo.git"
+    ```
+  - Run a workflow:  
+    ```
+    mlrun project --run main --watch
+    ```
+  - Key CLI options:  
+    - `-n | --name` – project name  
+    - `-u | --url` – remote Git or archive URL  
+    - `-r | --run` – workflow file name (e.g., `main.py`)  
+    - `-a | --arguments` – pipeline arguments (`key=value`)  
+    - `-x | --param` – project parameters (`key=value`)  
+    - `-p | --artifact` – output artifacts path  
+    - `-s | --secrets` – secrets file or env vars  
+    - `-d | --dirty` – allow run with uncommitted changes  
+    - `--init-git` – initialize a new Git repo in the context folder  
+    - `-c | --clone` – force cloning into the context directory  
+    - `--watch` – wait for pipeline completion  
+    - `--timeout` – timeout in seconds for `--watch`  
+    - `--schedule` – crontab expression to create a scheduled run
+
+- **Execution**  
+  - After loading, invoke `project.run(workflow_name, arguments=…)` to execute a workflow.  
+  - Functions, workflows, and artifacts can be added or edited programmatically or via the SDK/CLI before pushing changes back to the repository or archive.  
+  - Schedules can be attached to predefined workflows using standard cron syntax through the `--schedule` option.

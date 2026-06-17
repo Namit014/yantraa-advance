@@ -1,0 +1,17 @@
+Source URL: https://lingametech.com/what-are-the-typical-polishing-issues-that-robots-can-eliminate/
+Scraped: 2026-06-06T14:17:02.903090
+============================================================
+
+Here are the typical polishing issues that robots can eliminate, extracted from the article:
+
+1. **Sanding Syndrome**: A psychological disorder caused by elaborate attention to detail combined with nerve-racking boredom.
+2. **Edge Rounding**: Accidental rounding of edges when polishing workpieces made from soft materials such as plastic or wood.
+3. **Sanding Bias**: Focusing more attention on one surface of the workpiece.
+4. **Corner Errors**: Accidentally rounding or messing up corners.
+5. **Tilting Edge**: Tilting the edge of the polishing tool, which wears down the edge of the polishing media and causes an inconsistent finish.
+6. **Flaw Fixation**: Fixating on flaws and ignoring triumphs, leading to an uneven finish.
+7. **Speeding Up**: Accelerating the polishing process, compromising the quality of the workpiece.
+8. **Varying Speeds**: Varying speed, which can lead to an inconsistent finish.
+9. **Force Control**: Applying inconsistent force, which can damage the motor of the polishing tool or lead to an uneven finish.
+
+These issues can be eliminated by using robots for polishing and sanding tasks, as they are not prone to boredom, do not get tired, and can maintain consistent force and speed.

@@ -1,0 +1,33 @@
+Source URL: https://www.militaryaerospace.com/uncrewed/article/16715593/navy-to-purchase-mmp-30-bomb-disposal-robots-from-the-machine-lab-for-use-in-afghanistan
+Scraped: 2026-06-06T15:33:51.133329
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions:
+
+**MMP-30 Bomb-Disposal Robot Specifications:**
+
+* Weight: 30 pounds
+* Payload capacity: 20 pounds
+* Dimensions: 19.5 inches long, 20 inches wide, 21.5 inches high (without payload)
+* Power source: 24-volt rechargeable NiCad battery, with a 2-hour operating time between recharging
+* Charging: 24-volt universal smart charger recommended
+* Propulsion options: Pneumatic wheels or tracked configuration
+* Speed: Tracked UGV: 2.5 feet per second; Wheeled UGV: 4 feet per second
+* Motor drivers: Custom high-current with thermal and over-current protection
+* Control: Standard hobby-type PWM signal or RS-232 serial control
+* Base price: $4,325 each
+
+**Other Technical Specifications:**
+
+* Chassis: Water-resistant aluminum hard anodized
+* Bearings: Long-life ball bearings in critical areas
+* Sensors and cameras: Available for attachment to the robot
+* Tools and test equipment: Can be carried on the robot
+
+**Contract Details:**
+
+* Contract value: $17.1 million
+* Contract type: Foreign military sale (FMS) to Afghanistan
+* Expected completion date: April 2014
+* Work location: Wellington, Colorado, by The Machine Lab
+* Government authorities in Afghanistan will use the robots for bomb detection and safe bomb disposal.

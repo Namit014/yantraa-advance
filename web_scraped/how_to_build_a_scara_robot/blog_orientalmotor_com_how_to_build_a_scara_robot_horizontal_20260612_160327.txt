@@ -1,0 +1,44 @@
+Source URL: https://blog.orientalmotor.com/how-to-build-a-scara-robot-horizontal-articulated-robot-with-off-the-shelf-products
+Scraped: 2026-06-12T16:03:27.230857
+============================================================
+
+**Technical Specifications for SCARA Robot Using Off-the-Shelf Components**
+
+1. **Axes and Components:**
+   - **Axis 1:** Hollow rotary actuator (DGM85R-AZAK) with built-in positioning driver (AZD-KD), Modbus RTU RS-485 communication (CC02D010-3 cable).
+   - **Axis 2:** Hollow rotary actuator (DGM60-AZAK) with AZD-KD driver, same cabling as Axis 1.
+   - **Axis 3:** Harmonic geared stepper motor (AZM24AK-HS50) with AZD-KD driver, same cabling.
+   - **Axis 4:** Compact cylinder (DR28T1A03-AZAKD-F) with AZD-KD driver for linear actuation.
+   - **Axis 5:** Compact gripper (EH3-AZAKH) with AZD-KD driver for dual-axis control (±156 mm/s).
+
+2. **Power Supply:**
+   - **Drive/Control Power:** 24 VDC (all axes).
+   - **Main Power:** 115 VAC (system-wide, including controller).
+
+3. **Controller and Software:**
+   - **Controller:** MRC01 Robot Controller (EtherNet/IP communication).
+   - **Programming:** MRC Studio Software (no ladder logic required; supports 3D simulation without PLC connection).
+
+4. **Performance:**
+   - **Payload Capacity:** 0.7 kg.
+   - **Max Tip Speed:** 500 mm/s.
+   - **Axis-Specific Speeds:**
+     - Axes 1–3: 500 mm/s.
+     - Axis 4: 40 mm/s.
+     - Axis 5: 156 mm/s (bidirectional).
+
+5. **Robot Structure:**
+   - **Arm Design:** 3-link SCARA configuration with lifts (Axis 4) and gripper (Axis 5).
+   - **Mount:** Hollow shaft bearings on rotational axes for cable management.
+   - **Weight:** ~4 kg (robot body only).
+
+6. **Cost Estimate:**
+   - **Total:** ~$11,969 (excluding vision systems or additional peripherals).
+   - **Savings:** $3,031–$13,031 compared to commercial equivalents ($15,000–$25,000).
+
+7. **Additional Notes:**
+   - **Encoders:** Battery-free absolute encoders (alphaSTEP AZ Series) eliminate external sensors and wiring.
+   - **Precision:** Harmonic geared motors (Axis 3) prevent backlash for accuracy at the tip.
+   - **Cabling:** All drivers use AZD-KD; cables are 3m (motor), 1m (power), 0.1m (RS-485).
+
+*Assumptions:* All drivers (AZD-KD) are included in component pricing. Customization for limited-space environments relies on modular, off-the-shelf integration.

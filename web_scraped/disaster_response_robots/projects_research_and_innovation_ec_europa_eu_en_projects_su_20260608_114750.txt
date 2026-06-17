@@ -1,0 +1,33 @@
+Source URL: https://projects.research-and-innovation.ec.europa.eu/en/projects/success-stories/all/autonomous-robots-improve-disaster-relief
+Scraped: 2026-06-08T11:47:50.438555
+============================================================
+
+**Autonomous Robot Project (RABOT) Overview**
+
+**Project Highlights:**
+
+* Design and development of a novel autonomous hybrid leg-wheeled robot with parallel mechanism for movement, allowing it to adapt to uncertain environments.
+* Development of novel haptic interfaces using advanced control technologies, enabling human operators to feel the environment better and manipulate the slave robot intuitively.
+* Multi-robot coordination control approach for enabling multiple robots to cooperate for rescue tasks.
+* Six depth-of-field sensors for collecting information in disaster zones and optimizing movement.
+* New hydraulic actuators for hexapod robots.
+
+**Robots and Components:**
+
+* Autonomous hybrid leg-wheeled robot with parallel mechanism for movement.
+* Capsule robot for collecting information in disaster environments, along with wearable devices such as sensors.
+* Wheelchair that can climb stairs, developed by Yanshan University.
+* Robots with flexible leg-wheeled movement (three-degrees-of-freedom parallel leg mechanisms).
+* Hexapod robots with new hydraulic actuators.
+
+**Project Outcomes:**
+
+*  Four patents concerning robot movement and haptic interfaces (one in the EU and three in China).
+* Five awards for project work.
+* EU funding through Marie Skłodowska-Curie actions programme enabled 77 exchange visits and direct training for about 270 people.
+
+**Project Partners:**
+
+* United Kingdom (Bournemouth University, University of [unknown])
+* Romania (Romanian Academy of Sciences)
+* China (Shanghai Jiao Tong University, Yanshan University, Chinese Academy of Science)

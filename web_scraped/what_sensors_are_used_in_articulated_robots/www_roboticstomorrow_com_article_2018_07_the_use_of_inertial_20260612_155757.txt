@@ -1,0 +1,28 @@
+Source URL: https://www.roboticstomorrow.com/article/2018/07/the-use-of-inertial-sensors-in-robotics/12183
+Scraped: 2026-06-12T15:57:57.434147
+============================================================
+
+**Key Technical Points on Inertial Sensors for Robotics (as described by LORD MicroStrain)**  
+
+- **Primary robotic applications** – platform stability, global positioning, and increasingly as feedback for articulated robotic limbs.  
+
+- **Critical performance specifications**  
+  - **Dynamic roll‑pitch accuracy** – the most important spec for robotics; static accuracy and repeatability are usually listed on data sheets, but dynamic accuracy varies with the motion profile of each application. LORD recommends measuring in‑run error to evaluate a sensor’s true dynamic performance.  
+  - **Latency** – essential for sensors that operate in closed‑loop balance or attitude control; lower latency improves feedback response.  
+  - **Bias stability** – MEMS sensors can maintain good bias stability at a constant temperature, but bias can drift significantly with temperature changes.  
+  - **Temperature‑related effects** – cycling temperature can cause bias and scale‑factor hysteresis, step jumps, and embedment stress (due to coefficient‑of‑thermal‑expansion mismatches in low‑cost packaging and mounts).  
+
+- **Calibration and quality assurance**  
+  - LORD has shipped **every inertial device since 2004 with a full calibration report**.  
+  - Uses **four‑generation, proprietary, high‑volume NIST‑traceable calibration equipment**.  
+  - Provides **ISO‑9001/AS9100‑certified** calibration and temperature‑compensation services, enabling low‑cost, high‑volume production.  
+
+- **Product strategy for robotics**  
+  - Offers a **catalog of COTS (commercial‑off‑the‑shelf) products** that can be selected by feature and performance, avoiding the need for customers to redesign hardware when newer components become available.  
+  - Maintains **stable device footprints and APIs** for “drop‑in” upgrades, allowing seamless integration of newer MEMS technologies.  
+
+- **Performance claims**  
+  - LORD’s **Auto Adaptive EKF** (Extended Kalman Filter) has shown superior dynamic roll‑pitch accuracy in head‑to‑head tests against other EKFs.  
+  - Customers report that LORD devices “just work better” despite comparable spec sheets, attributed to the company’s deep insight into extracting optimal dynamic performance from well‑behaving MEMS components.  
+
+These points summarize the technical specifications, performance considerations, and calibration practices highlighted for inertial sensors used in modern robotic systems.

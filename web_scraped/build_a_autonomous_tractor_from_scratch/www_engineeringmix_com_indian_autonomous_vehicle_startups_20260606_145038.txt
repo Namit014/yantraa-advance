@@ -1,0 +1,36 @@
+Source URL: https://www.engineeringmix.com/indian-autonomous-vehicle-startups/
+Scraped: 2026-06-06T14:50:38.105133
+============================================================
+
+The relevant technical specifications, facts, numbers, and descriptions extracted from the article are as follows:
+
+**Market Overview and Growth Potential:**
+
+* India's autonomous vehicle market is worth ₹21,000 crores today and is expected to reach ₹1.9 lakh crores by 2030.
+* 24.3% annual growth rate.
+* Market size jumped from ₹17,000 crores in 2023 to ₹21,000 crores in 2024.
+
+**Key Market Segments:**
+
+* Commercial vehicles (trucking solutions in ports and factories).
+* Logistics (reducing driver costs and improving safety).
+* Two-wheeler ADAS (safety systems for motorcycles and scooters).
+* Industrial applications (warehouses, mines, and construction sites).
+
+**Government Initiatives and Policy Support:**
+
+* Motor Vehicles Amendment Act 2019: allows testing of autonomous vehicles on Indian roads.
+* FAME-II Scheme Integration: allocates ₹10,000 crores over five years to promote electric vehicle adoption, including support for autonomous electric vehicles.
+* Bharat NCAP and Safety Standards: evaluating ADAS (Advanced Driver Assistance Systems) capabilities, making safety tech mandatory for higher ratings.
+* Smart Cities Mission Support: allocating approximately $1.5 billion to develop 100 smart cities, with 60 already participating in intelligent transportation initiatives.
+* R&D and Innovation Support: government provides R&D subsidies and reduced import duties on autonomous vehicle components.
+
+**Leading Indian Autonomous Vehicle Startups:**
+
+* Swaayatt Robots: founded in 2015, location Bhopal, MP, funding $4 million, achieved Level 5 autonomous driving system.
+* Minus Zero: founded in 2021, location Bengaluru, Karnataka, funding $1.8 million, uses "Nature-inspired AI" technology.
+
+**Technical Details:**
+
+* Swaayatt Robots' mathematical and probabilistic approach reduces dependence on expensive sensors like LiDAR, using sparse maps and AI algorithms to handle unpredictable Indian traffic patterns.
+* Minus Zero's "Nature-inspired AI" technology learns from massive amounts of unstructured driving data, uses foundational AI models, and works with just cameras (no expensive LiDAR).

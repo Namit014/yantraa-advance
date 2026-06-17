@@ -1,0 +1,64 @@
+Source URL: https://botasys.com/post/scara-robot/
+Scraped: 2026-06-08T21:17:28.232408
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions:
+
+**What is a SCARA Robot?**
+A type of industrial robot designed for fast, precise, and repeatable movements, especially in assembly and pick-and-place tasks.
+
+**SCARA Robot Design and Structure**
+
+* Base: Anchors the arm
+* Two parallel rotary joints: Provide movement within a horizontal plane
+* Vertical movement axis: Enables up-and-down operations
+* End effector (gripper or tool): Performs tasks such as picking, placing, screwing, or soldering
+
+**Materials Used in SCARA Robots**
+
+* Aluminum alloys for lightweight strength
+* Steel for durability and rigidity
+* Composite materials for high strength-to-weight ratios
+
+**Why SCARA Robots Are So Fast**
+
+* Streamlined architecture with selective compliance (stiff in the vertical axis, flexible in the horizontal plane)
+* Reduces unnecessary movement, resulting in extremely fast and smooth operations
+* Can complete tasks in fractions of a second, outperforming more complex robotic systems in repetitive assembly tasks
+
+**Modern SCARA Systems**
+
+* Integrate force-torque sensors, such as those developed by Bota Systems, to achieve even greater precision
+* Provide real-time feedback on contact forces, enabling robots to:
+	+ Insert delicate parts without damage
+	+ Compensate for misalignment
+	+ Perform tasks like force-controlled assembly, polishing, or testing
+
+**SCARA Robot Applications**
+
+* Assembly: Small parts assembly in electronics, automotive, consumer goods
+* Pick-and-place: Rapid sorting and packaging of products
+* Material handling: Moving components between workstations
+* Soldering and gluing: Precision electronics manufacturing
+
+**Advantages of SCARA Robots**
+
+* Speed: Fast cycle times, making them perfect for high-volume production lines
+* Precision: Excellent repeatability, ensuring consistent quality in delicate operations
+* Compact footprint: Save valuable floor space in manufacturing environments
+* Cost-effectiveness: Compared to more complex six-axis robots, SCARA systems provide outstanding performance for 2D tasks at a lower investment
+
+**Limitations of SCARA Robots**
+
+* Limited flexibility: Designed mainly for 2D operations, struggle with tasks requiring complex 3D movements
+* Restricted range: Smaller reach compared to articulated arms, making them less suitable for large workspaces
+* Payload limitations: Typically designed for lightweight to moderate loads, not ideal for heavy-duty lifting
+* Specialization: Excel in speed and precision for assembly but may fall short when broad versatility is required
+
+**How to Choose a SCARA Robot**
+
+* Payload capacity: Match the robot's strength to the weight of the items it will handle
+* Reach: Consider the size of the workspace and the range the robot arm must cover
+* Speed and accuracy: Ensure the model selected can meet the cycle time and precision your processes demand
+* Integration compatibility: Check that the SCARA robot works smoothly with your existing automation and control systems
+* Manufacturer support: Opt for reputable SCARA robot manufacturers that provide technical support, training, and long-term service

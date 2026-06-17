@@ -1,0 +1,63 @@
+Source URL: https://electrek.co/guides/tesla/
+Scraped: 2026-06-06T20:25:15.861744
+============================================================
+
+Here is the extracted information:
+
+**Tesla Current and Upcoming Models:**
+
+1. **Model S**: 
+	* Long Range trim can travel 405 miles on a single charge
+	* Top speed of 155 mph
+	* 0-60 mph in 3.1 seconds
+	* Refresh includes Plaid and Plaid+ trims with varied range
+2. **Model S Plaid/ Plaid+**:
+	* EPA estimated range: 520+ miles (Plaid+) and 390 miles (Plaid)
+	* Top speed of 200 mph
+	* 0-60 mph in under 2 seconds
+3. **Model X**:
+	* Tesla's largest EV on the current market
+4. **Model 3**:
+	* Mass-market EV and the most affordable option in the company fleet
+5. **Model Y**:
+	* Crossover SUV
+6. **Cybertruck**:
+	* Upcoming EV
+7. **Tesla Semi**:
+	* Upcoming EV
+8. **Second-generation Roadster**:
+	* Upcoming EV
+
+**Tesla Energy Solutions:**
+
+1. **Solar Powerwall**:
+	* Energy storage solution for home use
+2. **Powerpack**:
+	* Energy storage solution for commercial use
+3. **Supercharger Network**:
+	* Tesla's extensive network of charging stations
+
+**Other Tesla Ventures:**
+
+1. **Tesla Bot**:
+	* Tesla's planned robot
+2. **Full Self-Driving (FSD) Capabilities**:
+	* Tesla's self-driving technology
+
+**Tesla Manufacturing Facilities:**
+
+1. **Fremont Factory**:
+	* Tesla's primary manufacturing facility
+
+**Tesla's History:**
+
+1. **Founding**:
+	* Tesla Inc. was founded in 2003 by Martin Eberhard and Marc Tarpenning
+2. **Early Years**:
+	* Tesla initially focused on creating a sleek and stylish sports car (Roadster)
+3. **Expansion and Growth**:
+	* Tesla expanded production to more practical and affordable EVs (Model S, Model 3, Model X, Model Y)
+4. **Acquisitions**:
+	* Tesla acquired SolarCity in 2016 and dropped the "Motors" from its name
+
+Note: This extraction only includes relevant technical specifications, facts, numbers, and descriptions from the provided text.

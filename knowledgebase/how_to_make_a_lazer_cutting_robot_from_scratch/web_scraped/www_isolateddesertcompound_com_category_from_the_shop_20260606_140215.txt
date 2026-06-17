@@ -1,0 +1,63 @@
+Source URL: https://www.isolateddesertcompound.com/category/from-the-shop/
+Scraped: 2026-06-06T14:02:15.058773
+============================================================
+
+Here are the key technical specifications and facts extracted from the text:
+
+**Laser Engraver:**
+
+* NEJE 500mw Desktop Violet Laser Engraver
+* Grbl 0.9j software
+* Settings:
+	+ $0=100 (step pulse, usec)
+	+ $1=25 (step idle delay, msec)
+	+ $2=0 (step port invert mask:00000000)
+	+ $3=2 (dir port invert mask:00000010)
+	+ $4=0 (step enable invert, bool)
+	+ $5=0 (limit pins invert, bool)
+	+ $6=0 (probe pin invert, bool)
+	+ $10=3 (status report mask:00000011)
+	+ $11=0.010 (junction deviation, mm)
+	+ $12=0.002 (arc tolerance, mm)
+	+ $13=0 (report inches, bool)
+	+ $20=0 (soft limits, bool)
+	+ $21=0 (hard limits, bool)
+	+ $22=0 (homing cycle, bool)
+	+ $23=0 (homing dir invert mask:00000000)
+	+ $24=250.000 (homing feed, mm/min)
+	+ $25=250.000 (homing seek, mm/min)
+	+ $26=250 (homing debounce, msec)
+	+ $27=10.000 (homing pull-off, mm)
+	+ $100=80.000 (x, step/mm)
+	+ $101=80.000 (y, step/mm)
+	+ $102=80.000 (z, step/mm)
+	+ $110=750.000 (x max rate, mm/min)
+	+ $111=750.000 (y max rate, mm/min)
+	+ $112=500.000 (z max rate, mm/min)
+	+ $120=1000.000 (x accel, mm/sec^2)
+	+ $121=1000.000 (y accel, mm/sec^2)
+	+ $122=10.000 (z accel, mm/sec^2)
+	+ $130=175.000 (x max travel, mm)
+	+ $131=1200.000 (y max travel, mm)
+	+ $132=175.000 (z max travel, mm)
+
+**Laser Etching:**
+
+* Use Inkscape and Universal G-code Sender to control the machine
+* Two methods:
+	1. Convert raster images to vector graphics using Gimp and Inkscape's "Trace Bitmap" tool
+	2. Use LaserEtch by JTech Photonics to generate G-code
+
+**CNC Machines:**
+
+* Not explicitly mentioned, but mentioned as a secondary project
+
+**PCB Fabrication:**
+
+* Laser-based method: use a blank copper PCB, paint with black paint, use a laser to etch off the paint, then use acid to remove the copper
+
+**Square Foot Gardening:**
+
+* Modified grid system using PVC tubing and fittings to water the garden beds
+
+Note: I've removed all navigation menus, ads, and boilerplate text, and condensed the technical specifications and facts into a clean and concise format.

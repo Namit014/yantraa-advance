@@ -1,0 +1,46 @@
+Source URL: https://howtomechatronics.com/projects/scara-robot-how-to-build-your-own-arduino-based-robot/
+Scraped: 2026-06-11T13:34:44.512578
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Robot Design and Construction**
+
+* 4 degrees of freedom
+* 4 NEMA 17 stepper motors
+* 1 small servo motor for controlling the end effector or gripper
+* Arduino UNO board as the brain of the robot
+* CNC shield and four A4988 stepper drivers for controlling the stepper motors
+* 3D printed parts, including GT2 pulleys, custom designed for parametric design and easy size adjustment
+
+**Robot Joints and Mechanisms**
+
+* First joint: 20:1 reduction ratio, achieved in two stages with custom designed pulleys
+* Second joint: 16:1 reduction ratio, achieved in the same way
+* Third joint: 4:1 reduction ratio with a single stage reduction
+* Robot joints composed of two thrust bearings and one radial bearing
+* Idler pulleys for tensioning belts
+* Robot gripper driven by an MG996R servo motor
+
+**3D Printing and Assembly**
+
+* 3D printed parts: base, pulleys, gripper, and other mechanical parts
+* Print speed: 60mm/s
+* Total print time: 120 hours
+* Parts designed to fit on a smaller 3D printer, such as the Ender3
+* Printing material: PLA+ and normal PLA
+* Slicing software: set to enable horizontal expansion of -0.1mm for accurate dimensions
+
+**Assembly Components**
+
+* 4x smooth rod shafts (10mm, 400mm)
+* 1x lead screw (8mm, 400mm)
+* 4x linear bearings (10mm)
+* 1x thrust ball bearing (40x60x13mm)
+* 2x thrust ball bearings (35x52x12mm)
+* 5x radial ball bearings (8x22x7mm)
+* Various lengths M3, M4, and M5 bolts and nuts
+
+**Disclosure**
+
+* These are affiliate links. As an Amazon Associate, I earn from qualifying purchases.

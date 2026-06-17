@@ -1,0 +1,44 @@
+Source URL: https://howtorobot.com:443/expert-insight/polishing-robots
+Scraped: 2026-06-06T14:16:04.158334
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Polishing Applications:**
+
+* Excellent targets for automation
+* Standardized task with repetitive qualities
+* Suitable for manufacturers that produce parts in high volumes
+* Can be programmed for the robot to handle minor, randomized defects
+* Requires special programming and relevant sensing equipment
+* May struggle with parts with scuffs or scratches or irregular shapes
+
+**Robot Types:**
+
+* Six-axis robots:
+	+ Excellent for polishing applications with complex geometries
+	+ Good balance of reach and payload capacity
+	+ Can handle large parts with complex curves and sides
+* SCARA robots:
+	+ Cost-effective option for simple polishing applications
+	+ Limited in reach and struggle with complex part surfaces
+	+ Good for polishing small mirrors and flat metal panels
+* Cylindrical robots:
+	+ Less common choice
+	+ Can struggle with complex part geometries
+	+ Useful for simple polishing tasks on vertical parts (e.g., car doors)
+
+**Integrating a Polishing Robot:**
+
+* Key considerations:
+	+ When to automate (e.g., bottleneck, consistency, safety)
+	+ Choosing major components (e.g., robot, tooling)
+	+ Sourcing and integration (e.g., suppliers, service providers)
+
+**Common Challenges:**
+
+* Consistent finish
+* Requires programming and sensing equipment to handle irregularities
+* Tooling and surface preparation are crucial for quality part finish
+
+Note that the above extracted information is limited to the provided text and may not be exhaustive or comprehensive.

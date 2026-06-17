@@ -1,0 +1,28 @@
+Source URL: https://blog.robotiq.com/7-companies-that-are-using-polishing-and-buffing-robots
+Scraped: 2026-06-06T14:16:25.670931
+============================================================
+
+Here is the extracted technical information:
+
+* Robot polishing is a process that improves safety, quality, and consistency of polished products.
+* Polishing and buffing are finishing tasks that improve the surface quality of a product.
+* There are two main options for polishing in manufacturing:
+	+ Manual polishing: uses a power tool and running it over the surface by hand, but can cause musculoskeletal problems and quality variability.
+	+ Autonomous polishing machines: like CNC machines with polishing tools, but limited in flexibility and reprogramming.
+* Robots are increasingly popular for polishing tasks due to their flexibility and large workspace, allowing for a wide range of polishing applications.
+* 7 companies that are already using robot polishing:
+	+ Acme: uses fixed, abrasive polishing wheel with robot holding workpiece and moving it into contact with spinning abrasive for polishing metal bars, wheels, and door handles.
+	+ Paradigm Electronics: uses UR10 cobot with custom polishing end effector for polishing speaker lacquer layers.
+	+ WMF: uses robot to hold product and move it onto spinning polishing abrasive for buffing pressure cooker lids.
+	+ Walmart: uses Auto-C autonomous guided vehicle to polish store floors.
+	+ Tanker Manufacturer: uses two industrial robots to polish tanker trailer surfaces with custom polishing end effectors.
+	+ Aerospace Manufacturers: uses robot polishing for parts not painted, such as, for corrosion removal.
+	+ Saint-Gobain: uses UR robot with FT300 force sensor for glass manufacturing, improving consistency and productivity of polishing task.
+* Robots are used for various polishing applications, including:
+	+ Metal finishing
+	+ Deburring
+	+ Grinding
+	+ Buffing
+	+ Polishing
+* Cobot polishing is becoming increasingly popular, with companies seeing benefits in terms of quality, consistency, and productivity.
+* Some companies use collaborative robots (cobots) for polishing tasks, such as Paradigm Electronics and Saint-Gobain.

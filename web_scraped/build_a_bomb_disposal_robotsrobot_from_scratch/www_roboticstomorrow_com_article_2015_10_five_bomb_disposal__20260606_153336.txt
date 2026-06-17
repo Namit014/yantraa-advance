@@ -1,0 +1,59 @@
+Source URL: https://www.roboticstomorrow.com/article/2015/10/five-bomb-disposal-robots/6987/
+Scraped: 2026-06-06T15:33:36.576869
+============================================================
+
+Here are the technical specifications and facts extracted from the article:
+
+**Dragon Runner**
+
+* Lightweight, back-packable, multi-terrain robot
+* Capable of detecting a variety of devices without putting the operator in harm's way
+* Configured with a manipulator arm for digging and moving objects
+* Ability to place small charges to disrupt suspect devices
+* Send video footage back to the operator at a safe distance
+* Cross-country capability with twin tracks
+
+**MarkV-A1**
+
+* 800 pounds, about the size of a riding lawn mower
+* 8 feet tall when manipulator arm is fully extended
+* Tread system for traversing difficult terrain
+* Can be armed with high pressure water disruptors or a shotgun
+* Four color video cameras, microphones, lights, and sensors
+* Height: 8 feet
+
+**Daksh**
+
+* Battery-operated remote-controlled robot on wheels
+* Primary role is to recover bombs
+* Can climb staircases, negotiate steep slopes, and navigate narrow corridors
+* Can lift suspect objects and scan them using a portable X-Ray device
+* Can defuse bombs with a water jet disrupter
+* Shotgun for breaking open locked doors
+* Can scan cars for explosives
+* Can be remotely controlled over a range of 500 m in line of sight or within buildings
+* 90% of the robot's components are indigenous
+
+**iRobot 510 PackBot**
+
+* Modular, adaptable, and expandable
+* Can perform bomb disposal, surveillance, and reconnaissance, CBRN detection, and HazMat handling operations
+* Can climb stairs and navigate narrow passages with sure-footed efficiency
+* Relays real-time video, audio, and sensor data
+* Operator can stay at a safer, standoff distance
+
+**BDRP (Robo Sally)**
+
+* Equipped with artificial limbs designed for amputees
+* Has two cameras for a head and prosthetic arms
+* Motors around on four wheels to tackle uneven terrain
+* Has undergone changes to its electronics and platform since its first unveiling in 2008
+
+**US Digital's L2 Low Profile Motor Encoder**
+
+* Uses US Digital's proven EM1 optical encoder module and disk
+* Has a 0.75 in. bolt-spacing mount
+* Maximum resolution is 1250 CPR (5000 PPR with quadrature)
+* Single-ended output
+* Fast installation with a cover that snaps onto the base
+* Manufactured in Vancouver, Washington, USA

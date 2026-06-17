@@ -1,0 +1,42 @@
+Source URL: https://scd-company.com/high-load-project-example/
+Scraped: 2026-06-15T16:11:47.504351
+============================================================
+
+**High‑load system performance**
+
+* Processes 100 000 requests per second.  
+* Maintains a response time ≤ 100 ms for each request, which executes complex searches and multiple logical operations.
+
+**Technology choices**
+
+* **Non‑blocking asynchronous I/O** – required to keep the 100 ms latency at high load.  
+* **In‑memory search index** – eliminates network round‑trips during queries.  
+* **Stateless request handlers** – allows unlimited horizontal scaling.
+
+**Development workflow**
+
+1. **Prototype** built with the chosen stack.  
+2. **Load testing** using wrk2 and JavaScript (Lua) scripts that generate realistic queries; data generator populates the index so that about the same percentage of searches succeed as in production.  
+3. **Performance tuning** achieved ~ 5 000 requests per second per process; horizontal scaling was verified.  
+4. **Deployment**  
+   * Docker images built on GitLab CI, stored in a private registry.  
+   * Infrastructure defined declaratively in Terraform; deployed to AWS on Kubernetes.  
+   * New versions rolled out by rebuilding images, updating the Terraform config, and applying changes.
+
+**Observability & safeguards**
+
+* Metrics collected with **Prometheus**, visualized in **Grafana**.  
+* Alerting via instant‑messenger bots when a metric nears a critical threshold.  
+* Safety mechanisms detect component failure (e.g., ClickHouse out of disk space) and automatically halt dangerous operations that could lead to monetary loss.
+
+**Data stores**
+
+| Purpose | Storage technology | Key characteristics |
+|---------|-------------------|---------------------|
+| Rapid ingestion of millions of records | **ClickHouse** | Column‑store, high‑throughput writes; slower updates/deletes |
+| <10 ms key‑value retrieval | **Aerospike** | Each instance handles ≈ 100 k ops/s; four instances used |
+| Configuration data | **PostgreSQL** | Relational schema for various settings |
+
+**Operational migration**
+
+After validating in AWS, the system was moved to on‑premises hardware to cut costs; the Terraform/Kubernetes stack made this transition straightforward.

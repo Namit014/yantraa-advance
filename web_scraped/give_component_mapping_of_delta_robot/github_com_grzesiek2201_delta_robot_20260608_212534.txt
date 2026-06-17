@@ -1,0 +1,44 @@
+Source URL: https://github.com/grzesiek2201/Delta-Robot
+Scraped: 2026-06-08T21:25:34.229332
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the raw scraped web text:
+
+**Robot Specifications:**
+
+* Type: Delta robot
+* Control method: Online and offline working mode (online allows live visualization of kinematics, offline simulates robot configuration)
+* Motor control: Enabling/disabling motors, starting/ stopping program
+* Encoders: Calibration
+* Home position: Homing
+* TCP offset: Adjustable
+* Jog step: Adjustable
+* Z-axis limit: Adjustable
+* Kinematic equations: Inverse and forward kinematics with derivation
+
+**Software Specifications:**
+
+* Programming language: Python
+* 3D model rendering: Python
+* GUI: Basic manual control by providing x,y,z coordinates or basic relative position control in Jog mode
+* Program creation: Saving, opening, editing, and setting points using manual input or teach-in method
+* Program features: Creating, manipulating, and storing programs
+
+**Relevant Facts:**
+
+* necesita-printed parts: 3D models for whole robot and individual parts required
+* build instructions: Provided
+* collision detection: Available
+* work envelope: Adjustable
+* joints plot: Available
+* kinematics drawing: Available
+
+**Numbers:**
+
+* Commits: 150
+* Stars: 76
+* Watchers: 2
+* Forks: 14
+* Packages: 0
+
+Note that I've removed the navigation menus, ads, and boilerplate text, and reformatted the text to focus on the technical specifications, facts, numbers, and descriptions.

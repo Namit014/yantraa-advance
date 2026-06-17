@@ -1,0 +1,43 @@
+Source URL: https://en.wikipedia.org/wiki/Rescue_robot
+Scraped: 2026-06-08T11:46:18.652902
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the provided text:
+
+**Search and Rescue Robots**
+
+* Designed for rescuing people
+* Used to search, map, remove rubble, deliver supplies, provide medical treatment, and evacuate casualties
+* Examples of uses:
+	+ 9/11 attacks
+	+ 2016 Central Italy earthquake
+* Development projects:
+	+ TRADR (User-Centric Design Methodology)
+	+ SHERPA (mixed ground and aerial robotic platform)
+	+ ICARUS (unmanned Search and Rescue devices)
+
+**TRADR**
+
+* Develops novel science and technology for human-robot teams
+* Collaborative effort between robots and human team members
+* Enables team to develop understanding of disaster area over multiple sorties
+
+**SHERPA**
+
+* Develops mixed ground and aerial robotic platform
+* Address research topics on cognition and control in real-world hostile environment
+* Focuses on interaction and collaboration between "busy genius" and SHERPA animals
+* Emphasizes robust autonomy and cognitive capabilities
+
+**ICARUS**
+
+* Develops unmanned Search and Rescue technologies for detecting, locating, and rescuing humans
+* Focuses on reducing time and increasing efficiency in Search and Rescue (SAR) process
+
+**Research and Development**
+
+* Biophysicist Daniel Goldman is building a robot inspired by sandfish lizards
+* Associate Professor of Robotics-Howie Choset is working on building a snake robot
+* Strong government funding and support is needed for widespread use of search and rescue robots
+
+Please note that this extraction is limited to the text provided and may not be a comprehensive or definitive summary of the topic.

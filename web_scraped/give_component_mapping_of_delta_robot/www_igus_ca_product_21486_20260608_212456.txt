@@ -1,0 +1,29 @@
+Source URL: https://www.igus.ca/product/21486
+Scraped: 2026-06-08T21:24:56.182614
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Delta Robot Education Kit**
+
+* Compatible with all delta robots
+* Additional components can be added to expand the system
+* Item no.: DELTA-EDUCATION-0100
+* Programming scenarios:
+	+ Adhesion
+	+ Sorting I & II
+* Real-world relevant project boards created in the igus factory
+
+**Education Kit Features**
+
+* Over 100 hours of learning material
+* Educational materials for students and teachers
+* Compatible with all delta robots
+
+**Contact Information**
+
+* Kevin Wright: product information and questions
+* Phone: +1 905 7608448
+* Customer Service: Monday to Friday from 8 am - 5 pm
+* LiveChat: 24 hours
+* Book a Call: book an appointment with a Product Expert

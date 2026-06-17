@@ -1,0 +1,64 @@
+Source URL: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/kr-scara-robot
+Scraped: 2026-06-08T12:31:41.076588
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**General Specifications:**
+
+* Designed for maximum efficiency in every aspect
+* Ultra-compact design with low weight
+* Minimal footprint
+* Fits into tiny work cells
+* Perfect solution for automation in tight spaces
+* Strong and fast with high load capacity
+* Short cycle times: up to 0.36 sec for 500 mm and 0.38 sec for 700 mm arm length
+
+**Technical Specifications:**
+
+* Load capacity: 6-60 kg
+* Reach: 500-1200 mm (arm length)
+* SCARA arm: meets CE requirements
+* Compact KR C5 controller: guarantees high reliability
+* ESD protected: designed to prevent uncontrolled electrostatic charging or discharging
+
+**Robot Configurations:**
+
+* KR SCARA (4 axes)
+* KR 6 R500 Z200-2
+* KR 6 R700 Z170 HO
+* KR 6 R700 Z200-2
+* KR 12 R650 Z340 CR
+* KR 12 R650 Z400
+* KR 12 R750 Z340 CR
+* KR 12 R750 Z400
+* KR 12 R750 Z600
+* KR 12 R850 Z340 CR
+* KR 12 R850 Z400
+* KR 13 R850 Z340 HO
+* KR 20 R1000 Z390 CR
+* KR 20 R1000 Z450
+
+**Robot Controllers:**
+
+* KR C5 micro
+* KR C5 micro-2
+
+**Robot Mounting Positions:**
+
+* Floor
+* Protection class: IP 20, IP 54
+
+**Robot Environmental Requirements:**
+
+* Standard
+* Cleanroom
+* Food
+
+**Other Specifications:**
+
+* Maximum payload: 6-12 kg
+* Protection class: IP 20, IP 54
+* Temperature range: 5-40° Celsius
+
+Please note that the above specifications are a result of extraction from the provided text and may not be exhaustive. If more information is required, please let me know.

@@ -1,0 +1,44 @@
+Source URL: https://en.wikipedia.org/wiki/Delta_robot
+Scraped: 2026-06-10T15:27:58.144249
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Device Description**
+
+* Type: Parallel robot with three arms connected to universal joints at the base
+* Key feature: Use of parallelograms in the arms to maintain orientation of the end effector
+* Compared to Stewart platform, delta robot maintains end effector orientation
+
+**Design**
+
+* Delta robot has 4 (or 6) degrees of freedom
+* Kinematic chains connect base to end-effector
+* Parallelograms restrict end platform movement to pure translation (X, Y, Z directions)
+
+**Performance**
+
+* High speed: up to 300 picks per minute
+* High accelerations: up to 100 g (30-100 g)
+* High precision: 0.45 m/s speeds, 215 m/s² accelerations, and 75 Hz repetition rates
+
+**Variations**
+
+* Delta with 6 degrees of freedom (Fanuc company)
+* Delta with 4 degrees of freedom (Adept company)
+* Pocketdelta (Asyril SA): 3-axis version for high-speed, high-precision applications
+* Delta direct drive: 3 degrees of freedom with motor directly connected to arms
+* Delta cube (EPFL university laboratory LSRO): monolithic design for ultra-high-precision applications
+* Linear delta arrangements: using linear actuators for larger working volumes
+
+**Applications**
+
+* High-speed pick-and-place tasks
+* Packaging industries (sorting, packing, and manipulating small consumer goods)
+* Electronics industry (placement of components onto PCBs, wire bonding, and micro-assembly operations)
+* Medical applications (neurosurgical positioning systems, haptic devices, and virtual reality input systems)
+* Additive manufacturing (delta-style 3D printers)
+
+**References**
+
+Please note that the provided output is in clean prose and does not include navigation menus, ads, or boilerplate. I have only extracted the technical specifications, facts, numbers, and descriptions without inventing any information not present in the original text.

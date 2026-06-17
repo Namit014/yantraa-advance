@@ -1,0 +1,32 @@
+Source URL: https://en.wikipedia.org/wiki/Salvius_(robot)
+Scraped: 2026-06-12T15:57:23.543443
+============================================================
+
+Salviusis an open‑source humanoid robot built in the United States in 2008. It was created as a research platform for dynamic operation in domestic environments and is designed to use recycled components to keep costs low.  
+
+**Technical specifications**  
+- Height: 6 feet  
+- Weight: 164 pounds  
+- Degrees of freedom: 24  
+- Battery life: ≈ 1.2 hours  
+- Control: biped, autonomous and teleoperated  
+- Construction material: salvaged parts and recycled components; uses plug‑and‑play USB connections for modular hardware addition or removal  
+
+**Processor and control architecture**  - Primary controller: Raspberry Pi running Raspbian Linux (server for high‑level programming languages)  
+- Motor controllers: Grove motor controllers interfacing with multiple Arduino microcontrollers, chosen for their open‑source design and community support  
+- Communication: Ethernet‑connected IP camera provides visual input; wireless link enables remote control via a web interface  
+
+**Power and actuation**  
+- Actuators: salvaged motors driving the robot’s limbs  
+- Power source: battery delivering about 1.2 hours of operation  
+
+**Sensors**  
+- Touch, sound, light, ultrasonic, and passive infrared (PIR) sensors for environmental interaction  
+
+**Software stack**  
+- Operates on open‑source software; programming languages include Python (Raspberry Pi), Arduino/C (microcontrollers), and JavaScript for the web interface  - Supports autonomous operation and remote control through a browser‑based interface; tasks can be off‑loaded to separate boards for parallel processing  
+
+**Intended applications**  
+- Platform for developers to experiment with machine‑learning algorithms and humanoid kinematics  
+- Educational resource for STEM classrooms  
+- Testbed for exploring robot‑IoT interactions and parallel task distribution  The robot’s open‑source nature allows its source code and hardware designs to be freely modified, extended, and studied by the community.

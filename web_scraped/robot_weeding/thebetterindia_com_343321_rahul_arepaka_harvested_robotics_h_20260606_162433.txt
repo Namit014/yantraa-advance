@@ -1,0 +1,22 @@
+Source URL: https://thebetterindia.com/343321/rahul-arepaka-harvested-robotics-hyderabad-ai-startup-laser-weeder-robot-help-farmers-earn-more/
+Scraped: 2026-06-06T16:24:33.200097
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+* Rakshak: an AI-powered laser-weeding implement built by Rahul Arepaka and his team.
+* Technology: precision laser technology for weed eradication, paired with individual weed recognition through deep learning algorithms.
+* Power source: a combination of smaller laser sources (five different laser sources to get 200 watts) to reduce cost and ensure even power distribution.
+* Cost: the system is priced at Rs 10 lakh for the launch.
+* Functionality: Rakshak eliminates weeds down to their roots, autonomously identifies weeds using cameras and artificial intelligence, and uses blue laser technology for detection.
+* Maintenance: the device requires no external source for charging and works on any tractor, regardless of horsepower.
+* Soil preservation: the device concentrates the laser on the stem point of the weed, destroying the water cells inside the plant, making it a sustainable method.
+* Comparison: other available machines use carbon dioxide-based technology, are huge, and have a high maintenance cost, while Rakshak uses blue laser light, which penetrates faster through chlorophyll.
+* Patents: the team has applied for a patent for their solution.
+* Partnerships: Harvested Robotics is part of the Microsoft for Startups Founders Hub and is working with Mahindra & Mahindra to test their product.
+* Trials: the team has conducted trials in farms across India and is gearing up to launch their product in the market.
+* Statistics:
+	+ Total losses caused by weeds: almost $11 billion per year across 10 major crops in India.
+	+ Weed management accounts for 20 to 25 percent of the total cultivation costs.
+	+ Cost of weeding: a farmer spends almost Rs 15,000 for weeding, which has to be done at least three to four times during an entire season. The total cost sums up to almost Rs 60,000.
+	+ Use of weedicides or herbicides: these are chemicals sprayed on the field to eliminate weeds, though this is effective, it has a long-term negative impact on the environment and the health of farmers.

@@ -1,0 +1,41 @@
+Source URL: https://aiforgood.itu.int/disaster-robots-revolutionizing-emergency-response-with-autonomous-robots/
+Scraped: 2026-06-08T11:46:49.417285
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Robots:**
+
+1. **Fotokite Sigma**:
+	* Advanced unmanned aerial system (UAS) designed for fire response and emergency situations.
+	* Fully autonomous and actively tethered, allowing for safe and reliable operation.
+	* Can provide a critical aerial overview of the scene during fire responses, search and rescue missions, or traffic jams.
+	* Advanced autonomy ensures simple and efficient operation, and the tethered design allows for long-duration flights without the need for battery changes or refueling.
+2. **Colossus**:
+	* Electric robot designed for fire-fighting and operations in high-risk areas.
+	* Built to withstand extreme conditions, with ultra-strong batteries allowing for up to 12 hours of operational use.
+	* Highly adaptable, featuring over 11 easily interchangeable mission options.
+	* Robust construction and resistance to thermal waves up to 900°C, allowing for deployment in various indoor and outdoor environments, including climbing stairs.
+
+**Capabilities:**
+
+1. **Fotokite Sigma**:
+	* Can reduce the risk of injury or death to responders and the public by entering hazardous areas or providing aerial footage of burning buildings.
+	* Can monitor areas at risk of disasters and take proactive measures to ensure security.
+2. **Colossus**:
+	* Can reduce the risk to lives and property by containing fires and preventing them from spreading.
+	* Can help minimize the impact of fires on the environment and reduce greenhouse gas emissions from wildfires.
+
+**SDGs (Sustainable Development Goals)**:
+
+1. **SDG 3: Good Health and Well-being**:
+	* Fotokite Sigma and Colossus can improve emergency response capabilities, reducing the risk of injury or death to responders and the public.
+2. **SDG 11: Sustainable Cities and Communities**:
+	* Fotokite Sigma can improve situational awareness, monitoring areas at risk of disasters and taking proactive measures to ensure security.
+	* Colossus can help ensure the security of residents in urban areas by containing fires and preventing them from spreading.
+3. **SDG 13: Climate Action**:
+	* Fotokite Sigma can support emergency response efforts during extreme weather events, providing critical aerial footage and situational awareness.
+	* Colossus can be used to respond to wildfires, helping to mitigate their impact on the environment and reduce greenhouse gas emissions.
+4. **SDG 15: Life on Land**:
+	* Fotokite Sigma can help prevent or minimize damage to natural ecosystems, contributing to the conservation and sustainable use of terrestrial and aquatic resources.
+	* Colossus can be used to prevent or mitigate forest fires, which can have devastating effects on ecosystems and wildlife.

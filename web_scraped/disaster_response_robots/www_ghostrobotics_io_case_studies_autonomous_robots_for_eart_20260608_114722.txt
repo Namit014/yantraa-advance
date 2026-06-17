@@ -1,0 +1,24 @@
+Source URL: https://www.ghostrobotics.io/case-studies/autonomous-robots-for-earthquake-disaster-relief
+Scraped: 2026-06-08T11:47:22.104310
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the source text:
+
+**Solution**
+
+* Purpose: Support relief operations in Noto Peninsula, Japan
+* Deployed: Quadrupedal unmanned ground vehicles (Q-UGVs)
+* Capabilities:
+	+ Delivering small payloads (e.g., medical supplies, food, and water)
+	+ Performing reconnaissance in unstable or high-risk areas
+	+ Assisting with communications in areas with downed power and cell infrastructure
+	+ Four-legged mobility allows climbing rubble, descending stairwells, and navigating uneven terrain
+
+**Results**
+
+* Enabled real-time assessment of collapsed structures and isolated zones without endangering personnel
+* Delivered essential supplies to communities and aid teams in areas inaccessible to trucks or drones
+* Demonstrated Q-UGV's capability as a low-footprint, all-terrain responder in complex disaster relief scenarios
+* Validated the use of robotic systems in humanitarian missions
+
+Note: The extracted information only includes the relevant technical specifications, facts, numbers, and descriptions, removing navigation menus, ads, and boilerplate.

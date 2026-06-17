@@ -1,0 +1,26 @@
+Source URL: https://www.foxbusiness.com/technology/viral-video-shows-humanoid-robot-chasing-wild-boars-off-street-bizarre-encounter
+Scraped: 2026-06-06T16:04:03.816740
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+* Humanoid robot: Edward Warchocki
+* Location: Warsaw, Poland
+* Actions: Chasing a group of wild boars off the street
+* Online presence: The robot appears in public-facing content and social media videos
+* Date prediction: Elon Musk predicts Tesla will likely sell humanoid robots by the end of next year
+* Wild boars:
+	+ Known issue in parts of Warsaw and other Polish cities
+	+ Frequently wander into residential neighborhoods and busy streets in search of food
+	+ A threat to the pork industry, particularly due to African Swine Fever
+* Annual culls: Held in Poland since 2019 to curb the wild boar population
+* Humanoid robots:
+	+ Moving beyond controlled demonstrations and into real-world environments
+	+ Performing complex movements, such as maintaining balance and executing flips
+	+ Assisting travelers in public spaces, like airports
+	+ Being developed for large-scale manufacturing in companies like China
+	+ Being developed for industrial use, signaling a broader shift toward integrating the technology into everyday settings
+* Numbers:
+	+ $70B: The amount of funding proposed for ICE in the House Republicans' bill
+	+ $1.77 trillion: The expected valuation of SpaceX's IPO
+	+ 2019: The year annual culls were first held in Poland to curb the wild boar population

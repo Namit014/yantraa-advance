@@ -1,0 +1,36 @@
+Source URL: https://arxiv.org/html/2603.23365v1
+Scraped: 2026-06-08T21:25:08.934974
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**PinPoint Framework:**
+
+* Probabilistic variational inference framework for real-time monocular needle pose estimation
+* Formulates needle tracking as inference over SE(3)
+* Maintains a distribution of pose hypotheses, preserving the genuine multimodal structure of the posterior
+* Geometric constraints from monocular image observations and physical robot-grasp are expressed as analytical residuals with closed-form Jacobians
+* Stein Variational Newton (SVN) inference with Gauss-Newton curvature for efficient convergence and hypothesis diversity preservation
+
+**Evaluation Results:**
+
+* Mean translational error reduced by 80% (down to 1.00 mm) and rotational error by 78% (down to 13.80°) relative to particle-filter baseline
+* On induced-rotation sequences, PinPoint maintains a bimodal posterior 84% of the time, compared to 28% for particle filter baseline
+* Average errors during occlusion: 1.34 mm in translation and 19.18° in rotation
+
+**Monocular Needle Pose Estimation:**
+
+* Inherently ill-posed problem due to depth ambiguity and rotational symmetry
+* Multiple 3D configurations can produce similar image projections
+* Probabilistic filters can recover a single reliable pose estimate in stereoscopic settings, but not in monocular settings
+
+**Robotic Suturing:**
+
+* One of the most fundamental and cognitively demanding tasks in Robot-assisted Minimally Invasive Surgery (RMIS)
+* Demands repeated, precise manipulation of a curved needle under constrained instrument motion
+* Automating components of this process could reduce procedural variability and operative fatigue
+
+**Research Funding:**
+
+* Advanced Research Projects Agency for Health (ARPA-H) under the ALISS project, Award Number D24AC00415-00
+* National Science Foundation Graduate Research Fellowship Program, Grant Nos. 1937963 & 2444112

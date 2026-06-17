@@ -1,0 +1,17 @@
+Source URL: https://eureka.patsnap.com/article/what-are-the-most-common-sensors-used-in-robot-arms
+Scraped: 2026-06-12T16:01:40.267980
+============================================================
+
+The most common sensors used in robot arms include:
+
+- **Position sensors** – Rotary encoders measure the angular position of joints, providing feedback for precise control and repeatability of movements. Linear position sensors, often implemented as potentiometers, track translational displacement and give real‑time feedback on position changes, which is essential for accurate tasks such as automotive assembly and electronics manufacturing.
+
+- **Force and torque sensors** – Force sensors measure the load applied by the end effector, enabling the robot to maintain desired force levels during delicate operations like assembly and material handling and to avoid damaging components. Torque sensors detect twisting forces on joints, important for tasks requiring controlled rotational movements and for ensuring safety and precision.
+
+- **Proximity and distance sensors** – Infrared sensors detect the presence of nearby objects, while ultrasonic sensors measure distances to those objects. These sensors support obstacle detection, collision avoidance, and safe navigation in dynamic environments, and they help maintain desired proximity in high‑precision applications such as robotic surgery or high‑speed sorting.
+
+- **Vision sensors** – Cameras and 3D vision systems capture visual data about the robot’s surroundings, allowing object identification, pattern recognition, and spatial relationship assessment. Vision feedback enables real‑time adjustment of actions in quality inspection, pick‑and‑place operations, and other tasks that require complex decision‑making.
+
+- **Temperature sensors** – Though less common, temperature sensors monitor critical components to prevent overheating and ensure longevity. They are particularly valuable in temperature‑sensitive industries such as food processing and pharmaceuticals, where maintaining specific thermal conditions is necessary for product quality and safety.
+
+Together, these sensor types provide the feedback needed for precise control, safe interaction with the environment, adaptability to changing conditions, and enhanced perception, thereby improving the overall performance and versatility of robot arms.

@@ -1,0 +1,26 @@
+Source URL: https://en.wikipedia.org/wiki/Tesla,_Inc.
+Scraped: 2026-06-06T20:18:43.389273
+============================================================
+
+Relevant technical specifications, facts, numbers, and descriptions in the article about Tesla, Inc. are as follows:
+
+* Revenue: US$ 94.83 billion (2025)
+* Operating income: US$4.36 billion (2025)
+* Net income: US$3.79 billion (2025)
+* Total assets: US$137.8 billion (2025)
+* Total equity: US$82.14 billion (2025)
+* Production output: 1.66 million vehicles (2025)
+* 46.7 GWh battery energy storage systems (2025)
+* Services: Charging, insurance, maintenance
+* Products: Cybertruck, Megapack, Model 3, Model Y, Powerwall, Semi, Solar Panels, Solar Roof
+* Number of sales, service, and delivery centers: 1,359
+* Number of Supercharger stations: 7,791
+* Area served: East Asia, Europe, Middle East, North America, Oceania, Southeast Asia, Indian Subcontinent
+* Key people: Elon Musk (CEO), Robyn Denholm (chair)
+* Number of employees: 134,785 (2025)
+* Subsidiaries: Tesla Automation, Tesla Energy
+* Footnotes/References: [3] This article is part of a series about Elon Musk
+* References: [5], [6], [7], [8], [9], [10]
+* Pay package for Musk: US$1 trillion (2025)
+
+Note that the article contains a wide range of information, including historical context, company development, events, and market data. The above information is extracted and presented in a clean and concise manner, focusing on technical specifications, facts, numbers, and descriptions relevant to the topic of Tesla, Inc.

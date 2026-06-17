@@ -1,0 +1,39 @@
+Source URL: https://neura-robotics.com/applications/sanding-polishing/
+Scraped: 2026-06-06T15:06:43.911062
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Cobot Sanding and Finishing**
+
+* Maintains even pressure and motion across curves and contours, ensuring consistent surface quality
+* Minimizes oversanding, missed spots, and manual corrections, reducing defects and rework
+* Removes repetitive, high-effort tasks from daily workload, eliminating operator fatigue
+
+**Key Features:**
+
+* Neura Touch: Force-torque sensing for consistent surface results
+* Intuitive no-code setup: Hands-on teaching using only three buttons, clear LED status indicators, and automatic control of tool speed and contact pressure
+* Compact design: Fitted into tight production cells
+* Easy integration of peripherals: Via Neuraverse
+
+**Smart Sanding and Finishing with Built-in AI and Force Sensing:**
+
+* Automatically detects surfaces, adapts pressure and motion in real-time, and maintains finish quality without manual adjustments or sensor add-ons
+* Identifies sanding and polishing zones based on part geometry and placement
+* Detects edges, contours, and critical finish areas
+* Adapted to height, angle, or position changes
+
+**Adaptive Finishing Control:**
+
+* Tool motion and pressure adjust on the fly for consistent results
+* Maintains contact on curved or angled parts
+* Compensates for variation without tuning settings
+* Prevents uneven areas, burn-through, or missed spots
+* Keeps results stable across shifts or setups
+
+**NEURA Robotics:**
+
+* Leading robotic company powerhouse providing end-to-end solutions covering every lifecycle of a robotic service, including setup, advisory, and more.
+
+Please note that I removed all non-technical content, advertisements, and boilerplate text to provide a clean and concise output.

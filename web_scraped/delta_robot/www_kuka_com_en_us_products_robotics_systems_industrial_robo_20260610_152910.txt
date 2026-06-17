@@ -1,0 +1,61 @@
+Source URL: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/kr-delta-roboter
+Scraped: 2026-06-10T15:29:10.696251
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the provided text:
+
+**KR DELTA Robots**
+
+* High-speed delta robotic designed for pick-and-place tasks
+* Meets high hygiene and safety requirements
+* Low operating costs
+* Precise pick-and-place with high point repeatability and angular repeatability
+* Top speed: up to 0.32 seconds
+* Can move and pack up to 6 kg
+* Body made of stainless steel or carbon fiber
+* Suitable for automation in various industries
+* High working range
+* Large footprint: ∅ 350 mm
+* Operating temperature range: 0 °C - 45 °C
+
+**Controller and Software**
+
+* KR C5 micro controller
+* Application software for fast-moving applications
+* KUKA.PickControl Conveyor Tracking software for easy coordination and control of multiple robots during packing
+* KUKA.ConveyorTech for organizing cooperation between robot and conveyor belt and coordinating all relevant movements
+
+**Hygiene and Safety**
+
+* Hygienic Machine Version with stainless steel body
+* Food-safe H1 lubricants in all axes
+* Protection class IP 67 for entire robot and IP 69K for axis 4
+* German LFGB and US FDA standards for food
+
+**KR DELTA Robot Specifications**
+
+* Load capacity: 250-455 kg
+* Reach: 1,200 mm (arm length) and 350 mm (vertical working range)
+* Energy consumption: low
+* Maintenance: virtually free
+* Repeatability: high point and angular
+* Cycle time: less than 0.32 seconds
+* Gearbox: lifetime lubrication
+* Ball heads: self-lubricating
+* Flange: suited for easy and quick mounting of various grippers
+
+**Delta Express Pack**
+
+* Preconfigured package with delta robot, controller, operating element, and software
+* Short delivery times
+* Suitable for automating pick, pack, and place applications for all types of fast-moving consumer goods
+
+** KR 3 D1200, KR 3 D1200 HM, KR 15 D1200-2, and KR 15 D1600-2**
+
+* Total load: 6 kg (KR 3 D1200), 15 kg (KR 15 D1200-2 and KR 15 D1600-2)
+* Maximum reach: 350 mm (KR 3 D1200), 250 mm (KR 3 D1200 HM), 400 mm (KR 15 D1200-2), and 455 mm (KR 15 D1600-2)
+* Version environment: Standard (KR 3 D1200 and KR 15 D1200-2) and Hygienic Machine (KR 3 D1200 HM)
+* Protection class: IP 67 (KR 3 D1200 HM), IP 65 (KR 15 D1200-2), and IP 67 (KR 15 D1600-2)
+* Construction type: Standard
+* Mounting positions: Ceiling
+* Controller: KR C5 (KR 3 D1200 and KR 15 D1200-2), KR C5 micro (KR 3 D1200 HM), and KR C5 (KR 15 D1600-2)

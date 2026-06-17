@@ -1,0 +1,19 @@
+Source URL: https://robotsguide.com/robots/category/disaster-response
+Scraped: 2026-06-08T11:46:55.800801
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions related to Disaster Response Robots:
+
+* ANYmal (2016) - a type of industrial robot designed for disaster response
+* DRC-Hubo+ (military & security) - a type of robot designed for disaster response
+* Elios (drones) - a type of disaster response robot
+* Guardian S (industrial) - a type of robot designed for industrial use, possibly used for disaster response
+* Kobra (industrial) - a type of robot designed for industrial use, possibly used for disaster response
+* LAURON V (research) - a type of robot designed for research, possibly used for disaster response
+* Momaro (disaster response) - a type of robot designed for disaster response
+* PackBot (military & security) - a type of robot designed for military and security use, possibly used for disaster response
+* Phantom (drones) - a type of drone designed for disaster response
+* Quince (research) - a type of robot designed for research, possibly used for disaster response
+* Versatrax (industrial) - a type of robot designed for industrial use, possibly used for disaster response
+
+Note: Not all information is available, and some robots may be missing specific details. Additionally, some information may not be relevant to disaster response.

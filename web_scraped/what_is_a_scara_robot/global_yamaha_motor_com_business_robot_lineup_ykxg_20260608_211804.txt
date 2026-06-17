@@ -1,0 +1,38 @@
+Source URL: https://global.yamaha-motor.com/business/robot/lineup/ykxg/
+Scraped: 2026-06-08T21:18:04.887132
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions:
+
+**YAMAHA's SCARA Robots**
+
+* Wide reach and payload ranges: 120 mm to 1200 mm and 1 kg to 50 kg
+* Features a completely beltless structure, achieving:
+	+ Overwhelming high-rigidity
+	+ High-speed
+	+ High-accuracy
+* Applications:
+	+ Production equipment for electrical and electronic components
+	+ Small precision machine components requiring precise assembly, handling, and transfer of large automotive components
+* Market presence:
+	+ Shipment quantity leader in 2010, according to Fuji Keizai's "Current status and future forecast of worldwide robot market in 2011"
+
+**YK-XG Series Orbit Type SCARA Robots**
+
+* Features:
+	+ LOW COST HIGH PERFORMANCE
+	+ Various types: Orbit, Tiny, Small, Medium, Large, Wall-mount, Inverse, Dust-proof, Drip-proof, Clean
+
+**YAMAHA's SCARA Robots Catalog Features**
+
+* Available in PDF: 1.5MB (YK-XG Catalog Feature) and 15.7MB (YK-XG Catalog Spec)
+* Controllers:
+	+ Clean SCARA robots YK-XGC/XC Type
+* Operation manuals:
+	+ Robotics Business Unit
+	+ Sales & Marketing Section
+	+ FA Sales & Marketing Division
+* Contact Information:
+	+ Address: 127 Toyooka, Chūō-ku, Hamamatsu, Shizuoka 433-8103, Japan
+	+ Telephone: +81-53-525-8350
+	+ Facsimile: +81-53-525-8378

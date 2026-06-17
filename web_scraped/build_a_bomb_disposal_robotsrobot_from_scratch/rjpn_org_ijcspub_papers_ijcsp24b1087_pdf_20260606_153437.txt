@@ -1,0 +1,26 @@
+Source URL: https://rjpn.org/ijcspub/papers/IJCSP24B1087.pdf
+Scraped: 2026-06-06T15:34:37.158888
+============================================================
+
+I've extracted the technical specifications and facts from the provided text. Here is the cleaned-up output:
+
+**Specifications:**
+
+* Font: /Font
+* ProcSet: [PDF/Text/ImageB/ImageC/ImageI]
+* MediaBox: [0 0 595.32 841.92]
+* Contents: 4 0 R
+* Group: [/Group]
+* Tabs: /Tabs
+* StructParents: 0
+
+**Facts:**
+
+* PDF version: 1.5
+* Object count: 7
+* Font information: none specified
+* ProcSet information: [PDF/Text/ImageB/ImageC/ImageI]
+* MediaBox dimensions: 595.32 x 841.92
+* Contents reference: 4 0 R
+
+Let me know if you'd like me to assist with anything else!

@@ -1,0 +1,23 @@
+Source URL: https://www.krrassvgroover.com/laser-cutting-machine-steps.html
+Scraped: 2026-06-06T14:01:51.671186
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Laser Cutting Machine Protective Lens Selection:**
+
+1. **Shape and Size Match**: Easy to understand.
+2. **Materials**: K9, quartz, with multiple grades available for different laser powers and usage. Consider cost of use when choosing.
+3. **Coatings**: Laser anti-reflection coating with different technical parameters for different use environments.
+
+**Lens Cleaning and Reuse:**
+
+1. **Lens Material**: ZnSe (zinc arsenic), relatively brittle and should not be dropped or collided with hard objects.
+2. **Handling Requirements**: Gloves and special operating set required to handle the laser cutting machine to protect the lens from skin oil and other contaminants.
+3. **Cleaning Methods**: Optical tweezers or vacuum tweezers recommended for smaller lenses.
+
+**Pre-Use and Pre-Cleaning Inspection:**
+
+1. **Inspection**: Check the protection of the lens of the laser cutting machine before use and before and after cleaning.
+2. **Magnifying Equipment**: Often needed to use magnifying equipment when inspecting lenses.
+3. **Illumination**: Use a relatively bright light to illuminate the optical surface and enhance the specular reflection intensity of surface contaminants and defects.

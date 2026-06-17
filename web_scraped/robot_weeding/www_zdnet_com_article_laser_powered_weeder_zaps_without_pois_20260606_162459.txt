@@ -1,0 +1,29 @@
+Source URL: https://www.zdnet.com/article/laser-powered-weeder-zaps-without-poison/
+Scraped: 2026-06-06T16:24:59.046914
+============================================================
+
+Here are the relevant technical specifications, facts, and descriptions extracted from the article:
+
+**Carbon Robotics' Autonomous Weeder:**
+
+* Utilizes high-powered lasers and computer vision to eliminate weeds
+* Eliminates 100,000 weeds per hour without disrupting the soil
+* Does not use traditional weeding methods such as chemicals, tiling, or manual labor
+* Powered by diesel-hydraulics
+* Equipped with lidar for safety scanning to protect workers and systems in the field
+* Uses geofencing to stay within a designated area in the field
+* Spots furrows within the field and drives between them
+* Uses an array of 150-watt high-powered CO2 lasers for weed zapping
+* Each laser utilizes cameras and other optic sensors for targeting control
+* Relies on deep learning computer vision algorithms to identify weeds from crops
+
+**Weed Elimination Statistics:**
+
+* Weeds cause a 10% loss in crop yields overall, amounting to 200 million tons per year
+* If left uncontrolled, weeds can result in 100% crop loss
+
+**Investment and Funding:**
+
+* Carbon Robotics secured $27 million in Series B financing
+* Total funding now stands at $36 million
+* Funding will accelerate Carbon Robotics' growth, including scaling the production of the Autonomous Weeder.

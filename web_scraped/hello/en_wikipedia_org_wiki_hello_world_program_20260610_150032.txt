@@ -1,0 +1,47 @@
+Source URL: https://en.wikipedia.org/wiki/Hello_world_program
+Scraped: 2026-06-10T15:00:32.080818
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions:
+
+* A "Hello, world" program is a small piece of code that displays on the screen a message similar to "Hello, world".
+* It is often the first written by a student of a new programming language.
+* The program is used to illustrate a language's basic syntax and can be used as a sanity check to ensure that the computer software is correctly installed and its operator understands how to use it.
+* The C language has been prominent in the development of "Hello, world" programs, with the first known version being written in 1972.
+* The "Hello, world" program can be written in various ways, including:
+	+ In C: `main ( ) { printf ( "hello, world" ); }`
+	+ In Python: `print ( "Hello, world" )`
+	+ In C++: `#include <iostream> int main ( ) { std::cout << "Hello, world" << std::endl; return 0; }`
+* The "Hello, world" program has been implemented in various programming languages, including:
+	+ BCPL
+	+ C
+	+ C++
+	+ Python
+	+ Java
+	+ Ruby
+	+ Perl
+	+ PHP
+* The "Hello, world" program has also been implemented in various non-programming contexts, such as:
+	+ Art
+	+ Music
+	+ Film
+	+ Photography
+* The "Hello, world" program has been used in various industries, including:
+	+ Computer science
+	+ Engineering
+	+ Mathematics
+	+ Physics
+* The "Hello, world" program has been used in various educational contexts, including:
+	+ Computer science courses
+	+ Engineering courses
+	+ Mathematics courses
+	+ Physics courses
+* The "Hello, world" program has been used in various commercial contexts, including:
+	+ Software development
+	+ System administration
+	+ Networking
+* The "Hello, world" program has been used in various research contexts, including:
+	+ Computer science research
+	+ Engineering research
+	+ Mathematics research
+	+ Physics research

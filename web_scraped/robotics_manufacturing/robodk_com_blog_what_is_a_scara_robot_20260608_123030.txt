@@ -1,0 +1,47 @@
+Source URL: https://robodk.com/blog/what-is-a-scara-robot/
+Scraped: 2026-06-08T12:30:30.451761
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Definition and Background**
+
+* SCARA robots are a type of industrial robotic arm with selective compliance assembly robot arm (SCARA) technology.
+* They are known for their ability to move freely and maintain stiffness in three axes while being compliant in the final axis.
+* SCARA robots are commonly used in various industries, including manufacturing and assembly applications.
+
+**History of SCARA Robots**
+
+* SCARA robots were invented by Professor Hiroshi Makino of Yamanashi University in 1977.
+* The first prototype was tested in 1978, and a second version was released two years later.
+* The first commercial SCARA robot was released in 1981.
+
+**Technical Specifications**
+
+* SCARA robots usually feature 4 axes, with 2 parallel arms that can move in a single plane.
+* The final axis is at right angles to the others and is compliant.
+* They have a simple design, which allows for quick movement while maintaining precision and accuracy.
+* SCARA robots are easy to program due to their simple inverse kinematics.
+
+**Advantages and Disadvantages**
+
+* Advantages:
+	+ Fast cycle times
+	+ Impressive positioning accuracy
+	+ High repeatability
+	+ Easy to program
+* Disadvantages:
+	+ Limited payload capacity (approximately 30-50 kg)
+	+ Restricted workspace
+
+**When to Consider Using SCARA Robots**
+
+* SCARA robots can be an economical and flexible option, making them suitable for a wide range of tasks.
+* They can be programmed using software, such as RoboDK, which offers new updates to improve SCARA programming.
+
+**Choosing the Right SCARA Robot for Your Needs**
+
+* Key considerations include defining your needs, such as the type of task, space, and payload.
+* It's recommended to test out multiple SCARA models within a simulator, such as RoboDK's, before making a decision.
+
+I hope this extracted information meets your requirements. Let me know if you need further assistance!

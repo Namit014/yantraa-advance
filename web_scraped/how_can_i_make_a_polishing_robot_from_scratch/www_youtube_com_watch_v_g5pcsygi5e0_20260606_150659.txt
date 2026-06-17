@@ -1,0 +1,27 @@
+Source URL: https://www.youtube.com/watch?v=g5pCsYgi5E0
+Scraped: 2026-06-06T15:06:59.898530
+============================================================
+
+I've extracted the relevant technical specifications and facts from the source text. Here's the output:
+
+**Tutorial on Programming a Robot using Scratch**
+
+**Duration:** 15 minutes
+
+**Technical Specifications:**
+
+* No specific technical specifications are mentioned in the title of the tutorial.
+
+**Facts:**
+
+* The tutorial is about programming a robot using Scratch.
+* The tutorial is a 15-minute guide.
+
+**Numbers:**
+
+* 15 minutes (duration of the tutorial)
+
+**Descriptions:**
+
+* The tutorial is about learning how to program a robot using Scratch.
+* The scope of the tutorial is limited to 15 minutes, providing a brief introduction to the topic.

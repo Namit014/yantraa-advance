@@ -1,0 +1,31 @@
+Source URL: https://www.studiopress.com/themes/hello/
+Scraped: 2026-06-10T15:01:42.416141
+============================================================
+
+Here are the technical specifications and facts extracted from the provided text:
+
+* Theme Features:
+	+ One-click setup wizard for quick installation and configuration
+	+ Customizer controls for tweaking settings, colors, and content
+	+ Customizable logo upload
+	+ Block-based widget areas for easy customization
+	+ Custom starter pages (Homepage, About, Blog, Contact)
+* eCommerce Integration:
+	+ Compatible with Easy Digital Downloads
+	+ Compatible with WooCommerce
+* Responsive Design:
+	+ Mobile-responsive design for optimal performance on various devices
+* Documentation:
+	+ Includes a copy guide for writing compelling web copy
+* Pricing:
+	+ Hello Commerce Theme: $139
+	+ Genesis Pro Access: $360/year
+	+ Genesis Framework + Hello Commerce Theme: $139 (one-time purchase)
+* Support:
+	+ Unlimited updates and sites
+	+ Unlimited support for 1 year
+	+ Access to detailed tutorials
+* Note:
+	+ The theme is built on the Genesis Framework
+	+ The Genesis Framework is included in the pricing mentioned above
+	+ The theme is compatible with WordPress, but it is not endorsed or owned by the WordPress Foundation or WooCommerce, Inc.

@@ -1,0 +1,26 @@
+Source URL: https://horizon.more4apps.com/doco/PWRelease/output/overview___steps_to_loading_projects.htm
+Scraped: 2026-06-15T16:11:16.631638
+============================================================
+
+Steps to Load Projects:
+
+1. Log in to E-Business Suite instance, connecting via workbook.
+2. Click the "New Sheet" button on the Project Wizard ribbon to create a custom worksheet.
+3. Enter project information, creating or updating existing data.
+4. Upload the project data, associating relevant information.
+5. Address any errors that occur during the upload process.
+
+Refer to additional sections for further guidance:
+
+* Getting Started
+* Project Wizard features and modes
+* Custom query options
+* Oracle Forms differences
+* Descriptive flexfields
+* Demonstration script
+* Employee reference options
+* Profile options
+* Attachment management
+* Troubleshooting
+* Licensing and installation information
+* Release notes

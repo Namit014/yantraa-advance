@@ -1,0 +1,39 @@
+Source URL: https://grokipedia.com/page/Delta_robot
+Scraped: 2026-06-10T15:28:40.028159
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Overview**
+
+* Type: Parallel robot
+* Consists of: Three articulated arms connected to a fixed base via universal joints and to a mobile platform via spherical joints
+* Enables: High-speed, precise translational motion in three dimensions (x, y, z) for manipulating lightweight objects (typically under 10 kg)
+
+**Design and Operation**
+
+* Employed parallelogram linkages in the arms to maintain the end-effector's orientation parallel to the base
+* Provide three degrees of freedom for translation while minimizing inertia (often better than 0.1 mm)
+* Actuation: Base-mounted motors (rotational servo motors) driving the linkages to transmit force to the mobile platform
+* Minimizes inertia of moving parts, enabling rapid accelerations
+* Motion constraints enforced by parallelogram linkages in each arm, restricting the mobile platform to pure translational movement in three dimensions
+
+**Key Components**
+
+* Arm linkages: Upper arms robust for torque transmission, lower arms employ lightweight materials (such as carbon fiber composites) to minimize inertia
+* Lower arms: Lightweight materials to minimize inertia
+* Mobile platform: Connects to lower arms through spherical joints, allowing for smooth articulation
+
+**Performance**
+
+* Achieves accelerations over 15 g and operation rates exceeding 200 cycles per minute in modern variants
+* Provides high-speed operations compared to serial manipulators
+* Achieves enhanced speed and repeatability, often better than 0.1 mm
+
+**History**
+
+* Invented by Reymond Clavel, Swiss engineer, in 1985 at École Polytechnique Fédérale de Lausanne (EPFL)
+* Initial prototype developed in 1985 as part of Clavel's PhD research on parallel kinematic structures
+* Design emphasized pure translational motion in three dimensions for enhanced precision
+* Commercialization began in 1987 with demand for high-speed packaging tasks in the food industry
+* First major commercial product: ABB IRB 340 FlexPicker, launched in 1998, achieving accelerations up to 10g

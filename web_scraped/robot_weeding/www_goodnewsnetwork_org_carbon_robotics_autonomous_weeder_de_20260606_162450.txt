@@ -1,0 +1,38 @@
+Source URL: https://www.goodnewsnetwork.org/carbon-robotics-autonomous-weeder-destroys-weeds-with-lasers/
+Scraped: 2026-06-06T16:24:50.559524
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Robot Specifications:**
+
+* 12 cameras for weed identification
+* CO2 laser for weed killing
+* Onboard supercomputer for millimeter precision
+* Battery-powered
+* Can clear 15-20 acres in a single day
+* Can eliminate 100,000 weeds per hour
+
+**Weeding Method:**
+
+* Certified Organic and in line with regenerative farming practices
+* De-weeding method
+* Cost-effective weed control
+
+**Agricultural Insights:**
+
+* Weeds compete for soil nutrients, water, space, and sunlight with crops
+* Labor-saving device
+* Eliminates need for chemical herbicides
+* Potential to "weed out" the bad news and share the good news (figurative phrase)
+
+**Financial Information:**
+
+* 2021 model sold out
+* 2022 models available for preorder
+* Lease options available from the company
+* Price tag quoted at "hundreds of thousands of dollars"
+
+**Farmers' Feedback:**
+
+* James Johnson of Carzalia Farm: "This is one of the most innovative and valuable technologies that I've seen as a farmer... I expect the robots to go mainstream..."

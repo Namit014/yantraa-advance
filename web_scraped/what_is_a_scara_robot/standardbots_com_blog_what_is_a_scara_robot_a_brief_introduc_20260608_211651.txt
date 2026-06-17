@@ -1,0 +1,53 @@
+Source URL: https://standardbots.com/blog/what-is-a-scara-robot-a-brief-introduction
+Scraped: 2026-06-08T21:16:51.906732
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**What is a SCARA robot?**
+
+* A type of robotic arm with several joints that give it flexibility to perform various tasks.
+* Designed to mimic the movements of a human arm, but with unwavering precision and efficiency.
+
+**Key Features:**
+
+* Controller
+* Power supply
+* End-effector (gripper or special tool)
+* Specialized software
+* Unique range of motion, particularly in the X-Y plane
+* Ability to move horizontally in any direction within its workspace
+* Ability to move vertically, with limitations (vertical axis remains fixed)
+
+**Capabilities:**
+
+* Material handling operations, such as:
+	+ Picking up and placing objects
+	+ Transporting items
+	+ Conducting assembly work
+* Assembly and manufacturing tasks
+* Pick-and-place tasks, with high speed and precision
+* Dispensing tasks, such as applying adhesives, painting, and sealing
+
+**Benefits:**
+
+* High precision
+* High speed
+* Compact size
+* Cost-efficient
+* Easy integration with existing automated systems
+
+**Applications:**
+
+* Food and beverage industry
+* Pharmaceuticals industry
+* Microelectronics industry
+* 3D printing (small-scale applications)
+* Packaging and palletizing
+* Dispensing (applying adhesives, painting, and sealing)
+
+**Selection Criteria:**
+
+* Application (purpose of the SCARA robot)
+* Budget (payload capacity, speed, brand, and customization options influence the cost)
+* Maintenance costs and availability of spare parts

@@ -1,0 +1,35 @@
+Source URL: https://builtin.com/robotics
+Scraped: 2026-06-06T15:33:25.688066
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Robot Definition:** A robot is a programmable machine that can complete a task, while the term robotics describes the field of study focused on developing robots and automation.
+
+**Robot Components:**
+
+1. **Mechanical Construction:** The mechanical aspect of a robot helps it complete tasks in the environment for which it's designed. For example, the Mars 2020 Rover's wheels are individually motorized and made of titanium tubing.
+2. **Electrical Components:** Robots need electrical components that control and power the machinery. A battery, for example, is needed to power a large majority of robots.
+3. **Software Program:** Robots contain at least some level of computer programming. Without a set of code telling it what to do, a robot would just be another piece of simple machinery.
+4. **Control System:** The control system includes all of the components that make up a robot's central processing unit, often referred to as its control system.
+5. **Sensors:** Sensors provide a robot with stimuli in the form of electrical signals that are processed by the controller and allow the robot to interact with the outside world. Common sensors found within robots include video cameras, photoresistors, and microphones.
+6. **Actuators:** Actuators are the components that are responsible for movement. These components are made up of motors that receive signals from the control system and move in tandem to carry out the movement necessary to complete the assigned task.
+7. **Power Supply:** Like the human body requires food to function, robots require power. Stationary robots may run on AC power through a wall outlet, while others may utilize internal batteries or other power sources.
+8. **End Effectors:** End effectors are the physical, typically external components that allow robots to finish carrying out their tasks. Robots in factories may have interchangeable tools like paint sprayers and drills, while surgical robots may be equipped with scalpels and other tools.
+
+**Robot Types:**
+
+1. **Humanoid Robots:** Humanoid robots are robots that look like or mimic human behavior.
+2. **Cobots:** Cobots, or collaborative robots, are robots designed to work alongside humans.
+3. **Industrial Robots:** Industrial robots automate processes in manufacturing environments like factories and warehouses.
+4. **Medical Robots:** Medical robots assist healthcare professionals in various scenarios and support the physical and mental health of humans.
+5. **Agricultural Robots:** Agricultural robots handle repetitive and labor-intensive tasks, allowing farmers to use their time and energy more efficiently.
+6. **Microrobotics:** Microrobotics is the study and development of robots on a miniature scale.
+
+**Other Facts:**
+
+* The Mars 2020 Rover's wheels are individually motorized and made of titanium tubing.
+* The most prominent examples of humanoid robots include Hanson Robotics' Sophia and Boston Dynamics' Atlas.
+* Industrial robots often work in assembly lines to boost productivity.
+* Medical robots can even converse with humans, encouraging people's social and emotional growth.
+* Agricultural robots come in many forms, ranging from autonomous tractors to drones that collect data for farmers to analyze.

@@ -1,0 +1,28 @@
+Source URL: https://robodk.com/blog/robotic-laser-cutting/
+Scraped: 2026-06-06T14:02:50.472087
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Conventional Laser Cutting Machines**
+
+* Expensive: $2,000 to $200,000 or more
+* Single-purpose: Can only cut or etch on a single plane
+* Huge: Can take up a whole section of a machine shop
+* Require supervision: Need a skilled operator, adding to cost
+* Limitations: Require multiple machines for different tasks, adding to budget and space required
+
+**Robot Laser Cutting Machines**
+
+* More flexible: Can cut or etch in any orientation within its workspace
+* Can run autonomously: Can be programmed to run without human intervention
+* Take up less floor space: Can be used in smaller spaces, as only one machine is needed
+* Can perform complex tasks: Can be programmed to perform complex tasks, such as depalletizing and material handling
+* Programming: Requires a good programming system to quickly program complex paths
+
+**Comparison of Conventional and Robot Laser Cutting Machines**
+
+* Conventional machines: Limiting, expensive, and require multiple machines for different tasks
+* Robot machines: Flexible, affordable, and can perform multiple tasks with one machine
+
+Note that I only extracted the technical specifications, facts, numbers, and descriptions, and removed all navigation menus, ads, and boilerplate. Let me know if you have any further requests!

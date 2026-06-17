@@ -1,0 +1,77 @@
+Source URL: https://community.toggl.com/t/insights-endpoints-post-load-projects-data-trends/412
+Scraped: 2026-06-15T16:10:38.377828
+============================================================
+
+**Endpoint**  
+`POST https://api.track.toggl.com/insights/api/v1/workspace/{workspace_id}/data_trends/projects`
+
+**Purpose**  
+Returns the data trends for projects within a specified workspace.
+
+**Path Parameter**  
+- `workspace_id` (integer, required): The ID of the workspace.
+
+**Request Body (JSON)**  
+```json
+{
+  "billable": "boolean",
+  "end_date": "string",
+  "previous_period_start": "string",
+  "project_ids": ["integer"],
+  "rounding": "integer",
+  "rounding_minutes": "integer",
+  "start_date": "string"
+}
+```
+- `billable` (boolean, optional): Filters projects that are set as billable (premium feature).
+- `start_date` (string, optional): Beginning of the date range; must be before `end_date`. Example format: DateOnly.
+- `end_date` (string, optional): End of the date range; must be after `start_date`. Example format: DateOnly.
+- `previous_period_start` (string, optional): Start date of the previous period. Example format: DateOnly.
+- `project_ids` (array of integer, optional): Specific project IDs to filter.
+- `rounding` (integer, optional): Duration rounding settings (premium feature).
+- `rounding_minutes` (integer, optional): Rounding minutes settings (premium feature).
+
+**Headers**  
+- `Content-Type: application/json`
+
+**Responses**
+
+| Status | Description | Payload |
+|--------|-------------|---------|
+| 200 | Successful request | ```json { "items": [ { "current_period_seconds": [ "integer" ], "previous_period_seconds": [ "integer" ], "project_id": "integer", "start": "string", "user_ids": [ "integer" ] } ] } ``` |
+| 400 | Bad request | Possible errors: *At least one parameter must be set*, *Invalid workspace id*, *Wrong format date* |
+| 402 | Payment required | *Workspace needs to have the {feature} feature enabled* |
+| 403 | Forbidden | *Workspace not found/accessible*, *Admin permissions required* |
+| 500 | Internal Server Error | Generic server error response |
+
+**Example (Rust/Tokio)**  
+```rust
+use reqwest::{Client, Method};
+use reqwest::header::CONTENT_TYPE;
+
+#[tokio::main]
+async fn main() -> Result<(), reqwest::Error> {
+    let client = Client::new().basic_auth("<email>", "<password>");
+    let json = client
+        .request(Method::POST, "https://api.track.toggl.com/insights/api/v1/workspace/{workspace_id}/data_trends/projects")
+        .json(&serde_json::json!({
+            "billable": true,
+            "end_date": "2024-12-31",
+            "previous_period_start": "2024-12-01",
+            "project_ids": [12345],
+            "rounding": 5,
+            "rounding_minutes": 10,
+            "start_date": "2024-11-01"
+        }))
+        .header(CONTENT_TYPE, "application/json")
+        .send()
+        .await?
+        .json()
+        .await?;
+
+    println!("{:#?}", json);
+    Ok(())
+}
+```
+
+---

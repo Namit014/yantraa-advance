@@ -1,0 +1,70 @@
+Source URL: https://www.macrondynamics.com/job-stories/gantry-systems-overview/
+Scraped: 2026-06-06T13:57:15.381860
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Gantry Robot Advantages:**
+
+1. 3+ axis of movement (X, Y, Z) with scalable design
+2. Suitable for light to heavy / hanging loads
+3. Flexible and efficient due to linear axes scalability
+4. Inexpensive
+
+**Gantry Robot Disadvantages:**
+
+1. Cannot vary reach into or around obstructions
+2. Linear slides, belts, and rails are not easily sealed against the environment
+3. Not freestanding; requires stand or frame or other mounting
+
+**Gantry System Benefits:**
+
+1. Can utilize an entire cubic work envelope (96% of space and size)
+2. Flexible and efficient due to linear axes scalability
+
+**Gantry Robot Applications:**
+
+1. PC Board assembly
+2. Dispensing
+3. Spraying
+4. Material handling
+5. Palletizing
+6. Pick and place
+7. Water jet
+8. Plate welding
+9. Friction welding
+10. Assembly
+11. Packaging
+12. Unitizing
+13. Sorting
+14. Scanning
+15. Tray loading/unloading
+16. Camera positioning
+17. Inspection
+18. Glass cutting
+19. Printing plotting
+20. Laser cutting
+21. Flying knives
+22. Fastening and screw driving
+
+**Gantry Robot Characteristics:**
+
+1. 3 axes of movement (X, Y, Z)
+2. Coordinates defined as X, Y, and Z
+3. Each axis is arranged at right angles to allow three degrees of motion
+4. Can be easily scaled to larger proportions in all three axes
+5. Designed for simplicity, low cost, and scalability
+6. Includes a rectangular or cubic work envelope
+
+**Benefits of Gantry Robots:**
+
+1. Inexpensive compared to other more complex robots
+2. Can be easily disassembled into component parts for maintenance
+3. downtime is reduced and maintenance costs are kept to a minimum
+4. Cartesian Coordinate Robot systems are highly desirable in manufacturing
+
+**Note:**
+
+* Cartesian/Gantry Robots are very accurate and repeatable
+* Gantry robots are intuitive to program and easy to visualize
+* Most importantly, Gantry robots are configurable and can be prepared to take on the challenges of damp, hazardous, and dirty environments.

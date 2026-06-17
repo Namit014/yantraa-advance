@@ -1,0 +1,50 @@
+Source URL: https://www.sharwinpatil.info/posts/delta-robot/
+Scraped: 2026-06-08T21:25:43.369485
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Delta Robot**
+
+* Type: Open-source ROS (Robot Operating System) package for controlling delta robots with position and velocity control
+* Designed for public use and easy integration with new delta robots as long as their configuration parameters are set up correctly
+
+**Robot Kinematics**
+
+* The robot's forward and inverse kinematics were implemented in C++ following the approach described on the Trossen Robotics forum
+* Access to the kinematics lets us plan paths in the joint space significantly easier and safer since the workspace is irregular
+* Once a joint trajectory is planned, the path can be verified to stay in the workspace to avoid singularities
+
+**Forward and Inverse Kinematics**
+
+* C++ implementation as ROS services
+* Uses the following variables:
+	+ AL: Active Link Length [mm]
+	+ PL: Passive Link Length [mm]
+	+ SB: Base Side Length [mm]
+	+ SP: Platform (EE) Side Length [mm]
+* The forward kinematics function calculates the end effector position (x, y, z) based on the joint angles (θ1, θ2, θ3)
+* The inverse kinematics function calculates the joint angles (θ1, θ2, θ3) based on the end effector position (x, y, z)
+
+**Jacobian**
+
+* The Modern Robotics [2] textbook details the process of deriving the Jacobian for a delta robot
+* The Jacobian is useful for converting end effector velocities to joint velocities
+* Using the Jacobian, we can convert end-effector position trajectories into Joint velocity trajectories
+
+**ROS C++ Implementation (Jacobian)**
+
+* The calcAuxAngles function calculates the auxiliary angles (θ1, θ2, θ3) based on the end effector position (x, y, z)
+* The function uses the following variables:
+	+ P: end effector position
+	+ D: distance from the active link to the passive link
+	+ C: a 3x3 matrix representing the transformation from the base to the end effector
+	+ C_i: the i-th column of C
+* The function calculates the auxiliary angles (θ1, θ2, θ3) based on the end effector position (x, y, z) and the transformation matrix C
+
+**Path Planning**
+
+* An example path planned for the robot to collect some data while moving in a snake-like "scanning" pattern
+* The path is planned to avoid singularities
+
+Note that some information, such as the implementation details of the forward and inverse kinematics functions, are omitted to focus on the key technical specifications, facts, numbers, and descriptions.

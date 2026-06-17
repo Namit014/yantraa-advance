@@ -1,0 +1,10 @@
+Source URL: https://www.facebook.com/Channel4News/videos/a-humanoid-robot-named-edward-warchocki-chased-off-wild-boars-in-warsaw-shouting/1161338062729413/
+Scraped: 2026-06-06T16:04:16.868375
+============================================================
+
+Here is the extracted technical specification and fact:
+
+* AI-powered robotic system: Unitree G1
+* Task: Chased off wild boars in Warsaw, shouting "Go away!" in Polish to disperse them.
+
+Note: The provided text does not contain any technical specifications, facts, numbers, or descriptions beyond the above-mentioned details.

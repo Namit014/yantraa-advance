@@ -1,0 +1,64 @@
+Source URL: https://thinkrobotics.com/blogs/learn/agribot-building-an-autonomous-farming-robot-the-future-of-smart-agriculture
+Scraped: 2026-06-06T17:06:07.729314
+============================================================
+
+Here is the extracted technical specification, facts, numbers, and descriptions:
+
+**AgriBot Specifications:**
+
+* Microcontroller options:
+	+ Arduino Uno or Mega 2560 (main controller)
+	+ Raspberry Pi (with Wi-Fi and Bluetooth connectivity, camera interface for computer vision, and more processing power for AI algorithms)
+* Sensors:
+	+ Soil moisture sensors (capacitive or resistive types)
+	+ pH sensors (for soil acidity)
+	+ Temperature and humidity sensors (DHT22)
+	+ Light sensors (LDR)
+	+ Gas sensors (MQ series)
+	+ Camera modules (for visual crop monitoring and disease detection)
+* Mechanical design:
+	+ Chassis construction using MDF wood or aluminum frame
+	+ Motor clamps and spray tube for pump outlet
+	+ Weather-resistant enclosures
+	+ High ground clearance for crop rows
+	+ Modular tool attachment system
+	+ Stable base for accurate sensor readings
+	+ Easy maintenance access points
+	+ Mobility system:
+		- 4WD configuration
+		- Track system (alternative for soft soil conditions)
+		- Articulated design
+		- Low-pressure tires (to minimize soil compaction)
+* Features:
+	+ Autonomous navigation
+	+ Soil moisture monitoring and irrigation control
+	+ Seed planting and fertilizer application
+	+ Weed detection and pest management
+	+ Real-time crop health monitoring
+	+ Environmental data collection
+* Algorithm:
+	+ Autonomous navigation algorithm (using ultrasonic detection)
+	+ Row following logic
+	+ Task scheduling system
+
+**Technical Numbers and Data:**
+
+* Soil moisture sensor output:
+	+ 0-800 range (0-100% moisture level)
+* Temperature sensor output:
+	+ 0-1023 range (0-100°C)
+* Ultrasonic sensor output:
+	+ 0-750cm range (0-24.6 inches)
+* Distance measurement:
+	+ 0-220 cm range (0-7.5 inches)
+
+** Programming and Code:**
+
+* Arduino-based AgriBot code (using L298NX2 motor controller and Arduino libraries)
+* Raspberry Pi-based AgriBot code (using Python and Raspberry Pi libraries)
+* Multi-sensor setup code (using Arduino and sensor libraries)
+* Environmental data collection code (using Arduino and sensor libraries)
+* Autonomous navigation algorithm code (using Arduino and ultrasonic sensor libraries)
+* Task scheduling system code (using Arduino and timer libraries)
+
+Let me know if you need further clarification or extraction!

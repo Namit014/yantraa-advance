@@ -1,0 +1,48 @@
+Source URL: https://builtin.com/robotics
+Scraped: 2026-06-06T15:02:53.860059
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Mechanical Construction:**
+
+* Mars 2020 Rover's wheels: individually motorized and made of titanium tubing
+* Robot's mechanical aspect helps it complete tasks in the environment for which it's designed
+
+**Electrical Components:**
+
+* Electric current (e.g., battery) is needed to power a large majority of robots
+
+**Software Program:**
+
+* Computer programming is necessary for a robot to know when and how to carry out a task
+* A set of code tells the robot what to do, giving it the ability to carry out a task
+
+**Main Components of a Robot:**
+
+* Control System (includes elements such as sensors, actuators, and power supply)
+* Sensors: provide the robot with stimuli in the form of electrical signals
+* Actuators: responsible for movement of the robot
+* Power Supply: robots require power, which can come from AC power, internal battery, or alternative sources like compressed gasses, solar power, hydraulic power, flywheel energy storage, organic garbage, or nuclear power
+
+**End Effector:**
+
+* End EFFECTOR: the physical, typically external components that allow robots to finish carrying out their tasks
+* Examples: paint sprayers, drills, scalpels, gripping claws or hands
+
+**Types of Robotics:**
+
+* Humanoid Robots: robots that look like or mimic human behavior
+* Cobots (Collaborative Robots): robots designed to work alongside humans
+* Industrial Robots: robots that automate processes in manufacturing environments
+* Medical Robots: robots that assist healthcare professionals
+* Agricultural Robots: robots that handle repetitive and labor-intensive tasks in agriculture
+* Microrobotics: the study and development of robots on a miniature scale
+
+**Automation Levels:**
+
+* Human-controlled robots: carry out tasks with human assistance
+* Partially autonomous robots: perform tasks with some level of autonomy
+* Fully autonomous robots: perform tasks without any external influences
+
+I hope this helps! Let me know if you'd like me to extract any other information.

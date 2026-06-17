@@ -1,0 +1,52 @@
+Source URL: https://www.landgate.com/news/understanding-the-load-project-supercycle
+Scraped: 2026-06-15T16:10:12.875690
+============================================================
+
+**Load Projects – Technical Overview**
+
+- **Definition** – Large‑scale facilities that cause a massive increase in electric demand and require high‑voltage, 24/7 power connections.  
+- **Typical Capacity Requirements** – 100 MW – 1 GW+ for hyperscale data centers; 300 MW+ for other industrial loads.  
+
+### The “Big Four” Drivers of Load Growth
+| Category | Typical Applications | Power Demand |
+|----------|----------------------|--------------|
+| Hyperscale Data Centers | AI and cloud computing facilities | 100 MW – 1 GW+ |
+| Advanced Manufacturing | Semiconductor fabs, battery gigafactories, hydrogen hubs | 100 MW – 500 MW |
+| EV Charging Infrastructure | High‑density fleet depots (trucks, buses) | 50 MW – 200 MW |
+| Industrial Decarbonization | Steel, cement, other heavy industries moving to electric‑arc furnaces or green‑hydrogen processes | 200 MW – 500 MW |
+
+### Interconnection Queue Bottlenecks
+- **Regions with longest waits:** PJM (Northern Virginia/Mid‑Atlantic) and ERCOT (Texas).  
+- **Typical wait times for large loads:** 3 – 7 years to energization.  
+- **Impact:** A single 500 MW load can consume all available capacity at a substation, blocking other developers for many miles.
+
+### LandGate Load‑Project Intelligence (Key Data Offerings)
+
+1. **Real‑Time Offtake Capacity & Feeder Headroom**  
+   - Coverage: > 21,000 Points of Interconnection (POIs).  
+   – Enables instant assessment of available capacity at specific substations or transmission lines.  
+   – Reduces reliance on costly utility feasibility studies (≈ $50 k, 6‑month lead time).
+
+2. **Load Queue Competitive Intelligence**  
+   - GIS‑mapped load interconnection queues.  
+   - Shows pending load requests, Interconnection Agreement (IA) status, and projected energization dates.  
+   - Helps avoid oversaturated clusters and identify emerging markets (e.g., Midwest, Southeast).
+
+3. **Proximity to Generation & Behind‑the‑Meter (BTM) Strategy**  
+   - Overlay of load sites with existing generation assets (nuclear, gas, solar, wind).  
+   - Supports co‑location modeling for BTM power arrangements, allowing facilities to draw directly from nearby plants and bypass utility constraints.
+
+4. **Nodal Pricing and LMP Forecasting**  
+   - Historical and forecasted Locational Marginal Pricing (LMP) at node level.  
+   - Example impact: a $0.01/MWh difference for a 300 MW facility translates to several million dollars in annual operating expenses.
+
+5. **Automated Due‑Diligence – Data Center Feasibility Report**  
+   - One‑click compilation of: off‑take capacity, fiber‑optic proximity, water availability, and environmental‑risk ratings.  
+   - Shrinks due‑diligence timelines from weeks (consultant‑driven) to seconds (automated).
+
+### Operational Implications
+- **Power‑First Real Estate:** Site selection now prioritizes grid capacity (“right to pull energy”) over land cost.  
+- **Strategic Shift:** Developers must evaluate off‑take capacity, queue position, and nodal pricing early to de‑risk multi‑hundred‑MW investments.  
+- **Cost Sensitivity:** Small variations in LMP (e.g., $0.01/MWh) can affect OPEX by millions of dollars for large loads.  
+
+These specifications and data capabilities form the technical foundation for planning, siting, and executing large‑scale load projects in today’s rapidly evolving U.S. electric grid.

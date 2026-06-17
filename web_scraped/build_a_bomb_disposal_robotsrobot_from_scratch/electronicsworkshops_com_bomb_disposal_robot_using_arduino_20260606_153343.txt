@@ -1,0 +1,53 @@
+Source URL: https://electronicsworkshops.com/bomb-disposal-robot-using-arduino/
+Scraped: 2026-06-06T15:33:43.833537
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**Bomb Disposal Robot:**
+
+* Wireless camera for video feedback
+* Controlled by wireless module for remote operation
+* Designed to serve bomb disposal squads, providing safety and security in daily operations
+* Equipped with basic bomb disposal functions: wire cutting, switch flipping, light object lifting, etc.
+* Can reduce or eliminate bomb technician's time-on-target
+
+**Features:**
+
+* Real-time video feedback from camera
+* Wireless control using Android phone
+* Robot arm for manipulations
+* Light weight, capable of operating in areas with landmines
+* Audio transmission for undetected spying
+* Easy to control
+
+**Hardware Components:**
+
+* Arduino (1)
+* Motor driver (3)
+* Bluetooth module (1)
+* DC motor (4)
+* Wheels (4)
+* Battery (1)
+* Gripper (1)
+* Cutter (1)
+* Switch (1)
+* Connecting wires (as required)
+
+**Arduino Description:**
+
+* Open-source microcontroller board
+* Designed for easy programming, erasing, and reprogramming
+* Compatible with various Arduino shields for internet connectivity
+* Can use C or C++ language for programming
+* Can be burned (uploaded) new code using USB cable
+
+**Need for Arduino:**
+
+* Active user community
+* Inexpensive hardware
+* Multi-platform environment
+* Easy programmer board
+* Open-source software
+
+Let me know if you'd like me to extract any other specific information!

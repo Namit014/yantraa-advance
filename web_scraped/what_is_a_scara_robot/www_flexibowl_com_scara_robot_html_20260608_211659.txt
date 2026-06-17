@@ -1,0 +1,22 @@
+Source URL: https://www.flexibowl.com/scara-robot.html
+Scraped: 2026-06-08T21:16:59.347027
+============================================================
+
+**Scara Robot Technical Specifications:**
+
+* Type: Industrial robot
+* Configuration: Four-axis SCARA robot
+* Description: Manipulator with four degrees of freedom, suitable for pick-and-place or assembly operations
+* Advantages:
+	+ Operate at higher speed
+	+ Cleanroom specification available
+	+ Achieve tolerances lower than 10 microns
+	+ Compact layout, easily re-located in temporary or remote applications
+* Limitations:
+	+ Typically only capable of carrying a lighter payload (up to 2 kg nominal, 10 kg maximum)
+	+ Limited dexterity and flexibility compared to full 3D capability of other types of robots
+* Kinematics: SCARA arm has a strong mechanical structure, capable of withstanding unexpected stress and collisions
+* Motion: Four degrees of freedom, with motion in X-Y and Z planes, and 360-degree rotational movement about the Z-axis
+* Control: Inverse kinematics and data interpolation allow for dynamic, quick, and intelligent motion
+* Applications: Assembly operations, including pick-and-place, where high speed and high accuracy are required
+* Industries: Automotive, electronics, and other industrial fields where manufacturers need to feed bulk components of all sizes

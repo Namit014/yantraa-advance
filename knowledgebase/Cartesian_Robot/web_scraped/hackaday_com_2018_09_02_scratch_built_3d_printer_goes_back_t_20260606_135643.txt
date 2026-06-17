@@ -1,0 +1,14 @@
+Source URL: https://hackaday.com/2018/09/02/scratch-built-3d-printer-goes-back-to-the-roots-of-the-hobby/
+Scraped: 2026-06-06T13:56:43.568401
+============================================================
+
+Here are the extracted technical specifications, facts, numbers, and descriptions:
+
+* The 3D printer is a "scratch-built" machine, meaning it was built from raw materials (aluminum and steel stock) without using pre-made parts.
+* The machine started with a small CNC router, which was also built from scratch.
+* The resulting gantry has an enormous work volume of 40 cm in each dimension.
+* The printer has a heated bed that uses four heat mats.
+* The build was helped by the use of simple hand tools and a small CNC router.
+* The machine can print parts that were used to finish the build, demonstrating the "hacker spirit".
+
+Note: The text also contains some criticisms and suggestions for improvement, particularly regarding the design and construction of the printer's frame and mechanisms.

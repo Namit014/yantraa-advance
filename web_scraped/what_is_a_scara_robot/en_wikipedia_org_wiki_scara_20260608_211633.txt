@@ -1,0 +1,52 @@
+Source URL: https://en.wikipedia.org/wiki/SCARA
+Scraped: 2026-06-08T21:16:33.592251
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Type of Industrial Robotic Arm:**
+
+* SCARA (Selective Compliance Assembly Robot Arm) is a type of industrial robot.
+
+**Technical Specifications:**
+
+* Selective compliance: compliant in the X-Y direction but rigid in the Z direction.
+* Articulated two-link arm layout, similar to human arms.
+
+**Advantages:**
+
+* Slightly compliant in the X-Y direction, allowing for insertion of round pins in round holes without binding.
+* Rigid in the Z direction, allowing for precise movement and control.
+* Can extend into confined areas and retract or "fold up" out of the way.
+
+**Comparison to Cartesian Robot Systems:**
+
+* SCARAs are generally faster than comparable Cartesian robot systems.
+* SCARAs can be more expensive than comparable Cartesian systems.
+* Controlling software requires inverse kinematics for linear interpolated moves.
+
+**History:**
+
+* 1977: A. d'Auria presents the SIGMA robot for assembly at the 7th International Symposium on Robotics in Tokyo.
+* 1978: The first SCARA prototype is built.
+* 1980: The second prototype is built.
+* 1981: SCARA robots are developed by the industry, resulting from research and development by the University of Yamanashi and 13 Japanese companies.
+
+**Awards and Recognition:**
+
+* 2006: The SCARA robot is inducted into the Robot Hall of Fame.
+
+**Patents:**
+
+* Patent JPS55112789A by H. Makino
+* Patent US4341502 by H. Makino
+
+**Related Robots:**
+
+* Articulated robot
+* Schoenflies displacement
+
+**References:**
+
+* Fanuc (2021). "SCARA Robots." Retrieved 2021-05-27.
+* Robot Hall of Fame (2021). "The Robot Hall of Fame - Powered by Carnegie Mellon University." Retrieved 2021-05-27.

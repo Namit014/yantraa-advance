@@ -1,0 +1,43 @@
+Source URL: https://robodk.com/blog/what-is-a-scara-robot/
+Scraped: 2026-06-08T21:16:41.558463
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions relevant to SCARA robots:
+
+**Definition**: SCARA stands for Selective Compliance Assembly Robot Arm, a type of industrial robotic arm known for its ability to move freely and maintain stiffness in three axes while being compliant in the final axis.
+
+**History**:
+
+* 1977: Professor Hiroshi Makino of Yamanashi University witnessed the SIGMA assembly robot invention at the International Symposium on Industrial Robots in Tokyo, Japan.
+* 1978: Makino formed the SCARA Robot Consortium, consisting of 13 Japanese companies, to improve assembly robots through dedicated research.
+* 1981: The first commercial SCARA robot was released, hailed as a groundbreaking robotic design with a favorable price-performance ratio.
+
+**Key Features**:
+
+* Typically features 4 axes, with 2 parallel arms that can move in a single plane.
+* Final axis is at right angles to the others and is compliant.
+* Easy to program due to simpler inverse kinematics compared to 6-degree-of-freedom industrial robotic arms.
+* Fixed position of joints makes them very predictable, with positions in the robot's workspace approachable from a single orientation.
+
+**Advantages**:
+
+* Fast cycle times, impressive positioning accuracy, and high repeatability compared to other robot types.
+* Well-suited for pick and place operations that require precision, speed, and smooth motion.
+* Popular for applications in electronics assembly, food manufacturing, and other industries.
+
+**Disadvantages**:
+
+* Limited payload capacity, typically ranging from 30-50 kg.
+* Restricted workspace, which may limit the size of operations and flexibility in approaching tasks.
+
+**Why Use SCARA Robots Now?**:
+
+* Economical and highly flexible option for many applications.
+* RoboDK's updates, such as the improved inverse kinematic solver for SCARA robots, can enhance programming and usability.
+
+**Choosing the Right SCARA Robot**:
+
+* Define your needs before selecting a specific model.
+* Use RoboDK's simulator to test out multiple SCARA models before making a decision.
+
+Note that the above extraction focuses on the technical specifications, facts, numbers, and descriptions relevant to SCARA robots, while ignoring the navigation menus, ads, and boilerplate content.

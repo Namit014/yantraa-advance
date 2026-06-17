@@ -1,0 +1,59 @@
+Source URL: https://www.nist.gov/programs-projects/performance-emergency-response-robots
+Scraped: 2026-06-08T11:46:39.418100
+============================================================
+
+Here are the technical specifications, facts, numbers, and descriptions extracted from the text:
+
+**Objective:**
+
+* Develop the measurements and standards infrastructure necessary to quantitatively evaluate robotic system capabilities and related proficiency of remote operators and pilots deploying into hazardous environments.
+
+**Technical Idea:**
+
+* Elemental robot tasks include:
+	+ Maneuvering
+	+ Mobility
+	+ Dexterity
+	+ Sensing
+	+ Endurance
+	+ Radio communication
+	+ Durability
+	+ Reliability
+	+ Autonomy
+	+ Logistics
+	+ Safety
+* Standard test methods are developed to establish statistically significant levels of reliability and confidence that the robot can perform the task.
+* Examples of test methods include:
+	+ Stair inclines of 30°, 35°, 40°, 45°
+	+ Lighted environments (>300 lux) versus dark environments (< 0.1 lux)
+	+ Dry apparatuses versus wet apparatuses
+* A set of 20-30 standard test methods can be selected with appropriate apparatus settings and environmental variables to define a particular mission profile.
+
+**Research Plan:**
+
+* Phase 1: Generate and validate a comprehensive suite of standard test methods to quantify component level and system level capabilities.
+* Phase 2: Foster innovation in robotics research and manufacturing by using the standards to guide and measure advancements in robotic system capabilities.
+* Phase 3: Disseminate the standards to support responder training and tactics with measures of operator proficiency.
+
+**Examples of Standard Test Methods:**
+
+* Performance of Emergency Response Robots:
+	+ Establishing situational awareness around large structure fires
+	+ Disabling or dismantling improvised explosive devices (pipes, packages, vehicles)
+	+ Searching for survivors in collapsed or compromised structures
+	+ Assessing large scale industrial or transportation accidents
+	+ Mitigating potential terror attacks using chemical, biological, or radiological sources
+
+**Deliverables:**
+
+* Standards for evaluating the capabilities of emergency response robotic systems
+* Quantitative ways to measure whether a particular robot is capable and reliable enough to perform specific mission tasks
+* Measures of operator proficiency
+* Guidance for robot manufacturers to develop advanced capabilities
+* Training methods to measure operator skills and proficiency
+
+**Outcomes:**
+
+* Improved reliability and effectiveness of emergency responders
+* Increased innovation in robot design and development
+* Improved effectiveness and safety of emergency responders performing extremely hazardous tasks in complex environments

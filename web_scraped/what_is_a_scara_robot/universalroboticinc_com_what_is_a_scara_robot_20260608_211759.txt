@@ -1,0 +1,36 @@
+Source URL: https://universalroboticinc.com/what-is-a-scara-robot/
+Scraped: 2026-06-08T21:17:59.304557
+============================================================
+
+Here are the relevant technical specifications, facts, numbers, and descriptions extracted from the article:
+
+**What is a SCARA Robot?**
+A SCARA robot is a type of industrial robot with a unique arm structure that enables selective compliance in the horizontal direction and rigidity in the vertical direction.
+
+**Types and Variations**
+SCARA robots are available in different types and configurations, distinguished by axis patterns. The most widespread setup has four axes, providing a combination of rotational and linear movements.
+
+**Applications and Industry Usage Cases**
+SCARA robots are used in various industries, including:
+
+* Electronics manufacturing: Assembly, soldering, and testing components
+* Consumer Electronics and Small Appliances: Assembly lines, component placement, and packaging
+* Automotive Industry: Assembly, welding, material handling
+* Pharmaceutical and Medical Devices manufacturing: Filling, packaging, inspection
+
+**Advantages**
+* Speed: Up to 1 meter per second
+* Cost-Effectiveness: Less expensive than other robotic solutions
+* Ease of Programming: User-friendly interfaces and software
+* Accuracy and Consistency: Repeatability of ±0.01 mm
+* Cleanroom Compatibility: Configured to work in clean room settings
+
+**Disadvantages**
+* Limited Flexibility: Not designed for complex or versatile tasks
+* Payload Constraints: Suitable for loads up to several kilograms
+
+**Technical Specifications**
+* Standard SCARA four-axis robot: Reach of 1,000 mm, payload capacity of around 10 kg
+* SCARA robots can cycle due to their rapid times, resulting in improved throughput and lower costs of operation.
+
+I hope this helps! Let me know if you need any further assistance.
