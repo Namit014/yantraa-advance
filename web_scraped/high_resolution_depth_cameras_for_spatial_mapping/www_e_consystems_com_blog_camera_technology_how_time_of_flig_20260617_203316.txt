@@ -1,0 +1,55 @@
+Source URL: https://www.e-consystems.com/blog/camera/technology/how-time-of-flight-tof-compares-with-other-3d-depth-mapping-technologies/
+Scraped: 2026-06-17T20:33:16.751304
+============================================================
+
+Time-of-Flight (ToF) cameras are one of the three mainstream 3D depth mapping technologies, alongside **Stereo Vision** and **Structured Light**. Each operates on distinct physical principles, making them suitable for different scenarios.
+
+### How They Work
+
+| Technology | Operating Principle | Active/Passive | Key Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Stereo Vision** | **Triangulation** (based on binocular disparity) | Passive (usually) | Mimics human binocular vision. Uses two cameras to capture images from slightly different angles. Depth is calculated by measuring the horizontal displacement (disparity) of matching features between the two images. Greater disparity = closer object. |
+| **Structured Light** | **Triangulation** (based on pattern distortion) | Active | Projects a known light pattern (e.g., laser grid) onto a surface. The camera observes how the pattern distorts due to the object's shape. Depth is derived by comparing the known projected pattern with the distorted captured pattern. |
+| **Time-of-Flight (ToF)** | **Direct Distance Measurement** | Active | Measures the time it takes for light (usually infrared) to travel from the emitter to the object and back to the sensor. Since the speed of light is constant, distance is calculated as: **Distance = (Speed of Light × Time of Flight) / 2**. |
+
+### Comparison: Strengths and Limitations
+
+#### 1. Stereo Vision
+*   **Strengths:** 
+    *   No need for an active light source (can work in natural light).
+    *   Excellent for outdoor applications with a large field of view.
+    *   High resolution at long distances.
+*   **Limitations:** 
+    *   Requires sufficient texture, detail, and non-uniformity in the scene to find matching features.
+    *   Struggles with low-light, dark, or uniform surfaces (e.g., white walls).
+    *   Depth estimation requires extensive computational power for feature matching.
+
+#### 2. Structured Light
+*   **Strengths:** 
+    *   Very high precision and resolution at short distances.
+    *   Works well in low-light conditions (since it projects its own light).
+    *   Fast 3D reconstruction for complex shapes.
+*   **Limitations:** 
+    *   Performance degrades significantly with ambient light (e.g., sunlight).
+    *   Limited effective range (typically short-range).
+    *   Sensitive to surface material properties (e.g., reflective or transparent surfaces can cause errors).
+
+#### 3. Time-of-Flight (ToF)
+*   **Strengths:** 
+    *   **Real-time performance:** Provides depth data instantly, suitable for fast-moving applications (AGVs, AMRs, robotics).
+    *   **Robustness:** Works reliably in both low-light and varying ambient light conditions (excluding direct sunlight for some sensors).
+    *   **Uniformity:** Does not require scene texture; works on dark, uniform, or textureless surfaces.
+    *   **Longer Range:** Generally offers a better range than structured light (though often less resolution).
+    *   **Compact & Cost:** Modern ToF sensors are becoming smaller, cheaper, and more durable.
+*   **Limitations:** 
+    *   Resolution is typically lower than structured light or high-end stereo cameras.
+    *   Can suffer from "multi-path interference" (light bouncing off multiple surfaces before returning).
+    *   Precision at very short distances may be lower than structured light.
+
+### Why ToF is Preferred in Modern Industrial/Retail Applications
+ToF cameras are increasingly favored for industrial, retail, and mobile markets because they combine **real-time depth acquisition** with **robustness against environmental lighting** and **lack of texture dependency**.
+
+*   **Applications:** Autonomous robots (AGVs/AMRs), pick-and-place automation, patient monitoring, and gesture recognition.
+*   **Maturation:** While the underlying technology (lock-in CCD) dates back to the 1990s, it has only recently matured to meet the high-performance demands of non-mobile markets outside of smartphones.
+
+In summary, if your application requires **high precision at short range** in controlled lighting, choose **Structured Light**. If you need **long-range depth** in outdoor environments with textured scenes, choose **Stereo Vision**. If you need **fast, real-time, robust depth** that works in varying light and on textureless surfaces, **ToF** is the superior choice.

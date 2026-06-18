@@ -1,0 +1,19 @@
+Source URL: https://www.sensorlidar.com/
+Scraped: 2026-06-17T20:35:30.667131
+============================================================
+
+The **CS20** is a solid-state **LiDAR / ToF depth camera** that uses a **Time-of-Flight image sensor** for 3D perception.[1][4][5] It is described as having **640×480** resolution in one mode and **320×240** in another, with a **measurement range up to 5 m** indoors.[1][4][5][6]
+
+Key specifications from the source text:
+- **Depth resolution:** 640×480 / 320×240[4][5][7]
+- **Measuring range:** 0.1–5 m indoors[5][6][7]
+- **Accuracy:** 0.1–0.5 m at ±1.5 cm; 0.5–5 m at ±1% @ 90% reflectivity[5]
+- **Wavelength:** 940 nm VCSEL[5][7]
+- **Interface:** USB 2.0, Type-C[5][7]
+- **Power supply:** 5 V, 0.5 A[5][7]
+- **Power consumption:** about 1.2 W[5][6][7]
+- **Operating temperature:** -10 to 50 °C[5][7]
+- **Size:** 48 mm × 34 mm × 12 mm[5]
+- **FOV:** H60° × V45°[5]
+
+The CS20 is also described as supporting **depth**, **IR**, and **point cloud** output via SDK, and as compatible with **Linux, Windows, ROS, and Android**.[4][6]

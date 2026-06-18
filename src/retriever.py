@@ -263,14 +263,15 @@ class Retriever:
             "articulated": "Articulated_robot_cad.STEP",
             "inspection": "inspection_robot_cad.STEP",
             "scara": "scara_robot_cad.stp",
-            "welding": "welding_cad.stp"
+            "welding": "welding_cad.stp",
+            "humanoid": "humanoid.step"
         }
         
         query_lower = query.lower()
         for key, filename in known_cads.items():
             if key in query_lower:
                 cad_available = True
-                cad_url = f"/cad/{filename}"
+                cad_url = f"/api/cad/{filename}"
                 break
                 
         if not cad_available and results and results.points:
@@ -282,7 +283,7 @@ class Retriever:
                     for key, filename in known_cads.items():
                         if key.replace(" ", "_") in r_lower or key in r_lower:
                             cad_available = True
-                            cad_url = f"/cad/{filename}"
+                            cad_url = f"/api/cad/{filename}"
                             break
                 if cad_available:
                     break

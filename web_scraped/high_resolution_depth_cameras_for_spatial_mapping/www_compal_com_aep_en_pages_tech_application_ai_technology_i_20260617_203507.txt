@@ -1,0 +1,14 @@
+Source URL: https://www.compal.com/aep/en/pages/tech-application/ai-technology/image-based-depth-estimation/
+Scraped: 2026-06-17T20:35:07.941951
+============================================================
+
+Image-based depth estimation is a computer vision technique that infers depth information from one or more images. It extracts 3D spatial information directly from camera images without radar or lidar. Applications include autonomous driving, robotic navigation, and 3D reconstruction. Estimating depth from RGB images can reduce reliance on expensive depth sensors.
+
+Stereo vision techniques can improve depth estimation accuracy by calculating disparity, leading to more precise depth information. This method estimates both the relative distance of objects within an image and their absolute distance in 3D space.
+
+The technical architecture of stereo depth estimation comprises three core components:
+1.  Image feature extraction
+2.  Disparity cost volume construction and aggregation
+3.  Probability distribution prediction of disparity or depth ranges
+
+Applications include using depth maps to reconstruct high-precision maps and provide enhanced 3D spatial information for 3D object detection.

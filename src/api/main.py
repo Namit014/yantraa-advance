@@ -126,6 +126,23 @@ async def search_question(query: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+from fastapi.responses import FileResponse
+import glob
+
+@app.get("/api/cad/{filename}")
+async def get_cad_file(filename: str):
+    """Serve CAD files dynamically from the knowledgebase directory."""
+    cad_base_dir = os.path.join(_project_root, "knowledgebase", "CAD_Models")
+    
+    # Search all subdirectories for the file
+    search_pattern = os.path.join(cad_base_dir, "**", filename)
+    matches = glob.glob(search_pattern, recursive=True)
+    
+    if matches and os.path.exists(matches[0]):
+        return FileResponse(matches[0])
+    
+    raise HTTPException(status_code=404, detail="CAD file not found in knowledgebase")
+
 @app.get("/health")
 async def health_check():
     """Simple health check endpoint"""
