@@ -9,7 +9,7 @@ load_dotenv()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 
 # We use a fast, reliable model for Yantra AI. You can change this to any OpenRouter model.
-DEFAULT_MODEL = "openrouter/auto"
+DEFAULT_MODEL = "meta-llama/llama-3.1-8b-instruct:free"
 
 def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=DEFAULT_MODEL):
     """
@@ -41,7 +41,7 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
             "https://openrouter.ai/api/v1/chat/completions",
             headers=headers,
             json=payload,
-            timeout=30
+            timeout=120
         )
         response.raise_for_status()
         data = response.json()

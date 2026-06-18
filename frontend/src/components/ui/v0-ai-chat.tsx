@@ -370,7 +370,13 @@ export function VercelV0Chat() {
                         <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
                             <button onClick={() => setActiveTab('mapping')} className={cn("transition-colors", activeTab === 'mapping' ? "text-white" : "hover:text-white")}>Mapping</button>
                             <button onClick={() => setActiveTab('connection')} className={cn("transition-colors", activeTab === 'connection' ? "text-white" : "hover:text-white")}>Connection</button>
-                            <button onClick={() => setActiveTab('cad')} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
+                            <button onClick={() => {
+                                if (cadPrompt.available) {
+                                    setAcceptedCadUrls(cadPrompt.urls);
+                                    setCadPrompt({ available: false, urls: [] });
+                                }
+                                setActiveTab('cad');
+                            }} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
                         </div>
                     </div>
 
@@ -378,7 +384,7 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
-                        {activeTab === 'cad' && <CADTab currentQuery={latestUserQuery} cadUrls={acceptedCadUrls} designData={robotDesign} />}
+                        {activeTab === 'cad' && <CADTab currentQuery={latestUserQuery} cadUrls={acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []))} designData={robotDesign} />}
                     </div>
                 </div>
             )}

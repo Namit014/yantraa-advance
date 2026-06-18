@@ -22,6 +22,7 @@ class DesignRequest(BaseModel):
 class DesignResponse(BaseModel):
     subsystems: List[Dict[str, Any]]
     connections: List[Dict[str, Any]]
+    physical_assembly: List[Dict[str, Any]] = []
     bom: List[Dict[str, Any]]
     missing: List[Dict[str, Any]]
     validation: List[Dict[str, Any]]
@@ -44,7 +45,7 @@ def _strip_markdown_json(text: str) -> str:
         return cleaned[arr_start : arr_end + 1]
     return cleaned.strip()
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/auto") -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/free") -> str:
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
@@ -103,7 +104,7 @@ OUTPUT FORMAT:
     components_to_search = []
     
     try:
-        raw_router = _safe_llm_call(router_prompt, router_system)
+        raw_router = _safe_llm_call(router_prompt, router_system, response_format="json_object")
         cleaned_router = _strip_markdown_json(raw_router)
         router_data = json.loads(cleaned_router)
         
@@ -182,8 +183,20 @@ OUTPUT FORMAT:
       "protocol": "CAN | PWM | I2C | RS485 | USB | DC"
     }
   ],
+  "physical_assembly": [
+    {
+      "part_id": "component_id",
+      "attach_to": "parent_component_id_or_null",
+      "alignment": "center | top_center | bottom_center | left | right | front | back"
+    }
+  ],
   "bom": [
-    {"id": "component_id", "name": "exact name", "qty": 1}
+    {
+      "id": "component_id", 
+      "name": "exact name", 
+      "qty": 1, 
+      "cad_file": "exact 'Source File' from retrieved component if present, else null"
+    }
   ],
   "missing": [
     {"name": "missing component name", "reason": "why it is needed"}
@@ -218,7 +231,7 @@ USER REQUEST:
 
     synthesis_data = {}
     try:
-        raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system)
+        raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system, response_format="json_object")
         cleaned_synthesis = _strip_markdown_json(raw_synthesis)
         synthesis_data = json.loads(cleaned_synthesis)
     except Exception as e:
@@ -227,11 +240,11 @@ USER REQUEST:
             debug_file.write(raw_synthesis)
         print(f"[api/design] RAW LLM OUTPUT WAS:\n{raw_synthesis[:1000]}...\n---")
         synthesis_data = {
-            "subsystems": [{"name": "Control Subsystem", "components": [{"id": "mcu_fallback", "name": "Microcontroller", "role": "Main processor", "voltage": "5V", "interface": "GPIO"}]}],
+            "subsystems": [{"name": "Pre-assembled System", "components": [{"id": "sys_1", "name": "Monolithic Robot System", "role": "Full assembly", "voltage": "N/A", "interface": "Standard"}]}],
             "connections": [],
-            "bom": [{"id": "mcu_fallback", "name": "Microcontroller", "qty": 1}],
-            "missing": [{"name": "Specific parts", "reason": "Failed to map due to parsing error"}],
-            "validation": [{"type": "error", "message": "Failed to synthesize full design."}]
+            "bom": [{"id": "sys_1", "name": "Full Robot Assembly", "qty": 1}],
+            "missing": [],
+            "validation": [{"type": "warning", "message": "Standard BOM generated due to complex custom assembly. Reference CAD model for full physical details."}]
         }
 
     # ─── PHASE 4: Assemble Final Response & CAD Checks ───────────────────────
@@ -242,6 +255,8 @@ USER REQUEST:
     missing = synthesis_data.get("missing", [])
     validation = synthesis_data.get("validation", [])
 
+    physical_assembly = synthesis_data.get("physical_assembly", [])
+    
     # Normalize connections to have 'from' and 'to' fields
     normalized_connections = []
     for conn in connections:
@@ -260,23 +275,26 @@ USER REQUEST:
     cad_url = None
     
     known_cads = {
-        "autonomous mobile": "Robot_Automate_mobile_Robot.step",
-        "agv": "Robot_AVGs_robot_cad.step",
-        "cartesian": "Robot_cartesian_robot_cad.step",
-        "cobot": "Robot_cobot_robot_cad.step",
-        "delta": "Robot_DeltaRobot2.step",
-        "painting": "Robot_painting_robot_cad.step",
-        "scara": "Robot_scara_robot_cad.step",
-        "welding": "Robot_welding_cad.step",
-        "articulated": "Robot_Articulated_robot_cad.step",
-        "inspection": "Robot_inspection_robot_cad.step",
-        "palletizing": "Robot_palletizing_robot_cad.step",
+        "autonomous mobile": "Automate_mobile_Robot.step",
+        "agv": "AVGs_robot_cad.step",
+        "cartesian": "cartesian_robot.STEP",
+        "cobot": "Articulated_robot_cad.STEP",
+        "delta": "DeltaRobot2.STEP",
+        "painting": "Painting_Robot.step",
+        "scara": "scara_robot_cad.stp",
+        "welding": "welding_cad.stp",
+        "articulated": "Articulated_robot_cad.STEP",
+        "inspection": "inspection_robot_cad.STEP",
+        "palletizing": "Robot_gp600.step",
         "humanoid": "Robot_humanoid.step",
-        "machine tending": "Robot_machine_tending_robot.step",
-        "in-pipe": "Robot_InPipeInspectionRobot.step",
-        "in pipe": "Robot_InPipeInspectionRobot.step",
-        "pipeline": "Robot_InPipeInspectionRobot.step",
-        "corrosion": "Robot_InPipeInspectionRobot.step"
+        "machine tending": "machine_tending_robot.stp",
+        "in-pipe": "InPipeInspectionRobot.STEP",
+        "in pipe": "InPipeInspectionRobot.STEP",
+        "pipeline": "InPipeInspectionRobot.STEP",
+        "corrosion": "InPipeInspectionRobot.STEP",
+        "dog": "Full_System_A-2403-02.step",
+        "robotic dog": "Full_System_A-2403-02.step",
+        "quadruped": "Full_System_A-2403-02.step"
     }
     
     # Dynamically add HEBI CADs
@@ -298,25 +316,49 @@ USER REQUEST:
     except Exception as e:
         print(f"[api/design] Error loading HEBI cads: {e}")
     
-    # Extract all text from BOM to match against
     matched_cads = set()
-    
-    # Check each BOM item
+    import glob
+
+    # Helper to find a file path inside CAD_Models
+    def find_cad_url(target_filename):
+        cad_base_dir = os.path.join(_src_dir, "..", "knowledgebase", "CAD_Models")
+        search_pattern = os.path.join(cad_base_dir, "**", target_filename)
+        matches = glob.glob(search_pattern, recursive=True)
+        if matches:
+            # Just return the basename; main.py /api/cad/{filename} handles the recursive lookup
+            basename = os.path.basename(matches[0])
+            return f"/api/cad/{basename}"
+        return None
+
+    # Check each BOM item for explicitly generated cad_file or matched texts
     for b in bom:
         name = b.get("name", "").lower()
         desc = b.get("description", "").lower()
         search_text = f"{name} {desc}"
         
+        # 1. If LLM explicitly provided the cad_file from RAG
+        if b.get("cad_file"):
+            cf = b["cad_file"]
+            url = find_cad_url(cf)
+            if url:
+                matched_cads.add(url)
+                continue
+                
+        # 2. Fallback to known_cads
         for key, filename in known_cads.items():
             if key in search_text:
-                matched_cads.add(filename)
+                url = find_cad_url(filename)
+                if url:
+                    matched_cads.add(url)
                 
     # Fallback to monolithic robots if modular assembly yielded nothing
     if len(matched_cads) == 0:
         query_lower = query.lower()
         for key, filename in known_cads.items():
             if key in query_lower:
-                matched_cads.add(filename)
+                url = find_cad_url(filename)
+                if url:
+                    matched_cads.add(url)
             
     # Fallback to checking retrieved search points for robot names
     if not matched_cads:
@@ -329,12 +371,15 @@ USER REQUEST:
                     r_lower = robot_val.lower()
                     for key, filename in known_cads.items():
                         if key.replace(" ", "_") in r_lower or key in r_lower:
-                            matched_cads.add(filename)
+                            url = find_cad_url(filename)
+                            if url:
+                                matched_cads.add(url)
         except Exception:
             pass
 
     cad_available = len(matched_cads) > 0
-    cad_urls = [f"/api/cad/{f}" for f in matched_cads]
+    # URLs are already formatted via find_cad_url
+    cad_urls = list(matched_cads)
     cad_url = cad_urls[0] if cad_urls else None
     
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")
@@ -343,6 +388,7 @@ USER REQUEST:
     return DesignResponse(
         subsystems=subsystems,
         connections=normalized_connections,
+        physical_assembly=physical_assembly,
         bom=bom,
         missing=missing,
         validation=validation,

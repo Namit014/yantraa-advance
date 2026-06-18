@@ -1,0 +1,25 @@
+Source URL: https://www.teledynevisionsolutions.com/learn/learning-center/machine-vision/enhancing-stereo-depth-estimation-with-deep-learning-techniques/
+Scraped: 2026-06-17T20:35:14.319712
+============================================================
+
+The Teledyne Bumblebee X stereo camera can deliver high-accuracy disparity maps at up to 17.2 FPS at 2048×1536 resolution. It utilizes a Semi-Global Block Matching (SGBM) algorithm. SGBM struggles with textureless or reflective regions, producing gaps and incomplete disparity coverage.
+
+Two deep learning approaches are presented to improve disparity accuracy and completeness:
+
+1.  **Disparity Refinement (LingBot-Depth)**:
+    *   Takes the on-board SGBM disparity and the left RGB image as inputs.
+    *   Uses a Vision Transformer (ViT-Large) backbone conditioned on the initial depth map.
+    *   Fills disparity gaps, sharpens edges, and reduces artifacts.
+    *   Processes inputs including the left RGB image, SGBM-derived disparity converted to metric depth, and normalized camera intrinsics.
+    *   Achieves approximately 5.9 FPS on an NVIDIA RTX 5070 Ti at 2048×1536 resolution.
+
+2.  **End-to-End Deep Learning Stereo**:
+    *   Estimates disparity directly from stereo image pairs.
+    *   **Selective-Stereo**:
+        *   Built on the IGEV-Stereo architecture with iterative GRU refinement.
+        *   Employs adaptive frequency selection with high-frequency and low-frequency branches.
+        *   Achieves approximately 0.67 FPS on an NVIDIA RTX 5070 Ti at 2048×1536 resolution.
+    *   **FoundationStereo**:
+        *   A foundation model developed by NVIDIA, using a DINOv2 vision transformer backbone.
+        *   Employs a two-stage hierarchical inference strategy: a coarse pass at reduced resolution followed by a full-resolution refinement pass.
+        *   Runs at approximately 0.21 FPS on an NVIDIA RTX 5070 Ti at 2048×1536 resolution.
