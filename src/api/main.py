@@ -60,6 +60,13 @@ try:
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load design router: {_e}")
 
+try:
+    from generate import router as generate_router
+    app.include_router(generate_router)
+    print("[Yantra API] Registered /api/generate-cad")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load generate router: {_e}")
+
 
 # Define Pydantic models for JSON request/response validation
 class QueryRequest(BaseModel):

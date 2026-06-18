@@ -219,7 +219,7 @@ export function VercelV0Chat() {
                         </h1>
                     </div>
                 ) : (
-                    <div className="flex-1 w-full overflow-y-auto space-y-6 pb-20 pt-8 px-4 flex flex-col">
+                    <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-8 px-4 flex flex-col">
                         {messages.map((msg, idx) => (
                             <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
                                 <div className={cn(
@@ -384,7 +384,23 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
-                        {activeTab === 'cad' && <CADTab currentQuery={latestUserQuery} cadUrls={acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []))} designData={robotDesign} />}
+                        {activeTab === 'cad' && (
+                            <CADTab 
+                                currentQuery={latestUserQuery} 
+                                cadUrls={acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []))} 
+                                designData={robotDesign} 
+                                onGeneratedCad={(newUrl) => {
+                                    setAcceptedCadUrls(prev => [...prev, newUrl]);
+                                    if (robotDesign) {
+                                        setRobotDesign((prev: any) => ({
+                                            ...prev,
+                                            cad_urls: [...(prev.cad_urls || []), newUrl],
+                                            missing: prev.missing ? prev.missing.filter((m: any) => !newUrl.toLowerCase().includes(m.name.toLowerCase())) : []
+                                        }));
+                                    }
+                                }}
+                            />
+                        )}
                     </div>
                 </div>
             )}
