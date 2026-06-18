@@ -43,7 +43,7 @@ def _strip_markdown_json(text: str) -> str:
         return cleaned[arr_start : arr_end + 1]
     return cleaned.strip()
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/auto") -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/owl-alpha") -> str:
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
@@ -153,9 +153,19 @@ OUTPUT FORMAT:
     # ─── PHASE 3: Synthesis Agent (Mapping + Connection + Validation) ────────
     print("[api/design] Phase 3: Running Synthesis Agent...")
     synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to select components from the RETRIEVED COMPONENTS list to satisfy the USER REQUEST, organize them into subsystems, map electrical/logic connections, and generate a Bill of Materials (BOM) with validation checks.
-- NEVER invent component names, model numbers, or specs. ONLY use components from the RETRIEVED COMPONENTS section.
-- If a required component is not in the list, add it to missing[].
+- If a required component (like motors, drivers, power supply, controllers, sensors) is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them in `subsystems` and `connections` so the robot design is complete and functional!
+- Add any unretrieved components to the missing[] array.
 - Output ONLY valid JSON in the exact structure requested.
+
+ROBOTICS STANDARDS & REQUIREMENTS:
+- Safe Power Architecture: NEVER directly connect a 24V PSU and a LiPo battery simultaneously to the same rail without power path management. Provide proper power isolation.
+- Servo Power Regulation: Provide dedicated step-down voltage regulation (e.g. 5V/6V Buck Converter) specifically for Servo motors, isolating their high current draw from logic power.
+- Motor Driver Wiring: Show correct stepper driver wiring including VMOT for motor power, VDD/VCC for logic, and decoupling capacitors (e.g. 100uF) across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phase wiring: A+, A-, B+, B-.
+- Grounding: Implement proper common/star grounding. All components (Arduino, drivers, PSU) MUST share a common GND.
+- Emergency Stop: Include an industrial-grade E-Stop that safely cuts/disables motor power (e.g., cutting VMOT or triggering the driver ENABLE/DISABLE) rather than just a logic signal to the MCU.
+- Protection Circuitry: Add explicit protection components: inline fuses, reverse-polarity protection, TVS diodes for transients, and noise filtering capacitors.
+- Labeling: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches.
+- Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
 
 OUTPUT FORMAT:
 {

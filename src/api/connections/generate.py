@@ -29,7 +29,7 @@ if _src_dir not in sys.path:
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Gemini 2.5 Flash via OpenRouter
-CONNECTIONS_MODEL = "google/gemini-flash-1.5"
+CONNECTIONS_MODEL = "openrouter/owl-alpha"
 
 # ── Pydantic models ────────────────────────────────────────────────────────────
 
@@ -197,24 +197,30 @@ async def generate_connections(request: GenerateRequest):
     Step 2: Call Gemini 2.5 Flash via OpenRouter with context + prompt.
     Step 3: Return structured node/wire JSON.
     """
-    if not request.components:
-        raise HTTPException(status_code=400, detail="No components provided.")
     if not request.prompt.strip():
         raise HTTPException(status_code=400, detail="Prompt cannot be empty.")
 
     # ── Step 1: RAG context per component ─────────────────────────────────────
     rag_contexts: List[str] = []
-    for comp in request.components[:12]:  # limit to avoid huge prompts
-        ctx = _rag_search(f"{comp.name} pinout datasheet connections")
+    if request.components:
+        for comp in request.components[:12]:  # limit to avoid huge prompts
+            ctx = _rag_search(f"{comp.name} pinout datasheet connections")
+            if ctx:
+                rag_contexts.append(f"## {comp.name}\n{ctx}")
+    else:
+        ctx = _rag_search(f"{request.prompt} robot components pinout connections datasheet", top_k=8)
         if ctx:
-            rag_contexts.append(f"## {comp.name}\n{ctx}")
+            rag_contexts.append(f"## RAG Context for: {request.prompt}\n{ctx}")
 
     rag_block = "\n\n".join(rag_contexts) if rag_contexts else "(No RAG data available — use general knowledge)"
 
     # ── Step 2: Build LLM prompt ───────────────────────────────────────────────
-    component_list = "\n".join(
-        f"- id={c.id}, name={c.name}, type={c.type}" for c in request.components
-    )
+    if request.components:
+        component_list = "\n".join(
+            f"- id={c.id}, name={c.name}, type={c.type}" for c in request.components
+        )
+    else:
+        component_list = "(No components provided. You MUST determine the necessary components based on the USER PROMPT and RAG PINOUT DATA. Invent logical IDs and names for them, and include them in the nodes array.)"
 
     system_prompt = (
         "You are an expert hardware engineer and circuit diagram generator. "
@@ -246,6 +252,16 @@ NODE SHAPE RULES:
 - Use "breadboard" for breadboards
 - Use "ic-chip" for ICs, drivers, H-bridges
 - Use "generic-board" for everything else
+
+ROBOTICS STANDARDS & REQUIREMENTS:
+- Safe Power Architecture: NEVER directly connect a 24V PSU and a LiPo battery simultaneously to the same rail without power path management. Provide proper power isolation.
+- Servo Power Regulation: Provide dedicated step-down voltage regulation (e.g. 5V/6V Buck Converter) specifically for Servo motors, isolating their high current draw from logic power.
+- Motor Driver Wiring: Show correct stepper driver wiring including VMOT for motor power, VDD/VCC for logic, and decoupling capacitors (e.g. 100uF) across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phase wiring: A+, A-, B+, B-.
+- Grounding: Implement proper common/star grounding. All components (Arduino, drivers, PSU) MUST share a common GND.
+- Emergency Stop: Include an industrial-grade E-Stop that safely cuts/disables motor power (e.g., cutting VMOT or triggering the driver ENABLE/DISABLE) rather than just a logic signal to the MCU.
+- Protection Circuitry: Add explicit protection components: inline fuses, reverse-polarity protection, TVS diodes for transients, and noise filtering capacitors.
+- Labeling: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches.
+- Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
 
 Return ONLY this JSON structure (no markdown fences):
 {{
