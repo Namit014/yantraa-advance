@@ -254,14 +254,13 @@ NODE SHAPE RULES:
 - Use "generic-board" for everything else
 
 ROBOTICS STANDARDS & REQUIREMENTS:
-- Safe Power Architecture: NEVER directly connect a 24V PSU and a LiPo battery simultaneously to the same rail without power path management. Provide proper power isolation.
-- Servo Power Regulation: Provide dedicated step-down voltage regulation (e.g. 5V/6V Buck Converter) specifically for Servo motors, isolating their high current draw from logic power.
-- Motor Driver Wiring: Show correct stepper driver wiring including VMOT for motor power, VDD/VCC for logic, and decoupling capacitors (e.g. 100uF) across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phase wiring: A+, A-, B+, B-.
-- Grounding: Implement proper common/star grounding. All components (Arduino, drivers, PSU) MUST share a common GND.
-- Emergency Stop: Include an industrial-grade E-Stop that safely cuts/disables motor power (e.g., cutting VMOT or triggering the driver ENABLE/DISABLE) rather than just a logic signal to the MCU.
-- Protection Circuitry: Add explicit protection components: inline fuses, reverse-polarity protection, TVS diodes for transients, and noise filtering capacitors.
-- Labeling: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches.
-- Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
+- Grounding: Add an explicit "STAR GND" node component. Ensure Logic GND, Motor GND, and Servo GND all explicitly route back to this single "STAR GND" node.
+- Emergency Stop: Clearly implement the E-Stop by either placing a Relay/Contactor that physically cuts main motor power, OR wiring it to pull all driver ENABLE pins to their safe state. Mention which method is used.
+- Fuse Placement: Explicitly include and wire a "Battery Fuse", a "Main System Fuse", and a "Buck Converter Fuse" as separate components.
+- Motor Driver Wiring: Ensure VMOT connects to the main motor supply. Include an explicit "100-470 µF Capacitor" node wired closely across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phases: A+, A-, B+, B-.
+- Servo Power: Provide dedicated step-down voltage regulation (e.g., 5V/6V Buck Converter) for Servos. Include an explicit "470-1000 µF Capacitor" node near the servo power pins.
+- Safe Power Architecture: NEVER directly connect a 24V PSU and LiPo battery simultaneously without power path management.
+- Labeling & Layout: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches. Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
 
 Return ONLY this JSON structure (no markdown fences):
 {{
