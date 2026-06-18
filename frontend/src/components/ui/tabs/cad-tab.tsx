@@ -913,6 +913,9 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                         return;
                     }
                     
+                    // Add X-axis offset based on file index to space them out initially
+                    const offsetMatrix = new THREE.Matrix4().makeTranslation(fileIndex * 150, 0, 0);
+
                     for (const m of result.meshes) {
                         const geometry = new THREE.BufferGeometry();
                         
@@ -922,6 +925,9 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                         }
                         const index = Uint32Array.from(m.index.array);
                         geometry.setIndex(new THREE.BufferAttribute(index, 1));
+                        
+                        // Apply the initial spacing offset
+                        geometry.applyMatrix4(offsetMatrix);
                         
                         geometry.computeVertexNormals();
                         geometry.computeBoundingBox();
@@ -936,7 +942,7 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                             id: `mesh-${fileIndex}-${globalMeshId++}`,
                             geometry,
                             color,
-                            name: m.name || url.split('/').pop()?.split('.')[0] || `Component ${globalMeshId}`
+                            name: m.name || `Component ${globalMeshId}`
                         });
                     }
                 });
@@ -945,61 +951,6 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
 
                 if (isMounted) {
                     setMeshes(loadedMeshes);
-                    
-                    // Trigger Auto-Layout
-                    if (loadedMeshes.length > 0) {
-                        const newTransforms: any = {};
-                        let currentYOffset = 0;
-                        
-                        // Semantic Stacking Algorithm
-                        loadedMeshes.forEach((mesh, index) => {
-                            if (!mesh.geometry.boundingBox) mesh.geometry.computeBoundingBox();
-                            const box = mesh.geometry.boundingBox!;
-                            const height = box.max.y - box.min.y;
-                            
-                            let xPos = 0;
-                            let yPos = currentYOffset - box.min.y; // Sit flush on top of previous
-                            let zPos = 0;
-                            
-                            // Check if AI gave an instruction for this part
-                            if (designData?.physical_assembly && designData?.bom) {
-                                // We need to match this mesh to a BOM item
-                                // 1. Find BOM items that might match this mesh
-                                const matchingBomItems = designData.bom.filter((b: any) => {
-                                    if (!b.cad_file && !b.name) return false;
-                                    const cf = (b.cad_file || '').toLowerCase().replace('.step', '').replace('.stp', '');
-                                    const n = (b.name || '').toLowerCase();
-                                    const mName = mesh.name.toLowerCase();
-                                    return (cf && mName.includes(cf)) || (n && mName.includes(n));
-                                });
-                                
-                                // 2. Check if any physical assembly instruction uses the ID of our matched BOM item
-                                const instruction = designData.physical_assembly.find((p: any) => {
-                                    // Direct match on part_id string against mesh name
-                                    if (mesh.name.toLowerCase().includes(p.part_id?.toLowerCase() || 'xyz123')) return true;
-                                    // Indirect match via BOM
-                                    return matchingBomItems.some((b: any) => b.id === p.part_id);
-                                });
-                                
-                                if (instruction) {
-                                    if (instruction.alignment === 'left') xPos = -50;
-                                    if (instruction.alignment === 'right') xPos = 50;
-                                    if (instruction.alignment === 'front') zPos = 50;
-                                    if (instruction.alignment === 'back') zPos = -50;
-                                }
-                            }
-                            
-                            newTransforms[mesh.id] = {
-                                position: [xPos, yPos, zPos],
-                                rotation: [0, 0, 0],
-                                scale: [1, 1, 1]
-                            };
-                            
-                            currentYOffset += height; // Stack upwards
-                        });
-                        
-                        setPartTransforms(newTransforms);
-                    }
                 }
             } catch (err: any) {
                 console.error("CAD load error:", err);
@@ -1012,7 +963,7 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
         loadStepFiles();
 
         return () => { isMounted = false; };
-    }, [cadUrls, designData]);
+    }, [cadUrls]);
 
     return (
         <div className="relative w-full h-full bg-[#060810] overflow-hidden rounded-xl border border-neutral-800 select-none">
