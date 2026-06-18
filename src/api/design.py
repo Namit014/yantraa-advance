@@ -151,11 +151,32 @@ OUTPUT FORMAT:
             
     rag_results = "\n\n".join(retrieved_texts) if retrieved_texts else "(No component specifications retrieved from RAG. Use general specifications.)"
 
+    # Load component graph if available
+    component_graph_text = ""
+    cg_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "component_graph.json")
+    hebi_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "hebi_components.json")
+    try:
+        if os.path.exists(cg_path):
+            with open(cg_path, "r", encoding="utf-8") as f:
+                cg_data = json.load(f)
+                component_graph_text += "KNOWN COMPONENT GRAPH (from LeRobotDepot):\n" + json.dumps(cg_data) + "\n\n"
+        if os.path.exists(hebi_path):
+            with open(hebi_path, "r", encoding="utf-8") as f:
+                hebi_data = json.load(f)
+                minimized_hebi = [{"name": c.get("name"), "category": c.get("category")} for c in hebi_data.get("components", [])]
+                component_graph_text += "AVAILABLE HEBI CAD COMPONENTS:\n" + json.dumps(minimized_hebi) + "\n\n"
+    except Exception as e:
+        print(f"[api/design] Could not load component graphs: {e}")
+
     # ─── PHASE 3: Synthesis Agent (Mapping + Connection + Validation) ────────
     print("[api/design] Phase 3: Running Synthesis Agent...")
-    synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to select components from the RETRIEVED COMPONENTS list to satisfy the USER REQUEST, organize them into subsystems, map electrical/logic connections, and generate a Bill of Materials (BOM) with validation checks.
-- NEVER invent component names, model numbers, or specs. ONLY use components from the RETRIEVED COMPONENTS section.
-- If a required component is not in the list, add it to missing[].
+    synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to assemble a complete robot according to the USER REQUEST.
+You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM).
+
+CRITICAL RULES:
+- You MUST select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list.
+- Prioritize using the AVAILABLE HEBI CAD COMPONENTS to construct the physical body of the robot (Actuators, Mounts, Structural Links, End Effectors).
+- Your BOM must include ALL the exact HEBI component names you used to build the robot.
 - Output ONLY valid JSON in the exact structure requested.
 
 OUTPUT FORMAT:
@@ -166,7 +187,7 @@ OUTPUT FORMAT:
       "components": [
         {
           "id": "unique_id",
-          "name": "exact name from retrieved list",
+          "name": "exact name from HEBI or retrieved list",
           "role": "what it does",
           "voltage": "operating voltage",
           "interface": "communication protocol"
@@ -192,23 +213,6 @@ OUTPUT FORMAT:
     {"type": "error | warning", "message": "voltage mismatch, missing controller, etc."}
   ]
 }"""
-
-    # Load component graph if available
-    component_graph_text = ""
-    cg_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "component_graph.json")
-    hebi_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "hebi_components.json")
-    try:
-        if os.path.exists(cg_path):
-            with open(cg_path, "r", encoding="utf-8") as f:
-                cg_data = json.load(f)
-                component_graph_text += "KNOWN COMPONENT GRAPH (from LeRobotDepot):\n" + json.dumps(cg_data) + "\n\n"
-        if os.path.exists(hebi_path):
-            with open(hebi_path, "r", encoding="utf-8") as f:
-                hebi_data = json.load(f)
-                minimized_hebi = [{"name": c.get("name"), "category": c.get("category")} for c in hebi_data.get("components", [])]
-                component_graph_text += "KNOWN HEBI CAD COMPONENTS:\n" + json.dumps(minimized_hebi) + "\n\n"
-    except Exception as e:
-        print(f"[api/design] Could not load component graphs: {e}")
 
     synthesis_prompt = f"""{component_graph_text}RETRIEVED COMPONENTS:
 {rag_results}
@@ -286,21 +290,17 @@ USER REQUEST:
         if os.path.exists(hebi_path):
             with open(hebi_path, "r", encoding="utf-8") as f:
                 hebi_data = json.load(f)
-                for cat, items in hebi_data.get("categories", {}).items():
-                    for item in items:
-                        filename = f"{item}.step"
-                        # Add full name e.g. "actuator a-2020-05"
-                        known_cads[item.lower().replace("_", " ")] = filename
-                        
-                        # Add specific part identifier e.g. "a-2020-05"
-                        parts = item.split("_")
-                        if len(parts) > 1:
-                            known_cads[parts[1].lower()] = filename
-                            known_cads[parts[1].lower().replace("-", " ")] = filename
+                for comp in hebi_data.get("components", []):
+                    name = comp.get("name", "")
+                    filename = comp.get("filename", "")
+                    if name and filename:
+                        # Add full name e.g. "a-2020-05"
+                        known_cads[name.lower()] = filename
+                        known_cads[name.lower().replace("-", " ")] = filename
     except Exception as e:
         print(f"[api/design] Error loading HEBI cads: {e}")
     
-    # Extract all text from BOM to match against
+    # Extract all text from BOM and subsystems to match against
     matched_cads = set()
     
     # Check each BOM item
@@ -312,6 +312,17 @@ USER REQUEST:
         for key, filename in known_cads.items():
             if key in search_text:
                 matched_cads.add(filename)
+                
+    # Also check subsystems as LLMs sometimes put components there but forget them in BOM
+    for sub in subsystems:
+        for comp in sub.get("components", []):
+            name = comp.get("name", "").lower()
+            role = comp.get("role", "").lower()
+            search_text = f"{name} {role}"
+            
+            for key, filename in known_cads.items():
+                if key in search_text:
+                    matched_cads.add(filename)
                 
     # Fallback to monolithic robots if modular assembly yielded nothing
     if len(matched_cads) == 0:
@@ -336,7 +347,8 @@ USER REQUEST:
             pass
 
     cad_available = len(matched_cads) > 0
-    cad_urls = [f"/api/cad/{f}" for f in matched_cads]
+    # Use direct static URL since Next.js hosts the CAD files in public/cad/
+    cad_urls = [f"/cad/{f}" for f in matched_cads]
     cad_url = cad_urls[0] if cad_urls else None
     
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")

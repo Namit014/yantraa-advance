@@ -1,5 +1,93 @@
 {
   "subsystems": [
     {
-      "name": "Camera Subsystem",
-      "</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</</
+      "name": "Arm Subsystem",
+      "components": [
+        {
+          "id": "motor1",
+          "name": "Feetech STS3215",
+          "role": "Joint actuator for link 1",
+          "voltage": "5V",
+          "interface": "PWM"
+        },
+        {
+          "id": "motor2",
+          "name": "Feetech STS3215",
+          "role": "Joint actuator for link 2",
+          "voltage": "5V",
+          "interface": "PWM"
+        },
+        {
+          "id": "link1",
+          "name": "A-2055-01_Gripper_Assembly",
+          "role": "Link 1 structural element",
+          "voltage": "",
+          "interface": ""
+        },
+        {
+          "id": "link2",
+          "name": "A-2055-01_Gripper_Assembly",
+          "role": "Link 2 structural element",
+          "voltage": "",
+          "interface": ""
+        },
+        {
+          "id": "controller1",
+          "name": "Arduino Uno",
+          "role": "Microcontroller for control logic",
+          "voltage": "5V",
+          "interface": "PWM, I2C, UART"
+        }
+      ]
+    },
+    {
+      "name": "Gripper Subsystem",
+      "components": [
+        {
+          "id": "gripper1",
+          "name": "SO101-Parallel-Gripper",
+          "role": "End effector",
+          "voltage": "5V",
+          "interface": "DC"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "controller1",
+      "to": "motor1",
+      "relation": "drives",
+      "protocol": "PWM"
+    },
+    {
+      "from": "controller1",
+      "to": "motor2",
+      "relation": "drives",
+      "protocol": "PWM"
+    },
+    {
+      "from": "controller1",
+      "to": "gripper1",
+      "relation": "drives",
+      "protocol": "DC"
+    },
+    {
+      "from": "motor1",
+      "to": "link1",
+      "relation": "attached_to",
+      "protocol": ""
+    },
+    {
+      "from": "motor2",
+      "to": "link2",
+      "relation": "attached_to",
+      "protocol": ""
+    }
+  ],
+  "bom": [
+    {
+      "id": "motor1",
+      "name": "Feetech STS3215",
+      "qty\":1"
+    },{"id\":\"
