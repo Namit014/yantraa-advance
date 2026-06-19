@@ -1,0 +1,16 @@
+Source URL: https://ru.pinterest.com/pin/max-arduino-micro-spot-robot-dog--554013191666033540/
+Scraped: 2026-06-18T18:59:11.292147
+============================================================
+
+# Max: Spot Micro Robot Dog with Arduino
+
+A compact, Arduino-based quadruped robot dog inspired by Boston Dynamics' famous Spot robot. This DIY project, featured on gadgetify.com, demonstrates how to build a small, four-legged walking robot using accessible components. The build is particularly appealing to hobbyists interested in dot matrix robot designs and Arduino-based robotics.
+
+**Key Features:**
+- Based on an Arduino microcontroller platform
+- Quadruped (four-legged) walking design
+- Inspired by Boston Dynamics' robot dog concept
+- Small-scale, DIY-friendly format
+- Uses 3D-printed parts for the chassis and legs
+
+This project fits into the broader trend of open-source, maker-friendly robotic pets, providing an approachable entry point for those interested in quadruped locomotion, Arduino programming, and DIY robot building.

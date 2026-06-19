@@ -1,0 +1,39 @@
+Source URL: https://www.classcentral.com/course/youtube-scara-robot-how-to-build-your-own-arduino-based-robot-130316
+Scraped: 2026-06-18T19:41:01.589703
+============================================================
+
+# SCARA Robot - How to Build Your Own Arduino Based Robot
+
+**Source:** How To Mechatronics (via Class Central)
+
+This comprehensive 25-minute tutorial covers the complete process of building an Arduino-based SCARA robot, from design through to custom control software.
+
+## Topics Covered
+
+- **Introduction**
+- **3D Model** – Designing the robot
+- **3D Printing** – Fabricating parts
+- **Assembling** – Mechanical assembly
+- **Gripper Assembly** – Building the end effector
+- **Electronics** – Wiring and electronic components
+- **Finishing the Assembly** – Final mechanical integration
+- **Forward and Inverse Kinematics** – Motion control theory and implementation
+- **Source Code** – Programming the Arduino
+- **Verdict** – Project summary and results
+
+## Key Details
+
+- **Duration:** 25 minutes
+- **Platform:** Arduino-based
+- **Custom GUI:** A custom Graphics User Interface is developed for robot control
+- **Source Code:** Available for personal projects
+- **Parts List:** Provided for replication
+- **Additional Resources:** Linked for further exploration
+
+## Related Tutorials by How To Mechatronics
+
+- Arduino and Design: Make Your First Robot
+- Arduino Ant Hexapod Robot
+- How to Make a Linear Servo Actuator with Position Feedback
+- Arduino: Build an Iron Man Arm with Voice Control
+- How to Build a Wall Drawing Robot – Part 1: Building Scrawly Wally

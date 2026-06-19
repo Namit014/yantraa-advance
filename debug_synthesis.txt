@@ -1,0 +1,218 @@
+{
+  "subsystems": [
+    {
+      "name": "Chassis & Body",
+      "components": [
+        {
+          "id": "c1",
+          "name": "A-2090-02",
+          "role": "Base plate",
+          "voltage": "12V",
+          "interface": "USB"
+        },
+        {
+          "id": "c2",
+          "name": "A-2096-02_Six_Tube_Adapter",
+          "role": "Central tube interface for four legs and head mount",
+          "voltage": "12V",
+          "interface": "CAN"
+        }
+      ]
+    },
+    {
+      "name": "Leg 1 (Front‑Left)",
+      "components": [
+        {
+          "id": "l1",
+          "name": "A-2020-05",
+          "role": "Hip extension",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l2",
+          "name": "A-2020-08",
+          "role": "Knee extension",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l3",
+          "name": "A-2200-08",
+          "role": "Ankle flexion",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l4",
+          "name": "A-2255-01_Gripper_Spool",
+          "role": "Ground‑contact spring",
+          "voltage": "12V",
+          "interface": "Mechanical"
+        }
+      ]
+    },
+    {
+      "name": "Leg 2 (Front‑Right)",
+      "components": [
+        {
+          "id": "l5",
+          "name": "A-2020-05",
+          "role": "Hip extension",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l6",
+          "name": "A-2020-08",
+          "role": "Knee extension",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l7",
+          "name": "A-2200-08",
+          "role": "Ankle flexion",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l8",
+          "name": "A-2255-01_Gripper_Spool",
+          "role": "Ground‑contact spring",
+          "voltage": "12V",
+          "interface": "Mechanical"
+        }
+      ]
+    },
+    {
+      "name": "Leg 3 (Rear‑Left)",
+      "components": [
+        {
+          "id": "l9",
+          "name": "A-2020-05",
+          "role": "Hip extension",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l10",
+          "name": "A-2020-08",
+          "role": "Knee extension",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l11",
+          "name": "A-2200-08",
+          "role": "Ankle flexion",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l12",
+          "name": "A-2255-01_Gripper_Spool",
+          "role": "Ground‑contact spring",
+          "voltage": "12V",
+          "interface": "Mechanical"
+        }
+      ]
+    },
+    {
+      "name": "Leg 4 (Rear‑Right)",
+      "components": [
+        {
+          "id": "l13",
+          "name": "A-2020-05",
+          "role": "Hip extension",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l14",
+          "name": "A-2020-08",
+          "role": "Knee extension",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l15",
+          "name": "A-2200-08",
+          "role": "Ankle flexion",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "l16",
+          "name": "A-2255-01_Gripper_Spool",
+          "role": "Ground‑contact spring",
+          "voltage": "12V",
+          "interface": "Mechanical"
+        }
+      ]
+    },
+    {
+      "name": "Head & Neck",
+      "components": [
+        {
+          "id": "h1",
+          "name": "A-2065-01",
+          "role": "Neck rotation",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "h2",
+          "name": "A-2143-02",
+          "role": "Head pitch",
+          "voltage": "12V",
+          "interface": "PWM"
+        },
+        {
+          "id": "h3",
+          "name": "A-2255-01_Gripper_Spool",
+          "role": "Eye‑camera mounting",
+          "voltage": "12V",
+          "interface": "Mechanical"
+        }
+      ]
+    },
+    {
+      "name": "Power & Control",
+      "components": [
+        {
+          "id": "p1",
+          "name": "Arduino Mega 2560",
+          "role": "Primary microcontroller",
+          "voltage": "5V",
+          "interface": "USB, PWM, I2C"
+        },
+        {
+          "id": "p2",
+          "name": "L298N",
+          "role": "Motor driver for 8 motors",
+          "voltage": "12V motor, 5V logic",
+          "interface": "PWM"
+        },
+        {
+          "id": "p3",
+          "name": "Shimen 2.5kg LiPo Battery Pack",
+          "role": "Power source",
+          "voltage": "48V nominal",
+          "interface": "DC-DC converters"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {"from":"p1","to":"p2","relation":"controls","protocol":"PWM"},
+    {"from":"p3","to":"p2","relation":"powers","protocol":"DC"},
+    {"from":"p3","to":"p1","relation":"provides_logic","protocol":"USB"},
+    {"from":"l1","to":"p2","relation":"drives","protocol":"PWM"},
+    {"from":"l2","to":"p2","relation":"drives","protocol":"PWM"},
+    {"from":"l3","to":"p2","relation":"drives","protocol":"PWM"},
+    {"from":"l5","to":"p2","relation":"drives","protocol":"PWM"},
+    {"from":"l6","to":"p2","relation":"drives","protocol":"PWM"},
+    {"from":"l7","to":"p2","relation":"drives","protocol":"PWM"},
+    {"from":"l9","to":"p2","relation":"drives","protocol":"{PWM}•  												:18"} ,{"from"  ,"to"  ,"relation"  ,"protocol"  }  ,{"from  : p1-   to p2- "   ,"relation"  ,"protocol"  }  }                                           ,{"from" ,:, "relation" ,: "PWM" }   ]   "}   },    { "name" "system order port" },    { "from" "p1" , "to" "p2" } ]   ,"connection"  : "PWM"
+  ]  , "bom" : ??? }

@@ -1,0 +1,49 @@
+Source URL: https://thinkrobotics.com/blogs/tutorials/building-a-humanoid-robot-step-by-step-engineering-guide-for-beginners
+Scraped: 2026-06-18T18:27:49.249107
+============================================================
+
+Building a humanoid robot is one of the most challenging and rewarding projects in robotics. Beginners can create functional, smaller-scale versions using accessible components and tools.
+
+**Understanding Humanoid Robot Fundamentals**
+*   **Humanoid Structure:** Mimics the human body with a head, torso, two arms, and two legs.
+*   **Unique Challenges:** Bipedal walking requires sophisticated balance control, unlike wheeled robots.
+*   **Degrees of Freedom:** A basic humanoid has 16 to 20 joints; advanced versions have 30 or more, adding complexity to design and programming.
+*   **Versatility:** Ability to navigate stairs, use tools, and interact in human environments.
+*   **Beginner Goal:** Aim for a statically stable robot that can stand, move arms, and turn its head before attempting dynamic walking.
+
+**Planning Your Robot Design**
+*   **Robot Size:** Smaller robots (30-40 cm tall) are cheaper and easier to manage; larger robots need more torque and stronger materials.
+*   **Visualizing:** Sketch design with measurements, limb lengths, joint positions, and component placement. Consider weight distribution.
+*   **Degrees of Freedom for Movement:**
+    *   Legs: At least six per leg (3 hip, 1 knee, 2 ankle).
+    *   Arms: At least three per arm (1 shoulder, 1 elbow, 1 wrist).
+    *   Head: 1 or 2 degrees of freedom.
+*   **Budget:** Basic projects cost $500-$2,000.
+    *   40% Servo motors.
+    *   20% Structural materials.
+    *   15% Electronics and controllers.
+    *   15% Power systems.
+    *   10% Tools and miscellaneous.
+
+**Selecting Components and Materials**
+*   **Servo Motors:** Digital servos preferred for precision and torque.
+    *   Leg joints (30-40cm robot): 15-25 kg-cm torque.
+    *   Arm and head joints: 5-10 kg-cm torque.
+    *   Calculate torque based on limb weight; thigh servos support entire robot weight.
+*   **Controller:**
+    *   Arduino boards (e.g., Mega) good for beginners, enough pins for 20+ servos/sensors.
+    *   Raspberry Pi for computer vision/advanced AI. Often combined with Arduino.
+*   **Structural Materials:**
+    *   Laser-cut acrylic sheets (precise, reasonable cost).
+    *   Aluminum flat bars and angle brackets (strength for load-bearing).
+    *   3D printing (custom parts, less strength than metal for critical joints).
+*   **Battery:** Lithium-polymer batteries (high power density).
+    *   Add up max current for all components; select battery with 20% extra capacity.
+
+**Mechanical Construction Process**
+*   **Frame:** Start with the torso (rigid mounting for controller, battery, legs).
+*   **Legs:** Crucial for alignment and strength. Use spacers and bearings at joints.
+*   **Servo Mounting:** Secure brackets prevent rotation/position loss. Use thread-locking compound.
+*   **Arms:** Less stringent strength requirements than legs, but need rigid connections.
+*   **Head:** Mounts sensors (cameras, ultrasonic). Ensure clear view and cable management.
+*   **Assembly:** Test fit all components before final assembly.

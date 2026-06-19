@@ -1,0 +1,42 @@
+Source URL: https://bonafideicon.shop/interactive-diy-robot-dog-kit-programmable-multifunctional-for-raspberry-pi/
+Scraped: 2026-06-18T18:04:34.822333
+============================================================
+
+# Interactive DIY Robot Dog Kit – Technical Specifications
+
+## Overview
+A programmable, multifunctional robot dog kit designed for assembly and coding, compatible with various Raspberry Pi models.
+
+## Key Specifications
+
+### Programming
+- **Language:** Python
+- Includes complete Python code and a detailed online tutorial
+
+### Capabilities
+- Walking
+- Self-balancing
+- Ball tracing
+- Face recognition
+- Ultrasonic sensing
+
+### Hardware Compatibility
+- Optimized for Raspberry Pi 4B, 3B+, 3B, and 3A+
+- Adaptable for other Raspberry Pi models with additional parts
+
+### Included Components
+- Complete set of robot and electronic modules
+- 13 servos
+- Essential assembly tools
+- Remote control functionality (controlling device not included)
+
+### Construction
+- Durable acrylic and machinery parts
+
+### Remote Control
+- Controllable via computer, Android devices, or iPhone
+
+## Additional Information
+- Free technical support provided
+- Comprehensive online resources for setup and programming
+- Marketed as suitable for beginners, hobbyists, educational purposes, and tech enthusiasts

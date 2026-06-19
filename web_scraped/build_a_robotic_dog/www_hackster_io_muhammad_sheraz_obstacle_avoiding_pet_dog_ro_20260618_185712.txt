@@ -1,0 +1,71 @@
+Source URL: https://www.hackster.io/Muhammad-sheraz/obstacle-avoiding-pet-dog-robot-tomy-using-arduino-239db7
+Scraped: 2026-06-18T18:57:12.274302
+============================================================
+
+# Obstacle Avoiding Pet Dog Robot TOMY Using Arduino
+
+**Project by:** Engr Muhammad Sheraz
+**Published:** March 8, 2022
+**License:** LGPL
+**Difficulty:** Intermediate
+**Estimated Build Time:** 20 hours
+
+---
+
+## Overview
+
+The robotic dog "TOMY" is an obstacle-avoiding walking robot built using Arduino and ultrasonic sensors. It is designed for robotics and coding enthusiasts, as well as dog lovers, and is intended to help students understand robotics engineering. The robot walks forward when no obstacles are detected and reverses direction when an obstacle is identified.
+
+---
+
+## Hardware Components
+
+- Arduino Nano × 1
+- Samsung Servo Motors × 1
+- Raspberry Pi Ultrasonic Distance Sensor HC-SR04 × 1
+- 3D Printer × 1
+- Seeed Studio Project Development Kit × 1
+- 9V battery with switch
+- Jumper wires
+
+## Software
+
+- Arduino IDE
+
+---
+
+## Working Mechanism
+
+The servo motors act as the "muscles" of the robot, pulling and pushing the shafts of the robotic legs. The servos are connected to the Arduino, which sends signals to produce specific angular movements. The ultrasonic sensor (HC-SR04) acts as the "eye" of the robot, gathering data on obstacles in its path. When no obstacles are detected, the robot moves forward; when an obstacle is detected, it moves backward.
+
+---
+
+## Connections
+
+- Ultrasonic sensor **Trig** pin → Arduino Nano **A3**
+- Ultrasonic sensor **Echo** pin → Arduino Nano **A4**
+- Servo signal pins → Arduino Nano **D3** and **D10**
+
+---
+
+## Assembly
+
+- The robot's legs and body are 3D printed. STL files are available upon request.
+- Servo horns are connected to the 3D-printed parts using screws and glue.
+- The body is designed with dedicated slots for servo shaft connections and wire organization.
+- The ultrasonic sensor is mounted on the front of the body.
+- A 9V battery with an on/off switch is mounted at the mid-section of the skeleton.
+- Rechargeable batteries are recommended for extended use.
+- Each servo motor can bear up to 9g; additional weight considerations should be taken into account when adding extra components.
+
+---
+
+## Code
+
+The code is uploaded via the Arduino IDE to the Arduino Nano. Beginners are advised to use the code as-is. Advanced users can modify pin assignments, time delays, or add additional sensors by editing the code.
+
+---
+
+## Author
+
+**Engr Muhammad Sheraz** — BSc Electrical Engineer, 14 projects published, 64 followers. Contact via WhatsApp: +923057608848. Website: https://aquabcasing.com/
