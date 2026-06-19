@@ -5,6 +5,7 @@ import {
     LayoutGrid, Maximize2, Trash2, RefreshCw, Network
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
+import dagre from "dagre";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
 const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/api/ask`;
@@ -52,12 +53,24 @@ interface Connection {
 // ─── Category config ──────────────────────────────────────────────────────────
 
 const CATEGORY_COLOR: Record<ComponentCategory, string> = {
-    actuator: "#f97316",
-    sensor: "#22d3ee",
-    controller: "#a78bfa",
     mechanical: "#94a3b8",
-    power: "#facc15",
+    actuator: "#f97316",
+    controller: "#a855f7",
+    sensor: "#06b6d4",
+    power: "#eab308",
     electronic: "#4ade80",
+};
+
+export const WIRE_COLORS: Record<string, string> = {
+    power: '#ef4444',     // Red
+    ground: '#10b981',    // Emerald Green
+    signal: '#eab308',    // Yellow
+    data: '#a855f7',      // Purple
+    drive: '#f97316',     // Orange
+    pwm: '#3b82f6',       // Blue
+    can: '#14b8a6',       // Teal
+    linkage: '#94a3b8',   // Slate
+    default: '#60a5fa'    // Light Blue
 };
 
 const CATEGORY_ORDER: ComponentCategory[] = [
@@ -230,29 +243,65 @@ const NODE_W = 140 as const;
 const NODE_H = 88 as const;
 const VIRTUAL_W = 1200;
 
-function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[]): ComponentNode[] {
-    const byCategory: Partial<Record<ComponentCategory, typeof rawNodes>> = {};
-    rawNodes.forEach(n => {
-        if (!byCategory[n.category]) byCategory[n.category] = [];
-        byCategory[n.category]!.push(n);
+function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Connection[] = []): ComponentNode[] {
+    const dagreGraph = new dagre.graphlib.Graph();
+    dagreGraph.setDefaultEdgeLabel(() => ({}));
+    
+    // Top to Bottom flow
+    dagreGraph.setGraph({ rankdir: 'TB', ranksep: 120, nodesep: 150 });
+
+    const connectedIds = new Set<string>();
+    connections.forEach(c => {
+        connectedIds.add(c.fromId);
+        connectedIds.add(c.toId);
     });
 
-    const result: ComponentNode[] = [];
-    let rowIndex = 0;
+    // Add nodes to dagre (only connected ones)
+    rawNodes.forEach(n => {
+        if (connectedIds.has(n.id)) {
+            dagreGraph.setNode(n.id, { width: NODE_W, height: NODE_H });
+        }
+    });
 
-    CATEGORY_ORDER.forEach(cat => {
-        const group = byCategory[cat];
-        if (!group || group.length === 0) return;
-        const rowW = group.length * 180;
-        const startX = Math.max(60, (VIRTUAL_W - rowW) / 2);
-        group.forEach((n, i) => {
+    // Enforce hierarchy by forcing edges to go from lower rank to higher rank
+    connections.forEach(e => {
+        const fromNode = rawNodes.find(n => n.id === e.fromId);
+        const toNode = rawNodes.find(n => n.id === e.toId);
+        if (!fromNode || !toNode) return;
+        
+        const r1 = CATEGORY_ORDER.indexOf(fromNode.category);
+        const r2 = CATEGORY_ORDER.indexOf(toNode.category);
+        
+        if (r1 <= r2) {
+            dagreGraph.setEdge(e.fromId, e.toId);
+        } else {
+            // Reverse edge direction for dagre layout calculation so it respects the hierarchy
+            dagreGraph.setEdge(e.toId, e.fromId);
+        }
+    });
+
+    dagre.layout(dagreGraph);
+
+    const result: ComponentNode[] = [];
+    let unconnectedY = 80;
+    
+    rawNodes.forEach(n => {
+        if (connectedIds.has(n.id)) {
+            const nodeWithPosition = dagreGraph.node(n.id);
             result.push({
                 ...(n as ComponentNode),
-                x: startX + i * 180,
-                y: 80 + rowIndex * 160,
+                x: nodeWithPosition.x - NODE_W / 2 + 100, // Shift slightly right
+                y: nodeWithPosition.y - NODE_H / 2 + 80,
             });
-        });
-        rowIndex++;
+        } else {
+            // Float disconnected islands far to the right
+            result.push({
+                ...(n as ComponentNode),
+                x: VIRTUAL_W + 100,
+                y: unconnectedY,
+            });
+            unconnectedY += 150;
+        }
     });
 
     return result;
@@ -438,18 +487,19 @@ const SEED_RAW: RawComponent[] = [
     { name: "Power Supply", category: "power", description: "24V regulated DC power supply", connects_to: ["Motion Controller", "Servo Motor A", "Servo Motor B"], quantity: 1 },
 ];
 
-const SEED_NODES: ComponentNode[] = applyLayout(
-    SEED_RAW.map((r, i) => ({
-        id: `seed-${i}`,
-        label: r.name,
-        category: r.category,
-        description: r.description,
-        width: NODE_W,
-        height: NODE_H,
-        quantity: r.quantity,
-        partNumber: r.partNumber,
-    }))
-);
+const SEED_BASE_NODES = SEED_RAW.map((r, i) => ({
+    id: `seed-${i}`,
+    label: r.name,
+    category: r.category,
+    description: r.description,
+    width: NODE_W,
+    height: NODE_H,
+    quantity: r.quantity,
+    partNumber: r.partNumber,
+}));
+
+const SEED_CONNECTIONS = generateConnections(SEED_BASE_NODES as ComponentNode[], SEED_RAW);
+const SEED_NODES: ComponentNode[] = applyLayout(SEED_BASE_NODES as ComponentNode[], SEED_CONNECTIONS);
 
 // ─── Inline SVG icons ─────────────────────────────────────────────────────────
 
@@ -553,19 +603,47 @@ import 'reactflow/dist/style.css';
 
 const CustomComponentNode = ({ data }: any) => {
     const color = CATEGORY_COLOR[data.category as ComponentCategory] || "#ccc";
+    
+    // Generate dynamic mock pins based on component category
+    let pins: string[] = [];
+    switch (data.category) {
+        case "controller":
+            pins = ["5V", "GND", "TX", "RX", "PWM"];
+            break;
+        case "sensor":
+            pins = ["5V", "GND", "SDA", "SCL"];
+            break;
+        case "actuator":
+            pins = ["PWM", "5V", "GND"];
+            break;
+        case "power":
+            pins = ["12V", "5V", "GND"];
+            break;
+        case "electronic":
+            pins = ["VIN", "GND", "SIG"];
+            break;
+        case "mechanical":
+            pins = [];
+            break;
+        default:
+            pins = ["IO", "GND"];
+    }
+
     return (
         <div style={{
             background: "#13161c",
             border: `1px solid ${color}50`,
             borderRadius: "8px",
             padding: "10px",
-            minWidth: "150px",
+            minWidth: "160px",
             color: "white",
             fontSize: "12px",
             boxShadow: "0 4px 6px rgba(0,0,0,0.3)"
         }}>
-            <Handle type="target" position={Position.Left} style={{ background: color }} />
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+            {/* We map generic target handles on the left so wires can snap anywhere */}
+            <Handle id="left" type="target" position={Position.Left} style={{ background: color, width: 8, height: 8 }} />
+            
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
                 <div style={{ width: 20, height: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <CategoryIcon category={data.category} size={14} />
                 </div>
@@ -582,10 +660,34 @@ const CustomComponentNode = ({ data }: any) => {
                     {data.label}
                 </strong>
             </div>
-            <div style={{ fontSize: "9px", color: color, textTransform: "uppercase", letterSpacing: "1px" }}>
-                {data.category}
+            
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: "4px" }}>
+                <div style={{ fontSize: "9px", color: color, textTransform: "uppercase", letterSpacing: "1px" }}>
+                    {data.category}
+                </div>
+                
+                {/* Pins render */}
+                {pins.length > 0 && (
+                    <div style={{ display: "flex", gap: "4px" }}>
+                        {pins.map(pin => (
+                            <div key={pin} style={{
+                                fontSize: "8px",
+                                background: "#1e2430",
+                                color: "#8b949e",
+                                padding: "2px 4px",
+                                borderRadius: "3px",
+                                border: "1px solid #30363d",
+                                fontFamily: "monospace"
+                            }}>
+                                {pin}
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
-            <Handle type="source" position={Position.Right} style={{ background: color }} />
+            
+            {/* Generic source handles on the right */}
+            <Handle id="right" type="source" position={Position.Right} style={{ background: color, width: 8, height: 8 }} />
         </div>
     );
 };
@@ -664,25 +766,20 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
 
     const lastQueryRef = useRef<string>("");
     const rfEdges: Edge[] = useMemo(() => {
-        const WIRE_COLORS: Record<string, string> = {
-            power: '#ef4444',
-            ground: '#22c55e',
-            signal: '#eab308',
-            data: '#a855f7',
-            drive: '#f97316',
-            pwm: '#3b82f6',
-            can: '#14b8a6',
-            default: '#60a5fa'
-        };
-
         return connections.map(c => {
             const edgeColor = WIRE_COLORS[c.label?.toLowerCase()] || WIRE_COLORS.default;
+            
+            // Prevent perfect visual overlap when power and ground run between the same two nodes
+            let edgeType = 'smoothstep';
+            if (c.label === 'ground') edgeType = 'default'; // Bezier curve
+            else if (c.label === 'power') edgeType = 'smoothstep'; // Step curve
+
             return {
                 id: c.id,
                 source: c.fromId,
                 target: c.toId,
                 label: c.label,
-                type: 'smoothstep',
+                type: edgeType,
                 animated: false,
                 style: { stroke: edgeColor, strokeWidth: 1.5 },
                 labelStyle: { fill: '#a3a3a3', fontWeight: 600, fontSize: 11, className: 'edge-label-text' },
@@ -746,9 +843,10 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
         }
         
         setRawComponents(updatedRaw);
-        const layoutedNodes = applyLayout(updatedNodes);
+        const newConnections = generateConnections(updatedNodes, updatedRaw) as any;
+        setConnections(newConnections);
+        const layoutedNodes = applyLayout(updatedNodes, newConnections);
         setNodes(layoutedNodes);
-        setConnections(generateConnections(layoutedNodes, updatedRaw) as any);
         setIsLoading(false);
     }, [aiResponse, rawComponents, nodes]);
 
@@ -773,8 +871,8 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
     }, [currentQuery, doFetch]);
 
     const handleAutoLayout = useCallback(() => {
-        setNodes(prev => applyLayout(prev));
-    }, []);
+        setNodes(prev => applyLayout(prev, connections));
+    }, [connections]);
 
     const handleAddComponent = useCallback(() => {
         if (!newName.trim()) return;
@@ -1176,9 +1274,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                                         <div className="flex flex-col gap-2">
                                             {inputsToSelected.map(conn => {
                                                 const fromNode = nodes.find(n => n.id === conn.fromId);
+                                                const labelColor = WIRE_COLORS[conn.label?.toLowerCase()] || WIRE_COLORS.default;
                                                 return (
                                                     <div key={conn.id} className="flex items-center justify-between bg-[#13161c] p-2.5 rounded border border-neutral-800/80">
-                                                        <div className="text-xs text-neutral-300 truncate pr-2">From: <span className="font-medium text-white">{fromNode?.label || "Unknown"}</span></div>
+                                                        <div className="text-xs text-neutral-300 truncate pr-2 flex items-center">
+                                                            From: <span className="font-medium text-white ml-1">{fromNode?.label || "Unknown"}</span>
+                                                            <span className="ml-2 text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded" style={{color: labelColor, border: `1px solid ${labelColor}40`, background: `${labelColor}15`}}>{conn.label}</span>
+                                                        </div>
                                                         <button onClick={() => setConnections(p => p.filter(c => c.id !== conn.id))} className="text-neutral-500 hover:text-red-400"><Trash2 size={12} /></button>
                                                     </div>
                                                 );
@@ -1195,9 +1297,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                                         <div className="flex flex-col gap-2">
                                             {outputsFromSelected.map(conn => {
                                                 const toNode = nodes.find(n => n.id === conn.toId);
+                                                const labelColor = WIRE_COLORS[conn.label?.toLowerCase()] || WIRE_COLORS.default;
                                                 return (
                                                     <div key={conn.id} className="flex items-center justify-between bg-[#13161c] p-2.5 rounded border border-neutral-800/80">
-                                                        <div className="text-xs text-neutral-300 truncate pr-2">To: <span className="font-medium text-white">{toNode?.label || "Unknown"}</span></div>
+                                                        <div className="text-xs text-neutral-300 truncate pr-2 flex items-center">
+                                                            To: <span className="font-medium text-white ml-1">{toNode?.label || "Unknown"}</span>
+                                                            <span className="ml-2 text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded" style={{color: labelColor, border: `1px solid ${labelColor}40`, background: `${labelColor}15`}}>{conn.label}</span>
+                                                        </div>
                                                         <button onClick={() => setConnections(p => p.filter(c => c.id !== conn.id))} className="text-neutral-500 hover:text-red-400"><Trash2 size={12} /></button>
                                                     </div>
                                                 );
