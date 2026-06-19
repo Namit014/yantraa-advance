@@ -1,0 +1,19 @@
+Source URL: https://allen.in/science/heat
+Scraped: 2026-06-18T13:10:33.031200
+============================================================
+
+The S.I. unit of temperature is Kelvin (K). Other common units include Celsius and Fahrenheit. Thermometers are devices used to measure temperature. Thermal equilibrium occurs when two objects or systems are at the same temperature, resulting in no net flow of energy between them.
+
+Heat is defined as the energy that flows between two objects or systems due to a temperature difference. It is also referred to as thermal energy.
+
+Temperature scales are used to quantify temperature. The Fahrenheit scale has water freezing at 32 degrees and boiling at 212 degrees, with 180 degrees between these points. The Celsius scale divides the interval between the freezing (0°C) and boiling (100°C) points of water into 100 degrees. The Kelvin scale also divides this interval into 100 divisions, with water freezing at 273 K and boiling at 373 K. Absolute zero, the lowest possible temperature, occurs at -273°C or -459°F, where particle motion ceases.
+
+The relationship between Celsius (C), Fahrenheit (F), and Kelvin (K) scales can be expressed as:
+C/100 = (F-32)/180 = (K-273)/100
+
+Conversions between Celsius and Fahrenheit are:
+C = (5/9)(F - 32)
+F = (9/5)C + 32 = 1.8C + 32
+
+Conversions between Fahrenheit and Kelvin are:
+F = 1.8(K - 273) + 32

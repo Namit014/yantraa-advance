@@ -1,0 +1,18 @@
+Source URL: https://www.britannica.com/science/heat
+Scraped: 2026-06-18T13:10:46.686148
+============================================================
+
+**Heat** is energy transferred from one body to another because of a **difference in temperature**; it flows from the hotter body to the colder one.[3] Britannica also emphasizes that heat is **energy in transit**, not energy “stored” in a body.[3]
+
+Key facts from the source text:
+
+- Heat transfer can raise the temperature of the cooler body and lower the temperature of the hotter body, but not always.[3]
+- A substance can absorb heat **without a temperature increase** if the energy is used for a **phase change** such as melting, boiling, sublimation, or a crystalline transition.[3]
+- Heat and temperature are different: **heat** is energy transferred, while **temperature** measures the amount of that energy present in a body.[3]
+- Heat is measured in energy units such as **joules**, **calories**, **foot-pounds**, or **kilowatt-hours**.[3]
+- Common heat units include the **calorie** and the **British thermal unit (BTU)**.[3]
+- The **specific heat** of a substance is the amount of energy needed to raise the temperature of a unit mass by a specified interval.[3]
+- The heat capacity of a substance depends on conditions such as whether the substance is held at **constant volume** or **constant pressure**.[3]
+- Heat transfer related to phase change is often called **latent heat**; energy used to raise temperature without phase change is called **sensible heat**.[3]
+
+A concise cross-check from dictionary sources matches Britannica’s core definition: heat is the energy transferred because of a temperature difference, and it flows from higher to lower temperature.[1][2][11][14]

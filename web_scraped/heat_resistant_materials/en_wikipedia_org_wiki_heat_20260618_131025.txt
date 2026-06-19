@@ -1,0 +1,9 @@
+Source URL: https://en.wikipedia.org/wiki/Heat
+Scraped: 2026-06-18T13:10:25.963729
+============================================================
+
+In thermodynamics, heat is defined as energy transferred between a body and its surroundings, excluding thermodynamic work or the transfer of matter. Thermodynamic work is defined by changes in a system's macroscopic state variables, such as pressure and volume. Heat is not a state variable but a process quantity and a system does not contain heat. Heat can be transferred by thermal conduction, electromagnetic radiation, or friction.
+
+The SI unit for heat is the joule (J). Other units include the British thermal unit (BTU) and the calorie. The symbol for heat is Q, where a negative value indicates heat released by a system and a positive value indicates heat absorbed by a system. The rate of heating is denoted by $\dot{Q}$ and is measured in watts (W), which is one joule per second. Heat flux is the rate of heat transfer per unit cross-sectional area, measured in watts per square meter.
+
+Historically, early theories considered heat as a form of matter (caloric theory). Around the end of the eighteenth century, this was replaced by the "mechanical" theory of heat, which established a relationship between heat and the motion of particles. Francis Bacon, in 1620, suggested that the essence of heat is motion. Galileo Galilei, in 1623, described heat as an artifact of the mind, but also proposed that heat is related to the motion of small particles within a body.

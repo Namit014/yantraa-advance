@@ -171,13 +171,24 @@ OUTPUT FORMAT:
     # ─── PHASE 3: Synthesis Agent (Mapping + Connection + Validation) ────────
     print("[api/design] Phase 3: Running Synthesis Agent...")
     synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to assemble a complete robot according to the USER REQUEST.
-You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM).
+You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
 
 CRITICAL RULES:
 - You MUST select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list.
 - Prioritize using the AVAILABLE HEBI CAD COMPONENTS to construct the physical body of the robot (Actuators, Mounts, Structural Links, End Effectors).
 - Your BOM must include ALL the exact HEBI component names you used to build the robot.
+- If a required component (like motors, drivers, power supply, controllers, sensors) is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them in `subsystems` and `connections` so the robot design is complete and functional!
+- Add any unretrieved components to the missing[] array.
 - Output ONLY valid JSON in the exact structure requested.
+
+ROBOTICS STANDARDS & REQUIREMENTS:
+- Grounding: Add an explicit "STAR GND" node component. Ensure Logic GND, Motor GND, and Servo GND all explicitly route back to this single "STAR GND" node.
+- Emergency Stop: Clearly implement the E-Stop by either placing a Relay/Contactor that physically cuts main motor power, OR wiring it to pull all driver ENABLE pins to their safe state. Mention which method is used.
+- Fuse Placement: Explicitly include and wire a "Battery Fuse", a "Main System Fuse", and a "Buck Converter Fuse" as separate components.
+- Motor Driver Wiring: Ensure VMOT connects to the main motor supply. Include an explicit "100-470 µF Capacitor" node wired closely across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phases: A+, A-, B+, B-.
+- Servo Power: Provide dedicated step-down voltage regulation (e.g., 5V/6V Buck Converter) for Servos. Include an explicit "470-1000 µF Capacitor" node near the servo power pins.
+- Safe Power Architecture: NEVER directly connect a 24V PSU and LiPo battery simultaneously without power path management.
+- Labeling & Layout: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches. Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
 
 OUTPUT FORMAT:
 {
