@@ -43,13 +43,13 @@ import { COMPONENT_CATEGORIES } from "./component-data";
 
 // ─── Wire color legend ─────────────────────────────────────────────────────────
 
-type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can";
+type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can" | "feedback";
 
 const LEGEND: { type: WireType; label: string }[] = [
   { type: "power", label: "Power" },
   { type: "ground", label: "Ground" },
-  { type: "signal", label: "Signal" },
-  { type: "data", label: "I²C/UART" },
+  { type: "signal", label: "Control/Signal" },
+  { type: "feedback", label: "Sensor/Feedback" },
 ];
 
 // ─── Custom Circuit Node ───────────────────────────────────────────────────────

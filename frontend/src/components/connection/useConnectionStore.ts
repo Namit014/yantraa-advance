@@ -3,7 +3,7 @@ import type { Node, Edge } from "@xyflow/react";
 
 // ─── Wire / Port Types ─────────────────────────────────────────────────────────
 
-export type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can";
+export type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can" | "feedback";
 export type NodeShape =
   | "raspberry-pi"
   | "arduino-uno"
@@ -50,10 +50,11 @@ export type CircuitEdge = Edge<WireData>;
 export const WIRE_COLORS: Record<WireType, string> = {
   power: "#FF4444",
   ground: "#888888",
-  signal: "#FFD700",
+  signal: "#4488FF",
   data: "#4488FF",
-  pwm: "#FF8C00",
-  can: "#44FF88",
+  pwm: "#4488FF",
+  can: "#4488FF",
+  feedback: "#44FF88",
 };
 
 // ─── API payload types ─────────────────────────────────────────────────────────
