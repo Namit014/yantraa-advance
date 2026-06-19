@@ -241,6 +241,8 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     loadDesignData,
     saveState,
     setSaveState,
+    saveGraph,
+    loadGraph,
   } = useConnectionStore(
     useShallow((s) => ({
       storeNodes: s.nodes,
@@ -258,6 +260,8 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
       loadDesignData: s.loadDesignData,
       saveState: s.saveState,
       setSaveState: s.setSaveState,
+      saveGraph: s.saveGraph,
+      loadGraph: s.loadGraph,
     }))
   );
 
@@ -385,6 +389,13 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     }
   }, [designData, loadDesignData]);
 
+  // Load from local storage on mount
+  useEffect(() => {
+    if (!designData) {
+      loadGraph();
+    }
+  }, [loadGraph, designData]);
+
   // Auto-generate when currentQuery arrives from chat
   const lastAutoQuery = useRef<string>("");
   useEffect(() => {
@@ -406,11 +417,11 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     if (saveState === "unsaved") {
       setSaveState("saving");
       const timeout = setTimeout(() => {
-        setSaveState("saved");
+        saveGraph();
       }, 1000);
       return () => clearTimeout(timeout);
     }
-  }, [saveState, setSaveState]);
+  }, [saveState, setSaveState, saveGraph]);
 
   const nodeTypes: NodeTypes = useMemo(
     () => ({ circuitNode: CircuitNodeComponent as unknown as NodeTypes[string] }),

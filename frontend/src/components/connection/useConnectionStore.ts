@@ -25,6 +25,12 @@ export interface Port {
   label: string;
   side: "top" | "bottom" | "left" | "right";
   offsetPercent: number;
+  pins?: {
+    id: string;
+    name: string;
+    type: string;
+    direction: "in" | "out" | "bidi";
+  }[];
 }
 
 export interface CircuitNodeData extends Record<string, unknown> {
@@ -32,6 +38,8 @@ export interface CircuitNodeData extends Record<string, unknown> {
   type: NodeType;
   shape: NodeShape;
   ports: Port[];
+  voltage?: { value: number; unit: "V" };
+  interfaceType?: string;
 }
 
 export interface WireData extends Record<string, unknown> {
@@ -438,6 +446,16 @@ interface ConnectionStore {
 
   generate: (components: GenerateComponent[], prompt: string) => Promise<void>;
   loadDesignData: (designData: any) => void;
+
+  isValidConnection: (
+    sourceNodeId: string,
+    sourcePortId: string,
+    targetNodeId: string,
+    targetPortId: string
+  ) => { valid: boolean; reason?: string };
+
+  saveGraph: () => void;
+  loadGraph: () => void;
 }
 
 export const useConnectionStore = create<ConnectionStore>((set, get) => ({
@@ -728,6 +746,58 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       set({ error: msg });
     } finally {
       set({ isGenerating: false });
+    }
+  },
+
+  isValidConnection: (sourceNodeId, sourcePortId, targetNodeId, targetPortId) => {
+    const state = get();
+    const sourceNode = state.nodes.find((n) => n.id === sourceNodeId);
+    const targetNode = state.nodes.find((n) => n.id === targetNodeId);
+
+    if (!sourceNode || !targetNode) return { valid: false, reason: "Node not found" };
+
+    const vSource = sourceNode.data.voltage?.value;
+    const vTarget = targetNode.data.voltage?.value;
+
+    if (vSource !== undefined && vTarget !== undefined && vSource !== vTarget) {
+      return {
+        valid: false,
+        reason: `Voltage mismatch: ${vSource}V vs ${vTarget}V`,
+      };
+    }
+
+    return { valid: true };
+  },
+
+  saveGraph: () => {
+    const state = get();
+    const payload = {
+      nodes: state.nodes,
+      edges: state.edges,
+    };
+    try {
+      localStorage.setItem("yantraa_canvas_state", JSON.stringify(payload));
+      set({ saveState: "saved" });
+    } catch (e) {
+      console.error("Failed to save to localStorage", e);
+    }
+  },
+
+  loadGraph: () => {
+    try {
+      const dataStr = localStorage.getItem("yantraa_canvas_state");
+      if (dataStr) {
+        const payload = JSON.parse(dataStr);
+        if (payload.nodes && payload.edges) {
+          set({
+            nodes: payload.nodes,
+            edges: payload.edges,
+            saveState: "saved",
+          });
+        }
+      }
+    } catch (e) {
+      console.error("Failed to load from localStorage", e);
     }
   },
 }));
