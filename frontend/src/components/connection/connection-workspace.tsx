@@ -225,6 +225,16 @@ function CircuitWireComponent(props: EdgeProps) {
   );
 }
 
+// ─── Constants ─────────────────────────────────────────────────────────────────
+
+const nodeTypes: NodeTypes = {
+  circuitNode: CircuitNodeComponent as unknown as NodeTypes[string],
+};
+
+const edgeTypes: EdgeTypes = {
+  circuitWire: CircuitWireComponent as unknown as EdgeTypes[string],
+};
+
 // ─── Inner flow (must be child of ReactFlowProvider) ──────────────────────────
 
 function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; designData?: any }) {
@@ -429,15 +439,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     }
   }, [saveState, setSaveState, saveGraph]);
 
-  const nodeTypes: NodeTypes = useMemo(
-    () => ({ circuitNode: CircuitNodeComponent as unknown as NodeTypes[string] }),
-    []
-  );
-
-  const edgeTypes: EdgeTypes = useMemo(
-    () => ({ circuitWire: CircuitWireComponent as unknown as EdgeTypes[string] }),
-    []
-  );
+  // nodeTypes and edgeTypes are now defined at the module level
 
   return (
     <div
@@ -617,7 +619,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
 
       {/* ── Main canvas area + sidebar ── */}
       <div style={{ flex: 1, display: "flex", overflow: "hidden", position: "relative" }}>
-        <div style={{ flex: 1, position: "relative" }}>
+      <div style={{ flex: 1, position: "relative", width: "100%", height: "100%", minHeight: 400 }}>
           {/* Empty state */}
           {rfNodes.length === 0 && !isGenerating && (
             <div

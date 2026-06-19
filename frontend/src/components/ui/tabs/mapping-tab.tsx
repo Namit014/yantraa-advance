@@ -115,7 +115,11 @@ function parseRAGJson(text: string): RawComponent[] | null {
         const start = cleaned.indexOf("[");
         const end = cleaned.lastIndexOf("]");
         if (start === -1 || end === -1) return null;
-        const arr = JSON.parse(cleaned.slice(start, end + 1));
+        
+        // Remove trailing commas before closing brackets/braces (common LLM mistake)
+        const jsonStr = cleaned.slice(start, end + 1).replace(/,\s*([\]}])/g, '$1');
+        
+        const arr = JSON.parse(jsonStr);
         if (!Array.isArray(arr)) return null;
         const validItems = arr.filter((item: any) => {
             const name = String(item.name ?? "").toLowerCase();
@@ -150,7 +154,9 @@ function parseRAGJson(text: string): RawComponent[] | null {
             };
         });
     } catch (e) {
-        console.error(`[ComponentData] Failed to parse RAG JSON. Raw payload was: \n${text}`, e);
+        // Log just the text to avoid a red stack trace in the browser console,
+        // since we have fallback mechanisms in place.
+        console.warn(`[ComponentData] AI returned invalid JSON. Falling back to keyword extraction. Raw payload was: \n${text}`);
         return null;
     }
 }
@@ -261,6 +267,8 @@ function generateConnections(
     const connections: Connection[] = [];
     const seen = new Set<string>();
 
+    let connCounter = 0;
+
     function addConn(
         fromId: string,
         toId: string,
@@ -268,12 +276,12 @@ function generateConnections(
         userEdited = false
     ) {
         if (!fromId || !toId || fromId === toId) return;
-        const key1 = `${fromId}→${toId}`;
-        const key2 = `${toId}→${fromId}`;
+        const key1 = `${fromId}→${toId}→${label}`;
+        const key2 = `${toId}→${fromId}→${label}`;
         if (seen.has(key1) || seen.has(key2)) return;
         seen.add(key1);
         connections.push({
-            id: `conn-${connections.length}-${Date.now()}`,
+            id: `conn-${connCounter++}-${Date.now()}`,
             fromId,
             toId,
             label,
@@ -1088,7 +1096,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                         </div>
                     ) : (
                         <div className="flex-1 w-full h-full relative" style={{ minHeight: 0 }}>
-                            <div style={{ width: '100%', height: '100%' }}>
+                            <div style={{ position: 'absolute', inset: 0 }}>
                                 <style>{`
                                     .custom-edge-hover .edge-label-text, 
                                     .custom-edge-hover .edge-label-bg {
