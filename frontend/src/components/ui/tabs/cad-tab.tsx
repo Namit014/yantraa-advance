@@ -767,6 +767,19 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
     
     const controlsRef = useRef<any>(null);
 
+    // Call .dispose() on OrbitControls reference on unmount to prevent stale listeners
+    useEffect(() => {
+        return () => {
+            if (controlsRef.current) {
+                try {
+                    controlsRef.current.dispose();
+                } catch (e) {
+                    console.warn("Error disposing OrbitControls:", e);
+                }
+            }
+        };
+    }, []);
+
     const autoScale = useMemo(() => {
         if (!meshes.length) return 1;
         const box = new THREE.Box3();

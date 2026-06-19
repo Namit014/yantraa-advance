@@ -8,7 +8,7 @@ _src_dir = os.path.dirname(os.path.abspath(__file__))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
-from qdrant_client import QdrantClient
+from vectordb import _client
 from qdrant_client.models import Distance, VectorParams
 from embedder import Embedder, EMBEDDING_DIMENSION
 
@@ -44,9 +44,7 @@ class Retriever:
 
         self.embedder = Embedder()
 
-        self.client = QdrantClient(
-            path="./qdrant_data"
-        )
+        self.client = _client
 
         # Explicitly close the Qdrant client on exit to avoid
         # "sys.meta_path is None" warning during Python shutdown
@@ -122,6 +120,7 @@ class Retriever:
 
         optimized_query = query
         logical_intent = query
+        query_vector = self._embed_query(optimized_query)
 
         from qdrant_client.models import Filter, FieldCondition, MatchValue
 
@@ -137,7 +136,7 @@ class Retriever:
         )
         results = self.client.query_points(
             collection_name=self.collection_name,
-            query=self._embed_query(optimized_query),
+            query=query_vector,
             query_filter=local_filter,
             limit=top_k
         )
@@ -177,7 +176,7 @@ class Retriever:
             )
             results = self.client.query_points(
                 collection_name=self.collection_name,
-                query=self._embed_query(optimized_query),
+                query=query_vector,
                 query_filter=web_filter,
                 limit=top_k
             )
@@ -221,7 +220,7 @@ class Retriever:
             )
             results = self.client.query_points(
                 collection_name=self.collection_name,
-                query=self._embed_query(query),
+                query=query_vector,
                 query_filter=web_filter,
                 limit=top_k
             )
@@ -249,23 +248,8 @@ class Retriever:
         cad_available = False
         cad_url = None
         
-        known_cads = {
-            "autonomous mobile": "Automate_mobile_Robot.step",
-            "amr": "Automate_mobile_Robot.step",
-            "agv": "AVGs_robot_cad.step",
-            "autonomous guided": "AVGs_robot_cad.step",
-            "cartesian": "cartesian_robot_cad.stp",
-            "cobot": "cobot_robot_cad.stp",
-            "collaborative": "cobot_robot_cad.stp",
-            "delta": "DeltaRobot2.STEP",
-            "painting": "painting_robot_cad.stp",
-            "palletizing": "palletizing_robot_cad.STEP",
-            "articulated": "Articulated_robot_cad.STEP",
-            "inspection": "inspection_robot_cad.STEP",
-            "scara": "scara_robot_cad.stp",
-            "welding": "welding_cad.stp",
-            "humanoid": "humanoid.step"
-        }
+        from cad_registry import get_known_cads
+        known_cads = get_known_cads()
         
         query_lower = query.lower()
         for key, filename in known_cads.items():

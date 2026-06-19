@@ -141,12 +141,24 @@ def get_embedder():
     return _embedder
 
 
+def extract_clean_text(html: str) -> str:
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "html.parser")
+    for tag in ("nav", "footer", "header", "script", "style", "aside", "form"):
+        for el in soup.find_all(tag):
+            el.decompose()
+    article = soup.find("article") or soup.find("main") or soup.body or soup
+    text = article.get_text(separator="\n", strip=True)
+    lines = [line for line in text.splitlines() if line.strip()]
+    return "\n".join(lines)
+
+
 def web_ingest(query, qdrant_client=None, original_query=None):
     """
     Full web ingestion pipeline:
       DuckDuckGo search (15 results)
       → scrape
-      → Yantra AI clean
+      → BeautifulSoup clean (with LLM fallback if <100 chars)
       → save .txt to web_scraped/<category>/
       → chunk → embed → upsert into Qdrant with rich metadata
     """
@@ -176,6 +188,10 @@ def web_ingest(query, qdrant_client=None, original_query=None):
     # Construct VectorDB fresh each call with the caller's qdrant_client.
     vectordb = VectorDB(client=qdrant_client)
 
+    # Retrieve all existing content hashes to skip duplicate chunks
+    from vectordb import get_all_content_hashes, compute_content_hash
+    existing_hashes = get_all_content_hashes(vectordb.client, collection_name=vectordb.collection_name)
+
     total_stored = 0
     timestamp = datetime.datetime.now().isoformat()
 
@@ -186,30 +202,37 @@ def web_ingest(query, qdrant_client=None, original_query=None):
 
         scraped_urls.add(url)
         print(f"[WebIngest] Scraping: {url}")
-        text = scrape_url(url)
+        html_content = scrape_url(url)
 
-        if not text:
+        if not html_content:
             # scrape_url already logged the reason
             continue
 
-        # ── Yantra AI: extract clean technical text from raw scraped content ──
-        extraction_system_prompt = (
-            "You are Yantra AI, a technical data extraction agent. "
-            "Given raw scraped web text, extract and return ONLY the relevant technical "
-            "specifications, facts, numbers, and descriptions. "
-            "Remove all navigation menus, ads, and boilerplate. "
-            "Write in clean prose. Do NOT invent information not in the source text."
-        )
-        clean_text = invoke_yantra_ai(
-            text[:8000],
-            system_prompt=extraction_system_prompt
-        )
+        # ── Step 1: Extract clean text using bs4 ──
+        clean_text = extract_clean_text(html_content)
 
-        if not clean_text or len(clean_text.strip()) < 80:
-            print(f"[WebIngest] Yantra AI returned empty/short extraction for {url}, using raw text fallback.")
-            clean_text = text  # fallback to raw scraped text
+        # Fallback to LLM cleaning if bs4 output is clearly garbage (<100 characters)
+        if not clean_text or len(clean_text.strip()) < 100:
+            print(f"[WebIngest] Cleaned text is too short ({len(clean_text) if clean_text else 0} chars). Falling back to LLM extraction...")
+            extraction_system_prompt = (
+                "You are Yantra AI, a technical data extraction agent. "
+                "Given raw scraped web text, extract and return ONLY the relevant technical "
+                "specifications, facts, numbers, and descriptions. "
+                "Remove all navigation menus, ads, and boilerplate. "
+                "Write in clean prose. Do NOT invent information not in the source text."
+            )
+            llm_text = invoke_yantra_ai(
+                html_content[:8000],
+                system_prompt=extraction_system_prompt
+            )
+            if llm_text and len(llm_text.strip()) >= 80:
+                clean_text = llm_text
 
-        # ── Step 1: Persist to knowledgebase on disk ──────────────────────────
+        if not clean_text or len(clean_text.strip()) < 50:
+            print(f"[WebIngest] Text from {url} is too short after cleaning, skipping.")
+            continue
+
+        # ── Step 2: Persist to knowledgebase on disk ──────────────────────────
         try:
             saved_path = _save_to_kb(topic_slug, url, clean_text)
             print(f"[WebIngest] Saved to KB: {saved_path}")
@@ -217,7 +240,7 @@ def web_ingest(query, qdrant_client=None, original_query=None):
             print(f"[WebIngest] Warning — could not save to KB disk: {e}")
             saved_path = None
 
-        # ── Step 2: Chunk ──────────────────────────────────────────────────────
+        # ── Step 3: Chunk ──────────────────────────────────────────────────────
         raw_chunks = chunk_text(clean_text)
         print(f"[WebIngest] {len(raw_chunks)} chunk(s) from {url}")
 
@@ -226,6 +249,11 @@ def web_ingest(query, qdrant_client=None, original_query=None):
         for i, c in enumerate(raw_chunks):
             if len(c.strip()) < 30:
                 continue
+            # Skip if chunk already exists in Qdrant
+            c_hash = compute_content_hash(c)
+            if c_hash in existing_hashes:
+                continue
+
             formatted_chunks.append({
                 "chunk_id": i,
                 "text": c,
@@ -240,10 +268,10 @@ def web_ingest(query, qdrant_client=None, original_query=None):
             })
 
         if not formatted_chunks:
-            print(f"[WebIngest] All chunks were too short for {url}, skipping.")
+            print(f"[WebIngest] All chunks were duplicates or too short for {url}, skipping.")
             continue
 
-        # ── Step 3: Embed and upsert into Qdrant ──────────────────────────────
+        # ── Step 4: Embed and upsert into Qdrant ──────────────────────────────
         embedded_chunks = embedder.embed_chunks(formatted_chunks)
         vectordb.store_chunks(embedded_chunks)
         total_stored += len(embedded_chunks)

@@ -384,7 +384,18 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
-                        {activeTab === 'cad' && <CADTab currentQuery={latestUserQuery} cadUrls={acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []))} designData={robotDesign} />}
+                        {activeTab === 'cad' && (() => {
+                            const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
+                            const cadUrl = urls[0] || 'default-cad';
+                            return (
+                                <CADTab
+                                    key={cadUrl}
+                                    currentQuery={latestUserQuery}
+                                    cadUrls={urls}
+                                    designData={robotDesign}
+                                />
+                            );
+                        })()}
                     </div>
                 </div>
             )}

@@ -9,7 +9,7 @@ load_dotenv()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 
 # We use a fast, reliable model for Yantra AI. You can change this to any OpenRouter model.
-DEFAULT_MODEL = "openrouter/free"
+DEFAULT_MODEL = os.environ.get("OPENROUTER_MODEL", "openrouter/owl-alpha")
 
 def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=DEFAULT_MODEL):
     """
