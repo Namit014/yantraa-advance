@@ -3,7 +3,7 @@ import type { Node, Edge } from "@xyflow/react";
 
 // ─── Wire / Port Types ─────────────────────────────────────────────────────────
 
-export type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can" | "feedback";
+export type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can" | "feedback" | "safety";
 export type NodeShape =
   | "raspberry-pi"
   | "arduino-uno"
@@ -54,7 +54,8 @@ export const WIRE_COLORS: Record<WireType, string> = {
   data: "#4488FF",
   pwm: "#4488FF",
   can: "#4488FF",
-  feedback: "#44FF88",
+  feedback: "#00FF00",
+  safety: "#FFD700",
 };
 
 // ─── API payload types ─────────────────────────────────────────────────────────
@@ -567,6 +568,10 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         wireType = "pwm";
       } else if (protocol.includes("DC") || protocol.includes("POWER")) {
         wireType = "power";
+      } else if (protocol.includes("SAFETY")) {
+        wireType = "safety";
+      } else if (protocol.includes("FEEDBACK")) {
+        wireType = "feedback";
       }
 
       let srcPort = `${fromNodeId}-io1`;
