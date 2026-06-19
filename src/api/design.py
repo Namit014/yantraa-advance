@@ -47,8 +47,6 @@ def _strip_markdown_json(text: str) -> str:
         return cleaned[arr_start : arr_end + 1]
     return cleaned.strip()
 
-<<<<<<< HEAD
-=======
 def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
     bom_map = {}
     for item in bom:
@@ -71,9 +69,6 @@ def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
                 "qty": qty
             }
     return list(bom_map.values())
-
-
->>>>>>> 073b64c08c1e57d69a1527fd490dd6a00da15243
 def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/owl-alpha") -> str:
     try:
         res = invoke_yantra_ai(
@@ -211,60 +206,7 @@ OUTPUT FORMAT:
             
     rag_results = "\n\n".join(retrieved_texts) if retrieved_texts else "(No component specifications retrieved from RAG. Use general specifications.)"
 
-<<<<<<< HEAD
-    # ─── PHASE 3: Synthesis Agent (Mapping + Connection + Validation) ────────
-    print("[api/design] Phase 3: Running Synthesis Agent...")
-    synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to select components from the RETRIEVED COMPONENTS list to satisfy the USER REQUEST, organize them into subsystems, map electrical/logic connections, and generate a Bill of Materials (BOM) with validation checks.
-- If a required component (like motors, drivers, power supply, controllers, sensors) is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them in `subsystems` and `connections` so the robot design is complete and functional!
-- Add any unretrieved components to the missing[] array.
-- Output ONLY valid JSON in the exact structure requested.
 
-ROBOTICS STANDARDS & REQUIREMENTS:
-- Grounding: Add an explicit "STAR GND" node component. Ensure Logic GND, Motor GND, and Servo GND all explicitly route back to this single "STAR GND" node.
-- Emergency Stop: Clearly implement the E-Stop by either placing a Relay/Contactor that physically cuts main motor power, OR wiring it to pull all driver ENABLE pins to their safe state. Mention which method is used.
-- Fuse Placement: Explicitly include and wire a "Battery Fuse", a "Main System Fuse", and a "Buck Converter Fuse" as separate components.
-- Motor Driver Wiring: Ensure VMOT connects to the main motor supply. Include an explicit "100-470 µF Capacitor" node wired closely across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phases: A+, A-, B+, B-.
-- Servo Power: Provide dedicated step-down voltage regulation (e.g., 5V/6V Buck Converter) for Servos. Include an explicit "470-1000 µF Capacitor" node near the servo power pins.
-- Safe Power Architecture: NEVER directly connect a 24V PSU and LiPo battery simultaneously without power path management.
-- Labeling & Layout: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches. Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
-
-OUTPUT FORMAT:
-{
-  "subsystems": [
-    {
-      "name": "subsystem name",
-      "components": [
-        {
-          "id": "unique_id",
-          "name": "exact name from retrieved list",
-          "role": "what it does",
-          "voltage": "operating voltage",
-          "interface": "communication protocol"
-        }
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "from": "component_id",
-      "to": "component_id",
-      "relation": "powered_by | controlled_by | drives | communicates_with",
-      "protocol": "CAN | PWM | I2C | RS485 | USB | DC"
-    }
-  ],
-  "bom": [
-    {"id": "component_id", "name": "exact name", "qty": 1}
-  ],
-  "missing": [
-    {"name": "missing component name", "reason": "why it is needed"}
-  ],
-  "validation": [
-    {"type": "error | warning", "message": "voltage mismatch, missing controller, etc."}
-  ]
-}"""
-
-=======
->>>>>>> 073b64c08c1e57d69a1527fd490dd6a00da15243
     # Load component graph if available
     component_graph_text = ""
     cg_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "component_graph.json")

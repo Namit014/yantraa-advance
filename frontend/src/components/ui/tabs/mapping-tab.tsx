@@ -81,6 +81,24 @@ function inferCategory(text: string): ComponentCategory {
     return "electronic";
 }
 
+// ─── Fuzzy Matcher ────────────────────────────────────────────────────────────
+
+function fuzzyMatch(a: string, b: string): boolean {
+    const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const na = normalize(a);
+    const nb = normalize(b);
+    if (na.includes(nb) || nb.includes(na)) return true;
+    
+    const wordsA = a.toLowerCase().split(/[\s\(\)\-\_]+/).filter(w => w.length > 3);
+    const wordsB = b.toLowerCase().split(/[\s\(\)\-\_]+/).filter(w => w.length > 3);
+    const intersection = wordsA.filter(w => wordsB.includes(w));
+    
+    if (wordsA.length > 0 && intersection.length / wordsA.length > 0.6) return true;
+    if (wordsB.length > 0 && intersection.length / wordsB.length > 0.6) return true;
+    
+    return false;
+}
+
 // ─── RAG fetcher ──────────────────────────────────────────────────────────────
 
 const VALID_CATEGORIES: ComponentCategory[] = [
@@ -99,17 +117,40 @@ function parseRAGJson(text: string): RawComponent[] | null {
         if (start === -1 || end === -1) return null;
         const arr = JSON.parse(cleaned.slice(start, end + 1));
         if (!Array.isArray(arr)) return null;
-        return arr.map((item: Record<string, unknown>) => ({
-            name: String(item.name ?? "Unknown"),
-            category: VALID_CATEGORIES.includes(item.category as ComponentCategory)
+        const validItems = arr.filter((item: any) => {
+            const name = String(item.name ?? "").toLowerCase();
+            if (/firmware|software|sketch|code/.test(name)) return false;
+            return true;
+        });
+
+        return validItems.map((item: Record<string, unknown>) => {
+            let name = String(item.name ?? "Unknown");
+            if (name.includes("30-cell") || name.includes("30-Cell")) {
+                name = name.replace(/30-[cC]ell/, "3-Cell");
+            }
+            
+            let inferredCategory = VALID_CATEGORIES.includes(item.category as ComponentCategory)
                 ? (item.category as ComponentCategory)
-                : inferCategory(String(item.name ?? "")),
-            description: String(item.description ?? ""),
-            connects_to: Array.isArray(item.connects_to)
-                ? item.connects_to.map(String)
-                : [],
-        }));
-    } catch {
+                : inferCategory(name);
+
+            // Force override AI mistakes on categorization
+            if (/battery|power supply|lipo/i.test(name)) inferredCategory = "power";
+            if (/servo|motor|actuator/i.test(name)) inferredCategory = "actuator";
+            if (/shield|driver|arduino|raspberry/i.test(name)) inferredCategory = "controller";
+            
+            return {
+                name,
+                category: inferredCategory,
+                description: String(item.description ?? ""),
+                quantity: Number(item.quantity) || 1,
+                partNumber: item.partNumber ? String(item.partNumber) : undefined,
+                connects_to: Array.isArray(item.connects_to)
+                    ? item.connects_to.map(String)
+                    : [],
+            };
+        });
+    } catch (e) {
+        console.error(`[ComponentData] Failed to parse RAG JSON. Raw payload was: \n${text}`, e);
         return null;
     }
 }
@@ -245,29 +286,42 @@ function generateConnections(
 
     // Primary pass — use RAG connects_to
     raw.forEach(rc => {
-        const fromNode = nodes.find(
-            n => n.label.toLowerCase().trim() === rc.name.toLowerCase().trim()
-        );
+        const fromNode = nodes.find(n => fuzzyMatch(n.label, rc.name));
         if (!fromNode) return;
         rc.connects_to.forEach(targetName => {
-            const toNode = nodes.find(
-                n => n.label.toLowerCase().trim() === targetName.toLowerCase().trim()
-            );
+            const toNode = nodes.find(n => fuzzyMatch(n.label, targetName));
             if (!toNode) return;
-            const pairKey = `${fromNode.category}-${toNode.category}`;
-            const label =
-                pairKey === "actuator-controller" || pairKey === "controller-actuator"
-                    ? "drive"
-                    : pairKey.includes("sensor")
-                    ? "data"
-                    : pairKey.includes("power")
-                    ? "power"
-                    : pairKey.includes("electronic")
-                    ? "signal"
-                    : pairKey.includes("mechanical")
-                    ? "linkage"
-                    : "connection";
-            addConn(fromNode.id, toNode.id, label);
+            
+            let srcId = fromNode.id;
+            let dstId = toNode.id;
+
+            // Enforce directionality overrides
+            if (fromNode.category === 'actuator' && toNode.category === 'controller') {
+                srcId = toNode.id;
+                dstId = fromNode.id;
+            } else if (toNode.category === 'power') {
+                srcId = toNode.id;
+                dstId = fromNode.id;
+            }
+
+            const srcNode = nodes.find(n => n.id === srcId)!;
+            const dstNode = nodes.find(n => n.id === dstId)!;
+            const pairKey = `${srcNode.category}-${dstNode.category}`;
+            
+            let label = "connection";
+            if (pairKey === "actuator-controller" || pairKey === "controller-actuator") label = "drive";
+            else if (pairKey.includes("sensor") && pairKey.includes("power")) label = "power";
+            else if (pairKey.includes("sensor")) label = "data";
+            else if (pairKey.includes("power")) label = "power";
+            else if (pairKey.includes("electronic")) label = "signal";
+            else if (pairKey.includes("mechanical")) label = "linkage";
+            
+            if (label === "power") {
+                addConn(srcId, dstId, "power");
+                addConn(srcId, dstId, "ground");
+            } else {
+                addConn(srcId, dstId, label);
+            }
         });
     });
 
@@ -294,7 +348,7 @@ function generateConnections(
 
     actuators
         .filter(a => !connectedIds.has(a.id))
-        .forEach(a => controllers.forEach(c => addConn(a.id, c.id, "drive")));
+        .forEach(a => controllers.forEach(c => addConn(c.id, a.id, "drive")));
     sensors
         .filter(s => !connectedIds.has(s.id))
         .forEach(s => controllers.forEach(c => addConn(s.id, c.id, "data")));
@@ -307,12 +361,60 @@ function generateConnections(
     power
         .filter(p => !connectedIds.has(p.id))
         .forEach(p => {
-            controllers.forEach(c => addConn(p.id, c.id, "power"));
-            actuators.forEach(a => addConn(p.id, a.id, "power"));
+            controllers.forEach(c => { addConn(p.id, c.id, "power"); addConn(p.id, c.id, "ground"); });
+            actuators.forEach(a => { addConn(p.id, a.id, "power"); addConn(p.id, a.id, "ground"); });
         });
     controllers
         .filter(c => !connectedIds.has(c.id))
         .forEach(c => electronic.forEach(e => addConn(c.id, e.id, "signal")));
+
+    // ─── Post-processing: Ground Wires & Triple-Driver Resolution ───
+    
+    // 1. Ensure all power wires have a ground return path
+    const currentConns = [...connections];
+    currentConns.forEach(c => {
+        if (c.label === "power") {
+            const hasGround = connections.find(existing => existing.fromId === c.fromId && existing.toId === c.toId && existing.label === "ground");
+            if (!hasGround) {
+                addConn(c.fromId, c.toId, "ground");
+            }
+        }
+    });
+
+    // 2. Resolve Triple-Driver Ambiguity
+    const actIds = actuators.map(a => a.id);
+    actIds.forEach(actId => {
+        const drives = connections.filter(c => c.toId === actId && c.label === "drive");
+        if (drives.length > 1) {
+            const drivers = drives.map(d => nodes.find(n => n.id === d.fromId)).filter(Boolean) as ComponentNode[];
+            // Sort drivers: Shield/Driver > specific MCU > generic controller
+            drivers.sort((a, b) => {
+                const score = (n: ComponentNode) => {
+                    const l = n.label.toLowerCase();
+                    if (l.includes("shield") || l.includes("driver") || l.includes("hat")) return 3;
+                    if (l.includes("arduino") || l.includes("raspberry") || l.includes("mega") || l.includes("esp")) return 2;
+                    return 1;
+                };
+                return score(b) - score(a);
+            });
+            const bestDriver = drivers[0];
+            
+            // Remove weaker drives to actuator, daisy-chain to bestDriver instead
+            for (let i = 1; i < drivers.length; i++) {
+                const weaker = drivers[i];
+                const idx = connections.findIndex(c => c.fromId === weaker.id && c.toId === actId && c.label === "drive");
+                if (idx !== -1) connections.splice(idx, 1);
+                
+                const existing = connections.find(c => 
+                    (c.fromId === weaker.id && c.toId === bestDriver.id) || 
+                    (c.toId === weaker.id && c.fromId === bestDriver.id)
+                );
+                if (!existing) {
+                    addConn(weaker.id, bestDriver.id, "signal");
+                }
+            }
+        }
+    });
 
     return connections;
 }
@@ -459,7 +561,18 @@ const CustomComponentNode = ({ data }: any) => {
                 <div style={{ width: 20, height: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <CategoryIcon category={data.category} size={14} />
                 </div>
-                <strong style={{ whiteSpace: "nowrap" }}>{data.label}</strong>
+                <strong 
+                    style={{ 
+                        whiteSpace: "nowrap", 
+                        overflow: "hidden", 
+                        textOverflow: "ellipsis", 
+                        maxWidth: "180px", 
+                        display: "block" 
+                    }} 
+                    title={data.label}
+                >
+                    {data.label}
+                </strong>
             </div>
             <div style={{ fontSize: "9px", color: color, textTransform: "uppercase", letterSpacing: "1px" }}>
                 {data.category}
@@ -478,6 +591,10 @@ const nodeTypes = {
 export function MappingTab({ aiResponse = "", currentQuery = "", designData }: MappingTabProps) {
     const [activeView, setActiveView] = useState<"matrix" | "canvas" | "bom">("matrix");
     
+    useEffect(() => {
+        console.log(`[MappingTab] Successfully mounted/loaded with activeView: ${activeView}`);
+    }, []);
+
     const [nodes, setNodes] = useState<ComponentNode[]>(SEED_NODES);
     const [rawComponents, setRawComponents] = useState<RawComponent[]>(SEED_RAW);
     const [connections, setConnections] = useState<Connection[]>(() =>
@@ -589,7 +706,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
         let updatedNodes = [...nodes];
         
         for (const newRaw of fetchedRaw) {
-            const existingRawIdx = updatedRaw.findIndex(r => r.name.toLowerCase() === newRaw.name.toLowerCase());
+            const existingRawIdx = updatedRaw.findIndex(r => fuzzyMatch(r.name, newRaw.name));
             if (existingRawIdx !== -1) {
                 updatedRaw[existingRawIdx] = {
                     ...updatedRaw[existingRawIdx],
@@ -597,7 +714,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                     connects_to: Array.from(new Set([...updatedRaw[existingRawIdx].connects_to, ...newRaw.connects_to]))
                 };
                 
-                const nodeIdx = updatedNodes.findIndex(n => n.label.toLowerCase() === newRaw.name.toLowerCase());
+                const nodeIdx = updatedNodes.findIndex(n => fuzzyMatch(n.label, newRaw.name));
                 if (nodeIdx !== -1) {
                     updatedNodes[nodeIdx] = {
                         ...updatedNodes[nodeIdx],
@@ -655,10 +772,10 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
         if (!newName.trim()) return;
         const nameClean = newName.trim();
         
-        const existingNodeIdx = nodes.findIndex(n => n.label.toLowerCase() === nameClean.toLowerCase());
+        const existingNodeIdx = nodes.findIndex(n => fuzzyMatch(n.label, nameClean));
         if (existingNodeIdx !== -1) {
             setNodes(prev => prev.map((n, i) => i === existingNodeIdx ? { ...n, quantity: (n.quantity || 1) + 1 } : n));
-            setRawComponents(prev => prev.map(r => r.name.toLowerCase() === nameClean.toLowerCase() ? { ...r, quantity: (r.quantity || 1) + 1 } : r));
+            setRawComponents(prev => prev.map(r => fuzzyMatch(r.name, nameClean) ? { ...r, quantity: (r.quantity || 1) + 1 } : r));
         } else {
             const newNode: ComponentNode = {
                 id: `node-custom-${Date.now()}`,

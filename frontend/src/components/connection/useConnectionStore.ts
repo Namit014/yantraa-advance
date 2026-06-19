@@ -641,14 +641,18 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   },
 
   setNodes: (nodesOrUpdater) =>
-    set((state) => ({
-      nodes:
-        typeof nodesOrUpdater === "function"
-          ? nodesOrUpdater(state.nodes)
-          : nodesOrUpdater,
-      saveState: "unsaved"
-    })),
-  setEdges: (edges) => set({ edges, saveState: "unsaved" }),
+    set((state) => {
+      const newNodes = typeof nodesOrUpdater === "function" ? nodesOrUpdater(state.nodes) : nodesOrUpdater;
+      console.log(`[Store] setNodes called. Node count: ${newNodes.length}`);
+      return {
+        nodes: newNodes,
+        saveState: "unsaved"
+      };
+    }),
+  setEdges: (edges) => {
+    console.log(`[Store] setEdges called. Edge count: ${edges.length}`);
+    set({ edges, saveState: "unsaved" });
+  },
   setPrompt: (prompt) => set({ prompt }),
   setSelectedEdge: (id) =>
     set({ selectedEdgeId: id, sidebarOpen: id !== null }),
@@ -673,10 +677,12 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         label: data.label,
       };
     });
+    console.log(`[Store] updateEdge completed for id: ${id}`, patch);
     set({ edges, saveState: "unsaved" });
   },
 
   deleteEdge: (id) => {
+    console.log(`[Store] deleteEdge called for id: ${id}`);
     set({
       edges: get().edges.filter((e) => e.id !== id),
       selectedEdgeId: null,
@@ -686,6 +692,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   },
 
   addEdge: (edge) => {
+    console.log(`[Store] addEdge called for new edge id: ${edge.id}`);
     set({ edges: [...get().edges, edge], saveState: "unsaved" });
   },
 
