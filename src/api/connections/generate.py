@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 from typing import List, Optional
 
 load_dotenv()
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 
 # ── Path setup ─────────────────────────────────────────────────────────────────
@@ -50,21 +50,13 @@ class GenerateRequest(BaseModel):
 router = APIRouter()
 
 
-def _rag_search(query: str, top_k: int = 5) -> str:
+def _rag_search(query: str, retriever, top_k: int = 5) -> str:
     """Query Qdrant for pinout context for a given component name."""
     try:
-        from embedder import Embedder
-        from qdrant_client import QdrantClient
+        vec = retriever._embed_query(query)
 
-        qdrant_path = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "../../../qdrant_data")
-        )
-        client = QdrantClient(path=qdrant_path)
-        embedder = Embedder()
-        vec = embedder.embed_text(query)
-
-        results = client.query_points(
-            collection_name="yantra_knowledgebase",
+        results = retriever.client.query_points(
+            collection_name=retriever.collection_name,
             query=vec,
             limit=top_k,
         )
@@ -191,7 +183,7 @@ def _fallback_diagram(components: List[ComponentIn]) -> dict:
 
 
 @router.post("/api/connections/generate")
-async def generate_connections(request: GenerateRequest):
+async def generate_connections(request: GenerateRequest, req: Request):
     """
     Step 1: For each component, query Qdrant RAG for pinout data.
     Step 2: Call Gemini 2.5 Flash via OpenRouter with context + prompt.
@@ -204,8 +196,9 @@ async def generate_connections(request: GenerateRequest):
 
     # ── Step 1: RAG context per component ─────────────────────────────────────
     rag_contexts: List[str] = []
+    retriever = req.app.state.retriever
     for comp in request.components[:12]:  # limit to avoid huge prompts
-        ctx = _rag_search(f"{comp.name} pinout datasheet connections")
+        ctx = _rag_search(f"{comp.name} pinout datasheet connections", retriever)
         if ctx:
             rag_contexts.append(f"## {comp.name}\n{ctx}")
 

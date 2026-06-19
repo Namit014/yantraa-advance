@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import sys
 import os
@@ -23,12 +23,22 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from fastapi.middleware.cors import CORSMiddleware
 from retriever import Retriever
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize the Retriever
+    # This will load the sentence transformer model and connect to the Qdrant Database
+    retriever = Retriever()
+    app.state.retriever = retriever
+    yield
 
 # Initialize FastAPI app
 app = FastAPI(
     title="Yantra Agentic RAG API",
     description="FastAPI interface for the Yantra RAG Pipeline",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
 # Add CORS middleware
@@ -39,11 +49,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Initialize the Retriever
-# This will load the sentence transformer model and connect to the Qdrant Database
-retriever = Retriever()
-app.state.retriever = retriever
 
 # Register sub-routers
 try:
@@ -74,7 +79,7 @@ class QueryResponse(BaseModel):
     cad_url: Optional[str] = None
 
 @app.post("/api/ask", response_model=QueryResponse)
-async def ask_question(request: QueryRequest):
+async def ask_question(request: QueryRequest, req: Request):
     """
     Executes the following workflow:
     1. User Query (received in JSON payload)
@@ -91,6 +96,7 @@ async def ask_question(request: QueryRequest):
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
         # Execute the RAG workflow
+        retriever = req.app.state.retriever
         final_answer, cad_available, cad_url = retriever.ask(request.query)
 
         # Return JSON Response
@@ -104,7 +110,7 @@ async def ask_question(request: QueryRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/search", response_model=QueryResponse)
-async def search_question(query: str):
+async def search_question(query: str, req: Request):
     """
     GET endpoint equivalent for easy browser testing.
     Usage: http://localhost:8000/search?query=your+question
@@ -114,6 +120,7 @@ async def search_question(query: str):
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
         # Execute the RAG workflow
+        retriever = req.app.state.retriever
         final_answer, cad_available, cad_url = retriever.ask(query)
 
         # Return JSON Response
