@@ -16,6 +16,9 @@ import requests
 from dotenv import load_dotenv
 from typing import List, Optional
 
+# Import ERC module
+from api.connections.erc import validate_and_fix_diagram, load_hardware_db
+
 load_dotenv()
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
@@ -200,19 +203,32 @@ async def generate_connections(request: GenerateRequest):
     if not request.prompt.strip():
         raise HTTPException(status_code=400, detail="Prompt cannot be empty.")
 
-    # ── Step 1: RAG context per component ─────────────────────────────────────
+    # ── Step 1: RAG context + Hardware DB per component ─────────────────────────
     rag_contexts: List[str] = []
+    hardware_db = load_hardware_db()
+    
     if request.components:
         for comp in request.components[:12]:  # limit to avoid huge prompts
-            ctx = _rag_search(f"{comp.name} pinout datasheet connections")
-            if ctx:
-                rag_contexts.append(f"## {comp.name}\n{ctx}")
+            # Check Hardware DB first
+            comp_name_lower = comp.name.lower()
+            hw_match = next((k for k in hardware_db.keys() if k in comp_name_lower or comp_name_lower in k), None)
+            
+            if hw_match:
+                hw_info = hardware_db[hw_match]
+                hw_ctx = f"## {comp.name} (from Hardware DB)\nExplicit Ports and Voltages: {json.dumps(hw_info['ports'])}"
+                rag_contexts.append(hw_ctx)
+                print(f"[connections/generate] Loaded DB info for {comp.name}")
+            else:
+                # Fallback to RAG
+                ctx = _rag_search(f"{comp.name} pinout datasheet connections")
+                if ctx:
+                    rag_contexts.append(f"## {comp.name}\n{ctx}")
     else:
         ctx = _rag_search(f"{request.prompt} robot components pinout connections datasheet", top_k=8)
         if ctx:
             rag_contexts.append(f"## RAG Context for: {request.prompt}\n{ctx}")
 
-    rag_block = "\n\n".join(rag_contexts) if rag_contexts else "(No RAG data available — use general knowledge)"
+    rag_block = "\n\n".join(rag_contexts) if rag_contexts else "(No explicit pinout data available — use general knowledge)"
 
     # ── Step 2: Build LLM prompt ───────────────────────────────────────────────
     if request.components:
@@ -254,13 +270,15 @@ NODE SHAPE RULES:
 - Use "generic-board" for everything else
 
 ROBOTICS STANDARDS & REQUIREMENTS:
+- SEMANTIC LABELING (CRITICAL): Assign role-based labels to EACH component instead of repeating generic names (e.g., use "J1 Base Rotation Stepper", "End Effector Servo", "Main Power LiPo", "Logic Controller"). NEVER use generic duplicate names like "Stepper Motor" for multiple parts.
+- SIGNAL ARCHITECTURE: Clearly separate and label Power lines, Signal lines, and Ground lines. Add explicit control signal labels on the wires: STEP, DIR, PWM, ENABLE, TX, RX, SDA, SCL where applicable.
+- MOTOR CONTROL: Enforce a strict 1:1 relationship between drivers and motors. Each motor driver MUST connect only to its designated motor. Ensure VMOT connects to the main motor supply. Include an explicit "100-470 µF Capacitor" node wired closely across VMOT and GND. Show motor phases: A+, A-, B+, B-.
+- FEEDBACK LOOPS: Include feedback components like Encoders, Limit Switches, or sensors where necessary for closed-loop control or homing.
 - Grounding: Add an explicit "STAR GND" node component. Ensure Logic GND, Motor GND, and Servo GND all explicitly route back to this single "STAR GND" node.
 - Emergency Stop: Clearly implement the E-Stop by either placing a Relay/Contactor that physically cuts main motor power, OR wiring it to pull all driver ENABLE pins to their safe state. Mention which method is used.
 - Fuse Placement: Explicitly include and wire a "Battery Fuse", a "Main System Fuse", and a "Buck Converter Fuse" as separate components.
-- Motor Driver Wiring: Ensure VMOT connects to the main motor supply. Include an explicit "100-470 µF Capacitor" node wired closely across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phases: A+, A-, B+, B-.
 - Servo Power: Provide dedicated step-down voltage regulation (e.g., 5V/6V Buck Converter) for Servos. Include an explicit "470-1000 µF Capacitor" node near the servo power pins.
-- Safe Power Architecture: NEVER directly connect a 24V PSU and LiPo battery simultaneously without power path management.
-- Labeling & Layout: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches. Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
+- Safe Power Architecture: NEVER directly connect a 24V PSU and LiPo battery simultaneously without power path management. Maintain proper hierarchical layout flow from Power Source -> Controller -> Actuators.
 
 Return ONLY this JSON structure (no markdown fences):
 {{
@@ -314,6 +332,9 @@ IMPORTANT:
         # Validate minimal structure
         if "nodes" not in diagram or "wires" not in diagram:
             raise ValueError("Missing 'nodes' or 'wires' keys in LLM response")
+
+        # Run Electrical Rule Checker (ERC) to auto-fix and validate
+        diagram = validate_and_fix_diagram(diagram)
 
         return diagram
 

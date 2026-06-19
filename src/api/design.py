@@ -208,6 +208,7 @@ OUTPUT FORMAT:
             
     rag_results = "\n\n".join(retrieved_texts) if retrieved_texts else "(No component specifications retrieved from RAG. Use general specifications.)"
 
+
     # Load component graph if available
     component_graph_text = ""
     cg_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "component_graph.json")
@@ -272,6 +273,10 @@ ROBOT ASSEMBLY TEMPLATES (use these as guides):
      * quadcopter_frame -> lipo_battery at port (bottom_face)
 
 RULES:
+- SEMANTIC LABELING (CRITICAL): Assign role-based labels to EACH component instead of repeating generic names (e.g., use "J1 Base Rotation Stepper"). NEVER use duplicate names like "Stepper Motor" for multiple parts.
+- SIGNAL ARCHITECTURE: Clearly separate and label Power lines, Signal lines, and Ground lines. Add explicit control signal labels on the wires: STEP, DIR, PWM, ENABLE, TX, RX, SDA, SCL where applicable.
+- MOTOR CONTROL: Enforce a strict 1:1 relationship between drivers and motors.
+- FEEDBACK LOOPS: Include feedback components like Encoders, Limit Switches, or sensors where necessary.
 - For HEBI robots, use ONLY component names from the AVAILABLE list below.
 - For flying robots/drones, use custom component names (`quadcopter_frame`, `brushless_motor`, `propeller`, `flight_controller`, `lipo_battery`) and define the assembly_graph.
 - Any custom component you generate (e.g. quadcopter_frame, brushless_motor, lipo_battery) MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
