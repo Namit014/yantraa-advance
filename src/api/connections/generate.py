@@ -270,15 +270,13 @@ NODE SHAPE RULES:
 - Use "generic-board" for everything else
 
 ROBOTICS STANDARDS & REQUIREMENTS:
-- SEMANTIC LABELING (CRITICAL): Assign role-based labels to EACH component instead of repeating generic names (e.g., use "J1 Base Rotation Stepper", "End Effector Servo", "Main Power LiPo", "Logic Controller"). NEVER use generic duplicate names like "Stepper Motor" for multiple parts.
-- SIGNAL ARCHITECTURE: Clearly separate and label Power lines, Signal lines, and Ground lines. Add explicit control signal labels on the wires: STEP, DIR, PWM, ENABLE, TX, RX, SDA, SCL where applicable.
-- MOTOR CONTROL: Enforce a strict 1:1 relationship between drivers and motors. Each motor driver MUST connect only to its designated motor. Ensure VMOT connects to the main motor supply. Include an explicit "100-470 µF Capacitor" node wired closely across VMOT and GND. Show motor phases: A+, A-, B+, B-.
-- FEEDBACK LOOPS: Include feedback components like Encoders, Limit Switches, or sensors where necessary for closed-loop control or homing.
+- SEMANTIC LABELING (CRITICAL): Assign role-based labels to EACH component. Pair each A4988 driver with its dedicated NEMA 17 motor explicitly. NEVER use generic duplicate names like "Stepper Motor" for multiple parts.
+- SIGNAL ARCHITECTURE: Clearly separate and label Power lines, Signal lines, and Ground lines. Add explicit control signal labels on the wires: STEP, DIR, ENABLE. Add power labels: VCC, GND.
+- MOTOR CONTROL: Enforce a strict 1:1 relationship between A4988 drivers and NEMA 17 motors using direct labeled signal paths. Ensure VMOT connects to the main motor supply with a capacitor.
+- FEEDBACK LOOPS: Add limit switches or encoders for closed-loop feedback, with explicit feedback labels.
 - Grounding: Add an explicit "STAR GND" node component. Ensure Logic GND, Motor GND, and Servo GND all explicitly route back to this single "STAR GND" node.
-- Emergency Stop: Clearly implement the E-Stop by either placing a Relay/Contactor that physically cuts main motor power, OR wiring it to pull all driver ENABLE pins to their safe state. Mention which method is used.
-- Fuse Placement: Explicitly include and wire a "Battery Fuse", a "Main System Fuse", and a "Buck Converter Fuse" as separate components.
-- Servo Power: Provide dedicated step-down voltage regulation (e.g., 5V/6V Buck Converter) for Servos. Include an explicit "470-1000 µF Capacitor" node near the servo power pins.
-- Safe Power Architecture: NEVER directly connect a 24V PSU and LiPo battery simultaneously without power path management. Maintain proper hierarchical layout flow from Power Source -> Controller -> Actuators.
+- Emergency Stop: Position the emergency stop in the main power interruption path (between battery/fuse and the rest of the system).
+- Layout Readability: Improve text readability by avoiding overlapping labels and maintaining uniform spacing. Distribute nodes using a cleaner hierarchical visual flow from top to bottom or left to right: Battery → Fuse → Controller → Drivers → Motors → Sensors.
 
 Return ONLY this JSON structure (no markdown fences):
 {{
@@ -288,8 +286,8 @@ Return ONLY this JSON structure (no markdown fences):
       "label": string (human-readable name),
       "type": "microcontroller"|"sensor"|"motor"|"power"|"display"|"module"|"other",
       "shape": "raspberry-pi"|"arduino-uno"|"esp32"|"breadboard"|"ic-chip"|"generic-board",
-      "x": number (canvas x, spread components 280px apart),
-      "y": number (canvas y, group by category in rows),
+      "x": number (canvas x, use this to create hierarchical flow: e.g., Power=100, Controller=400, Drivers=700, Motors=1000, Sensors=1300),
+      "y": number (canvas y, maintain at least 300px vertical spacing between parallel components to avoid overlapping labels),
       "ports": [
         {{ "id": string, "label": string, "side": "top"|"bottom"|"left"|"right", "offsetPercent": number }}
       ]
