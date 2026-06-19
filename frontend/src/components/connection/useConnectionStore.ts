@@ -414,6 +414,7 @@ interface ConnectionStore {
   isGenerating: boolean;
   prompt: string;
   error: string | null;
+  saveState: "saved" | "saving" | "unsaved";
 
   // Actions
   setNodes: (nodes: CircuitNode[] | ((prev: CircuitNode[]) => CircuitNode[])) => void;
@@ -421,6 +422,7 @@ interface ConnectionStore {
   setPrompt: (prompt: string) => void;
   setSelectedEdge: (id: string | null) => void;
   setSidebarOpen: (open: boolean) => void;
+  setSaveState: (state: "saved" | "saving" | "unsaved") => void;
 
   updateEdge: (
     id: string,
@@ -446,6 +448,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   isGenerating: false,
   prompt: "Raspberry Pi 4 + Arduino Mega + ESP32 WiFi + L298N motors + MPU6050 IMU + HC-SR04 + OLED display",
   error: null,
+  saveState: "saved",
 
   loadDesignData: (designData) => {
     if (!designData) return;
@@ -625,12 +628,14 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         typeof nodesOrUpdater === "function"
           ? nodesOrUpdater(state.nodes)
           : nodesOrUpdater,
+      saveState: "unsaved"
     })),
-  setEdges: (edges) => set({ edges }),
+  setEdges: (edges) => set({ edges, saveState: "unsaved" }),
   setPrompt: (prompt) => set({ prompt }),
   setSelectedEdge: (id) =>
     set({ selectedEdgeId: id, sidebarOpen: id !== null }),
   setSidebarOpen: (open) => set({ sidebarOpen: open }),
+  setSaveState: (state) => set({ saveState: state }),
 
   updateEdge: (id, patch) => {
     const edges = get().edges.map((e) => {
@@ -650,7 +655,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         label: data.label,
       };
     });
-    set({ edges });
+    set({ edges, saveState: "unsaved" });
   },
 
   deleteEdge: (id) => {
@@ -658,11 +663,12 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       edges: get().edges.filter((e) => e.id !== id),
       selectedEdgeId: null,
       sidebarOpen: false,
+      saveState: "unsaved"
     });
   },
 
   addEdge: (edge) => {
-    set({ edges: [...get().edges, edge] });
+    set({ edges: [...get().edges, edge], saveState: "unsaved" });
   },
 
   generate: async (components, prompt) => {
@@ -716,7 +722,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         animated: false,
       }));
 
-      set({ nodes: rfNodes, edges: rfEdges });
+      set({ nodes: rfNodes, edges: rfEdges, saveState: "unsaved" });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       set({ error: msg });

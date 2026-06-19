@@ -788,6 +788,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
     }, [nodes]);
 
     const handleClear = useCallback(() => {
+        if (!window.confirm("Are you sure you want to clear the entire canvas? This cannot be undone.")) return;
         setNodes([]);
         setConnections([]);
         setSelectedId(null);
