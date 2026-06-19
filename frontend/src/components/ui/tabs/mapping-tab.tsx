@@ -24,6 +24,8 @@ interface RawComponent {
     category: ComponentCategory;
     description: string;
     connects_to: string[];
+    quantity?: number;
+    partNumber?: string;
 }
 
 interface ComponentNode {
@@ -35,6 +37,8 @@ interface ComponentNode {
     y: number;
     width?: number;
     height?: number;
+    quantity?: number;
+    partNumber?: string;
 }
 
 interface Connection {
@@ -316,12 +320,12 @@ function generateConnections(
 // ─── Seed data ────────────────────────────────────────────────────────────────
 
 const SEED_RAW: RawComponent[] = [
-    { name: "Motion Controller", category: "controller", description: "Main MCU coordinating all subsystems", connects_to: ["Servo Motor A", "Servo Motor B", "IMU Sensor"] },
-    { name: "Servo Motor A", category: "actuator", description: "Upper arm drive servo, 180° range", connects_to: ["Arm Frame"] },
-    { name: "Servo Motor B", category: "actuator", description: "Lower arm drive servo, 270° range", connects_to: ["Arm Frame"] },
-    { name: "IMU Sensor", category: "sensor", description: "6-axis inertial measurement unit", connects_to: [] },
-    { name: "Arm Frame", category: "mechanical", description: "Aluminium extruded structural frame", connects_to: [] },
-    { name: "Power Supply", category: "power", description: "24V regulated DC power supply", connects_to: ["Motion Controller", "Servo Motor A", "Servo Motor B"] },
+    { name: "Motion Controller", category: "controller", description: "Main MCU coordinating all subsystems", connects_to: ["Servo Motor A", "Servo Motor B", "IMU Sensor"], quantity: 1 },
+    { name: "Servo Motor A", category: "actuator", description: "Upper arm drive servo, 180° range", connects_to: ["Arm Frame"], quantity: 1 },
+    { name: "Servo Motor B", category: "actuator", description: "Lower arm drive servo, 270° range", connects_to: ["Arm Frame"], quantity: 1 },
+    { name: "IMU Sensor", category: "sensor", description: "6-axis inertial measurement unit", connects_to: [], quantity: 1 },
+    { name: "Arm Frame", category: "mechanical", description: "Aluminium extruded structural frame", connects_to: [], quantity: 1 },
+    { name: "Power Supply", category: "power", description: "24V regulated DC power supply", connects_to: ["Motion Controller", "Servo Motor A", "Servo Motor B"], quantity: 1 },
 ];
 
 const SEED_NODES: ComponentNode[] = applyLayout(
@@ -332,6 +336,8 @@ const SEED_NODES: ComponentNode[] = applyLayout(
         description: r.description,
         width: NODE_W,
         height: NODE_H,
+        quantity: r.quantity,
+        partNumber: r.partNumber,
     }))
 );
 
@@ -470,7 +476,7 @@ const nodeTypes = {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export function MappingTab({ aiResponse = "", currentQuery = "", designData }: MappingTabProps) {
-    const [activeView, setActiveView] = useState<"matrix" | "canvas">("canvas");
+    const [activeView, setActiveView] = useState<"matrix" | "canvas" | "bom">("matrix");
     
     const [nodes, setNodes] = useState<ComponentNode[]>(SEED_NODES);
     const [rawComponents, setRawComponents] = useState<RawComponent[]>(SEED_RAW);
@@ -577,19 +583,47 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
 
     const doFetch = useCallback(async (q: string) => {
         setIsLoading(true);
-        const raw = await fetchComponentsFromRAG(q, aiResponse);
-        const nextRaw = [...rawComponents, ...raw];
-        const nextNodes = nextRaw.map((r, i) => ({
-            id: `rag-${Date.now()}-${i}`,
-            label: r.name,
-            category: r.category,
-            description: r.description,
-            x: 0, y: 0, width: NODE_W, height: NODE_H
-        } as ComponentNode));
+        const fetchedRaw = await fetchComponentsFromRAG(q, aiResponse);
         
-        setRawComponents(nextRaw);
-        setNodes(applyLayout([...nodes, ...nextNodes]));
-        setConnections(generateConnections([...nodes, ...nextNodes], nextRaw) as any);
+        let updatedRaw = [...rawComponents];
+        let updatedNodes = [...nodes];
+        
+        for (const newRaw of fetchedRaw) {
+            const existingRawIdx = updatedRaw.findIndex(r => r.name.toLowerCase() === newRaw.name.toLowerCase());
+            if (existingRawIdx !== -1) {
+                updatedRaw[existingRawIdx] = {
+                    ...updatedRaw[existingRawIdx],
+                    quantity: (updatedRaw[existingRawIdx].quantity || 1) + (newRaw.quantity || 1),
+                    connects_to: Array.from(new Set([...updatedRaw[existingRawIdx].connects_to, ...newRaw.connects_to]))
+                };
+                
+                const nodeIdx = updatedNodes.findIndex(n => n.label.toLowerCase() === newRaw.name.toLowerCase());
+                if (nodeIdx !== -1) {
+                    updatedNodes[nodeIdx] = {
+                        ...updatedNodes[nodeIdx],
+                        quantity: updatedRaw[existingRawIdx].quantity
+                    };
+                }
+            } else {
+                newRaw.quantity = 1;
+                updatedRaw.push(newRaw);
+                const newNode: ComponentNode = {
+                    id: `rag-${Date.now()}-${Math.random().toString(36).substring(7)}`,
+                    label: newRaw.name,
+                    category: newRaw.category,
+                    description: newRaw.description,
+                    partNumber: newRaw.partNumber,
+                    quantity: 1,
+                    x: 0, y: 0, width: NODE_W, height: NODE_H
+                };
+                updatedNodes.push(newNode);
+            }
+        }
+        
+        setRawComponents(updatedRaw);
+        const layoutedNodes = applyLayout(updatedNodes);
+        setNodes(layoutedNodes);
+        setConnections(generateConnections(layoutedNodes, updatedRaw) as any);
         setIsLoading(false);
     }, [aiResponse, rawComponents, nodes]);
 
@@ -619,26 +653,37 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
 
     const handleAddComponent = useCallback(() => {
         if (!newName.trim()) return;
-        const newNode: ComponentNode = {
-            id: `node-custom-${Date.now()}`,
-            label: newName.trim(),
-            category: newCat,
-            description: newDesc.trim(),
-            x: 0, y: 0, width: NODE_W as any, height: NODE_H as any,
-        };
-        const newRaw: RawComponent = {
-            name: newName.trim(),
-            category: newCat,
-            description: newDesc.trim(),
-            connects_to: [],
-        };
-        setNodes(prev => [...prev, newNode]);
-        setRawComponents(prev => [...prev, newRaw]);
+        const nameClean = newName.trim();
+        
+        const existingNodeIdx = nodes.findIndex(n => n.label.toLowerCase() === nameClean.toLowerCase());
+        if (existingNodeIdx !== -1) {
+            setNodes(prev => prev.map((n, i) => i === existingNodeIdx ? { ...n, quantity: (n.quantity || 1) + 1 } : n));
+            setRawComponents(prev => prev.map(r => r.name.toLowerCase() === nameClean.toLowerCase() ? { ...r, quantity: (r.quantity || 1) + 1 } : r));
+        } else {
+            const newNode: ComponentNode = {
+                id: `node-custom-${Date.now()}`,
+                label: nameClean,
+                category: newCat,
+                description: newDesc.trim(),
+                quantity: 1,
+                x: 0, y: 0, width: NODE_W as any, height: NODE_H as any,
+            };
+            const newRaw: RawComponent = {
+                name: nameClean,
+                category: newCat,
+                description: newDesc.trim(),
+                connects_to: [],
+                quantity: 1,
+            };
+            setNodes(prev => [...prev, newNode]);
+            setRawComponents(prev => [...prev, newRaw]);
+        }
+        
         setNewName("");
         setNewCat("electronic");
         setNewDesc("");
         setShowAddModal(false);
-    }, [newName, newCat, newDesc]);
+    }, [newName, newCat, newDesc, nodes]);
 
     const handleAddConnection = useCallback(() => {
         if (!selectedId || !inspectorConnTarget) return;
@@ -669,6 +714,36 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
     const inputsToSelected = connections.filter(c => c.toId === selectedId);
     const outputsFromSelected = connections.filter(c => c.fromId === selectedId);
 
+    const handleExportBOM = useCallback(() => {
+        const rows = [["Category", "Name", "Part Number", "Quantity", "Description", "Connections"]];
+        CATEGORY_ORDER.forEach(cat => {
+            const group = groupedNodes[cat];
+            if (!group || group.length === 0) return;
+            group.forEach(n => {
+                const conns = connections.filter(c => c.fromId === n.id).map(c => {
+                    const t = nodes.find(x => x.id === c.toId);
+                    return t ? t.label : c.toId;
+                }).join(" | ");
+                rows.push([
+                    n.category,
+                    `"${n.label.replace(/"/g, '""')}"`,
+                    `"${(n.partNumber || "").replace(/"/g, '""')}"`,
+                    String(n.quantity || 1),
+                    `"${n.description.replace(/"/g, '""')}"`,
+                    `"${conns.replace(/"/g, '""')}"`
+                ]);
+            });
+        });
+        const csv = rows.map(r => r.join(",")).join("\n");
+        const blob = new Blob([csv], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "robot-bom.csv";
+        a.click();
+        URL.revokeObjectURL(url);
+    }, [nodes, connections, groupedNodes]);
+
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
             
@@ -687,9 +762,18 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                     >
                         Canvas Wiring View
                     </button>
+                    <button 
+                        onClick={() => setActiveView("bom")}
+                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'bom' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
+                    >
+                        BOM View
+                    </button>
                 </div>
                 <div className="flex items-center gap-2">
                     {isLoading && <div className="text-xs text-blue-400 animate-pulse mr-4">Updating from AI...</div>}
+                    {activeView === 'bom' && (
+                        <button onClick={handleExportBOM} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-900/20 hover:bg-emerald-900/40 rounded border border-emerald-900/50 transition-colors">Export CSV</button>
+                    )}
                     <button onClick={handleAutoLayout} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-purple-400 bg-purple-900/20 hover:bg-purple-900/40 rounded border border-purple-900/50 transition-colors"><Network size={12} /> Auto Layout</button>
                     <button onClick={handleRefresh} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-sky-400 bg-sky-900/20 hover:bg-sky-900/40 rounded border border-sky-900/50 transition-colors"><RefreshCw size={12} /> Refresh</button>
                     <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-red-900/20 hover:bg-red-900/40 rounded border border-red-900/50 transition-colors"><Trash2 size={12} /> Clear</button>
@@ -738,8 +822,8 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                                             </div>
                                         </div>
                                         <button onClick={() => {
-                                            const newNode = { ...node, id: `node-dup-${Date.now()}` };
-                                            setNodes(p => [...p, newNode]);
+                                            setNodes(p => p.map(n => n.id === node.id ? { ...n, quantity: (n.quantity || 1) + 1 } : n));
+                                            setRawComponents(p => p.map(r => r.name.toLowerCase() === node.label.toLowerCase() ? { ...r, quantity: (r.quantity || 1) + 1 } : r));
                                         }} className="text-neutral-500 hover:text-white bg-neutral-800/50 hover:bg-neutral-700/50 p-1.5 rounded-md transition-colors">
                                             <Plus size={14} />
                                         </button>
@@ -752,7 +836,80 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
 
                 {/* 2. DYNAMIC MAIN VIEW (Middle Column) */}
                 <div className="flex-1 h-full bg-[#050505] relative border-r border-neutral-800/50 flex flex-col">
-                    {activeView === "matrix" ? (
+                    {activeView === "bom" ? (
+                        <div className="flex-1 overflow-y-auto p-8 bg-[#050505]">
+                            <div className="max-w-5xl mx-auto pb-10">
+                                <div className="flex items-center justify-between mb-8">
+                                    <h1 className="text-xl font-bold text-white tracking-widest uppercase">Bill of Materials</h1>
+                                </div>
+                                {CATEGORY_ORDER.map(cat => {
+                                    const group = groupedNodes[cat];
+                                    if (!group || group.length === 0) return null;
+                                    const catColor = CATEGORY_COLOR[cat];
+                                    const totalQty = group.reduce((sum, n) => sum + (n.quantity || 1), 0);
+                                    return (
+                                        <div key={`bom-${cat}`} className="mb-10 bg-[#0f1219] rounded-xl border border-neutral-800/50 overflow-hidden shadow-xl">
+                                            <div className="px-5 py-4 border-b border-neutral-800/50 bg-[#131823] flex items-center justify-between">
+                                                <div className="text-sm font-black uppercase tracking-[0.2em] flex items-center gap-3" style={{ color: catColor }}>
+                                                    <CategoryIcon category={cat} size={16} /> {cat}
+                                                </div>
+                                                <div className="text-xs font-medium text-neutral-400 bg-[#0f1219] px-3 py-1 rounded-full border border-neutral-800/50">
+                                                    {group.length} unique component{group.length !== 1 && 's'}
+                                                </div>
+                                            </div>
+                                            <div className="overflow-x-auto">
+                                                <table className="w-full text-left border-collapse">
+                                                    <thead>
+                                                        <tr className="bg-[#0a0c10] text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
+                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-1/4">Component Name</th>
+                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-32">Part Number</th>
+                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-24 text-center">Qty</th>
+                                                            <th className="px-6 py-3 border-b border-neutral-800/50">Key Specs</th>
+                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-1/4">Connections To</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="text-xs text-neutral-300">
+                                                        {group.map(node => {
+                                                            const nodeOutputs = connections.filter(c => c.fromId === node.id);
+                                                            return (
+                                                                <tr key={`bom-row-${node.id}`} className="border-b border-neutral-800/30 hover:bg-[#13161c] transition-colors group">
+                                                                    <td className="px-6 py-4 font-bold text-white tracking-wide">{node.label}</td>
+                                                                    <td className="px-6 py-4 text-neutral-500 font-mono text-[10px]">{node.partNumber || "N/A"}</td>
+                                                                    <td className="px-6 py-4 text-center">
+                                                                        <span className="font-black text-sky-400 bg-sky-900/20 px-3 py-1 rounded text-[11px] border border-sky-900/30">
+                                                                            {node.quantity || 1}
+                                                                        </span>
+                                                                    </td>
+                                                                    <td className="px-6 py-4 text-neutral-400 max-w-xs leading-relaxed">{node.description}</td>
+                                                                    <td className="px-6 py-4">
+                                                                        <div className="flex flex-wrap gap-1.5">
+                                                                            {nodeOutputs.length === 0 ? <span className="text-neutral-600 italic text-[11px]">None</span> : nodeOutputs.map(conn => {
+                                                                                const targetNode = nodes.find(n => n.id === conn.toId);
+                                                                                if (!targetNode) return null;
+                                                                                return (
+                                                                                    <span key={`bom-conn-${conn.id}`} className="px-2 py-1 bg-[#1a1f2e] border border-neutral-700/50 rounded text-[10px] text-neutral-300">
+                                                                                        {targetNode.label}
+                                                                                    </span>
+                                                                                );
+                                                                            })}
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            );
+                                                        })}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div className="px-6 py-4 bg-[#0a0c10] border-t border-neutral-800/50 flex justify-between items-center text-xs">
+                                                <span className="font-bold text-neutral-500 uppercase tracking-widest">Total Category Items</span>
+                                                <span className="font-black text-white bg-neutral-800/80 px-3 py-1 rounded border border-neutral-700">{totalQty}</span>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    ) : activeView === "matrix" ? (
                         <div className="flex-1 overflow-y-auto p-6">
                             {CATEGORY_ORDER.map(cat => {
                                 const group = groupedNodes[cat];
@@ -782,7 +939,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                                                             </div>
                                                             <div className="min-w-0">
                                                                 <div className="text-white text-[13px] font-bold truncate">{node.label}</div>
-                                                                <div className="text-neutral-500 text-[10px] uppercase tracking-wider mt-0.5">Qty: 1</div>
+                                                                <div className="text-neutral-500 text-[10px] uppercase tracking-wider mt-0.5">Qty: {node.quantity || 1}</div>
                                                             </div>
                                                         </div>
                                                         <div className="flex-1 px-5 py-3 flex items-center flex-wrap gap-2">
