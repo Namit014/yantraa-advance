@@ -2,9 +2,9 @@
 
 import {
     Search, X, SlidersHorizontal, Plus, Crosshair,
-    LayoutGrid, Maximize2, Trash2, RefreshCw,
+    LayoutGrid, Maximize2, Trash2, RefreshCw, Network
 } from "lucide-react";
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
 const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/api/ask`;
@@ -33,8 +33,8 @@ interface ComponentNode {
     description: string;
     x: number;
     y: number;
-    width: 140;
-    height: 88;
+    width?: number;
+    height?: number;
 }
 
 interface Connection {
@@ -405,6 +405,7 @@ function CategoryIcon({ category, size = 18 }: { category: ComponentCategory; si
     }
 }
 
+
 // ─── Props ────────────────────────────────────────────────────────────────────
 
 interface MappingTabProps {
@@ -413,387 +414,197 @@ interface MappingTabProps {
     designData?: any;
 }
 
+// ─── React Flow Custom Node ───────────────────────────────────────────────────
+
+import ReactFlow, {
+    Background,
+    Controls,
+    MiniMap,
+    useNodesState,
+    useEdgesState,
+    addEdge,
+    Connection as RFConnection,
+    Edge,
+    Node,
+    MarkerType,
+    Handle,
+    Position,
+    Panel,
+    applyNodeChanges,
+    NodeChange
+} from 'reactflow';
+import 'reactflow/dist/style.css';
+
+const CustomComponentNode = ({ data }: any) => {
+    const color = CATEGORY_COLOR[data.category as ComponentCategory] || "#ccc";
+    return (
+        <div style={{
+            background: "#13161c",
+            border: `1px solid ${color}50`,
+            borderRadius: "8px",
+            padding: "10px",
+            minWidth: "150px",
+            color: "white",
+            fontSize: "12px",
+            boxShadow: "0 4px 6px rgba(0,0,0,0.3)"
+        }}>
+            <Handle type="target" position={Position.Left} style={{ background: color }} />
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                <div style={{ width: 20, height: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <CategoryIcon category={data.category} size={14} />
+                </div>
+                <strong style={{ whiteSpace: "nowrap" }}>{data.label}</strong>
+            </div>
+            <div style={{ fontSize: "9px", color: color, textTransform: "uppercase", letterSpacing: "1px" }}>
+                {data.category}
+            </div>
+            <Handle type="source" position={Position.Right} style={{ background: color }} />
+        </div>
+    );
+};
+
+const nodeTypes = {
+    customComponent: CustomComponentNode,
+};
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export function MappingTab({ aiResponse = "", currentQuery = "", designData }: MappingTabProps) {
-
-    // ── State ──────────────────────────────────────────────────────────────────
+    const [activeView, setActiveView] = useState<"matrix" | "canvas">("canvas");
+    
     const [nodes, setNodes] = useState<ComponentNode[]>(SEED_NODES);
     const [rawComponents, setRawComponents] = useState<RawComponent[]>(SEED_RAW);
     const [connections, setConnections] = useState<Connection[]>(() =>
-        generateConnections(SEED_NODES, SEED_RAW)
+        generateConnections(SEED_NODES, SEED_RAW) as any
     );
     const [isLoading, setIsLoading] = useState(false);
-    const [pan, setPan] = useState({ x: 40, y: 40 });
-    const [zoom, setZoom] = useState(0.9);
     const [selectedId, setSelectedId] = useState<string | null>(null);
-    const [selectedConnId, setSelectedConnId] = useState<string | null>(null);
+
+    const [rfNodes, setRfNodes] = useState<Node[]>([]);
+    
+    useEffect(() => {
+        setRfNodes(nodes.map((n, i) => ({
+            id: n.id,
+            type: 'customComponent',
+            position: { x: n.x ?? (i * 200 % 800), y: n.y ?? (Math.floor(i * 200 / 800) * 150) },
+            data: { label: n.label, category: n.category, description: n.description },
+            ...(n.width && { width: n.width }),
+            ...(n.height && { height: n.height })
+        })));
+    }, [nodes]);
+
+    const onNodesChange = useCallback((changes: NodeChange[]) => {
+        setRfNodes((nds) => {
+            return applyNodeChanges(changes, nds);
+        });
+        
+        setNodes((nds) => {
+            let updated = [...nds];
+            let changed = false;
+            for (const change of changes) {
+                if (change.type === 'position' && change.position) {
+                    const idx = updated.findIndex(n => n.id === change.id);
+                    if (idx !== -1) {
+                        updated[idx] = { ...updated[idx], x: change.position.x, y: change.position.y };
+                        changed = true;
+                    }
+                }
+                if (change.type === 'dimensions' && change.dimensions) {
+                    const idx = updated.findIndex(n => n.id === change.id);
+                    if (idx !== -1) {
+                        updated[idx] = { ...updated[idx], width: change.dimensions.width, height: change.dimensions.height };
+                        changed = true;
+                    }
+                }
+            }
+            return changed ? updated : nds;
+        });
+    }, []);
+
     const [searchQuery, setSearchQuery] = useState("");
-    const [activeCategory, setActiveCategory] = useState<"all" | ComponentCategory>("all");
-    const [hoveredConnId, setHoveredConnId] = useState<string | null>(null);
-    const [tooltipConn, setTooltipConn] = useState<{ id: string; x: number; y: number } | null>(null);
-    const [editingNode, setEditingNode] = useState<string | null>(null);
-    const [editLabel, setEditLabel] = useState("");
-    const [editDesc, setEditDesc] = useState("");
-    const [editCat, setEditCat] = useState<ComponentCategory>("electronic");
+    
     const [showAddModal, setShowAddModal] = useState(false);
     const [newName, setNewName] = useState("");
     const [newCat, setNewCat] = useState<ComponentCategory>("electronic");
     const [newDesc, setNewDesc] = useState("");
-    // Port drag-to-connect
-    const [draftLine, setDraftLine] = useState<{ fromId: string; side: "left" | "right"; toX: number; toY: number } | null>(null);
-    const [hoveredPort, setHoveredPort] = useState<{ nodeId: string; side: "left" | "right" } | null>(null);
 
-    // ── Refs ───────────────────────────────────────────────────────────────────
-    const svgRef = useRef<SVGSVGElement>(null);
-    const isPanning = useRef(false);
-    const panStart = useRef({ x: 0, y: 0 });
-    const panOrigin = useRef({ x: 0, y: 0 });
-    const draggingNodeId = useRef<string | null>(null);
-    const dragOffset = useRef({ x: 0, y: 0 });
-    const didDrag = useRef(false);
-    const animRef = useRef<number | null>(null);
-    const isDraftingConn = useRef(false);
-    const draftFromId = useRef<string | null>(null);
-    const draftFromSide = useRef<"left" | "right">("right");
-    const lastQueryRef = useRef("");
+    const [inspectorConnTarget, setInspectorConnTarget] = useState("");
+    const [inspectorConnLabel, setInspectorConnLabel] = useState("wire");
 
-    // ── Fetch helpers ──────────────────────────────────────────────────────────
-    const doFetch = useCallback(
-        async (topic: string) => {
-            if (!topic || topic === lastQueryRef.current) return;
-            lastQueryRef.current = topic;
-            setIsLoading(true);
-            try {
-                const raw = await fetchComponentsFromRAG(topic, aiResponse);
-                if (raw.length === 0) return;
-                setRawComponents(raw);
-                const laid = applyLayout(
-                    raw.map((r, i) => ({
-                        id: `node-${i}-${Date.now()}`,
-                        label: r.name,
-                        category: r.category,
-                        description: r.description,
-                        width: NODE_W,
-                        height: NODE_H,
-                    }))
-                );
-                setNodes(laid);
-                setConnections(generateConnections(laid, raw));
-                setSelectedId(null);
-                setSelectedConnId(null);
-            } finally {
-                setIsLoading(false);
-            }
-        },
-        [aiResponse]
-    );
+    const lastQueryRef = useRef<string>("");
+    const rfEdges: Edge[] = useMemo(() => {
+        const WIRE_COLORS: Record<string, string> = {
+            power: '#ef4444',
+            ground: '#22c55e',
+            signal: '#eab308',
+            data: '#a855f7',
+            drive: '#f97316',
+            pwm: '#3b82f6',
+            can: '#14b8a6',
+            default: '#60a5fa'
+        };
 
-    // ── useEffect: load shared designData when present ─────────────────────────
-    useEffect(() => {
-        if (!designData) return;
-        
-        const comps: RawComponent[] = [];
-        const rawNodes: Omit<ComponentNode, "x" | "y">[] = [];
-        
-        if (designData.subsystems) {
-            designData.subsystems.forEach((sub: any) => {
-                if (sub.components) {
-                    sub.components.forEach((comp: any) => {
-                        const category = inferCategory(comp.name + " " + (comp.role || ""));
-                        const description = `${comp.role || ""}. Voltage: ${comp.voltage || "N/A"}, Interface: ${comp.interface || "N/A"}`;
-                        
-                        comps.push({
-                            name: comp.name,
-                            category,
-                            description,
-                            connects_to: []
-                        });
-                        
-                        rawNodes.push({
-                            id: comp.id || `node-${comp.name.replace(/\s+/g, "_")}`,
-                            label: comp.name,
-                            category,
-                            description,
-                            width: NODE_W,
-                            height: NODE_H
-                        });
-                    });
-                }
-            });
-        }
-        
-        const laidNodes = applyLayout(rawNodes);
-        
-        const mappedConns: Connection[] = [];
-        if (designData.connections) {
-            designData.connections.forEach((conn: any, i: number) => {
-                const fromId = conn.from;
-                const toId = conn.to;
-                const fromExists = laidNodes.some(n => n.id === fromId);
-                const toExists = laidNodes.some(n => n.id === toId);
-                
-                if (fromExists && toExists) {
-                    mappedConns.push({
-                        id: `conn-design-${i}-${Date.now()}`,
-                        fromId,
-                        toId,
-                        label: conn.protocol || conn.relation || "connects",
-                        isUserEdited: false
-                    });
-                }
-            });
-        }
-        
-        setRawComponents(comps);
-        setNodes(laidNodes);
-        setConnections(mappedConns);
-        setSelectedId(null);
-        setSelectedConnId(null);
-        setIsLoading(false);
-    }, [designData]);
-
-    // ── useEffect: re-fetch when query changes ─────────────────────────────────
-    useEffect(() => {
-        if (designData || !currentQuery) return;
-        doFetch(currentQuery);
-    }, [currentQuery, doFetch, designData]);
-
-    // ── useEffect: fallback parse from aiResponse text when no query ───────────
-    useEffect(() => {
-        if (designData || !aiResponse || currentQuery) return;
-        const raw = fallbackExtract(aiResponse);
-        if (raw.length === 0) return;
-        setRawComponents(raw);
-        const laid = applyLayout(
-            raw.map((r, i) => ({
-                id: `node-ai-${i}-${Date.now()}`,
-                label: r.name,
-                category: r.category,
-                description: r.description,
-                width: NODE_W,
-                height: NODE_H,
-            }))
-        );
-        setNodes(laid);
-        setConnections(generateConnections(laid, raw));
-    }, [aiResponse, currentQuery, designData]);
-
-    // ── SVG mouse: pan / drag / port-connect ──────────────────────────────────
-    const svgToCanvas = useCallback(
-        (clientX: number, clientY: number) => {
-            const rect = svgRef.current!.getBoundingClientRect();
+        return connections.map(c => {
+            const edgeColor = WIRE_COLORS[c.label?.toLowerCase()] || WIRE_COLORS.default;
             return {
-                x: (clientX - rect.left - pan.x) / zoom,
-                y: (clientY - rect.top - pan.y) / zoom,
+                id: c.id,
+                source: c.fromId,
+                target: c.toId,
+                label: c.label,
+                type: 'smoothstep',
+                animated: false,
+                style: { stroke: edgeColor, strokeWidth: 1.5 },
+                labelStyle: { fill: '#a3a3a3', fontWeight: 600, fontSize: 11, className: 'edge-label-text' },
+                labelBgStyle: { fill: '#13161c', className: 'edge-label-bg' },
+                markerEnd: { type: MarkerType.ArrowClosed, color: edgeColor },
+                className: 'custom-edge-hover'
             };
-        },
-        [pan, zoom]
-    );
+        });
+    }, [connections]);
 
-    const handleSVGMouseDown = useCallback(
-        (e: React.MouseEvent<SVGSVGElement>) => {
-            if ((e.target as Element).closest("[data-node],[data-port]")) return;
-            setSelectedId(null);
-            setSelectedConnId(null);
-            isPanning.current = true;
-            panStart.current = { x: e.clientX, y: e.clientY };
-            panOrigin.current = { ...pan };
-            e.preventDefault();
-        },
-        [pan]
-    );
 
-    const handleSVGMouseMove = useCallback(
-        (e: React.MouseEvent<SVGSVGElement>) => {
-            if (isDraftingConn.current && draftFromId.current) {
-                const pt = svgToCanvas(e.clientX, e.clientY);
-                setDraftLine(prev =>
-                    prev ? { ...prev, toX: pt.x, toY: pt.y } : null
-                );
-                return;
-            }
-            if (draggingNodeId.current) {
-                didDrag.current = true;
-                const pt = svgToCanvas(e.clientX, e.clientY);
-                setNodes(prev =>
-                    prev.map(n =>
-                        n.id === draggingNodeId.current
-                            ? { ...n, x: pt.x - dragOffset.current.x, y: pt.y - dragOffset.current.y }
-                            : n
-                    )
-                );
-                return;
-            }
-            if (isPanning.current) {
-                setPan({
-                    x: panOrigin.current.x + (e.clientX - panStart.current.x),
-                    y: panOrigin.current.y + (e.clientY - panStart.current.y),
-                });
-            }
-        },
-        [svgToCanvas]
-    );
-
-    const handleSVGMouseUp = useCallback(() => {
-        isPanning.current = false;
-        draggingNodeId.current = null;
-        isDraftingConn.current = false;
-        draftFromId.current = null;
-        setDraftLine(null);
-        didDrag.current = false;
+    const onConnect = useCallback((params: RFConnection) => {
+        if (!params.source || !params.target) return;
+        const newConn = {
+            id: `conn-rf-${Date.now()}`,
+            fromId: params.source,
+            toId: params.target,
+            label: "wire",
+            isUserEdited: true,
+        };
+        setConnections(prev => [...prev, newConn]);
     }, []);
 
-    const handleWheel = useCallback(
-        (e: React.WheelEvent<SVGSVGElement>) => {
-            e.preventDefault();
-            const rect = svgRef.current!.getBoundingClientRect();
-            const mx = e.clientX - rect.left;
-            const my = e.clientY - rect.top;
-            const factor = e.deltaY > 0 ? 0.9 : 1.1;
-            setZoom(prev => {
-                const next = Math.min(3, Math.max(0.25, prev * factor));
-                setPan(p => ({
-                    x: mx - (mx - p.x) * (next / prev),
-                    y: my - (my - p.y) * (next / prev),
-                }));
-                return next;
-            });
-        },
-        []
-    );
+    const doFetch = useCallback(async (q: string) => {
+        setIsLoading(true);
+        const raw = await fetchComponentsFromRAG(q, aiResponse);
+        const nextRaw = [...rawComponents, ...raw];
+        const nextNodes = nextRaw.map((r, i) => ({
+            id: `rag-${Date.now()}-${i}`,
+            label: r.name,
+            category: r.category,
+            description: r.description,
+            x: 0, y: 0, width: NODE_W, height: NODE_H
+        } as ComponentNode));
+        
+        setRawComponents(nextRaw);
+        setNodes(applyLayout([...nodes, ...nextNodes]));
+        setConnections(generateConnections([...nodes, ...nextNodes], nextRaw) as any);
+        setIsLoading(false);
+    }, [aiResponse, rawComponents, nodes]);
 
-    // ── Node mouse handlers ────────────────────────────────────────────────────
-    const handleNodeMouseDown = useCallback(
-        (e: React.MouseEvent, nodeId: string) => {
-            e.stopPropagation();
-            didDrag.current = false;
-            const node = nodes.find(n => n.id === nodeId)!;
-            const pt = svgToCanvas(e.clientX, e.clientY);
-            dragOffset.current = { x: pt.x - node.x, y: pt.y - node.y };
-            draggingNodeId.current = nodeId;
-        },
-        [nodes, svgToCanvas]
-    );
-
-    const handleNodeMouseUp = useCallback(
-        (nodeId: string) => {
-            if (!didDrag.current) {
-                setSelectedId(nodeId);
-                setSelectedConnId(null);
-            }
-            draggingNodeId.current = null;
-            didDrag.current = false;
-        },
-        []
-    );
-
-    const handleNodeDblClick = useCallback(
-        (e: React.MouseEvent, nodeId: string) => {
-            e.stopPropagation();
-            const node = nodes.find(n => n.id === nodeId);
-            if (!node) return;
-            setEditingNode(nodeId);
-            setEditLabel(node.label);
-            setEditDesc(node.description);
-            setEditCat(node.category);
-        },
-        [nodes]
-    );
-
-    // ── Port drag-to-connect ───────────────────────────────────────────────────
-    const handlePortMouseDown = useCallback(
-        (e: React.MouseEvent, nodeId: string, side: "left" | "right") => {
-            e.stopPropagation();
-            isDraftingConn.current = true;
-            draftFromId.current = nodeId;
-            draftFromSide.current = side;
-            const node = nodes.find(n => n.id === nodeId)!;
-            const startX = side === "right" ? node.x + node.width : node.x;
-            const startY = node.y + node.height / 2;
-            setDraftLine({ fromId: nodeId, side, toX: startX, toY: startY });
-        },
-        [nodes]
-    );
-
-    const handlePortMouseUp = useCallback(
-        (e: React.MouseEvent, nodeId: string) => {
-            e.stopPropagation();
-            if (isDraftingConn.current && draftFromId.current && draftFromId.current !== nodeId) {
-                const fromId = draftFromId.current;
-                const toId = nodeId;
-                const fromNode = nodes.find(n => n.id === fromId)!;
-                const toNode = nodes.find(n => n.id === toId)!;
-                const newConn: Connection = {
-                    id: `conn-user-${Date.now()}`,
-                    fromId,
-                    toId,
-                    label: "custom",
-                    isUserEdited: true,
-                };
-                // Check dedup
-                setConnections(prev => {
-                    const dup = prev.some(c =>
-                        (c.fromId === fromId && c.toId === toId) ||
-                        (c.fromId === toId && c.toId === fromId)
-                    );
-                    return dup ? prev : [...prev, newConn];
-                });
-            }
-            isDraftingConn.current = false;
-            draftFromId.current = null;
-            setDraftLine(null);
-        },
-        [nodes]
-    );
-
-    // ── Toolbar actions ────────────────────────────────────────────────────────
-    const handleAutoLayout = useCallback(() => {
-        const laid = applyLayout(nodes);
-        const from: Record<string, { x: number; y: number }> = {};
-        const to: Record<string, { x: number; y: number }> = {};
-        nodes.forEach(n => { from[n.id] = { x: n.x, y: n.y }; });
-        laid.forEach(n => { to[n.id] = { x: n.x, y: n.y }; });
-        const start = performance.now();
-        const dur = 400;
-        function tick(now: number) {
-            const t = Math.min((now - start) / dur, 1);
-            const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-            setNodes(prev =>
-                prev.map(n => ({
-                    ...n,
-                    x: (from[n.id]?.x ?? n.x) + ((to[n.id]?.x ?? n.x) - (from[n.id]?.x ?? n.x)) * ease,
-                    y: (from[n.id]?.y ?? n.y) + ((to[n.id]?.y ?? n.y) - (from[n.id]?.y ?? n.y)) * ease,
-                }))
-            );
-            if (t < 1) animRef.current = requestAnimationFrame(tick);
+    useEffect(() => {
+        if (currentQuery && currentQuery !== lastQueryRef.current) {
+            lastQueryRef.current = currentQuery;
+            doFetch(currentQuery);
         }
-        animRef.current = requestAnimationFrame(tick);
-    }, [nodes]);
-
-    const handleFitView = useCallback(() => {
-        if (!nodes.length || !svgRef.current) return;
-        const rect = svgRef.current.getBoundingClientRect();
-        const minX = Math.min(...nodes.map(n => n.x));
-        const minY = Math.min(...nodes.map(n => n.y));
-        const maxX = Math.max(...nodes.map(n => n.x + n.width));
-        const maxY = Math.max(...nodes.map(n => n.y + n.height));
-        const w = maxX - minX;
-        const h = maxY - minY;
-        const newZoom = Math.min(3, Math.max(0.25, Math.min((rect.width - 80) / w, (rect.height - 80) / h)));
-        setPan({
-            x: (rect.width - w * newZoom) / 2 - minX * newZoom,
-            y: (rect.height - h * newZoom) / 2 - minY * newZoom,
-        });
-        setZoom(newZoom);
-    }, [nodes]);
+    }, [currentQuery, doFetch]);
 
     const handleClear = useCallback(() => {
-        if (!window.confirm("Are you sure you want to clear the entire canvas? This cannot be undone.")) return;
+        if (!window.confirm("Are you sure you want to clear all mapped components?")) return;
         setNodes([]);
         setConnections([]);
         setSelectedId(null);
-        setSelectedConnId(null);
         lastQueryRef.current = "";
     }, []);
 
@@ -802,59 +613,18 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
         if (currentQuery) doFetch(currentQuery);
     }, [currentQuery, doFetch]);
 
-    // ── Locate node (animate pan) ──────────────────────────────────────────────
-    const locateNode = useCallback(
-        (nodeId: string) => {
-            const node = nodes.find(n => n.id === nodeId);
-            if (!node || !svgRef.current) return;
-            const rect = svgRef.current.getBoundingClientRect();
-            const targetX = rect.width / 2 - (node.x + node.width / 2) * zoom;
-            const targetY = rect.height / 2 - (node.y + node.height / 2) * zoom;
-            const startPan = { ...pan };
-            const startTime = performance.now();
-            const dur = 300;
-            function tick(now: number) {
-                const t = Math.min((now - startTime) / dur, 1);
-                const ease = 1 - Math.pow(1 - t, 3);
-                setPan({
-                    x: startPan.x + (targetX - startPan.x) * ease,
-                    y: startPan.y + (targetY - startPan.y) * ease,
-                });
-                if (t < 1) animRef.current = requestAnimationFrame(tick);
-            }
-            animRef.current = requestAnimationFrame(tick);
-            setSelectedId(nodeId);
-        },
-        [nodes, pan, zoom]
-    );
+    const handleAutoLayout = useCallback(() => {
+        setNodes(prev => applyLayout(prev));
+    }, []);
 
-    // ── Edit save ──────────────────────────────────────────────────────────────
-    const saveEdit = useCallback(() => {
-        setNodes(prev =>
-            prev.map(n =>
-                n.id === editingNode
-                    ? { ...n, label: editLabel, description: editDesc, category: editCat }
-                    : n
-            )
-        );
-        setEditingNode(null);
-    }, [editingNode, editLabel, editDesc, editCat]);
-
-    // ── Add custom component ───────────────────────────────────────────────────
     const handleAddComponent = useCallback(() => {
         if (!newName.trim()) return;
-        const rect = svgRef.current?.getBoundingClientRect();
-        const cx = rect ? (rect.width / 2 - pan.x) / zoom : 300;
-        const cy = rect ? (rect.height / 2 - pan.y) / zoom : 200;
         const newNode: ComponentNode = {
             id: `node-custom-${Date.now()}`,
             label: newName.trim(),
             category: newCat,
             description: newDesc.trim(),
-            x: cx - NODE_W / 2,
-            y: cy - NODE_H / 2,
-            width: NODE_W,
-            height: NODE_H,
+            x: 0, y: 0, width: NODE_W as any, height: NODE_H as any,
         };
         const newRaw: RawComponent = {
             name: newName.trim(),
@@ -862,619 +632,372 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
             description: newDesc.trim(),
             connects_to: [],
         };
-        setNodes(prev => {
-            const updated = [...prev, newNode];
-            const updatedRaw = [...rawComponents, newRaw];
-            const existingPairs = new Set(connections.map(c => `${c.fromId}→${c.toId}`));
-            const extra = generateConnections(updated, updatedRaw).filter(
-                c => !existingPairs.has(`${c.fromId}→${c.toId}`)
-            );
-            setConnections(prev2 => [...prev2, ...extra]);
-            return updated;
-        });
+        setNodes(prev => [...prev, newNode]);
         setRawComponents(prev => [...prev, newRaw]);
         setNewName("");
         setNewCat("electronic");
         setNewDesc("");
         setShowAddModal(false);
-    }, [newName, newCat, newDesc, pan, zoom, connections, rawComponents]);
+    }, [newName, newCat, newDesc]);
 
-    // ── Cleanup ────────────────────────────────────────────────────────────────
-    useEffect(() => () => { if (animRef.current) cancelAnimationFrame(animRef.current); }, []);
+    const handleAddConnection = useCallback(() => {
+        if (!selectedId || !inspectorConnTarget) return;
+        const newConn = {
+            id: `conn-user-${Date.now()}`,
+            fromId: selectedId,
+            toId: inspectorConnTarget,
+            label: inspectorConnLabel || "wire",
+            isUserEdited: true,
+        };
+        setConnections(prev => {
+            const dup = prev.some(c => (c.fromId === selectedId && c.toId === inspectorConnTarget) || (c.fromId === inspectorConnTarget && c.toId === selectedId));
+            return dup ? prev : [...prev, newConn];
+        });
+        setInspectorConnTarget("");
+        setInspectorConnLabel("wire");
+    }, [selectedId, inspectorConnTarget, inspectorConnLabel]);
 
-    // ── Sidebar filter ─────────────────────────────────────────────────────────
-    const TABS: { key: "all" | ComponentCategory; label: string }[] = [
-        { key: "all", label: "All" },
-        { key: "electronic", label: "Electronic" },
-        { key: "mechanical", label: "Mechanical" },
-        { key: "sensor", label: "Sensors" },
-        { key: "actuator", label: "Actuators" },
-    ];
-
-    const filteredNodes = nodes.filter(n => {
-        const matchCat = activeCategory === "all" || n.category === activeCategory;
-        const matchSearch = n.label.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchCat && matchSearch;
+    // Grouping nodes by category for the middle column
+    const filteredNodes = nodes.filter(n => n.label.toLowerCase().includes(searchQuery.toLowerCase()));
+    const groupedNodes: Partial<Record<ComponentCategory, ComponentNode[]>> = {};
+    CATEGORY_ORDER.forEach(cat => { groupedNodes[cat] = []; });
+    filteredNodes.forEach(n => {
+        if (groupedNodes[n.category]) groupedNodes[n.category]!.push(n);
     });
 
-    // ── Bezier path ────────────────────────────────────────────────────────────
-    function connPath(from: ComponentNode, to: ComponentNode): string {
-        const x1 = from.x + from.width;
-        const y1 = from.y + from.height / 2;
-        const x2 = to.x;
-        const y2 = to.y + to.height / 2;
-        return `M ${x1} ${y1} C ${x1 + 80} ${y1}, ${x2 - 80} ${y2}, ${x2} ${y2}`;
-    }
+    const selectedNode = nodes.find(n => n.id === selectedId);
+    const inputsToSelected = connections.filter(c => c.toId === selectedId);
+    const outputsFromSelected = connections.filter(c => c.fromId === selectedId);
 
-    function draftPath(): string | null {
-        if (!draftLine) return null;
-        const fromNode = nodes.find(n => n.id === draftLine.fromId);
-        if (!fromNode) return null;
-        const x1 = draftLine.side === "right" ? fromNode.x + fromNode.width : fromNode.x;
-        const y1 = fromNode.y + fromNode.height / 2;
-        const x2 = draftLine.toX;
-        const y2 = draftLine.toY;
-        return `M ${x1} ${y1} C ${x1 + 60} ${y1}, ${x2 - 60} ${y2}, ${x2} ${y2}`;
-    }
-
-    // ── Selected connection ────────────────────────────────────────────────────
-    const selectedConn = connections.find(c => c.id === selectedConnId);
-
-    // ─────────────────────────────────────────────────────────────────────────
-    //  RENDER
-    // ─────────────────────────────────────────────────────────────────────────
     return (
-        <div className="w-full h-full flex bg-[#050505] overflow-hidden text-neutral-400 font-sans">
-
-            {/* ── Main Area with Dotted Grid ── */}
-            <div
-                className="flex-1 h-full relative"
-                style={{
-                    backgroundImage: "radial-gradient(circle, rgba(139, 92, 246, 0.15) 1px, transparent 1px)",
-                    backgroundSize: "24px 24px",
-                }}
-            >
-                {/* ── Toolbar ── */}
-                <div
-                    className="bg-[#0B0E14]/80 backdrop-blur border border-neutral-800/50 rounded-lg px-3 py-2 flex items-center gap-3"
-                    style={{ position: "absolute", top: 12, left: 12, zIndex: 10 }}
-                >
-                    {[
-                        { icon: <LayoutGrid style={{ width: 13, height: 13 }} />, label: "Auto Layout", action: handleAutoLayout, color: "#a3a3a3" },
-                        { icon: <Maximize2 style={{ width: 13, height: 13 }} />, label: "Fit View", action: handleFitView, color: "#a3a3a3" },
-                        { icon: <Trash2 style={{ width: 13, height: 13 }} />, label: "Clear", action: handleClear, color: "#f87171" },
-                        { icon: <RefreshCw style={{ width: 13, height: 13 }} />, label: "Refresh", action: handleRefresh, color: "#38bdf8" },
-                    ].map((btn, bi) => (
-                        <button
-                            key={bi}
-                            title={btn.label}
-                            onClick={btn.action}
-                            style={{
-                                display: "flex", alignItems: "center", gap: 5,
-                                background: "none", border: "none", color: btn.color,
-                                cursor: "pointer", fontSize: 11, padding: "2px 4px", borderRadius: 5,
-                            }}
-                            onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
-                            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-                        >
-                            {btn.icon}
-                            {btn.label}
-                        </button>
-                    ))}
+        <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
+            
+            {/* TOP TOOLBAR: View Toggle */}
+            <div className="h-12 border-b border-neutral-800/50 flex items-center justify-between px-6 bg-[#0B0E14] shrink-0 z-30">
+                <div className="flex gap-1 bg-[#131823] p-1 rounded-lg border border-neutral-800/50">
+                    <button 
+                        onClick={() => setActiveView("matrix")}
+                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'matrix' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
+                    >
+                        Matrix View
+                    </button>
+                    <button 
+                        onClick={() => setActiveView("canvas")}
+                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'canvas' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
+                    >
+                        Canvas Wiring View
+                    </button>
                 </div>
-
-                {/* ── SVG Canvas ── */}
-                <svg
-                    ref={svgRef}
-                    width="100%"
-                    height="100%"
-                    style={{ display: "block", userSelect: "none", cursor: isPanning.current ? "grabbing" : "grab" }}
-                    onMouseDown={handleSVGMouseDown}
-                    onMouseMove={handleSVGMouseMove}
-                    onMouseUp={handleSVGMouseUp}
-                    onMouseLeave={handleSVGMouseUp}
-                    onWheel={handleWheel}
-                >
-                    <defs>
-                        {/* Per-category arrowhead markers */}
-                        {(Object.entries(CATEGORY_COLOR) as [ComponentCategory, string][]).map(([cat, col]) => (
-                            <marker
-                                key={cat}
-                                id={`arrow-${cat}`}
-                                markerWidth="8"
-                                markerHeight="8"
-                                refX="6"
-                                refY="4"
-                                orient="auto"
-                            >
-                                <polygon points="0 0, 8 4, 0 8" fill={col} opacity="0.7" />
-                            </marker>
-                        ))}
-                        <marker id="arrow-default" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                            <polygon points="0 0, 8 4, 0 8" fill="rgba(139,92,246,0.7)" />
-                        </marker>
-                        <marker id="arrow-hover" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                            <polygon points="0 0, 8 4, 0 8" fill="rgba(139,92,246,1)" />
-                        </marker>
-                        {/* CSS animation for loading dots */}
-                        <style>{`
-                            @keyframes mtPulse {
-                                0%,100%{opacity:0.2} 50%{opacity:1}
-                            }
-                            .mt-pulse-0{animation:mtPulse 1.2s ease-in-out infinite;}
-                            .mt-pulse-1{animation:mtPulse 1.2s ease-in-out 0.2s infinite;}
-                            .mt-pulse-2{animation:mtPulse 1.2s ease-in-out 0.4s infinite;}
-                        `}</style>
-                    </defs>
-
-                    <g transform={`translate(${pan.x},${pan.y}) scale(${zoom})`}>
-
-                        {/* ── Loading state ── */}
-                        {isLoading && (
-                            <g>
-                                <circle className="mt-pulse-0" cx={550} cy={280} r={8} fill="#a78bfa" />
-                                <circle className="mt-pulse-1" cx={580} cy={280} r={8} fill="#a78bfa" />
-                                <circle className="mt-pulse-2" cx={610} cy={280} r={8} fill="#a78bfa" />
-                                <text x={580} y={310} textAnchor="middle" fill="#6b7280" fontSize={13}>
-                                    Fetching components...
-                                </text>
-                            </g>
-                        )}
-
-                        {/* ── Connections ── */}
-                        {!isLoading && connections.map(conn => {
-                            const from = nodes.find(n => n.id === conn.fromId);
-                            const to = nodes.find(n => n.id === conn.toId);
-                            if (!from || !to) return null;
-                            const isHovered = hoveredConnId === conn.id;
-                            const isSelected = selectedConnId === conn.id;
-                            const d = connPath(from, to);
-                            const catColor = CATEGORY_COLOR[from.category];
-                            return (
-                                <g key={conn.id}>
-                                    {/* Invisible fat hit area */}
-                                    <path
-                                        d={d}
-                                        stroke="transparent"
-                                        strokeWidth={14}
-                                        fill="none"
-                                        style={{ cursor: "pointer" }}
-                                        onMouseEnter={e => {
-                                            setHoveredConnId(conn.id);
-                                            const r = svgRef.current!.getBoundingClientRect();
-                                            setTooltipConn({ id: conn.id, x: e.clientX - r.left, y: e.clientY - r.top });
-                                        }}
-                                        onMouseLeave={() => { setHoveredConnId(null); setTooltipConn(null); }}
-                                        onClick={() => { setSelectedConnId(conn.id); setSelectedId(null); }}
-                                    />
-                                    <path
-                                        d={d}
-                                        stroke={
-                                            isSelected
-                                                ? catColor
-                                                : isHovered
-                                                ? `${catColor}dd`
-                                                : `${catColor}50`
-                                        }
-                                        strokeWidth={isSelected ? 2.5 : isHovered ? 2 : 1.5}
-                                        strokeDasharray={isSelected ? "6 3" : "none"}
-                                        fill="none"
-                                        markerEnd={`url(#arrow-${from.category})`}
-                                        style={{ pointerEvents: "none", transition: "stroke 0.15s" }}
-                                    />
-                                </g>
-                            );
-                        })}
-
-                        {/* ── Draft connection line ── */}
-                        {draftLine && draftPath() && (
-                            <path
-                                d={draftPath()!}
-                                stroke="rgba(255,255,255,0.6)"
-                                strokeWidth={1.5}
-                                strokeDasharray="5 4"
-                                fill="none"
-                                style={{ pointerEvents: "none" }}
-                            />
-                        )}
-
-                        {/* ── Nodes ── */}
-                        {!isLoading && nodes.map(node => {
-                            const isSelected = selectedId === node.id;
-                            const color = CATEGORY_COLOR[node.category];
-                            const portR = 5;
-
-                            return (
-                                <g
-                                    key={node.id}
-                                    data-node="true"
-                                    transform={`translate(${node.x},${node.y})`}
-                                    onMouseDown={e => handleNodeMouseDown(e, node.id)}
-                                    onMouseUp={() => handleNodeMouseUp(node.id)}
-                                    onDoubleClick={e => handleNodeDblClick(e, node.id)}
-                                    style={{ cursor: draggingNodeId.current === node.id ? "grabbing" : "grab" }}
-                                >
-                                    {/* Node card via foreignObject */}
-                                    <foreignObject width={node.width} height={node.height}>
-                                        <div
-                                            style={{
-                                                width: "100%",
-                                                height: "100%",
-                                                background: "#0f1219",
-                                                border: `1.5px solid ${isSelected ? color : color + "55"}`,
-                                                borderRadius: 10,
-                                                padding: 10,
-                                                boxSizing: "border-box",
-                                                boxShadow: isSelected
-                                                    ? `0 0 0 2px ${color}, 0 0 12px ${color}40`
-                                                    : "0 2px 12px rgba(0,0,0,0.5)",
-                                                display: "flex",
-                                                flexDirection: "column",
-                                                gap: 3,
-                                                position: "relative",
-                                                overflow: "hidden",
-                                                userSelect: "none",
-                                                transition: "box-shadow 0.15s, border-color 0.15s",
-                                            }}
-                                        >
-                                            {/* top color bar */}
-                                            <div style={{
-                                                position: "absolute", top: 0, left: 0, right: 0, height: 2,
-                                                background: color, borderRadius: "10px 10px 0 0", opacity: 0.85,
-                                            }} />
-                                            {/* icon + category badge row */}
-                                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 4 }}>
-                                                <CategoryIcon category={node.category} size={18} />
-                                                <span style={{
-                                                    fontSize: 8, background: color + "22", color,
-                                                    border: `1px solid ${color}44`, borderRadius: 4,
-                                                    padding: "1px 5px", fontWeight: 600, letterSpacing: "0.05em",
-                                                    textTransform: "uppercase",
-                                                }}>
-                                                    {node.category}
-                                                </span>
-                                            </div>
-                                            {/* label */}
-                                            <div style={{
-                                                color: "#fff", fontSize: 11, fontWeight: 600, lineHeight: 1.2,
-                                                marginTop: 4, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-                                            }}>
-                                                {node.label}
-                                            </div>
-                                            {/* description */}
-                                            {node.description && (
-                                                <div style={{
-                                                    color: "#6b7280", fontSize: 9, lineHeight: 1.4,
-                                                    overflow: "hidden", display: "-webkit-box",
-                                                    WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
-                                                }}>
-                                                    {node.description}
-                                                </div>
-                                            )}
-                                        </div>
-                                    </foreignObject>
-
-                                    {/* ── Port handles (left + right) ── */}
-                                    {(["left", "right"] as const).map(side => {
-                                        const px = side === "right" ? node.width : 0;
-                                        const py = node.height / 2;
-                                        const isHovP = hoveredPort?.nodeId === node.id && hoveredPort?.side === side;
-                                        return (
-                                            <circle
-                                                key={side}
-                                                data-port="true"
-                                                cx={px}
-                                                cy={py}
-                                                r={isHovP ? 7 : portR}
-                                                fill={isHovP ? color : "#1a1f2e"}
-                                                stroke={color}
-                                                strokeWidth={1.5}
-                                                style={{ cursor: "crosshair", transition: "r 0.1s, fill 0.1s" }}
-                                                onMouseEnter={() => setHoveredPort({ nodeId: node.id, side })}
-                                                onMouseLeave={() => setHoveredPort(null)}
-                                                onMouseDown={e => handlePortMouseDown(e, node.id, side)}
-                                                onMouseUp={e => handlePortMouseUp(e, node.id)}
-                                            />
-                                        );
-                                    })}
-                                </g>
-                            );
-                        })}
-                    </g>
-                </svg>
-
-                {/* ── Connection hover tooltip ── */}
-                {tooltipConn && hoveredConnId && !selectedConnId && (
-                    <div style={{
-                        position: "absolute",
-                        left: tooltipConn.x + 12,
-                        top: tooltipConn.y - 30,
-                        background: "#1a1f2e",
-                        border: "1px solid rgba(139,92,246,0.4)",
-                        borderRadius: 6,
-                        padding: "3px 10px",
-                        fontSize: 11,
-                        color: "#c4b5fd",
-                        pointerEvents: "none",
-                        zIndex: 30,
-                        whiteSpace: "nowrap",
-                    }}>
-                        {connections.find(c => c.id === hoveredConnId)?.label ?? "connection"}
-                    </div>
-                )}
-
-                {/* ── Selected connection panel ── */}
-                {selectedConn && (() => {
-                    const from = nodes.find(n => n.id === selectedConn.fromId);
-                    const to = nodes.find(n => n.id === selectedConn.toId);
-                    return (
-                        <div style={{
-                            position: "absolute",
-                            right: 16,
-                            top: 56,
-                            width: 220,
-                            background: "#131823",
-                            border: "1px solid rgba(139,92,246,0.4)",
-                            borderRadius: 10,
-                            padding: 14,
-                            zIndex: 35,
-                            boxShadow: "0 8px 32px rgba(0,0,0,0.55)",
-                        }}>
-                            <div style={{ fontSize: 10, color: "#a78bfa", fontWeight: 700, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                                Connection
-                            </div>
-                            <div style={{ fontSize: 11, color: "#e5e7eb", marginBottom: 6 }}>
-                                Label: <span style={{ color: "#a78bfa" }}>{selectedConn.label}</span>
-                            </div>
-                            <div style={{ fontSize: 10, color: "#6b7280", marginBottom: 2 }}>Source</div>
-                            <select
-                                value={selectedConn.fromId}
-                                onChange={e => setConnections(prev => prev.map(c => c.id === selectedConn.id ? { ...c, fromId: e.target.value } : c))}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 5, color: "#e5e7eb", fontSize: 11, padding: "5px 7px", boxSizing: "border-box", marginBottom: 8, outline: "none" }}
-                            >
-                                {nodes.map(n => <option key={n.id} value={n.id}>{n.label}</option>)}
-                            </select>
-                            <div style={{ fontSize: 10, color: "#6b7280", marginBottom: 2 }}>Target</div>
-                            <select
-                                value={selectedConn.toId}
-                                onChange={e => setConnections(prev => prev.map(c => c.id === selectedConn.id ? { ...c, toId: e.target.value } : c))}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 5, color: "#e5e7eb", fontSize: 11, padding: "5px 7px", boxSizing: "border-box", marginBottom: 12, outline: "none" }}
-                            >
-                                {nodes.map(n => <option key={n.id} value={n.id}>{n.label}</option>)}
-                            </select>
-                            <div style={{ display: "flex", gap: 8 }}>
-                                <button
-                                    onClick={() => { setConnections(prev => prev.filter(c => c.id !== selectedConn.id)); setSelectedConnId(null); }}
-                                    style={{ flex: 1, background: "#450a0a", border: "1px solid #7f1d1d", borderRadius: 6, color: "#fca5a5", fontSize: 11, padding: "6px 0", cursor: "pointer" }}
-                                >Delete</button>
-                                <button
-                                    onClick={() => setSelectedConnId(null)}
-                                    style={{ flex: 1, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#6b7280", fontSize: 11, padding: "6px 0", cursor: "pointer" }}
-                                >Close</button>
-                            </div>
-                        </div>
-                    );
-                })()}
-
-                {/* ── Inline node edit popover ── */}
-                {editingNode && (() => {
-                    const node = nodes.find(n => n.id === editingNode);
-                    if (!node) return null;
-                    const ex = node.x * zoom + pan.x;
-                    const ey = node.y * zoom + pan.y + node.height * zoom + 8;
-                    return (
-                        <div style={{
-                            position: "absolute",
-                            left: Math.min(ex, window.innerWidth - 270),
-                            top: Math.min(ey, window.innerHeight - 260),
-                            width: 248,
-                            background: "#131823",
-                            border: "1px solid rgba(139,92,246,0.4)",
-                            borderRadius: 10,
-                            padding: 14,
-                            zIndex: 40,
-                            boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
-                        }}>
-                            <div style={{ fontSize: 11, color: "#a78bfa", fontWeight: 700, marginBottom: 8 }}>Edit Node</div>
-                            <input
-                                value={editLabel}
-                                onChange={e => setEditLabel(e.target.value)}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 6, color: "#fff", fontSize: 12, padding: "6px 8px", boxSizing: "border-box", marginBottom: 8, outline: "none" }}
-                                placeholder="Label"
-                            />
-                            <textarea
-                                value={editDesc}
-                                onChange={e => setEditDesc(e.target.value)}
-                                rows={2}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 6, color: "#a3a3a3", fontSize: 11, padding: "6px 8px", boxSizing: "border-box", resize: "none", outline: "none", marginBottom: 8 }}
-                                placeholder="Description"
-                            />
-                            <select
-                                value={editCat}
-                                onChange={e => setEditCat(e.target.value as ComponentCategory)}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#a3a3a3", fontSize: 12, padding: "6px 8px", boxSizing: "border-box", marginBottom: 10, outline: "none" }}
-                            >
-                                {VALID_CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-                            </select>
-                            <div style={{ display: "flex", gap: 8 }}>
-                                <button onClick={saveEdit} style={{ flex: 1, background: "#a78bfa", border: "none", borderRadius: 6, color: "#fff", fontSize: 11, fontWeight: 700, padding: "6px 0", cursor: "pointer" }}>Save</button>
-                                <button onClick={() => setEditingNode(null)} style={{ flex: 1, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 6, color: "#a3a3a3", fontSize: 11, padding: "6px 0", cursor: "pointer" }}>Cancel</button>
-                            </div>
-                        </div>
-                    );
-                })()}
-
-                {/* ── Empty state ── */}
-                {nodes.length === 0 && !isLoading && (
-                    <div style={{
-                        position: "absolute", inset: 0, display: "flex", flexDirection: "column",
-                        alignItems: "center", justifyContent: "center", pointerEvents: "none",
-                    }}>
-                        <div style={{ color: "rgba(139,92,246,0.3)", fontSize: 52, marginBottom: 12 }}>⬡</div>
-                        <p style={{ color: "rgba(255,255,255,0.2)", fontSize: 13, textAlign: "center", lineHeight: 1.8 }}>
-                            No components yet.<br />Ask Yantra AI to get started.
-                        </p>
-                    </div>
-                )}
+                <div className="flex items-center gap-2">
+                    {isLoading && <div className="text-xs text-blue-400 animate-pulse mr-4">Updating from AI...</div>}
+                    <button onClick={handleAutoLayout} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-purple-400 bg-purple-900/20 hover:bg-purple-900/40 rounded border border-purple-900/50 transition-colors"><Network size={12} /> Auto Layout</button>
+                    <button onClick={handleRefresh} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-sky-400 bg-sky-900/20 hover:bg-sky-900/40 rounded border border-sky-900/50 transition-colors"><RefreshCw size={12} /> Refresh</button>
+                    <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-red-900/20 hover:bg-red-900/40 rounded border border-red-900/50 transition-colors"><Trash2 size={12} /> Clear</button>
+                </div>
             </div>
 
-            {/* ── Component Library Sidebar on Right ── */}
-            <div className="w-[320px] h-full bg-[#0B0E14] border-l border-neutral-800/50 flex flex-col shrink-0">
-
-                {/* Header */}
-                <div className="flex items-center justify-between p-4 pb-2 mt-2">
-                    <h2 className="text-xs font-bold text-white tracking-widest uppercase">Component Library</h2>
-                    <button className="text-neutral-500 hover:text-neutral-300">
-                        <X className="w-4 h-4" />
-                    </button>
-                </div>
-
-                {/* Search Bar */}
-                <div className="px-4 py-3 flex gap-2">
-                    <div className="flex-1 bg-[#131823] rounded-lg border border-neutral-800/50 flex items-center px-3">
-                        <Search className="w-4 h-4 text-neutral-500 shrink-0" />
-                        <input
-                            type="text"
-                            placeholder="Search components..."
-                            value={searchQuery}
-                            onChange={e => setSearchQuery(e.target.value)}
-                            className="w-full bg-transparent border-none text-xs text-neutral-200 focus:outline-none focus:ring-0 px-2 py-2.5 placeholder:text-neutral-600"
-                        />
+            <div className="flex-1 flex overflow-hidden relative">
+                {/* 1. COMPONENT LIBRARY (Left Column) */}
+                <div className="w-[320px] h-full bg-[#0B0E14] border-r border-neutral-800/50 flex flex-col shrink-0 z-20">
+                    <div className="flex items-center justify-between p-4 pb-2 mt-2">
+                        <h2 className="text-xs font-bold text-white tracking-widest uppercase">Component Library</h2>
                     </div>
-                    <button className="w-10 bg-[#131823] rounded-lg border border-neutral-800/50 flex items-center justify-center text-neutral-400 hover:text-neutral-200 shrink-0">
-                        <SlidersHorizontal className="w-4 h-4" />
-                    </button>
-                </div>
-
-                {/* Tabs */}
-                <div className="px-4 py-1 flex items-center gap-4 text-[11px] font-medium text-neutral-500 border-b border-neutral-800/30 overflow-x-auto no-scrollbar">
-                    {TABS.map(tab => (
-                        <div
-                            key={tab.key}
-                            onClick={() => setActiveCategory(tab.key)}
-                            className={`pb-2 whitespace-nowrap cursor-pointer relative ${activeCategory === tab.key ? "text-white" : "hover:text-neutral-300"}`}
-                        >
-                            {tab.label}
-                            {activeCategory === tab.key && (
-                                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-500 rounded-t-full" />
-                            )}
-                        </div>
-                    ))}
-                </div>
-
-                {/* List Content */}
-                <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
-                    {isLoading ? (
-                        <div style={{ color: "rgba(139,92,246,0.5)", fontSize: 11, textAlign: "center", marginTop: 40 }}>
-                            Loading components...
-                        </div>
-                    ) : filteredNodes.length === 0 ? (
-                        <div style={{ color: "rgba(255,255,255,0.15)", fontSize: 11, textAlign: "center", marginTop: 32, lineHeight: 1.8 }}>
-                            {nodes.length === 0 ? "Ask the AI to populate components" : "No matching components"}
-                        </div>
-                    ) : filteredNodes.map(node => {
-                        const color = CATEGORY_COLOR[node.category];
-                        const isSelected = selectedId === node.id;
-                        return (
-                            <div
-                                key={node.id}
-                                onClick={() => { setSelectedId(node.id); setSelectedConnId(null); }}
-                                style={{
-                                    width: "100%",
-                                    minHeight: 72,
-                                    background: isSelected ? "#1a1f2e" : "#131823",
-                                    borderRadius: 12,
-                                    borderTop: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
-                                    borderRight: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
-                                    borderBottom: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
-                                    borderLeft: `3px solid ${color}`,
-                                    padding: "10px 12px",
-                                    boxSizing: "border-box",
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                    gap: 10,
-                                    transition: "background 0.15s",
-                                    boxShadow: isSelected ? `0 0 0 1px ${color}33` : "none",
-                                }}
-                            >
-                                <div style={{ marginTop: 2, flexShrink: 0 }}>
-                                    <CategoryIcon category={node.category} size={18} />
-                                </div>
-                                <div style={{ flex: 1, minWidth: 0 }}>
-                                    <div style={{ color: "#fff", fontSize: 11, fontWeight: 700, lineHeight: 1.3, marginBottom: 3, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                                        {node.label}
-                                    </div>
-                                    <div style={{ color: "#6b7280", fontSize: 10, lineHeight: 1.5, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>
-                                        {node.description || "No description"}
-                                    </div>
-                                </div>
-                                <button
-                                    title="Locate on canvas"
-                                    onClick={e => { e.stopPropagation(); locateNode(node.id); }}
-                                    style={{ background: "none", border: "none", color: "#4b5563", cursor: "pointer", padding: 4, borderRadius: 4, display: "flex", alignItems: "center", flexShrink: 0, marginTop: 1 }}
-                                    onMouseEnter={e => (e.currentTarget.style.color = color)}
-                                    onMouseLeave={e => (e.currentTarget.style.color = "#4b5563")}
-                                >
-                                    <Crosshair style={{ width: 13, height: 13 }} />
-                                </button>
-                            </div>
-                        );
-                    })}
-                </div>
-
-                {/* Add Custom Component Button */}
-                <div className="p-4 pb-6 pt-2">
-                    {showAddModal && (
-                        <div style={{
-                            background: "#131823",
-                            border: "1px solid rgba(139,92,246,0.35)",
-                            borderRadius: 12,
-                            padding: 16,
-                            marginBottom: 10,
-                            boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
-                        }}>
-                            <div style={{ fontSize: 11, color: "#a78bfa", fontWeight: 700, marginBottom: 10 }}>New Component</div>
+                    <div className="px-4 py-3 flex gap-2">
+                        <div className="flex-1 bg-[#131823] rounded-lg border border-neutral-800/50 flex items-center px-3">
+                            <Search className="w-4 h-4 text-neutral-500 shrink-0" />
                             <input
-                                value={newName}
-                                onChange={e => setNewName(e.target.value)}
-                                placeholder="Component name"
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#fff", fontSize: 12, padding: "7px 10px", boxSizing: "border-box", marginBottom: 8, outline: "none" }}
+                                type="text"
+                                placeholder="Search library..."
+                                value={searchQuery}
+                                onChange={e => setSearchQuery(e.target.value)}
+                                className="w-full bg-transparent border-none text-xs text-neutral-200 focus:outline-none focus:ring-0 px-2 py-2.5 placeholder:text-neutral-600"
                             />
-                            <select
-                                value={newCat}
-                                onChange={e => setNewCat(e.target.value as ComponentCategory)}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#a3a3a3", fontSize: 12, padding: "7px 10px", boxSizing: "border-box", marginBottom: 8, outline: "none" }}
-                            >
-                                {VALID_CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-                            </select>
-                            <textarea
-                                value={newDesc}
-                                onChange={e => setNewDesc(e.target.value)}
-                                placeholder="Description (optional)"
-                                rows={2}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#a3a3a3", fontSize: 11, padding: "7px 10px", boxSizing: "border-box", resize: "none", outline: "none", marginBottom: 10 }}
-                            />
-                            <div style={{ display: "flex", gap: 8 }}>
-                                <button
-                                    onClick={handleAddComponent}
-                                    style={{ flex: 1, background: "#a78bfa", border: "none", borderRadius: 6, color: "#fff", fontSize: 11, fontWeight: 700, padding: "7px 0", cursor: "pointer" }}
-                                >Add to Canvas</button>
-                                <button
-                                    onClick={() => setShowAddModal(false)}
-                                    style={{ flex: 1, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#6b7280", fontSize: 11, padding: "7px 0", cursor: "pointer" }}
-                                >Cancel</button>
+                        </div>
+                    </div>
+                    <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
+                        <button
+                            onClick={() => setShowAddModal(true)}
+                            className="w-full flex items-center justify-center gap-2 py-2.5 bg-[#0a101d] hover:bg-[#1a2333] border border-blue-900/50 text-blue-400 hover:text-blue-300 rounded-lg text-xs font-semibold transition-colors mb-2"
+                        >
+                            + Add Custom Component
+                        </button>
+                        {filteredNodes.length === 0 ? (
+                            <div className="text-neutral-500 text-xs text-center mt-10">No components found.</div>
+                        ) : (
+                            filteredNodes.map(node => {
+                                const color = CATEGORY_COLOR[node.category] || "#666";
+                                return (
+                                    <div key={`lib-${node.id}`} className="flex items-center justify-between bg-[#131823] rounded-lg p-3 border border-neutral-800/50">
+                                        <div className="flex items-center gap-3">
+                                            <div style={{ width: 28, height: 28, background: "rgba(255,255,255,0.03)", border: `1px solid ${color}40`, borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <CategoryIcon category={node.category} size={14} />
+                                            </div>
+                                            <div>
+                                                <div className="text-white text-xs font-bold truncate max-w-[140px]">{node.label}</div>
+                                                <div className="text-[10px]" style={{ color }}>{node.category}</div>
+                                            </div>
+                                        </div>
+                                        <button onClick={() => {
+                                            const newNode = { ...node, id: `node-dup-${Date.now()}` };
+                                            setNodes(p => [...p, newNode]);
+                                        }} className="text-neutral-500 hover:text-white bg-neutral-800/50 hover:bg-neutral-700/50 p-1.5 rounded-md transition-colors">
+                                            <Plus size={14} />
+                                        </button>
+                                    </div>
+                                );
+                            })
+                        )}
+                    </div>
+                </div>
+
+                {/* 2. DYNAMIC MAIN VIEW (Middle Column) */}
+                <div className="flex-1 h-full bg-[#050505] relative border-r border-neutral-800/50 flex flex-col">
+                    {activeView === "matrix" ? (
+                        <div className="flex-1 overflow-y-auto p-6">
+                            {CATEGORY_ORDER.map(cat => {
+                                const group = groupedNodes[cat];
+                                if (!group || group.length === 0) return null;
+                                const catColor = CATEGORY_COLOR[cat];
+                                return (
+                                    <div key={cat} className="mb-8">
+                                        <div className="text-[10px] font-black uppercase tracking-[0.15em] mb-3 flex items-center gap-2" style={{ color: catColor }}>
+                                            <CategoryIcon category={cat} size={12} /> {cat}
+                                            <div className="flex-1 h-px bg-gradient-to-r from-current to-transparent opacity-20 ml-2" />
+                                        </div>
+                                        <div className="flex flex-col gap-2">
+                                            {group.map(node => {
+                                                const isSelected = selectedId === node.id;
+                                                const nodeOutputs = connections.filter(c => c.fromId === node.id);
+                                                return (
+                                                    <div 
+                                                        key={node.id}
+                                                        onClick={() => setSelectedId(node.id)}
+                                                        className={`flex items-stretch bg-[#0f1219] rounded-xl border transition-all cursor-pointer overflow-hidden ${isSelected ? 'border-sky-500/50 shadow-[0_0_15px_rgba(14,165,233,0.15)] bg-[#131b26]' : 'border-neutral-800/60 hover:border-neutral-700 hover:bg-[#13161c]'}`}
+                                                        style={{ minHeight: '64px' }}
+                                                    >
+                                                        <div className="w-1.5" style={{ background: catColor }} />
+                                                        <div className="flex items-center gap-4 px-4 py-3 w-[300px] shrink-0 border-r border-neutral-800/50">
+                                                            <div style={{ width: 36, height: 36, background: "rgba(255,255,255,0.02)", border: `1px solid ${catColor}30`, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                                <CategoryIcon category={cat} size={20} />
+                                                            </div>
+                                                            <div className="min-w-0">
+                                                                <div className="text-white text-[13px] font-bold truncate">{node.label}</div>
+                                                                <div className="text-neutral-500 text-[10px] uppercase tracking-wider mt-0.5">Qty: 1</div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex-1 px-5 py-3 flex items-center flex-wrap gap-2">
+                                                            {nodeOutputs.length === 0 ? (
+                                                                <span className="text-neutral-600 text-xs italic">No outgoing connections</span>
+                                                            ) : (
+                                                                nodeOutputs.map(conn => {
+                                                                    const targetNode = nodes.find(n => n.id === conn.toId);
+                                                                    if (!targetNode) return null;
+                                                                    return (
+                                                                        <div 
+                                                                            key={conn.id} 
+                                                                            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#1a1f2e] border border-neutral-700/50 text-neutral-300 hover:border-sky-500/50 hover:text-sky-300 transition-colors"
+                                                                            onClick={(e) => { e.stopPropagation(); setSelectedId(targetNode.id); }}
+                                                                        >
+                                                                            <span className="text-neutral-500">⮑</span> {targetNode.label}
+                                                                        </div>
+                                                                    );
+                                                                })
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <div className="flex-1 w-full h-full relative" style={{ minHeight: 0 }}>
+                            <div style={{ width: '100%', height: '100%' }}>
+                                <style>{`
+                                    .custom-edge-hover .edge-label-text, 
+                                    .custom-edge-hover .edge-label-bg {
+                                        opacity: 0;
+                                        transition: opacity 0.2s ease-in-out;
+                                    }
+                                    .custom-edge-hover:hover .edge-label-text, 
+                                    .custom-edge-hover:hover .edge-label-bg,
+                                    .custom-edge-hover.selected .edge-label-text,
+                                    .custom-edge-hover.selected .edge-label-bg {
+                                        opacity: 1;
+                                    }
+                                `}</style>
+                                <ReactFlow
+                                    nodes={rfNodes}
+                                    edges={rfEdges}
+                                    onNodesChange={onNodesChange}
+                                    onConnect={onConnect}
+                                    onNodeClick={(_, node) => setSelectedId(node.id)}
+                                    nodeTypes={nodeTypes}
+                                    fitView
+                                    proOptions={{ hideAttribution: true }}
+                                >
+                                    <Background color="#222" gap={16} />
+                                    <Controls style={{ backgroundColor: '#13161c', border: '1px solid #333' }} />
+                                </ReactFlow>
                             </div>
                         </div>
                     )}
-                    <button
-                        onClick={() => setShowAddModal(v => !v)}
-                        className="w-full py-2.5 rounded-lg border border-blue-500/30 bg-[#0B0E14] text-blue-500 text-xs font-medium flex items-center justify-center gap-2 hover:bg-blue-500/5 transition-colors"
-                    >
-                        <Plus className="w-4 h-4" />
-                        Add Custom Component
-                    </button>
                 </div>
+
+                {/* 3. INSPECTOR (Right Column) */}
+                <div className="w-[340px] h-full bg-[#0B0E14] flex flex-col shrink-0 z-20">
+                    <div className="flex items-center justify-between p-4 border-b border-neutral-800/50 bg-[#0f1219]">
+                        <h2 className="text-xs font-bold text-white tracking-widest uppercase">Inspector</h2>
+                    </div>
+                    
+                    {selectedNode ? (
+                        <div className="flex-1 overflow-y-auto">
+                            {/* Header Details */}
+                            <div className="p-5 border-b border-neutral-800/50">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div style={{ width: 48, height: 48, background: "rgba(255,255,255,0.03)", border: `1px solid ${CATEGORY_COLOR[selectedNode.category]}40`, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                        <CategoryIcon category={selectedNode.category} size={24} />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-white text-sm font-bold leading-tight">{selectedNode.label}</h3>
+                                        <span className="inline-block mt-1 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded" style={{ background: `${CATEGORY_COLOR[selectedNode.category]}20`, color: CATEGORY_COLOR[selectedNode.category] }}>
+                                            {selectedNode.category}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="text-xs text-neutral-400 leading-relaxed mb-4">
+                                    {selectedNode.description || "No description provided for this component."}
+                                </div>
+                                <button 
+                                    onClick={() => {
+                                        setNodes(p => p.filter(n => n.id !== selectedId));
+                                        setConnections(p => p.filter(c => c.fromId !== selectedId && c.toId !== selectedId));
+                                        setSelectedId(null);
+                                    }}
+                                    className="w-full py-2 bg-red-950/30 hover:bg-red-900/40 text-red-400 text-xs font-semibold rounded border border-red-900/30 transition-colors"
+                                >
+                                    Delete Component
+                                </button>
+                            </div>
+
+                            {/* Connection Manager */}
+                            <div className="p-5">
+                                <h4 className="text-[11px] font-bold text-neutral-500 uppercase tracking-widest mb-4">Connection Manager</h4>
+                                
+                                <div className="mb-6">
+                                    <div className="text-xs font-semibold text-neutral-300 mb-2 flex items-center gap-2"><span className="text-emerald-500">▼</span> Inputs To This</div>
+                                    {inputsToSelected.length === 0 ? (
+                                        <div className="text-xs text-neutral-600 bg-[#0f1219] p-3 rounded border border-neutral-800/50">None</div>
+                                    ) : (
+                                        <div className="flex flex-col gap-2">
+                                            {inputsToSelected.map(conn => {
+                                                const fromNode = nodes.find(n => n.id === conn.fromId);
+                                                return (
+                                                    <div key={conn.id} className="flex items-center justify-between bg-[#13161c] p-2.5 rounded border border-neutral-800/80">
+                                                        <div className="text-xs text-neutral-300 truncate pr-2">From: <span className="font-medium text-white">{fromNode?.label || "Unknown"}</span></div>
+                                                        <button onClick={() => setConnections(p => p.filter(c => c.id !== conn.id))} className="text-neutral-500 hover:text-red-400"><Trash2 size={12} /></button>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="mb-6">
+                                    <div className="text-xs font-semibold text-neutral-300 mb-2 flex items-center gap-2"><span className="text-sky-500">▲</span> Outputs From This</div>
+                                    {outputsFromSelected.length === 0 ? (
+                                        <div className="text-xs text-neutral-600 bg-[#0f1219] p-3 rounded border border-neutral-800/50">None</div>
+                                    ) : (
+                                        <div className="flex flex-col gap-2">
+                                            {outputsFromSelected.map(conn => {
+                                                const toNode = nodes.find(n => n.id === conn.toId);
+                                                return (
+                                                    <div key={conn.id} className="flex items-center justify-between bg-[#13161c] p-2.5 rounded border border-neutral-800/80">
+                                                        <div className="text-xs text-neutral-300 truncate pr-2">To: <span className="font-medium text-white">{toNode?.label || "Unknown"}</span></div>
+                                                        <button onClick={() => setConnections(p => p.filter(c => c.id !== conn.id))} className="text-neutral-500 hover:text-red-400"><Trash2 size={12} /></button>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Add Connection */}
+                                <div className="mt-8 pt-6 border-t border-neutral-800/50">
+                                    <h5 className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-3">Add New Connection</h5>
+                                    <div className="flex flex-col gap-3">
+                                        <select 
+                                            value={inspectorConnTarget} 
+                                            onChange={e => setInspectorConnTarget(e.target.value)}
+                                            className="w-full bg-[#0f1219] border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-200 outline-none focus:border-sky-500/50"
+                                        >
+                                            <option value="">Select target component...</option>
+                                            {nodes.filter(n => n.id !== selectedId).map(n => (
+                                                <option key={`opt-${n.id}`} value={n.id}>{n.label}</option>
+                                            ))}
+                                        </select>
+                                        <div className="flex gap-2">
+                                            <input 
+                                                value={inspectorConnLabel}
+                                                onChange={e => setInspectorConnLabel(e.target.value)}
+                                                placeholder="Connection label"
+                                                className="flex-1 bg-[#0f1219] border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-200 outline-none focus:border-sky-500/50"
+                                            />
+                                            <button 
+                                                onClick={handleAddConnection}
+                                                disabled={!inspectorConnTarget}
+                                                className="px-4 bg-sky-600 hover:bg-sky-500 disabled:bg-neutral-800 disabled:text-neutral-600 text-white text-xs font-bold rounded transition-colors"
+                                            >
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+                            <div className="w-16 h-16 rounded-full bg-[#0f1219] border border-neutral-800 flex items-center justify-center mb-4 text-neutral-700">
+                                <LayoutGrid size={24} />
+                            </div>
+                            <h3 className="text-sm font-semibold text-neutral-300 mb-2">No Component Selected</h3>
+                            <p className="text-xs text-neutral-500 leading-relaxed">
+                                Select a component from the Assembly Matrix to view its details and manage connections.
+                            </p>
+                        </div>
+                    )}
+                </div>
+
+                {/* Add Custom Component Modal */}
+                {showAddModal && (
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center">
+                        <div className="w-[360px] bg-[#0B0E14] border border-neutral-800 rounded-xl shadow-2xl p-6">
+                            <h3 className="text-sm font-bold text-white mb-4">Add Custom Component</h3>
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-1">Name</label>
+                                    <input value={newName} onChange={e => setNewName(e.target.value)} className="w-full bg-[#131823] border border-neutral-800 rounded-lg px-3 py-2 text-xs text-white outline-none focus:border-sky-500/50" placeholder="e.g. LIDAR Sensor" />
+                                </div>
+                                <div>
+                                    <label className="block text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-1">Category</label>
+                                    <select value={newCat} onChange={e => setNewCat(e.target.value as ComponentCategory)} className="w-full bg-[#131823] border border-neutral-800 rounded-lg px-3 py-2 text-xs text-white outline-none focus:border-sky-500/50">
+                                        {VALID_CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-1">Description</label>
+                                    <textarea value={newDesc} onChange={e => setNewDesc(e.target.value)} rows={3} className="w-full bg-[#131823] border border-neutral-800 rounded-lg px-3 py-2 text-xs text-white outline-none focus:border-sky-500/50 resize-none" placeholder="Brief description..." />
+                                </div>
+                            </div>
+                            <div className="flex gap-3 mt-6">
+                                <button onClick={() => setShowAddModal(false)} className="flex-1 py-2 rounded-lg text-xs font-semibold text-neutral-400 bg-neutral-800/50 hover:bg-neutral-800 transition-colors">Cancel</button>
+                                <button onClick={handleAddComponent} className="flex-1 py-2 rounded-lg text-xs font-semibold text-white bg-sky-600 hover:bg-sky-500 transition-colors">Add Component</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

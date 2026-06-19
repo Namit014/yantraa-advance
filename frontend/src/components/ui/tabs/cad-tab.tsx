@@ -997,7 +997,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onGeneratedCad }: CA
                         
                         // Match by index first since cadUrls and assemblyTransforms are in the same order.
                         // This avoids the duplicate .find() matching bug for identical parts.
-                        let matchingTransform = assemblyTransforms[fileIndex] || null;
+                        let matchingTransform: typeof assemblyTransforms[0] | null = assemblyTransforms[fileIndex] || null;
                         
                         // Failsafe: if index match does not align with the URL, search the entire array
                         if (matchingTransform) {
