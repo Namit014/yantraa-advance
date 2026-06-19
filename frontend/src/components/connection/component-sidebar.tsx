@@ -47,49 +47,66 @@ export function ComponentSidebar({ onAddComponent }: ComponentSidebarProps) {
 
       {/* Component List */}
       <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-4 scrollbar-thin">
-        {filteredCategories.map((category) => (
-          <div key={category.name}>
-            {/* Category Header */}
-            <div className="flex items-center justify-between mb-2.5">
-              <span className="text-[11px] font-bold text-neutral-400 tracking-wider uppercase">
-                {category.name}
-              </span>
-              <span className="text-[11px] text-neutral-600 font-medium">
-                {category.count}
-              </span>
+        {filteredCategories.length === 0 ? (
+          <div className="flex flex-col items-center justify-center h-full text-center px-4 space-y-4 mt-12">
+            <div className="w-12 h-12 rounded-full bg-[#111a2e] border border-[#1a2744] flex items-center justify-center">
+              <Search className="w-5 h-5 text-neutral-500" />
             </div>
-
-            {/* Component Grid */}
-            <div className="grid grid-cols-4 gap-1.5">
-              {category.items.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => onAddComponent(item.id, item.name)}
-                  draggable
-                  onDragStart={(e) => {
-                    e.dataTransfer.setData("component-id", item.id);
-                    e.dataTransfer.setData("component-name", item.name);
-                    e.dataTransfer.setData("component-icon", item.icon);
-                  }}
-                  className={cn(
-                    "flex flex-col items-center justify-center gap-1 p-2 rounded-lg",
-                    "bg-[#111a2e] border border-[#1a2744]",
-                    "hover:border-blue-600/40 hover:bg-[#131f38]",
-                    "transition-all duration-150 cursor-grab active:cursor-grabbing",
-                    "group"
-                  )}
-                >
-                  <span className="text-xl group-hover:scale-110 transition-transform duration-150">
-                    {item.icon}
-                  </span>
-                  <span className="text-[9px] text-neutral-400 text-center leading-tight group-hover:text-neutral-200 transition-colors line-clamp-2">
-                    {item.name}
-                  </span>
-                </button>
-              ))}
+            <div>
+              <p className="text-sm text-neutral-300 font-medium mb-1">No components found</p>
+              <p className="text-xs text-neutral-500">Try broadening your search or add a custom component.</p>
             </div>
+            <button 
+              className="mt-2 text-xs font-bold bg-[#1e3a5f] hover:bg-[#2563eb] text-blue-300 hover:text-white px-4 py-2 rounded-lg transition-colors border border-blue-800/50"
+            >
+              + Add Custom Component
+            </button>
           </div>
-        ))}
+        ) : (
+          filteredCategories.map((category) => (
+            <div key={category.name}>
+              {/* Category Header */}
+              <div className="flex items-center justify-between mb-2.5">
+                <span className="text-[11px] font-bold text-neutral-400 tracking-wider uppercase">
+                  {category.name}
+                </span>
+                <span className="text-[11px] text-neutral-600 font-medium">
+                  {category.items.length}
+                </span>
+              </div>
+
+              {/* Component Grid */}
+              <div className="grid grid-cols-4 gap-1.5">
+                {category.items.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => onAddComponent(item.id, item.name)}
+                    draggable
+                    onDragStart={(e) => {
+                      e.dataTransfer.setData("component-id", item.id);
+                      e.dataTransfer.setData("component-name", item.name);
+                      e.dataTransfer.setData("component-icon", item.icon);
+                    }}
+                    className={cn(
+                      "flex flex-col items-center justify-center gap-1 p-2 rounded-lg",
+                      "bg-[#111a2e] border border-[#1a2744]",
+                      "hover:border-blue-600/40 hover:bg-[#131f38]",
+                      "transition-all duration-150 cursor-grab active:cursor-grabbing",
+                      "group"
+                    )}
+                  >
+                    <span className="text-xl group-hover:scale-110 transition-transform duration-150">
+                      {item.icon}
+                    </span>
+                    <span className="text-[9px] text-neutral-400 text-center leading-tight group-hover:text-neutral-200 transition-colors line-clamp-2">
+                      {item.name}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
