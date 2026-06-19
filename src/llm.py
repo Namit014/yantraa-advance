@@ -25,7 +25,8 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
     
     payload = {
         "model": model,
-        "max_tokens": 2500,
+        "max_tokens": 4000,
+        "temperature": 0.3,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt}
@@ -41,7 +42,7 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
             "https://openrouter.ai/api/v1/chat/completions",
             headers=headers,
             json=payload,
-            timeout=30
+            timeout=120
         )
         response.raise_for_status()
         data = response.json()

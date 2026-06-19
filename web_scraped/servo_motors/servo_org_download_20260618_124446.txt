@@ -1,0 +1,39 @@
+Source URL: https://servo.org/download/
+Scraped: 2026-06-18T12:44:46.645181
+============================================================
+
+### Servo Technical Overview
+Servo is a lightweight, high-performance web engine designed for embedding web technologies into applications.
+
+### Available Platforms and Builds
+Nightly snapshots are available for the following architectures:
+*   **Windows:** EXE and ZIP formats.
+*   **macOS:** x64 and aarch64 architectures.
+*   **Linux:** x64 architecture.
+*   **Android:** aarch64 architecture.
+*   **OpenHarmony:** aarch64 architecture.
+
+### Configuration and Features
+*   **Experimental Features:** Certain web platform features required by modern web pages are disabled by default.
+*   **Enabling Features:** 
+    *   **GUI:** Via the "Enable experimental web platform features" button in the toolbar.
+    *   **CLI:** By passing the `--enable-experimental-web-platform-features` flag to the servo binary.
+
+### Installation and Execution Instructions
+
+#### macOS
+1.  Download the `.dmg` file.
+2.  Drag `Servo.app` to the Applications folder.
+3.  **Security Workaround (Unidentified Developer):** If blocked, right-click `Servo.app` and select "Open," or navigate to **System Settings > Privacy and Security** and select "Open Anyway."
+4.  **Quarantine Removal:** If the application fails to open, remove the quarantine attribute using: `xattr -r -d com.apple.quarantine /Applications/Servo.app`.
+
+#### Linux
+1.  Download the `.tar.gz` file.
+2.  Extract the file: `tar zxf servo-latest.tar.gz`.
+3.  Navigate to the directory: `cd servo`.
+4.  Execute the binary: `./servo`.
+
+#### Linux Dependency Troubleshooting
+*   **Missing `libgstwebrtc-1.0.so.0`:** Install via `sudo apt install libgstreamer-plugins-bad1.0-0`.
+*   **Symbol lookup error (`gst_webrtc_data_channel_state_get_type`):** Requires GStreamer version 1.16 or greater and gst-plugins-bad version 1.16 or greater.
+*   **Missing `libunwind-x86_64.so.8`:** Ensure `libunwind` is installed.

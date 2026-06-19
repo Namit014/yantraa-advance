@@ -44,9 +44,19 @@ class Retriever:
 
         self.embedder = Embedder()
 
-        self.client = QdrantClient(
-            path="./qdrant_data"
-        )
+        qdrant_url = os.environ.get("QDRANT_URL")
+        qdrant_api_key = os.environ.get("QDRANT_API_KEY")
+        if qdrant_url:
+            print(f"[Retriever] Connecting to remote Qdrant cluster at {qdrant_url[:30]}...")
+            self.client = QdrantClient(
+                url=qdrant_url,
+                api_key=qdrant_api_key
+            )
+        else:
+            print("[Retriever] Connecting to local Qdrant database...")
+            self.client = QdrantClient(
+                path="./qdrant_data"
+            )
 
         # Explicitly close the Qdrant client on exit to avoid
         # "sys.meta_path is None" warning during Python shutdown
@@ -271,7 +281,7 @@ class Retriever:
         for key, filename in known_cads.items():
             if key in query_lower:
                 cad_available = True
-                cad_url = f"/cad/{filename}"
+                cad_url = f"/api/cad/{filename}"
                 break
                 
         if not cad_available and results and results.points:
@@ -283,7 +293,7 @@ class Retriever:
                     for key, filename in known_cads.items():
                         if key.replace(" ", "_") in r_lower or key in r_lower:
                             cad_available = True
-                            cad_url = f"/cad/{filename}"
+                            cad_url = f"/api/cad/{filename}"
                             break
                 if cad_available:
                     break
