@@ -550,6 +550,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
         setConnections(mappedConns);
         setSelectedId(null);
         setSelectedConnId(null);
+        setIsLoading(false);
     }, [designData]);
 
     // ── useEffect: re-fetch when query changes ─────────────────────────────────

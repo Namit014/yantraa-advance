@@ -27,7 +27,7 @@ import {
   Position,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { Sparkles, Loader2, AlertCircle, Zap, ChevronRight, Check, Save } from "lucide-react";
+import { Sparkles, Loader2, AlertCircle, Zap, ChevronRight, Check, Save, Plus } from "lucide-react";
 import { ComponentSilhouette } from "./ComponentSilhouette";
 import { ConnectionSidebar } from "./ConnectionSidebar";
 import {
@@ -95,7 +95,7 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
             ? { left: `${port.offsetPercent}%`, transform: "translateX(-50%)" }
             : { top: `${port.offsetPercent}%`, transform: "translateY(-50%)" }),
         };
-        const handleClass = "hover:scale-150 hover:bg-blue-400 hover:border-white transition-all duration-200 shadow-md";
+        const handleClass = "flex items-center justify-center hover:scale-150 hover:bg-blue-400 hover:border-white transition-all duration-200 shadow-md group";
         return [
           // source handle — id matches edge.sourceHandle
           <Handle
@@ -106,7 +106,9 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
             style={sharedStyle}
             className={handleClass}
             isConnectable
-          />,
+          >
+            <Plus size={8} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+          </Handle>,
           // target handle — same id matches edge.targetHandle
           <Handle
             key={`${port.id}-tgt`}
@@ -116,7 +118,9 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
             style={sharedStyle}
             className={handleClass}
             isConnectable
-          />,
+          >
+            <Plus size={8} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+          </Handle>,
         ];
       })}
 
@@ -243,6 +247,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     setSaveState,
     saveGraph,
     loadGraph,
+    isValidConnection,
   } = useConnectionStore(
     useShallow((s) => ({
       storeNodes: s.nodes,
@@ -262,6 +267,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
       setSaveState: s.setSaveState,
       saveGraph: s.saveGraph,
       loadGraph: s.loadGraph,
+      isValidConnection: s.isValidConnection,
     }))
   );
 
@@ -686,6 +692,10 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
             onNodeDragStop={onNodeDragStop}
             onConnect={handleConnect}
             onEdgeClick={handleEdgeClick}
+            isValidConnection={(connection) => {
+              if (!connection.source || !connection.sourceHandle || !connection.target || !connection.targetHandle) return false;
+              return isValidConnection(connection.source, connection.sourceHandle, connection.target, connection.targetHandle).valid;
+            }}
             nodeTypes={nodeTypes}
             edgeTypes={edgeTypes}
             fitView

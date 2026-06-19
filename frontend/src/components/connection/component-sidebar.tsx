@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, SlidersHorizontal } from "lucide-react";
+import { Search, SlidersHorizontal, X } from "lucide-react";
 import { COMPONENT_CATEGORIES } from "./component-data";
 import { cn } from "@/lib/utils";
 
@@ -18,15 +18,23 @@ export function ComponentSidebar({ onAddComponent }: ComponentSidebarProps) {
     return COMPONENT_CATEGORIES.map((cat) => ({
       ...cat,
       items: cat.items.filter((item) => item.name.toLowerCase().includes(q)),
-    })).filter((cat) => cat.items.length > 0);
+    }));
   }, [searchQuery]);
 
   return (
     <div className="w-[280px] bg-[#0c1220] border-l border-[#1a2744] flex flex-col shrink-0 h-full">
       {/* Header */}
       <div className="px-4 pt-5 pb-3">
-        <h2 className="text-sm font-bold text-white tracking-wider uppercase mb-3">
-          Components
+        <h2 className="text-sm font-bold text-white tracking-wider uppercase mb-3 flex justify-between items-center">
+          <span>Components</span>
+          {searchQuery && (
+            <span className="text-[10px] bg-blue-900/50 text-blue-400 px-2 py-0.5 rounded-full border border-blue-800/50 flex items-center gap-1 font-mono">
+              {filteredCategories.reduce((acc, cat) => acc + cat.items.length, 0)} results
+              <button onClick={() => setSearchQuery("")} className="hover:text-white transition-colors ml-1">
+                <X size={10} />
+              </button>
+            </span>
+          )}
         </h2>
         <div className="relative flex items-center gap-2">
           <div className="relative flex-1">
@@ -76,34 +84,43 @@ export function ComponentSidebar({ onAddComponent }: ComponentSidebarProps) {
               </div>
 
               {/* Component Grid */}
-              <div className="grid grid-cols-4 gap-1.5">
-                {category.items.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => onAddComponent(item.id, item.name)}
-                    draggable
-                    onDragStart={(e) => {
-                      e.dataTransfer.setData("component-id", item.id);
-                      e.dataTransfer.setData("component-name", item.name);
-                      e.dataTransfer.setData("component-icon", item.icon);
-                    }}
-                    className={cn(
-                      "flex flex-col items-center justify-center gap-1 p-2 rounded-lg",
-                      "bg-[#111a2e] border border-[#1a2744]",
-                      "hover:border-blue-600/40 hover:bg-[#131f38]",
-                      "transition-all duration-150 cursor-grab active:cursor-grabbing",
-                      "group"
-                    )}
-                  >
-                    <span className="text-xl group-hover:scale-110 transition-transform duration-150">
-                      {item.icon}
-                    </span>
-                    <span className="text-[9px] text-neutral-400 text-center leading-tight group-hover:text-neutral-200 transition-colors line-clamp-2">
-                      {item.name}
-                    </span>
+              {category.items.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-4 bg-[#111a2e]/50 border border-dashed border-[#1a2744] rounded-lg text-center">
+                  <span className="text-xs text-neutral-500 mb-2">No {category.name} components found</span>
+                  <button className="text-[10px] font-bold bg-[#1e3a5f] hover:bg-[#2563eb] text-blue-300 hover:text-white px-3 py-1.5 rounded-lg transition-colors">
+                    Add Custom Component
                   </button>
-                ))}
-              </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-4 gap-1.5">
+                  {category.items.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => onAddComponent(item.id, item.name)}
+                      draggable
+                      onDragStart={(e) => {
+                        e.dataTransfer.setData("component-id", item.id);
+                        e.dataTransfer.setData("component-name", item.name);
+                        e.dataTransfer.setData("component-icon", item.icon);
+                      }}
+                      className={cn(
+                        "flex flex-col items-center justify-center gap-1 p-2 rounded-lg",
+                        "bg-[#111a2e] border border-[#1a2744]",
+                        "hover:border-blue-600/40 hover:bg-[#131f38]",
+                        "transition-all duration-150 cursor-grab active:cursor-grabbing",
+                        "group"
+                      )}
+                    >
+                      <span className="text-xl group-hover:scale-110 transition-transform duration-150">
+                        {item.icon}
+                      </span>
+                      <span className="text-[9px] text-neutral-400 text-center leading-tight group-hover:text-neutral-200 transition-colors line-clamp-2">
+                        {item.name}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           ))
         )}
