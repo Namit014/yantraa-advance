@@ -1,0 +1,14 @@
+Source URL: https://www.youtube.com/watch?v=Zx6s-OnFwG8
+Scraped: 2026-06-18T13:10:54.578116
+============================================================
+
+The search results indicate that **Heat (1995)** is a **crime film written and directed by Michael Mann**, starring **Al Pacino** and **Robert De Niro**.[2][9] The YouTube result you quoted claims a **Full Movie 4K HD (5.1) with English subtitles** version, but the search snippet alone does not verify whether it is an official or authorized upload.[1]
+
+Key details from the results:
+
+- **Title:** *Heat (1995) Full Movie 4K HD (5.1) with English Subtitles*.[1]
+- **Starring:** Al Pacino, Robert De Niro, Val Kilmer, Jon Voight, Tom Sizemore.[1][2]
+- **Director/Writer:** Michael Mann.[1][2][9]
+- **Format claimed in the result:** **4K**, **Dolby Digital Plus and Dolby Atmos**, **5.1 audio**, and **English subtitles**.[1]
+
+If you want, I can also help extract the **technical metadata** from the 4K release listing, such as video codec, HDR, audio tracks, and subtitle languages.[3]

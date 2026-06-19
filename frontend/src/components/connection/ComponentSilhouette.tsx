@@ -530,16 +530,16 @@ export function ComponentSilhouette({ shape, ports, label }: ComponentSilhouette
           backgroundColor: "rgba(255,255,255,0.08)",
           border: "1px solid rgba(255,255,255,0.12)",
           borderRadius: 6,
-          padding: "2px 10px",
+          padding: "4px 12px",
           color: "white",
-          fontSize: 11,
+          fontSize: 14,
           fontFamily: "monospace",
           fontWeight: "bold",
           letterSpacing: "0.04em",
-          whiteSpace: "nowrap",
-          maxWidth: 280,
-          overflow: "hidden",
-          textOverflow: "ellipsis",
+          textAlign: "center",
+          maxWidth: 220,
+          whiteSpace: "normal",
+          wordBreak: "break-word",
         }}
       >
         {label}
