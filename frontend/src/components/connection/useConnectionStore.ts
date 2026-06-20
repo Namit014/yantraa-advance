@@ -1,5 +1,8 @@
 import { create } from "zustand";
 import type { Node, Edge } from "@xyflow/react";
+import ELK from 'elkjs/lib/elk.bundled.js';
+
+const elk = new ELK();
 
 // ─── Wire / Port Types ─────────────────────────────────────────────────────────
 
@@ -40,6 +43,8 @@ export interface WireData extends Record<string, unknown> {
   color: string;
   label: string;
   wireType: WireType;
+  edgeType?: string;
+  confidence?: number;
 }
 
 export type CircuitNode = Node<CircuitNodeData>;
@@ -69,19 +74,25 @@ interface GenerateResponse {
     id: string;
     label: string;
     type: NodeType;
-    shape: NodeShape;
-    x: number;
-    y: number;
+    shape?: NodeShape;
+    x?: number;
+    y?: number;
     ports: Port[];
   }>;
   wires: Array<{
     id: string;
     from: { nodeId: string; portId: string };
     to: { nodeId: string; portId: string };
-    color: string;
-    label: string;
-    type: WireType;
+    edge_type?: string;
+    protocol?: string;
+    confidence?: number;
+    color?: string;
+    label?: string;
+    type?: WireType;
   }>;
+  explanation?: string;
+  issues?: any[];
+  architecture_detected?: string;
 }
 
 // ─── Demo / seed data ─────────────────────────────────────────────────────────
@@ -668,7 +679,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   generate: async (components, prompt) => {
     set({ isGenerating: true, error: null });
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/connections/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ components, prompt }),
@@ -678,43 +689,79 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
 
       const data: GenerateResponse = await res.json();
 
-      // Convert API response → React Flow nodes
-      const rfNodes: CircuitNode[] = data.nodes.map((n) => ({
-        id: n.id,
-        type: "circuitNode",
-        position: { x: n.x, y: n.y },
-        data: {
-          label: n.label,
-          type: n.type,
-          shape: n.shape,
-          ports: n.ports,
+      // Run ELK layout
+      const elkGraph = {
+        id: "root",
+        layoutOptions: {
+          'elk.algorithm': 'layered',
+          'elk.direction': 'DOWN',
+          'elk.spacing.nodeNode': '100',
+          'elk.layered.spacing.nodeNodeBetweenLayers': '100'
         },
-        draggable: true,
-      }));
+        children: data.nodes.map(n => ({ id: n.id, width: 250, height: 120 })),
+        edges: data.wires.map(w => ({
+          id: w.id,
+          sources: [w.from.nodeId],
+          targets: [w.to.nodeId]
+        }))
+      };
+
+      const layoutedGraph = await elk.layout(elkGraph);
+
+      // Convert API response → React Flow nodes
+      const rfNodes: CircuitNode[] = data.nodes.map((n) => {
+        const layoutNode = layoutedGraph.children?.find(c => c.id === n.id);
+        return {
+          id: n.id,
+          type: "circuitNode",
+          position: { x: layoutNode?.x || 0, y: layoutNode?.y || 0 },
+          data: {
+            label: n.label,
+            type: n.type,
+            shape: n.shape || "generic-board",
+            ports: n.ports,
+          },
+          draggable: true,
+        };
+      });
 
       // Convert API response → React Flow edges
-      const rfEdges: CircuitEdge[] = data.wires.map((w) => ({
-        id: w.id,
-        source: w.from.nodeId,
-        target: w.to.nodeId,
-        sourceHandle: w.from.portId,
-        targetHandle: w.to.portId,
-        type: "circuitWire",
-        label: w.label,
-        data: {
-          from: w.from,
-          to: w.to,
-          color: w.color,
-          label: w.label,
-          wireType: w.type,
-        },
-        style: {
-          stroke: w.color,
-          strokeWidth: 2,
-        },
-        markerEnd: undefined,
-        animated: false,
-      }));
+      const rfEdges: CircuitEdge[] = data.wires.map((w) => {
+        let wireType: WireType = "signal";
+        if (w.edge_type === "POWER_EDGE") wireType = "power";
+        else if (w.edge_type === "CONTROL_EDGE") wireType = "pwm";
+        else if (w.edge_type === "DATA_EDGE") wireType = "data";
+        else if (w.edge_type === "MECHANICAL_EDGE") wireType = "ground"; // using ground color for mechanical for now
+
+        const color = w.color || WIRE_COLORS[wireType];
+        const lbl = w.protocol || w.label || "connected";
+
+        return {
+          id: w.id,
+          source: w.from.nodeId,
+          target: w.to.nodeId,
+          sourceHandle: w.from.portId,
+          targetHandle: w.to.portId,
+          type: "circuitWire",
+          label: lbl,
+          data: {
+            from: w.from,
+            to: w.to,
+            color: color,
+            label: lbl,
+            wireType: wireType,
+            edgeType: w.edge_type,
+            confidence: w.confidence
+          },
+          style: {
+            stroke: color,
+            strokeWidth: w.edge_type === "POWER_EDGE" ? 3 : 2,
+            strokeDasharray: w.edge_type === "CONTROL_EDGE" ? "5 5" : undefined,
+          },
+          markerEnd: undefined,
+          animated: w.edge_type === "DATA_EDGE", // Animate data edges
+        };
+      });
 
       set({ nodes: rfNodes, edges: rfEdges });
     } catch (err) {
