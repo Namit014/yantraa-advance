@@ -1,0 +1,173 @@
+Source URL: https://components101.com/motors/servo-motor-basics-pinout-datasheet
+Scraped: 2026-06-20T17:02:36.779502
+============================================================
+
+[Skip to main content ](https://components101.com/motors/servo-motor-basics-pinout-datasheet#main-content)
+##### Continue to site >>>
+## Top menu
+  * [About Us](https://components101.com/about-us)
+  * [Contact](https://components101.com/contact)
+
+
+[](https://www.facebook.com/electronicscomponents101) [](https://twitter.com/components101) [](https://pinterest.com/components101)
+[ ![Home](https://components101.com/sites/default/files/components101_logo_2.png) ](https://components101.com/ "Home")
+## Main navigation
+  * [New Products ](https://components101.com/latest-news)
+  * [Design Tips ](https://components101.com/articles)
+  * [ICs ](https://components101.com/ics)
+    * [Power ICs ](https://components101.com/power-ics)
+    * [Analog ICs ](https://components101.com/analog-ics)
+    * [Digital ICs ](https://components101.com/digital-ics)
+  * [Passive ](https://components101.com/motors/servo-motor-basics-pinout-datasheet)
+    * [Capacitors ](https://components101.com/capacitors)
+    * [Diodes ](https://components101.com/diodes)
+    * [Resistors ](https://components101.com/resistors)
+    * [Inductors ](https://components101.com/inductors)
+    * [Switches ](https://components101.com/switches)
+    * [Transformers ](https://components101.com/transformers)
+  * [Power ](https://components101.com/motors/servo-motor-basics-pinout-datasheet)
+    * [Transistors ](https://components101.com/transistors)
+    * [IGBT ](https://components101.com/igbt)
+    * [MOSFET ](https://components101.com/mosfets)
+    * [TRIAC ](https://components101.com/triacs)
+    * [Optocouplers ](https://components101.com/optocouplers)
+    * [Regulators ](https://components101.com/regulators)
+    * [Power ICs & Modules ](https://components101.com/power-ics)
+  * [Embedded ](https://components101.com/motors/servo-motor-basics-pinout-datasheet)
+    * [Development Boards ](https://components101.com/development-boards)
+    * [Microcontrollers ](https://components101.com/microcontrollers)
+    * [Sensors ](https://components101.com/sensors)
+    * [Displays ](https://components101.com/displays)
+    * [Wireless ](https://components101.com/wireless)
+  * [Actuators ](https://components101.com/motors/servo-motor-basics-pinout-datasheet)
+    * [Motors ](https://components101.com/motors)
+  * [More ](https://components101.com/motors/servo-motor-basics-pinout-datasheet)
+    * [Connectors ](https://components101.com/connectors)
+    * [Modules ](https://components101.com/modules2)
+    * [Batteries ](https://components101.com/batteries)
+    * [Cables ](https://components101.com/cables)
+    * [Misc. ](https://components101.com/misc)
+
+
+## User account menu
+  * [Log in](https://components101.com/user/login)
+  * [Register](https://components101.com/user/register)
+
+
+Search
+#  Servo Motor SG-90
+18 September 2017 - 0 Comments
+[ ![Servo Motor SG90](https://components101.com/sites/default/files/components/Servo-Motor.jpg)](https://components101.com/sites/default/files/components/Servo-Motor.jpg "SG90 Servo Motor") [![Servo Motor Pinout \(Wires\)](https://components101.com/sites/default/files/component_pin/Servo-Motor-Wires.png)](https://components101.com/sites/default/files/component_pin/Servo-Motor-Wires.png "Servo Motor Pinout \(Wires\)") 
+**SG90 Servo Motor** **Servo Motor Pinout (Wires)** 
+
+###  **Servo Motor Wire****Configuration**  
+|  **Wire Number**  |  **Wire Colour**  |  **Description**  |  
+| --- | --- | --- |  
+|  1  |  Brown  |  Ground wire connected to the ground of system  |  
+|  2  |  Red  |  Powers the motor typically +5V is used  |  
+|  3  |  Orange  |  PWM signal is given in through this wire to drive the motor  |  
+### **TowerPro SG-90 Features**
+  * Operating Voltage is +5V typically
+  * Torque: 2.5kg/cm
+  * Operating speed is 0.1s/60°
+  * Gear Type: Plastic
+  * Rotation : 0°-180°
+  * Weight of motor : 9gm
+  * Package includes gear horns and screws
+
+
+### **SG-90 Servo Motor Equivalent**
+[MG90S](https://components101.com/motors/mg90s-metal-gear-servo-motor) Metal Gear, [MG995](https://components101.com/motors/mg995-servo-motor) High Torque Metal Gear, VTS-08A Analog Servo
+Discover more
+motor
+Radio Control & Modeling
+MOTOR
+### **Selecting your Servo Motor**
+There are lots of [servo motors](https://components101.com/tags/servo-motor) available in the market and each one has its own speciality and applications. The following two paragraphs will help you identify the right type of servo motor for your project/system.
+Most of the hobby Servo motors operates from 4.8V to 6.5V, the higher the voltage higher the torque we can achieve, but most commonly they are operated at +5V. Almost all hobby servo motors can rotate only from 0° to 180° due to their gear arrangement so make sure you project can live with the half circle if no, you can prefer for a 0° to 360° motor or modify the motor to make a full circle. The gears in the motors are easily subjected to wear and tear, so if your application requires stronger and long running motors you can go with metal gears or just stick with normal plastic gear.
+Next comes the most important parameter, which is the **torque** at which the motor operates. Again there are many choices here but the commonly available one is the 2.5kg/cm torque which comes with the Towerpro SG90 Motor. This 2.5kg/cm torque means that the motor can pull a weight of 2.5kg when it is suspended at a distance of 1cm. So if you suspend the load at 0.5cm then the motor can pull a load of 5kg similarly if you suspend the load at 2cm then can pull only 1.25. Based on the load which you use in the project you can select the motor with proper torque. The below picture will illustrate the same.
+![Selecting a servo motor](https://components101.com/sites/default/files/inline-images/Servo-motor-torque.png)
+### **How to use a Servo Motor**
+After selecting the right Servo motor for the project, comes the question how to use it. As we know there are three wires coming out of this motor. The description of the same is given on top of this page. To make this motor rotate, we have to power the motor with +5V using the Red and Brown wire and send PWM signals to the Orange colour wire. Hence we need something that could generate PWM signals to make this motor work, this something could be anything like a 555 Timer or other Microcontroller platforms like Arduino, PIC, ARM or even a microprocessor like Raspberry Pie. Now, how to control the direction of the motor? To understand that let us a look at the picture given in the datasheet.
+![how to use servo motor](https://components101.com/sites/default/files/inline-images/how-to-use-servo-motor.png)
+From the picture we can understand that the PWM signal produced should have a frequency of 50Hz that is the PWM period should be 20ms. Out of which the On-Time can vary from 1ms to 2ms. So when the on-time is 1ms the motor will be in 0° and when 1.5ms the motor will be 90°, similarly when it is 2ms it will be 180°. So, by varying the on-time from 1ms to 2ms the motor can be controlled from 0° to 180°. If you want to learn more you can check out the [Basics of Servo Motor](https://circuitdigest.com/article/servo-motor-working-and-basics) article. 
+### **Applications**
+  * Used as actuators in many robots like Biped Robot, Hexapod, robotic arm etc..
+  * Commonly used for steering system in RC toys
+  * Robots where position control is required without feedback
+  * Less weight hence used in multi DOF robots like humanoid robots
+
+
+### **SG90 Servo Motor Dimensions**
+**![Servo Motor Dimensions](https://components101.com/sites/default/files/inline-images/servo-motor-dimensions.png)**
+**
+Component Datasheet
+[SG90 Servo Motor Datasheet](https://components101.com/sites/default/files/component_datasheet/SG90%20Servo%20Motor%20Datasheet.pdf)
+**
+Loading distributor results for SG90
+### Tags
+[Servo Motor](https://components101.com/tags/servo-motor)
+
+
+## Related Post
+  
+
+  
+
+### Join 20K+subscribers
+We will never spam you.
+* indicates required
+Email Address *
+Name 
+Be a part of our ever growing community.
+![](https://components101.com/sites/default/files/Digikey-featuredProducts.jpg)
+[ ![https://bit.ly/3PR45tq](https://components101.com/sites/default/files/styles/digikey/public/advertisements/New%20Project%20-%202026-06-01T135800.563.jpg?itok=kW04mcyX) ](https://bit.ly/4fdjiPL)
+[MEAN WELL Peripheral Accessories](https://bit.ly/4fdjiPL)
+MEAN WELL Peripheral Accessories are designed to fulfill customers' one-stop shopping requirements.
+[ ![PIC32CM GV Low-Power 32-bit Microcontrollers for Embedded Control](https://components101.com/sites/default/files/styles/digikey/public/advertisements/New%20Project%20-%202026-06-01T140802.178.jpg?itok=oyBUh3zq) ](https://bit.ly/4akZy9r)
+[PIC32CM GV Low-Power 32-bit Microcontrollers for Embedded Control](https://bit.ly/4akZy9r)
+Boost performance and efficiency with PIC32CM GV 32-bit MCU—ideal for secure, low-power designs.
+[ ![ECS-33B Quartz Crystal](https://components101.com/motors/servo-motor-basics-pinout-datasheet) ](https://bit.ly/4edAN1o)
+[ECS-33B Quartz Crystal](https://bit.ly/4edAN1o)
+Tight stability, low aging, surface mount quartz crystal for a variety of IoT applications
+[ ![UNO Q Microcontroller Board](https://components101.com/motors/servo-motor-basics-pinout-datasheet) ](https://bit.ly/4fS4w12)
+[UNO Q Microcontroller Board](https://bit.ly/4fS4w12)
+Arduino UNO Q bridges high-performance computing with real-time control.
+[ ![NPS7601 Compact, Low-IQ Load Switch](https://components101.com/motors/servo-motor-basics-pinout-datasheet) ](https://bit.ly/4x5JKkY)
+[NPS7601 Compact, Low-IQ Load Switch](https://bit.ly/4x5JKkY)
+The Nexperia NPS7601 is a compact, single-channel, regulated forward-drop load switch
+[ ![G6QG-1A PCB Power Relays](https://components101.com/motors/servo-motor-basics-pinout-datasheet) ](https://bit.ly/43LdtBX)
+[G6QG-1A PCB Power Relays](https://bit.ly/43LdtBX)
+Small size and low-height power relay for switching 480 VAC, 55 A.
+[ ![Würth Elektronik EMC Products](https://components101.com/motors/servo-motor-basics-pinout-datasheet) ](https://bit.ly/43GZAVq)
+[Würth Elektronik EMC Products](https://bit.ly/43GZAVq)
+The EMC product range includes PCB and Cable ferrites, inductors, capacitors, and more...
+[ ![HRC05 Series High-Voltage DC/DC Converters](https://components101.com/motors/servo-motor-basics-pinout-datasheet) ](https://bit.ly/49tsJXF)
+[HRC05 Series High-Voltage DC/DC Converters](https://bit.ly/49tsJXF)
+5W high voltage DC-DC converters with outputs up to 6kV for semiconductor & analytical equipment
+![Components101 logo](https://components101.com/sites/default/files/inline-images/components101_logo_1.png)
+Components101 is a resource dedicated for electronics design engineers, covering product news, analysis and articles on latest electronics components. 
+## Important Links
+  * [Contact](https://components101.com/contact)
+  * [Advertise](https://components101.com/contact/advertise)
+  * [Privacy Policy](https://components101.com/privacy-policy)
+  * [Cookie Policy](https://components101.com/cookie-policy)
+
+
+## POPULAR TAGS
+  * [Automotive](https://components101.com/automotive-electronics)
+  * [IoT](https://components101.com/iot-internet-of-things)
+  * [Audio](https://components101.com/audio-electronics)
+  * [Medical](https://components101.com/medical-electronics)
+  * [Industrial](https://components101.com/industrial)
+
+
+  * [Wearable](https://components101.com/wearables)
+  * [Telecom/5G](https://components101.com/telecom)
+  * [Home Automation](https://components101.com/home-automation)
+  * [Electric vehicles](https://components101.com/electric-vehicles)
+  * [Artificial Intelligence](https://components101.com/artificial-intelligence)
+
+
+Copyright 2023 © Components101. All rights reserved
+[](javascript:void\(0\);)

@@ -18,7 +18,7 @@ from crawl4ai import AsyncWebCrawler, CrawlerRunConfig
 
 _PROJECT_ROOT = os.path.dirname(_src_dir)
 KB_DIR = os.path.join(_PROJECT_ROOT, "knowledgebase")
-CAD_SCRAPED_DIR = os.path.join(KB_DIR, "CAD_Models", "Scraped")
+CAD_SCRAPED_DIR = os.path.join(_PROJECT_ROOT, "frontend", "public", "cad")
 SCRAPED_JSON_PATH = os.path.join(KB_DIR, "Robots_MetaData", "scraped_components.json")
 
 # Ensure directories exist
@@ -40,7 +40,7 @@ async def _download_file(url: str, dest_path: str) -> bool:
 
 
 async def scrape_missing_component(component_name: str):
-    print(f"[CAD Scraper] Background task started for missing component: {component_name}")
+    print(f"[CAD Scraper] Task started for missing component: {component_name}")
     
     # Check if already scraped
     if os.path.exists(SCRAPED_JSON_PATH):
@@ -50,7 +50,7 @@ async def scrape_missing_component(component_name: str):
                 for comp in scraped_data.get("components", []):
                     if comp.get("name", "").lower() == component_name.lower():
                         print(f"[CAD Scraper] Component '{component_name}' already exists in scraped_components.json. Skipping.")
-                        return
+                        return comp.get("cad_file")
         except Exception:
             pass
 
@@ -129,7 +129,7 @@ async def scrape_missing_component(component_name: str):
 
     if not extracted_text:
         print(f"[CAD Scraper] No textual metadata could be scraped for {component_name}.")
-        return
+        return cad_filename if cad_downloaded else None
 
     # Use LLM to extract JSON assembly info
     print(f"[CAD Scraper] Extracting assembly metadata using Yantra AI...")
@@ -176,6 +176,8 @@ Scraped Text:
             json.dump(scraped_data, f, indent=4)
             
         print(f"[CAD Scraper] Successfully added {component_name} to scraped_components.json")
+        return cad_filename if cad_downloaded else None
         
     except Exception as e:
         print(f"[CAD Scraper] Failed to extract or save metadata: {e}")
+        return cad_filename if cad_downloaded else None

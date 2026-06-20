@@ -406,6 +406,14 @@ USER REQUEST:
         except Exception:
             pass
 
+    # Universal CAD Scraper Fallback
+    if not matched_cads:
+        print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
+        from scraper.cad_scraper import scrape_missing_component
+        scraped_filename = await scrape_missing_component(query)
+        if scraped_filename:
+            matched_cads.add(scraped_filename)
+
     cad_available = len(matched_cads) > 0
     # Use direct static URL since Next.js hosts the CAD files in public/cad/
     cad_urls = [f"/cad/{f}" for f in matched_cads]
