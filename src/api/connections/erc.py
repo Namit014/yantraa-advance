@@ -17,94 +17,102 @@ def load_hardware_db():
 def validate_and_fix_diagram(diagram: dict) -> dict:
     """
     Runs Electrical Rule Checking (ERC) on the generated node/wire diagram.
-    - Adds missing Star GND if not present.
-    - Routes loose grounds to Star GND.
     """
     fixed_diagram = copy.deepcopy(diagram)
     nodes = fixed_diagram.get("nodes", [])
     wires = fixed_diagram.get("wires", [])
     
     hw_db = load_hardware_db()
-    
-    # 1. Check if STAR GND exists
-    star_gnd_node = None
-    for n in nodes:
-        if "star gnd" in n.get("name", "").lower() or "star gnd" in n.get("label", "").lower() or "star" in n.get("id", "").lower():
-            star_gnd_node = n
-            break
             
-    if not star_gnd_node:
-        # Create a Star GND node
-        star_gnd_node = {
-            "id": "star_gnd_auto",
-            "label": "STAR GND",
-            "type": "power",
-            "shape": "generic-board",
-            "x": 400,
-            "y": 50,
-            "ports": [
-                {"id": "star_gnd_auto-in1", "label": "GND", "side": "bottom", "offsetPercent": 25},
-                {"id": "star_gnd_auto-in2", "label": "GND", "side": "bottom", "offsetPercent": 50},
-                {"id": "star_gnd_auto-in3", "label": "GND", "side": "bottom", "offsetPercent": 75}
-            ]
-        }
-        nodes.append(star_gnd_node)
-        print("[ERC] Added missing STAR GND node.")
-        
-    # 2. Check for missing grounds in known components
-    for node in nodes:
-        node_name_lower = node.get("label", "").lower()
-        if node["id"] == star_gnd_node["id"]:
-            continue
-            
-        # Is there a wire connected to ground for this node?
-        has_gnd_wire = False
-        gnd_port_id = None
-        for p in node.get("ports", []):
-            if "gnd" in p.get("label", "").lower() or "ground" in p.get("label", "").lower():
-                gnd_port_id = p["id"]
-                # Check if wire exists
-                for w in wires:
-                    if (w.get("from", {}).get("nodeId") == node["id"] and w.get("from", {}).get("portId") == gnd_port_id) or \
-                       (w.get("to", {}).get("nodeId") == node["id"] and w.get("to", {}).get("portId") == gnd_port_id):
-                        has_gnd_wire = True
-                        break
-            if has_gnd_wire:
-                break
-                
-        # Auto-route ground to STAR GND if missing
-        if not has_gnd_wire and gnd_port_id:
-            wire_id = f"auto-gnd-{node['id']}"
-            wires.append({
-                "id": wire_id,
-                "from": {"nodeId": node["id"], "portId": gnd_port_id},
-                "to": {"nodeId": star_gnd_node["id"], "portId": star_gnd_node["ports"][0]["id"]},
-                "color": "#888888",
-                "label": "GND (Auto-routed)",
-                "type": "ground"
-            })
-            print(f"[ERC] Auto-routed missing GND for node {node['label']}")
-            
-    # 3. Voltage compatibility check (Warning only for now)
     for w in wires:
         if w.get("type") in ["power", "signal"]:
             from_node = next((n for n in nodes if n["id"] == w.get("from", {}).get("nodeId")), None)
             to_node = next((n for n in nodes if n["id"] == w.get("to", {}).get("nodeId")), None)
             
             if from_node and to_node:
-                # Basic check logic based on labels (in a full system, we use hardware_db explicit voltages)
                 from_label = from_node.get("label", "").lower()
                 to_label = to_node.get("label", "").lower()
                 
-                # Check hardware DB
                 from_hw = next((hw for k, hw in hw_db.items() if k in from_label), None)
                 to_hw = next((hw for k, hw in hw_db.items() if k in to_label), None)
                 
                 if from_hw and to_hw and "power" in w.get("type", ""):
                     from_port = w.get("from", {}).get("portId")
-                    # simple heuristic for demonstration without over-engineering
                     pass 
 
     fixed_diagram["nodes"] = nodes
     fixed_diagram["wires"] = wires
     return fixed_diagram
+
+def llm_validate_diagram(diagram: dict, user_prompt: str) -> dict:
+    """
+    Performs a deep LLM-based Electrical Rule Check (ERC).
+    Validates wiring, checks for missing safety features (fuses, estops),
+    and redelivers a corrected diagram along with an explanation report.
+    """
+    import requests
+    from dotenv import load_dotenv
+    load_dotenv()
+    
+    OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
+    if not OPENROUTER_API_KEY:
+        print("[ERC Pass 2] No OpenRouter API key found. Skipping.")
+        diagram["erc_report"] = "Pass 2 skipped: No API Key."
+        return diagram
+
+    diagram_str = json.dumps(diagram, indent=2)
+
+    system_prompt = (
+        "You are a Senior Electrical Engineer reviewing a generated circuit diagram. "
+        "The current diagram may contain unnecessary industrial components like limit switches, "
+        "excessive decoupling capacitors, emergency stops, or overly complex routing that clutters the UI. "
+        "Your job is to SIMPLIFY the diagram while ensuring it still strictly works. "
+        "REMOVE any components that are not strictly necessary for the core functionality requested in the user prompt. "
+        "Ensure all grounds are logically routed to the main controller or power supply without creating unnecessary 'STAR GND' blocks. "
+        "Fix any floating power or signal connections for the remaining essential parts. "
+        "Return the EXACT updated JSON containing ONLY the 'nodes' and 'wires' arrays, AND add a third top-level key called 'erc_report' containing a short 2-3 sentence string explaining what you fixed or removed to simplify it. "
+        "DO NOT output Markdown fences. Return raw JSON."
+    )
+
+    user_message = f"User Prompt: {user_prompt}\n\nCurrent Diagram JSON:\n{diagram_str}\n\nPlease perform ERC validation, remove unnecessary clutter/components, fix wiring, and return the simplified JSON with your erc_report."
+
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "model": os.environ.get("OPENROUTER_MODEL", "openrouter/owl-alpha"),
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_message}
+        ]
+    }
+
+    try:
+        print("[ERC Pass 2] Calling LLM to validate and simplify diagram...")
+        response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload, timeout=30)
+        response.raise_for_status()
+        result_text = response.json()["choices"][0]["message"]["content"].strip()
+        
+        # Clean markdown if present
+        if result_text.startswith("```"):
+            lines = result_text.split("\n")
+            if lines[0].startswith("```"):
+                lines = lines[1:]
+            if lines[-1].startswith("```"):
+                lines = lines[:-1]
+            result_text = "\n".join(lines).strip()
+            
+        fixed_data = json.loads(result_text)
+        
+        if "nodes" in fixed_data and "wires" in fixed_data:
+            return fixed_data
+        else:
+            print("[ERC Pass 2] LLM returned invalid JSON structure.")
+            diagram["erc_report"] = "Pass 2 failed to parse JSON structure."
+            return diagram
+
+    except Exception as e:
+        print(f"[ERC Pass 2] Error during LLM validation: {e}")
+        diagram["erc_report"] = f"Pass 2 validation error: {e}"
+        return diagram

@@ -57,6 +57,20 @@ def extract_json(text: str) -> dict:
             pass
     raise ValueError(f"Could not extract JSON from LLM response: {text[:300]}")
 
+def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
+    bom_map = {}
+    for item in bom:
+        if not isinstance(item, dict):
+            continue
+        name = item.get("name", "").strip()
+        if not name:
+            continue
+        if name in bom_map:
+            bom_map[name]["qty"] += item.get("qty", 1)
+        else:
+            bom_map[name] = {"id": item.get("id", name), "name": name, "qty": item.get("qty", 1)}
+    return list(bom_map.values())
+
 from llm import DEFAULT_MODEL
 
 def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = DEFAULT_MODEL) -> str:
@@ -480,6 +494,9 @@ Generate the robot assembly JSON now."""
 
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
+    
+    assembly_transforms = []
+    assembly_mode = "side_by_side"
     
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")
     print(f"[api/design] Assembly mode: {assembly_mode}, CADs: {len(cad_urls)}")

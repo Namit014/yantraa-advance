@@ -818,13 +818,28 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         const fromPortId = w.from.portId.toString().toLowerCase().replace(/\s+/g, '_');
         const toPortId = w.to.portId.toString().toLowerCase().replace(/\s+/g, '_');
 
-        const fromNodeExists = rfNodes.some(n => n.id === fromNodeId);
-        const toNodeExists = rfNodes.some(n => n.id === toNodeId);
+        const fromNodeExists = rfNodes.find(n => n.id === fromNodeId);
+        const toNodeExists = rfNodes.find(n => n.id === toNodeId);
         if (!fromNodeExists) {
           console.warn(`Generated edge references non-existent source node ID: ${fromNodeId}`);
         }
         if (!toNodeExists) {
           console.warn(`Generated edge references non-existent target node ID: ${toNodeId}`);
+        }
+
+        // Force green color for sensor feedback wires if LLM missed it
+        let finalColor = w.color;
+        let finalType = w.type;
+        
+        const isSensorNode = (n: any) => {
+          if (!n) return false;
+          const str = (n.data.type + " " + n.data.label + " " + n.id).toLowerCase();
+          return str.includes("sensor") || str.includes("feedback") || str.includes("ultrasonic") || str.includes("camera") || str.includes("encoder") || str.includes("imu") || str.includes("switch") || str.includes("limit") || str.includes("hall") || str.includes("potentiometer");
+        };
+
+        if (isSensorNode(fromNodeExists) || isSensorNode(toNodeExists) || w.type === "feedback" || w.label.toLowerCase().includes("feedback") || w.label.toLowerCase().includes("sensor")) {
+          finalColor = "#00FF00";
+          finalType = "feedback";
         }
 
         return {
@@ -838,12 +853,12 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
           data: {
             from: { nodeId: fromNodeId, portId: fromPortId },
             to: { nodeId: toNodeId, portId: toPortId },
-            color: w.color,
+            color: finalColor,
             label: w.label,
-            wireType: w.type,
+            wireType: finalType,
           },
           style: {
-            stroke: w.color,
+            stroke: finalColor,
             strokeWidth: 3.5,
           },
           markerEnd: undefined,

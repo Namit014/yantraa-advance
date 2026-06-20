@@ -119,84 +119,9 @@ def _strip_markdown_json(text: str) -> str:
 
 
 def _fallback_diagram(components: List[ComponentIn]) -> dict:
-    """
-    Generate a simple fallback diagram when the LLM fails or returns invalid JSON.
-    Lays out nodes in a grid and connects them sequentially.
-    """
-    # Shape heuristics
-    def pick_shape(c: ComponentIn) -> str:
-        n = (c.name + c.id).lower()
-        if "raspberry" in n or "rpi" in n:
-            return "raspberry-pi"
-        if "arduino" in n or "uno" in n or "nano" in n:
-            return "arduino-uno"
-        if "esp32" in n or "esp8266" in n:
-            return "esp32"
-        if "breadboard" in n:
-            return "breadboard"
-        if "ic" in n or "chip" in n or "dip" in n or "74hc" in n:
-            return "ic-chip"
-        return "generic-board"
+    """Fallback if LLM JSON fails."""
+    return {"nodes": [], "wires": [], "erc_report": "Generation failed to parse properly. Please click Generate again to retry."}
 
-    def pick_type(c: ComponentIn) -> str:
-        t = c.type.lower()
-        n = c.name.lower()
-        if "controller" in t or "microcontroller" in t or "arduino" in n or "raspberry" in n or "esp" in n:
-            return "microcontroller"
-        if "sensor" in t or "sensor" in n:
-            return "sensor"
-        if "motor" in t or "actuator" in t:
-            return "motor"
-        if "power" in t or "battery" in n or "supply" in n:
-            return "power"
-        if "display" in t or "lcd" in n or "oled" in n:
-            return "display"
-        return "module"
-
-    COLS = 3
-    nodes = []
-    for i, comp in enumerate(components):
-        col = i % COLS
-        row = i // COLS
-        x = 80 + col * 320
-        y = 80 + row * 280
-
-        ports = [
-            {"id": f"{comp.id}-vcc", "label": "VCC", "side": "top", "offsetPercent": 20},
-            {"id": f"{comp.id}-gnd", "label": "GND", "side": "top", "offsetPercent": 80},
-            {"id": f"{comp.id}-out", "label": "OUT", "side": "right", "offsetPercent": 50},
-            {"id": f"{comp.id}-in", "label": "IN", "side": "left", "offsetPercent": 50},
-        ]
-
-        nodes.append(
-            {
-                "id": comp.id,
-                "label": comp.name,
-                "type": pick_type(comp),
-                "shape": pick_shape(comp),
-                "x": x,
-                "y": y,
-                "ports": ports,
-            }
-        )
-
-    # Connect sequentially
-    wires = []
-    for i in range(len(nodes) - 1):
-        src = nodes[i]
-        tgt = nodes[i + 1]
-        wires.append(
-            {
-                "id": f"wire-{i}",
-                "from": {"nodeId": src["id"], "portId": f'{src["id"]}-out'},
-                "to": {"nodeId": tgt["id"], "portId": f'{tgt["id"]}-in'},
-                "color": "#4488FF",
-                "label": "signal",
-                "type": "signal",
-            }
-        )
-
-    return {"nodes": nodes, "wires": wires}
 
 
 @router.post("/api/connections/generate")
@@ -288,9 +213,10 @@ CONNECTION RULES (you must follow these exactly):
 WIRE COLOR CONVENTION:
 - power (3.3V/5V/12V): #FF4444
 - ground: #888888
-- signal/PWM: #FFD700
+- control/signal/PWM: #FFD700
 - data (I2C/SPI/UART): #4488FF
-- CAN: #44FF88
+- sensor/feedback: #00FF00
+- safety/e-stop: #FFFF00
 
 NODE SHAPE RULES:
 - Use "raspberry-pi" for Raspberry Pi boards
@@ -301,13 +227,13 @@ NODE SHAPE RULES:
 - Use "generic-board" for everything else
 
 ROBOTICS STANDARDS & REQUIREMENTS:
-- SEMANTIC LABELING (CRITICAL): Assign role-based labels to EACH component. Pair each A4988 driver with its dedicated NEMA 17 motor explicitly. NEVER use generic duplicate names like "Stepper Motor" for multiple parts.
-- SIGNAL ARCHITECTURE: Clearly separate and label Power lines, Signal lines, and Ground lines. Add explicit control signal labels on the wires: STEP, DIR, ENABLE. Add power labels: VCC, GND.
-- MOTOR CONTROL: Enforce a strict 1:1 relationship between A4988 drivers and NEMA 17 motors using direct labeled signal paths. Ensure VMOT connects to the main motor supply with a capacitor.
-- FEEDBACK LOOPS: Add limit switches or encoders for closed-loop feedback, with explicit feedback labels.
-- Grounding: Add an explicit "STAR GND" node component. Ensure Logic GND, Motor GND, and Servo GND all explicitly route back to this single "STAR GND" node.
-- Emergency Stop: Position the emergency stop in the main power interruption path (between battery/fuse and the rest of the system).
-- Layout Readability: Improve text readability by avoiding overlapping labels and maintaining uniform spacing. Distribute nodes using a cleaner hierarchical visual flow from top to bottom or left to right: Battery → Fuse → Controller → Drivers → Motors → Sensors.
+- SIMPLICITY FIRST (CRITICAL): ONLY generate the strictly necessary components. DO NOT add unnecessary components like decoupling capacitors, flyback diodes, or limit switches unless requested.
+- STRICTLY ELECTRICAL: DO NOT include purely mechanical brackets, adapters, tubes, or structural mounts in the diagram. Only electrical/electronic components (motors, controllers, sensors, power) are allowed.
+- CORE ELECTRONICS: You MUST include the main microcontroller (e.g., Arduino/Raspberry Pi), required motor drivers (e.g., L298N or A4988) for any actuators provided, and a main power supply/battery.
+- SEMANTIC LABELING: Assign role-based labels to EACH component. NEVER use generic duplicate names for multiple parts.
+- SIGNAL ARCHITECTURE: Clearly separate and label Power lines, Signal lines, and Ground lines. ALWAYS use "feedback" type and "#00FF00" color for wires connected to sensors!
+- MOTOR CONTROL: Enforce a strict 1:1 relationship between drivers and motors where appropriate.
+- Layout Readability: Improve text readability by avoiding overlapping labels and maintaining uniform spacing. Distribute nodes using a cleaner hierarchical visual flow from left to right: Power -> Controller -> Drivers -> Motors.
 
 Return ONLY this JSON structure (no markdown fences):
 {{
@@ -330,8 +256,8 @@ Return ONLY this JSON structure (no markdown fences):
       "from": {{ "nodeId": string, "portId": string }},
       "to": {{ "nodeId": string, "portId": string }},
       "color": string (hex),
-      "label": string (e.g. "I2C SDA", "PWM", "GND"),
-      "type": "power"|"ground"|"signal"|"data"|"pwm"|"can"
+      "label": string (e.g. "I2C SDA", "PWM", "GND", "Sensor Data"),
+      "type": "power"|"ground"|"signal"|"data"|"pwm"|"feedback"|"safety"
     }}
   ]
 }}
@@ -372,7 +298,22 @@ IMPORTANT:
         if logs:
             print(f"[connections/generate] Upstream connections validated/repaired: {logs}")
 
-        return diagram
+        # Pass 2: Deep LLM ERC Validation
+        from api.connections.erc import llm_validate_diagram
+        print("[connections/generate] Starting Pass 2: Deep LLM ERC Validation...")
+        validated_data = llm_validate_diagram(diagram, request.prompt)
+        
+        final_diagram = validated_data.get("diagram", diagram)
+        erc_report = validated_data.get("erc_report", "Validation passed with no remarks.")
+        
+        # Ensure diagram structure is maintained
+        if "nodes" not in final_diagram or "wires" not in final_diagram:
+            final_diagram = diagram
+            
+        final_diagram["erc_report"] = erc_report
+        print("[connections/generate] Pass 2 Complete.")
+        
+        return final_diagram
 
     except Exception as exc:
         print(f"[connections/generate] LLM/parse error: {exc}")
