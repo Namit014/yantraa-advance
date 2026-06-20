@@ -1,4 +1,5 @@
 import uuid
+import hashlib
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
     Distance,
@@ -6,6 +7,40 @@ from qdrant_client.models import (
     PointStruct
 )
 
+QDRANT_DATA_PATH = "./qdrant_data"
+_client = QdrantClient(path=QDRANT_DATA_PATH)
+
+def compute_content_hash(text: str) -> str:
+    """Compute SHA-256 hash of a string."""
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+def get_all_content_hashes(client, collection_name="yantra_knowledgebase") -> set:
+    """Scroll through Qdrant collection to retrieve all existing content hashes."""
+    hashes = set()
+    try:
+        collections = client.get_collections()
+        existing = [c.name for c in collections.collections]
+        if collection_name not in existing:
+            return hashes
+            
+        offset = None
+        while True:
+            results, next_page_offset = client.scroll(
+                collection_name=collection_name,
+                limit=100,
+                with_payload=["content_hash"],
+                with_vectors=False,
+                offset=offset
+            )
+            for record in results:
+                if record.payload and "content_hash" in record.payload:
+                    hashes.add(record.payload["content_hash"])
+            if not next_page_offset:
+                break
+            offset = next_page_offset
+    except Exception as e:
+        print(f"Error retrieving content hashes: {e}")
+    return hashes
 
 class VectorDB:
 
@@ -21,9 +56,7 @@ class VectorDB:
         if client:
             self.client = client
         else:
-            self.client = QdrantClient(
-                path="./qdrant_data"
-            )
+            self.client = _client
 
         self._create_collection(
             vector_size
@@ -65,15 +98,19 @@ class VectorDB:
         for idx, chunk in enumerate(
             embedded_chunks
         ):
+            # Compute content hash and store it in payload
+            c_hash = compute_content_hash(chunk["text"])
+            payload = {
+                "text": chunk["text"],
+                "content_hash": c_hash,
+                **chunk["metadata"]
+            }
 
             points.append(
                 PointStruct(
                     id=str(uuid.uuid4()),
                     vector=chunk["embedding"],
-                    payload={
-                        "text": chunk["text"],
-                        **chunk["metadata"]
-                    }
+                    payload=payload
                 )
             )
 
@@ -87,7 +124,9 @@ class VectorDB:
         )
         
     def close(self):
-        self.client.close()
+        # We don't close the shared client here to keep the singleton open,
+        # but keep the interface for compatibility.
+        pass
 
 
 if __name__ == "__main__":

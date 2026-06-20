@@ -2,9 +2,9 @@
 backend/api/connections/generate.py
 POST /api/connections/generate
 
-Accepts { components: [{id, name, type}], prompt: str }
+Accepts { components: [{id, name, type}], prompt: str, subsystems?: [...] }
 1. For each component, queries Qdrant RAG for its pinout/connection data
-2. Calls OpenRouter (google/gemini-flash-1.5) with RAG context
+2. Calls OpenRouter with RAG context
 3. Returns structured JSON: { nodes, wires }
 """
 
@@ -28,21 +28,31 @@ if _src_dir not in sys.path:
 # ── OpenRouter config ──────────────────────────────────────────────────────────
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-# Gemini 2.5 Flash via OpenRouter
-CONNECTIONS_MODEL = "openrouter/owl-alpha"
+# Use Gemini 2.5 Flash as the default model
+CONNECTIONS_MODEL = "gemini-2.5-flash"
 
 # ── Pydantic models ────────────────────────────────────────────────────────────
-
 
 class ComponentIn(BaseModel):
     id: str
     name: str
     type: str = "other"
 
+class SubsystemComponentIn(BaseModel):
+    id: str
+    name: str
+    role: Optional[str] = None
+    voltage: Optional[str] = None
+    interface: Optional[str] = None
+
+class SubsystemIn(BaseModel):
+    name: str
+    components: List[SubsystemComponentIn]
 
 class GenerateRequest(BaseModel):
     components: List[ComponentIn]
     prompt: str
+    subsystems: Optional[List[SubsystemIn]] = None
 
 
 # ── Router ─────────────────────────────────────────────────────────────────────
@@ -50,13 +60,17 @@ class GenerateRequest(BaseModel):
 router = APIRouter()
 
 
-def _rag_search(query: str, retriever, top_k: int = 5) -> str:
-    """Query Qdrant for pinout context for a given component name."""
+def _rag_search(query: str, top_k: int = 5) -> str:
+    """Query Qdrant singleton for pinout context for a given component name."""
     try:
-        vec = retriever._embed_query(query)
+        from embedder import Embedder
+        from vectordb import _client
 
-        results = retriever.client.query_points(
-            collection_name=retriever.collection_name,
+        embedder = Embedder()
+        vec = embedder.embed_text(query)
+
+        results = _client.query_points(
+            collection_name="yantra_knowledgebase",
             query=vec,
             limit=top_k,
         )
@@ -186,7 +200,7 @@ def _fallback_diagram(components: List[ComponentIn]) -> dict:
 async def generate_connections(request: GenerateRequest, req: Request):
     """
     Step 1: For each component, query Qdrant RAG for pinout data.
-    Step 2: Call Gemini 2.5 Flash via OpenRouter with context + prompt.
+    Step 2: Call Gemini via OpenRouter with context + prompt.
     Step 3: Return structured node/wire JSON.
     """
     if not request.prompt.strip():
@@ -206,7 +220,28 @@ async def generate_connections(request: GenerateRequest, req: Request):
         if ctx:
             rag_contexts.append(f"## RAG Context for: {request.prompt}\n{ctx}")
 
-    rag_block = "\n\n".join(rag_contexts) if rag_contexts else "(No RAG data available — use general knowledge)"
+    rag_block = "\n\n".join(rag_contexts) if rag_contexts else ""
+
+    # Grounding context from subsystems if RAG context is empty/insufficient
+    grounding_block = ""
+    if not rag_block:
+        print("[connections/generate] RAG context is empty. Grounding with design subsystems.")
+        if request.subsystems:
+            subsystems_list = []
+            for sub in request.subsystems:
+                comp_strs = []
+                for comp in sub.components:
+                    comp_strs.append(f"  - Component: ID={comp.id}, Name={comp.name}, Role={comp.role or ''}, Voltage={comp.voltage or ''}, Interface={comp.interface or ''}")
+                subsystems_list.append(f"Subsystem: {sub.name}\n" + "\n".join(comp_strs))
+            grounding_block = "DESIGN SUBSYSTEM STRUCTURE FOR GROUNDING:\n" + "\n\n".join(subsystems_list)
+        else:
+            grounding_block = "(No detailed design subsystem grounding context available)"
+    else:
+        grounding_block = f"RAG PINOUT DATA:\n{rag_block}"
+
+    # Load connection rules from connection_kb.py
+    from connection_kb import CONNECTION_RULES, validate_connections
+    serialized_rules = "\n".join(f"{idx + 1}. {rule}" for idx, rule in enumerate(CONNECTION_RULES))
 
     # ── Step 2: Build LLM prompt ───────────────────────────────────────────────
     if request.components:
@@ -229,8 +264,11 @@ COMPONENTS:
 
 USER PROMPT: {request.prompt}
 
-RAG PINOUT DATA:
-{rag_block}
+GROUNDING CONTEXT:
+{grounding_block}
+
+CONNECTION RULES (you must follow these exactly):
+{serialized_rules}
 
 WIRE COLOR CONVENTION:
 - power (3.3V/5V/12V): #FF4444
@@ -308,6 +346,12 @@ IMPORTANT:
         # Validate minimal structure
         if "nodes" not in diagram or "wires" not in diagram:
             raise ValueError("Missing 'nodes' or 'wires' keys in LLM response")
+
+        # Run connection validation rules after LLM response
+        valid_wires, logs = validate_connections(diagram["nodes"], diagram["wires"])
+        diagram["wires"] = valid_wires
+        if logs:
+            print(f"[connections/generate] Connections validated/repaired: {logs}")
 
         return diagram
 
