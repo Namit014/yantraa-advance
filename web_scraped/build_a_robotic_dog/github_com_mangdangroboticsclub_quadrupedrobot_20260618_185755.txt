@@ -1,0 +1,44 @@
+Source URL: https://github.com/mangdangroboticsclub/QuadrupedRobot
+Scraped: 2026-06-18T18:57:55.396178
+============================================================
+
+Based on the source text, here are the relevant technical specifications and facts:
+
+**Product Overview**
+- Mini Pupper is an open-source ROS robot dog platform supporting ROS SLAM, Navigation, and OpenCV AI features with Lidar and camera sensors.
+- Target price: under $500 USD.
+- Mini Pupper 2 is a ROS2-based successor launched on Kickstarter.
+
+**Hardware Specifications**
+- 12 DOF (degrees of freedom) — the first consumer 12 DOF quadruped robot designed for mass production.
+- All 12 servos are individually controlled via a PCA9685 controller.
+- Custom "Mini Pupper servo" — a purpose-built 9g-class servo with high torque and high fidelity, developed after off-the-shelf hobbyist servos failed quality requirements.
+- Uses metal threaded inserts (not purely 3D-printed joints) for durability and easy disassembly/reassembly.
+- IMU integrated into the carry board to reduce wiring.
+- Customized servo cable lengths for a cleaner internal build.
+- Onboard power switch (no need to plug/unplug wires to power on/off).
+- Battery charged without removal from the robot; onboard voltmeter provides low-battery alarm.
+- HMI LCD display for animal-like expressions and user interaction — first consumer quadruped robot with an LCD for animal behaviors.
+
+**Gait Performance**
+- Supports multiple gaits: Trot (diagonal pairs), Pace (lateral pairs), and Bound (front and rear pairs).
+- Gait performance depends on the 12-servo control loop time.
+
+**Software & Sensors**
+- ROS-based (Mini Pupper 2 supports ROS2).
+- OpenCV support with OAK-D-Lite 3D camera module.
+- Lidar sensor for SLAM and Navigation.
+- Compatible with Raspberry Pi.
+- PS4 joystick support included in the repository.
+
+**Repository Structure**
+- Branches: Doc, Legacy, Mangdang, PS4Joystick, PupperCommand, StanfordQuadruped, UDPComms.
+- Installation involves flashing Ubuntu 22.04 preinstalled image to an SD card, cloning the repository, and running `pre_install.sh` and `install.sh` scripts.
+- 87 commits in the repository history.
+
+**Recognition & Endorsements**
+- Endorsed by ROS, OpenCV, and Raspberry Pi.
+- Won a Hackaday Prize.
+- Featured on the first page of Kickstarter and Makuake.
+- Workshop held at Amazon 2022 re:MARS and ROSCon 2022.
+- Supported by Nathan Kau (Stanford Student Robotics) and MangDang Technology Co., Limited.

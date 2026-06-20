@@ -1,0 +1,91 @@
+Source URL: https://www.hackster.io/Muhammad-sheraz/obstacle-avoiding-pet-dog-robot-tomy-using-arduino-239db7
+Scraped: 2026-06-18T18:36:06.577001
+============================================================
+
+# Obstacle Avoiding Pet Dog Robot TOMY Using Arduino
+
+**Project by:** Engr Muhammad Sheraz
+**Published:** March 8, 2022
+**License:** LGPL
+**Difficulty:** Intermediate
+**Build Time:** 20 hours
+**Views:** 1,917
+
+---
+
+## Overview
+
+The robotic dog "Tomy" is designed for people who love robots, coding, and dogs. It is a walking robot that uses Arduino and an ultrasonic sensor to avoid obstacles in its path. The robot moves forward when no obstacles are detected and reverses direction when an obstacle is detected.
+
+---
+
+## Hardware Components
+
+- Arduino Nano × 1
+- Samsung Servo Motors × 1
+- Raspberry Pi Ultrasonic Distance Sensor HC-SR04 × 1
+- 3D Printer × 1
+- Seeed Studio Project Development Kits × 1
+
+## Software
+
+- Arduino IDE
+
+## Hand Tools and Fabrication Machines
+
+- Adafruit tools
+
+---
+
+## Working Mechanism
+
+- **Servo motors** act as the "muscles" of the robot, pulling and pushing the shafts to create walking motion.
+- The servos are connected to the Arduino, which sends signals for specific angular movements.
+- The **HC-SR04 ultrasonic sensor** acts as the "eye" of the robot, detecting obstacles.
+- When no obstacles are detected, the robot moves forward. When an obstacle or unclear path is detected, the robot moves backward.
+
+---
+
+## Robot Leg Assembly
+
+- The leg assembly and body are **3D printed**.
+- Servo horns are connected to the 3D-printed parts; screws and glue can be used to assemble the body.
+- The yellow part serves as the body housing where the servo is mounted.
+- The body is designed with dedicated slots for servo shaft connections and wire organization.
+- STL files are available upon request in the comments.
+
+---
+
+## Circuit Connections (Methodology)
+
+- **Ultrasonic Sensor HC-SR04:**
+  - Trigger pin → Arduino Nano **A3**
+  - Echo pin → Arduino Nano **A4**
+- **Servo Motors:**
+  - Signal pin 1 → Arduino Nano **D3**
+  - Signal pin 2 → Arduino Nano **D10**
+
+---
+
+## Code
+
+- Code is uploaded via the **Arduino IDE** to the Arduino Nano.
+- Pin assignments and time delays can be modified in the code.
+- Additional sensors can be integrated by modifying the code.
+- Beginners are advised to use the code as-is without modifications.
+
+---
+
+## Final Assembly Steps
+
+- Use cut piece wires instead of jumpers to reduce wire count.
+- A **9V battery with a switch** is used for power, allowing the robot to be turned on and off as needed.
+- Servo motors used are **9g each** — weight considerations should be taken into account if adding more components.
+- The battery is connected at the mid-place of the skeleton, and legs are attached last.
+- **Rechargeable batteries** are recommended for long-term operation.
+
+---
+
+## Related Tags
+
+Artificial Intelligence, Blockchain, Machine Learning, Robotics, Wearables

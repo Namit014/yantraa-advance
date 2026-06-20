@@ -1,0 +1,100 @@
+Source URL: https://ai.thestempedia.com/docs/quarky-humanoid-documentation/assemble-the-quarky-humanoid-robot/
+Scraped: 2026-06-18T18:17:22.511370
+============================================================
+
+# Quarky Humanoid Robot – Assembly Guide
+
+## Overview
+
+The Quarky Humanoid Robot consists of a **Body** (center part), **2 hands** controlled by 2 servo motors, **2 hip joints** to move the legs, and **2 leg joints** to move the feet. The robot uses **eight 180° servo motors** in total.
+
+**Software:** PictoBlox (Block Coding or Python)
+**Difficulty Level:** Beginners
+
+---
+
+## Servo Initialization (Calibration)
+
+Before assembly, all eight servo motors must be calibrated to **90 degrees** to ensure proper shaft alignment.
+
+1. Connect the first servo motor to the first Quarky Servo Connector, with the **brown wire on the left side**.
+2. Connect Quarky to a laptop via USB cable.
+3. Open PictoBlox, select **Block Coding** as the coding environment.
+4. Click the **Board** button in the toolbar, select **Quarky**, then select the appropriate Serial port (USB) or Bluetooth Port and press **Connect**.
+5. Create and run a script (click the green flag) to set the servo to 90 degrees. The servo shaft will align perfectly.
+6. Remove the servo and **repeat for all 8 servos**.
+
+---
+
+## Arms Assembly (×2)
+
+1. Insert an **M3 Nut** into the horizontal slot on both the **Shoulder-Back** and **Shoulder-Front**.
+2. Fix **M3 Spacers (20mm)** to the **Arm-Back** using **M3 Bolts (8mm)**.
+3. Insert the **180° Servo Motor** into the Arm-Back, with the **shaft towards the notch** in the servo profile.
+4. Snap the **Hand-End** into the **Arm-End**, then insert the Arm-End into the slot in the Arm-Back.
+5. Insert an **M3 Bolt (12mm)** through the **Arm-Front** and fix it to the Arm-End.
+6. Fix the Arm-Front to the M3 Spacers (20mm) with **M3 Bolts (8mm)**.
+7. Repeat steps 1–6 for the second arm.
+
+---
+
+## Left Shoulder Assembly
+
+1. Attach a **Shoulder-Back** to an arm's 180° Servo Motor shaft, ensuring correct orientation.
+2. Pass a **Ring-Spacer** and **Shoulder-Front** through the **M3 Bolt (12mm)** on the front side of the arm.
+3. Fix both the Shoulder-Front and Shoulder-Back to the **Body-Side** (left side) simultaneously.
+4. Secure firmly with **M3 Bolts (8mm)**.
+
+## Right Shoulder Assembly
+
+Repeat the same steps as the Left Shoulder Assembly, attaching to the **right side** of the Body-Side.
+
+---
+
+## Left Foot Assembly
+
+1. Fix **M3 Spacers (20mm)** to the **Foot-Back** using **M3 Bolts (8mm)**.
+2. Insert the **180° Servo Motor** into the Foot-Back, with the **shaft towards the notch**.
+3. Secure an **M3 Bolt (8mm)** between the **Foot-Front** and the servo motor.
+4. Fix the Foot-Front using two additional **M3 Bolts (8mm)**.
+5. Insert the assembly into the **Foot-Base**. *(If the slot is too loose or tight, try flipping the part.)*
+
+## Right Foot Assembly
+
+Repeat the same steps as the Left Foot Assembly for the right foot.
+
+---
+
+## Left Leg Assembly
+
+1. Fix **Leg-Back** to the Left Foot's 180° Servo Motor shaft, ensuring the leg is **perpendicular** to the foot.
+2. Insert **Leg-Top A** and **Leg-Top B** into the slots of the Leg-Back.
+3. Insert Leg-Top A and Leg-Top B into the slots of the **Leg-Front**, passing the Leg-Front through the **M3 Bolt (8mm)** from the Left Foot.
+4. Secure the upper leg using a **rubber band** around the grooves on the edges of the Leg-Front and Leg-Back.
+
+## Right Leg Assembly
+
+Repeat the same steps as the Left Leg Assembly for the right leg.
+
+---
+
+## Body Assembly
+
+1. **Connect the Battery** to the backside of the Quarky, with the **red wire on the right side**.
+2. Mount and snap the **A1 Purple Parts** to secure the battery, then lock them with an **A2 Purple Part**.
+3. Fix **M2.5 Standoffs (5mm)** on Quarky using **M2.5 Nuts**.
+4. Connect the **Expansion Connectors** to Quarky (refer to the wiring diagram).
+5. Fix Quarky to the **Body-Front** using **M2.5 Bolts (5mm)**.
+6. Insert a **180° Servo Motor** into the **Body-Base**, shaft towards the notch. Pass the wire through the **Servo-Support** and secure with **M3 Bolts (20mm)** and **M3 Nuts**.
+7. Insert a **second 180° Servo Motor** into the Body-Base the same way, securing it with another Servo-Support, M3 Bolts (20mm), and M3 Nuts.
+8. Attach both **Body-Sides** (with assembled arms) to the Body-Base.
+9. Attach the **Body-Back**.
+10. Attach the **Body-Front**, enclosing the Quarky, Expansion Connectors, and servo wires inside.
+11. Fix the body using **rubber bands**.
+12. **Fix the Legs** to the Body-Base.
+13. Manage the servo motor wires through the wiring holes and connect them to the **Expansion Board** (refer to the wiring diagram).
+14. Stick the **Face Creative** and **Top Creative** onto the Humanoid body.
+
+---
+
+The Quarky Humanoid Robot is now fully assembled and ready to be programmed for walking, arm movements, dance sequences, face detection, gesture control, and more using PictoBlox.

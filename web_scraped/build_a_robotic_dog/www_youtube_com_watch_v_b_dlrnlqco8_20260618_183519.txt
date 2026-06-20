@@ -1,0 +1,11 @@
+Source URL: https://www.youtube.com/watch?v=B_DLrNlQCo8
+Scraped: 2026-06-18T18:35:19.858548
+============================================================
+
+Based on the provided source text, the relevant technical specifications, facts, numbers, and descriptions are as follows:
+
+- The content is a YouTube video titled "I Built a Fully Functional LEGO ROBOT DOG!"
+- The video was created by a YouTube creator.
+- The platform hosting the content is YouTube, owned by Google LLC.
+- The copyright notice indicates the year 2026.
+- The video features a fully functional robot dog constructed from LEGO components.

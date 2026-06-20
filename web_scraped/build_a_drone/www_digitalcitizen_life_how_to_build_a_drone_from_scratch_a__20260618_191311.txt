@@ -1,0 +1,120 @@
+Source URL: https://www.digitalcitizen.life/how-to-build-a-drone-from-scratch-a-step-by-step-guide/
+Scraped: 2026-06-18T19:13:11.046083
+============================================================
+
+# How to Build a Drone from Scratch: Technical Extraction
+
+## Overview
+
+Building a drone from scratch means selecting individual components, assembling them manually, and configuring flight software. This guide covers a practical quadcopter build using commonly available parts, targeting beginner-to-intermediate skill level with emphasis on compatibility, reliability, and ease of repair.
+
+---
+
+## Bill of Materials (Required Parts)
+
+| Component | Specification |
+|---|---|
+| **Frame** | 5-inch carbon fiber quadcopter frame (X layout) |
+| **Motors** | 4× brushless motors (2207 or 2306 size, 1700–2450KV depending on battery) |
+| **ESC** | 4-in-1 ESC rated 45A or higher |
+| **Flight Controller** | F7-based controller compatible with Betaflight |
+| **Propellers** | 5-inch tri-blade props (two CW, two CCW) |
+| **Battery** | 4S or 6S LiPo battery (1300–1500mAh recommended) |
+| **Radio Receiver** | ExpressLRS or Crossfire receiver |
+| **Transmitter** | Any compatible RC radio controller |
+| **Battery Connector** | XT60 or XT30 |
+
+### Optional But Common Add-Ons
+- FPV camera
+- Video transmitter (VTX)
+- FPV antenna
+- GPS module
+- Buzzer for locating the drone
+
+---
+
+## Frame Selection and Design
+
+- Beginners should start with a **pre-designed carbon fiber frame** rather than a custom design.
+- Carbon fiber provides **strength, vibration resistance, and crash durability**.
+- If designing a frame yourself, you must account for **motor mounting hole patterns, arm thickness, and center-stack spacing**.
+- Custom frames typically require **CAD software and CNC cutting or 3D printing**, which adds complexity.
+
+---
+
+## Assembly Steps
+
+### 1. Assembling the Frame
+- Attach arms to the bottom plate using supplied hardware.
+- Install standoffs evenly to prevent frame twist.
+- Mount the top plate loosely until electronics are installed.
+
+### 2. Motor and ESC Installation
+- Mount motors to each arm using **thread-lock on screws**.
+- Solder motor wires to the ESC pads.
+- Secure the ESC to the frame with soft mounting if available.
+
+### 3. Power System Wiring
+- Solder the battery connector to the ESC power pads.
+- Ensure correct polarity before connecting a battery.
+- Use heat shrink tubing to insulate exposed joints.
+
+### 4. Flight Controller Installation
+- Mount the flight controller with **soft grommets**.
+- Align the arrow on the board with the front of the frame.
+- Connect ESC signal wires to the correct motor outputs.
+
+### 5. Receiver and Radio Setup
+- Connect the receiver to a UART on the flight controller.
+- Enable Serial RX in the firmware configuration.
+- Bind the receiver to your transmitter.
+
+### 6. FPV System Installation (Optional)
+- Mount the camera with a forward-facing tilt.
+- Wire the VTX to regulated power and video pads.
+- Install the antenna before powering the system.
+
+---
+
+## Software Setup and Calibration
+
+- Install **Betaflight Configurator**.
+- Calibrate the accelerometer on a level surface.
+- Verify motor order and direction.
+- Assign arming and flight mode switches.
+
+---
+
+## Troubleshooting Common Problems
+
+| Problem | Likely Cause |
+|---|---|
+| Drone flips on takeoff | Motor order or direction is incorrect |
+| No receiver input | UART or protocol mismatch |
+| Excessive vibration | Loose frame hardware or unbalanced props |
+| Video noise | Ground loop or insufficient VTX filtering |
+
+---
+
+## Key Tips
+
+- Remove propellers during all bench testing.
+- Label motor positions before soldering.
+- Start with default PID settings.
+- Use a smoke stopper for first power-up.
+
+---
+
+## FAQ
+
+- **Is building a drone cheaper than buying one?** In most cases, no. Building provides customization and repair knowledge rather than cost savings.
+- **Do I need to program the flight controller?** Yes. Basic firmware configuration is required before flight.
+- **Can beginners build drones without soldering?** No. Soldering is essential for reliable power and signal connections.
+
+---
+
+## Summary
+
+- A scratch-built drone uses individual components, not kits.
+- Component compatibility matters more than brand.
+- Proper wiring and calibration prevent crashes.

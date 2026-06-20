@@ -1,0 +1,15 @@
+Source URL: https://www.cpsdrone.com/
+Scraped: 2026-06-18T19:21:02.487594
+============================================================
+
+CPSdrone (CPS) offers educational courses and DIY kits for building underwater drones (ROVs). Founded in 2018 by Filip and Piotr, the company focuses on making advanced underwater robotics accessible to beginners and advanced makers alike.
+
+### **Courses & Kits**
+*   **Intro To Underwater Robotics:** A comprehensive course for university students and makers, featuring 3 hours of video and 7 hours of guides ($119).
+*   **CPS 3 Kit & Course:** A beginner-friendly DIY submarine kit designed for simple assembly ($139).
+*   **CPS 5 Course:** An advanced course with a step-by-step manual for building the flagship CPS 5 underwater drone ($159).
+
+### **Community & Impact**
+*   **Student Base:** Over 1,000 students have trusted CPSdrone, with more than 500 students currently building the CPS 5.
+*   **Experience:** The founders have been building various underwater drones since 2018.
+*   **Reviews:** The company highlights positive feedback from students like Kate Leroux, who found the building process to be a great experience for various skill levels.
