@@ -1,0 +1,22 @@
+Source URL: https://github.com/jproney/DeltaArm
+Scraped: 2026-06-20T14:15:50.623219
+============================================================
+
+The repository **jproney/DeltaArm** is a Python project for **delta robot kinematics**, specifically using **inverse kinematics** to move an end effector to a target point in **(x, y, z)** space.[1]
+
+Key technical details from the README:
+
+- A delta robot is described as having motors mounted at fixed points, with joints converging on an end effector.[1]
+- The control problem is framed as converting a point in **(x, y, z)** space into a series of **joint angles** for the robot arms.[1]
+- The implementation treats one arm at a time by reducing the 3D geometry to a **yz plane** problem.[1]
+- The 3D target point **(x0, y0, z0)** is rotated into the arm’s coordinate frame using:
+  - \(x = x0 \cos(\theta) + y0 \sin(\theta)\)
+  - \(y = -x0 \sin(\theta) + y0 \cos(\theta)\)[1]
+- The rotated coordinates are then used to compute the lower arm circle radius as \( \sqrt{rf^2 - x0^2} \), where **rf** is the upper segment length.[1]
+- The README states that the inverse kinematics are solved by finding the intersection of two circles in the **yz plane** and then using trigonometry to compute the arm angle.[1]
+- If the discriminant is negative, the point is treated as **impossible** and the code returns `-1`.[1]
+- The class method `compute_triple_inverse_kinematics(x, y, z)` computes three arm angles by rotating the target point through the robot’s three arm orientations.[1]
+- The `move_to_point(x, y, z)` method calls the inverse kinematics routine and then sets all three servos to the computed angles.[1]
+- Example usage shown in the README initializes the robot with `DeltaArm.DeltaArm(0,1,2)` and moves it with `da.move_to_point(0,0,-8)`.[1]
+
+The repository also includes the files **DeltaArm.py**, **PCA9685.py**, and **README.md**, and it is written in **Python**.[1]

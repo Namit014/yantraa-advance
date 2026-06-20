@@ -1,0 +1,13 @@
+Source URL: https://silentpcreview.com/best-power-supply/
+Scraped: 2026-06-20T14:16:56.108848
+============================================================
+
+For a **quiet and efficient gaming PSU**, the source’s top overall pick is the **Corsair RM750x**: **750W**, **80+ Gold**, and **fully modular**.[1] It is described as a strong balance of **reliability**, **efficiency**, and **value**, though the source notes that **750W may not be enough for higher-end gaming PCs**.[1]
+
+If you need more power for a high-end build, the same source recommends the **ASUS ROG Thor 1000W Platinum II** for top-tier systems: **1000W**, **80+ Platinum**, **fully modular**, with high efficiency but at a higher price.[1] For mid-high-end PCs, it suggests the **MSI MPG A850G PCIe5**: **850W**, **80+ Gold**, **fully modular**, with **ATX 3.0** support.[1]
+
+For quieter operation specifically, the source also highlights:
+- **Seasonic PRIME TX-1000** as its **best silent PSU for gaming**: **1000W**, **80+ Titanium**, fully modular, with a **12-year warranty**.[1]
+- **Seasonic Prime 600 Titanium SSR-600TL** as its **best passive PSU for silent operation**: **600W**, **80+ Titanium**, **fanless**.[1]
+
+If you want the shortest practical recommendation for a 2024 gaming PC, the **Corsair RM750x** is the best all-around choice from this source for most builds, while the **Seasonic PRIME TX-1000** is the stronger pick if **silence** is the top priority and budget is less important.[1]

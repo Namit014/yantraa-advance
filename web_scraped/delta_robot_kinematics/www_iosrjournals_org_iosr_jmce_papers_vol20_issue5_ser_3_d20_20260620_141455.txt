@@ -1,0 +1,5 @@
+Source URL: https://www.iosrjournals.org/iosr-jmce/papers/vol20-issue5/Ser-3/D2005033945.pdf
+Scraped: 2026-06-20T14:14:55.570692
+============================================================
+
+The document describes a PDF file. The MediaBox parameter indicates a page size of 595.44 x 841.68 points. The file also contains ExtGState, XObject, and ProcSet objects, with ProcSet including PDF, Text, ImageB, ImageC, and ImageI. Additionally, there is a JPEG (JFIF) image embedded within the PDF, identified by EXIF metadata. The image is a 2x2 inches (72 DPI) image, with a color depth of 8 bits per channel.

@@ -1,0 +1,40 @@
+Source URL: https://en.wikipedia.org/wiki/Uninterruptible_power_supply
+Scraped: 2026-06-20T14:16:21.085588
+============================================================
+
+An uninterruptible power supply (UPS) is an electrical apparatus that provides emergency power to a load when the mains power fails. It differs from an emergency power system or standby generator by providing near-instantaneous protection using energy stored in batteries, supercapacitors, or flywheels. The on-battery run-time is typically short, ranging from 5 to 15 minutes, sufficient to start a standby power source or shut down equipment properly.
+
+UPS units are used to protect hardware such as computers, data centers, and telecommunication equipment from power disruptions that could cause injuries, fatalities, business disruption, or data loss. UPS units range in size from those protecting a single computer (around 200 volt-ampere rating) to large units powering entire data centers or buildings.
+
+Common utility power problems that UPS units can correct, to varying degrees, include:
+*   Voltage spikes or sustained overvoltages
+*   Momentary or sustained reductions in input voltage (voltage sags)
+*   Noise (high frequency transients or oscillations)
+*   Instability of the mains frequency
+*   Harmonic distortion (departure from a sinusoidal waveform)
+
+Modern UPS systems are categorized into three general types:
+1.  **Online UPS:** Uses a "double conversion" method. AC input is rectified to DC, which powers the rechargeable battery (or battery strings) and the inverter. The inverter then converts the DC back to AC to power the protected equipment.
+2.  **Line-interactive UPS:** Maintains the inverter in line. When power is lost, the battery's DC current path is redirected from charging mode to supplying current.
+3.  **Standby (Off-line) UPS:** The load is powered directly by the input power, and backup power circuitry is only activated when utility power fails.
+
+UPSs are rated in volt-amperes (VA), ranging from 300 VA to 5,000 kVA. Most UPS units below 1 kVA are line-interactive or standby types. For large power requirements, dynamic uninterruptible power supplies (DUPS) are sometimes used, which store energy in a flywheel. DUPS can be integrated with diesel generators to form diesel rotary uninterruptible power supplies (DRUPS).
+
+**Offline/Standby UPS:**
+*   Provides surge protection and battery backup.
+*   Protected equipment is normally connected directly to utility power.
+*   When voltage deviates from a predetermined level, the UPS switches internal DC-AC inverter circuitry, powered by a battery, to output power.
+*   Switch-over time can be up to 25 milliseconds.
+*   Typical protection time: 5–20 minutes.
+*   Capacity expansion: Usually not available.
+
+**Line-interactive UPS:**
+*   Similar to standby UPS but includes a multi-tap variable-voltage autotransformer.
+*   This autotransformer can automatically adjust output voltage to compensate for undervoltages and overvoltages without draining the battery.
+*   Compensation by selecting different taps on the autotransformer can cause a brief output power disruption.
+*   Typical protection time: 5–30 minutes.
+*   Capacity expansion: Several hours.
+
+**Online/Double-conversion UPS:**
+*   Batteries are always connected to the inverter, eliminating the need for power transfer switches.
+*   When power is lost, the rectifier drops out, and the batteries maintain power to the inverter.

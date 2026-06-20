@@ -1,0 +1,19 @@
+Source URL: https://www.tomshardware.com/reviews/best-psus,4229.html
+Scraped: 2026-06-20T14:16:46.975969
+============================================================
+
+Tom’s Hardware’s **Best Power Supplies 2026** list includes eight top picks, led by the **be quiet! Pure Power 13 M 650W** as the best cheap PSU. The list also covers higher-wattage and specialty options like the **Seasonic Prime TX-1600** and **Corsair SF750 (2024)** SFX PSU.[1]
+
+The ranked picks shown in the source are:
+
+- **be quiet! Pure Power 13 M 650W** — best cheap PSU, up to 650W, ATX 3.1, fully modular, 80 Plus Gold, 10-year warranty.[1]
+- **be quiet! Straight Power 12** — up to 750W, ATX 3.1 / PCIe 5.1, modular, 80 Plus Gold, 10-year warranty.[1]
+- **Cooler Master MWE Gold 850 V3**.[1]
+- **be quiet! Dark Power 13**.[1]
+- **Lian Li RS1200G**.[1]
+- **NZXT C1500 Platinum**.[1]
+- **Seasonic Prime TX-1600**.[1]
+- **Corsair SF750 (2024) SFX PSU**.[1]
+- **SilverStone Technology Extreme 1200R Platinum**.[1]
+
+Tom’s Hardware also notes that a good PSU should be chosen not just by wattage, but by **efficiency near 50% load**, **power quality**, **fully modular design**, and a strong **protection suite**.[1]

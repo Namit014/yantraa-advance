@@ -1,0 +1,35 @@
+Source URL: https://hypertriangle.com/~alex/delta-robot-tutorial/
+Scraped: 2026-06-20T14:14:41.756793
+============================================================
+
+The tutorial explains **delta robot kinematics** by separating the problem into **inverse kinematics** and **forward kinematics** for a 3-DOF delta robot.[1][5] It says inverse kinematics computes the three joint angles needed to place the end effector at a desired \((x,y,z)\) position, while forward kinematics computes the end effector position from known joint angles.[1][5]
+
+Key technical points from the tutorial:
+
+- A delta robot has an **upper fixed platform** with three motors and a **moving lower platform** with the end effector.[1][7]
+- The three arms use **parallelograms** to keep the lower platform parallel to the working surface, so the tool orientation remains constant.[1][9]
+- The tutorial identifies the main geometric parameters as:
+  - \(f\): side length of the fixed triangle
+  - \(e\): side length of the end effector triangle
+  - \(r_f\): upper arm length
+  - \(r_e\): parallelogram arm length[1]
+- The reference frame is chosen with the origin at the center of symmetry of the fixed triangle, and the tutorial notes that the end effector’s \(z\)-coordinate is always negative in that frame.[1]
+
+How the tutorial derives the kinematics:
+
+- For **inverse kinematics**, it reduces the calculation for one arm to a **YZ-plane** problem, finding the joint point as the intersection of two circles/sphere projections, then reuses the same method for the other two arms by rotating the coordinate system by \(120^\circ\).[1][5]
+- For **forward kinematics**, it computes the positions of the three arm joints from the joint angles, then solves the intersection of three spheres to find the end effector position \((x_0,y_0,z_0)\).[1][5]
+
+The tutorial also notes why delta robots are popular:
+
+- They are **fast** because the moving parts are lightweight compared with typical serial robot arms.[1][5]
+- They are widely used in **pick-and-place** applications for relatively light objects, cited as up to about **1 kg** in the tutorial.[1]
+
+The visible code excerpt begins with the robot geometry constants:
+
+- `e = 115.0` for the end effector
+- `f = 457.3` for the base
+- `re = 232.0`
+- `rf = 112.0`[1]
+
+If you want, I can also extract the **actual inverse/forward kinematics equations** and the **C code logic** from the tutorial text.

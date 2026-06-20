@@ -1,0 +1,33 @@
+Source URL: https://en.wikipedia.org/wiki/Switched-mode_power_supply
+Scraped: 2026-06-20T14:16:28.161744
+============================================================
+
+A switched-mode power supply (SMPS) is an electronic power supply that uses a switching regulator to efficiently convert electrical power. It transfers power from a DC or AC source to DC loads, converting voltage and current characteristics.
+
+Unlike linear power supplies, the pass transistor in an SMPS operates in either a full-on or full-off state, minimizing wasted energy. Voltage regulation is achieved by adjusting the ratio of on-to-off time, known as the duty cycle. This higher electrical efficiency is a key advantage. SMPSs are also smaller and lighter than linear supplies because they operate at high switching frequencies (several hundred kHz to several MHz), allowing for much smaller transformers compared to the 50 or 60 Hz mains frequency used by linear supplies. However, SMPS designs typically have a greater component count and circuit complexity.
+
+Key historical developments include:
+*   **1836:** Induction coils used switches for high voltage generation.
+*   **1910:** The Kettering ignition system, a mechanically switched flyback boost converter, was produced for Cadillac.
+*   **1959:** U.S. patent 3,040,271 for a transistor oscillation and rectifying converter power supply system was filed.
+*   **1960s:** The Apollo Guidance Computer incorporated early SMPSs.
+*   **1970:** Tektronix began using high-efficiency power supplies in its 7000-series oscilloscopes.
+*   **1976:** Robert Mammano developed the SG1524, the first integrated circuit for SMPS control.
+*   **1977:** The Apple II was designed with an SMPS.
+
+SMPSs achieve their output voltage and current regulation by switching ideally lossless storage elements like inductors and capacitors between different configurations. Transistors, when operated outside their active mode, approximate ideal switching elements with no resistance when on and no current when off. This theoretical 100% efficiency is not achievable in reality, but SMPSs still offer significantly higher efficiency than linear regulators.
+
+**Advantages of SMPS:**
+*   Greater efficiency (up to ~98–99%).
+*   Lower heat generation.
+*   Smaller size and lighter weight due to smaller transformers.
+*   Reduced standby power loss.
+
+**Disadvantages of SMPS:**
+*   Greater complexity.
+*   Generation of high-amplitude, high-frequency energy that requires filtering to prevent electromagnetic interference (EMI).
+*   Ripple voltage at the switching frequency and its harmonics.
+*   Potential for electrical switching noise to couple back onto the mains power line in very low-cost designs.
+*   Non-power-factor-corrected SMPSs can cause harmonic distortion.
+
+Common SMPS configurations include boost converters (step-up) and buck–boost converters (invert polarity).

@@ -1,0 +1,12 @@
+Source URL: https://api.repository.cam.ac.uk/server/api/core/bitstreams/4787fb8e-9639-4421-bb8e-09314a613aae/content
+Scraped: 2026-06-20T14:15:08.786832
+============================================================
+
+The document is a PDF file. It contains several objects, including:
+
+*   **Object 42**: Linearized PDF information.
+*   **Object 43**: Cross-reference table (XRef) with details about the PDF structure, including its size (233 objects) and previous object number.
+*   **Object 45**: Contains compressed data, likely part of the PDF content, measuring 216 bytes in length.
+*   **Object 46**: A page object with annotations and a media box of 612x792 points.
+*   **Object 47**: Compressed page content, 2844 bytes long.
+*   **Object 48**: Compressed data, with lengths 1511, 8207, and 0, totaling 9214 bytes.

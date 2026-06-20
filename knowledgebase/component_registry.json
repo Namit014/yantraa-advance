@@ -1,0 +1,134 @@
+{
+  "servo_a": {
+    "id": "servo_a",
+    "name": "Servo A",
+    "category": "actuator",
+    "subcategory": "servo",
+    "manufacturer": "Generic",
+    "capabilities": [
+      "rotation",
+      "position_control"
+    ],
+    "limitations": [
+      "requires_pwm"
+    ],
+    "power": {
+      "voltage": 24,
+      "current": 2
+    },
+    "protocol": "PWM",
+    "ports": [
+      { "name": "PWM", "type": "signal" },
+      { "name": "VCC", "type": "power" },
+      { "name": "GND", "type": "ground" }
+    ],
+    "requires": ["controller", "power_supply"]
+  },
+  "battery_24v": {
+    "id": "battery_24v",
+    "name": "Battery 24V",
+    "category": "power",
+    "subcategory": "battery",
+    "manufacturer": "Generic",
+    "capabilities": ["power_delivery"],
+    "limitations": [],
+    "power": { "voltage": 24, "current": 10 },
+    "protocol": "none",
+    "ports": [
+      { "name": "VCC", "type": "power_out" },
+      { "name": "GND", "type": "ground" }
+    ],
+    "requires": []
+  },
+  "motion_controller": {
+    "id": "motion_controller",
+    "name": "Motion Controller",
+    "category": "controller",
+    "subcategory": "motion_controller",
+    "manufacturer": "Generic",
+    "capabilities": ["pwm_generation", "i2c_master", "spi_master", "logic"],
+    "limitations": [],
+    "power": { "voltage": 24, "current": 5 },
+    "protocol": "PWM, SPI, I2C",
+    "ports": [
+      { "name": "VCC_IN", "type": "power_in" },
+      { "name": "GND", "type": "ground" },
+      { "name": "PWM1", "type": "signal_out" },
+      { "name": "PWM2", "type": "signal_out" },
+      { "name": "I2C_SDA", "type": "data" },
+      { "name": "I2C_SCL", "type": "data" }
+    ],
+    "requires": ["power_supply"]
+  },
+  "encoder_a": {
+    "id": "encoder_a",
+    "name": "Encoder A",
+    "category": "sensor",
+    "subcategory": "encoder",
+    "manufacturer": "Generic",
+    "capabilities": ["rotation_measurement", "speed_sensing"],
+    "limitations": ["requires_i2c"],
+    "power": { "voltage": 5, "current": 0.1 },
+    "protocol": "I2C",
+    "ports": [
+      { "name": "VCC", "type": "power" },
+      { "name": "GND", "type": "ground" },
+      { "name": "SDA", "type": "data" },
+      { "name": "SCL", "type": "data" }
+    ],
+    "requires": ["controller", "power_supply"]
+  },
+  "imu_sensor": {
+    "id": "imu_sensor",
+    "name": "IMU",
+    "category": "sensor",
+    "subcategory": "imu",
+    "manufacturer": "Generic",
+    "capabilities": ["acceleration_measurement", "gyroscope", "orientation"],
+    "limitations": ["requires_i2c"],
+    "power": { "voltage": 5, "current": 0.2 },
+    "protocol": "I2C",
+    "ports": [
+      { "name": "VCC", "type": "power" },
+      { "name": "GND", "type": "ground" },
+      { "name": "SDA", "type": "data" },
+      { "name": "SCL", "type": "data" }
+    ],
+    "requires": ["controller"]
+  },
+  "motor_driver": {
+    "id": "motor_driver",
+    "name": "Motor Driver",
+    "category": "controller",
+    "subcategory": "motor_driver",
+    "manufacturer": "Generic",
+    "capabilities": ["high_current_switching", "motor_control"],
+    "limitations": ["requires_external_logic"],
+    "power": { "voltage": 24, "current": 10 },
+    "protocol": "PWM",
+    "ports": [
+      { "name": "VCC_IN", "type": "power_in" },
+      { "name": "GND", "type": "ground" },
+      { "name": "PWM_IN", "type": "signal_in" },
+      { "name": "MOTOR_OUT_A", "type": "power_out" },
+      { "name": "MOTOR_OUT_B", "type": "power_out" }
+    ],
+    "requires": ["power_supply", "controller"]
+  },
+  "wheel_motor": {
+    "id": "wheel_motor",
+    "name": "Wheel Motor",
+    "category": "actuator",
+    "subcategory": "dc_motor",
+    "manufacturer": "Generic",
+    "capabilities": ["continuous_rotation", "locomotion"],
+    "limitations": ["requires_driver"],
+    "power": { "voltage": 24, "current": 5 },
+    "protocol": "none",
+    "ports": [
+      { "name": "MOTOR_IN_A", "type": "power_in" },
+      { "name": "MOTOR_IN_B", "type": "power_in" }
+    ],
+    "requires": ["motor_driver", "power_supply"]
+  }
+}

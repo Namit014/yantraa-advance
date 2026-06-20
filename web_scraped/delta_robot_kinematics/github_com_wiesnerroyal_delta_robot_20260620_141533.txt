@@ -1,0 +1,14 @@
+Source URL: https://github.com/wiesnerroyal/delta-robot
+Scraped: 2026-06-20T14:15:33.402071
+============================================================
+
+The repository **delta-robot** contains **forward and inverse kinematics** for a delta robot with either **prismatic** or **rotational** joints.[1] It is a **public GitHub repository** with a **MIT license**, and its notebook files are written in **Jupyter Notebook** format.[1]
+
+- **Repository name:** `wiesnerroyal/delta-robot`[User prompt]
+- **Purpose:** Delta robot kinematics, including **forward** and **inverse** kinematics for **prismatic** and **rotational** joint configurations.[1]
+- **Requirements:** **NumPy** and **Matplotlib**.[1]
+- **Files listed:** `README.md`, `LICENSE`, `images/`, `prismatic_joint_delta_kinematic.ipynb`, `prismatic_joint_keops_delta_kinematic.ipynb`, `rotation_joint_delta_kinematic.ipynb`.[User prompt]
+- **Topics:** visualization, robot kinematics, numpy, matlab, delta kinematic, inverse forward, robotics-kinematics, keops.[User prompt]
+- **Language:** **Jupyter Notebook 100%**.[User prompt]
+
+The README also points to external background material on delta robot kinematics, including discussions of inverse kinematics, forward kinematics, and analytical solutions for delta robot models.[1][2][4][5]

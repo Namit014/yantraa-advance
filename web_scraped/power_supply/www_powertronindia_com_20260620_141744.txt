@@ -1,0 +1,29 @@
+Source URL: https://www.powertronindia.com/
+Scraped: 2026-06-20T14:17:44.616070
+============================================================
+
+**Powertron India Private Limited** is a manufacturer based in **Thane, Maharashtra, India** with products including **DC Power Supply**, battery chargers, electroplating rectifiers, SMPS, DC-to-DC converters, and DC-AC converters.[1][8]
+
+Key extracted details:
+
+- **DC Power Supply 30V-50A**: **₹1.37 Lakh / Piece**.[1][5][11]
+- **Digital DC Power Supplies, 50A, 30V**: **₹88,900 / Piece**.[2]
+- **Programmable Linear DC Power Supply**: **₹3.43 Lakh / Piece**.[1]
+- **FCBC Industrial Battery Chargers**: **₹1.86 Lakh / Piece**.[1]
+- **Industrial IGBT Based Electroplating Rectifier**: **₹13.96 Lakh / Piece**.[1]
+- **SMPS 1500 Watt**: **₹44,900 / Piece**.[1]
+- **DC to AC Converter**: **₹28,600 / Piece**.[1]
+- **Dual DC Regulated Power Supply**: **₹69,500 / Piece**.[4]
+
+Product features listed for the **DC Power Supply 30V-50A** include **SMPS based design**, **constant voltage and constant current operation**, **output voltage and current adjustable from 0 to specified range**, and **protection against short circuit**.[1]
+
+Company details extracted from the source:
+
+- **Nature of Business**: Manufacturer.[1]
+- **GST Registration Date**: 19-04-2018.[1]
+- **Legal Status of Firm**: Limited Company.[1]
+- **Annual Turnover**: 5–25 Cr.[1]
+- **GST No.**: 27AAJCP6941K1ZV.[1]
+- **Address**: A-426, Road No. 28, Wagle Estate MIDC, Wagle I.E., Thane - 400604, Maharashtra, India.[1][6][11]
+
+If you want, I can also extract this into a compact **spec sheet format** or **product-price table**.

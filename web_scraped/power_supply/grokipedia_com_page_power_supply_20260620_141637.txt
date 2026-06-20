@@ -1,0 +1,23 @@
+Source URL: https://grokipedia.com/page/Power_supply
+Scraped: 2026-06-20T14:16:37.048951
+============================================================
+
+A power supply is an electrical device that converts incoming electric current from a source, such as mains electricity, into the voltage, current, and frequency levels required by an electrical load. Its primary function is to transform alternating current (AC) into direct current (DC) or adjust voltage levels for electronic components, which primarily operate on DC power.
+
+Power supplies are categorized into unregulated and regulated types. Unregulated power supplies have output voltages that vary with input voltage or load current. Regulated power supplies use feedback mechanisms to maintain a constant output voltage.
+
+Within regulated power supplies, there are two main subtypes:
+
+*   **Linear power supplies:** Use a transformer, rectifier, and linear regulator to produce low-noise DC output but are less efficient due to heat dissipation.
+*   **Switching power supplies (SMPS):** Employ high-frequency switching circuits, often using pulse-width modulation, to achieve higher efficiency (up to 90%), smaller size, and lighter weight.
+
+Additional classifications include AC-DC converters and DC-DC converters for various applications.
+
+Key components of a power supply include:
+
+*   **Transformer:** Steps AC voltage up or down via electromagnetic induction.
+*   **Rectifier:** Typically a diode bridge that converts AC to unidirectional DC.
+*   **Filter:** Uses capacitors or inductors to reduce ripple in the DC output.
+*   **Regulator:** Maintains constant voltage through feedback elements like transistors or integrated circuits.
+
+Historically, power supply technology advanced from early electromagnetic generators in the 1830s to reliable DC generators in the 1870s. The late 19th century saw the rise of AC systems with innovations like Nikola Tesla's AC induction motor and the essential role of transformers for voltage conversion. The 20th century brought vacuum tube rectifiers in the early 1900s, followed by transistor-based voltage regulation in the 1950s. Switched-mode power supplies (SMPS) gained prominence in the 1970s, offering increased efficiency. The rise of personal computing in the 1980s accelerated miniaturization, leading to standards like the ATX in 1995. In the 2000s, power supplies integrated with renewable energy sources, and the 2010s saw the emergence of gallium nitride (GaN) semiconductors enabling efficiencies exceeding 95%. Wireless power standards like Qi also advanced, with inductive charging evolving from 5W to 15W.

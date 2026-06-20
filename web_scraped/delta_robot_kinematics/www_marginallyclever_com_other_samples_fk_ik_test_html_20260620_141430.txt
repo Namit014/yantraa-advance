@@ -1,0 +1,40 @@
+Source URL: https://www.marginallyclever.com/other/samples/fk-ik-test.html
+Scraped: 2026-06-20T14:14:30.963405
+============================================================
+
+**Robot Dimensions:**
+
+*   Base radius (f): mm
+*   Bicep length (rf): mm
+*   Forearm length (re): mm
+*   End Effector radius (e): mm
+*   Base to floor distance (b): mm
+
+**Steps per Turn:**
+
+*   Motor precision is defined by steps per turn.
+*   1.8-degree steppers have 200 steps per turn.
+*   With 1/16th microstepping, this equates to 3200 steps per turn.
+
+**Envelope Calculations:**
+
+*   **Rectangular Cuboid Envelope:** Defines the reachable workspace in a box shape.
+*   **Motor Angle Limits:** Specifies the required motor rotations to traverse the cuboid envelope.
+*   **Center:** Location of the envelope's center relative to the base (0,0,0).
+*   **Home:** Tool position when all arms are parallel to the floor.
+*   **Resolution:** Measures the precision of movement.
+
+**Kinematics:**
+
+*   **Forward Kinematics:** Calculates the XYZ position based on motor angles.
+*   **Inverse Kinematics:** Calculates motor angles based on the XYZ position.
+*   Zero degrees for motor angles represents the bicep being horizontal to the floor.
+
+**Input Parameters:**
+
+*   Motor 1 degrees
+*   Motor 2 degrees
+*   Motor 3 degrees
+*   X mm
+*   Y mm
+*   Z mm

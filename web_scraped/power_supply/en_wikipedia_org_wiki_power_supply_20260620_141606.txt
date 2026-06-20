@@ -1,0 +1,46 @@
+Source URL: https://en.wikipedia.org/wiki/Power_supply
+Scraped: 2026-06-20T14:16:06.687518
+============================================================
+
+A power supply is an electrical device that converts electric current from a source to the correct voltage, current, and frequency needed to power a load. It can be a standalone unit or built into the device it powers. Additional functions can include current limiting, fault shutdown, power conditioning, power-factor correction, and energy storage for temporary power interruptions. Power supplies have an input connection for the source power and one or more output connections for the load. Source power can come from the electric grid, batteries, fuel cells, generators, alternators, solar converters, or other power supplies.
+
+Power supplies can be classified by function:
+*   **Regulated power supply:** Maintains constant output voltage or current despite variations in load current or input voltage.
+*   **Unregulated power supply:** Output can change significantly with input voltage or load current changes.
+*   **Adjustable power supply:** Output voltage or current can be programmed by mechanical controls or a control input.
+*   **Adjustable regulated power supply:** Combines adjustable and regulated features.
+*   **Isolated power supply:** Output is electrically independent of the input, unlike non-isolated supplies that share a common connection.
+
+Packaging classifications include:
+*   **Bench power supply:** A standalone desktop unit for circuit testing and development.
+*   **Open frame power supply:** Has a partial enclosure and is typically built into other equipment.
+*   **Rack mount power supply:** Designed for standard electronic equipment racks.
+*   **Integrated power supply:** Shares a printed circuit board with its load.
+*   **External power supply (AC adapter, power brick):** Located in the AC power cord, plugging into a wall outlet.
+*   **Wall wart:** An external supply integrated with the outlet plug.
+
+Power conversion methods:
+*   **Linear power converters:** Process input power directly with active components operating in their linear regions. Less efficient due to heat loss in linear regions.
+*   **Switching power converters:** Convert input power to AC or DC pulses before processing, with components operating predominantly in non-linear modes. More efficient as components spend less time in linear regions.
+
+Purpose classifications can include "AC-DC front end for grid bias" or "DC-DC converter for point-of-load (POL) regulation".
+
+Types of power supplies:
+*   **DC power supply:** Generates a DC output voltage.
+    *   **AC-to-DC power supply:** Operates on an AC input voltage. The output voltage may contain ripple voltage, which are AC components influenced by the input frequency and power supply operation.
+    *   **DC-to-DC converter:** Operates on a DC input voltage.
+
+*   **Linear power supply (AC-to-DC variant):**
+    1.  AC input voltage goes through a **power transformer**.
+    2.  Rectification and filtering produce a DC voltage. Filtering minimizes AC mains frequency components (ripple). It can range from a simple capacitor to a pi filter.
+    3.  For some applications like battery charging, it may consist only of a transformer and a diode with a resistor to limit charging current.
+
+*   **Switched-mode power supply (SMPS):**
+    1.  AC mains input is directly rectified and filtered to a DC voltage.
+    2.  Electronic switching circuitry switches this DC voltage on and off at a high frequency (typically 10 kHz – 1 MHz).
+    3.  This produces a high-frequency AC current that passes through a high-frequency transformer or inductor.
+    4.  The smaller size of transformers and capacitors is enabled by the high switching frequency.
+    5.  After the inductor or transformer secondary, the high-frequency AC is rectified and filtered to produce the DC output voltage.
+    6.  If an adequately insulated high-frequency transformer is used, the output is electrically isolated from the mains, a crucial safety feature.
+    7.  SMPSs are usually regulated, using a feedback controller to monitor load current and keep output voltage constant. The switching duty cycle increases with power output requirements.
+    8.  Safety features like current limiting or a crowbar circuit protect the device and user. An abnormal high-current draw can cause the SMPS to shut down.

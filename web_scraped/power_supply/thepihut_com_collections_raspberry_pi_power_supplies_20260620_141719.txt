@@ -1,0 +1,15 @@
+Source URL: https://thepihut.com/collections/raspberry-pi-power-supplies
+Scraped: 2026-06-20T14:17:19.628495
+============================================================
+
+The Pi Hut’s Raspberry Pi power-supplies collection recommends using an **Official Raspberry Pi Power Supply**. The page shows **130 products** in the category and includes Raspberry Pi-branded USB-C and micro-USB power supplies, along with cables, adapters, PoE HATs, and splitters.[2]
+
+Key items visible in the listing include:
+- **Raspberry Pi 27W USB-C Power Supply** — **£11.50** incl. VAT.[2]
+- **Raspberry Pi 45W USB-C Power Supply** — **£14.40** incl. VAT.[2]
+- **Raspberry Pi 15W USB-C Power Supply** — **£7.70** incl. VAT, available with **UK**, **EU**, and **US** plugs.[2]
+- **Raspberry Pi 12.5W Micro USB Power Supply - UK Plug** — **£7.70** incl. VAT.[2]
+
+The Pi Hut’s support article for Raspberry Pi 5 says the board requires a USB-C supply that can provide **5V 5A** for full performance and recommends the **Raspberry Pi 27W USB-C Power Supply** as a stable option for Raspberry Pi 5.[6]
+
+Raspberry Pi’s documentation states that power-supply requirements vary by model; it recommends **2.5A micro-USB** supplies for Raspberry Pi 1/2/3, **3A USB-C** for Raspberry Pi 4 and 400, and the **27W USB-C Power Supply** for Raspberry Pi 5.[13]

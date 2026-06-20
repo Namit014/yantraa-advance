@@ -1,0 +1,14 @@
+Source URL: https://manumorelli.com/delta-robot/index.html
+Scraped: 2026-06-20T14:15:02.025632
+============================================================
+
+A Delta robot is a parallel manipulator with three arms connected to universal joints at the base. Each arm has a bicep (upper arm) attached to an actuated revolute joint and a forearm (lower arm) connected via a parallelogram linkage. This design keeps the end-effector orientation parallel to the base.
+
+Key geometric parameters:
+*   **Base Radius (r_b)**: Distance from the center to each actuated joint on the fixed base platform.
+*   **Bicep Length (L_1)**: Length of the upper arm segment from the actuated joint to the elbow.
+*   **Forearm Length (L_2)**: Length of the parallelogram linkage from elbow to end-effector connection.
+
+The tool calculates inverse kinematics (IK) to find joint angles (θ₁, θ₂, θ₃) for a target Cartesian coordinate (X, Y, Z) and forward kinematics (FK) to determine the end-effector position from joint angles.
+
+The reachable workspace of a Delta robot is visualized as a point cloud. This visualization helps identify workspace boundaries, evaluate its shape, plan tool paths, and optimize design. A comparison mode allows overlaying two robot configurations to visually compare how geometric parameter changes affect the workspace.
