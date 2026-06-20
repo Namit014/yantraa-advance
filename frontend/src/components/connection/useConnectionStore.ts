@@ -437,7 +437,7 @@ interface ConnectionStore {
   deleteEdge: (id: string) => void;
   addEdge: (edge: CircuitEdge) => void;
 
-  generate: (components: GenerateComponent[], prompt: string) => Promise<void>;
+  generate: (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => Promise<void>;
   loadDesignData: (designData: any) => void;
 }
 
@@ -531,7 +531,14 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       components.forEach((comp: any) => {
         const shape = inferShape(comp.name, comp.role || "");
         const type = inferType(comp.name, comp.role || "");
-        const ports = getPortsForInterface(comp.id, comp.interface || "");
+        
+        const compId = comp.id || `node-${comp.name.replace(/\s+/g, "_")}`;
+        const nodePorts: Port[] = [
+          { id: `${compId}-vcc`, label: "VCC", side: "top", offsetPercent: 33 },
+          { id: `${compId}-gnd`, label: "GND", side: "top", offsetPercent: 67 },
+          { id: `${compId}-io1`, label: "IO1", side: "left", offsetPercent: 33 },
+          { id: `${compId}-io2`, label: "IO2", side: "left", offsetPercent: 67 },
+        ];
 
         const rowCount = rowCounts[type] || 0;
         rowCounts[type] = rowCount + 1;
@@ -542,7 +549,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         rfNodes.push({
           id: compId,
           type: "circuitNode",
-          position: { x: 0, y: 0 },
+          position: { x, y },
           draggable: true,
           data: {
             label: comp.name,
@@ -554,7 +561,6 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       });
     });
 
-    const connections = designData.connections || [];
     const rfEdges: CircuitEdge[] = connections.map((conn: any, idx: number) => {
       const fromNodeId = conn.from;
       const toNodeId = conn.to;
@@ -601,13 +607,13 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         id: `wire-design-${idx}-${Date.now()}`,
         source: fromNodeId,
         target: toNodeId,
-        sourceHandle: srcPortId,
-        targetHandle: tgtPortId,
+        sourceHandle: srcPort,
+        targetHandle: tgtPort,
         type: "circuitWire",
         label: conn.protocol || conn.relation || "signal",
         data: {
-          from: { nodeId: fromNodeId, portId: srcPortId },
-          to: { nodeId: toNodeId, portId: tgtPortId },
+          from: { nodeId: fromNodeId, portId: srcPort },
+          to: { nodeId: toNodeId, portId: tgtPort },
           color: WIRE_COLORS[wireType],
           label: conn.protocol || conn.relation || "signal",
           wireType
@@ -668,7 +674,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     set({ edges: [...get().edges, edge] });
   },
 
-  generate: async (components, prompt, subsystems) => {
+  generate: async (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => {
     set({ isGenerating: true, error: null });
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {

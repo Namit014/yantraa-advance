@@ -25,11 +25,8 @@ _src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
-# ── OpenRouter config ──────────────────────────────────────────────────────────
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-# Gemini 2.5 Flash via OpenRouter
-CONNECTIONS_MODEL = "google/gemini-flash-1.5"
+# ── LLM Config ─────────────────────────────────────────────────────────
+from llm import invoke_yantra_ai
 
 # ── Pydantic models ────────────────────────────────────────────────────────────
 
@@ -83,24 +80,12 @@ def _rag_search(query: str, top_k: int = 5) -> str:
 
 
 def _call_llm(system: str, user: str) -> str:
-    """Call OpenRouter and return raw content string."""
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000",
-        "X-Title": "Yantra Connections",
-    }
-    payload = {
-        "model": CONNECTIONS_MODEL,
-        "messages": [
-            {"role": "system", "content": system},
-            {"role": "user", "content": user},
-        ],
-        "temperature": 0.3,
-    }
-    resp = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=60)
-    resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"].strip()
+    """Call Google Gemini and return raw content string."""
+    return invoke_yantra_ai(
+        prompt=user,
+        system_prompt=system,
+        response_format="json_object"
+    )
 
 
 def _strip_markdown_json(text: str) -> str:
