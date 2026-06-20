@@ -1,0 +1,44 @@
+Source URL: https://dronevil.com/building-your-own-drone/
+Scraped: 2026-06-18T19:13:50.988946
+============================================================
+
+**Build Your Own Drone: Technical Overview**
+
+This guide provides a practical step-by-step approach to constructing a custom drone, emphasizing component selection, tools, and assembly principles.
+
+**Market & Basics**
+- Quadcopters constitute approximately 90% of the drones market.
+- Frame sizes:
+  - Micro: 2–3 inch propellers (indoor/small spaces).
+  - Mini: 3–4 inch.
+  - Standard: 5–6 inch (balance of speed and control).
+  - Large: 7+ inch (heavy payloads).
+
+**Frame Materials**
+- Carbon fiber frames offer the best strength-to-weight ratio, durability, and crash resistance.
+- Alternatives include aluminum (stronger but heavier), glass fiber (lighter and cheaper), and 3D-printed plastic (affordable but less durable).
+
+**Motor Selection**
+- Brushless motors are preferred over brushed versions for efficiency and longevity.
+- Motor sizes are denoted by a four-digit code: e.g., 2205 = 22 mm diameter, 5 mm height.
+- kV rating indicates motor speed per volt (higher kV is faster, lower is more torque).
+- Thrust-to-weight ratios:
+  - Racing drones: 5:1.
+  - Photography drones: 3:1 to 4:1.
+  - General purpose: 10:1.
+
+**ESC (Electronic Speed Controller)**
+- ESCs control motor speed and direction for stability.
+- Brushless motors require brushless ESCs; brushed motors do not.
+- ESC protocols (e.g., PWM, Oneshot125, Multishot, Dshot) affect communication speed between the flight controller and motors.
+
+**LiPo Batteries**
+- LiPo batteries power drone systems; specifications include cell count, capacity, and discharge rate.
+
+**Tools for Assembly**
+- Soldering iron and solder for electronics assembly.
+- Multimeter for diagnosing voltage, continuity, and resistance.
+- Hex keys and drivers for frame assembly; ensuring correct hex screw sizes is critical.
+- Additional tools: helping hands, wire cutters, specialty pliers, heat shrink, cable ties, double-sided tape, standoffs, thread locker.
+
+This guide covers the essentials for building a functional custom drone, focusing on component selection, sizing, and practical best practices.

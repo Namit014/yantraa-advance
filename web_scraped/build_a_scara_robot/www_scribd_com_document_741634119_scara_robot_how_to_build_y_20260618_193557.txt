@@ -1,0 +1,88 @@
+Source URL: https://www.scribd.com/document/741634119/SCARA-Robot-How-To-Build-Your-Own-Arduino-Based-Robot
+Scraped: 2026-06-18T19:35:57.944686
+============================================================
+
+# Build Your Own Arduino SCARA Robot — Technical Data Extraction
+
+## Overview
+
+This document describes the construction of a DIY Arduino-based SCARA (Selective Compliance Articulated Robot Arm) robot. The project covers the full process from 3D design to programming a custom graphical user interface for robot control.
+
+---
+
+## Mechanical Specifications
+
+**Degrees of Freedom:** 4
+
+**Drive System:** 4 × NEMA 17 stepper motors + 1 × servo motor (for end effector/gripper)
+
+**Gripper Motor:** MG996R servo motor; gripper ends are interchangeable for different grip sizes
+
+**Joint Reduction Ratios:**
+- **Joint 1:** 20:1 reduction, achieved in two stages using custom-designed GT2 pulleys and two closed-loop GT2 belts (200mm and 300mm length)
+- **Joint 2:** 16:1 reduction, achieved in the same two-stage belt-drive manner
+- **Joint 3:** 4:1 reduction, single stage
+
+**Joint Composition:** Each joint uses two thrust bearings and one radial bearing. Joints are hollow to allow wire routing from motors and micro switches.
+
+**Bearings Used:**
+- 1× Thrust ball bearing: 40×60×13mm
+- 2× Thrust ball bearing: 35×52×12mm
+- 5× Radial ball bearing: 8×22×7mm
+
+**Z-Axis:** Driven by an 8mm lead screw (400mm length); the arm assembly slides on four 10mm smooth rods with linear ball bearings. Height of the robot depends on smooth rod length—in this build, 40cm rods were used. The lead screw must be 2cm shorter than the smooth rods to fit, or the Z motor can be raised 2cm using spacer nuts.
+
+**Belt Tensioning:** Each belt has slots for attaching idler pulleys for tensioning.
+
+---
+
+## 3D Printing Information
+
+- All parts designed to be 3D printable, including GT2 pulleys (parametric design allowing easy resizing by changing tooth count)
+- Designed to fit printers with smaller build volumes (e.g., Creality Ender 3)
+- Printed on Creality CR-10
+- Materials: PLA+ (blue) for most parts; normal PLA for pulleys and gripper
+- Total print time: approximately 120 hours at 60mm/s; the base alone took ~32 hours
+- Print setting: Horizontal expansion of -0.1mm enabled in the slicing software for dimensional accuracy and better fit with mechanical parts (bearings, rods, bolts)
+
+---
+
+## Electronics / Components List (Mechanical)
+
+- 4× Smooth rod shaft — 10mm diameter × 400mm length
+- 1× Lead screw — 8mm × 400mm
+- 4× Linear bearings — 10mm
+- Various M3, M4, and M5 bolts and nuts
+
+## Electronics (Control System)
+
+- **Microcontroller:** Arduino UNO
+- **Motor Driver Shield:** CNC Shield
+- **Stepper Drivers:** 4× A4988 stepper motor drivers
+- **Motors:** 4× NEMA 17 stepper motors
+- **Gripper Actuator:** MG996R servo motor
+
+---
+
+## Software / Programming
+
+- **Development Environment:** Processing (for the custom GUI)
+- **GUI Features:**
+  - **Forward Kinematics:** Manual joint control via sliders (left side); calculates and displays end-effector X, Y, Z position (right side)
+  - **Inverse Kinematics:** User sets desired X, Y, Z position; program automatically calculates required joint angles
+  - Both methods operate simultaneously on one screen; joint angles and end-effector coordinates are always visible and linked
+  - **Automated Operation:** Save feature stores individual positions/movements; Run feature executes stored sequence in a loop
+  - Adjustable speed and acceleration from the GUI
+
+---
+
+## Design
+
+- Robot designed in 3DEXPERIENCE SOLIDWORKS (cloud-based platform)
+- Design goal: maximize 3D-printable parts
+- GT2 pulleys designed parametrically (number of teeth change auto-updates all dimensions)
+- STL files and 3D model available via Cults3D
+
+---
+
+**Source:** Document by Dejan, uploaded to Scribd by edson quis, 120 pages, PDF format.

@@ -1,0 +1,27 @@
+Source URL: https://www.linkedin.com/company/microsoft
+Scraped: 2026-06-19T14:21:12.455129
+============================================================
+
+**Microsoft – Technical and Corporate Overview**
+
+- **Headquarters**: Redmond, Washington, USA  
+- **Industry**: Software Development  
+- **Company Size**: Over 10,001 employees (approximately 228,000 globally as of recent data)  
+- **Type**: Public Company  
+- **Global Presence**: Operates in 190 countries  
+- **Website**: [https://news.microsoft.com/](https://news.microsoft.com/)
+
+**Core Specialties**:  
+Business Software, Developer Tools, Home & Educational Software, Tablets, Search, Advertising, Servers, Windows Operating System, Windows Applications & Platforms, Smartphones, Cloud Computing, Quantum Computing, Future of Work, Productivity, AI, Artificial Intelligence, Machine Learning, Laptops, Mixed Reality, Virtual Reality, Gaming, Developers, and IT Professionals.
+
+**Recent Developments (as of early 2026)**:
+
+- **Data Center Expansion**: Microsoft broke ground on a new data center campus in La Porte, Indiana. The project is expected to create over 600 permanent jobs in its first phase, in addition to thousands of construction roles. The facility will incorporate energy-efficient designs and closed-loop liquid cooling technologies to minimize environmental impact. It also includes ecological enhancements for flood protection and habitat restoration.
+
+- **AI Research in Healthcare**: Microsoft researcher Lorin Crawford co-authored a study published in *Nature Methods* detailing how AI can analyze tumor cell behavior beyond genetic mutations. This work, part of **Project Ex Vivo**, aims to improve precision in matching cancer therapies to patients based on cellular activity patterns.
+
+- **AI Adoption Insights**: Microsoft released its latest **AI Diffusion Report**, analyzing AI usage at the county level across the United States. The report highlights regional disparities and emerging trends in AI adoption, developed in collaboration with the **Microsoft AI for Good Lab**.
+
+- **Corporate Culture**: Microsoft emphasizes a “learn-it-all” mindset, inclusivity, and innovation. Its mission is “to empower every person and every organization to achieve more,” with a focus on technology as a force for good.
+
+- **Global Offices**: Key international locations include offices in North Sydney (Australia), Mississauga (Canada), Issy-les-Moulineaux (France), Munich (Germany), Tokyo (Japan), Reading (UK), and numerous other cities across Europe, Asia, the Middle East, Africa, and the Americas.

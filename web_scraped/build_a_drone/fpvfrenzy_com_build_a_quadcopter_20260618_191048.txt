@@ -1,0 +1,69 @@
+Source URL: https://fpvfrenzy.com/build-a-quadcopter/
+Scraped: 2026-06-18T19:10:48.685159
+============================================================
+
+Based on the provided text, here is a step-by-step guide to building an FPV drone, extracted and summarized for clarity.
+
+### **Prerequisites & Assumptions**
+*   **You are a complete beginner** with basic electronics knowledge (positive, negative, voltage).
+*   **You already own:** A radio transmitter, FPV goggles, a charger, and batteries (1300-1500mAh 4S recommended for beginners).
+*   **Recommended Build Parts List:**
+    *   Generic 210 QAV-style frame
+    *   RacerStar RS2205 2300kv motors
+    *   RacerStar Lite 30A ESC
+    *   Generic Matek PDB
+    *   Omnibus F3 flight controller
+    *   AOMWAY FPV transmitter
+    *   HS1177 FPV camera clone
+    *   Foxeer RHCP antenna
+    *   FrSky XM+ Receiver
+    *   King Kong 5040×3 props
+
+### **Required Tools & Materials**
+*   **Soldering:** Good soldering iron (≥50W, thin tip recommended), 60/40 solder, soldering helping hands (or heavy object/tweezers).
+*   **Hand Tools:** Hex drivers (M2, M3), small Phillips screwdriver, wire strippers, wire cutters, hobby knife.
+*   **Consumables:** 12 or 14 AWG silicone wire (red/black), female XT-60 connector, heat shrink tubing (15mm, 5-6mm, 3mm), zip ties, electrical tape, double-sided tape, Blu tac (optional).
+*   **Other:** Heat gun or lighter for heat shrink.
+
+### **Step-by-Step Build Process**
+
+**1. Learn to Solder (Critical First Step)**
+*   Ensure your soldering iron tip is clean and hot enough to melt solder instantly.
+*   **Tinning:** Apply a small drop of solder to the iron's tip to aid heat transfer. Coat the exposed end of a wire evenly with solder.
+*   **Joining Wires:** Hold two tinned wires together. Touch the iron to them until their solder melts and fuses. Hold still for 1-3 seconds to cool.
+*   **Safety:** Use helping hands or a heavy object to hold wires to avoid burns.
+
+**2. Prepare the Frame**
+*   Wash all carbon fiber parts in soapy water with a sponge to remove dust, especially on clone frames. Do this underwater to prevent airborne dust.
+*   Dry with a towel. Optionally, apply CA (superglue) along edges to prevent delamination in crashes.
+
+**3. Solder the XT-60 Battery Pigtail**
+*   **Plan Length:** Determine wire length by placing the PDB on the frame's bottom plate. The connector should just protrude from the top plate when mounted.
+*   **Prepare Wires:** Cut red and black wires to length. Strip 3-5mm from both ends. Tin all exposed wire ends generously.
+*   **Solder to Connector:** Solder the tinned wires to the corresponding (+) and (-) terminals on the XT-60 connector.
+
+**4. Solder the Power Distribution Board (PDB)**
+*   Solder the XT-60 pigtail wires to the PDB's main battery input pads.
+*   Solder the ESC power leads (red and black wires) to the PDB's corresponding pads.
+
+**5. Mount the ESCs and Motors**
+*   Secure the four ESCs to the frame arms using zip ties or double-sided tape.
+*   Solder the three motor wires from each ESC to the three wires from each motor. The order determines motor spin direction; swapping any two wires reverses it.
+
+**6. Mount the Flight Controller (FC)**
+*   Mount the FC on the frame using standoffs or double-sided tape, ensuring it is oriented correctly (arrow pointing forward).
+*   Solder the ESC signal wires (usually a 3-wire servo lead) to the corresponding motor output pads on the FC.
+*   Solder the receiver (FrSky XM+) wires to the FC's UART port (e.g., TX, RX, 5V, GND).
+
+**7. Install the FPV System**
+*   Mount the FPV camera and video transmitter (VTx) to the frame.
+*   Connect the camera's video output to the VTx's video input.
+*   Solder the VTx's power leads to a regulated voltage pad on the PDB or FC (e.g., 5V or 12V).
+*   Attach the antenna to the VTx's connector.
+
+**8. Final Assembly & Configuration**
+*   Secure all wires with zip ties to prevent interference with props.
+*   Mount the propellers (correct orientation for motor spin direction).
+*   Connect the battery and use your radio transmitter and goggles to configure the flight controller software (e.g., Betaflight), calibrating ESCs, setting up modes, and verifying motor direction.
+
+**Note:** This is one common build sequence. The order can be adjusted based on personal preference and frame design.

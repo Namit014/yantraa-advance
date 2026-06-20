@@ -1,0 +1,109 @@
+Source URL: https://docsbot.ai/prompts/tags?tag=Guide
+Scraped: 2026-06-18T18:34:45.389025
+============================================================
+
+## Extracted Technical Specifications and Descriptions
+
+The source text is a categorized list of AI prompt guides, primarily focused on technical, educational, and operational tasks. Below is a clean extraction of the relevant technical content, organized by category and described in prose.
+
+### General Writing & Editing
+- **Academic Book Guide**: Aids in understanding and engaging with academic books.
+- **5-Hour Detailed Guide**: Creates a comprehensive, structured guide or key on a given subject.
+- **Assessment Guide Report**: Generates a 5,000-word report based on an assessment guide.
+
+### Business & Finance
+- **7 Figure Affiliate Blueprint**: A 20-page PDF guide to automate affiliate marketing using AI.
+- **Affiliate Marketing Guide Creator**: Produces a detailed, actionable affiliate marketing guide from a PDF and key book insights.
+- **Affiliate Program Guide**: Details how to identify profitable affiliate programs, join them, and monetize.
+- **AI Monetization Expert Guide**: An expert guide for making money with AI tools, aimed at non-programmers.
+- **Art Investment Guide**: Focuses on investing in art in Trinidad and Tobago.
+- **Acquire 50,000 USDT / Acquire USDT TRC-20**: Guides to acquiring USDT on the TRC-20 network.
+- **Account Management Guide**: Instructions for creating and managing an online account.
+- **Account Manager Manual**: A comprehensive manual for account managers.
+- **Account Number Explanation**: Detailed explanation of account numbers.
+- **Approach Insurance Company UAE**: Guidance on adding an insurance company to a healthcare application in the UAE.
+
+### Education & Learning
+- **AI and Machine Learning Guide**: A guidebook covering AI, ML, and ChatGPT.
+- **AI Learning eBook Guide**: Instructions for creating an AI-focused eBook in PDF format.
+- **Audio Engineering Compressor Guide**: An educational guide on audio compression concepts and applications.
+- **Alphanumeric Sequence Guide**: Explains and explores uses of a full uppercase alphabet plus digits sequence.
+
+### Technical Programming & Code
+- **Advanced WordPress Development Guide**: Covers advanced WordPress development techniques.
+- **Android App Dev Guide**: Step-by-step instructions to build three Android apps with API integration and paywall using Android Studio.
+- **Android Development Guide**: A comprehensive guide on Android development.
+- **Android Ecosystem Guide**: A step-by-step guide to creating an Android-level ecosystem.
+- **Android Keystore Guide**: Details Android keystore management and usage.
+- **Angular 15 to 18 Upgrade Guide**: Step-by-step instructions to upgrade Angular projects from version 15 to 18, including commands and best practices.
+- **Angular 20 Project Setup**: Step-by-step guide to create a new Angular 20 project from scratch.
+- **Angular Upgrade Plan**: Guide for upgrading Angular from version 11 to 12.
+- **API Key Acquisition Guide**: Instructions on obtaining API keys for specified services without exposing keys.
+- **API Sanctions Check Guide**: Explains how to use an API to check company sanctions with a step-by-step guide.
+- **APK Modification Guide**: Provides detailed steps to modify an Android APK file.
+- **App Build Step Guide**: Generates a detailed, step-by-step development guide from an app description.
+- **Apstra 6.0 Network Setup Guide**: Step-by-step guide to configuring a network topology on Apstra 6.0 GUI for first-time users.
+- **Arma Reforger Modding Guide**: Step-by-step guide for creating mods in Arma Reforger.
+- **Assistants API Guide**: An in-depth guide for creating and managing assistants using the Assistants API.
+- **Authentication Feature Guide**: A step-by-step expert guide to building authentication from scratch without Breeze.
+- **Auto Crafting System Guide**: Instructions for setting up an infinite auto-crafting system.
+
+### Customer Support
+- **Access ChatGPT Guide**: Instructions on accessing ChatGPT online.
+- **Access Key Retrieval Guide**: A step-by-step guide to obtain an access key for services.
+- **Account Management Guide**: Instructions for creating and managing an online account.
+- **Add Screenshot Instructions**: Clear instructions to add or take a screenshot.
+- **AirPods User Guide**: A detailed guide on using AirPods effectively.
+- **AirPods Pro 2 Care Guide**: A maintenance and care guide for AirPods Pro 2 users.
+- **Application Usage Guide**: Guidelines for effectively using an application.
+- **App Installation Guide**: Clear step-by-step instructions to install an application.
+- **Android 11 App Installation**: Step-by-step guide to install an app on Android 11 devices.
+
+### Research Analysis
+- **Analysis Steps Guide**: A guide to structuring a topic analysis effectively.
+- **Analytical Travel Guide Builder**: Generates a detailed, analytical day-to-day travel guide with routes and tips based on place, dates, and travel style.
+
+### Productivity
+- **AI Automation Creation Guide**: Step-by-step guidance for creating AI automation.
+- **AI Automation Guide**: A guide to generating income through AI automation.
+- **AI & Automation Introduction**: An introduction to understanding AI and automation.
+- **AI Generation Guide**: Guidance on using AI for generating content effectively.
+- **AI Prompt Guide**: A concise guide to help users find and use AI prompts effectively for various scenarios.
+- **AI Prompt Writing Guide**: Instructions on learning AI prompt writing effectively.
+- **AI Prompting Guide**: A guide for everyday users to create better AI prompts with best practices and examples.
+- **Auto Buy Assistant**: Creates a guide or script for automatic purchasing based on user criteria.
+
+### Personal
+- **AI Influencer Guide**: Step-by-step guide to becoming an AI influencer for free.
+- **AI Installation Guide**: Instructions for installing AI tools on a PC.
+
+### Creative Image Generation
+- **3D Facade Rendering Guide**: Provides a detailed guide on creating 3D renders of building facades.
+- **3D Modelling Guide**: Offers detailed assistance for 3D modelling tasks with step-by-step guidance.
+- **AI Image Generator PDF**: Generates a detailed PDF guide for using an AI Image Generator.
+
+### Multilingual & Translation
+- No specific guides listed under this category in the provided text.
+
+### Entertainment
+- **1-Minute Crypto Scalping Guide**: A detailed guide explaining strategies and tips for 1-minute crypto scalping.
+- **120fps Sensitivity Guide**: A detailed sensitivity guide for Redmi Note 10 Pro at 120 fps based on top player settings.
+- **24x7 YouTube Live Stream Guide**: Step-by-step instructions to broadcast continuous live video on YouTube.
+- **Activate GTA V on Steam**: Guides users on legally activating GTA V in Steam step-by-step.
+- **Add Free AI to Creature Chat mod**: Instructions on adding a free AI to the Creature Chat Minecraft mod.
+- **Advanced Scene Switcher Guide**: A comprehensive guide to the Advanced Scene Switcher plugin for OBS.
+- **Android Low Sensitivity Guide**: Instructions on adjusting low sensitivity settings on Android devices.
+- **App Blogger Template Guide**: Instructions on downloading and installing Blogger templates for app-related blogs.
+- **Add Sellhub Embeds**: Instructions to embed Sellhub links into products based on the Sellhub guide.
+- **AAAP RLP Lease Guide**: Creates an improved, sectioned lease acquisition guide for AAAP RLP with hyperlinks for LCOs and realty specialists.
+- **Acronis True Image Overview**: An overview and guide to Acronis True Image backup software.
+- **Agentic Engine Guide**: A comprehensive guide to building an Agentic Engine.
+- **AI Bot Development Guide**: A comprehensive guide to creating an AI bot like ElevenLabs.
+- **AI Calling Agent Guide**: Complete step-by-step guide to create an AI calling agent with custom voice, including languages, software, APIs, and deployment.
+- **AI ChatGPT Overview**: A detailed introductory guide to AI technologies related to ChatGPT.
+- **AI Cursor API Integration**: Instructions to connect AI Cursor with an API using a specified format.
+- **AI-Generated Digital Product Plan**: Creates a step-by-step guide to generate and sell an AI-created digital product immediately.
+- **AI Model Development Guide**: Instructions for developing an operational online AI model similar to GPT.
+- **9.3 DSLR Config Guide**: Generates a DSLR-style configuration guide tailored for the 9.3 system or version.
+
+This extraction removes all navigation, ads, and boilerplate, presenting only the technical specifications and descriptions from the source text.

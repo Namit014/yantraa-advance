@@ -1,0 +1,11 @@
+Source URL: https://en.wikipedia.org/wiki/Microsoft
+Scraped: 2026-06-19T14:20:07.369456
+============================================================
+
+Microsoft Corporation is an American multinational technology company headquartered in Redmond, Washington. Founded on April 4, 1975, in Albuquerque, New Mexico, by Bill Gates and Paul Allen, the company initially focused on developing BASIC interpreters for the Altair 8800 microcomputer. Microsoft rose to prominence by dominating the personal computer operating system market with MS-DOS in the mid-1980s, followed by the Windows operating system.
+
+The company's 1986 initial public offering (IPO) significantly increased its share price, creating substantial wealth for its employees. Since the 1990s, Microsoft has diversified its business beyond operating systems into areas such as cloud computing, artificial intelligence, video gaming, and consumer electronics. Key leadership transitions include Steve Ballmer replacing Gates as CEO in 2000, and Satya Nadella becoming CEO in 2014, under whose direction the company shifted its focus towards cloud computing and made significant acquisitions like LinkedIn in 2016 and Activision Blizzard in 2023.
+
+Microsoft is a major player in the technology industry, recognized as the largest software company by revenue and one of the most valuable public companies and brands globally. Its best-known software products include the Windows operating system, the Microsoft Office and Microsoft 365 productivity suites (featuring Word, Excel, and PowerPoint), and the Azure cloud computing platform. Flagship hardware products include the Surface line of PCs and the Xbox video game consoles. The company also provides various consumer internet services like Bing, MSN, Outlook.com, and the Microsoft Store, as well as enterprise solutions such as Microsoft SQL Server and Visual Studio.
+
+As of June 30, 2025, Microsoft reported a revenue of US$281.7 billion, an operating income of US$128.5 billion, and a net income of US$101.8 billion. The company's total assets were valued at US$619.0 billion, with total equity of US$343.5 billion. Microsoft employs approximately 228,000 people worldwide. The company is publicly traded on the Nasdaq under the ticker symbol MSFT and is a component of major indices like the Nasdaq-100, DJIA, S&P 100, and S&P 500.
