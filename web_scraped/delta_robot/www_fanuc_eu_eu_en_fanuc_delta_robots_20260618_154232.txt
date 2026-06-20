@@ -1,0 +1,5 @@
+Source URL: https://www.fanuc.eu/eu-en/fanuc-delta-robots
+Scraped: 2026-06-18T15:42:32.036914
+============================================================
+
+FANUC Delta Robots offer high-speed automation across industries, with compact designs suitable for tight spaces. Key specifications include payload capacities (up to 12 kg), work envelopes (up to 1600 mm or 1130 mm), and reach options (up to 1350 mm). Their parallel link design enhances work envelope within a compact footprint. Features support hygiene levels such as food-grade grease and IP69K protection, ideal for sanitary environments. Models range from the M-1 Series (max 1 kg, 420 mm) to the DR-3 Series (max 12 kg, 1350 mm) and new entrants like the DR-3 8L Flyer and DR-3 6 STAINLESS. These systems emphasize reliability, accuracy, and speed, supporting applications in food processing, pharmaceutical packaging, automotive assembly, electronics, and more. Includes downloadable technical details, product brochures, and case studies to aid decision-making.

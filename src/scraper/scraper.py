@@ -1,45 +1,53 @@
-import requests
-from bs4 import BeautifulSoup
+import httpx
+import asyncio
+import logging
 
-# Tags whose content is pure navigation/boilerplate — strip them before extracting text
-_BOILERPLATE_TAGS = [
-    "nav", "footer", "header", "script", "style",
-    "noscript", "aside", "form", "button", "iframe"
-]
+logger = logging.getLogger(__name__)
 
-def scrape_url(url):
+JINA_BASE = "https://r.jina.ai/"
+
+async def fetch_clean_text(url: str, timeout: int = 20) -> str:
     """
-    Fetch `url` and return clean visible text.
-    Returns None on network/parse errors or if the page yields no useful content.
+    Fetch a URL via Jina Reader which returns clean, LLM-ready markdown.
+    Falls back to direct BeautifulSoup extraction if Jina fails.
     """
+    jina_url = f"{JINA_BASE}{url}"
+    headers = {
+        "Accept": "text/plain",
+        "X-Timeout": str(timeout),
+        "X-Return-Format": "text",   # plain text, not markdown with image tags
+    }
     try:
-        resp = requests.get(
-            url,
-            timeout=10,
-            headers={"User-Agent": "Mozilla/5.0 (compatible; YantraBot/1.0)"}
-        )
-        resp.raise_for_status()
-        html = resp.text
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            response = await client.get(jina_url, headers=headers)
+            response.raise_for_status()
+            text = response.text.strip()
+            if len(text) > 200:
+                return text
+            # Jina returned too little — fall through to direct fetch
     except Exception as e:
-        print(f"[Scraper] Failed to fetch {url}: {e}")
-        return None
+        logger.warning(f"Jina fetch failed for {url}: {e}. Falling back to direct fetch.")
 
+    return await _direct_fetch_fallback(url, timeout)
+
+
+async def _direct_fetch_fallback(url: str, timeout: int) -> str:
+    """BeautifulSoup fallback when Jina is unavailable."""
     try:
-        soup = BeautifulSoup(html, "html.parser")
-
-        # Remove boilerplate sections
-        for tag in _BOILERPLATE_TAGS:
-            for el in soup.find_all(tag):
-                el.decompose()
-
-        text = soup.get_text(separator=" ", strip=True)
+        async with httpx.AsyncClient(timeout=timeout, follow_redirects=True) as client:
+            response = await client.get(url, headers={"User-Agent": "Mozilla/5.0"})
+            response.raise_for_status()
+            html = response.text
     except Exception as e:
-        print(f"[Scraper] Failed to parse HTML from {url}: {e}")
-        return None
+        logger.error(f"Direct fetch also failed for {url}: {e}")
+        return ""
 
-    # Require at least 150 meaningful characters
-    if len(text) < 150:
-        print(f"[Scraper] Page too short or empty, skipping: {url}")
-        return None
-
-    return text
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "html.parser")
+    for tag in ("nav", "footer", "header", "script", "style", "aside", "form", "noscript"):
+        for el in soup.find_all(tag):
+            el.decompose()
+    article = soup.find("article") or soup.find("main") or soup.body or soup
+    text = article.get_text(separator="\n", strip=True)
+    lines = [line.strip() for line in text.splitlines() if len(line.strip()) > 30]
+    return "\n".join(lines)

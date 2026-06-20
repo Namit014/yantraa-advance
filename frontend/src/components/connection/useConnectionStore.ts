@@ -531,50 +531,16 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       components.forEach((comp: any) => {
         const shape = inferShape(comp.name, comp.role || "");
         const type = inferType(comp.name, comp.role || "");
+        const ports = getPortsForInterface(comp.id, comp.interface || "");
 
-        // Generate port layouts based on collected dynamic ports
-        const nodePorts: Port[] = [];
-        const portLabels = Array.from(collectedPorts.get(comp.id) || []);
-        
-        // Ensure VCC and GND exist
-        if (!portLabels.some(l => l.toUpperCase() === "VCC" || l.toUpperCase() === "VIN" || l.toUpperCase() === "5V")) portLabels.push("VCC");
-        if (!portLabels.some(l => l.toUpperCase() === "GND")) portLabels.push("GND");
+        const rowCount = rowCounts[type] || 0;
+        rowCounts[type] = rowCount + 1;
 
-        // Categorize into sides
-        const topPorts: string[] = [];
-        const leftPorts: string[] = [];
-        const rightPorts: string[] = [];
-        const bottomPorts: string[] = [];
+        const x = 80 + rowCount * 300;
+        const y = rowHeights[type] || 400;
 
-        portLabels.forEach(lbl => {
-            const L = lbl.toUpperCase();
-            if (L.includes("VCC") || L.includes("VIN") || L.includes("5V") || L.includes("3V") || L.includes("GND") || L.includes("PWR")) {
-                topPorts.push(lbl);
-            } else if (L.includes("TX") || L.includes("RX") || L.includes("SDA") || L.includes("SCL") || L.includes("MISO") || L.includes("MOSI") || L.includes("SCK") || L.includes("CS") || L.includes("IN") || L.includes("ENA") || L.includes("ENB")) {
-                leftPorts.push(lbl);
-            } else {
-                rightPorts.push(lbl);
-            }
-        });
-
-        const distribute = (labels: string[], side: "top"|"bottom"|"left"|"right") => {
-            labels.forEach((lbl, idx) => {
-                const offset = (100 / (labels.length + 1)) * (idx + 1);
-                nodePorts.push({
-                    id: getPortId(comp.id, lbl),
-                    label: lbl,
-                    side,
-                    offsetPercent: Math.round(offset)
-                });
-            });
-        };
-
-        distribute(topPorts, "top");
-        distribute(leftPorts, "left");
-        distribute(rightPorts, "right");
-        distribute(bottomPorts, "bottom");
         rfNodes.push({
-          id: comp.id,
+          id: compId,
           type: "circuitNode",
           position: { x: 0, y: 0 },
           draggable: true,
@@ -588,51 +554,50 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       });
     });
 
-    const rfEdges: CircuitEdge[] = connections.reduce((acc: CircuitEdge[], conn: any, idx: number) => {
-      let fromNodeId = conn.from;
-      let toNodeId = conn.to;
-
-      // Fuzzy match IDs if they don't exactly match a node
-      const fromExists = rfNodes.some(n => n.id === fromNodeId);
-      const toExists = rfNodes.some(n => n.id === toNodeId);
-
-      if (!fromExists) {
-        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(fromNodeId.toLowerCase()) || n.data.label.toLowerCase().includes(fromNodeId.toLowerCase()));
-        if (fuzzyNode) fromNodeId = fuzzyNode.id;
-      }
-      if (!toExists) {
-        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(toNodeId.toLowerCase()) || n.data.label.toLowerCase().includes(toNodeId.toLowerCase()));
-        if (fuzzyNode) toNodeId = fuzzyNode.id;
-      }
-
-      // If still not found, skip to avoid React Flow errors
-      if (!rfNodes.some(n => n.id === fromNodeId) || !rfNodes.some(n => n.id === toNodeId)) {
-        return acc;
-      }
-
-      const fPortLabel = conn.from_port || "IO1";
-      const tPortLabel = conn.to_port || "IO1";
+    const connections = designData.connections || [];
+    const rfEdges: CircuitEdge[] = connections.map((conn: any, idx: number) => {
+      const fromNodeId = conn.from;
+      const toNodeId = conn.to;
+      const protocol = (conn.protocol || "signal").toUpperCase();
       
       let wireType: WireType = "signal";
-      if (conn.wire_type && WIRE_COLORS[conn.wire_type as WireType]) {
-        wireType = conn.wire_type as WireType;
-      } else {
-        const protocol = (conn.protocol || "signal").toUpperCase();
-        if (protocol.includes("I2C") || protocol.includes("UART") || protocol.includes("SPI") || protocol.includes("RS485")) {
-          wireType = "data";
-        } else if (protocol.includes("CAN")) {
-          wireType = "can";
-        } else if (protocol.includes("PWM")) {
-          wireType = "pwm";
-        } else if (protocol.includes("DC") || protocol.includes("POWER") || fPortLabel.toUpperCase().includes("VCC") || fPortLabel.toUpperCase().includes("GND")) {
-          wireType = "power";
-        }
+      if (protocol.includes("I2C") || protocol.includes("UART") || protocol.includes("SPI") || protocol.includes("RS485")) {
+        wireType = "data";
+      } else if (protocol.includes("CAN")) {
+        wireType = "can";
+      } else if (protocol.includes("PWM")) {
+        wireType = "pwm";
+      } else if (protocol.includes("DC") || protocol.includes("POWER")) {
+        wireType = "power";
       }
 
-      const srcPortId = getPortId(fromNodeId, fPortLabel);
-      const tgtPortId = getPortId(toNodeId, tPortLabel);
+      let srcPort = `${fromNodeId}-io1`;
+      let tgtPort = `${toNodeId}-io1`;
+      
+      const fromNode = rfNodes.find(n => n.id === fromNodeId);
+      const toNode = rfNodes.find(n => n.id === toNodeId);
+      
+      if (fromNode && fromNode.data.ports.length > 0) {
+        const match = fromNode.data.ports.find((p: any) => 
+          p.id.includes("sda") || p.id.includes("tx") || p.id.includes("can") || p.id.includes("pwm") || p.id.includes("io1")
+        );
+        srcPort = match ? match.id : fromNode.data.ports[0].id;
+      }
+      if (toNode && toNode.data.ports.length > 0) {
+        const match = toNode.data.ports.find((p: any) => 
+          p.id.includes("sda") || p.id.includes("rx") || p.id.includes("can") || p.id.includes("pwm") || p.id.includes("io1")
+        );
+        tgtPort = match ? match.id : toNode.data.ports[0].id;
+      }
+      
+      if (wireType === "power") {
+        const srcVcc = `${fromNodeId}-vcc`;
+        const tgtVcc = `${toNodeId}-vcc`;
+        if (fromNode?.data.ports.some(p => p.id === srcVcc)) srcPort = srcVcc;
+        if (toNode?.data.ports.some(p => p.id === tgtVcc)) tgtPort = tgtVcc;
+      }
 
-      acc.push({
+      return {
         id: `wire-design-${idx}-${Date.now()}`,
         source: fromNodeId,
         target: toNodeId,
@@ -651,33 +616,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
           stroke: WIRE_COLORS[wireType],
           strokeWidth: 2
         }
-      });
-      return acc;
-    }, []);
-
-    // Apply Dagre auto-layout
-    const g = new dagre.graphlib.Graph();
-    g.setGraph({ rankdir: "TB", nodesep: 150, ranksep: 200, marginx: 50, marginy: 50 });
-    g.setDefaultEdgeLabel(() => ({}));
-
-    rfNodes.forEach((node) => {
-      g.setNode(node.id, { width: 220, height: 150 });
-    });
-
-    rfEdges.forEach((edge) => {
-      g.setEdge(edge.source, edge.target);
-    });
-
-    dagre.layout(g);
-
-    rfNodes.forEach((node) => {
-      const nodeWithPosition = g.node(node.id);
-      if (nodeWithPosition) {
-        node.position = {
-          x: nodeWithPosition.x - 110,
-          y: nodeWithPosition.y - 75,
-        };
-      }
+      };
     });
 
     set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false });
@@ -729,13 +668,13 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     set({ edges: [...get().edges, edge] });
   },
 
-  generate: async (components, prompt) => {
+  generate: async (components, prompt, subsystems) => {
     set({ isGenerating: true, error: null });
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ components, prompt }),
+        body: JSON.stringify({ components, prompt, subsystems }),
       });
 
       if (!res.ok) throw new Error(`API error ${res.status}`);
@@ -744,41 +683,60 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
 
       // Convert API response → React Flow nodes
       const rfNodes: CircuitNode[] = data.nodes.map((n) => ({
-        id: n.id,
+        id: n.id.toString().toLowerCase().replace(/\s+/g, '_'),
         type: "circuitNode",
         position: { x: n.x, y: n.y },
         data: {
           label: n.label,
           type: n.type,
           shape: n.shape,
-          ports: n.ports,
+          ports: n.ports.map((port) => ({
+            ...port,
+            id: port.id.toString().toLowerCase().replace(/\s+/g, '_')
+          })),
         },
         draggable: true,
       }));
 
       // Convert API response → React Flow edges
-      const rfEdges: CircuitEdge[] = data.wires.map((w) => ({
-        id: w.id,
-        source: w.from.nodeId,
-        target: w.to.nodeId,
-        sourceHandle: w.from.portId,
-        targetHandle: w.to.portId,
-        type: "circuitWire",
-        label: w.label,
-        data: {
-          from: w.from,
-          to: w.to,
-          color: w.color,
+      const rfEdges: CircuitEdge[] = data.wires.map((w) => {
+        const fromNodeId = w.from.nodeId.toString().toLowerCase().replace(/\s+/g, '_');
+        const toNodeId = w.to.nodeId.toString().toLowerCase().replace(/\s+/g, '_');
+        const fromPortId = w.from.portId.toString().toLowerCase().replace(/\s+/g, '_');
+        const toPortId = w.to.portId.toString().toLowerCase().replace(/\s+/g, '_');
+
+        const fromNodeExists = rfNodes.some(n => n.id === fromNodeId);
+        const toNodeExists = rfNodes.some(n => n.id === toNodeId);
+        if (!fromNodeExists) {
+          console.warn(`Generated edge references non-existent source node ID: ${fromNodeId}`);
+        }
+        if (!toNodeExists) {
+          console.warn(`Generated edge references non-existent target node ID: ${toNodeId}`);
+        }
+
+        return {
+          id: w.id,
+          source: fromNodeId,
+          target: toNodeId,
+          sourceHandle: fromPortId,
+          targetHandle: toPortId,
+          type: "circuitWire",
           label: w.label,
-          wireType: w.type,
-        },
-        style: {
-          stroke: w.color,
-          strokeWidth: 2,
-        },
-        markerEnd: undefined,
-        animated: false,
-      }));
+          data: {
+            from: { nodeId: fromNodeId, portId: fromPortId },
+            to: { nodeId: toNodeId, portId: toPortId },
+            color: w.color,
+            label: w.label,
+            wireType: w.type,
+          },
+          style: {
+            stroke: w.color,
+            strokeWidth: 1.5,
+          },
+          markerEnd: undefined,
+          animated: false,
+        };
+      });
 
       set({ nodes: rfNodes, edges: rfEdges });
     } catch (err) {

@@ -1,3 +1,11 @@
+import sys
+import io
+
+# Force UTF-8 encoding for standard output/error to avoid charmap crashes on Windows
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
 from loader import (
     load_files,
     read_docx,
@@ -14,7 +22,7 @@ from chunker import (
 )
 
 from embedder import Embedder
-from vectordb import VectorDB
+from vectordb import VectorDB, get_all_content_hashes, compute_content_hash, _client
 
 
 def ingest():
@@ -26,6 +34,10 @@ def ingest():
     chunker = Chunker()
     embedder = Embedder()
     vectordb = VectorDB()
+
+    # Retrieve all existing content hashes from Qdrant
+    existing_hashes = get_all_content_hashes(_client, collection_name=vectordb.collection_name)
+    print(f"Retrieved {len(existing_hashes)} existing chunk hashes from Qdrant.")
 
     total_chunks = 0
 
@@ -39,20 +51,37 @@ def ingest():
                 chunks = chunk_cad_by_component(file_info)
                 if not chunks:
                     continue
-                embedded_chunks = embedder.embed_chunks(chunks)
+                # Filter out chunks already in existing_hashes
+                filtered_chunks = []
+                for chunk in chunks:
+                    c_hash = compute_content_hash(chunk["text"])
+                    if c_hash not in existing_hashes:
+                        filtered_chunks.append(chunk)
+                if not filtered_chunks:
+                    print(f"Skipping already-ingested CAD: {file_info['file_name']}")
+                    continue
+                embedded_chunks = embedder.embed_chunks(filtered_chunks)
                 vectordb.store_chunks(embedded_chunks)
-                total_chunks += len(chunks)
-                print(f"CAD Processed: {file_info['file_name']} → {len(chunks)} components")
+                total_chunks += len(filtered_chunks)
+                print(f"CAD Processed: {file_info['file_name']} → {len(filtered_chunks)} components")
                 continue
 
             if file_type == ".xlsx":
                 chunks = chunk_excel_by_row(file_info)
                 if not chunks:
                     continue
-                embedded_chunks = embedder.embed_chunks(chunks)
+                filtered_chunks = []
+                for chunk in chunks:
+                    c_hash = compute_content_hash(chunk["text"])
+                    if c_hash not in existing_hashes:
+                        filtered_chunks.append(chunk)
+                if not filtered_chunks:
+                    print(f"Skipping already-ingested Excel: {file_info['file_name']}")
+                    continue
+                embedded_chunks = embedder.embed_chunks(filtered_chunks)
                 vectordb.store_chunks(embedded_chunks)
-                total_chunks += len(chunks)
-                print(f"Excel Processed: {file_info['file_name']} → {len(chunks)} row chunks")
+                total_chunks += len(filtered_chunks)
+                print(f"Excel Processed: {file_info['file_name']} → {len(filtered_chunks)} row chunks")
                 continue
 
 
@@ -98,9 +127,19 @@ def ingest():
                 )
             )
 
+            filtered_chunks = []
+            for chunk in chunks:
+                c_hash = compute_content_hash(chunk["text"])
+                if c_hash not in existing_hashes:
+                    filtered_chunks.append(chunk)
+
+            if not filtered_chunks:
+                print(f"Skipping already-ingested file: {file_info['file_name']}")
+                continue
+
             embedded_chunks = (
                 embedder.embed_chunks(
-                    chunks
+                    filtered_chunks
                 )
             )
 
@@ -108,7 +147,7 @@ def ingest():
                 embedded_chunks
             )
 
-            total_chunks += len(chunks)
+            total_chunks += len(filtered_chunks)
 
             print(
                 f"Processed: "

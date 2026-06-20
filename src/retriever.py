@@ -8,7 +8,7 @@ _src_dir = os.path.dirname(os.path.abspath(__file__))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
-from qdrant_client import QdrantClient
+from vectordb import _client
 from qdrant_client.models import Distance, VectorParams
 from embedder import Embedder, EMBEDDING_DIMENSION
 
@@ -38,15 +38,49 @@ def _parse_yes_no(llm_response: str) -> str:
     return "NO"
 
 
+def optimize_for_web_search(query: str) -> str:
+    """
+    Transform a natural language design query into a spec-focused search query
+    for robotics component retrieval.
+    """
+    # Strip common instruction verbs
+    import re
+    query = re.sub(
+        r'^(build|create|make|design|generate|give me|show me|i want)\s+(me\s+)?(a|an|the)?\s*',
+        '',
+        query.strip(),
+        flags=re.IGNORECASE
+    ).strip()
+
+    # Append spec-focused terms
+    spec_suffix = "specifications components datasheet pinout"
+    return f"{query} {spec_suffix}"
+
+
+def _run_async(coro):
+    import asyncio
+    try:
+        loop = asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+    
+    if loop.is_running():
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor() as executor:
+            future = executor.submit(asyncio.run, coro)
+            return future.result()
+    else:
+        return loop.run_until_complete(coro)
+
+
 class Retriever:
 
     def __init__(self):
 
         self.embedder = Embedder()
 
-        self.client = QdrantClient(
-            path="./qdrant_data"
-        )
+        self.client = _client
 
         # Explicitly close the Qdrant client on exit to avoid
         # "sys.meta_path is None" warning during Python shutdown
@@ -94,7 +128,8 @@ class Retriever:
         if not results.points or results.points[0].score < SCORE_HARD_FLOOR:
             print("Score too low. Searching the web...")
             from scraper.pipeline import web_ingest
-            web_ingest(query, qdrant_client=self.client)
+            optimized_query = optimize_for_web_search(query)
+            _run_async(web_ingest(optimized_query, qdrant_client=self.client, original_query=query))
             results = self.client.query_points(
                 collection_name=self.collection_name,
                 query=query_vector,
@@ -102,6 +137,66 @@ class Retriever:
             )
 
         return results.points
+
+    async def _web_fallback(self, query: str) -> dict:
+        """
+        Fires only when Qdrant score is below SCORE_HARD_FLOOR.
+        Returns structured context with source attribution.
+        """
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info(f"[RAG FALLBACK] Qdrant score too low. Triggering web fallback for: {query}")
+
+        from scraper.search import search_web
+        from scraper.pipeline import rank_urls, is_garbage_text, chunk_scraped_text, _url_cache, _save_url_cache
+        from scraper.scraper import fetch_clean_text
+
+        # DDG search
+        urls = search_web(query)
+
+        if not urls:
+            logger.warning("[RAG FALLBACK] DDG returned no URLs.")
+            return {"context": "", "source": "none", "fallback_used": True, "source_urls": []}
+
+        # Rank and limit
+        ranked_urls = rank_urls(urls)[:5]
+
+        # Fetch via Jina with fallback
+        texts = []
+        for url in ranked_urls:
+            if url in _url_cache:
+                logger.info(f"[RAG FALLBACK] URL already in cache, skipping fetch: {url}")
+                continue
+            text = await fetch_clean_text(url)
+            if text and not is_garbage_text(text):
+                texts.append({"url": url, "text": text})
+                # Add to cache and save
+                _url_cache.add(url)
+                _save_url_cache(_url_cache)
+            if len(texts) >= 3:  # stop after 3 good pages
+                break
+
+        if not texts:
+            logger.warning("[RAG FALLBACK] All fetched pages were garbage or already cached. Returning empty context.")
+            return {"context": "", "source": "none", "fallback_used": True, "source_urls": []}
+
+        # Chunk and combine
+        combined_chunks = []
+        for item in texts:
+            chunks = chunk_scraped_text(item["text"], item["url"])
+            combined_chunks.extend(chunks)
+
+        # Take top chunks by length as a rough relevance proxy
+        top_chunks = sorted(combined_chunks, key=lambda c: len(c["text"]), reverse=True)[:6]
+        context = "\n\n---\n\n".join(c["text"] for c in top_chunks)
+
+        logger.info(f"[RAG FALLBACK] Returning {len(top_chunks)} chunks from {len(texts)} pages.")
+        return {
+            "context": context,
+            "source": "web",
+            "fallback_used": True,
+            "source_urls": [item["url"] for item in texts],
+        }
 
     def ask(self, query, top_k=15):
         """
@@ -122,6 +217,7 @@ class Retriever:
 
         optimized_query = query
         logical_intent = query
+        query_vector = self._embed_query(optimized_query)
 
         from qdrant_client.models import Filter, FieldCondition, MatchValue
 
@@ -137,7 +233,7 @@ class Retriever:
         )
         results = self.client.query_points(
             collection_name=self.collection_name,
-            query=self._embed_query(optimized_query),
+            query=query_vector,
             query_filter=local_filter,
             limit=top_k
         )
@@ -177,7 +273,7 @@ class Retriever:
             )
             results = self.client.query_points(
                 collection_name=self.collection_name,
-                query=self._embed_query(optimized_query),
+                query=query_vector,
                 query_filter=web_filter,
                 limit=top_k
             )
@@ -204,37 +300,27 @@ class Retriever:
                 print(f"[Yantra AI] Enough Web_scraped Data? NO ({reason})")
 
         # ── Step 4: Web Fallback (if needed) ──────────────────────────────
+        fallback_used = False
+        source_urls = []
+        source_type = "kb"
+
         if is_enough == "NO":
             print("[Yantra AI] Triggering Web Fallback Pipeline to search internet...")
-            from scraper.pipeline import web_ingest
-            web_ingest(optimized_query, qdrant_client=self.client, original_query=logical_intent)
-
-            # Re-query with the ORIGINAL user query for best semantic match
-            print("[Yantra AI] Re-querying with newly learned Web data...")
-            web_filter = Filter(
-                must=[
-                    FieldCondition(
-                        key="source",
-                        match=MatchValue(value="web_scraped")
-                    )
-                ]
-            )
-            results = self.client.query_points(
-                collection_name=self.collection_name,
-                query=self._embed_query(query),
-                query_filter=web_filter,
-                limit=top_k
-            )
-            context_texts = [p.payload.get("text", "") for p in results.points] if results.points else []
-            context_block = "\n\n".join(context_texts)
-
-            if not context_texts:
-                print("[Yantra AI] Web fallback returned no usable data.")
+            opt_query = optimize_for_web_search(query)
+            fallback_res = _run_async(self._web_fallback(opt_query))
+            context_block = fallback_res["context"]
+            fallback_used = fallback_res["fallback_used"]
+            source_urls = fallback_res.get("source_urls", [])
+            source_type = fallback_res.get("source", "none")
 
         # ── Step 5: Final Synthesis ────────────────────────────────────────
         print("[Yantra AI] Generating final synthesis...")
+        context_note = ""
+        if source_type == "web":
+            context_note = "\n\n[Note: This context was retrieved from the web, not the internal knowledgebase.]"
+
         final_prompt = (
-            f"Context from Knowledge Base:\n{context_block}\n\n"
+            f"Context from Knowledge Base:\n{context_block}{context_note}\n\n"
             f"User Query: {query}\n\n"
             f"You are an expert robotics and manufacturing AI engineer. "
             f"Answer the query in extreme detail. "
@@ -249,23 +335,8 @@ class Retriever:
         cad_available = False
         cad_url = None
         
-        known_cads = {
-            "autonomous mobile": "Automate_mobile_Robot.step",
-            "amr": "Automate_mobile_Robot.step",
-            "agv": "AVGs_robot_cad.step",
-            "autonomous guided": "AVGs_robot_cad.step",
-            "cartesian": "cartesian_robot_cad.stp",
-            "cobot": "cobot_robot_cad.stp",
-            "collaborative": "cobot_robot_cad.stp",
-            "delta": "DeltaRobot2.STEP",
-            "painting": "painting_robot_cad.stp",
-            "palletizing": "palletizing_robot_cad.STEP",
-            "articulated": "Articulated_robot_cad.STEP",
-            "inspection": "inspection_robot_cad.STEP",
-            "scara": "scara_robot_cad.stp",
-            "welding": "welding_cad.stp",
-            "humanoid": "humanoid.step"
-        }
+        from cad_registry import get_known_cads
+        known_cads = get_known_cads()
         
         query_lower = query.lower()
         for key, filename in known_cads.items():
@@ -288,7 +359,7 @@ class Retriever:
                 if cad_available:
                     break
 
-        return final_answer, cad_available, cad_url
+        return final_answer, cad_available, cad_url, fallback_used, source_urls
 
 
 if __name__ == "__main__":
