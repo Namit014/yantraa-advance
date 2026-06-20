@@ -70,6 +70,7 @@ interface GenerateComponent {
 }
 
 interface GenerateResponse {
+  erc_report?: string;
   nodes: Array<{
     id: string;
     label: string;
@@ -345,7 +346,7 @@ function _wire(
       label: lbl,
       wireType: wt,
     },
-    style: { stroke: WIRE_COLORS[wt], strokeWidth: 2 },
+    style: { stroke: WIRE_COLORS[wt], strokeWidth: 3 },
   };
 }
 
@@ -419,6 +420,7 @@ interface ConnectionStore {
   isGenerating: boolean;
   prompt: string;
   error: string | null;
+  ercReport: string | null;
 
   // Actions
   setNodes: (nodes: CircuitNode[] | ((prev: CircuitNode[]) => CircuitNode[])) => void;
@@ -451,6 +453,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   isGenerating: false,
   prompt: "Raspberry Pi 4 + Arduino Mega + ESP32 WiFi + L298N motors + MPU6050 IMU + HC-SR04 + OLED display",
   error: null,
+  ercReport: null,
 
   loadDesignData: (designData) => {
     if (!designData) return;
@@ -502,13 +505,45 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       other: 0
     };
 
-    const connections = designData.connections || [];
+    const rawConnections = designData.connections || [];
+    const connections = rawConnections.filter((conn: any) => {
+        const relation = (conn.relation || "").toLowerCase();
+        const protocol = (conn.protocol || "").toLowerCase();
+        return relation !== "mounted_on" && relation !== "attached_to" && relation !== "fastened_to" && protocol !== "mechanical";
+    });
     
     // Pass 1: Collect required ports for each component from the explicit connections
     const collectedPorts = new Map<string, Set<string>>();
-    connections.forEach((conn: any) => {
-      const fId = conn.from;
-      const tId = conn.to;
+    const normalizeId = (id: any) => id ? id.toString().toLowerCase().replace(/\s+/g, '_') : "";
+    
+    // Create a map of all component IDs to components to do fuzzy matching BEFORE collecting ports
+    const validCompIds = new Map<string, any>();
+    const designSubsystems = designData.subsystems || [];
+    designSubsystems.forEach((sub: any) => {
+      (sub.components || []).forEach((comp: any) => {
+        validCompIds.set(normalizeId(comp.id), comp);
+      });
+    });
+
+    const resolvedConnections = connections.map((conn: any) => {
+      let fromId = normalizeId(conn.from);
+      let toId = normalizeId(conn.to);
+      
+      if (!validCompIds.has(fromId)) {
+        const fuzzyId = Array.from(validCompIds.keys()).find(k => k.includes(fromId) || validCompIds.get(k).name.toLowerCase().includes(fromId));
+        if (fuzzyId) fromId = fuzzyId;
+      }
+      if (!validCompIds.has(toId)) {
+        const fuzzyId = Array.from(validCompIds.keys()).find(k => k.includes(toId) || validCompIds.get(k).name.toLowerCase().includes(toId));
+        if (fuzzyId) toId = fuzzyId;
+      }
+      
+      return { ...conn, resolvedFrom: fromId, resolvedTo: toId };
+    });
+
+    resolvedConnections.forEach((conn: any) => {
+      const fId = conn.resolvedFrom;
+      const tId = conn.resolvedTo;
       const fPort = conn.from_port || "IO1";
       const tPort = conn.to_port || "IO1";
       
@@ -526,18 +561,30 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     const getPortId = (compId: string, label: string) => `${compId}-${label.replace(/\s+/g, "_").toLowerCase()}`;
 
     const rfNodes: CircuitNode[] = [];
-    const designSubsystems = designData.subsystems || [];
-
+    
     designSubsystems.forEach((sub: any) => {
       const components = sub.components || [];
       components.forEach((comp: any) => {
+        const compId = normalizeId(comp.id) || `comp-${Math.random().toString(36).substr(2,9)}`;
+        const isConnected = collectedPorts.has(compId);
+        
+        // Skip purely mechanical components (like brackets, mounts) UNLESS they have electrical connections
+        const isMechanical = (comp.interface || "").toLowerCase().includes("mechanical") || 
+                             (comp.voltage || "").toLowerCase() === "n/a" || 
+                             (comp.role || "").toLowerCase().includes("bracket") || 
+                             (comp.role || "").toLowerCase().includes("mount") || 
+                             (comp.name || "").toLowerCase().includes("bracket");
+        
+        if (isMechanical && !isConnected) {
+            return;
+        }
+
         const shape = inferShape(comp.name, comp.role || "");
         const type = inferType(comp.name, comp.role || "");
-        const compId = comp.id ? comp.id.toString().toLowerCase().replace(/\s+/g, '_') : `comp-${Math.random().toString(36).substr(2,9)}`;
 
         // Generate port layouts based on collected dynamic ports
         const nodePorts: Port[] = [];
-        const portLabels = Array.from(collectedPorts.get(comp.id) || []);
+        const portLabels = Array.from(collectedPorts.get(compId) || []);
         
         // Ensure VCC and GND exist
         if (!portLabels.some(l => l.toUpperCase() === "VCC" || l.toUpperCase() === "VIN" || l.toUpperCase() === "5V")) portLabels.push("VCC");
@@ -564,7 +611,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
             labels.forEach((lbl, idx) => {
                 const offset = (100 / (labels.length + 1)) * (idx + 1);
                 nodePorts.push({
-                    id: getPortId(comp.id, lbl),
+                    id: getPortId(compId, lbl),
                     label: lbl,
                     side,
                     offsetPercent: Math.round(offset)
@@ -592,25 +639,12 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     });
 
     const rfEdges: CircuitEdge[] = [];
-    connections.forEach((conn: any, idx: number) => {
-      let fromNodeId = conn.from ? conn.from.toString().toLowerCase().replace(/\s+/g, '_') : "";
-      let toNodeId = conn.to ? conn.to.toString().toLowerCase().replace(/\s+/g, '_') : "";
-
-      // Fuzzy match IDs if they don't exactly match a node
-      const fromExists = rfNodes.some(n => n.id === fromNodeId);
-      const toExists = rfNodes.some(n => n.id === toNodeId);
-
-      if (!fromExists) {
-        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(fromNodeId) || n.data.label.toLowerCase().includes(fromNodeId));
-        if (fuzzyNode) fromNodeId = fuzzyNode.id;
-      }
-      if (!toExists) {
-        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(toNodeId) || n.data.label.toLowerCase().includes(toNodeId));
-        if (fuzzyNode) toNodeId = fuzzyNode.id;
-      }
+    resolvedConnections.forEach((conn: any, idx: number) => {
+      const fromNodeId = conn.resolvedFrom;
+      const toNodeId = conn.resolvedTo;
 
       if (!rfNodes.some(n => n.id === fromNodeId) || !rfNodes.some(n => n.id === toNodeId)) {
-        return; // skip
+        return; // skip if nodes were filtered out (e.g. mechanical) or missing
       }
 
       const fPortLabel = conn.from_port || "IO1";
@@ -658,13 +692,13 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       });
     });
 
-    // Apply Dagre auto-layout
+    // Apply Dagre auto-layout with wider spacing to reduce congestion
     const g = new dagre.graphlib.Graph();
-    g.setGraph({ rankdir: "TB", nodesep: 150, ranksep: 200, marginx: 50, marginy: 50 });
+    g.setGraph({ rankdir: "TB", nodesep: 350, ranksep: 400, marginx: 100, marginy: 100 });
     g.setDefaultEdgeLabel(() => ({}));
 
     rfNodes.forEach((node) => {
-      g.setNode(node.id, { width: 220, height: 150 });
+      g.setNode(node.id, { width: 260, height: 200 });
     });
 
     rfEdges.forEach((edge) => {
@@ -733,15 +767,30 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   },
 
   generate: async (components, prompt, subsystems) => {
-    set({ isGenerating: true, error: null });
+    set({ isGenerating: true, error: null, ercReport: null, nodes: [], edges: [] });
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ components, prompt, subsystems }),
-      });
+      const payload = { components, prompt, subsystems };
+      let res: Response | null = null;
+      let retries = 3;
+      while (retries > 0) {
+        try {
+          res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (res.ok) break;
+        } catch (e) {
+          if (retries === 1) throw e;
+        }
+        retries--;
+        await new Promise(r => setTimeout(r, 3000)); // wait 3s before retry
+      }
 
-      if (!res.ok) throw new Error(`API error ${res.status}`);
+      if (!res || !res.ok) {
+        const errText = res ? await res.text() : "Connection refused (backend starting?)";
+        throw new Error(errText);
+      }
 
       const data: GenerateResponse = await res.json();
 
@@ -795,14 +844,14 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
           },
           style: {
             stroke: w.color,
-            strokeWidth: 1.5,
+            strokeWidth: 3.5,
           },
           markerEnd: undefined,
           animated: false,
         };
       });
 
-      set({ nodes: rfNodes, edges: rfEdges });
+      set({ nodes: rfNodes, edges: rfEdges, ercReport: data.erc_report || null });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       set({ error: msg });
