@@ -32,22 +32,34 @@ class DesignResponse(BaseModel):
     chat_reply: Optional[str] = None
     assembly_transforms: List[Dict[str, Any]] = []
     assembly_mode: str = "side_by_side"
+    error: Optional[str] = None
 
-def _strip_markdown_json(text: str) -> str:
-    """Remove ```json``` fences and find the JSON object/array."""
-    cleaned = re.sub(r"```json\s*", "", text, flags=re.IGNORECASE)
-    cleaned = re.sub(r"```\s*", "", cleaned)
-    start = cleaned.find("{")
-    end = cleaned.rfind("}")
-    if start != -1 and end != -1:
-        return cleaned[start : end + 1]
-    arr_start = cleaned.find("[")
-    arr_end = cleaned.rfind("]")
-    if arr_start != -1 and arr_end != -1:
-        return cleaned[arr_start : arr_end + 1]
-    return cleaned.strip()
+def extract_json(text: str) -> dict:
+    """Extract and parse JSON object from LLM response text."""
+    # Try direct parse first
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    # Try extracting from markdown code block
+    match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group(1))
+        except json.JSONDecodeError:
+            pass
+    # Try finding the outermost { } block
+    match = re.search(r'\{.*\}', text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group(0))
+        except json.JSONDecodeError:
+            pass
+    raise ValueError(f"Could not extract JSON from LLM response: {text[:300]}")
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/free") -> str:
+from llm import DEFAULT_MODEL
+
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = DEFAULT_MODEL) -> str:
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
@@ -56,7 +68,7 @@ def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json
             model=model
         )
         if res.startswith("OpenRouter API Error") or res.startswith("Error calling AI"):
-            print(f"[api/design] Warning: owl-alpha call failed. Falling back to default model...")
+            print(f"[api/design] Warning: API call failed. Falling back to default model...")
             res = invoke_yantra_ai(
                 prompt=prompt,
                 system_prompt=system_prompt,
@@ -121,8 +133,7 @@ OUTPUT FORMAT:
     
     try:
         raw_router = _safe_llm_call(router_prompt, router_system, response_format="json_object")
-        cleaned_router = _strip_markdown_json(raw_router)
-        router_data = json.loads(cleaned_router)
+        router_data = extract_json(raw_router)
         
         is_design_query = router_data.get("is_design_query", True)
         conversational_reply = router_data.get("response", "")
@@ -274,7 +285,9 @@ OUTPUT FORMAT:
   "validation": [
     {"type": "error | warning", "message": "validation check"}
   ]
-}"""
+}
+
+CRITICAL: Your response must be valid JSON only. No markdown, no backticks, no explanation text before or after the JSON object. Start your response with { and end with }."""
 
     # Build a compact component list to minimize token usage
     compact_components = []
@@ -300,27 +313,30 @@ USER REQUEST: {query}
 Generate the robot assembly JSON now."""
 
     synthesis_data = {}
-    max_retries = 2
-    for attempt in range(max_retries):
+    try:
+        raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system, response_format="json_object")
+        synthesis_data = extract_json(raw_synthesis)
+    except Exception as e:
+        print(f"[api/design] Phase 3 Synthesis parsing failed: {e}")
         try:
-            raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system, response_format="json_object")
-            cleaned_synthesis = _strip_markdown_json(raw_synthesis)
-            synthesis_data = json.loads(cleaned_synthesis)
-            break  # Success
-        except Exception as e:
-            print(f"[api/design] Phase 3 Synthesis parsing failed on attempt {attempt + 1}: {e}")
-            if attempt == max_retries - 1:
-                with open("debug_synthesis.txt", "w", encoding="utf-8") as debug_file:
-                    debug_file.write(raw_synthesis)
-                print(f"[api/design] RAW LLM OUTPUT WAS:\n{raw_synthesis[:1000]}...\n---")
-                synthesis_data = {
-                    "subsystems": [{"name": "Pre-assembled System", "components": [{"id": "sys_1", "name": "Monolithic Robot System", "role": "Full assembly", "voltage": "N/A", "interface": "Standard"}]}],
-                    "connections": [],
-                    "bom": [{"id": "sys_1", "name": "Full Robot Assembly", "qty": 1}],
-                    "missing": [],
-                    "validation": [{"type": "error", "message": "Failed to generate detailed connection graph. Please try again or rephrase your prompt."}],
-                    "chat_reply": "I encountered an error while synthesizing the exact connections for the components. Please try regenerating the design."
-                }
+            with open("debug_synthesis.txt", "w", encoding="utf-8") as debug_file:
+                debug_file.write(raw_synthesis)
+        except Exception:
+            pass
+        return DesignResponse(
+            subsystems=[],
+            connections=[],
+            bom=[],
+            missing=[],
+            validation=[],
+            cad_available=False,
+            cad_url=None,
+            cad_urls=[],
+            chat_reply=None,
+            assembly_transforms=[],
+            assembly_mode="side_by_side",
+            error="Design generation failed — LLM returned unparseable output. Try rephrasing your request or try again."
+        )
 
     # ─── PHASE 4: Assemble Final Response & CAD Checks ───────────────────────
     print("[api/design] Phase 4: Finalizing assembly...")
@@ -330,6 +346,16 @@ Generate the robot assembly JSON now."""
     missing = synthesis_data.get("missing", [])
     validation = synthesis_data.get("validation", [])
     chat_reply = synthesis_data.get("chat_reply", None)
+
+    # Ensure validation is a list
+    if validation is None:
+        validation = []
+
+    # Normalize BOM
+    if not bom and "bill_of_materials" in synthesis_data:
+        bom = synthesis_data["bill_of_materials"]
+    if bom is None:
+        bom = []
 
     # Normalize connections to have 'from' and 'to' fields
     normalized_connections = []
@@ -347,63 +373,52 @@ Generate the robot assembly JSON now."""
                 "protocol": conn.get("protocol", "DC")
             })
 
+    # Run basic local validation pass
+    local_validation = []
+    
+    # 1. Flag any subsystem with 0 components
+    for sub in subsystems:
+        if not sub.get("components"):
+            local_validation.append({
+                "type": "warning",
+                "message": f"Subsystem '{sub.get('name', 'Unknown')}' has no components."
+            })
+            
+    # 2. Flag any component that appears in connections but is missing from subsystems
+    all_comp_ids = set()
+    for sub in subsystems:
+        for comp in sub.get("components", []):
+            if comp.get("id"):
+                all_comp_ids.add(str(comp.get("id")))
+                
+    for conn in normalized_connections:
+        c_from = conn.get("from")
+        c_to = conn.get("to")
+        if c_from and str(c_from) not in all_comp_ids:
+            local_validation.append({
+                "type": "error",
+                "message": f"Connection source '{c_from}' is not defined in any subsystem components."
+            })
+        if c_to and str(c_to) not in all_comp_ids:
+            local_validation.append({
+                "type": "error",
+                "message": f"Connection target '{c_to}' is not defined in any subsystem components."
+            })
+            
+    # 3. Flag if no power subsystem is present
+    has_power_sub = any("power" in str(sub.get("name", "")).lower() for sub in subsystems)
+    if not has_power_sub:
+        local_validation.append({
+            "type": "warning",
+            "message": "No dedicated power subsystem detected in the design."
+        })
+        
+    validation.extend(local_validation)
+
     # Check CAD availability based on query
-    cad_available = False
-    cad_url = None
-    
-    known_cads = {
-        "autonomous mobile": "autonomous_mobile_robot.stp",
-        "agv": "AVGs_robot_cad.step",
-        "cartesian": "cartesian_robot_cad.stp",
-        "cobot": "Articulated_robot_cad.STEP",
-        "delta": "DeltaRobot2.STEP",
-        "painting": "Painting_Robot.step",
-        "paint": "Painting_Robot.step",
-        "spray": "Painting_Robot.step",
-        "scara": "scara_robot_cad.stp",
-        "welding": "welding_robot.stp",
-        "weld": "welding_robot.stp",
-        "articulated": "Articulated_robot_cad.STEP",
-        "6 axis": "Articulated_robot_cad.STEP",
-        "6-axis": "Articulated_robot_cad.STEP",
-        "6 dof": "Articulated_robot_cad.STEP",
-        "6-dof": "Articulated_robot_cad.STEP",
-        "robotic arm": "Articulated_robot_cad.STEP",
-        "robot arm": "Articulated_robot_cad.STEP",
-        "pick and place": "Articulated_robot_cad.STEP",
-        "pick-and-place": "Articulated_robot_cad.STEP",
-        "pick things": "Articulated_robot_cad.STEP",
-        "grab": "Articulated_robot_cad.STEP",
-        "assembly line": "Articulated_robot_cad.STEP",
-        "manipulation": "Articulated_robot_cad.STEP",
-        "inspection": "inspection_robot_cad.STEP",
-        "humanoid": "Robot_humanoid.step",
-        "machine tending": "machine_tending_robot.stp",
-        "in-pipe": "InPipeInspectionRobot.STEP",
-        "in pipe": "InPipeInspectionRobot.STEP",
-        "pipeline": "InPipeInspectionRobot.STEP",
-        "corrosion": "InPipeInspectionRobot.STEP",
-        "dog": "Full_System_A-2403-02.step",
-        "robotic dog": "Full_System_A-2403-02.step",
-        "quadruped": "Full_System_A-2403-02.step",
-        "four leg": "Full_System_A-2403-02.step",
-        "4 leg": "Full_System_A-2403-02.step",
-    }
-    
-    # Dynamically add HEBI CADs
-    try:
-        if os.path.exists(hebi_path):
-            with open(hebi_path, "r", encoding="utf-8") as f:
-                hebi_data = json.load(f)
-                for comp in hebi_data.get("components", []):
-                    name = comp.get("name", "")
-                    filename = comp.get("filename", "")
-                    if name and filename:
-                        # Add full name e.g. "a-2020-05"
-                        known_cads[name.lower()] = filename
-                        known_cads[name.lower().replace("-", " ")] = filename
-    except Exception as e:
-        print(f"[api/design] Error loading HEBI cads: {e}")
+    from cad_registry import get_known_cads
+    known_cads = get_known_cads()
+
     
     # Extract all text from BOM and subsystems to match against
     matched_cads = set()
@@ -459,16 +474,10 @@ Generate the robot assembly JSON now."""
         except Exception:
             pass
 
-    frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
-    
-    valid_cad_urls = []
-    for f in matched_cads:
-        if os.path.exists(os.path.join(frontend_public_cad, f)):
-            valid_cad_urls.append(f"/cad/{f}")
-        else:
-            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
+    cad_available = len(matched_cads) > 0
+    # Use dynamic API URLs so that they are served cleanly through main.py
+    cad_urls = [f"/api/cad/{f}" for f in matched_cads]
 
-    cad_urls = valid_cad_urls
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
     
@@ -485,5 +494,6 @@ Generate the robot assembly JSON now."""
         cad_url=cad_url,
         cad_urls=cad_urls,
         assembly_transforms=assembly_transforms,
-        assembly_mode=assembly_mode
+        assembly_mode=assembly_mode,
+        error=None
     )

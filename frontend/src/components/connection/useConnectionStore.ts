@@ -533,6 +533,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       components.forEach((comp: any) => {
         const shape = inferShape(comp.name, comp.role || "");
         const type = inferType(comp.name, comp.role || "");
+        const compId = comp.id ? comp.id.toString().toLowerCase().replace(/\s+/g, '_') : `comp-${Math.random().toString(36).substr(2,9)}`;
 
         // Generate port layouts based on collected dynamic ports
         const nodePorts: Port[] = [];
@@ -576,7 +577,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         distribute(rightPorts, "right");
         distribute(bottomPorts, "bottom");
         rfNodes.push({
-          id: comp.id,
+          id: compId,
           type: "circuitNode",
           position: { x: 0, y: 0 },
           draggable: true,
@@ -590,26 +591,26 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       });
     });
 
-    const rfEdges: CircuitEdge[] = connections.reduce((acc: CircuitEdge[], conn: any, idx: number) => {
-      let fromNodeId = conn.from;
-      let toNodeId = conn.to;
+    const rfEdges: CircuitEdge[] = [];
+    connections.forEach((conn: any, idx: number) => {
+      let fromNodeId = conn.from ? conn.from.toString().toLowerCase().replace(/\s+/g, '_') : "";
+      let toNodeId = conn.to ? conn.to.toString().toLowerCase().replace(/\s+/g, '_') : "";
 
       // Fuzzy match IDs if they don't exactly match a node
       const fromExists = rfNodes.some(n => n.id === fromNodeId);
       const toExists = rfNodes.some(n => n.id === toNodeId);
 
       if (!fromExists) {
-        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(fromNodeId.toLowerCase()) || n.data.label.toLowerCase().includes(fromNodeId.toLowerCase()));
+        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(fromNodeId) || n.data.label.toLowerCase().includes(fromNodeId));
         if (fuzzyNode) fromNodeId = fuzzyNode.id;
       }
       if (!toExists) {
-        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(toNodeId.toLowerCase()) || n.data.label.toLowerCase().includes(toNodeId.toLowerCase()));
+        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(toNodeId) || n.data.label.toLowerCase().includes(toNodeId));
         if (fuzzyNode) toNodeId = fuzzyNode.id;
       }
 
-      // If still not found, skip to avoid React Flow errors
       if (!rfNodes.some(n => n.id === fromNodeId) || !rfNodes.some(n => n.id === toNodeId)) {
-        return acc;
+        return; // skip
       }
 
       const fPortLabel = conn.from_port || "IO1";
@@ -634,7 +635,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       const srcPortId = getPortId(fromNodeId, fPortLabel);
       const tgtPortId = getPortId(toNodeId, tPortLabel);
 
-      acc.push({
+      rfEdges.push({
         id: `wire-design-${idx}-${Date.now()}`,
         source: fromNodeId,
         target: toNodeId,
@@ -652,10 +653,10 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         style: {
           stroke: WIRE_COLORS[wireType],
           strokeWidth: 2
-        }
+        },
+        animated: false
       });
-      return acc;
-    }, []);
+    });
 
     // Apply Dagre auto-layout
     const g = new dagre.graphlib.Graph();
@@ -731,13 +732,13 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     set({ edges: [...get().edges, edge] });
   },
 
-  generate: async (components, prompt) => {
+  generate: async (components, prompt, subsystems) => {
     set({ isGenerating: true, error: null });
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ components, prompt }),
+        body: JSON.stringify({ components, prompt, subsystems }),
       });
 
       if (!res.ok) throw new Error(`API error ${res.status}`);
@@ -746,41 +747,60 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
 
       // Convert API response → React Flow nodes
       const rfNodes: CircuitNode[] = data.nodes.map((n) => ({
-        id: n.id,
+        id: n.id.toString().toLowerCase().replace(/\s+/g, '_'),
         type: "circuitNode",
         position: { x: n.x, y: n.y },
         data: {
           label: n.label,
           type: n.type,
           shape: n.shape,
-          ports: n.ports,
+          ports: n.ports.map((port) => ({
+            ...port,
+            id: port.id.toString().toLowerCase().replace(/\s+/g, '_')
+          })),
         },
         draggable: true,
       }));
 
       // Convert API response → React Flow edges
-      const rfEdges: CircuitEdge[] = data.wires.map((w) => ({
-        id: w.id,
-        source: w.from.nodeId,
-        target: w.to.nodeId,
-        sourceHandle: w.from.portId,
-        targetHandle: w.to.portId,
-        type: "circuitWire",
-        label: w.label,
-        data: {
-          from: w.from,
-          to: w.to,
-          color: w.color,
+      const rfEdges: CircuitEdge[] = data.wires.map((w) => {
+        const fromNodeId = w.from.nodeId.toString().toLowerCase().replace(/\s+/g, '_');
+        const toNodeId = w.to.nodeId.toString().toLowerCase().replace(/\s+/g, '_');
+        const fromPortId = w.from.portId.toString().toLowerCase().replace(/\s+/g, '_');
+        const toPortId = w.to.portId.toString().toLowerCase().replace(/\s+/g, '_');
+
+        const fromNodeExists = rfNodes.some(n => n.id === fromNodeId);
+        const toNodeExists = rfNodes.some(n => n.id === toNodeId);
+        if (!fromNodeExists) {
+          console.warn(`Generated edge references non-existent source node ID: ${fromNodeId}`);
+        }
+        if (!toNodeExists) {
+          console.warn(`Generated edge references non-existent target node ID: ${toNodeId}`);
+        }
+
+        return {
+          id: w.id,
+          source: fromNodeId,
+          target: toNodeId,
+          sourceHandle: fromPortId,
+          targetHandle: toPortId,
+          type: "circuitWire",
           label: w.label,
-          wireType: w.type,
-        },
-        style: {
-          stroke: w.color,
-          strokeWidth: 2,
-        },
-        markerEnd: undefined,
-        animated: false,
-      }));
+          data: {
+            from: { nodeId: fromNodeId, portId: fromPortId },
+            to: { nodeId: toNodeId, portId: toPortId },
+            color: w.color,
+            label: w.label,
+            wireType: w.type,
+          },
+          style: {
+            stroke: w.color,
+            strokeWidth: 1.5,
+          },
+          markerEnd: undefined,
+          animated: false,
+        };
+      });
 
       set({ nodes: rfNodes, edges: rfEdges });
     } catch (err) {

@@ -4,7 +4,7 @@ import {
     Search, X, SlidersHorizontal, Plus, Crosshair,
     LayoutGrid, Maximize2, Trash2, RefreshCw,
 } from "lucide-react";
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
 const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/api/ask`;
@@ -423,6 +423,8 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
     const [connections, setConnections] = useState<Connection[]>(() =>
         generateConnections(SEED_NODES, SEED_RAW)
     );
+    const [sidebarTab, setSidebarTab] = useState<"library" | "bom" | "validation">("library");
+    const hasSubsystemsError = designData && (!designData.subsystems || designData.subsystems.length === 0);
     const [isLoading, setIsLoading] = useState(false);
     const [pan, setPan] = useState({ x: 40, y: 40 });
     const [zoom, setZoom] = useState(0.9);
@@ -498,8 +500,29 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
         
         if (designData.subsystems) {
             designData.subsystems.forEach((sub: any) => {
-                if (sub.components) {
-                    sub.components.forEach((comp: any) => {
+                const compList = sub.components || [];
+                if (compList.length === 0) {
+                    const category = "electronic";
+                    const description = "No components mapped for this subsystem.";
+                    const placeholderId = `placeholder-${sub.name.replace(/\s+/g, "_")}`;
+                    
+                    comps.push({
+                        name: `[Subsystem: ${sub.name}]`,
+                        category,
+                        description,
+                        connects_to: []
+                    });
+                    
+                    rawNodes.push({
+                        id: placeholderId,
+                        label: `No components mapped for ${sub.name}`,
+                        category,
+                        description,
+                        width: NODE_W,
+                        height: NODE_H
+                    });
+                } else {
+                    compList.forEach((comp: any) => {
                         const category = inferCategory(comp.name + " " + (comp.role || ""));
                         const description = `${comp.role || ""}. Voltage: ${comp.voltage || "N/A"}, Interface: ${comp.interface || "N/A"}`;
                         
@@ -578,6 +601,38 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
         setNodes(laid);
         setConnections(generateConnections(laid, raw));
     }, [aiResponse, currentQuery, designData]);
+
+    const bomItems = useMemo(() => {
+        const rawBom = designData?.bom || designData?.bill_of_materials;
+        if (rawBom && rawBom.length > 0) {
+            return rawBom.map((item: any) => ({
+                name: item.name || "N/A",
+                qty: item.qty ?? item.quantity ?? "1",
+                category: item.category ?? "N/A"
+            }));
+        }
+        // Fallback: derive minimal BOM from designData.subsystems
+        if (designData?.subsystems) {
+            const derived: any[] = [];
+            designData.subsystems.forEach((sub: any) => {
+                if (sub.components) {
+                    sub.components.forEach((comp: any) => {
+                        derived.push({
+                            name: comp.name || "N/A",
+                            qty: comp.qty ?? comp.quantity ?? "1",
+                            category: sub.name || "N/A"
+                        });
+                    });
+                }
+            });
+            return derived;
+        }
+        return [];
+    }, [designData]);
+
+    const validationList = useMemo(() => {
+        return designData?.validation || [];
+    }, [designData]);
 
     // ── SVG mouse: pan / drag / port-connect ──────────────────────────────────
     const svgToCanvas = useCallback(
@@ -963,17 +1018,29 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                 </div>
 
                 {/* ── SVG Canvas ── */}
-                <svg
-                    ref={svgRef}
-                    width="100%"
-                    height="100%"
-                    style={{ display: "block", userSelect: "none", cursor: isPanning.current ? "grabbing" : "grab" }}
-                    onMouseDown={handleSVGMouseDown}
-                    onMouseMove={handleSVGMouseMove}
-                    onMouseUp={handleSVGMouseUp}
-                    onMouseLeave={handleSVGMouseUp}
-                    onWheel={handleWheel}
-                >
+                {hasSubsystemsError ? (
+                    <div style={{
+                        position: "absolute", inset: 0, display: "flex", flexDirection: "column",
+                        alignItems: "center", justifyContent: "center", pointerEvents: "none",
+                        padding: 24, zIndex: 5
+                    }}>
+                        <div style={{ color: "#ef4444", fontSize: 44, marginBottom: 16 }}>⚠️</div>
+                        <p style={{ color: "#fca5a5", fontSize: 13, fontWeight: 500, textAlign: "center", lineHeight: 1.8, maxWidth: 320 }}>
+                            No subsystems were generated. Try a more specific robot description.
+                        </p>
+                    </div>
+                ) : (
+                    <svg
+                        ref={svgRef}
+                        width="100%"
+                        height="100%"
+                        style={{ display: "block", userSelect: "none", cursor: isPanning.current ? "grabbing" : "grab" }}
+                        onMouseDown={handleSVGMouseDown}
+                        onMouseMove={handleSVGMouseMove}
+                        onMouseUp={handleSVGMouseUp}
+                        onMouseLeave={handleSVGMouseUp}
+                        onWheel={handleWheel}
+                    >
                     <defs>
                         {/* Per-category arrowhead markers */}
                         {(Object.entries(CATEGORY_COLOR) as [ComponentCategory, string][]).map(([cat, col]) => (
@@ -1181,6 +1248,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
                         })}
                     </g>
                 </svg>
+                )}
 
                 {/* ── Connection hover tooltip ── */}
                 {tooltipConn && hoveredConnId && !selectedConnId && (
@@ -1320,160 +1388,260 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData }: M
             {/* ── Component Library Sidebar on Right ── */}
             <div className="w-[320px] h-full bg-[#0B0E14] border-l border-neutral-800/50 flex flex-col shrink-0">
 
-                {/* Header */}
-                <div className="flex items-center justify-between p-4 pb-2 mt-2">
-                    <h2 className="text-xs font-bold text-white tracking-widest uppercase">Component Library</h2>
-                    <button className="text-neutral-500 hover:text-neutral-300">
-                        <X className="w-4 h-4" />
+                {/* Sidebar Tab Switcher */}
+                <div className="flex border-b border-neutral-800/50 text-[10px] font-bold uppercase tracking-wider shrink-0">
+                    <button
+                        onClick={() => setSidebarTab("library")}
+                        className={`flex-1 py-3 text-center border-b-2 transition-colors ${sidebarTab === "library" ? "text-blue-500 border-blue-500 bg-blue-500/5" : "text-neutral-500 border-transparent hover:text-neutral-300"}`}
+                    >
+                        Library
+                    </button>
+                    <button
+                        onClick={() => setSidebarTab("bom")}
+                        className={`flex-1 py-3 text-center border-b-2 transition-colors ${sidebarTab === "bom" ? "text-blue-500 border-blue-500 bg-blue-500/5" : "text-neutral-500 border-transparent hover:text-neutral-300"}`}
+                    >
+                        BOM
+                    </button>
+                    <button
+                        onClick={() => setSidebarTab("validation")}
+                        className={`flex-1 py-3 text-center border-b-2 transition-colors ${sidebarTab === "validation" ? "text-blue-500 border-blue-500 bg-blue-500/5" : "text-neutral-500 border-transparent hover:text-neutral-300"}`}
+                    >
+                        Validation
                     </button>
                 </div>
 
-                {/* Search Bar */}
-                <div className="px-4 py-3 flex gap-2">
-                    <div className="flex-1 bg-[#131823] rounded-lg border border-neutral-800/50 flex items-center px-3">
-                        <Search className="w-4 h-4 text-neutral-500 shrink-0" />
-                        <input
-                            type="text"
-                            placeholder="Search components..."
-                            value={searchQuery}
-                            onChange={e => setSearchQuery(e.target.value)}
-                            className="w-full bg-transparent border-none text-xs text-neutral-200 focus:outline-none focus:ring-0 px-2 py-2.5 placeholder:text-neutral-600"
-                        />
+                {sidebarTab === "library" && (
+                    <div className="flex-1 flex flex-col min-h-0">
+                        {/* Header */}
+                        <div className="flex items-center justify-between p-4 pb-2 mt-2">
+                            <h2 className="text-xs font-bold text-white tracking-widest uppercase">Component Library</h2>
+                            <button className="text-neutral-500 hover:text-neutral-300">
+                                <X className="w-4 h-4" />
+                            </button>
+                        </div>
+
+                        {/* Search Bar */}
+                        <div className="px-4 py-3 flex gap-2">
+                            <div className="flex-1 bg-[#131823] rounded-lg border border-neutral-800/50 flex items-center px-3">
+                                <Search className="w-4 h-4 text-neutral-500 shrink-0" />
+                                <input
+                                    type="text"
+                                    placeholder="Search components..."
+                                    value={searchQuery}
+                                    onChange={e => setSearchQuery(e.target.value)}
+                                    className="w-full bg-transparent border-none text-xs text-neutral-200 focus:outline-none focus:ring-0 px-2 py-2.5 placeholder:text-neutral-600"
+                                />
+                            </div>
+                            <button className="w-10 bg-[#131823] rounded-lg border border-neutral-800/50 flex items-center justify-center text-neutral-400 hover:text-neutral-200 shrink-0">
+                                <SlidersHorizontal className="w-4 h-4" />
+                            </button>
+                        </div>
+
+                        {/* Tabs */}
+                        <div className="px-4 py-1 flex items-center gap-4 text-[11px] font-medium text-neutral-500 border-b border-neutral-800/30 overflow-x-auto no-scrollbar">
+                            {TABS.map(tab => (
+                                <div
+                                    key={tab.key}
+                                    onClick={() => setActiveCategory(tab.key)}
+                                    className={`pb-2 whitespace-nowrap cursor-pointer relative ${activeCategory === tab.key ? "text-white" : "hover:text-neutral-300"}`}
+                                >
+                                    {tab.label}
+                                    {activeCategory === tab.key && (
+                                        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-500 rounded-t-full" />
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* List Content */}
+                        <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
+                            {isLoading ? (
+                                <div style={{ color: "rgba(139,92,246,0.5)", fontSize: 11, textAlign: "center", marginTop: 40 }}>
+                                    Loading components...
+                                </div>
+                            ) : filteredNodes.length === 0 ? (
+                                <div style={{ color: "rgba(255,255,255,0.15)", fontSize: 11, textAlign: "center", marginTop: 32, lineHeight: 1.8 }}>
+                                    {nodes.length === 0 ? "Ask the AI to populate components" : "No matching components"}
+                                </div>
+                            ) : filteredNodes.map(node => {
+                                const color = CATEGORY_COLOR[node.category];
+                                const isSelected = selectedId === node.id;
+                                return (
+                                    <div
+                                        key={node.id}
+                                        onClick={() => { setSelectedId(node.id); setSelectedConnId(null); }}
+                                        style={{
+                                            width: "100%",
+                                            minHeight: 72,
+                                            background: isSelected ? "#1a1f2e" : "#131823",
+                                            borderRadius: 12,
+                                            borderTop: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
+                                            borderRight: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
+                                            borderBottom: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
+                                            borderLeft: `3px solid ${color}`,
+                                            padding: "10px 12px",
+                                            boxSizing: "border-box",
+                                            cursor: "pointer",
+                                            display: "flex",
+                                            alignItems: "flex-start",
+                                            gap: 10,
+                                            transition: "background 0.15s",
+                                            boxShadow: isSelected ? `0 0 0 1px ${color}33` : "none",
+                                        }}
+                                    >
+                                        <div style={{ marginTop: 2, flexShrink: 0 }}>
+                                            <CategoryIcon category={node.category} size={18} />
+                                        </div>
+                                        <div style={{ flex: 1, minWidth: 0 }}>
+                                            <div style={{ color: "#fff", fontSize: 11, fontWeight: 700, lineHeight: 1.3, marginBottom: 3, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                                                {node.label}
+                                            </div>
+                                            <div style={{ color: "#6b7280", fontSize: 10, lineHeight: 1.5, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>
+                                                {node.description || "No description"}
+                                            </div>
+                                        </div>
+                                        <button
+                                            title="Locate on canvas"
+                                            onClick={e => { e.stopPropagation(); locateNode(node.id); }}
+                                            style={{ background: "none", border: "none", color: "#4b5563", cursor: "pointer", padding: 4, borderRadius: 4, display: "flex", alignItems: "center", flexShrink: 0, marginTop: 1 }}
+                                            onMouseEnter={e => (e.currentTarget.style.color = color)}
+                                            onMouseLeave={e => (e.currentTarget.style.color = "#4b5563")}
+                                        >
+                                            <Crosshair style={{ width: 13, height: 13 }} />
+                                        </button>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Add Custom Component Button */}
+                        <div className="p-4 pb-6 pt-2">
+                            {showAddModal && (
+                                <div style={{
+                                    background: "#131823",
+                                    border: "1px solid rgba(139,92,246,0.35)",
+                                    borderRadius: 12,
+                                    padding: 16,
+                                    marginBottom: 10,
+                                    boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+                                }}>
+                                    <div style={{ fontSize: 11, color: "#a78bfa", fontWeight: 700, marginBottom: 10 }}>New Component</div>
+                                    <input
+                                        value={newName}
+                                        onChange={e => setNewName(e.target.value)}
+                                        placeholder="Component name"
+                                        style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#fff", fontSize: 12, padding: "7px 10px", boxSizing: "border-box", marginBottom: 8, outline: "none" }}
+                                    />
+                                    <select
+                                        value={newCat}
+                                        onChange={e => setNewCat(e.target.value as ComponentCategory)}
+                                        style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#a3a3a3", fontSize: 12, padding: "7px 10px", boxSizing: "border-box", marginBottom: 8, outline: "none" }}
+                                    >
+                                        {VALID_CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                                    </select>
+                                    <textarea
+                                        value={newDesc}
+                                        onChange={e => setNewDesc(e.target.value)}
+                                        placeholder="Description (optional)"
+                                        rows={2}
+                                        style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#a3a3a3", fontSize: 11, padding: "7px 10px", boxSizing: "border-box", resize: "none", outline: "none", marginBottom: 10 }}
+                                    />
+                                    <div style={{ display: "flex", gap: 8 }}>
+                                        <button
+                                            onClick={handleAddComponent}
+                                            style={{ flex: 1, background: "#a78bfa", border: "none", borderRadius: 6, color: "#fff", fontSize: 11, fontWeight: 700, padding: "7px 0", cursor: "pointer" }}
+                                        >Add to Canvas</button>
+                                        <button
+                                            onClick={() => setShowAddModal(false)}
+                                            style={{ flex: 1, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#6b7280", fontSize: 11, padding: "7px 0", cursor: "pointer" }}
+                                        >Cancel</button>
+                                    </div>
+                                </div>
+                            )}
+                            <button
+                                onClick={() => setShowAddModal(v => !v)}
+                                className="w-full py-2.5 rounded-lg border border-blue-500/30 bg-[#0B0E14] text-blue-500 text-xs font-medium flex items-center justify-center gap-2 hover:bg-blue-500/5 transition-colors"
+                            >
+                                <Plus className="w-4 h-4" />
+                                Add Custom Component
+                            </button>
+                        </div>
                     </div>
-                    <button className="w-10 bg-[#131823] rounded-lg border border-neutral-800/50 flex items-center justify-center text-neutral-400 hover:text-neutral-200 shrink-0">
-                        <SlidersHorizontal className="w-4 h-4" />
-                    </button>
-                </div>
+                )}
 
-                {/* Tabs */}
-                <div className="px-4 py-1 flex items-center gap-4 text-[11px] font-medium text-neutral-500 border-b border-neutral-800/30 overflow-x-auto no-scrollbar">
-                    {TABS.map(tab => (
-                        <div
-                            key={tab.key}
-                            onClick={() => setActiveCategory(tab.key)}
-                            className={`pb-2 whitespace-nowrap cursor-pointer relative ${activeCategory === tab.key ? "text-white" : "hover:text-neutral-300"}`}
-                        >
-                            {tab.label}
-                            {activeCategory === tab.key && (
-                                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-500 rounded-t-full" />
+                {sidebarTab === "bom" && (
+                    <div className="flex-1 flex flex-col min-h-0">
+                        {/* Header */}
+                        <div className="p-4 pb-2 mt-2">
+                            <h2 className="text-xs font-bold text-white tracking-widest uppercase">Bill of Materials</h2>
+                            <p className="text-[10px] text-neutral-500 mt-1">Flat listing of system components</p>
+                        </div>
+
+                        {/* BOM Table */}
+                        <div className="flex-1 overflow-y-auto p-4">
+                            {bomItems.length === 0 ? (
+                                <div style={{ color: "rgba(255,255,255,0.15)", fontSize: 11, textAlign: "center", marginTop: 32 }}>
+                                    No BOM items generated yet.
+                                </div>
+                            ) : (
+                                <table className="w-full text-left text-xs border-collapse">
+                                    <thead>
+                                        <tr className="border-b border-neutral-800 text-neutral-500 font-bold uppercase tracking-wider text-[9px]">
+                                            <th className="pb-2">Item Name</th>
+                                            <th className="pb-2 text-center w-12">Qty</th>
+                                            <th className="pb-2 text-right">Category</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {bomItems.map((item: any, idx: number) => (
+                                            <tr key={idx} className="border-b border-neutral-900 hover:bg-[#131823]/50">
+                                                <td className="py-2.5 font-medium text-neutral-200 pr-2">{item.name || "N/A"}</td>
+                                                <td className="py-2.5 text-center text-neutral-400">{item.qty ?? "1"}</td>
+                                                <td className="py-2.5 text-right text-neutral-500">{item.category || "N/A"}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
                             )}
                         </div>
-                    ))}
-                </div>
+                    </div>
+                )}
 
-                {/* List Content */}
-                <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
-                    {isLoading ? (
-                        <div style={{ color: "rgba(139,92,246,0.5)", fontSize: 11, textAlign: "center", marginTop: 40 }}>
-                            Loading components...
+                {sidebarTab === "validation" && (
+                    <div className="flex-1 flex flex-col min-h-0">
+                        {/* Header */}
+                        <div className="p-4 pb-2 mt-2">
+                            <h2 className="text-xs font-bold text-white tracking-widest uppercase">System Validation</h2>
+                            <p className="text-[10px] text-neutral-500 mt-1">Design rules check results</p>
                         </div>
-                    ) : filteredNodes.length === 0 ? (
-                        <div style={{ color: "rgba(255,255,255,0.15)", fontSize: 11, textAlign: "center", marginTop: 32, lineHeight: 1.8 }}>
-                            {nodes.length === 0 ? "Ask the AI to populate components" : "No matching components"}
-                        </div>
-                    ) : filteredNodes.map(node => {
-                        const color = CATEGORY_COLOR[node.category];
-                        const isSelected = selectedId === node.id;
-                        return (
-                            <div
-                                key={node.id}
-                                onClick={() => { setSelectedId(node.id); setSelectedConnId(null); }}
-                                style={{
-                                    width: "100%",
-                                    minHeight: 72,
-                                    background: isSelected ? "#1a1f2e" : "#131823",
-                                    borderRadius: 12,
-                                    borderTop: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
-                                    borderRight: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
-                                    borderBottom: `1px solid ${isSelected ? color + "66" : "rgba(255,255,255,0.06)"}`,
-                                    borderLeft: `3px solid ${color}`,
-                                    padding: "10px 12px",
-                                    boxSizing: "border-box",
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                    gap: 10,
-                                    transition: "background 0.15s",
-                                    boxShadow: isSelected ? `0 0 0 1px ${color}33` : "none",
-                                }}
-                            >
-                                <div style={{ marginTop: 2, flexShrink: 0 }}>
-                                    <CategoryIcon category={node.category} size={18} />
-                                </div>
-                                <div style={{ flex: 1, minWidth: 0 }}>
-                                    <div style={{ color: "#fff", fontSize: 11, fontWeight: 700, lineHeight: 1.3, marginBottom: 3, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                                        {node.label}
-                                    </div>
-                                    <div style={{ color: "#6b7280", fontSize: 10, lineHeight: 1.5, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>
-                                        {node.description || "No description"}
-                                    </div>
-                                </div>
-                                <button
-                                    title="Locate on canvas"
-                                    onClick={e => { e.stopPropagation(); locateNode(node.id); }}
-                                    style={{ background: "none", border: "none", color: "#4b5563", cursor: "pointer", padding: 4, borderRadius: 4, display: "flex", alignItems: "center", flexShrink: 0, marginTop: 1 }}
-                                    onMouseEnter={e => (e.currentTarget.style.color = color)}
-                                    onMouseLeave={e => (e.currentTarget.style.color = "#4b5563")}
-                                >
-                                    <Crosshair style={{ width: 13, height: 13 }} />
-                                </button>
-                            </div>
-                        );
-                    })}
-                </div>
 
-                {/* Add Custom Component Button */}
-                <div className="p-4 pb-6 pt-2">
-                    {showAddModal && (
-                        <div style={{
-                            background: "#131823",
-                            border: "1px solid rgba(139,92,246,0.35)",
-                            borderRadius: 12,
-                            padding: 16,
-                            marginBottom: 10,
-                            boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
-                        }}>
-                            <div style={{ fontSize: 11, color: "#a78bfa", fontWeight: 700, marginBottom: 10 }}>New Component</div>
-                            <input
-                                value={newName}
-                                onChange={e => setNewName(e.target.value)}
-                                placeholder="Component name"
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#fff", fontSize: 12, padding: "7px 10px", boxSizing: "border-box", marginBottom: 8, outline: "none" }}
-                            />
-                            <select
-                                value={newCat}
-                                onChange={e => setNewCat(e.target.value as ComponentCategory)}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#a3a3a3", fontSize: 12, padding: "7px 10px", boxSizing: "border-box", marginBottom: 8, outline: "none" }}
-                            >
-                                {VALID_CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-                            </select>
-                            <textarea
-                                value={newDesc}
-                                onChange={e => setNewDesc(e.target.value)}
-                                placeholder="Description (optional)"
-                                rows={2}
-                                style={{ width: "100%", background: "#0b0e14", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#a3a3a3", fontSize: 11, padding: "7px 10px", boxSizing: "border-box", resize: "none", outline: "none", marginBottom: 10 }}
-                            />
-                            <div style={{ display: "flex", gap: 8 }}>
-                                <button
-                                    onClick={handleAddComponent}
-                                    style={{ flex: 1, background: "#a78bfa", border: "none", borderRadius: 6, color: "#fff", fontSize: 11, fontWeight: 700, padding: "7px 0", cursor: "pointer" }}
-                                >Add to Canvas</button>
-                                <button
-                                    onClick={() => setShowAddModal(false)}
-                                    style={{ flex: 1, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, color: "#6b7280", fontSize: 11, padding: "7px 0", cursor: "pointer" }}
-                                >Cancel</button>
-                            </div>
+                        {/* Validation List */}
+                        <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
+                            {validationList.length === 0 ? (
+                                <div className="flex flex-col items-center justify-center py-10 gap-3 text-emerald-500">
+                                    <span className="text-2xl">✓</span>
+                                    <span className="text-xs font-semibold">✓ No issues detected.</span>
+                                </div>
+                            ) : (
+                                validationList.map((issue: any, idx: number) => {
+                                    const label = (issue.level || issue.type || "warning").toUpperCase();
+                                    const isErrorLabel = label === "ERROR";
+                                    return (
+                                        <div
+                                            key={idx}
+                                            className={`p-3 rounded-lg border text-xs leading-relaxed ${isErrorLabel ? 'bg-red-500/10 border-red-500/30 text-red-400' : 'bg-amber-500/10 border-amber-500/30 text-amber-400'}`}
+                                        >
+                                            <div className="font-bold uppercase tracking-wider text-[9px] mb-1">
+                                                {label}
+                                            </div>
+                                            <div>{issue.message || "Unknown issue"}</div>
+                                        </div>
+                                    );
+                                })
+                            )}
                         </div>
-                    )}
-                    <button
-                        onClick={() => setShowAddModal(v => !v)}
-                        className="w-full py-2.5 rounded-lg border border-blue-500/30 bg-[#0B0E14] text-blue-500 text-xs font-medium flex items-center justify-center gap-2 hover:bg-blue-500/5 transition-colors"
-                    >
-                        <Plus className="w-4 h-4" />
-                        Add Custom Component
-                    </button>
-                </div>
+                    </div>
+                )}
             </div>
         </div>
     );

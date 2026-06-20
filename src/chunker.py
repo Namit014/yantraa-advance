@@ -10,8 +10,8 @@ class Chunker:
 
     def __init__(
         self,
-        chunk_size=350,
-        chunk_overlap=75
+        chunk_size=512,
+        chunk_overlap=100
     ):
 
         self.splitter = RecursiveCharacterTextSplitter(
@@ -49,40 +49,27 @@ def create_metadata(file_info):
 
     filename = file_info["file_name"].lower()
 
-    category = "General"
-
-    if "sensor" in filename:
-        category = "Sensors"
-
-    elif "motor" in filename:
-        category = "Motors"
-
-    elif "driver" in filename:
-        category = "Motor Drivers"
-
-    elif "control" in filename:
-        category = "Control System"
-
-    elif "power" in filename:
-        category = "Power System"
-
-    elif "software" in filename:
-        category = "Software"
-
-    elif "communication" in filename:
-        category = "Communication"
-
-    elif "cad" in filename:
-        category = "CAD"
-
-    elif "electronics" in filename:
-        category = "Electronics"
+    KEYWORD_MAP = {
+        "sensor": "Sensors", "motor": "Motors", "driver": "Motor Drivers",
+        "bldc": "Motors", "servo": "Motors", "stepper": "Motors",
+        "control": "Control System", "power": "Power System", "psu": "Power System",
+        "software": "Software", "firmware": "Software",
+        "comm": "Communication", "uart": "Communication", "can": "Communication",
+        "cad": "CAD", "step": "CAD", "stp": "CAD",
+        "gripper": "End Effectors", "effector": "End Effectors",
+        "frame": "Structural", "chassis": "Structural",
+        "bom": "Bill of Materials", "schematic": "Schematics",
+        "lidar": "Sensors", "imu": "Sensors", "encoder": "Sensors",
+    }
+    categories = [cat for kw, cat in KEYWORD_MAP.items() if kw in filename]
+    if not categories:
+        categories = ["General"]
 
     metadata = {
         "robot": file_info["robot_name"],
         "source_file": file_info["file_name"],
         "file_type": file_info["file_type"],
-        "category": category
+        "categories": categories  # multi-label list, not a single string
     }
 
     return metadata

@@ -793,48 +793,18 @@ export function CADTab({ currentQuery, cadUrls, designData, onGeneratedCad }: CA
     
     const controlsRef = useRef<any>(null);
 
-    const [generatingParts, setGeneratingParts] = useState<Record<string, string>>({});
-
-    const handleGenerateCAD = async (partName: string) => {
-        setGeneratingParts(prev => ({ ...prev, [partName]: "Initiating..." }));
-        try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-            const filename = `${partName.replace(/[^a-zA-Z0-9_-]/g, "_")}.step`;
-            
-            setGeneratingParts(prev => ({ ...prev, [partName]: "Generating (Zoo AI)..." }));
-            
-            const response = await fetch(`${apiUrl}/api/generate-cad`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    prompt: partName,
-                    filename: filename
-                })
-            });
-            
-            if (!response.ok) {
-                const errData = await response.json();
-                throw new Error(errData.detail || "Zoo generation failed.");
-            }
-            
-            const data = await response.json();
-            if (data.cad_url) {
-                setGeneratingParts(prev => {
-                    const next = { ...prev };
-                    delete next[partName];
-                    return next;
-                });
-                if (onGeneratedCad) {
-                    onGeneratedCad(data.cad_url);
+    // Call .dispose() on OrbitControls reference on unmount to prevent stale listeners
+    useEffect(() => {
+        return () => {
+            if (controlsRef.current) {
+                try {
+                    controlsRef.current.dispose();
+                } catch (e) {
+                    console.warn("Error disposing OrbitControls:", e);
                 }
             }
-        } catch (err: any) {
-            console.error("Zoo generation error:", err);
-            setGeneratingParts(prev => ({ ...prev, [partName]: `Error: ${err.message || err}` }));
-        }
-    };
+        };
+    }, []);
 
     const autoScale = useMemo(() => {
         if (!meshes.length) return 1;

@@ -1,10 +1,7 @@
-{
-  "subsystems": [
-    {
-      "name": "Mechanical Structure",
-      "components": [
-        {"id": "base_act", "name": "A-2020-05", "role": "Base rotation actuator", "voltage": "24V", "interface": "Step/Dir"},
-        {"id": "shoulder_act", "name": "A-2020-08", "role": "Shoulder rotation actuator", "voltage": "24V", "interface": "Step/Dir"},
-        {"id": "z_act", "name": "A-2020-05", "role": "Z‑axis linear actuator (via leadscrew)", "voltage": "24V", "interface": "Step/Dir"},
-        {"id": "eff_act", "name": "A-2020-05", "role": "End‑effector rotation actuator", "voltage": "24V", "interface": "Step/Dir"},
-        {"id": "link1", "name": "A-2090-02", "role": "Link between base and shoulder",
+OpenRouter API Error: 200 OK - 
+         
+
+         
+
+         
+{"id":"gen-1781779917-VfR25sIb1O87VhNX9c9G","object":"chat.completi

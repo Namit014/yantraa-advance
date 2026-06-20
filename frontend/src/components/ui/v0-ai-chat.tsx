@@ -384,23 +384,28 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
-                        {activeTab === 'cad' && (
-                            <CADTab 
-                                currentQuery={latestUserQuery} 
-                                cadUrls={acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []))} 
-                                designData={robotDesign} 
-                                onGeneratedCad={(newUrl) => {
-                                    setAcceptedCadUrls(prev => [...prev, newUrl]);
-                                    if (robotDesign) {
-                                        setRobotDesign((prev: any) => ({
-                                            ...prev,
-                                            cad_urls: [...(prev.cad_urls || []), newUrl],
-                                            missing: prev.missing ? prev.missing.filter((m: any) => !newUrl.toLowerCase().includes(m.name.toLowerCase())) : []
-                                        }));
-                                    }
-                                }}
-                            />
-                        )}
+                        {activeTab === 'cad' && (() => {
+                            const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
+                            const cadUrl = urls[0] || 'default-cad';
+                            return (
+                                <CADTab 
+                                    key={cadUrl}
+                                    currentQuery={latestUserQuery} 
+                                    cadUrls={urls} 
+                                    designData={robotDesign} 
+                                    onGeneratedCad={(newUrl) => {
+                                        setAcceptedCadUrls(prev => [...prev, newUrl]);
+                                        if (robotDesign) {
+                                            setRobotDesign((prev: any) => ({
+                                                ...prev,
+                                                cad_urls: [...(prev.cad_urls || []), newUrl],
+                                                missing: prev.missing ? prev.missing.filter((m: any) => !newUrl.toLowerCase().includes(m.name.toLowerCase())) : []
+                                            }));
+                                        }
+                                    }}
+                                />
+                            );
+                        })()}
                     </div>
                 </div>
             )}

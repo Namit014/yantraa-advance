@@ -3,6 +3,7 @@ from pydantic import BaseModel
 import sys
 import os
 import io
+import asyncio
 from dotenv import load_dotenv
 
 # Always load .env from the project root, regardless of working directory
@@ -32,9 +33,10 @@ app = FastAPI(
 )
 
 # Add CORS middleware
+ALLOWED_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], 
+    allow_origins=ALLOWED_ORIGINS, 
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -72,13 +74,15 @@ except Exception as _e:
 class QueryRequest(BaseModel):
     query: str
 
-from typing import Optional
+from typing import Optional, List
 
 class QueryResponse(BaseModel):
     response: str
     status: str = "success"
     cad_available: bool = False
     cad_url: Optional[str] = None
+    fallback_used: bool = False
+    source_urls: List[str] = []
 
 @app.post("/api/ask", response_model=QueryResponse)
 async def ask_question(request: QueryRequest):
@@ -97,14 +101,18 @@ async def ask_question(request: QueryRequest):
         if not request.query.strip():
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
-        # Execute the RAG workflow
-        final_answer, cad_available, cad_url = retriever.ask(request.query)
+        # Execute the RAG workflow asynchronously off the event loop
+        final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
+            None, retriever.ask, request.query
+        )
 
         # Return JSON Response
         return QueryResponse(
             response=final_answer, 
             cad_available=cad_available, 
-            cad_url=cad_url
+            cad_url=cad_url,
+            fallback_used=fallback_used,
+            source_urls=source_urls
         )
 
     except Exception as e:
@@ -120,14 +128,18 @@ async def search_question(query: str):
         if not query.strip():
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
-        # Execute the RAG workflow
-        final_answer, cad_available, cad_url = retriever.ask(query)
+        # Execute the RAG workflow asynchronously off the event loop
+        final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
+            None, retriever.ask, query
+        )
 
         # Return JSON Response
         return QueryResponse(
             response=final_answer, 
             cad_available=cad_available, 
-            cad_url=cad_url
+            cad_url=cad_url,
+            fallback_used=fallback_used,
+            source_urls=source_urls
         )
 
     except Exception as e:
@@ -135,11 +147,15 @@ async def search_question(query: str):
 
 from fastapi.responses import FileResponse
 import glob
+import re
 
 @app.get("/api/cad/{filename}")
 async def get_cad_file(filename: str):
-    """Serve CAD files dynamically from the knowledgebase directory."""
-    cad_base_dir = os.path.join(_project_root, "knowledgebase", "CAD_Models")
+    """Serve CAD files dynamically from the knowledgebase directory with traversal protection."""
+    if not re.match(r'^[a-zA-Z0-9_\-]+\.(step|stp|STEP|STP)$', filename):
+        raise HTTPException(status_code=400, detail="Invalid filename")
+
+    cad_base_dir = os.path.join(_project_root, "knowledgebase")
     
     # Search all subdirectories for the file
     search_pattern = os.path.join(cad_base_dir, "**", filename)
