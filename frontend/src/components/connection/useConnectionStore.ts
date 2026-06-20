@@ -56,6 +56,42 @@ export const WIRE_COLORS: Record<WireType, string> = {
   can: "#44FF88",
 };
 
+const toNodeId = (name: string, existingIds: Set<string>): string => {
+  let base = name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_|_$/g, '') || 'component'
+
+  if (!existingIds.has(base)) {
+    existingIds.add(base)
+    return base
+  }
+
+  // Collision — append a suffix derived from the original name
+  const suffix = name
+    .split('')
+    .reduce((acc, c) => (acc * 31 + c.charCodeAt(0)) & 0xffff, 0)
+    .toString(36)
+
+  const unique = `${base}_${suffix}`
+  if (!existingIds.has(unique)) {
+    existingIds.add(unique)
+    return unique
+  }
+
+  // If the base + suffix also collides, append a counter suffix until unique
+  let counter = 1
+  let candidate = `${unique}_${counter}`
+  while (existingIds.has(candidate)) {
+    counter++
+    candidate = `${unique}_${counter}`
+  }
+  existingIds.add(candidate)
+  return candidate
+}
+
+const normalizeNodeId = (name: string): string => toNodeId(name, new Set());
+
 // ─── API payload types ─────────────────────────────────────────────────────────
 
 interface GenerateComponent {
@@ -434,7 +470,7 @@ interface ConnectionStore {
   deleteEdge: (id: string) => void;
   addEdge: (edge: CircuitEdge) => void;
 
-  generate: (components: GenerateComponent[], prompt: string) => Promise<void>;
+  generate: (components: GenerateComponent[], prompt: string, subsystems: any) => Promise<void>;
   loadDesignData: (designData: any) => void;
 }
 
@@ -520,6 +556,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       other: 0
     };
 
+    const seenIds = new Set<string>();
     const rfNodes: CircuitNode[] = [];
     const designSubsystems = designData.subsystems || [];
 
@@ -529,7 +566,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         const shape = inferShape(comp.name, comp.role || "");
         const type = inferType(comp.name, comp.role || "");
         // Normalize node ID
-        const compId = comp.id.toString().toLowerCase().replace(/\s+/g, '_');
+        const compId = toNodeId(comp.name, seenIds);
         const ports = getPortsForInterface(compId, comp.interface || "");
 
         const rowCount = rowCounts[type] || 0;
@@ -558,8 +595,10 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     
     connections.forEach((conn: any, idx: number) => {
       // Normalize source & target IDs
-      const fromNodeId = conn.from.toString().toLowerCase().replace(/\s+/g, '_');
-      const toNodeId = conn.to.toString().toLowerCase().replace(/\s+/g, '_');
+      const matchedFromNode = rfNodes.find(n => n.data.label === conn.from.toString());
+      const matchedToNode = rfNodes.find(n => n.data.label === conn.to.toString());
+      const fromNodeId = matchedFromNode ? matchedFromNode.id : normalizeNodeId(conn.from.toString());
+      const toNodeId = matchedToNode ? matchedToNode.id : normalizeNodeId(conn.to.toString());
       const protocol = (conn.protocol || "signal").toUpperCase();
       
       let wireType: WireType = "signal";

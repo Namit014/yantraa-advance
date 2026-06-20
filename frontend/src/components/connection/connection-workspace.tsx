@@ -257,6 +257,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
   // The store is only written on drag-end, not on every pixel moved.
   const [rfNodes, setRfNodes] = useState<CircuitNode[]>([]);
   const [rfEdges, setRfEdges] = useState<CircuitEdge[]>([]);
+  const droppedEdgesRef = useRef<Set<string>>(new Set());
 
   // Sync store → local RF state only when the store array reference changes
   // (i.e. after generate() completes), not on every drag event.
@@ -283,10 +284,15 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
       const tgtOk = !edge.targetHandle || tgtPorts.some((p) => p.id === edge.targetHandle);
 
       if (!srcOk || !tgtOk) {
-        console.warn(
-          `[ConnectionWorkspace] Dropping edge "${edge.id}" — handle not found.`,
-          { sourceHandle: edge.sourceHandle, srcOk, targetHandle: edge.targetHandle, tgtOk }
-        );
+        if (!droppedEdgesRef.current.has(edge.id)) {
+          droppedEdgesRef.current.add(edge.id);
+          console.warn(`[ConnectionWorkspace] Dropping edge "${edge.id}" — handle not found.`, {
+            sourceHandle: edge.sourceHandle,
+            srcOk,
+            targetHandle: edge.targetHandle,
+            tgtOk,
+          });
+        }
         return false;
       }
       return true;
