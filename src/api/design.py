@@ -304,12 +304,29 @@ OUTPUT FORMAT:
   ]
 }"""
 
-OUTPUT FORMAT:
-{
-  "subsystems": [
-    {
-      "name": "subsystem name",
-      "components": [
+    # Build user prompt
+    user_prompt = f"USER REQUEST: {query}\n\n"
+    if component_graph_text:
+        user_prompt += f"{component_graph_text}\n"
+    if rag_results:
+        user_prompt += f"COMPONENT SPECS & DATA SHEETS:\n{rag_results}\n"
+
+    print("[api/design] Invoking LLM...")
+    try:
+        res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
+        json_str = _strip_markdown_json(res_text)
+        data = json.loads(json_str)
+    except Exception as e:
+        print(f"[api/design] Error parsing LLM JSON: {e}")
+        data = {}
+
+    connections = data.get("connections", [])
+    normalized_connections = []
+    bom = data.get("bom", [])
+    subsystems = data.get("subsystems", [])
+    missing = data.get("missing", [])
+    validation = data.get("validation", [])
+
     if isinstance(connections, list):
         for conn in connections:
             if not isinstance(conn, dict):
@@ -330,6 +347,7 @@ OUTPUT FORMAT:
     # Check CAD availability based on query
     cad_available = False
     cad_url = None
+    assembly_transforms = []
     
     known_cads = {
         "autonomous mobile": "autonomous_mobile_robot.stp",
@@ -457,7 +475,7 @@ OUTPUT FORMAT:
     assembly_mode = "side_by_side"
     
     # Try to build assembly graph from LLM synthesis data
-    llm_assembly_graph = synthesis_data.get("assembly_graph", [])
+    llm_assembly_graph = data.get("assembly_graph", [])
     if llm_assembly_graph:
         # LLM provided assembly graph — use it
         graph_nodes = []

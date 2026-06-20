@@ -1,4 +1,5 @@
 import sys
+import os
 sys.path.append('src')
 
 from fastapi.testclient import TestClient
@@ -6,10 +7,8 @@ from api.main import app
 import traceback
 
 try:
-    print("Initializing TestClient...")
     client = TestClient(app)
-    print("Making request to /api/design...")
-    response = client.post("/api/design", json={"query": "Make a robot arm"})
+    response = client.post("/api/ask", json={"query": "What is a robot?"})
     print(f"Status Code: {response.status_code}")
     print(f"Response Body: {response.text}")
 except Exception as e:

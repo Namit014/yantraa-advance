@@ -60,12 +60,9 @@ try:
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load connections router: {_e}")
 
-try:
-    from design import router as design_router
-    app.include_router(design_router)
-    print("[Yantra API] Registered /api/design")
-except Exception as _e:
-    print(f"[Yantra API] WARNING: Could not load design router: {_e}")
+from design import router as design_router
+app.include_router(design_router)
+print("[Yantra API] Registered /api/design")
 
 try:
     from generate import router as generate_router
@@ -81,6 +78,12 @@ try:
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load mapping router: {_e}")
 
+try:
+    from ros2_export import router as ros2_export_router
+    app.include_router(ros2_export_router)
+    print("[Yantra API] Registered /api/export-ros2")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load ros2_export router: {_e}")
 
 # Define Pydantic models for JSON request/response validation
 class QueryRequest(BaseModel):
@@ -114,7 +117,8 @@ async def ask_question(request: QueryRequest, req: Request):
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
         # Execute the RAG workflow asynchronously off the event loop
-        final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
+        loop = asyncio.get_running_loop()
+        final_answer, cad_available, cad_url, fallback_used, source_urls = await loop.run_in_executor(
             None, req.app.state.retriever.ask, request.query
         )
 
@@ -128,7 +132,13 @@ async def ask_question(request: QueryRequest, req: Request):
         )
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        import traceback
+        error_details = traceback.format_exc()
+        return QueryResponse(
+            response=f"An error occurred in the backend: {str(e)}\n\n{error_details}",
+            status="error",
+            cad_available=False
+        )
 
 @app.get("/search", response_model=QueryResponse)
 async def search_question(query: str, req: Request):
@@ -186,4 +196,5 @@ async def health_check():
 if __name__ == "__main__":
     import uvicorn
     # Allow running directly using `python src/api/main.py`
+    print("ALL ROUTES BEFORE RUNNING:", [r.path for r in app.routes])
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)
