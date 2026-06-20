@@ -1,0 +1,428 @@
+Source URL: https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino
+Scraped: 2026-06-20T17:00:26.533706
+============================================================
+
+//googletag.defineSlot('/21034905/cd-leaderboard-in-content', [728, 90], 'div-gpt-ad-1572526743616-0').addService(googletag.pubads());  googletag.defineSlot('/21034905/Leaderboard_2', [728, 90], 'div-gpt-ad-1575031687404-0').addService(googletag.pubads());  googletag.defineSlot('/21034905/track_imp_1x1', [1, 1], 'div-gpt-ad-1572871798331-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/adi_track_pixel', [1, 1], 'div-gpt-ad-1573540406783-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/CD_Track_3', [1, 1], 'div-gpt-ad-1575031611223-0').addService(googletag.pubads()); // googletag.defineSlot('/21034905/boombox2', [300, 250], 'div-gpt-ad-1580621619978-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/boombox2', [300, 250], 'div-gpt-ad-1626353864327-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/cd_half_page_ad', [300, 600], 'div-gpt-ad-1593583401069-0').addService(googletag.pubads()); //mouser RHS floating ad // googletag.defineSlot('/21034905/cd_digikey_billboard_bottom', [970, 250], 'div-gpt-ad-1598511690090-0').addService(googletag.pubads()); //cd_digikey_billboard_bottom googletag.defineSlot('/21034905/cd_billboard_banner_mobile', [300, 200], 'div-gpt-ad-1619520102481-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/cd_small_leaderboard_banner_mobile', [300, 90], 'div-gpt-ad-1619520139575-0').addService(googletag.pubads()); //googletag.defineSlot('/21034905/C101_partstack_trackingpixel', [1, 1], 'div-gpt-ad-1704784866813-0').addService(googletag.pubads()); // googletag.defineSlot('/21034905/c101_wallpaper_banner_left', [120, 600], 'div-gpt-ad-1625818497950-0').addService(googletag.pubads()); // googletag.defineSlot('/21034905/c101_wallpaper_banner_right', [120, 600], 'div-gpt-ad-1625818544655-0').addService(googletag.pubads()); // googletag.defineSlot('/21034905/c101_wallpaper_banner_left_2', [120, 600], 'div-gpt-ad-1640869785778-0').addService(googletag.pubads()); // googletag.defineSlot('/21034905/c101_wallpaper_banner_right_2', [120, 600], 'div-gpt-ad-1640869848371-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/CD_Half_Page_Banner2', [300, 600], 'div-gpt-ad-1719307821746-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/billboard_3', [970, 250], 'div-gpt-ad-1721987993455-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/half-page-banner-2', [300, 600], 'div-gpt-ad-1735975955798-0').addService(googletag.pubads()); googletag.defineSlot('/21034905/C101_partstack_trackingpixel', [1, 1], 'div-gpt-ad-1704784866813-0').addService(googletag.pubads()); //pcbshop tracking pixel c101 googletag.pubads().enableSingleRequest(); googletag.pubads().collapseEmptyDivs(); googletag.enableServices(); }); -->
+[ Skip to main content ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#main-content)
+##### Continue to site >>>
+[About](https://circuitdigest.com/about-us) | [Contact](https://circuitdigest.com/contact)| [Advertise](https://circuitdigest.com/advertise)
+[![facebook icon](https://circuitdigest.com/themes/circuitdigest/images/fb_icon.png)](https://www.facebook.com/circuitdigest/) [![twitter icon](https://circuitdigest.com/themes/circuitdigest/images/twitter_icon.png)](https://twitter.com/CircuitDigest) [![youtube icon](https://circuitdigest.com/themes/circuitdigest/images/youtube_icon.png)](https://www.youtube.com/channel/UCy3CUAIYgZdAOG9k3IPdLmw) [![instagram icon](https://circuitdigest.com/themes/circuitdigest/images/insta_icon.png)](https://www.instagram.com/circuit_digest/)
+[ ![Home](https://circuitdigest.com/sites/default/files/circuitdigest_logo_0.png) ](https://circuitdigest.com/ "Home")
+## User account menu
+  * [Log in](https://circuitdigest.com/user/login)
+
+
+Search
+Search
+  * [ News ](https://circuitdigest.com/news)
+    * [ New Products ](https://circuitdigest.com/new-electronics-components)
+    * [ Industry News ](https://circuitdigest.com/industry-news)
+    * [ Community News ](https://circuitdigest.com/community-news)
+  * [ Articles ](https://circuitdigest.com/articles)
+    * [ Product Reviews ](https://circuitdigest.com/product-reviews)
+    * [ Tech Articles ](https://circuitdigest.com/tech-articles)
+    * [ Tutorials ](https://circuitdigest.com/tutorials)
+    * [ Interviews ](https://circuitdigest.com/interviews)
+    * [ Case Studies ](https://circuitdigest.com/case-studies)
+  * DigiKey Store 
+    * [ Cables and Wires ](https://bit.ly/3y7lgM0)
+    * [ LED/Optoelectronics ](https://bit.ly/3yaBR1m)
+    * [ Connectors and Interconnect ](https://bit.ly/39sXq2V)
+    * [ Discrete ](https://bit.ly/3s4uqFh)
+    * [ Electromechanical ](https://bit.ly/3saepNU)
+    * [ Integrated Circuits (ICs) ](https://bit.ly/3MJrS7m)
+    * [ Embedded Computers ](https://bit.ly/3w362oI)
+    * [ Enclosures, Hardware and Office ](https://bit.ly/3yby6ZN)
+    * [ Isolators ](https://bit.ly/38LXQB0)
+    * [ RF and Wireless ](https://bit.ly/3MOHgzq)
+    * [ Power and Circuit Protection ](https://bit.ly/3yiw6yC)
+    * [ Programmers ](https://bit.ly/3OSDkiW)
+    * [ Passives ](https://bit.ly/3ORkMQ7)
+    * [ Sensors and Transducers ](https://bit.ly/3LJCcvS)
+    * [ Semiconductors ](https://bit.ly/3LFRoKJ)
+    * [ Test Products ](https://bit.ly/3vFY85q)
+    * [ Tools ](https://bit.ly/3P5ohTc)
+  * [ Projects ](https://circuitdigest.com/electronics-projects)
+    * [ 555 Timer Circuits ](https://circuitdigest.com/555-timer-circuits)
+    * [ Op-amp Circuits ](https://circuitdigest.com/op-amp-circuits)
+    * [ Audio Circuits ](https://circuitdigest.com/audio-circuits)
+    * [ Power Supply Circuits ](https://circuitdigest.com/smps-power-supply-circuits)
+    * [ Arduino Projects ](https://circuitdigest.com/arduino-projects)
+    * [ Raspberry Pi Projects ](https://circuitdigest.com/simple-raspberry-pi-projects-for-beginners)
+    * [ Raspberry Pi Pico Projects ](https://circuitdigest.com/raspberry-pi-pico-projects-and-tutorials)
+    * [ Raspberry Pi Zero Projects ](https://circuitdigest.com/raspberry-pi-zero-projects-and-tutorials)
+    * [ STM32 Projects ](https://circuitdigest.com/stm32-projects-and-tutorials)
+    * [ Drone Projects ](https://circuitdigest.com/drone-projects)
+    * [ ESP8266 Projects ](https://circuitdigest.com/esp8266-projects)
+    * [ ESP8266 Projects ](https://circuitdigest.com/esp8266-projects)
+    * [ ESP32 Projects ](https://circuitdigest.com/esp32-projects)
+    * [ PIC Projects ](https://circuitdigest.com/pic-microcontroller-projects)
+    * [ NodeMCU Projects ](https://circuitdigest.com/nodemcu-esp8266-projects)
+    * [ Home Automation Projects ](https://circuitdigest.com/home-automation-projects)
+    * [ IoT Projects ](https://circuitdigest.com/internet-of-things-iot-projects)
+    * [ Robotics Projects ](https://circuitdigest.com/robotics-projects)
+    * [ AI Projects ](https://circuitdigest.com/ai-projects-and-tutorials)
+    * [ EV Projects ](https://circuitdigest.com/electric-vehicles-ev-projects)
+    * [ PCB Projects ](https://circuitdigest.com/diy-pcb-projects)
+    * [ VLSI Projects ](https://circuitdigest.com/vlsi-projects)
+    * [ All Electronic Circuits ](https://circuitdigest.com/electronic-circuits)
+    * [ All Microcontroller Projects ](https://circuitdigest.com/microcontroller-projects)
+    * [ All Electronics Projects ](https://circuitdigest.com/electronics-projects)
+  * [ Contests ](https://circuitdigest.com/contest/smart-home-and-wearables-project-contest-2025/)
+    * [ Smart Home & Wearables Contest 2025 ](https://circuitdigest.com/contest/smart-home-and-wearables-project-contest-2025/)
+    * [ IoT & Edge AI Project Challenge 2024 ](https://circuitdigest.com/contest/iot-edge-ai-project-challenge-2024)
+    * [ World Energy Challenge 2023 ](https://circuitdigest.com/contest/world-energy-challenge-2023)
+    * [ India Automation Challenge 2021 ](https://circuitdigest.com/contest/india-automation-challenge-2021/)
+  * [ Contact ](https://circuitdigest.com/contact)
+    * [ Advertise ](https://circuitdigest.com/advertise)
+    * [ About Us ](https://circuitdigest.com/about-us)
+  * More 
+    * [ DigiKey Videos ](https://circuitdigest.com/digikey-videos)
+    * [ Partner Events and Conferences ](https://circuitdigest.com/events)
+    * [ EE Calculators ](https://circuitdigest.com/calculators)
+
+
+  1. [Home](https://circuitdigest.com/)
+  2. [Microcontroller Based Projects](https://circuitdigest.com/microcontroller-projects)
+  3. How to Control Servo Motor using Arduino 
+
+
+#  How to Control Servo Motor using Arduino
+**Published** December 18, 2023  0
+[ P  ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino) [Prathamesh Barik](https://circuitdigest.com/users/kpratham1997 "View user profile.")   
+Author
+![Interfacing Arduino with Servo Motors ](https://circuitdigest.com/sites/default/files/projectimage_mic/Arduino-servo-motor.jpg)
+In the world of **electronics and robotics** , [servo motors](https://circuitdigest.com/article/servo-motor-working-and-basics) play a crucial role in controlling mechanical movements precisely. In this blog post, we'll delve into the basics of interfacing a **servo motor** with an Arduino board. Whether you're a beginner or an experienced enthusiast, this step-by-step guide will help you understand the fundamentals of servo motor control and how to integrate it with an Arduino for your projects. After you have learned the basics you can try other **Arduino servo motor projects** like this [robotic arm using servo motor](https://circuitdigest.com/microcontroller-projects/diy-arduino-robotic-arm-tutorial). You can also find other such [Arduino tutorials and projects](https://circuitdigest.com/arduino-projects) on our website.
+### **Table of Contents**
+  * [What is a Servo motor? ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#what-is-a-servo-motor)
+  * [Types of Servo Motors ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#types-of-servo-motors)
+  * [What is Tower Pro SG90 Servo Motor? ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#what-is-tower-pro-sg90-servo-motor)
+  * [Specifications of Tower Pro SG90 Servo Motor ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#specifications-of-tower-pro-sg90-servo-motor)
+  * [SG90 Servo Motor Pinout ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#sg90-servo-motor-pinout)
+  * [Components Required to Control Servo Motor with Arduino ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#components-required-to-control-servo-motor-with-arduino)
+  * [Servo Motor Working ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#servo-motor-working)
+  * [Commonly asked questions about Servo Motors ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#commonly-asked-questions-about-servo-motors)
+  * [Circuit Diagram of Interfacing Arduino with Servo Motors and Potentiometer ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#circuit-diagram-of-interfacing-arduino-with-servo-motors-and-potentiometer)
+  * [Servo Motor Arduino Code ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#servo-motor-arduino-code)
+  * [Demonstration of the Project ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#demonstration-of-the-project)
+  * [Controlling multiple Servo Motors using Arduino and PCA9685 ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#controlling-multiple-servo-motor-using-arduino-and-pca9685)
+  * [Projects using Arduino ](https://circuitdigest.com/microcontroller-projects/interface-servo-motor-with-arduino#projects-using-arduino)
+
+
+### **What is a Servo motor?**
+A servo motor is a type of motor used in various applications to precisely control the position, speed, and angular rotation of mechanical systems. It's designed to provide accurate control of its output shaft, allowing for precise angular position control.  
+Servo motors typically consist of a small DC motor, a gear train, a control circuit, and a feedback system. The feedback system, often a potentiometer or an encoder, continuously sends information about the motor's current position back to the control circuit. This feedback allows the control circuit to adjust the motor's movement and ensure it reaches and maintains the desired position.
+### **Types of Servo Motors**
+Servo Motors are divided into two main types
+  1. AC Servo Motor 
+  2. DC Servo Motor
+
+
+AC Servo motors use an AC power source, these motors use encoders for feedback. They are known for their high-speed and high-torque capabilities, making them suitable for industrial machinery and CNC equipment.  
+DC Servo motors use a DC power source and are often equipped with encoders for feedback. They offer precise control and are commonly used in robotics and small-scale automation.
+In this tutorial, we are going to use a DC Servo Motor. If you want to learn more about different types of DC motors in general, You can do that and come back here again.  
+DC Servo Motors are classified into two types
+  1. Standard rotation Servo which moves from 0 to 180 degrees
+  2. Continuous rotation Servo which moves 360 degrees
+
+
+We will be using a “Tower pro-Micro Servo sg90 motor” which is a type of DC standard rotation servo motor. 
+### **What is Tower Pro SG90 Servo Motor?**
+The Tower Pro SG90 is a popular and widely used micro servo motor known for its compact size, lightweight design, and affordability. It's commonly utilized in various hobbyist projects, robotics, remote-controlled vehicles, and small-scale applications that require precise control of angular motion.
+### **Specifications of Tower Pro SG90 Servo Motor**
+Here are the specifications of a standard SG90 Servo we should know before getting/using a servo motor for your project:  
+| Operating Voltage  | 4.8 V - 6 V  |  
+| --- | --- |  
+| Stall Torque  | 1.6 kg-cm  |  
+| Stall Current   | 650 mA  |  
+| Weight  | 9g  |  
+| Operating temperature  | -30 to +60 degree celsius  |  
+  * Operating Voltage: This servo motor operates within a voltage range of 4.8V to 6V. Ensure the power supply falls within this range to prevent damage or inefficient operation.
+  * Stall Torque: This indicates the maximum torque output of the motor when it's unable to rotate further. It's the force the motor can exert at a given voltage, crucial for applications that require the motor to overcome resistance or hold positions against external forces.
+  * Stall Current: Stall current refers to the amount of current drawn by a motor when it's operating at stall or maximum load condition, and the shaft is prevented from rotating. It signifies the maximum current which the motor can draw.
+  * Weight: The weight of the servo motor is essential in applications where size and weight constraints are critical, such as in drones, small robotic arms, or RC vehicles.
+  * Operating Temperature:Operating temperature refers to the range of temperatures within which a device or component can safely and effectively operate without risking damage or performance degradation.
+
+
+### **SG90 Servo Motor Pinout**
+![SG90 Servo Motor Pinout](https://circuitdigest.com/sites/default/files/inlineimages/u5/SG90-Servo-Motor-Pinout.jpg)
+  * GND Ground (Brown Wire) – This is the ground pin.
+  * VCC +5V (Red Wire) – Voltage is supplied to the servo motor through this Pin.
+  * Control (Orange Wire) – Through this wire, Position control signals are received via PWM.
+
+
+### **Components Required to Control Servo Motor with Arduino**
+The components which we will require for this project are
+  1. Arduino Uno
+  2. USB cable
+  3. Servo Motor SG90
+  4. Potentiometer 10k ohm
+  5. Jumper wires
+
+
+### **Servo Motor Working**
+A servo motor receives [PWM (Pulse Width Modulation)](https://circuitdigest.com/tutorial/what-is-pwm-pulse-width-modulation) signals to determine its angle of rotation. The PWM signal is a square wave with a variable duty cycle, where the width or duration of the high signal (the "on" time) corresponds to a specific angle. This signal is usually generated by a microcontroller, such as an Arduino.
+When the PWM signal is fed to the servo motor's control input (usually the orange or yellow wire), the motor's control circuit interprets it as a command to move to a particular angle. The control circuit measures the duration of the high part of the **PWM signal** , which corresponds to the desired angle. This duration is typically in the range of 1 to 2 milliseconds.
+The control circuit then compares this measured duration with the center position (typically 1.5 milliseconds) and adjusts the motor's shaft to move towards the desired angle. If the duration of the high part of the PWM signal is shorter than the center position, the motor turns in one direction; if it's longer, the motor turns in the opposite direction.
+The servo motor continuously adjusts its position to match the incoming PWM signal. As the duty cycle of the PWM changes, the motor's shaft rotates accordingly. This **closed-loop control mechanism** ensures that the motor accurately follows the input signal, allowing for precise and repeatable angular positioning. In essence, the servo motor's responsiveness to PWM signals enables it to execute controlled movements in various applications, from opening and closing doors to steering remote-controlled vehicles.
+In addition to using the microcontroller itself, The Servo Motor can be controlled in various other ways.
+**Servo Shield:** A servo shield is used primarily to simplify and streamline the process of controlling multiple servo motors, particularly when working with microcontroller platforms like Arduino.   
+Here’s how a Servo Shield looks like
+![Arduino servo shield](https://circuitdigest.com/sites/default/files/inlineimages/u5/arduino-servo-shield.png)
+**Servomotor driver:** The Servo drivers or **Arduino Servo controller boards** are commonly used to control multiple servo motors in various projects, especially in robotics, automation, and lighting systems.The **PCA9685** is a popular 16-channel, 12-bit PWM (Pulse Width Modulation) servo driver. We will also learn a proper implementation of controlling multiple servo using PCA9685 later in this blog.
+![Servo Driver Board](https://circuitdigest.com/sites/default/files/inlineimages/u5/PCA9685-pwm-servo-motor-driver.png)
+**Servo tester:** A servo tester is a simple device used to manually test, calibrate, and control servo motors without the need for a microcontroller or complex programming. It's a standalone tool that allows users to directly interface a servo motor with.
+![Arduino Servo Tester](https://circuitdigest.com/sites/default/files/inlineimages/u5/arduino-servo-tester.png)
+### **Commonly asked questions about Servo Motors**
+#### **How does a servo motor differ from a regular DC motor?**
+Unlike a regular DC motor, a servo motor features a closed-loop control system with feedback mechanisms like potentiometers or encoders. This enables precise position control and makes it stop at a specific angle, whereas a regular DC motor doesn't inherently have this level of precision.
+#### **Why is my servo jittering or not moving smoothly?**
+Jittering or erratic movement might be due to power issues, noise in the signal, or mechanical restrictions. Ensure a stable power supply, use proper wiring, and ensure the servo isn't mechanically constrained.
+#### **Can I modify a servo motor for continuous rotation?**
+Yes, some servo models can be modified for continuous rotation by disconnecting the internal feedback mechanism and adjusting the control circuitry. This essentially turns the servo into a geared DC motor with position control disabled.
+### **Circuit Diagram of Interfacing Arduino with Servo Motors and Potentiometer**
+The below circuit diagram shows how a **arduino servo motor control** can be done using a potentiometer.
+[![Circuit diagram of Interfacing Arduino with Servo Motors ](https://circuitdigest.com/sites/default/files/circuitdiagram_mic/circuit-diagram-of-Interfacing-Arduino-with-Servo-Motor.png)](https://circuitdigest.com/fullimage?i=circuitdiagram_mic/circuit-diagram-of-Interfacing-Arduino-with-Servo-Motor.png)
+  * Connect the red wire (VCC) of the servo motor to the 5V pin on the Arduino.
+  * Connect the brown or black wire (GND) of the servo motor to the GND pin on the Arduino.
+  * Connect the orange or yellow wire (Signal) of the servo motor to a digital PWM pin on the Arduino.
+  * Connect the positive end of potentiometer to 3.3V pin of Arduino
+  * Connect the GND end to the GND pin of Arduino
+  * Connect the signal pin to A0 pin(or any analog input pin)
+
+
+Here’s a pinout of the potentiometer for reference
+![potentiometer pinout](https://circuitdigest.com/sites/default/files/inlineimages/u5/potentiometer-pinout.jpg)
+### **Servo Motor Arduino Code**
+The Arduino Servo Library is a software library that simplifies the control of servo motors using Arduino boards. It provides an easy-to-use interface for managing servo motors' movement and position without the need for intricate programming or handling complex timing functions manually.
+To include the Servo Library in your code, you add “#include <Servo.h>” to your code.  
+There are two important example codes which are used for testing the Servo Motor.
+**Arduino Servo Sweep Code**
+This test code rotates the servo from 0 degree to 180 degree and then rotates back from 180 to 0 degree without the need of any input from the user side.
+
+```
+#include <Servo.h>
+```
+
+This line includes the Servo library, which provides functions and features for controlling servo motors in an Arduino sketch.
+
+```
+Servo myservo; 
+```
+
+Here, a servo object named myservo is created using the Servo library. This object will be used to control a servo motor connected to the Arduino. The comment indicates that on most Arduino boards, you can create up to twelve servo objects.
+
+```
+int pos = 0; 
+```
+
+An integer variable pos is declared and initialized to store the position of the servo motor.
+
+```
+void setup() { myservo.attach(9);
+```
+
+Within the setup() function, myservo.attach(9); is used to attach the servo object myservo to pin 9 of the Arduino. This line informs the Arduino that the servo is connected to pin 9 and that pin will be used to send control signals to the servo.
+
+```
+void loop() { for (pos = 0; pos <= 180; pos += 1) { 
+myservo.write(pos); 
+delay(15);
+}
+```
+
+The loop() function contains a for loop that increments the pos variable from 0 to 180 degrees in steps of 1 degree using pos += 1. Inside the loop:
+
+```
+myservo.write(pos);
+```
+
+sends the current position value stored in the pos variable to the servo, commanding it to move to that position.  
+delay(15); pauses the program execution for 15 milliseconds to allow the servo time to reach the specified position.
+
+```
+for (pos = 180; pos >= 0; pos -= 1) { 
+myservo.write(pos); 
+delay(15); 
+} 
+```
+
+Following the completion of the first loop, another for loop is used to decrement the pos variable from 180 to 0 degrees in steps of 1 degree using pos -= 1. Inside this loop, the servo is commanded to move to the position specified by the pos variable, and another delay of 15 milliseconds is added between movements.
+Here’s how the **servo motor tinkercad simulation** will look like. 
+![arduino servo motor control working demonstration](https://raw.githubusercontent.com/Circuit-Digest/servo-tutorial/fc312c2a2067fc6b05fcac7b42391c62ca47353a/arduino-servo-motor-control.jpg)
+**Servo Knob Code**
+The Arduino knob code is used to control **Arduino servo with potentiometer**. The code initializes a servo motor on pin 5, reads the analog value from a potentiometer on A0, maps that value to an angle between 0 and 180 degrees, and continuously updates the servo's position based on the potentiometer's value. The small delay aids in smooth movement of the servo motor. Here's the line by line code explantion.you can also find the complete code in the absolute bottom of the blog.
+
+```
+#include <Servo.h>
+```
+
+This line includes the necessary library "Servo.h," which provides functions to control servo motors using the Arduino.
+
+```
+Servo servoMotor;
+```
+
+Here, you're declaring an object named servoMotor of the Servo class. This object will be used to control the servo motor connected to your Arduino.
+
+```
+void setup() {
+servoMotor.attach(5);
+}
+```
+
+The setup() function is a special function that is executed only once when the Arduino board is powered on or reset. Inside the setup() function, you're using the attach() method of the servoMotor object to connect the servo motor to digital pin 5 on the Arduino. This establishes the communication between the servo motor and the Arduino.   
+The loop() function is another special function that contains the main code to be executed repeatedly.
+
+```
+int potValue = analogRead(A0);
+```
+
+Inside the loop() function, you're using the analogRead() function to read the analog value from analog pin A0. This value is then stored in the variable potValue.
+
+```
+int servoAngle = map(potValue, 0, 1023, 0, 180);
+```
+
+Here, you're using the map() function to convert the analog potValue (ranging from 0 to 1023) to a desired servo angle range (0 to 180 degrees). This new value is stored in the variable servoAngle.
+
+```
+servoMotor.write(servoAngle);
+delay(15); 
+}
+```
+
+The write() method of the servoMotor object is used to set the servo motor's angle to the calculated servoAngle. A small delay of 15 milliseconds is added using the delay() function. This short delay helps ensure smoother servo motor movement and reduces jitter.
+Here’s the **servomotor tinkercad simulation** which shows how you can control arduino servo with potentiometer 
+![control servo motor arduino working demonstration](https://raw.githubusercontent.com/Circuit-Digest/servo-tutorial/b5784f9953bc53cac2a6d988896688f6996b408a/control-servo-motor-arduino.gif)
+Apart from controlling servo motors with potentiometer, it is also common to control them using push buttons. Previously we have also covered [how to control servo motor using push buttons](https://circuitdigest.com/microcontroller-projects/arduino-servo-motor-control-code-and-circuit) you can check out the link to learn more. 
+### **Demonstration of the Project**
+Here’s how the project output looks like, you can see that in our **servo Arduino setup** the servo motors is being controlled using the potentiometer. 
+### **Controlling multiple Servo Motor using Arduino and PCA9685**
+The arduino uno has 6 pwm pins only, so you can [control upto 6 servo motors using arduino](https://circuitdigest.com/microcontroller-projects/controlling-multiple-servo-motors-with-arduino "multiple servo motor control using Arduino"), for more than 6 servo motor control you need to be familiar with a servo motor driver like PCA9686  
+Controlling multiple servo motors using an Arduino and PCA9685 involves using the PCA9685 module as a servo driver, allowing you to control multiple servos simultaneously through the I2C communication protocol. Here’s a circuit diagram that shows the **servo Arduino connection** for 4 servo motors. 
+![circuit to connect multiple servo with arduino using PCA9685](https://circuitdigest.com/sites/default/files/inlineimages/u5/multiple-servo-motor-with-arduino-circuit-diagram.png)
+You can use the [adafruit PWM Library](https://github.com/adafruit/Adafruit-PWM-Servo-Driver-Library "Adafruit PWM Library") for this. Just download this library then go to Sketch> Include> Add .Zip library and then guide it to the library download location.  
+When that is completed, go to file>examples> Adafruit PWM Servo Driver Library > gpiotest and upload the code.
+[![](https://lh7-us.googleusercontent.com/005tamcBOiASHIkPlFrSnOUVvjsJyQkVmy8djWkomIB0eO4bB7-on_5oBKJN4FcJbCDW7BaEkaXjyn6gDBZ1LPGdTO8dqIkGkfYlHdH_qmwPYdsU9wrECz0N9QhrjCU3PxUMROzbQytjh_Yojsi4V9A)](https://github.com/Circuit-Digest/servo-tutorial "Arduino Servo Motor Code")[![](https://lh7-us.googleusercontent.com/A6oLBjzuCytlJs0VjorLk_-vznjB3iD_fB7-vquyWmrcwCMPb4iKEd3kgMgXDEV63CnXsYZ2o7d3TxM52GOyflzLbF0w7ifP3tWsQPGxRI2CWwyn2i19FqZ7Z51M7nlBRu2C4mVQeWHOMZ_QyiuhX-8)](https://github.com/Circuit-Digest/servo-tutorial)
+### **Projects using Arduino**
+[![Build a Battery Internal Resistance Meter with Arduino and Atmel ATtiny85 IC](https://circuitdigest.com/sites/default/files/projectimage_mic/Battery-Internal-Series-Resistance-Meter.jpg)](https://circuitdigest.com/microcontroller-projects/battery-internal-resistance-meter-with-arduino)
+[Build a Battery Internal Resistance Meter with Arduino and Atmel ATtiny85 IC](https://circuitdigest.com/microcontroller-projects/battery-internal-resistance-meter-with-arduino)
+Learn how to create a cost-effective Battery Internal Resistance Meter using an Atmel ATtiny85 microcontroller and Arduino platform. Learn step-by-step instructions, schematic diagrams, and coding techniques to accurately measure battery health through internal resistance. Make your electronics projects better with this insightful tool for better battery management and performance optimization.
+[![Interfacing TM1637 4 Digit Seven Segment Display Module with Arduino](https://circuitdigest.com/sites/default/files/projectimage_mic/Interfacing-TM1637-Display-Module-with-Arduino.jpg)](https://circuitdigest.com/microcontroller-projects/interfacing-tm1637-seven-segment-display-with-arduino)
+[Interfacing TM1637 4 Digit Seven Segment Display Module with Arduino](https://circuitdigest.com/microcontroller-projects/interfacing-tm1637-seven-segment-display-with-arduino)
+Arduino Meets TM1637: Display Module Interfacing Simplified! Learn how to easily connect and program the TM1637 4 Digit Seven Segment Display Module with your Arduino. This concise guide covers wiring, coding, and potential applications, making numeric data visualization a breeze for your projects.
+[![Interfacing TSL25911 Ambient Light Sensor with Arduino](https://circuitdigest.com/sites/default/files/projectimage_mic/Interfacing-TSL25911-Sensor-with-Arduino.jpg)](https://circuitdigest.com/microcontroller-projects/interfacing-tsl2591-sensor-module-with-arduino)
+[Interfacing TSL25911 Ambient Light Sensor with Arduino](https://circuitdigest.com/microcontroller-projects/interfacing-tsl2591-sensor-module-with-arduino)
+Illuminating Projects: Connect TSL25911 Ambient Light Sensor to Arduino! Unveil the magic of light sensing by seamlessly integrating TSL25911 with Arduino. Our guide walks you through wiring, coding, and creative applications, allowing your projects to perceive and respond to light levels effortlessly.
+### **Complete Project Code**
+Copy Code 
+```
+
+//Simple Arduino Servo Code
+
+
+
+//by CircuitDigest
+
+
+
+#include <Servo.h>
+
+
+
+Servo servoMotor;
+
+
+
+void setup() {
+
+
+
+  servoMotor.attach(5);
+
+
+
+}
+
+
+
+void loop() {
+
+
+
+  int potValue = analogRead(A0);
+
+
+
+  int servoAngle = map(potValue, 0, 1023, 0, 180);
+
+
+
+  servoMotor.write(servoAngle);
+
+
+
+  delay(15);  // Small delay for smooth movement
+
+}
+
+
+```
+
+Tags
+[servo motor](https://circuitdigest.com/tags/servo-motor)
+[servo motor control](https://circuitdigest.com/tags/servo-motor-control)
+[Servo Motor Controller](https://circuitdigest.com/tags/servo-motor-controller)
+[arduino](https://circuitdigest.com/tags/arduino)
+[arduino uno](https://circuitdigest.com/tags/arduino-uno)
+[Arduino Project](https://circuitdigest.com/tags/arduino-project)
+Have any question related to this Article?
+#### Start a Discussion on:
+[ ![WhatsApp Community Icon](https://i.postimg.cc/R0zg5mSb/whatspp-logo.png) WhatsApp ](https://chat.whatsapp.com/L79JMpehN63KCiBPNRwske)
+[ ![Telegram Channel Icon](https://i.postimg.cc/ZKFV6RrY/teleg-logo.png) Telegram ](https://t.me/circuitdigest)
+[ ![Discord Server Icon](https://i.postimg.cc/vH6VfSfQ/discord-logo.png) Discord ](https://discord.com/invite/UXJrFJSWpz)
+[ ![Community Forum Icon](https://i.postimg.cc/4dTgGz1c/form-logo.png) Forum ](https://circuitdigest.com/forums)
+### Add New Comment
+Comment *
+[ Login to Comment ](https://circuitdigest.com/user/login?destination=/microcontroller-projects/interface-servo-motor-with-arduino) [ Sign in with Google ](https://circuitdigest.com/user/login/google) [ Log in with Facebook ](https://circuitdigest.com/user/login/facebook) [ Sign in with GitHub ](https://circuitdigest.com/user/login/github)
+  * [Log in](https://circuitdigest.com/user/login?destination=/microcontroller-projects/interface-servo-motor-with-arduino%23comment-form) or [register](https://circuitdigest.com/user/register?destination=/microcontroller-projects/interface-servo-motor-with-arduino%23comment-form) to post comments
+
+
+![DigiKey featured products logo](https://circuitdigest.com/sites/default/files/Digikey-featuredProducts.jpg)  
+|  [ ![Ecomate® RM Series](https://circuitdigest.com/sites/default/files/styles/medium/public/TI_video/New%20Project%20-%202026-06-01T133251.691.jpg?itok=2DsexxGs) ](https://bit.ly/4u9rKTZ%0A)  |  [Ecomate® RM Series](https://bit.ly/4u9rKTZ%0A)  
+ecomate® RM high performance connectors are available in 8 shell sizes and 30 insert arrangements  |  
+| --- | --- |  
+|  [ ![UNO Q Microcontroller Board](https://circuitdigest.com/sites/default/files/styles/medium/public/TI_video/New%20Project%20-%202026-06-01T133931.031.jpg?itok=bLTwmZFn) ](https://bit.ly/4x6G2rk%0A)  |  [UNO Q Microcontroller Board](https://bit.ly/4x6G2rk%0A)  
+Arduino UNO Q bridges high-performance computing with real-time control  |  
+|  [ ![AHV85003 and AHV85043 Isolated SiC Gate-Driver Chipsets](https://circuitdigest.com/sites/default/files/styles/medium/public/TI_video/New%20Project%20-%202026-06-01T134239.466.jpg?itok=MmXft49Q) ](https://bit.ly/4nYZAcX%0A)  |  [AHV85003 and AHV85043 Isolated SiC Gate-Driver Chipsets](https://bit.ly/4nYZAcX%0A)  
+AHV85003 and AHV85043 isolated SiC gate driver chipsets are optimized for driving discrete SiC FETs  |  
+|  [ ![PWM Speed Control Fans](https://circuitdigest.com/sites/default/files/styles/medium/public/TI_video/New%20Project%20-%202026-06-01T134510.257.jpg?itok=saaqtfdo) ](https://bit.ly/3SbNTDG%0A)  |  [PWM Speed Control Fans](https://bit.ly/3SbNTDG%0A)  
+PWM speed control fans reduce noise, power, and cost with adaptive cooling  |  
+|  [ ![LCQPB Series Wirewound Ferrite Power Inductors](https://circuitdigest.com/sites/default/files/styles/medium/public/TI_video/New%20Project%20-%202026-06-01T134751.508.jpg?itok=tOnn-ZyY) ](https://bit.ly/4akWudr%0A)  |  [LCQPB Series Wirewound Ferrite Power Inductors](https://bit.ly/4akWudr%0A)  
+LCQPB series power inductors deliver both cost efficiency and superior electrical characteristics  |  
+|  [ ![AMF60 60 W Wall-Mount Power Supplies](https://circuitdigest.com/sites/default/files/styles/medium/public/TI_video/New%20Project%20-%202026-06-01T135143.183.jpg?itok=w7uNJzkZ) ](https://bit.ly/4u6Gq6g%0A)  |  [AMF60 60 W Wall-Mount Power Supplies](https://bit.ly/4u6Gq6g%0A)  
+AMF60 offers 2xMOPP isolation, level VII efficiency, Class II construction for ITE & medical devices  |  
+|  [ ![AU1 Series Automotive USB Type-C® Connector](https://circuitdigest.com/sites/default/files/styles/medium/public/TI_video/New%20Project%20-%202026-06-01T135347.245.jpg?itok=6LbvM9AQ) ](https://bit.ly/4u64ENQ%0A)  |  [AU1 Series Automotive USB Type-C® Connector](https://bit.ly/4u64ENQ%0A)  
+The Hirose AU1 series automotive USB Type-C connector is built for harsh environments  |  
+|  [ ![MEAN WELL Peripheral Accessories](https://circuitdigest.com/sites/default/files/styles/medium/public/TI_video/New%20Project%20-%202026-06-01T135800.563.jpg?itok=RmTsdUz0) ](https://bit.ly/3PR45tq%0A)  |  [MEAN WELL Peripheral Accessories](https://bit.ly/3PR45tq%0A)  
+MEAN WELL Peripheral Accessories are designed to fulfill customers' one-stop shopping requirements.  |  
+![](https://circuitdigest.com/themes/circuitdigest/images/mail_img.png)
+## **Join 100K+ Subscribers**
+Your email is safe with us, we don’t spam.
+HP
+  
+
+Be a part of our ever growing community.
+![semicon media logo](https://circuitdigest.com/themes/circuitdigest/images/semicon_logo1.png)
+Semicon Media is a unique collection of online media, focused purely on the Electronics Community across the globe. With a perfectly blended team of Engineers and Journalists, we demystify electronics and its related technologies by providing high value content to our readers.
+[![facebook icon](https://circuitdigest.com/themes/circuitdigest/images/fb_icon.png)](https://www.facebook.com/circuitdigest/) [![twitter icon](https://circuitdigest.com/themes/circuitdigest/images/twitter_icon.png)](https://twitter.com/CircuitDigest) [![youtube icon](https://circuitdigest.com/themes/circuitdigest/images/youtube_icon.png)](https://www.youtube.com/channel/UCy3CUAIYgZdAOG9k3IPdLmw) [![linkedin icon](https://circuitdigest.com/themes/circuitdigest/images/linkedin_icon.png)](https://www.linkedin.com/company/circuit-digest/)
+#### **COMPANY**
+[Privacy Policy](https://circuitdigest.com/privacy-policy) [Cookie Policy](https://circuitdigest.com/cookie-policy) [Terms of Use](https://circuitdigest.com/terms-of-use) [Contact Us](https://circuitdigest.com/contact) [Advertise](https://circuitdigest.com/advertise)
+#### **PROJECT**
+[555 Timer Circuits](https://circuitdigest.com/555-timer-circuits) [Op-amp Circuits](https://circuitdigest.com/op-amp-circuits) [Audio Circuits](https://circuitdigest.com/audio-circuits) [Power Supply Circuits](https://circuitdigest.com/smps-power-supply-circuits) [Arduino Projects](https://circuitdigest.com/arduino-projects) [Raspberry Pi Projects](https://circuitdigest.com/simple-raspberry-pi-projects-for-beginners) [MSP430 Projects](https://circuitdigest.com/msp430-projects) [STM32 Projects](https://circuitdigest.com/stm32-projects-and-tutorials) [ESP8266 Projects](https://circuitdigest.com/esp8266-projects) [PIC Projects](https://circuitdigest.com/pic-microcontroller-projects) [AVR Projects](https://circuitdigest.com/avr-microcontroller-projects) [8051 Projects](https://circuitdigest.com/8051-microcontroller-projects) [ESP32 Projects](https://circuitdigest.com/esp32-projects) [IoT Projects](https://circuitdigest.com/internet-of-things-iot-projects) [PCB Projects](https://circuitdigest.com/diy-pcb-projects) [Arduino ESP8266 Projects](https://circuitdigest.com/arduino-esp8266-projects) [All Microcontroller Projects](https://circuitdigest.com/microcontroller-projects)
+#### **OUR NETWORK**
+[![CircuitDigest Logo](https://circuitdigest.com/themes/circuitdigest/images/logo_circuitdigest.png)](https://circuitdigest.com)
+[![Components101 Logo](https://circuitdigest.com/themes/circuitdigest/images/logo_components.png)](https://components101.com)
+[![IoTDesignPro Logo](https://circuitdigest.com/themes/circuitdigest/images/logo_IOT.png)](https://iotdesignpro.com)
+Copyright © 2023 [Circuit Digest](https://circuitdigest.com/). All rights reserved.

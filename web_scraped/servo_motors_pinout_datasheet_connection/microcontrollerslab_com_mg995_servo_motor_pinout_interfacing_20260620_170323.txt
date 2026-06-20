@@ -1,0 +1,246 @@
+Source URL: https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/
+Scraped: 2026-06-20T17:03:23.829951
+============================================================
+
+[Skip to content](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/#content "Skip to content")
+[ ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+Menu
+  * [Home](https://microcontrollerslab.com/)
+  * [Microcontrollers](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+    * [Pic Microcontroller](https://microcontrollerslab.com/category/pic-microcontroller-tutorials/)
+    * [Arduino](https://microcontrollerslab.com/category/arduino/)
+    * [ESP32 Tutorials and Projects](https://microcontrollerslab.com/category/esp32/)
+    * [MicroPython ESP32/ESP8266](https://microcontrollerslab.com/category/micropython-projects-esp32-esp8266/)
+    * [ESP8266 NodeMCU](https://microcontrollerslab.com/category/esp8266/)
+    * [FreeRTOS Arduino](https://microcontrollerslab.com/category/freertos-arduino-tutorial/)
+    * [8051 microcontroller](https://microcontrollerslab.com/category/8051-microcontroller/)
+    * [AVR Microcontroller](https://microcontrollerslab.com/category/avr-microcontroller/)
+  * [ARM Microcontrollers](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+    * [TM4C123 Tiva LaunchPad](https://microcontrollerslab.com/category/tiva-launchpad/)
+    * [STM32 Blue Pill](https://microcontrollerslab.com/category/stm32-blue-pill/)
+    * [STM32 Nucleo](https://microcontrollerslab.com/category/stm32-nucleo/)
+    * [STM32F4 Discovery Board](https://microcontrollerslab.com/category/stm32f4-discovery-board-tutorials-and-projects/)
+    * [MSP430 launchpad](https://microcontrollerslab.com/category/msp430-launchpad/)
+  * [Raspberry Pi](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+    * [Raspberry Pi Pico](https://microcontrollerslab.com/category/raspberry-pi-pico/)
+    * [Raspberry Pi Pico W](https://microcontrollerslab.com/category/raspberry-pi-pico-w/)
+    * [Raspberry Pi](https://microcontrollerslab.com/category/raspberry-pi/)
+  * [Softwares](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+    * [Labview project](https://microcontrollerslab.com/category/labview-project/)
+    * [Proteus tutorials](https://microcontrollerslab.com/category/proteus-tutorial/)
+    * [PSpice tutorials](https://microcontrollerslab.com/category/pspice-tutorials/)
+    * [MATLAB](https://microcontrollerslab.com/category/matlab/)
+  * [Electronics components](https://microcontrollerslab.com/category/electronics-components/)
+  * [Contact](https://microcontrollerslab.com/contact-us/)
+    * [Editorial](https://microcontrollerslab.com/editorial/)
+    * [Advertise](https://microcontrollerslab.com/advertise-with-us/)
+  * [](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+
+
+# Interface MG995 Servo Motor with Arduino – Example Code
+MG995 Servo Motor is a heavy-duty reliable servo motor. It is a low-power, cost-effective motor. MG995 is a dual shock-proof ball-bearing servo design with metal gear making it quite feasible for industrial production. The motor has a quick response and rotates at high speed. It comes with great holding power and a stable constant torque range. They are widely used in consumer robotics and hobby projects. This post is an overview of the motor and discusses the pinout, features, working, interfacing with Arduino, and applications of MG995.
+![MG995 Servo Motor](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+## MG995 Servo Motor Pinout
+MG995 is a durable double ball bearing servo motor. The diagram shown below is the pinout of the MG995 Servo Motor:
+![MG995 Servo Motor pinout diagram](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+## MG995 Pin Configuration
+It is a three terminal device.The pin configuration detail in tabular is mentioned below:  
+| Pin Color  | Pin Name  | Function  |  
+| --- | --- | --- |  
+| Red  | VCC  | Positive Power Supply pin  |  
+| Brown  | GND  | Reference Potential pin – Connect to the ground of power supply  |  
+| Orange  | PWM Signal  | Pulse width modulation input pin that is used to control the axis of rotation of MG995 servo motor  |  
+## MG995 Features and Specifications
+  * Operating Voltage: 4.8 – 7.2 Volts
+  * Operating Temperature: 0 – 550C
+  * Operational Frequency: 50 Hz
+  * Operating Motor Speed @ 4.8 V: 0.2 sec/60 degrees
+  * Operating Motor Speed @ 6 V: 0.16 sec/60 degrees
+  * Motor Stall torque @ 4.8 V: 8.5 kgf·cm
+  * Motor Stall torque @ 6.0 V:10 kgf·cm
+  * Dead band width: 5 usec
+  * Degree of Rotation: 180 degrees
+  * Idle state Current consumption: 10 mA
+  * No Load Current Consumption: 170 mA
+  * Maximum Load Current Consumption: 1200 mA
+  * Physical Dimensions: 40.7 x 19.7 x 42.9 mm approx
+
+
+## How to use MG995 Servo Motor
+The motor is energized using the power pins that are VCC and GND. The MG995 Servo motor has a signal input pin to rotate the motor. The working principle of this motor is pulse width modulation. The concerned Servo motor can operate only at 50 MHz of frequency. Any value more or less leads to malfunctioning of the device. That is why each cycle of the PWM signal is of 20 milliseconds.
+![MG995 Servo Motor PWM signal frequency](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+The position of the axis of the motor depends on the duty cycle of the signal. There are some standard calculations for degree rotation. If the PWM signal is high for 0.5ms in a single cycle, the axis moves to zero degrees. To rotate the motor axis to 90 degrees, the signal should be high for 1.5ms. Similarly, a 2.5ms ON-time signal leads to 180-degree axial position.
+In this way, we can measure and control our motor to desired degrees. To keep things convenient, specific libraries are written to control and interface the motor instead of setting the PWM values every single time.
+## Interfacing MG995 Servo Motor to Arduino UNO
+In this section, we will learn to interface SG995 servo motor with Arduino. We will use Arduino uno in this tutorial, but you can use any Arduino board which provides at least one PWM signal output. Moreover, almost all Arduino board provides PWM signal.
+### Connection Diagram
+  * Connect the power voltage pins of the MG995 Servo motor to the 5 Volts pin and the GND pin of the Arduino UNO. This will energize the motor.
+  * Connect the PWM input pin of the motor to the Arduino PWM output pin D6 to control and rotate the motor.
+
+  
+| Arduino UNO  | MG995 Servo Motor  |  
+| --- | --- |  
+| 5V  | VCC  |  
+| GND  | GND  |  
+| D6  | PWM pin  |  
+The wiring diagram to show the connections is provided below:
+![MG995 Servo Motor interfacing with Arduino](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+### Arduino Code
+Here is a small example code to brief the use of this motor practically.
+
+```
+/* This example Arduino Sketch controls the complete rotation of
+ *  SG995 Servo motor by using its PWM and Pulse width modulation technique
+ */
+
+#include <Servo.h> // include servo library to use its related functions
+#define Servo_PWM 6 // A descriptive name for D6 pin of Arduino to provide PWM signal
+Servo MG995_Servo;  // Define an instance of of Servo with the name of "MG995_Servo"
+  
+
+void setup() {
+  Serial.begin(9600); // Initialize UART with 9600 Baud rate
+  MG995_Servo.attach(Servo_PWM);  // Connect D6 of Arduino with PWM signal pin of servo motor
+
+}
+
+void loop() {
+  Serial.println("0");// You can display on the serial the signal value
+  MG995_Servo.write(0); //Turn clockwise at high speed
+  delay(3000);
+  MG995_Servo.detach();//Stop. You can use deatch function or use write(x), as x is the middle of 0-180 which is 90, but some lack of precision may change this value
+  delay(2000);
+  MG995_Servo.attach(Servo_PWM);//Always use attach function after detach to re-connect your servo with the board
+  Serial.println("0");//Turn left high speed
+  MG995_Servo.write(180);
+  delay(3000);
+  MG995_Servo.detach();//Stop
+  delay(2000);
+  MG995_Servo.attach(Servo_PWM);
+
+      
+}
+
+```
+
+#### Code Explanation
+Library Installation & Pin Declaration: For easy interfacing, install the servo motor library i.e “Servo.h”. Then restart the Arduino IDE software and include it into the sketch. Next is defining the pin. We have connected the signal pin of the motor to the PWM pin 6 of Arduino. Furthermore, create an instance MG995_Servo of the servo library functions.
+
+```
+/* This example Arduino Sketch controls the complete rotation of
+ *  SG995 Servo motor by using its PWM and Pulse width modulation technique
+ */
+
+#include <Servo.h> // include servo library to use its related functions
+#define Servo_PWM 6 // A descriptive name for D6 pin of Arduino to provide PWM signal
+Servo MG995_Servo;  // Define an instance of of Servo with the name of "MG995_Servo"
+```
+
+void setup: The void setup section initializes the Serial communication with the standard baud rate of 9600 bps. It also attaches the MG995_Servo instance to pin 6.
+
+```
+void setup() {
+  Serial.begin(9600); // Initialize UART with 9600 Baud rate
+  MG995_Servo.attach(Servo_PWM);  // Connect D6 of Arduino with PWM signal pin of servo motor
+
+}
+```
+
+void loop: The loop section is coded to rotate the motor clockwise first and then anticlockwise. When the myservowrite(0) is executed, the motor starts rotating from the right side for some time and then stops for 2000 milliseconds. Also detaches the instance to reduce motor noise. Similarly, when myservowrite(180) is executed, the motor rotates in an anticlockwise direction again halts for 2000 milliseconds.
+
+```
+void loop() {
+  Serial.println("0");// You can display on the serial the signal value
+  MG995_Servo.write(0); //Turn clockwise at high speed
+  delay(3000);
+  MG995_Servo.detach();//Stop. You can use deatch function or use write(x), as x is the middle of 0-180 which is 90, but some lack of precision may change this value
+  delay(2000);
+  MG995_Servo.attach(Servo_PWM);//Always use attach function after detach to re-connect your servo with the board
+  Serial.println("0");//Turn left high speed
+  MG995_Servo.write(180);
+  delay(3000);
+  MG995_Servo.detach();//Stop
+  delay(2000);
+  MG995_Servo.attach(Servo_PWM);
+
+    
+}
+
+```
+
+## Applications
+  * Toy planes
+  * Robotics
+  * Industrial equipment
+  * DIY projects
+  * Drones
+  * Telescopes
+
+
+## 2D Diagram
+![2D diagram ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+  * [SG-90 Servo Motor Interfacing with TM4C123 Launchpad](http://microcontrollerslab.com/servo-motor-interfacing-with-tm4c123-launchpad-keil/)
+  * [ESP32 Web Server Control Servo motor with Arduino IDE](http://microcontrollerslab.com/esp32-servo-motor-web-server-arduino/)
+  * [SERVO MOTOR interfacing with PIC16F877A MICROCONTROLLER](http://microcontrollerslab.com/servo-motor-interfacing-pic16f877a-microcontroller/)
+  * [Web Controlled Servo Motor using Arduino and esp8266](http://microcontrollerslab.com/web-controlled-servo-motor-using-arduino-esp8266/)
+  * [servo motor interfacing with 8051 using Keil compiler](http://microcontrollerslab.com/servo-motor-interfacing-8051-keil/)
+  * [joystick based servo motor control using Arduino](http://microcontrollerslab.com/joystick-servo-motor-control-arduino/)
+  * [Servo motor control and interfacing with Arduino](http://microcontrollerslab.com/servo-motor-control-and-interfacing-with-arduino/)
+
+
+### Share this:
+  * [Share](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+
+
+  * [ Share on Facebook (Opens in new window) Facebook ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/?share=facebook)
+  * [ Share on LinkedIn (Opens in new window) LinkedIn ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/?share=linkedin)
+  * [ Share on X (Opens in new window) X ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/?share=twitter)
+  * [ Share on Tumblr (Opens in new window) Tumblr ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/?share=tumblr)
+  * [ Share on Pinterest (Opens in new window) Pinterest ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/?share=pinterest)
+  * [ Share on WhatsApp (Opens in new window) WhatsApp ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/?share=jetpack-whatsapp)
+  * Email a link to a friend (Opens in new window) Email
+
+  
+| Arduino Components  | Amazon Links  |  
+| --- | --- |  
+| Arduino Starter Kit  | [Buy Now](https://amzn.to/4c0fuhe)  |  
+| Arduino Development Kit  | [Buy Now](https://amzn.to/4is45cv)  |  
+| Arduino Smart Robot Car Kit V4  | [Buy Now](https://amzn.to/4kP0ZRf)  |  
+| Arduino Sensors Kit  | [Buy Now](https://amzn.to/4hu7Yw4)  |  
+Categories [Arduino tutorials and projects](https://microcontrollerslab.com/category/arduino/)
+## 2 thoughts on “Interface MG995 Servo Motor with Arduino – Example Code”
+  1. Ｌｏｎｇ Ｉｎ Ｌａｉ
+[ December 4, 2023 at 6:41 pm  ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/#comment-334596)
+Can it rotate 90 degrees?
+[Reply](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/#comment-334596)
+  2. Mark
+[ November 27, 2024 at 8:46 am  ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/#comment-385328)
+how do I control multiple MG995 servo’s with the Arduino UNO or MEGA
+[Reply](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/#comment-385328)
+
+
+### Leave a Comment [Cancel reply](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/#respond)
+Comment
+Name Email Website
+Notify me of follow-up comments by email.
+Notify me of new posts by email.
+## Subscribe to Blog via Email
+Email Address 
+Subscribe 
+## Categories
+CategoriesSelect Category 8051 microcontroller tutorials and projects (14) Arduino tutorials and projects (178) Arm microcontroller tutorials and projects (8) AVR microcontroller tutorials and projects (14) Electronics components (227) Electronics Projects (9) Electronics Tutorials (74) Embedded Systems (84) ESP32 ESP8266 MicroPython Projects and Tutorials (42) ESP32 Tutorials and Projects (176) ESP8266 (122) FGPA (5) FreeRTOS Arduino Tutorials (18) GPS based projects (5) GSM (22) Inverters (15) IOT projects (4) Labview project (43) MATLAB (23) MIPS assembly language (7) MSP430 launchpad tutorials and projects (9) PCB designing (5) PIC microcontroller projects (129) Pic Microcontroller Tutorials (88) Power (7) Power electronics projects (60) Product Reviews (17) PROJECT IDEAS (15) protection (7) Proteus tutorials (5) PSpice tutorials (16) Raspberry Pi (7) Raspberry Pi Pico (39) Raspberry Pi Pico W (15) RFID (3) Robotics (1) Solar system (9) STM32 Blue Pill (29) STM32 Nucleo (21) STM32F4 Discovery Board Tutorials and Projects (5) Tiva LaunchPad tutorials and projects (32)
+## Recent Posts
+  * [Best Raspberry Pi Zero 2 W Kits for Tiny, Powerful Projects (2026 Buying Guide)](https://microcontrollerslab.com/best-raspberry-pi-zero-2-w-kits-buying-guide/)
+  * [Best Power Supplies for Microcontroller Projects (Buying Guide)](https://microcontrollerslab.com/best-power-supplies-for-microcontroller-projects-buying-guide/)
+  * [Best STM32 Development Boards to Buy in 2026 (Buying Guide)](https://microcontrollerslab.com/best-stm32-development-boards-buying-guide/)
+  * [Best OLED Displays for Microcontroller & Embedded Projects (2026 Buying Guide)](https://microcontrollerslab.com/best-oled-displays-for-microcontroller-embedded-projects-buying-guide/)
+  * [Best LoRa Modules for Long Range IoT (2026 Buying Guide)](https://microcontrollerslab.com/best-lora-modules-long-range-iot-buying-guide/)
+
+
+Copyright © 2013-2026 Microcontrollerslab.com All Rights Reserved
+[ ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/ "Scroll back to top")
+[ ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/) [ ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)
+Loading Comments...
+Write a Comment...
+Email (Required) Name (Required) Website
+[ ](https://microcontrollerslab.com/mg995-servo-motor-pinout-interfacing-with-arduino-features-examples/)

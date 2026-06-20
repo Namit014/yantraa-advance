@@ -109,6 +109,16 @@
             "cad_file": "",
             "scraped_at": "2026-06-18T19:48:53.772696",
             "source_url": "https://github.com/earthtojake/step.parts"
+        },
+        {
+            "name": "Build a Robotic Dog",
+            "category": "Structure",
+            "voltage": "N/A",
+            "interface": "None",
+            "description": "A 3D printed quadrupedal robot dog designed for dynamic movements and realistic appearance.",
+            "cad_file": "ARES_STEP_File.step",
+            "scraped_at": "2026-06-20T17:07:38.153977",
+            "source_url": "https://www.instructables.com/3D-Printed-Robot-Dog/"
         }
     ]
 }

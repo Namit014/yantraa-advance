@@ -447,7 +447,7 @@ interface ConnectionStore {
   deleteEdge: (id: string) => void;
   addEdge: (edge: CircuitEdge) => void;
 
-  generate: (components: GenerateComponent[], prompt: string) => Promise<void>;
+  generate: (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => Promise<void>;
   loadDesignData: (designData: any) => void;
 
   isValidConnection: (
@@ -552,52 +552,24 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       components.forEach((comp: any) => {
         const shape = inferShape(comp.name, comp.role || "");
         const type = inferType(comp.name, comp.role || "");
+        const compId = comp.id || `node-${comp.name.replace(/\s+/g, "_")}`;
+        const nodePorts: Port[] = [
+          { id: `${compId}-vcc`, label: "VCC", side: "top", offsetPercent: 33 },
+          { id: `${compId}-gnd`, label: "GND", side: "top", offsetPercent: 67 },
+          { id: `${compId}-io1`, label: "IO1", side: "left", offsetPercent: 33 },
+          { id: `${compId}-io2`, label: "IO2", side: "left", offsetPercent: 67 },
+        ];
 
-        // Generate port layouts based on collected dynamic ports
-        const nodePorts: Port[] = [];
-        const portLabels = Array.from(collectedPorts.get(comp.id) || []);
-        
-        // Ensure VCC and GND exist
-        if (!portLabels.some(l => l.toUpperCase() === "VCC" || l.toUpperCase() === "VIN" || l.toUpperCase() === "5V")) portLabels.push("VCC");
-        if (!portLabels.some(l => l.toUpperCase() === "GND")) portLabels.push("GND");
+        const rowCount = rowCounts[type] || 0;
+        rowCounts[type] = rowCount + 1;
 
-        // Categorize into sides
-        const topPorts: string[] = [];
-        const leftPorts: string[] = [];
-        const rightPorts: string[] = [];
-        const bottomPorts: string[] = [];
+        const x = 80 + rowCount * 300;
+        const y = rowHeights[type] || 400;
 
-        portLabels.forEach(lbl => {
-            const L = lbl.toUpperCase();
-            if (L.includes("VCC") || L.includes("VIN") || L.includes("5V") || L.includes("3V") || L.includes("GND") || L.includes("PWR")) {
-                topPorts.push(lbl);
-            } else if (L.includes("TX") || L.includes("RX") || L.includes("SDA") || L.includes("SCL") || L.includes("MISO") || L.includes("MOSI") || L.includes("SCK") || L.includes("CS") || L.includes("IN") || L.includes("ENA") || L.includes("ENB")) {
-                leftPorts.push(lbl);
-            } else {
-                rightPorts.push(lbl);
-            }
-        });
-
-        const distribute = (labels: string[], side: "top"|"bottom"|"left"|"right") => {
-            labels.forEach((lbl, idx) => {
-                const offset = (100 / (labels.length + 1)) * (idx + 1);
-                nodePorts.push({
-                    id: getPortId(comp.id, lbl),
-                    label: lbl,
-                    side,
-                    offsetPercent: Math.round(offset)
-                });
-            });
-        };
-
-        distribute(topPorts, "top");
-        distribute(leftPorts, "left");
-        distribute(rightPorts, "right");
-        distribute(bottomPorts, "bottom");
         rfNodes.push({
           id: comp.id,
           type: "circuitNode",
-          position: { x: 0, y: 0 },
+          position: { x, y },
           draggable: true,
           data: {
             label: comp.name,
@@ -631,39 +603,55 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         return acc;
       }
 
-      const fPortLabel = conn.from_port || "IO1";
-      const tPortLabel = conn.to_port || "IO1";
-      
+      const protocol = (conn.protocol || "signal").toUpperCase();
       let wireType: WireType = "signal";
-      if (conn.wire_type && WIRE_COLORS[conn.wire_type as WireType]) {
-        wireType = conn.wire_type as WireType;
-      } else {
-        const protocol = (conn.protocol || "signal").toUpperCase();
-        if (protocol.includes("I2C") || protocol.includes("UART") || protocol.includes("SPI") || protocol.includes("RS485")) {
-          wireType = "data";
-        } else if (protocol.includes("CAN")) {
-          wireType = "can";
-        } else if (protocol.includes("PWM")) {
-          wireType = "pwm";
-        } else if (protocol.includes("DC") || protocol.includes("POWER") || fPortLabel.toUpperCase().includes("VCC") || fPortLabel.toUpperCase().includes("GND")) {
-          wireType = "power";
-        }
+      if (protocol.includes("I2C") || protocol.includes("UART") || protocol.includes("SPI") || protocol.includes("RS485")) {
+        wireType = "data";
+      } else if (protocol.includes("CAN")) {
+        wireType = "can";
+      } else if (protocol.includes("PWM")) {
+        wireType = "pwm";
+      } else if (protocol.includes("DC") || protocol.includes("POWER")) {
+        wireType = "power";
       }
 
-      const srcPortId = getPortId(fromNodeId, fPortLabel);
-      const tgtPortId = getPortId(toNodeId, tPortLabel);
+      let srcPort = `${fromNodeId}-io1`;
+      let tgtPort = `${toNodeId}-io1`;
+      
+      const fromNode = rfNodes.find(n => n.id === fromNodeId);
+      const toNode = rfNodes.find(n => n.id === toNodeId);
+      
+      if (fromNode && fromNode.data.ports.length > 0) {
+        const match = fromNode.data.ports.find((p: any) => 
+          p.id.includes("sda") || p.id.includes("tx") || p.id.includes("can") || p.id.includes("pwm") || p.id.includes("io1")
+        );
+        srcPort = match ? match.id : fromNode.data.ports[0].id;
+      }
+      if (toNode && toNode.data.ports.length > 0) {
+        const match = toNode.data.ports.find((p: any) => 
+          p.id.includes("sda") || p.id.includes("rx") || p.id.includes("can") || p.id.includes("pwm") || p.id.includes("io1")
+        );
+        tgtPort = match ? match.id : toNode.data.ports[0].id;
+      }
+      
+      if (wireType === "power") {
+        const srcVcc = `${fromNodeId}-vcc`;
+        const tgtVcc = `${toNodeId}-vcc`;
+        if (fromNode?.data.ports.some((p: any) => p.id === srcVcc)) srcPort = srcVcc;
+        if (toNode?.data.ports.some((p: any) => p.id === tgtVcc)) tgtPort = tgtVcc;
+      }
 
       acc.push({
         id: `wire-design-${idx}-${Date.now()}`,
         source: fromNodeId,
         target: toNodeId,
-        sourceHandle: srcPortId,
-        targetHandle: tgtPortId,
+        sourceHandle: srcPort,
+        targetHandle: tgtPort,
         type: "circuitWire",
         label: conn.protocol || conn.relation || "signal",
         data: {
-          from: { nodeId: fromNodeId, portId: srcPortId },
-          to: { nodeId: toNodeId, portId: tgtPortId },
+          from: { nodeId: fromNodeId, portId: srcPort },
+          to: { nodeId: toNodeId, portId: tgtPort },
           color: WIRE_COLORS[wireType],
           label: conn.protocol || conn.relation || "signal",
           wireType
@@ -760,13 +748,13 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     set({ edges: [...get().edges, edge], saveState: "unsaved" });
   },
 
-  generate: async (components, prompt) => {
+  generate: async (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => {
     set({ isGenerating: true, error: null });
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ components, prompt }),
+        body: JSON.stringify({ components, prompt, subsystems }),
       });
 
       if (!res.ok) throw new Error(`API error ${res.status}`);

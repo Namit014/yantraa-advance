@@ -311,6 +311,7 @@ OUTPUT FORMAT:
     if rag_results:
         user_prompt += f"COMPONENT SPECS & DATA SHEETS:\n{rag_results}\n"
 
+<<<<<<< HEAD
     print("[api/design] Invoking LLM...")
     try:
         res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
@@ -319,6 +320,31 @@ OUTPUT FORMAT:
     except Exception as e:
         print(f"[api/design] Error parsing LLM JSON: {e}")
         data = {}
+=======
+    synthesis_prompt = f"""{component_graph_text}RETRIEVED COMPONENTS:
+{rag_results}
+
+USER REQUEST:
+{query}"""
+
+    synthesis_data = {}
+    try:
+        raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system, response_format="json_object")
+        cleaned_synthesis = _strip_markdown_json(raw_synthesis)
+        synthesis_data = json.loads(cleaned_synthesis)
+    except Exception as e:
+        print(f"[api/design] Phase 3 Synthesis parsing failed: {e}")
+        with open("debug_synthesis.txt", "w", encoding="utf-8") as debug_file:
+            debug_file.write(raw_synthesis)
+        print(f"[api/design] RAW LLM OUTPUT WAS:\n{raw_synthesis[:1000]}...\n---")
+        synthesis_data = {
+            "subsystems": [{"name": "Pre-assembled System", "components": [{"id": "sys_1", "name": "Monolithic Robot System", "role": "Full assembly", "voltage": "N/A", "interface": "Standard"}]}],
+            "connections": [],
+            "bom": [{"id": "sys_1", "name": "Full Robot Assembly", "qty": 1}],
+            "missing": [],
+            "validation": [{"type": "warning", "message": "Standard BOM generated due to complex custom assembly. Reference CAD model for full physical details."}]
+        }
+>>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
 
     connections = data.get("connections", [])
     normalized_connections = []
@@ -457,6 +483,7 @@ OUTPUT FORMAT:
         except Exception:
             pass
 
+<<<<<<< HEAD
     frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
     
     valid_cad_urls = []
@@ -467,6 +494,19 @@ OUTPUT FORMAT:
             print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
 
     cad_urls = valid_cad_urls
+=======
+    # Universal CAD Scraper Fallback
+    if not matched_cads:
+        print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
+        from scraper.cad_scraper import scrape_missing_component
+        scraped_filename = await scrape_missing_component(query)
+        if scraped_filename:
+            matched_cads.add(scraped_filename)
+
+    cad_available = len(matched_cads) > 0
+    # Use direct static URL since Next.js hosts the CAD files in public/cad/
+    cad_urls = [f"/cad/{f}" for f in matched_cads]
+>>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
     

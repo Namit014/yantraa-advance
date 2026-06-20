@@ -225,19 +225,17 @@ function CircuitWireComponent(props: EdgeProps) {
   );
 }
 
-// ─── Constants ─────────────────────────────────────────────────────────────────
-
-const nodeTypes: NodeTypes = {
-  circuitNode: CircuitNodeComponent as unknown as NodeTypes[string],
-};
-
-const edgeTypes: EdgeTypes = {
-  circuitWire: CircuitWireComponent as unknown as EdgeTypes[string],
-};
-
 // ─── Inner flow (must be child of ReactFlowProvider) ──────────────────────────
 
 function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; designData?: any }) {
+  const nodeTypes = useMemo<NodeTypes>(() => ({
+    circuitNode: CircuitNodeComponent as unknown as NodeTypes[string],
+  }), []);
+
+  const edgeTypes = useMemo<EdgeTypes>(() => ({
+    circuitWire: CircuitWireComponent as unknown as EdgeTypes[string],
+  }), []);
+
   // ── Bug 1 fix: useShallow prevents new object ref on every render ──
   const {
     storeNodes,

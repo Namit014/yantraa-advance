@@ -724,11 +724,8 @@ const CustomComponentNode = ({ data }: any) => {
     );
 };
 
-// Memoize nodeTypes globally to prevent React Flow "new nodeTypes object" warnings
-const nodeTypes = { customComponent: CustomComponentNode };
-
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
-
+    const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
     const [activeView, setActiveView] = useState<"matrix" | "canvas" | "bom">("matrix");
     
     useEffect(() => {
