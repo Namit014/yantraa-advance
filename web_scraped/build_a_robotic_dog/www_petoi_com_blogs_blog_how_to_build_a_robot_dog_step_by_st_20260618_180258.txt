@@ -1,0 +1,81 @@
+Source URL: https://www.petoi.com/blogs/blog/how-to-build-a-robot-dog-step-by-step-guide
+Scraped: 2026-06-18T18:02:58.892681
+============================================================
+
+# How to Build a Robot Dog: Step-by-Step DIY Guide
+
+## Overview
+
+This guide walks through building the Petoi Bittle, a programmable quadruped robot dog. The assembly process takes approximately 1–2 hours, though experienced builders may complete it in under an hour.
+
+---
+
+## Hardware Assembly
+
+### Preparing for Assembly
+
+Before beginning, verify that all components from the Bittle construction kit are present, including frame parts, motors, screws, and any required tools. Familiarize yourself with each part and its function to streamline the build.
+
+### Assembling the Frame
+
+1. **Build the body:** Start with the main body parts, fitting each piece snugly together. The frame serves as the foundation, so secure all connections tightly using the provided screws and tools.
+2. **Attach the legs:** Each leg consists of multiple joints that enable fluid movement. Pay close attention to the orientation of each leg—correct positioning is essential for balanced movement.
+
+### Installing the Servo Motors
+
+Bittle has **eight servos for its limbs and one servo on its neck**, giving it **9 degrees of freedom (DoF)**. The number of servos determines the range of movements Bittle can perform. Carefully connect each motor to its respective leg joint, following the assembly instructions, and secure all motors firmly to prevent disconnections during operation.
+
+### Wiring and Electronics
+
+Connect the servo motors to the microcontroller, ensuring each wire is correctly aligned with its corresponding port. Proper wiring is critical for communication between the robot's components.
+
+### Final Assembly Checks
+
+After wiring is complete, verify that the frame is stable, all motors are securely attached, and wiring is tidy. This prevents potential issues during operation.
+
+> For a detailed visual guide with pictures of each part and screw, refer to the **Bittle Manual**.
+
+---
+
+## Software Setup
+
+### Robotics Operating Systems
+
+Every robot runs on a base system. The two popular robotics operating systems are:
+
+- **ROS** (Robot Operating System)
+- **OpenCat** — the open-source framework that powers Petoi's Bittle, Bittle X, and Nybble robot cat
+
+For small robots like Bittle, a full operating system isn't necessary; the robot runs **firmware** on a microcontroller.
+
+### Uploading and Configuring Firmware
+
+1. **Connect:** Use a USB cable to link Bittle to your computer, ensuring the correct drivers are installed.
+2. **Upload the firmware:**
+   - **Easy method:** Use the **Petoi Firmware Uploader** to upload OpenCat firmware.
+   - **Advanced method:** Use the **Arduino IDE** for NyBoard or BiBoard — download the OpenCat source folder, open it in Arduino IDE, select the appropriate board and port, then build and upload.
+3. **Configure and test:** Adjust settings for motor control and communication protocols. Power on the robot to verify all movements and commands work as expected.
+
+> For a step-by-step in-depth process, refer to the **Petoi Doc Center**.
+
+---
+
+## Calibration
+
+Calibrating Bittle is essential to ensure proper movement and prevent servo collisions or damage.
+
+1. Ensure all servos are connected correctly to the circuit board, with legs and head **not yet attached**.
+2. Power on the robot by long-pressing the battery button until the blue LED lights up.
+3. Enter **calibration mode**, which rotates all joints to their neutral positions.
+4. **Install the head** by aligning it with the central axis and securing it to the neck servo.
+5. **Install the legs** by inserting them into the servos while keeping them at right angles to the torso.
+6. Use the **Petoi app** to fine-tune positions: adjust the neck servo angle until the head faces forward, and align the legs using the provided L-shaped ruler.
+7. Secure all joints with screws once calibration is complete.
+
+> Refer to the step-by-step calibration guide with pictures for full details.
+
+---
+
+## Next Steps
+
+Once assembly, firmware upload, and calibration are complete, you can begin programming and playing with Bittle using the Petoi app and explore various coding languages and robotics curriculums.

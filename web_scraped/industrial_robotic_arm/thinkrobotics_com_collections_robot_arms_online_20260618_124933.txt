@@ -1,0 +1,19 @@
+Source URL: https://thinkrobotics.com/collections/robot-arms-online
+Scraped: 2026-06-18T12:49:33.581343
+============================================================
+
+ThinkRobotics lists multiple **robotic arms** for online purchase, including open-source, educational, desktop, and collaborative models, with prices starting from **₹1,175.99** for a mechanical claw and going up to **₹132,899.99** for a 6-DOF collaborative robot.[1]
+
+Available options shown in the provided text include:
+- **LeRobot SO-101 - 6 Axis Robotic Arm** — ₹27,999.99, described as an open-source, 3D-printed robotic arm for embodied intelligence research.[1]
+- **6 DOF Robot Arm - Metal Alloy Mechanical Arm Kit** — ₹9,899.99, a metal alloy mechanical arm with 6 degrees of freedom.[1]
+- **RoArm-M2 4DOF Desktop Robotic Arm Kit** — from ₹24,149.99, described as a 4-DOF high-torque serial bus servo robotic arm with flexible expansion and secondary development support.[1]
+- **Hiwonder JetArm ROS1/ROS2 3D Vision Robot Arm** — from ₹41,449.99, described as a desktop-level AI vision robotic arm with multimodal AI, voice interaction, and vision recognition/tracking/sorting.[1]
+- **MaxArm Open Source Robot Arm Powered by ESP32** — from ₹29,949.99, described as an open-source robotic arm powered by an ESP32 microcontroller.[1]
+- **MyCobot 280 Jetson Nano 6 DOF Collaborative Robot** — from ₹132,899.99, an advanced AI learning robotic arm based on Jetson Nano.[1]
+- **MyCobot 280 Raspberry Pi - 6 DOF Collaborative Robotic Arm** — from ₹93,899.99, a lightweight intelligent robotic arm.[1]
+- **Yahboom DOFBOT AI Vision Robotic Arm with ROS for Raspberry Pi 5** — from ₹35,949.99, described with an aluminum alloy bracket, sturdy chassis, expansion board, 6 bus servos, and a 0.3MP camera.[1][2]
+- **Yahboom DOFBOT AI Vision Robotic Arm with ROS for Jetson NANO** — from ₹42,599.99, with ROS Python programming support for Jetson Nano.[1][5]
+- **xArm 1S: Intelligent Bus Servo Robotic Arm for Programming** — from ₹29,199.99, intended for robotic gripping and sorting functions.[1]
+
+The product text also includes smaller accessories such as **Adaptive Gripper for MyCobot/MyPalletizer/MechArm/MyBuddy** and **Mechanical Claw for Robot Arm with MG996R Servo**, indicating the store sells add-ons and end-effectors as well.[1]

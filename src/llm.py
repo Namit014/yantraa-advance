@@ -5,65 +5,74 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Your OpenRouter API Key
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
+# We map the OPENROUTER_API_KEY environment variable to the Gemini API Key
+# since the user pasted their Google key into that variable.
+GEMINI_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 
-# We use a fast, reliable model for Yantra AI. You can change this to any OpenRouter model.
-DEFAULT_MODEL = os.environ.get("OPENROUTER_MODEL", "openrouter/owl-alpha")
+DEFAULT_MODEL = "gemini-2.5-flash"
 
 def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=DEFAULT_MODEL):
     """
-    Unified function to call Yantra AI via OpenRouter.
+    Unified function to call Yantra AI via Google Gemini API.
     Supports both standard text output and structured JSON extraction.
     """
+    # Safeguard: If the frontend or other parts of the codebase still try to pass OpenRouter specific models,
+    # we forcefully override it to use Gemini.
+    if "openrouter" in model.lower() or "gpt" in model.lower():
+        model = DEFAULT_MODEL
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
+    
     headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000", # Required by OpenRouter
-        "X-Title": "Yantra RAG" # Required by OpenRouter
     }
     
     payload = {
-        "model": model,
-        "max_tokens": 2500,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": prompt}
+        "systemInstruction": {
+            "parts": [{"text": system_prompt}]
+        },
+        "contents": [
+            {
+                "role": "user",
+                "parts": [{"text": prompt}]
+            }
         ]
     }
 
     # Some models strictly enforce JSON if requested
     if response_format == "json_object":
-        payload["response_format"] = {"type": "json_object"}
+        payload["generationConfig"] = {
+            "responseMimeType": "application/json"
+        }
     
     try:
-        response = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers=headers,
-            json=payload,
-            timeout=120
-        )
+        response = requests.post(url, headers=headers, json=payload, timeout=120)
         response.raise_for_status()
         data = response.json()
-        return data["choices"][0]["message"]["content"].strip()
+        if "candidates" in data and len(data["candidates"]) > 0:
+            return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        else:
+            raise Exception("No response candidates found in Gemini API output.")
     except Exception as e:
-        print(f"Error calling Yantra AI (OpenRouter): {e}")
+        print(f"Error calling Yantra AI (Gemini): {e}")
         if 'response' in locals():
             print(f"Response: {response.text}")
             try:
                 err_data = response.json()
                 if "error" in err_data:
                     if isinstance(err_data["error"], dict) and "message" in err_data["error"]:
-                        return f"OpenRouter API Error: {err_data['error']['message']}"
+                        raise Exception(f"Gemini API Error: {err_data['error']['message']}")
                     else:
-                        return f"OpenRouter API Error: {err_data['error']}"
-            except Exception:
+                        raise Exception(f"Gemini API Error: {err_data['error']}")
+            except Exception as inner_e:
+                if str(inner_e).startswith("Gemini API Error"):
+                    raise inner_e
                 pass
-            return f"OpenRouter API Error: {response.status_code} {response.reason} - {response.text[:100]}"
-        return f"Error calling AI: {str(e)}"
+            raise Exception(f"Gemini API Error: {response.status_code} {response.reason} - {response.text[:100]}")
+        raise Exception(f"Error calling AI: {str(e)}")
 
 if __name__ == "__main__":
     # Quick test
-    print("Testing Yantra AI...")
+    print("Testing Yantra AI (Gemini)...")
     result = invoke_yantra_ai("What is 2+2? Reply with just the number.")
     print(f"Yantra AI says: {result}")

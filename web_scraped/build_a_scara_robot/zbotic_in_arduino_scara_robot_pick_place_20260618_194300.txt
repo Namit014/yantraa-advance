@@ -1,0 +1,96 @@
+Source URL: https://zbotic.in/arduino-scara-robot-pick-place/
+Scraped: 2026-06-18T19:43:00.902204
+============================================================
+
+# Arduino SCARA Robot: Technical Specifications and Build Details
+
+## Overview
+
+A SCARA (Selective Compliance Assembly Robot Arm) robot for pick-and-place automation, built as a desktop DIY project using an Arduino microcontroller, servo motors, and acrylic or 3D-printed structural components.
+
+---
+
+## Robot Kinematics
+
+- **Configuration:** Two revolute joints in the horizontal plane (X-Y motion), one prismatic joint for vertical (Z-axis) motion
+- **Link lengths:** L1 = 150mm (upper arm), L2 = 120mm (forearm)
+- **Workspace:** Annular region between |L1 − L2| = 30mm radius and L1 + L2 = 270mm radius
+- **Inverse kinematics method:** Analytical (2-link planar solution), no numerical solver required
+- **Two solutions exist:** Elbow-up and elbow-down configurations; elbow-down recommended for table-top tasks
+- **Repeatability advantage:** Only two planar joints responsible for horizontal positioning, reducing error accumulation
+
+---
+
+## Hardware Components
+
+| Component | Specification |
+|---|---|
+| Microcontroller | Arduino Mega 2560 (provides more PWM pins than Uno) |
+| Servo motors (shoulder, elbow, Z-axis) | 3× MG996R high-torque servo |
+| Gripper servo | 1× SG90 micro servo (9g, 180°) |
+| Arm links | Acrylic or 3D-printed, lengths 150mm and 120mm |
+| Servo brackets | Rigid aluminum, pair per joint |
+| Pivot hardware | Bearing or bronze bushing |
+| Fasteners | M3 screws, nuts, and standoffs |
+| Power supply | 5V 3A regulated (dedicated servo power) |
+| Power distribution | Servo shield or breadboard |
+| Signal filtering | 470µF, 6.3V capacitor across servo power rails |
+| End-effector options | SG90 gripper jaw, suction cup with 5V mini vacuum pump |
+
+---
+
+## Wiring Configuration
+
+- **Servo signal wires** → Arduino Mega PWM pins: 2 (shoulder), 3 (elbow), 4 (Z-axis), 5 (gripper)
+- **Servo power (red)** → External 5V supply positive
+- **Servo ground (black/brown)** → External 5V supply negative AND Arduino GND (shared ground required)
+- **Arduino power** → USB or 12V barrel jack to Vin pin
+- **Critical constraint:** Arduino 5V pin can only source ~500mA; three MG996R servos at load can draw 3–4A combined — never power servos from the Arduino's 5V pin
+
+---
+
+## Pick-and-Place Control Sequence
+
+**Pick operation:**
+1. Move to position above pick location: (x=180, y=80, z=50)
+2. Lower Z-axis: z=120
+3. Close gripper: gripper at 30°
+4. Raise Z-axis: z=50
+
+**Place operation:**
+1. Move to position above place location: (x=−150, y=120, z=50)
+2. Lower Z-axis: z=120
+3. Open gripper: gripper at 90°
+4. Raise Z-axis: z=50
+
+**Servo angle mapping:**
+- `shoulder.write(90 + theta1)`
+- `elbow.write(90 − theta2)`
+
+**Home position:** (x=200, y=0, z=50)
+
+---
+
+## Key Engineering Notes
+
+- **Assembly precision:** 2mm measurement errors in link lengths cause several millimetres of tip-position error at full extension
+- **Mechanical rigidity:** Rigid aluminum brackets at each joint eliminate flex that degrades repeatability
+- **Shock prevention:** Increment servo motion by 1° with small delays rather than instant `servo.write()` calls
+- **Servo calibration:** Command each servo to 90°, measure actual physical angle, and apply offset in firmware
+- **Capacitor purpose:** The 470µF capacitor on power rails smooths voltage spikes during motor start-up to prevent Arduino resets
+
+---
+
+## Inverse Kinematics Formulas Used
+
+```
+cos(θ2) = (x² + y² − L1² − L2²) / (2 × L1 × L2)
+θ2 = arccos(cosT2)
+θ1 = atan2(y, x) − atan2(k2, k1)
+
+where:
+  k1 = L1 + L2 × cos(θ2)
+  k2 = L2 × sin(θ2)
+```
+
+Distance `d = √(x² + y²)` is clamped to the reachable range: [30mm, 269mm].

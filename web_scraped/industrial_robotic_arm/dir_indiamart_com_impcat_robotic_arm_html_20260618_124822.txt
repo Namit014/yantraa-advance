@@ -1,0 +1,32 @@
+Source URL: https://dir.indiamart.com/impcat/robotic-arm.html
+Scraped: 2026-06-18T12:48:22.226424
+============================================================
+
+The IndiaMART listing shows **industrial robotic arms** with prices ranging from about **₹3,999** for entry-level sellers to **₹19,00,000** for higher-spec models, with many suppliers offering **6-axis**, **3-axis**, and **4-axis** options.[3][5][6][10]
+
+- **Best-rated suppliers mentioned in the listing**:
+  - **Mayura Automation Robotic Systems Pvt. Ltd.**
+  - **Multiaxia Electrical Engineering**
+  - **Itech Robotics And Automation Pvt. Ltd.**[3]
+
+- **Cheapest suppliers mentioned in the listing**:
+  - **Call 4 Electronics** — starting at **₹3,999**
+  - **Sri Electronics & Embedded Solutions** — starting at **₹6,500**
+  - **Embeddinator (A Brand Of Engenius Lab)** — starting at **₹6,899**[3]
+
+- **Other supplier examples from the listing**:
+  - **Sakar Katariya Autorobo Private Limited** — 3-axis, payload up to **2 kg**
+  - **Neptune System** — 4-axis, payload **50 kg**
+  - **Ausweg Info Controls Private Limited** — payload **7 kg**
+  - **Altem Technologies (P) Limited** — 3-axis, payload **2 to 5 kg**
+  - **Solar CNC Automation** — 6-axis, payload **5 to 10 kg**
+  - **Cad Mech Engineering Private Limited** — Dobot, payload **0.5 kg**
+  - **Unity Automation System** — 6-axis, payload **7 to 20 kg**
+  - **3 Idea Technology Limited** — payload **20 kg**
+  - **Krishna Fab Tech** — customized welding robotics up to **15 axis**[original user-provided listing]
+
+- **Typical industrial robot arm pricing context**:
+  - Recent pricing guides put industrial robot arms roughly in the **USD 25,000–180,000** range for the arm alone, depending on payload and brand.[4][7][9][12]
+  - Lower-cost 6-axis industrial robots can start around **USD 15,000–20,000**, while Japanese and European equivalents in similar classes typically start higher.[4]
+
+If you want, I can also extract this into a clean table of **supplier, price, axis count, payload, and location** from the listing.

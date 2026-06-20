@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { Node, Edge } from "@xyflow/react";
+import dagre from "dagre";
 
 // ─── Wire / Port Types ─────────────────────────────────────────────────────────
 
@@ -18,6 +19,8 @@ export type NodeType =
   | "power"
   | "display"
   | "module"
+  | "driver"
+  | "safety"
   | "other";
 
 export interface Port {
@@ -49,7 +52,7 @@ export type CircuitEdge = Edge<WireData>;
 
 export const WIRE_COLORS: Record<WireType, string> = {
   power: "#FF4444",
-  ground: "#888888",
+  ground: "#444444",
   signal: "#FFD700",
   data: "#4488FF",
   pwm: "#FF8C00",
@@ -470,7 +473,7 @@ interface ConnectionStore {
   deleteEdge: (id: string) => void;
   addEdge: (edge: CircuitEdge) => void;
 
-  generate: (components: GenerateComponent[], prompt: string, subsystems: any) => Promise<void>;
+  generate: (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => Promise<void>;
   loadDesignData: (designData: any) => void;
 }
 
@@ -498,65 +501,64 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
 
     function inferType(name: string, role: string): NodeType {
       const n = (name + " " + role).toLowerCase();
-      if (n.includes("controller") || n.includes("mcu") || n.includes("arduino") || n.includes("raspberry") || n.includes("sbc")) return "microcontroller";
-      if (n.includes("sensor") || n.includes("imu") || n.includes("lidar") || n.includes("camera") || n.includes("encoder")) return "sensor";
-      if (n.includes("motor") || n.includes("actuator") || n.includes("servo") || n.includes("solenoid") || n.includes("pump")) return "motor";
-      if (n.includes("power") || n.includes("battery") || n.includes("supply") || n.includes("buck") || n.includes("lipo")) return "power";
+      if (n.includes("controller") || n.includes("mcu") || n.includes("arduino") || n.includes("raspberry") || n.includes("sbc") || n.includes("plc")) return "microcontroller";
+      if (n.includes("driver") || n.includes("relay") || n.includes("contactor") || (n.includes("controller") && n.includes("motor"))) return "driver";
+      if (n.includes("sensor") || n.includes("imu") || n.includes("lidar") || n.includes("camera") || n.includes("encoder") || n.includes("switch")) return "sensor";
+      if (n.includes("motor") || n.includes("actuator") || n.includes("servo") || n.includes("solenoid") || n.includes("pump") || n.includes("wheel") || n.includes("gripper")) return "motor";
+      if (n.includes("power") || n.includes("battery") || n.includes("supply") || n.includes("buck") || n.includes("lipo") || n.includes("ground") || n.includes("psu") || n.includes("fuse")) return "power";
+      if (n.includes("stop") || n.includes("safety") || n.includes("estop")) return "safety";
       if (n.includes("display") || n.includes("lcd") || n.includes("oled") || n.includes("screen")) return "display";
       if (n.includes("wifi") || n.includes("bluetooth") || n.includes("telemetry") || n.includes("transceiver") || n.includes("module")) return "module";
       return "other";
     }
 
-    function getPortsForInterface(compId: string, interfaceStr: string): Port[] {
-      const ports: Port[] = [];
-      ports.push({ id: `${compId}-vcc`, label: "VCC", side: "top", offsetPercent: 30 });
-      ports.push({ id: `${compId}-gnd`, label: "GND", side: "top", offsetPercent: 70 });
-      
-      const cleanInterface = (interfaceStr || "").toUpperCase();
-      if (cleanInterface.includes("I2C")) {
-        ports.push({ id: `${compId}-sda`, label: "SDA", side: "left", offsetPercent: 40 });
-        ports.push({ id: `${compId}-scl`, label: "SCL", side: "left", offsetPercent: 60 });
-      } else if (cleanInterface.includes("SPI")) {
-        ports.push({ id: `${compId}-mosi`, label: "MOSI", side: "left", offsetPercent: 20 });
-        ports.push({ id: `${compId}-miso`, label: "MISO", side: "left", offsetPercent: 40 });
-        ports.push({ id: `${compId}-sck`, label: "SCK", side: "left", offsetPercent: 60 });
-        ports.push({ id: `${compId}-cs`, label: "CS", side: "left", offsetPercent: 80 });
-      } else if (cleanInterface.includes("CAN")) {
-        ports.push({ id: `${compId}-canh`, label: "CANH", side: "left", offsetPercent: 40 });
-        ports.push({ id: `${compId}-canl`, label: "CANL", side: "left", offsetPercent: 60 });
-      } else if (cleanInterface.includes("UART") || cleanInterface.includes("RS485")) {
-        ports.push({ id: `${compId}-tx`, label: "TX", side: "left", offsetPercent: 40 });
-        ports.push({ id: `${compId}-rx`, label: "RX", side: "left", offsetPercent: 60 });
-      } else if (cleanInterface.includes("PWM")) {
-        ports.push({ id: `${compId}-pwm`, label: "PWM", side: "right", offsetPercent: 50 });
-      } else {
-        ports.push({ id: `${compId}-io1`, label: "IO1", side: "right", offsetPercent: 30 });
-        ports.push({ id: `${compId}-io2`, label: "IO2", side: "right", offsetPercent: 70 });
-      }
-      return ports;
-    }
-
     const rowHeights: Record<NodeType, number> = {
-      power: -200,
-      microcontroller: 80,
-      module: 80,
-      sensor: 400,
-      motor: 400,
-      display: 400,
-      other: 400
+      power: 200,
+      safety: -100,
+      sensor: -100,
+      microcontroller: 200,
+      module: 200,
+      driver: 500,
+      motor: 800,
+      display: -100,
+      other: 200
     };
 
     const rowCounts: Record<NodeType, number> = {
       power: 0,
+      safety: 0,
       microcontroller: 0,
       module: 0,
       sensor: 0,
+      driver: 0,
       motor: 0,
       display: 0,
       other: 0
     };
 
-    const seenIds = new Set<string>();
+    const connections = designData.connections || [];
+    
+    // Pass 1: Collect required ports for each component from the explicit connections
+    const collectedPorts = new Map<string, Set<string>>();
+    connections.forEach((conn: any) => {
+      const fId = conn.from;
+      const tId = conn.to;
+      const fPort = conn.from_port || "IO1";
+      const tPort = conn.to_port || "IO1";
+      
+      if (fId) {
+        if (!collectedPorts.has(fId)) collectedPorts.set(fId, new Set());
+        collectedPorts.get(fId)!.add(fPort);
+      }
+      if (tId) {
+        if (!collectedPorts.has(tId)) collectedPorts.set(tId, new Set());
+        collectedPorts.get(tId)!.add(tPort);
+      }
+    });
+
+    // Helper to format an ID for a port (React Flow wants strict uniqueness per node if desired, but we scope by port label)
+    const getPortId = (compId: string, label: string) => `${compId}-${label.replace(/\s+/g, "_").toLowerCase()}`;
+
     const rfNodes: CircuitNode[] = [];
     const designSubsystems = designData.subsystems || [];
 
@@ -565,9 +567,14 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       components.forEach((comp: any) => {
         const shape = inferShape(comp.name, comp.role || "");
         const type = inferType(comp.name, comp.role || "");
-        // Normalize node ID
-        const compId = toNodeId(comp.name, seenIds);
-        const ports = getPortsForInterface(compId, comp.interface || "");
+        
+        const compId = comp.id || `node-${comp.name.replace(/\s+/g, "_")}`;
+        const nodePorts: Port[] = [
+          { id: `${compId}-vcc`, label: "VCC", side: "top", offsetPercent: 33 },
+          { id: `${compId}-gnd`, label: "GND", side: "top", offsetPercent: 67 },
+          { id: `${compId}-io1`, label: "IO1", side: "left", offsetPercent: 33 },
+          { id: `${compId}-io2`, label: "IO2", side: "left", offsetPercent: 67 },
+        ];
 
         const rowCount = rowCounts[type] || 0;
         rowCounts[type] = rowCount + 1;
@@ -584,21 +591,15 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
             label: comp.name,
             type,
             shape,
-            ports,
+            ports: nodePorts,
           }
         });
       });
     });
 
-    const connections = designData.connections || [];
-    const rfEdges: CircuitEdge[] = [];
-    
-    connections.forEach((conn: any, idx: number) => {
-      // Normalize source & target IDs
-      const matchedFromNode = rfNodes.find(n => n.data.label === conn.from.toString());
-      const matchedToNode = rfNodes.find(n => n.data.label === conn.to.toString());
-      const fromNodeId = matchedFromNode ? matchedFromNode.id : normalizeNodeId(conn.from.toString());
-      const toNodeId = matchedToNode ? matchedToNode.id : normalizeNodeId(conn.to.toString());
+    const rfEdges: CircuitEdge[] = connections.map((conn: any, idx: number) => {
+      const fromNodeId = conn.from;
+      const toNodeId = conn.to;
       const protocol = (conn.protocol || "signal").toUpperCase();
       
       let wireType: WireType = "signal";
@@ -617,13 +618,6 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       
       const fromNode = rfNodes.find(n => n.id === fromNodeId);
       const toNode = rfNodes.find(n => n.id === toNodeId);
-      
-      if (!fromNode) {
-        console.warn(`Edge references non-existent source node ID: ${fromNodeId}`);
-      }
-      if (!toNode) {
-        console.warn(`Edge references non-existent target node ID: ${toNodeId}`);
-      }
       
       if (fromNode && fromNode.data.ports.length > 0) {
         const match = fromNode.data.ports.find((p: any) => 
@@ -645,7 +639,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         if (toNode?.data.ports.some(p => p.id === tgtVcc)) tgtPort = tgtVcc;
       }
 
-      rfEdges.push({
+      return {
         id: `wire-design-${idx}-${Date.now()}`,
         source: fromNodeId,
         target: toNodeId,
@@ -662,10 +656,9 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         },
         style: {
           stroke: WIRE_COLORS[wireType],
-          strokeWidth: 1.5
-        },
-        animated: false
-      });
+          strokeWidth: 2
+        }
+      };
     });
 
     set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false });
@@ -717,7 +710,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     set({ edges: [...get().edges, edge] });
   },
 
-  generate: async (components, prompt, subsystems) => {
+  generate: async (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => {
     set({ isGenerating: true, error: null });
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {

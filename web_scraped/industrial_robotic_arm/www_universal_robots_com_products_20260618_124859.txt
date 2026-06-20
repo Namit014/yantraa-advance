@@ -1,0 +1,24 @@
+Source URL: https://www.universal-robots.com/products/
+Scraped: 2026-06-18T12:48:59.902397
+============================================================
+
+Universal Robots offers **collaborative robot arms** for industrial automation, with two main product families: the **UR Series** and the **e-Series**.[1][2] The UR Series is positioned as the higher-performance line, while the e-Series is described as proven, reliable, and more cost-efficient for broader applications.[2]
+
+Key specifications from the provided text include:
+
+- **UR Series**
+  - Up to **65% higher joint accelerations**.[2]
+  - Up to **37% faster cycle times**.[2]
+  - Payload up to **35 kg / 77.1 lbs**.[2]
+  - Certifications: **ISO 10218, TUV, UL 1740**.[2]
+  - Compliance: **IP65**.[2]
+
+- **e-Series**
+  - Best-in-class mid-range performance with the latest controllers and software.[2]
+  - Payload up to **16 kg / 35.3 lb**.[2]
+  - Certifications: **EN ISO 13849-1, EN ISO 10218-1, TUV**.[2]
+  - Compliance: **IP54**.[2]
+
+The broader Universal Robots platform also includes **PolyScope** software, described as the company’s leading cobot software, and **UR Care**, a premium service offering intended to maximize uptime and performance while reducing total cost of ownership.[1]
+
+Additional product details from Universal Robots’ site include examples of e-Series models such as **UR3e**, **UR7e**, **UR12e**, and **UR16e**, with payloads ranging from **3 kg** to **16 kg** and reach values from **500 mm** to **1300 mm** for the listed models.[1]

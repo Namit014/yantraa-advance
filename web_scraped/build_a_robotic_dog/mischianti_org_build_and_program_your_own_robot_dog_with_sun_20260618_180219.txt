@@ -1,0 +1,112 @@
+Source URL: https://mischianti.org/build-and-program-your-own-robot-dog-with-sunfounder-pidog/
+Scraped: 2026-06-18T18:02:19.919614
+============================================================
+
+# SunFounder PiDog Robot Dog Kit – Technical Specifications
+
+## Overview
+
+The SunFounder PiDog is a robotic pet kit designed for Raspberry Pi enthusiasts and educators. It features an aluminum frame, multiple sensors, and twelve servos, enabling it to mimic realistic dog-like movements and behaviors including sitting, standing, walking, trotting, barking, howling, reacting to faces, avoiding obstacles, and obeying voice commands.
+
+## Physical Specifications
+
+- **Size After Assembly:** 24 cm long × 22.5 cm tall × 14 cm wide
+- **Body Material:** Aluminum Alloy
+- **Number of Servos:** 12
+
+## Compatibility
+
+- **Compatible Motherboards:** Raspberry Pi 4, 3B+, 3B, Zero 2 W
+- **Expansion Board:** SunFounder Robot HAT
+- **Programming Language:** Python
+- **Connection Mode:** WiFi / AP
+- **Control Mode:** SunFounder Controller App
+
+## Camera
+
+- **Sensor:** OV5647
+- **Resolution:** 5 MP (2592 × 1944 pixels still images)
+- **Video Support:** 1080p @ 30 fps, 720p @ 60 fps, 640×480 @ 60/90 fps
+- **Aperture:** F1.8
+- **Visual Angle:** 65 degrees
+- **Dimensions:** 24 mm × 23.5 mm × 8 mm
+- **Weight:** 3 grams
+- **Interface:** CSI (Camera Serial Interface) connector
+- **Compatibility:** Raspberry Pi OS
+
+## Sensors
+
+### Ultrasonic Module (HC-SR04)
+- **Measurement Range:** 2 cm to 400 cm
+- **Accuracy:** Up to 3 mm
+- **Operating Principle:** Sends an 8-cycle burst of ultrasound at 40 kHz and measures echo return time for distance calculation
+- **Components:** Ultrasonic transmitter, receiver, and control circuit
+
+### 6-DOF IMU (SH3001)
+- **Components:** Three-axis gyroscope + three-axis accelerometer
+- **Function:** High-precision real-time angular velocity and linear acceleration data
+- **Applications:** Smartphones, tablets, drones, AR/VR devices, smart wearables
+
+### Sound Direction Sensor
+- **Microphones:** Three microphones
+- **Processor:** TR16F064B
+- **Detection Range:** 360 degrees
+- **Minimum Reconnaissance Unit:** 20 degrees
+- **Angular Accuracy:** Approximately 10 degrees
+
+### Dual Touch Sensor
+- **ICs:** Two TTP223 touch sensor ICs
+- **Function:** Detects touch signals; pulls corresponding pin level low when activated
+- **Purpose:** Designed to replace traditional keys
+- **Characteristics:** Low power consumption, wide operating voltage
+
+## 11-Channel RGB Light Board
+
+- **LED Count:** 11 RGB LEDs
+- **Control Chip:** SLED1735
+- **Capabilities:** Can drive up to 256 LEDs and 75 RGB LEDs
+- **Functions:** On/off, blinking, breathing light, automatic synchronization
+- **Brightness:** Built-in PWM technology with 256 levels of brightness adjustment
+- **Dot Correction:** 16-level dot correction function
+- **Purpose:** Emotional expression via RGB LED strips
+
+## Robot HAT (Expansion Board)
+
+The Robot HAT transforms a Raspberry Pi into a functional robot. It features an onboard MCU to extend PWM output and ADC input capabilities, a motor driver chip, an I2S audio module, and a mono speaker, alongside GPIOs from the Raspberry Pi.
+
+### Key Features
+- **Speaker:** 2030 audio chamber speaker with onboard I2S audio output for mono sound; plays background music, sound effects, and supports TTS (Text-to-Speech) functions
+- **Power Input:** 7–12V PH2.0 5-pin power input
+- **Indicators:** 2 battery indicators, 1 charge indicator, 1 power indicator
+- **User Interface:** LED and button for quick testing
+
+### Detailed Components
+- **Power Port:** 7–12V PH2.0 3-pin input; allows simultaneous powering of Raspberry Pi and Robot HAT
+- **Power Switch:** Controls power to the Robot HAT (Raspberry Pi boots on power connection; HAT requires switch to be turned on)
+- **Type-C USB Port:** Used for battery charging; charging indicator lights red when charging, turns off when fully charged, blinks after 4 hours of full charge
+- **Digital Pins:** 4-channel (D0–D3)
+- **ADC Pins:** 4-channel (A0–A3)
+- **PWM Pins:** 12-channel (P0–P11)
+- **Motor Ports:** 2-channel XH2.54 motor ports connected to GPIO 4 and GPIO 5
+- **I2C:** P2.54 4-pin interface and SH1.0 4-pin interface, compatible with QWIIC and STEMMA QT; connected via GPIO2 (SDA) and GPIO3 (SCL)
+- **SPI:** P2.54 7-pin SPI interface
+- **UART:** P2.54 4-pin interface
+- **RST Button:** Restarts the Ezblock program (or customizable)
+- **USR Button:** Programmable (press = input "0", release = input "1")
+- **Battery Indicator:** Two LEDs indicate voltage above 7.6V; one LED for 7.15V–7.6V; both off below 7.15V
+
+## Battery
+
+- **Type:** 2 × 18650 batteries
+- **Capacity:** 2000 mAh each
+- **Battery Life:** 1.5 hours
+- **Charging Time:** Approximately 2–3 hours
+- **Custom Pack:** Designed for use with the Robot HAT, includes performance and protection features
+
+## Action Set
+
+Walking, sleeping, sitting, running, turning left, turning right, scratching ears, bobbing head, wagging tail, stretching, push-up.
+
+## Voice Control Commands
+
+Forward, backward, turn left, turn right, trot, stop, lie down, stand up, sit, bark, bark harder, pant, wagtail, shake head, stretch, doze off, push-up, howling, twist body, scratch, handshake, high five.

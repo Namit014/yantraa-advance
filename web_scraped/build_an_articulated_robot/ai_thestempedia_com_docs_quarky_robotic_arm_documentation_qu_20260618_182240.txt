@@ -1,0 +1,154 @@
+Source URL: https://ai.thestempedia.com/docs/quarky-robotic-arm-documentation/quarky-3dof-robotics-arm-assembly-guide/
+Scraped: 2026-06-18T18:22:40.010465
+============================================================
+
+# Quarky 3DOF Robotic Arm – Assembly Guide
+
+## Description
+
+This guide provides step-by-step instructions for assembling the Quarky 3DOF (3 Degrees of Freedom) Robotic Arm, preparing it for advanced programs and activities.
+
+**Software Used:** Not Applicable
+**Difficulty Level:** Beginners
+**Category:** Robotic Arm Kit, Tutorial
+
+## Servo Initialization (Calibration)
+
+Before assembly, all servo motors must be calibrated to 90° to ensure proper angle alignment. Repeat the following process for all 5 servo motors:
+
+1. Connect the first 180° Servo Motor to the first Quarky Servo Connector. The Brown wire of the servo should face toward the left white square mark on the Quarky.
+2. Connect Quarky to a laptop via USB cable.
+3. Open **PictoBlox** on desktop, select **Block Coding** as the coding environment.
+4. Click the **Board** button in the toolbar, select **Board as Quarky**, then select the appropriate Serial Port (USB) or Bluetooth Port and press **Connect**.
+5. Create and run the servo initialization script by clicking the **green flag** on the stage. The servo motor shaft will be perfectly aligned at 90°.
+6. Remove the servo motor and repeat for all remaining servos.
+
+Remove all wooden parts from the plates and arrange them according to the Component List. Carefully observe the orientation of parts in each assembly step.
+
+---
+
+## Step 1: Robotic Arm Base Assembly – Instructions
+
+**Base and Quarky Mounting:**
+
+1. **Battery Installation:** Connect the battery on the back side of the Quarky. Keep the red wire toward the right side.
+2. **A1 Purple Parts & Rubber Bands:** Pass both A1 Purple Parts through two rubber bands.
+3. **Mount A1 Purple Parts:** Mount and snap both A1 Purple Parts on the back side of the Quarky, keeping the Rubber Bands toward the lower end of the A1 parts.
+4. **A2 Purple Part:** Snap the A2 Purple Part on the backside of the Quarky.
+5. **Secure Battery:** Secure the battery between the Rubber Bands.
+6. **M2 Metal Standoffs (30mm):** Fix these on the backside of the Quarky using M2 Nuts.
+7. **Expansion Connectors:** Attach the set of Expansion Connectors to Quarky per the wiring diagram.
+8. **Quarky to Base Side:** Insert the Expansion Connectors through the slot on a **Base Side** from the front side. Fix the assembled Quarky to the Base Side using M2 Bolts (6mm).
+9. **M3 Spacers (20mm) on Expansion Board Side:** Fix M3 Spacers (20mm) on the backside of the other Base Side with Quarky using M3 Bolts (8mm).
+10. **M3 Spacers on Expansion Board:** Fix M3 Spacers (20mm) on the backside of the Quarky Expansion Board using M3 Bolts (6mm).
+11. **Expansion Board to Base Side:** Fix the assembled Quarky Expansion Board to another Base Side using M3 Bolts (8mm).
+12. **Servo Mounts:** Fix Servo Mounts on the Metal Servo Motor using M4 Bolts (12mm) and M4 Nuts.
+13. **Metal Servo Motor to Base Side:** Fix the Servo Mounts (attached to the Metal Servo Motor) into the slot on the Base Side with Quarky.
+14. **Join Base Sides:** Attach the Base Side with the Quarky Expansion Board to the other end of the Spacers on the Base Side with Quarky. Fix the Servo Mounts between the Base Sides using M3 Bolts (8mm). **Note:** Pass the Expansion Connectors and Metal Servo Motor wire through the slot on the Base Side opposite the Quarky Expansion Board.
+
+**Workspace Graph and Base Plate:**
+
+15. **Base Jigsaw Assembly:** Attach Base Jigsaw 1 and Base Jigsaw 2.
+16. **Workspace Graph – First Half:** Align and attach the first half of the Workspace Graph to Base Jigsaw 1 and pin it using two Wooden Paper Pins.
+17. **Workspace Graph – Second Half:** Align and attach the second half of the Workspace Graph to Base Jigsaw 2 and pin it using two Wooden Paper Pins.
+18. **Base Plate Locks:** Fix the Base Jigsaws and Workspace Graph using Base Plate Locks.
+19. **Attach Base Sides Assembly:** Attach the Base Sides Assembly to Base Jigsaw 1.
+
+---
+
+## Step 2: Robotic Arm Shoulder Assembly – Instructions
+
+**Shoulder Base:**
+
+1. **Assembled Bearing:** Fix the Assembled Bearing on the teeth of the Base Sides.
+2. **Shoulder Base:** Fix the Shoulder Base to the shaft of the Metal Servo Motor and Assembled Bearing using M3 Bolts (12mm) and M3 Nuts. **Note:** Keep the Shoulder Base perpendicular to the Metal Servo Shaft.
+3. **Secure Shaft:** Using a Black M3 bolt (5mm) from the metal servo motor accessories, fix the assembly to the Metal Servo Motor Shaft.
+
+**Servo Shoulder 1:**
+
+4. Fix the Metal Servo Motor on the marked side of **Servo Shoulder 1** using M4 Bolts (12mm) and M4 Nuts.
+5. Fix **Link 1 (L1)** to the Metal Servo Motor on Servo Shoulder 1. Align the triangular mark on Link 1 (L1) at **30°** using a Black M3 bolt (5mm).
+
+**Servo Shoulder 2:**
+
+6. Fix the Metal Servo Motor on the marked side of **Servo Shoulder 2** using M4 Bolts (12mm) and M4 Nuts. **Note:** Insert the Metal Servo Motor from the side with the numbers written on Servo Shoulder 2, and keep the Servo Shaft toward the circular profile of Servo Shoulder 2.
+7. Fix **Link 2 (L2)** to the Metal Servo Motor on Servo Shoulder 2. Align the triangular mark on Link 2 (L2) at **90°** using a Black M3 Bolt (5mm).
+
+**Shoulder Assembly:**
+
+8. Attach **Servo Shoulder 1** on the Shoulder Base. **Note:** Pass and hold the Metal Servo Motor wire from the wiring slot on Servo Shoulder 1 while assembling.
+9. Attach **Servo Shoulder 2** on the Shoulder Base. **Note:** Pass and hold the Metal Servo Motor wire from the wiring slot on Servo Shoulder 2 while assembling.
+10. **Shoulder Supports:** Insert M3 Nuts into the slots in the Shoulder Supports.
+11. Attach the Shoulder Support on the **front side** of the Shoulder Base and fix it using M3 Bolts (12mm).
+12. Attach the Shoulder Support on the **back side** of the Shoulder Base and fix it using M3 Bolts (12mm). **Note:** Pass the Metal Servo Motor's wires from the slot of the Shoulder Support at the back side before fixing it on the Shoulder Base.
+
+---
+
+## Step 3: Robotic Arm Gripper Assembly – Instructions
+
+**Important:** The entire Gripper Assembly is assembled **upside down**. Carefully observe the orientation of parts in each step.
+
+1. **180° Servo Motor in Gripper Top:** Insert the 180° Servo Motor in the Gripper Top. **Note:** Keep the shaft of the servo motor toward the notch in the cut-out profile in the Gripper Top.
+2. **Gripper Side 2:** Insert Gripper Side 2 in the Gripper Top.
+3. **Gripper Side 1:** Insert Gripper Side 1 in the Gripper Top.
+4. **Bolt Assembly:** Insert an M3 Bolt (20mm) through Gripper Top, the 180° Servo Motor, and Gripper Bottom. Fix the assembly using an M3 Nut. **Note:** Do not overtighten the M3 Nut and Bolt.
+5. **Gripper 2 (G2):** Fix Gripper 2 (G2) on the Gripper Bottom using an M4 Bolt (25mm) and M4 Lock Nut with a spanner. **Note:** Once everything is fitted together, slightly loosen the M4 Bolt (25mm) to allow the gripper to rotate freely on the Gripper Bottom.
+6. **Gripper 1 (G1):** Fix Gripper 1 (G1) on the Gripper Bottom using an M4 Bolt (25mm) and M4 Lock Nut with a spanner. **Note:** Align the teeth of gears G1 and G2 as shown before fixing them.
+7. **Gripper Link 2 (GL2):** Insert an M4 Bolt (12mm) through Gripper 1 (G1), Gripper Spacer, and Gripper Link 2 (GL2). Fix the assembly using an M4 Lock Nut by holding it with a spanner. **Note:** Use the M4 Lock Nut Spanner; do not overtighten — keep it slightly loose.
+8. **Gripper Link 1 (GL1):** Attach one end of Gripper Link 1 (GL1) to the shaft of the 180° Servo Motor and the other end to Gripper Link 2 (GL2) using an M4 Bolt (12mm) and M4 Lock Nut by holding it with a spanner. **Note:** Use the M4 Lock Nut Spanner; do not overtighten — keep it slightly loose.
+
+---
+
+## Step 4: Robotic Arm Link Assembly – Instructions
+
+**Servo Shoulder 1 Side:**
+
+1. Insert an M3 Bolt (20mm) through Servo Shoulder 1, Spacer, and Support Link (SL). Fix the assembly using an M3 Nut.
+2. Insert an M4 Bolt (25mm) through the other end of Servo Shoulder 1, Link 3 (L3), Support Link (SL), and Link 3 (L3). Fix the assembly using an M4 Lock Nut by holding it with a spanner. **Note:** Use the M4 Lock Nut Spanner; do not overtighten — keep it slightly loose.
+
+**Link 2 (L2) Side:**
+
+3. Attach **Link 4 (L4)** to **Link 2 (L2)** using an M4 Bolt (12mm) and M4 Lock Nut by holding it with a spanner. **Note:** Use the M4 Lock Nut Spanner; do not overtighten — keep it slightly loose.
+
+**Link 7 (L7):**
+
+4. Fix three M3 Spacers (20mm) on **Link 7 (L7)** using M3 Bolts (6mm).
+
+---
+
+## Key Components Referenced
+
+| Component | Specification |
+|---|---|
+| Servo Motors | 180° (×1 for gripper), Metal Servo Motors (×4 for arm joints) |
+| M2 Bolts | 6mm |
+| M2 Nuts | For standoffs |
+| M3 Bolts | 5mm (black, for servo shaft), 6mm, 8mm, 12mm, 20mm |
+| M3 Nuts | Standard |
+| M3 Spacers | 20mm |
+| M4 Bolts | 12mm, 25mm |
+| M4 Nuts | Standard |
+| M4 Lock Nuts | For gripper and link assemblies |
+| M2 Metal Standoffs | 30mm |
+| Purple Parts | A1 (×2), A2 (×1) |
+| Base Sides | 2 pieces |
+| Base Jigsaw | 1 and 2 |
+| Servo Shoulder | 1 and 2 |
+| Links | L1, L2, L3, L4, L7 |
+| Support Link | SL |
+| Gripper Parts | Gripper Top, Gripper Bottom, Gripper Side 1, Gripper Side 2, Gripper 1 (G1), Gripper 2 (G2), Gripper Spacer, Gripper Link 1 (GL1), Gripper Link 2 (GL2) |
+| Shoulder Supports | Front and back |
+| Expansion Connectors | For Quarky and Expansion Board |
+| Wooden Paper Pins | For securing Workspace Graph |
+| Base Plate Locks | For securing jigsaws and graph |
+| Rubber Bands | For battery retention |
+
+## Key Assembly Notes
+
+- **Servo Calibration:** All 5 servos must be initialized to 90° before assembly using PictoBlox.
+- **Wiring:** Servo motor wires must be routed through designated wiring slots during assembly to avoid pinching or damage.
+- **Lock Nuts:** M4 Lock Nuts on the gripper and link assemblies should be kept slightly loose to allow free rotation — do not overtighten.
+- **Gripper Assembly:** Built upside down; gear teeth of G1 and G2 must be properly aligned.
+- **Link Alignment:** Triangular marks on L1 and L2 must be aligned at 30° and 90° respectively during assembly.
+- **Battery Orientation:** Red wire faces the right side when mounted on the back of the Quarky.
+- **Servo Wire Orientation:** Brown wire of servo faces the left white square mark on the Quarky connector.
