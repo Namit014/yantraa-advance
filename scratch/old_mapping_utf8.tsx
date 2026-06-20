@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
     Search, X, SlidersHorizontal, Plus, Crosshair,
@@ -7,10 +7,10 @@ import {
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
 
-// ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
+// ΓöÇΓöÇΓöÇ RAG endpoint (same as v0-ai-chat.tsx) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/api/ask`;
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Types ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 type ComponentCategory =
     | "actuator"
@@ -50,7 +50,7 @@ interface Connection {
     isUserEdited: boolean;
 }
 
-// ─── Category config ──────────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Category config ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 const CATEGORY_COLOR: Record<ComponentCategory, string> = {
     mechanical: "#94a3b8",
@@ -82,7 +82,7 @@ const CATEGORY_ORDER: ComponentCategory[] = [
     "electronic",
 ];
 
-// ─── Keyword-based category inference ─────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Keyword-based category inference ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 function inferCategory(text: string): ComponentCategory {
     const t = text.toLowerCase();
@@ -94,7 +94,7 @@ function inferCategory(text: string): ComponentCategory {
     return "electronic";
 }
 
-// ─── Fuzzy Matcher ────────────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Fuzzy Matcher ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 function fuzzyMatch(a: string, b: string): boolean {
     const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -102,19 +102,17 @@ function fuzzyMatch(a: string, b: string): boolean {
     const nb = normalize(b);
     if (na.includes(nb) || nb.includes(na)) return true;
     
-    // Split by non-alphanumeric, filter out purely empty strings
-    const wordsA = a.toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 1);
-    const wordsB = b.toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 1);
+    const wordsA = a.toLowerCase().split(/[\s\(\)\-\_]+/).filter(w => w.length > 3);
+    const wordsB = b.toLowerCase().split(/[\s\(\)\-\_]+/).filter(w => w.length > 3);
     const intersection = wordsA.filter(w => wordsB.includes(w));
     
-    // More robust keyword matching (handles IMU, DOF, etc.)
-    if (wordsA.length > 0 && intersection.length / wordsA.length >= 0.6) return true;
-    if (wordsB.length > 0 && intersection.length / wordsB.length >= 0.6) return true;
+    if (wordsA.length > 0 && intersection.length / wordsA.length > 0.6) return true;
+    if (wordsB.length > 0 && intersection.length / wordsB.length > 0.6) return true;
     
     return false;
 }
 
-// ─── RAG fetcher ──────────────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ RAG fetcher ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 const VALID_CATEGORIES: ComponentCategory[] = [
     "actuator", "sensor", "controller", "mechanical", "power", "electronic",
@@ -144,9 +142,6 @@ function parseRAGJson(text: string): RawComponent[] | null {
 
         return validItems.map((item: Record<string, unknown>) => {
             let name = String(item.name ?? "Unknown");
-            // Strip leading quantities like "17x ", "2x ", "4 x "
-            name = name.replace(/^\d+\s*[xX]\s*/, "");
-            
             if (name.includes("30-cell") || name.includes("30-Cell")) {
                 name = name.replace(/30-[cC]ell/, "3-Cell");
             }
@@ -199,18 +194,11 @@ function fallbackExtract(aiResponse: string): RawComponent[] {
 
 async function fetchComponentsFromRAG(
     topic: string,
-    aiResponseFallback: string,
-    existingNodes: ComponentNode[]
+    aiResponseFallback: string
 ): Promise<RawComponent[]> {
-    const existingStr = existingNodes.length > 0 
-        ? existingNodes.map(n => `- ${n.label} (${n.category})`).join("\n") 
-        : "None";
-
     const prompt1 =
         `Return ONLY a JSON array. No explanation, no markdown, no extra text. ` +
-        `Here is the list of existing components already in the system:\n${existingStr}\n\n` +
-        `For the topic: '${topic}', list a comprehensive and highly detailed set of NEW low-level hardware components needed. ` +
-        `DO NOT duplicate or re-describe ANY of the existing components listed above. If you need to refer to an existing component in 'connects_to', use its EXACT name. ` +
+        `For the topic: '${topic}', list a comprehensive and highly detailed set of low-level hardware components needed to build this robot (e.g., specific microcontrollers, specific sensors, motor drivers, high-torque servos, lipo batteries, structural brackets, etc.). Provide at least 8 to 15 components if possible. Do NOT just say "arm" or "leg". ` +
         `Each item must have exactly these fields: ` +
         `{"name": string, "category": one of exactly: "actuator"|"sensor"|"controller"|"mechanical"|"power"|"electronic", ` +
         `"description": string, "connects_to": string[]}`;
@@ -228,7 +216,7 @@ async function fetchComponentsFromRAG(
         }
     } catch { /* fall through */ }
 
-    // Second attempt — stricter
+    // Second attempt ΓÇö stricter
     const prompt2 =
         `Output only raw JSON, no prose. Array of objects with fields: name, category, description, connects_to. ` +
         `Topic: '${topic}'`;
@@ -249,7 +237,7 @@ async function fetchComponentsFromRAG(
     return fallbackExtract(aiResponseFallback);
 }
 
-// ─── Layout ───────────────────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Layout ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 const NODE_W = 140 as const;
 const NODE_H = 88 as const;
@@ -319,9 +307,9 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
     return result;
 }
 
-// ─── Connection generator ─────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Connection generator ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
-﻿function generateConnections(
+function generateConnections(
     nodes: ComponentNode[],
     raw: RawComponent[]
 ): Connection[] {
@@ -337,8 +325,8 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
         userEdited = false
     ) {
         if (!fromId || !toId || fromId === toId) return;
-        const key1 = `${fromId}→${toId}→${label}`;
-        const key2 = `${toId}→${fromId}→${label}`;
+        const key1 = `${fromId}ΓåÆ${toId}ΓåÆ${label}`;
+        const key2 = `${toId}ΓåÆ${fromId}ΓåÆ${label}`;
         if (seen.has(key1) || seen.has(key2)) return;
         seen.add(key1);
         connections.push({
@@ -378,12 +366,12 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
             const pairKey = `${srcNode.category}-${dstNode.category}`;
             
             let label = "connection";
-            if (pairKey.includes("mechanical")) label = "linkage";
-            else if (pairKey === "actuator-controller" || pairKey === "controller-actuator") label = "drive";
+            if (pairKey === "actuator-controller" || pairKey === "controller-actuator") label = "drive";
             else if (pairKey.includes("sensor") && pairKey.includes("power")) label = "power";
             else if (pairKey.includes("sensor")) label = "data";
             else if (pairKey.includes("power")) label = "power";
             else if (pairKey.includes("electronic")) label = "signal";
+            else if (pairKey.includes("mechanical")) label = "linkage";
             
             if (label === "power") {
                 addConn(srcId, dstId, "power");
@@ -421,35 +409,18 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
     sensors
         .filter(s => !connectedIds.has(s.id))
         .forEach(s => controllers.forEach(c => addConn(s.id, c.id, "data")));
-        
-    // Chain mechanical parts to reduce crossing lines
-    const unconnectedMechanical = mechanical.filter(m => !connectedIds.has(m.id));
-    if (unconnectedMechanical.length > 0) {
-        if (actuators.length > 0) {
-            addConn(unconnectedMechanical[0].id, actuators[0].id, "linkage");
-        }
-        for (let i = 1; i < unconnectedMechanical.length; i++) {
-            addConn(unconnectedMechanical[i].id, unconnectedMechanical[i-1].id, "linkage");
-        }
-    }
-    
-    // Route power hierarchically: Power -> Controller -> Actuator (removes giant sweeping ground wires)
+    mechanical
+        .filter(m => !connectedIds.has(m.id))
+        .forEach((m, i) => {
+            const target = actuators[i % Math.max(1, actuators.length)];
+            if (target) addConn(m.id, target.id, "linkage");
+        });
     power
         .filter(p => !connectedIds.has(p.id))
         .forEach(p => {
-            if (controllers.length > 0) {
-                controllers.forEach(c => { 
-                    addConn(p.id, c.id, "power"); 
-                    addConn(p.id, c.id, "ground"); 
-                });
-            } else {
-                actuators.forEach(a => { 
-                    addConn(p.id, a.id, "power"); 
-                    addConn(p.id, a.id, "ground"); 
-                });
-            }
+            controllers.forEach(c => { addConn(p.id, c.id, "power"); addConn(p.id, c.id, "ground"); });
+            actuators.forEach(a => { addConn(p.id, a.id, "power"); addConn(p.id, a.id, "ground"); });
         });
-        
     controllers
         .filter(c => !connectedIds.has(c.id))
         .forEach(c => electronic.forEach(e => addConn(c.id, e.id, "signal")));
@@ -505,14 +476,12 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
     return connections;
 }
 
-
-
-// ─── Seed data ────────────────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Seed data ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 const SEED_RAW: RawComponent[] = [
     { name: "Motion Controller", category: "controller", description: "Main MCU coordinating all subsystems", connects_to: ["Servo Motor A", "Servo Motor B", "IMU Sensor"], quantity: 1 },
-    { name: "Servo Motor A", category: "actuator", description: "Upper arm drive servo, 180° range", connects_to: ["Arm Frame"], quantity: 1 },
-    { name: "Servo Motor B", category: "actuator", description: "Lower arm drive servo, 270° range", connects_to: ["Arm Frame"], quantity: 1 },
+    { name: "Servo Motor A", category: "actuator", description: "Upper arm drive servo, 180┬░ range", connects_to: ["Arm Frame"], quantity: 1 },
+    { name: "Servo Motor B", category: "actuator", description: "Lower arm drive servo, 270┬░ range", connects_to: ["Arm Frame"], quantity: 1 },
     { name: "IMU Sensor", category: "sensor", description: "6-axis inertial measurement unit", connects_to: [], quantity: 1 },
     { name: "Arm Frame", category: "mechanical", description: "Aluminium extruded structural frame", connects_to: [], quantity: 1 },
     { name: "Power Supply", category: "power", description: "24V regulated DC power supply", connects_to: ["Motion Controller", "Servo Motor A", "Servo Motor B"], quantity: 1 },
@@ -532,7 +501,7 @@ const SEED_BASE_NODES = SEED_RAW.map((r, i) => ({
 const SEED_CONNECTIONS = generateConnections(SEED_BASE_NODES as ComponentNode[], SEED_RAW);
 const SEED_NODES: ComponentNode[] = applyLayout(SEED_BASE_NODES as ComponentNode[], SEED_CONNECTIONS);
 
-// ─── Inline SVG icons ─────────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Inline SVG icons ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 function CategoryIcon({ category, size = 18 }: { category: ComponentCategory; size?: number }) {
     const c = CATEGORY_COLOR[category];
@@ -603,16 +572,15 @@ function CategoryIcon({ category, size = 18 }: { category: ComponentCategory; si
 }
 
 
-// ─── Props ────────────────────────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ Props ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 interface MappingTabProps {
     aiResponse?: string;
     currentQuery?: string;
     designData?: any;
-    isChatLoading?: boolean;
 }
 
-// ─── React Flow Custom Node ───────────────────────────────────────────────────
+// ΓöÇΓöÇΓöÇ React Flow Custom Node ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
 import ReactFlow, {
     Background,
@@ -724,15 +692,13 @@ const CustomComponentNode = ({ data }: any) => {
     );
 };
 
-// ─── Component ────────────────────────────────────────────────────────────────
+const nodeTypes = {
+    customComponent: CustomComponentNode,
+};
 
-export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
-    
-    // Memoize nodeTypes to prevent React Flow "new nodeTypes object" warnings (#002)
-    const nodeTypes = useMemo(() => ({
-        customComponent: CustomComponentNode,
-    }), []);
+// ΓöÇΓöÇΓöÇ Component ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
+export function MappingTab({ aiResponse = "", currentQuery = "", designData }: MappingTabProps) {
     const [activeView, setActiveView] = useState<"matrix" | "canvas" | "bom">("matrix");
     
     useEffect(() => {
@@ -741,7 +707,9 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
     const [nodes, setNodes] = useState<ComponentNode[]>(SEED_NODES);
     const [rawComponents, setRawComponents] = useState<RawComponent[]>(SEED_RAW);
-    const [connections, setConnections] = useState<Connection[]>(SEED_CONNECTIONS);
+    const [connections, setConnections] = useState<Connection[]>(() =>
+        generateConnections(SEED_NODES, SEED_RAW) as any
+    );
     const [isLoading, setIsLoading] = useState(false);
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -798,29 +766,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
     const lastQueryRef = useRef<string>("");
     const rfEdges: Edge[] = useMemo(() => {
-        const edgeGroups = new Map<string, Connection[]>();
-        connections.forEach(c => {
-            const key = c.fromId < c.toId ? `${c.fromId}-${c.toId}` : `${c.toId}-${c.fromId}`;
-            if (!edgeGroups.has(key)) edgeGroups.set(key, []);
-            edgeGroups.get(key)!.push(c);
-        });
-
         return connections.map(c => {
             const edgeColor = WIRE_COLORS[c.label?.toLowerCase()] || WIRE_COLORS.default;
             
-            const key = c.fromId < c.toId ? `${c.fromId}-${c.toId}` : `${c.toId}-${c.fromId}`;
-            const group = edgeGroups.get(key)!;
-            const idx = group.indexOf(c);
-            
-            // Cycle through edge types so parallel edges geometrically separate, fixing overlapping labels
-            const types = ['smoothstep', 'default', 'straight', 'step'];
-            let edgeType = types[idx % types.length];
-            
-            // Hardcode specific overrides if they are the ONLY wire, for aesthetics
-            if (group.length === 1) {
-                if (c.label === 'ground') edgeType = 'default';
-                if (c.label === 'power') edgeType = 'smoothstep';
-            }
+            // Prevent perfect visual overlap when power and ground run between the same two nodes
+            let edgeType = 'smoothstep';
+            if (c.label === 'ground') edgeType = 'default'; // Bezier curve
+            else if (c.label === 'power') edgeType = 'smoothstep'; // Step curve
 
             return {
                 id: c.id,
@@ -853,41 +805,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
     const doFetch = useCallback(async (q: string) => {
         setIsLoading(true);
-        let fetchedRaw: RawComponent[] = [];
-        
-        // Fast-path optimization: use designData natively if available to avoid 10s LLM delay
-        if (designData && designData.subsystems && designData.subsystems.length > 0) {
-            console.log("[MappingTab] Leveraging designData for instant mapping!");
-            const compMap = new Map<string, string>();
-            designData.subsystems.forEach((sub: any) => {
-                sub.components?.forEach((c: any) => compMap.set(c.id, c.name));
-            });
-            
-            designData.subsystems.forEach((sub: any) => {
-                sub.components?.forEach((c: any) => {
-                    const bomItem = designData.bom?.find((b: any) => fuzzyMatch(b.name, c.name));
-                    const connectsToNames = designData.connections
-                        ?.filter((conn: any) => conn.from === c.id || conn.from_id === c.id || conn.id_from === c.id)
-                        .map((conn: any) => {
-                            const toId = conn.to || conn.to_id || conn.id_to;
-                            return compMap.get(toId);
-                        })
-                        .filter(Boolean) || [];
-                        
-                    fetchedRaw.push({
-                        name: c.name,
-                        category: inferCategory(c.name),
-                        description: bomItem?.description || c.role || "",
-                        quantity: bomItem?.qty || 1,
-                        connects_to: connectsToNames
-                    });
-                });
-            });
-            // Brief artificial delay just for UX smoothness
-            await new Promise(resolve => setTimeout(resolve, 300));
-        } else {
-            fetchedRaw = await fetchComponentsFromRAG(q, aiResponse, nodes);
-        }
+        const fetchedRaw = await fetchComponentsFromRAG(q, aiResponse);
         
         let updatedRaw = [...rawComponents];
         let updatedNodes = [...nodes];
@@ -897,8 +815,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
             if (existingRawIdx !== -1) {
                 updatedRaw[existingRawIdx] = {
                     ...updatedRaw[existingRawIdx],
-                    // Use Math.max since designData is cumulative, we don't want to exponentially multiply qty
-                    quantity: Math.max(updatedRaw[existingRawIdx].quantity || 1, newRaw.quantity || 1),
+                    quantity: (updatedRaw[existingRawIdx].quantity || 1) + (newRaw.quantity || 1),
                     connects_to: Array.from(new Set([...updatedRaw[existingRawIdx].connects_to, ...newRaw.connects_to]))
                 };
                 
@@ -910,9 +827,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                     };
                 }
             } else {
-                newRaw.quantity = newRaw.quantity || 1;
-                // Double check to strip out the prefix one more time
-                newRaw.name = newRaw.name.replace(/^\d+\s*[xX]\s*/, "");
+                newRaw.quantity = 1;
                 updatedRaw.push(newRaw);
                 const newNode: ComponentNode = {
                     id: `rag-${Date.now()}-${Math.random().toString(36).substring(7)}`,
@@ -920,84 +835,27 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                     category: newRaw.category,
                     description: newRaw.description,
                     partNumber: newRaw.partNumber,
-                    quantity: newRaw.quantity,
+                    quantity: 1,
                     x: 0, y: 0, width: NODE_W, height: NODE_H
                 };
                 updatedNodes.push(newNode);
             }
         }
-        setRawComponents(updatedRaw);
         
-        const newConnections = generateConnections(updatedNodes, updatedRaw);
+        setRawComponents(updatedRaw);
+        const newConnections = generateConnections(updatedNodes, updatedRaw) as any;
         setConnections(newConnections);
         const layoutedNodes = applyLayout(updatedNodes, newConnections);
         setNodes(layoutedNodes);
-        
         setIsLoading(false);
-    }, [aiResponse, rawComponents, nodes, designData]);
-
-    // ONE-TIME DEDUP PASS (Runs on hot-reload to clean up dirty session data)
-    useEffect(() => {
-        let hasDupes = false;
-        const testRaw = [...rawComponents];
-        for(let i=0; i<testRaw.length; i++) {
-            for(let j=i+1; j<testRaw.length; j++) {
-                if (fuzzyMatch(testRaw[i].name, testRaw[j].name)) hasDupes = true;
-            }
-        }
-        if (!hasDupes) return;
-
-        setRawComponents(prevRaw => {
-            let updatedRaw = [...prevRaw];
-            for (let i = 0; i < updatedRaw.length; i++) {
-                for (let j = i + 1; j < updatedRaw.length; j++) {
-                    if (fuzzyMatch(updatedRaw[i].name, updatedRaw[j].name)) {
-                        updatedRaw[i] = {
-                            ...updatedRaw[i],
-                            quantity: (updatedRaw[i].quantity || 1) + (updatedRaw[j].quantity || 1),
-                            connects_to: Array.from(new Set([...updatedRaw[i].connects_to, ...updatedRaw[j].connects_to]))
-                        };
-                        updatedRaw.splice(j, 1);
-                        j--;
-                    }
-                }
-            }
-            return updatedRaw;
-        });
-
-        setNodes(prevNodes => {
-            let updatedNodes = [...prevNodes];
-            for (let i = 0; i < updatedNodes.length; i++) {
-                for (let j = i + 1; j < updatedNodes.length; j++) {
-                    if (fuzzyMatch(updatedNodes[i].label, updatedNodes[j].label)) {
-                        updatedNodes[i] = {
-                            ...updatedNodes[i],
-                            quantity: (updatedNodes[i].quantity || 1) + (updatedNodes[j].quantity || 1),
-                        };
-                        updatedNodes.splice(j, 1);
-                        j--;
-                    }
-                }
-            }
-            return updatedNodes;
-        });
-    }, []); // Run exactly once
-
-    const lastDesignRef = useRef<any>(null);
+    }, [aiResponse, rawComponents, nodes]);
 
     useEffect(() => {
-        // Trigger mapping update when designData finishes loading from the main API
-        // This completely eliminates the race condition and duplicate network requests
-        if (designData && designData !== lastDesignRef.current) {
-            lastDesignRef.current = designData;
-            lastQueryRef.current = currentQuery; // Sync query ref to prevent fallback trigger
-            doFetch(currentQuery || "design");
-        } else if (currentQuery && currentQuery !== lastQueryRef.current && !designData) {
-            // Fallback for standalone query execution
+        if (currentQuery && currentQuery !== lastQueryRef.current) {
             lastQueryRef.current = currentQuery;
             doFetch(currentQuery);
         }
-    }, [designData, currentQuery, doFetch]);
+    }, [currentQuery, doFetch]);
 
     const handleClear = useCallback(() => {
         if (!window.confirm("Are you sure you want to clear all mapped components?")) return;
@@ -1069,14 +927,11 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
     // Grouping nodes by category for the middle column
     const filteredNodes = nodes.filter(n => n.label.toLowerCase().includes(searchQuery.toLowerCase()));
-    const groupedNodes = useMemo(() => {
-        const groups: Partial<Record<ComponentCategory, ComponentNode[]>> = {};
-        CATEGORY_ORDER.forEach(cat => { groups[cat] = []; });
-        filteredNodes.forEach(n => {
-            if (groups[n.category]) groups[n.category]!.push(n);
-        });
-        return groups;
-    }, [filteredNodes]);
+    const groupedNodes: Partial<Record<ComponentCategory, ComponentNode[]>> = {};
+    CATEGORY_ORDER.forEach(cat => { groupedNodes[cat] = []; });
+    filteredNodes.forEach(n => {
+        if (groupedNodes[n.category]) groupedNodes[n.category]!.push(n);
+    });
 
     const selectedNode = nodes.find(n => n.id === selectedId);
     const inputsToSelected = connections.filter(c => c.toId === selectedId);
@@ -1323,7 +1178,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                                                             className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#1a1f2e] border border-neutral-700/50 text-neutral-300 hover:border-sky-500/50 hover:text-sky-300 transition-colors"
                                                                             onClick={(e) => { e.stopPropagation(); setSelectedId(targetNode.id); }}
                                                                         >
-                                                                            <span className="text-neutral-500">⮑</span> {targetNode.label}
+                                                                            <span className="text-neutral-500">Γ«æ</span> {targetNode.label}
                                                                         </div>
                                                                     );
                                                                 })
@@ -1412,7 +1267,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                 <h4 className="text-[11px] font-bold text-neutral-500 uppercase tracking-widest mb-4">Connection Manager</h4>
                                 
                                 <div className="mb-6">
-                                    <div className="text-xs font-semibold text-neutral-300 mb-2 flex items-center gap-2"><span className="text-emerald-500">▼</span> Inputs To This</div>
+                                    <div className="text-xs font-semibold text-neutral-300 mb-2 flex items-center gap-2"><span className="text-emerald-500">Γû╝</span> Inputs To This</div>
                                     {inputsToSelected.length === 0 ? (
                                         <div className="text-xs text-neutral-600 bg-[#0f1219] p-3 rounded border border-neutral-800/50">None</div>
                                     ) : (
@@ -1435,7 +1290,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                 </div>
 
                                 <div className="mb-6">
-                                    <div className="text-xs font-semibold text-neutral-300 mb-2 flex items-center gap-2"><span className="text-sky-500">▲</span> Outputs From This</div>
+                                    <div className="text-xs font-semibold text-neutral-300 mb-2 flex items-center gap-2"><span className="text-sky-500">Γû▓</span> Outputs From This</div>
                                     {outputsFromSelected.length === 0 ? (
                                         <div className="text-xs text-neutral-600 bg-[#0f1219] p-3 rounded border border-neutral-800/50">None</div>
                                     ) : (

@@ -72,6 +72,13 @@ try:
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load generate router: {_e}")
 
+try:
+    from mapping.generate import router as mapping_router
+    app.include_router(mapping_router)
+    print("[Yantra API] Registered /api/mapping/build-graph")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load mapping router: {_e}")
+
 
 # Define Pydantic models for JSON request/response validation
 class QueryRequest(BaseModel):
