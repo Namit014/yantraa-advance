@@ -1244,7 +1244,7 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                     <ContactShadows position={[0, 0, 0]} opacity={0.75} scale={300} blur={2} far={100} resolution={1024} color="#000000" />
 
                     <Suspense fallback={null}>
-                        {meshes.length > 0 ? (
+                        {meshes.length > 0 && (
                             <PivotControls 
                                 activeAxes={[true, true, true]} 
                                 depthTest={false} 
@@ -1283,8 +1283,6 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                                     />
                                 </Center>
                             </PivotControls>
-                        ) : (
-                            designData && <FallbackAssembly designData={designData} />
                         )}
                     </Suspense>
 
@@ -1348,7 +1346,7 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
             </div>
 
             {/* Component Count & BOM Toggle */}
-            {meshes.length > 0 ? (
+            {meshes.length > 0 && (
                 <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
                     <button 
                         onClick={() => setShowBOM(!showBOM)}
@@ -1408,17 +1406,6 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                         </div>
                     )}
                 </div>
-            ) : (
-                designData && (
-                    <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl">
-                            <Box size={14} className="text-purple-400" />
-                            <span className="text-xs font-medium text-neutral-200">
-                                3D Block Assembly Generated
-                            </span>
-                        </div>
-                    </div>
-                )
             )}
             
             {/* Inspector Sidebar for Component Mapping */}
