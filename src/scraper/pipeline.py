@@ -9,8 +9,7 @@ if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
 from .search import search_web
-from .scraper import scrape_url
-from .chunker import chunk_text
+from .scraper import fetch_clean_text
 from embedder import Embedder
 from vectordb import VectorDB
 
@@ -130,9 +129,6 @@ def _save_to_kb(topic_slug: str, url: str, text: str) -> str:
 # Global embedder instance (reused across calls — uses OpenRouter API)
 _embedder = None
 
-# To prevent duplicate scraping within a session
-scraped_urls = set()
-
 
 def get_embedder():
     global _embedder
@@ -141,34 +137,122 @@ def get_embedder():
     return _embedder
 
 
-def extract_clean_text(html: str) -> str:
-    from bs4 import BeautifulSoup
-    soup = BeautifulSoup(html, "html.parser")
-    for tag in ("nav", "footer", "header", "script", "style", "aside", "form"):
-        for el in soup.find_all(tag):
-            el.decompose()
-    article = soup.find("article") or soup.find("main") or soup.body or soup
-    text = article.get_text(separator="\n", strip=True)
-    lines = [line for line in text.splitlines() if line.strip()]
-    return "\n".join(lines)
+# ── URL Cache Persistence (Fix 5) ────────────────────────────────────
+import json
+from pathlib import Path
+
+CACHE_FILE = Path(__file__).parent / ".scraped_url_cache.json"
 
 
-def web_ingest(query, qdrant_client=None, original_query=None):
+def _load_url_cache() -> set:
+    if CACHE_FILE.exists():
+        try:
+            return set(json.loads(CACHE_FILE.read_text(encoding="utf-8")))
+        except Exception:
+            return set()
+    return set()
+
+
+def _save_url_cache(cache: set):
+    try:
+        CACHE_FILE.write_text(json.dumps(list(cache)), encoding="utf-8")
+    except Exception as e:
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.warning(f"Could not save URL cache: {e}")
+
+
+# Initialize at module load
+_url_cache = _load_url_cache()
+
+
+# ── Garbage Text Heuristic (Fix 2) ──────────────────────────────────
+def is_garbage_text(text: str) -> bool:
+    """Heuristic: if text is too short or has very low word density, discard it."""
+    if not text:
+        return True
+    words = text.split()
+    if len(words) < 50:
+        return True
+    # Check for encoding garbage (high ratio of non-ASCII in a short window)
+    sample = text[:500]
+    non_ascii = sum(1 for c in sample if ord(c) > 127)
+    if non_ascii / max(len(sample), 1) > 0.3:
+        return True
+    return False
+
+
+# ── Domain Prioritization (Fix 4) ───────────────────────────────────
+PRIORITY_DOMAINS = [
+    "arduino.cc", "sparkfun.com", "adafruit.com", "robotshop.com",
+    "ros.org", "wiki.ros.org", "docs.ros.org",
+    "pololu.com", "dfrobot.com", "seeedstudio.com",
+    "electronics.stackexchange.com", "robotics.stackexchange.com",
+    "microchip.com", "st.com", "ti.com", "nxp.com",
+    "instructables.com", "hackaday.io", "hackster.io",
+    "github.com", "arxiv.org",
+]
+
+LOW_QUALITY_DOMAINS = [
+    "medium.com", "quora.com", "yahoo.com", "pinterest.com",
+    "facebook.com", "twitter.com", "x.com", "tiktok.com",
+    "amazon.com", "ebay.com", "alibaba.com",
+]
+
+
+def rank_urls(urls: list[str]) -> list[str]:
+    from urllib.parse import urlparse
+    import logging
+    logger = logging.getLogger(__name__)
+    priority, neutral, skip = [], [], []
+    for url in urls:
+        domain = urlparse(url).netloc.replace("www.", "")
+        if any(d in domain for d in LOW_QUALITY_DOMAINS):
+            skip.append(url)
+        elif any(d in domain for d in PRIORITY_DOMAINS):
+            priority.append(url)
+        else:
+            neutral.append(url)
+    logger.debug(f"Skipped low-quality domains: {skip}")
+    return priority + neutral
+
+
+# ── Langchain Chunker (Fix 6) ───────────────────────────────────────
+def chunk_scraped_text(text: str, source_url: str) -> list[dict]:
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=512,
+        chunk_overlap=100,
+        separators=["\n## ", "\n### ", "\n\n", "\n", ". ", " "],
+    )
+    chunks = splitter.split_text(text)
+    return [
+        {
+            "text": chunk,
+            "metadata": {
+                "source": "web_scraped",  # web_scraped is key to match Qdrant filter
+                "url": source_url,
+                "categories": ["Web"],
+            }
+        }
+        for chunk in chunks
+        if len(chunk.strip()) > 50
+    ]
+
+
+async def web_ingest(query, qdrant_client=None, original_query=None):
     """
-    Full web ingestion pipeline:
+    Full web ingestion pipeline (Asynchronous):
       DuckDuckGo search (15 results)
-      → scrape
-      → BeautifulSoup clean (with LLM fallback if <100 chars)
+      → rank and limit to top 5 URLs
+      → fetch via Jina Reader (with BeautifulSoup fallback)
+      → skip garbage and cached URLs
       → save .txt to web_scraped/<category>/
       → chunk → embed → upsert into Qdrant with rich metadata
     """
-    from llm import invoke_yantra_ai
-
     # Derive topic slug from the original human query for KB folder naming.
-    # Never use the category map for the save path — curated folders stay untouched.
     category_query = original_query or query
     topic_slug = _query_to_slug(category_query)
-    # _detect_category is still used for Qdrant metadata only
     category = _detect_category(category_query)
     print(f"[WebIngest] Topic folder: 'web_scraped/{topic_slug}/' | Qdrant category: '{category}'")
 
@@ -179,13 +263,11 @@ def web_ingest(query, qdrant_client=None, original_query=None):
         print("[WebIngest] No URLs returned by search.")
         return
 
-    print(f"[WebIngest] Found {len(urls)} URL(s):")
-    for u in urls:
-        print(f"  • {u}")
+    print(f"[WebIngest] Found {len(urls)} URL(s)")
+    ranked_urls = rank_urls(urls)[:5]
+    print(f"[WebIngest] Ranked top URLs: {ranked_urls}")
 
     embedder = get_embedder()
-
-    # Construct VectorDB fresh each call with the caller's qdrant_client.
     vectordb = VectorDB(client=qdrant_client)
 
     # Retrieve all existing content hashes to skip duplicate chunks
@@ -195,42 +277,24 @@ def web_ingest(query, qdrant_client=None, original_query=None):
     total_stored = 0
     timestamp = datetime.datetime.now().isoformat()
 
-    for url in urls:
-        if url in scraped_urls:
-            print(f"[WebIngest] Already scraped, skipping: {url}")
+    for url in ranked_urls:
+        if url in _url_cache:
+            print(f"[WebIngest] Already scraped (in cache), skipping: {url}")
             continue
 
-        scraped_urls.add(url)
         print(f"[WebIngest] Scraping: {url}")
-        html_content = scrape_url(url)
+        clean_text = await fetch_clean_text(url)
 
-        if not html_content:
-            # scrape_url already logged the reason
+        if not clean_text:
             continue
 
-        # ── Step 1: Extract clean text using bs4 ──
-        clean_text = extract_clean_text(html_content)
-
-        # Fallback to LLM cleaning if bs4 output is clearly garbage (<100 characters)
-        if not clean_text or len(clean_text.strip()) < 100:
-            print(f"[WebIngest] Cleaned text is too short ({len(clean_text) if clean_text else 0} chars). Falling back to LLM extraction...")
-            extraction_system_prompt = (
-                "You are Yantra AI, a technical data extraction agent. "
-                "Given raw scraped web text, extract and return ONLY the relevant technical "
-                "specifications, facts, numbers, and descriptions. "
-                "Remove all navigation menus, ads, and boilerplate. "
-                "Write in clean prose. Do NOT invent information not in the source text."
-            )
-            llm_text = invoke_yantra_ai(
-                html_content[:8000],
-                system_prompt=extraction_system_prompt
-            )
-            if llm_text and len(llm_text.strip()) >= 80:
-                clean_text = llm_text
-
-        if not clean_text or len(clean_text.strip()) < 50:
-            print(f"[WebIngest] Text from {url} is too short after cleaning, skipping.")
+        if is_garbage_text(clean_text):
+            print(f"[WebIngest] Text from {url} is garbage, skipping.")
             continue
+
+        # Add to cache and persist
+        _url_cache.add(url)
+        _save_url_cache(_url_cache)
 
         # ── Step 2: Persist to knowledgebase on disk ──────────────────────────
         try:
@@ -241,22 +305,20 @@ def web_ingest(query, qdrant_client=None, original_query=None):
             saved_path = None
 
         # ── Step 3: Chunk ──────────────────────────────────────────────────────
-        raw_chunks = chunk_text(clean_text)
-        print(f"[WebIngest] {len(raw_chunks)} chunk(s) from {url}")
+        chunks_data = chunk_scraped_text(clean_text, url)
+        print(f"[WebIngest] {len(chunks_data)} chunk(s) from {url}")
 
         # Format chunks for Yantra's Embedder with rich metadata
         formatted_chunks = []
-        for i, c in enumerate(raw_chunks):
-            if len(c.strip()) < 30:
-                continue
-            # Skip if chunk already exists in Qdrant
-            c_hash = compute_content_hash(c)
+        for i, chunk_item in enumerate(chunks_data):
+            c_text = chunk_item["text"]
+            c_hash = compute_content_hash(c_text)
             if c_hash in existing_hashes:
                 continue
 
             formatted_chunks.append({
                 "chunk_id": i,
-                "text": c,
+                "text": c_text,
                 "metadata": {
                     "source": "web_scraped",
                     "category": category,

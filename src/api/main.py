@@ -67,13 +67,15 @@ except Exception as _e:
 class QueryRequest(BaseModel):
     query: str
 
-from typing import Optional
+from typing import Optional, List
 
 class QueryResponse(BaseModel):
     response: str
     status: str = "success"
     cad_available: bool = False
     cad_url: Optional[str] = None
+    fallback_used: bool = False
+    source_urls: List[str] = []
 
 @app.post("/api/ask", response_model=QueryResponse)
 async def ask_question(request: QueryRequest):
@@ -93,7 +95,7 @@ async def ask_question(request: QueryRequest):
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
         # Execute the RAG workflow asynchronously off the event loop
-        final_answer, cad_available, cad_url = await asyncio.get_event_loop().run_in_executor(
+        final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
             None, retriever.ask, request.query
         )
 
@@ -101,7 +103,9 @@ async def ask_question(request: QueryRequest):
         return QueryResponse(
             response=final_answer, 
             cad_available=cad_available, 
-            cad_url=cad_url
+            cad_url=cad_url,
+            fallback_used=fallback_used,
+            source_urls=source_urls
         )
 
     except Exception as e:
@@ -118,7 +122,7 @@ async def search_question(query: str):
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
         # Execute the RAG workflow asynchronously off the event loop
-        final_answer, cad_available, cad_url = await asyncio.get_event_loop().run_in_executor(
+        final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
             None, retriever.ask, query
         )
 
@@ -126,7 +130,9 @@ async def search_question(query: str):
         return QueryResponse(
             response=final_answer, 
             cad_available=cad_available, 
-            cad_url=cad_url
+            cad_url=cad_url,
+            fallback_used=fallback_used,
+            source_urls=source_urls
         )
 
     except Exception as e:
