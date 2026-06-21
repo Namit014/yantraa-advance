@@ -18,6 +18,7 @@ router = APIRouter()
 
 class DesignRequest(BaseModel):
     query: str
+    remodel: bool = False
 
 class DesignResponse(BaseModel):
     subsystems: List[Dict[str, Any]]
@@ -264,8 +265,7 @@ USER REQUEST:
     synthesis_data = {}
     try:
         raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system, response_format="json_object")
-        cleaned_synthesis = _strip_markdown_json(raw_synthesis)
-        synthesis_data = json.loads(cleaned_synthesis)
+        synthesis_data = extract_json(raw_synthesis)
     except Exception as e:
         print(f"[api/design] Phase 3 Synthesis parsing failed: {e}")
         with open("debug_synthesis.txt", "w", encoding="utf-8") as debug_file:
@@ -360,59 +360,54 @@ USER REQUEST:
     from cad_registry import get_known_cads
     known_cads = get_known_cads()
     
-    # Extract all text from BOM and subsystems to match against
     matched_cads = set()
+    monolithic_cad_found = False
     
-    # Check each BOM item
-    for b in bom:
-        name = b.get("name", "").lower()
-        desc = b.get("description", "").lower()
-        search_text = f"{name} {desc}"
-        
+    # 1. Attempt to find or scrape a monolithic CAD for the entire query first
+    clean_query = query.lower().replace("build a ", "").replace("create a ", "").replace("design a ", "").strip()
+    
+    # Check local registry for monolithic match, UNLESS we are remodeling
+    if not design_request.remodel:
         for key, filename in known_cads.items():
-            if key in search_text:
+            if key in clean_query:
                 matched_cads.add(filename)
-                
-    # Also check subsystems as LLMs sometimes put components there but forget them in BOM
-    for sub in subsystems:
-        for comp in sub.get("components", []):
-            name = comp.get("name", "").lower()
-            role = comp.get("role", "").lower()
-            search_text = f"{name} {role}"
+                monolithic_cad_found = True
+                break
+            
+    # If not in local registry or if remodeling, trigger scraper for the full query
+    if not monolithic_cad_found:
+        print(f"[api/design] Attempting to find monolithic CAD for query: '{clean_query}', remodel={design_request.remodel}...")
+        from scraper.cad_scraper import scrape_missing_component
+        scraped_filename = await scrape_missing_component(clean_query, force_remodel=design_request.remodel)
+        if scraped_filename:
+            matched_cads.add(scraped_filename)
+            monolithic_cad_found = True
+            
+    # 2. Only fallback to individual component blocks if no monolithic CAD exists
+    if not monolithic_cad_found:
+        print("[api/design] No monolithic CAD found. Falling back to individual component blocks...")
+        
+        # Check each BOM item
+        for b in bom:
+            name = b.get("name", "").lower()
+            desc = b.get("description", "").lower()
+            search_text = f"{name} {desc}"
             
             for key, filename in known_cads.items():
                 if key in search_text:
                     matched_cads.add(filename)
+                    
+        # Check subsystems
+        for sub in subsystems:
+            for comp in sub.get("components", []):
+                name = comp.get("name", "").lower()
+                role = comp.get("role", "").lower()
+                search_text = f"{name} {role}".lower()
                 
-    # Fallback to monolithic robots if modular assembly yielded nothing
-    if len(matched_cads) == 0:
-        query_lower = query.lower()
-        for key, filename in known_cads.items():
-            if key in query_lower:
-                matched_cads.add(filename)
-            
-    # Fallback to checking retrieved search points for robot names
-    if not matched_cads:
-        try:
-            points = retriever_instance.search(query, top_k=5)
-            for pt in points:
-                payload = pt.payload or {}
-                robot_val = payload.get("robot") or payload.get("robot_name") or payload.get("category")
-                if robot_val and isinstance(robot_val, str):
-                    r_lower = robot_val.lower()
-                    for key, filename in known_cads.items():
-                        if key.replace(" ", "_") in r_lower or key in r_lower:
-                            matched_cads.add(filename)
-        except Exception:
-            pass
-
-    # Universal CAD Scraper Fallback
-    if not matched_cads:
-        print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
-        from scraper.cad_scraper import scrape_missing_component
-        scraped_filename = await scrape_missing_component(query)
-        if scraped_filename:
-            matched_cads.add(scraped_filename)
+                for key, filename in known_cads.items():
+                    import re
+                    if re.search(r'\b' + re.escape(key) + r'\b', search_text):
+                        matched_cads.add(filename)
 
     cad_available = len(matched_cads) > 0
     # Use direct static URL since Next.js hosts the CAD files in public/cad/

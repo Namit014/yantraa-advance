@@ -22,6 +22,8 @@ interface CADTabProps {
     currentQuery?: string;
     cadUrls?: string[] | null;
     designData?: any;
+    onRemodel?: () => void;
+    isRemodeling?: boolean;
 }
 
 interface LoadedMesh {
@@ -728,7 +730,7 @@ function FallbackAssembly({ designData }: { designData: any }) {
     );
 }
 
-export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
+export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodeling }: CADTabProps) {
     const [meshes, setMeshes] = useState<LoadedMesh[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -1015,8 +1017,33 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                                 <Ghost size={12} />
                                 {renderMode === 1 ? 'Ghost Mode' : renderMode === 2 ? 'Actual CAD' : renderMode === 3 ? 'Thermal Analysis' : renderMode === 4 ? 'Stress Analysis' : 'Enable Advanced Render'}
                             </button>
+                            {onRemodel && (
+                                <button 
+                                    onClick={onRemodel}
+                                    disabled={isRemodeling}
+                                    className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors border border-blue-500/30 ${
+                                        isRemodeling ? 'bg-blue-900/50 text-blue-300 cursor-not-allowed' : 'bg-blue-600/20 text-blue-400 hover:bg-blue-600/40'
+                                    }`}
+                                >
+                                    <RotateCw size={12} className={isRemodeling ? "animate-spin" : ""} />
+                                    {isRemodeling ? 'Remodeling...' : 'Re-model'}
+                                </button>
+                            )}
                         </div>
                     </div>
+                    
+                    {/* Remodeling Overlay */}
+                    {isRemodeling && (
+                        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-xl">
+                            <div className="flex flex-col items-center gap-4 bg-neutral-900 border border-neutral-800 p-6 rounded-2xl shadow-2xl">
+                                <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
+                                <div className="text-center">
+                                    <h3 className="text-white font-medium">Acquiring New Model</h3>
+                                    <p className="text-neutral-400 text-sm mt-1">Scraping GrabCAD for alternatives...</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                     
 
                     <div className="space-y-3 pt-4 border-t border-white/5">

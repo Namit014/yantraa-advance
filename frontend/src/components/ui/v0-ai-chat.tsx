@@ -128,6 +128,7 @@ export function VercelV0Chat() {
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
     const [robotDesign, setRobotDesign] = useState<any | null>(null);
+    const [isRemodeling, setIsRemodeling] = useState(false);
 
     // Derive latest AI response and last user query to feed into MappingTab
     const latestAIResponse = [...messages].reverse().find(m => m.role === 'assistant')?.content ?? "";
@@ -196,6 +197,40 @@ export function VercelV0Chat() {
             setMessages(prev => [...prev, { role: 'assistant', content: "Sorry, I encountered an error while processing your request." }]);
         } finally {
             setIsLoading(false);
+        }
+    };
+
+    const handleRemodel = async () => {
+        if (!latestUserQuery || isRemodeling) return;
+        
+        setIsRemodeling(true);
+        try {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            const response = await fetch(`${apiUrl}/api/design`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "ngrok-skip-browser-warning": "true"
+                },
+                body: JSON.stringify({ query: latestUserQuery, remodel: true })
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch response");
+            }
+
+            const data = await response.json();
+            setRobotDesign(data);
+            
+            if (data.cad_available && data.cad_urls && data.cad_urls.length > 0) {
+                setAcceptedCadUrls(data.cad_urls);
+            } else if (data.cad_available && data.cad_url) {
+                setAcceptedCadUrls([data.cad_url]);
+            }
+        } catch (error) {
+            console.error("Error remodeling:", error);
+        } finally {
+            setIsRemodeling(false);
         }
     };
 
@@ -393,6 +428,8 @@ export function VercelV0Chat() {
                                     currentQuery={latestUserQuery}
                                     cadUrls={urls}
                                     designData={robotDesign}
+                                    onRemodel={handleRemodel}
+                                    isRemodeling={isRemodeling}
                                 />
                             );
                         })()}

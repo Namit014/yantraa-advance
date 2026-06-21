@@ -25,11 +25,21 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from fastapi.middleware.cors import CORSMiddleware
 from retriever import Retriever
 
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize the Retriever on startup
+    app.state.retriever = Retriever()
+    yield
+    # Shutdown logic (if any)
+
 # Initialize FastAPI app
 app = FastAPI(
     title="Yantra Agentic RAG API",
     description="FastAPI interface for the Yantra RAG Pipeline",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
 # Add CORS middleware
@@ -41,11 +51,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Initialize the Retriever
-# This will load the sentence transformer model and connect to the Qdrant Database
-retriever = Retriever()
-app.state.retriever = retriever
 
 # Register sub-routers
 try:
@@ -77,8 +82,10 @@ class QueryResponse(BaseModel):
     fallback_used: bool = False
     source_urls: List[str] = []
 
+from fastapi import Request
+
 @app.post("/api/ask", response_model=QueryResponse)
-async def ask_question(request: QueryRequest):
+async def ask_question(request: Request, payload: QueryRequest):
     """
     Executes the following workflow:
     1. User Query (received in JSON payload)
@@ -91,12 +98,14 @@ async def ask_question(request: QueryRequest):
     8. Return JSON Response (returned below)
     """
     try:
-        if not request.query.strip():
+        if not payload.query.strip():
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
+
+        retriever = request.app.state.retriever
 
         # Execute the RAG workflow asynchronously off the event loop
         final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
-            None, retriever.ask, request.query
+            None, retriever.ask, payload.query
         )
 
         # Return JSON Response
@@ -112,7 +121,7 @@ async def ask_question(request: QueryRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/search", response_model=QueryResponse)
-async def search_question(query: str):
+async def search_question(request: Request, query: str):
     """
     GET endpoint equivalent for easy browser testing.
     Usage: http://localhost:8000/search?query=your+question
@@ -120,6 +129,8 @@ async def search_question(query: str):
     try:
         if not query.strip():
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
+
+        retriever = request.app.state.retriever
 
         # Execute the RAG workflow asynchronously off the event loop
         final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(

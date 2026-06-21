@@ -61,12 +61,13 @@ def _rag_search(query: str, top_k: int = 5) -> str:
     """Query Qdrant singleton for pinout context for a given component name."""
     try:
         from embedder import Embedder
-        from vectordb import _client
+        from vectordb import get_qdrant_client
 
         embedder = Embedder()
         vec = embedder.embed_text(query)
+        client = get_qdrant_client()
 
-        results = _client.query_points(
+        results = client.query_points(
             collection_name="yantra_knowledgebase",
             query=vec,
             limit=top_k,

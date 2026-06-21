@@ -36,8 +36,8 @@ async def playwright_download_cad(url: str, dest_dir: str, fallback_filename: st
     
     try:
         async with async_playwright() as p:
-            # Use chromium, headless mode
-            browser = await p.chromium.launch(headless=True)
+            # Use chromium, headed mode to bypass Cloudflare bot protection
+            browser = await p.chromium.launch(headless=False)
             context = await browser.new_context(
                 accept_downloads=True,
                 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -46,9 +46,33 @@ async def playwright_download_cad(url: str, dest_dir: str, fallback_filename: st
             
             # Navigate and wait for network to idle to ensure dynamic scripts have loaded
             try:
-                await page.goto(url, wait_until="networkidle", timeout=20000)
-            except PlaywrightTimeoutError:
-                print(f"[Playwright Downloader] Warning: network did not fully idle, proceeding anyway.")
+                # GrabCAD Login Flow
+                if "grabcad.com" in url:
+                    print("[Playwright Downloader] Detected GrabCAD URL. Attempting authentication...")
+                    email = os.environ.get("GRABCAD_EMAIL")
+                    password = os.environ.get("GRABCAD_PASSWORD")
+                    
+                    if email and password:
+                        try:
+                            await page.goto("https://grabcad.com/login", wait_until="domcontentloaded", timeout=20000)
+                            # GrabCAD specific selectors
+                            await page.fill("input[type='email'], input[name='member[email]']", email)
+                            await page.fill("input[type='password'], input[name='member[password]']", password)
+                            await page.click("input[type='submit'], button[type='submit']")
+                            # Wait for login to complete by waiting for navigation or a logged-in element
+                            await page.wait_for_load_state("domcontentloaded", timeout=15000)
+                            print("[Playwright Downloader] GrabCAD authentication successful.")
+                        except Exception as e:
+                            print(f"[Playwright Downloader] GrabCAD login failed: {e}")
+                    else:
+                        print("[Playwright Downloader] GrabCAD credentials not found in .env, skipping login.")
+                
+                try:
+                    await page.goto(url, wait_until="domcontentloaded", timeout=20000)
+                except Exception as e:
+                    print(f"[Playwright Downloader] Warning during page navigation: {e}. Proceeding anyway to check for buttons.")
+            except Exception as e:
+                print(f"[Playwright Downloader] Error during navigation block: {e}")
             
             # Give it a couple seconds for lazy-loaded UI to appear
             await asyncio.sleep(2)
@@ -78,24 +102,60 @@ async def playwright_download_cad(url: str, dest_dir: str, fallback_filename: st
                     break
             
             if download_triggered and download_obj:
-                # Use suggested filename from the browser, or fallback to our clean name
                 suggested_name = download_obj.suggested_filename
+                import re
+                import zipfile
+                import shutil
                 
-                # Check if it's actually a step file if we can infer from filename
-                final_filename = suggested_name
-                if not (suggested_name.lower().endswith(".step") or suggested_name.lower().endswith(".stp")):
-                    print(f"[Playwright Downloader] Warning: downloaded file '{suggested_name}' doesn't look like a .step file. Saving as {fallback_filename}")
-                    final_filename = fallback_filename
+                temp_path = os.path.join(dest_dir, "temp_download_" + suggested_name)
+                print(f"[Playwright Downloader] Saving downloaded file to {temp_path}")
+                await download_obj.save_as(temp_path)
+                
+                final_filename = None
+                
+                if suggested_name.lower().endswith(".zip"):
+                    print(f"[Playwright Downloader] Downloaded a ZIP file '{suggested_name}'. Extracting to find detailed CAD...")
+                    extract_dir = os.path.join(dest_dir, "temp_extracted")
+                    os.makedirs(extract_dir, exist_ok=True)
+                    try:
+                        with zipfile.ZipFile(temp_path, 'r') as zip_ref:
+                            zip_ref.extractall(extract_dir)
+                            
+                        # Find all step/stp files
+                        step_files = []
+                        for root, dirs, files in os.walk(extract_dir):
+                            for file in files:
+                                if file.lower().endswith(".step") or file.lower().endswith(".stp"):
+                                    step_files.append(os.path.join(root, file))
+                                    
+                        if step_files:
+                            # Select the largest one (assuming most detailed)
+                            best_file = max(step_files, key=os.path.getsize)
+                            final_filename = os.path.basename(best_file)
+                            final_filename = re.sub(r"[^a-zA-Z0-9_.-]", "_", final_filename)
+                            
+                            shutil.copy(best_file, os.path.join(dest_dir, final_filename))
+                            print(f"[Playwright Downloader] Successfully extracted detailed CAD: {final_filename}")
+                        else:
+                            print(f"[Playwright Downloader] No .step or .stp files found inside the ZIP.")
+                    except Exception as e:
+                        print(f"[Playwright Downloader] Failed to process ZIP file: {e}")
+                    finally:
+                        # Cleanup
+                        if os.path.exists(temp_path):
+                            os.remove(temp_path)
+                        shutil.rmtree(extract_dir, ignore_errors=True)
                 else:
-                    # Replace characters that might be invalid in paths
-                    import re
-                    final_filename = re.sub(r"[^a-zA-Z0-9_.-]", "_", suggested_name)
-                
-                final_path = os.path.join(dest_dir, final_filename)
-                
-                print(f"[Playwright Downloader] Saving downloaded file to {final_path}")
-                await download_obj.save_as(final_path)
-                
+                    # Not a zip, check if it's a step
+                    if suggested_name.lower().endswith(".step") or suggested_name.lower().endswith(".stp"):
+                        final_filename = re.sub(r"[^a-zA-Z0-9_.-]", "_", suggested_name)
+                        shutil.move(temp_path, os.path.join(dest_dir, final_filename))
+                        print(f"[Playwright Downloader] Saved CAD as {final_filename}")
+                    else:
+                        print(f"[Playwright Downloader] Warning: downloaded file '{suggested_name}' doesn't look like a .step or .zip. Renaming to fallback.")
+                        final_filename = fallback_filename
+                        shutil.move(temp_path, os.path.join(dest_dir, final_filename))
+                        
                 await browser.close()
                 return final_filename
             

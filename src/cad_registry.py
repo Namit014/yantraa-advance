@@ -17,6 +17,8 @@ KNOWN_CADS = {
     "autonomous mobile": "autonomous_mobile_robot.stp",
     "amr": "autonomous_mobile_robot.stp",
     "mobile robot": "autonomous_mobile_robot.stp",
+    "quadcopter drone": "Quadcopter_Drone.step",
+    "detailed quadcopter drone": "Quadcopter_Drone.step",
     
     # Delta
     "delta": "DeltaRobot2.STEP",
