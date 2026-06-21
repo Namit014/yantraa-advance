@@ -1,14 +1,3 @@
 {
-    "components": [
-        {
-            "name": "highly detailed drone",
-            "category": "Structure",
-            "voltage": "N/A",
-            "interface": "None",
-            "description": "A detailed CAD model of a drone frame and parts used for 3D design and prototyping.",
-            "cad_file": "Assem1_complete.STEP",
-            "scraped_at": "2026-06-21T14:08:06.418072",
-            "source_url": "https://grabcad.com/library/drone-frame-and-parts-1"
-        }
-    ]
+    "components": []
 }
