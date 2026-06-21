@@ -104,7 +104,7 @@ async def scrape_missing_component(component_name: str, force_remodel: bool = Fa
                 print(f"[CAD Scraper] No new GrabCAD links found on attempt {attempt + 1}.")
                 continue
                 
-            # Try URLs with Crawl4AI
+            # Process URLs: Try Crawl4AI first, then fallback to Selenium immediately for the same URL.
             for url in urls:
                 print(f"[CAD Scraper] Checking {url} for CAD files using Crawl4AI...")
                 try:
@@ -136,16 +136,11 @@ async def scrape_missing_component(component_name: str, force_remodel: bool = Fa
                             break
                 except Exception as e:
                     print(f"[CAD Scraper] Error checking {url}: {e}")
-                    continue
 
-            if cad_downloaded:
-                break
-                
-            # Try URLs with Selenium if Crawl4AI missed
-            if not cad_downloaded:
-                from .selenium_downloader import selenium_download_cad
-                for url in urls:
-                    print(f"[CAD Scraper] Standard crawl missed CAD for {url}, attempting Playwright fallback...")
+                # If Crawl4AI missed, try Selenium immediately for this URL
+                if not cad_downloaded:
+                    from .selenium_downloader import selenium_download_cad
+                    print(f"[CAD Scraper] Standard crawl missed CAD for {url}, attempting Selenium fallback...")
                     clean_name = re.sub(r"[^a-z0-9]+", "_", component_name.lower()).strip("_")
                     fallback_filename = f"{clean_name}.step"
                     
@@ -160,7 +155,7 @@ async def scrape_missing_component(component_name: str, force_remodel: bool = Fa
                         if result.success:
                             extracted_text = result.markdown
                         break
-                        
+
             if cad_downloaded:
                 break
                 
@@ -174,6 +169,7 @@ async def scrape_missing_component(component_name: str, force_remodel: bool = Fa
             if force_remodel:
                 random.shuffle(urls)
             
+            # Process URLs: Try Crawl4AI first, then fallback to Selenium immediately for the same URL.
             for url in urls:
                 print(f"[CAD Scraper] Checking {url} for CAD files using Crawl4AI...")
                 try:
@@ -205,12 +201,11 @@ async def scrape_missing_component(component_name: str, force_remodel: bool = Fa
                             break
                 except Exception as e:
                     print(f"[CAD Scraper] Error checking {url}: {e}")
-                    continue
-                    
-            if not cad_downloaded:
-                from .selenium_downloader import selenium_download_cad
-                for url in urls:
-                    print(f"[CAD Scraper] Standard crawl missed CAD for {url}, attempting Playwright fallback...")
+
+                # If Crawl4AI missed, try Selenium immediately for this URL
+                if not cad_downloaded:
+                    from .selenium_downloader import selenium_download_cad
+                    print(f"[CAD Scraper] Standard crawl missed CAD for {url}, attempting Selenium fallback...")
                     clean_name = re.sub(r"[^a-z0-9]+", "_", component_name.lower()).strip("_")
                     fallback_filename = f"{clean_name}.step"
                     
@@ -224,6 +219,9 @@ async def scrape_missing_component(component_name: str, force_remodel: bool = Fa
                         if result.success:
                             extracted_text = result.markdown
                         break
+
+                if cad_downloaded:
+                    break
 
         # Best effort text fallback if absolutely no CAD is found
         if not cad_downloaded and urls_tried:
