@@ -911,8 +911,9 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
 
                 // Load all step files concurrently
                 const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
-                    const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL 
-                        ? `${process.env.NEXT_PUBLIC_API_URL}${url}` 
+                    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+                    const fetchUrl = url.startsWith('/api') 
+                        ? `${apiUrl}${url}` 
                         : url;
                     const res = await fetch(fetchUrl);
                     if (!res.ok) throw new Error(`Failed to download CAD file: ${url}`);
