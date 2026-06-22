@@ -207,6 +207,40 @@ async def health_check():
     """Simple health check endpoint"""
     return {"status": "ok", "message": "API is running."}
 
+@app.get("/api/sparkfun/components")
+async def get_sparkfun_components(q: Optional[str] = None):
+    """Returns a list of SparkFun components that have 3D models."""
+    try:
+        import json
+        path = os.path.join(_project_root, "knowledgebase", "sparkfun_components.json")
+        if not os.path.exists(path):
+            return []
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        if q:
+            q = q.lower()
+            data = [c for c in data if q in c['name'].lower() or (c.get('description') and q in c['description'].lower()) or (c.get('prod_id') and q in c['prod_id'].lower())]
+        return data[:50] # Limit to 50 for performance
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+class GraphPayload(BaseModel):
+    nodes: list
+    edges: list
+
+@app.post("/api/skidl/erc")
+async def run_skidl_erc(payload: GraphPayload):
+    """Runs SKiDL ERC validation on the ReactFlow graph."""
+    try:
+        from skidl_export import process_skidl_erc
+        report = await asyncio.get_event_loop().run_in_executor(
+            None, process_skidl_erc, payload.nodes, payload.edges
+        )
+        return {"report": report}
+    except Exception as e:
+        import traceback
+        return {"report": f"Internal SKiDL Error:\n{str(e)}\n\n{traceback.format_exc()}"}
+
 if __name__ == "__main__":
     import uvicorn
     # Allow running directly using `python src/api/main.py`

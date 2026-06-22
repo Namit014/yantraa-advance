@@ -1,0 +1,34 @@
+{
+  "arduino-uno": {
+    "library": "MCU_Module",
+    "part": "Arduino_Uno_R3"
+  },
+  "esp32": {
+    "library": "RF_Module",
+    "part": "ESP32-WROOM-32"
+  },
+  "raspberry-pi": {
+    "library": "MCU_Module",
+    "part": "Raspberry_Pi_4B"
+  },
+  "ic-chip": {
+    "library": "Timer",
+    "part": "NE555P"
+  },
+  "generic-board": {
+    "library": "Connector",
+    "part": "Conn_01x02_Socket"
+  },
+  "battery": {
+    "library": "Device",
+    "part": "Battery_Cell"
+  },
+  "motor": {
+    "library": "Motor",
+    "part": "Motor_DC"
+  },
+  "sensor": {
+    "library": "Sensor",
+    "part": "BME280"
+  }
+}

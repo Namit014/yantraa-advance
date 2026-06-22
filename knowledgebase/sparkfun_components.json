@@ -1,0 +1,3929 @@
+[
+  {
+    "name": "Battery_6.8mm_ML414H_IV01E",
+    "description": "",
+    "prod_id": "BATT-14267",
+    "footprint": "SparkFun-Battery:ML414H_IV01E",
+    "model_path": "3dmodels/Battery.3dshapes/XH414H-IV01E.step"
+  },
+  {
+    "name": "Arduino_Pro_Mini",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Board:Arduino_Pro_Mini_Shield",
+    "model_path": "3dmodels/Board.3dshapes/SparkFun Arduino Pro Mini with Pins.step"
+  },
+  {
+    "name": "0.15uF_0603_25V_10%",
+    "description": "",
+    "prod_id": "CAP-25564",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "0.1uF_0402_16V_10%",
+    "description": "",
+    "prod_id": "CAP-25565",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "0.1uF_0603_100V_10%",
+    "description": "",
+    "prod_id": "CAP-08390",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "0.1uF_0603_25V_20%",
+    "description": "",
+    "prod_id": "CAP-00810",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "0.22uF_0402_10V_10%",
+    "description": "",
+    "prod_id": "CAP-24996",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "0.22uF_0603_25V_10%",
+    "description": "",
+    "prod_id": "CAP-07822",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "0.22uF_0603_50V_10%",
+    "description": "",
+    "prod_id": "CAP-13701",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "0pF_0402_DNP",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "1.0nF_0402_50V_10%",
+    "description": "",
+    "prod_id": "CAP-14280",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "1.0nF_0603_50V_10%",
+    "description": "",
+    "prod_id": "CAP-07886",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "1.0nF_1206_2kV_10%",
+    "description": "",
+    "prod_id": "CAP-16238",
+    "footprint": "SparkFun-Capacitor:C_1206_3216Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_1206_3216Metric.step"
+  },
+  {
+    "name": "1.0uF_0402_16V_10%",
+    "description": "",
+    "prod_id": "CAP-14969",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "1.0uF_0603_16V_10%",
+    "description": "",
+    "prod_id": "CAP-13930",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "1.0uF_0805_25V_10%",
+    "description": "",
+    "prod_id": "CAP-08064",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "100pF_0402_50V_10%",
+    "description": "",
+    "prod_id": "CAP-13458",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "100pF_0603_50V_10%",
+    "description": "",
+    "prod_id": "CAP-07883",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "100uF_1206_50V_10%",
+    "description": "",
+    "prod_id": "CAP-24990",
+    "footprint": "SparkFun-Capacitor:C_1206_3216Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_1206_3216Metric.step"
+  },
+  {
+    "name": "100uF_6.6x6.6_25V_20%",
+    "description": "",
+    "prod_id": "CAP-12547",
+    "footprint": "SparkFun-Capacitor:Panasonic_D",
+    "model_path": "3dmodels/Capacitor.3dshapes/CP_Elec_6.3x7.7.step"
+  },
+  {
+    "name": "10nF_0402_25V_10%",
+    "description": "",
+    "prod_id": "CAP-24997",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "10nF_0603_50V_10%",
+    "description": "",
+    "prod_id": "CAP-00867",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "10pF_0603_50V_5%",
+    "description": "",
+    "prod_id": "CAP-11812",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "10uF_0402_6.3V_20%",
+    "description": "",
+    "prod_id": "CAP-14848",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "10uF_0603_10V_20%",
+    "description": "",
+    "prod_id": "CAP-20155",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "10uF_0603_6.3V_20%",
+    "description": "",
+    "prod_id": "CAP-25001",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "10uF_0603_6.3V_20%_Polar(Tant)",
+    "description": "",
+    "prod_id": "CAP-13210",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric_Polar",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "10uF_0805_25V_10%",
+    "description": "",
+    "prod_id": "CAP-14259",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "10uF_1210_50V_20%",
+    "description": "",
+    "prod_id": "CAP-09824",
+    "footprint": "SparkFun-Capacitor:C_1210_3225Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_1210_3225Metric.step"
+  },
+  {
+    "name": "11mF_1210_3.3V",
+    "description": "",
+    "prod_id": "CAP-27086",
+    "footprint": "SparkFun-Capacitor:C_1210_3225Metric_SuperCap",
+    "model_path": "3dmodels/Capacitor.3dshapes/CPH3225A-2K.step"
+  },
+  {
+    "name": "11pF_0402_50V_5%",
+    "description": "",
+    "prod_id": "CAP-25011",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "12pF_0402_50V_5%",
+    "description": "",
+    "prod_id": "CAP-24998",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "15pF_0402_50V_5%",
+    "description": "",
+    "prod_id": "CAP-13063",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "15pF_0603_50V_5%",
+    "description": "",
+    "prod_id": "CAP-07881",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "180pF_0603_50V_5%",
+    "description": "",
+    "prod_id": "CAP-11661",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "18pF_0603_50V_5%",
+    "description": "",
+    "prod_id": "CAP-08267",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "2.2uF_0402_10V_10%",
+    "description": "",
+    "prod_id": "CAP-14232",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "2.2uF_0603_10V_20%",
+    "description": "",
+    "prod_id": "CAP-24999",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "2.2uF_0805_25V_20%",
+    "description": "",
+    "prod_id": "CAP-11624",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "20pF_0402_50V_5%",
+    "description": "",
+    "prod_id": "CAP-14843",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "2200pF_0402_50V_10%",
+    "description": "",
+    "prod_id": "CAP-22103",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "2200pF_0603_50V_10%",
+    "description": "",
+    "prod_id": "CAP-07877",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "22nF_0603_50V_10%",
+    "description": "",
+    "prod_id": "CAP-07885",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "22pF_0402_50V_5%",
+    "description": "",
+    "prod_id": "CAP-25012",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "22uF_0603_6.3V_20%",
+    "description": "",
+    "prod_id": "CAP-14464",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "22uF_0805_10V_20%",
+    "description": "",
+    "prod_id": "CAP-14973",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "22uF_0805_16V_20%",
+    "description": "",
+    "prod_id": "CAP-14260",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "22uF_0805_25V_20%",
+    "description": "",
+    "prod_id": "CAP-23850",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "22uF_1206_50V_10%",
+    "description": "",
+    "prod_id": "CAP-15263",
+    "footprint": "SparkFun-Capacitor:C_1206_3216Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_1206_3216Metric.step"
+  },
+  {
+    "name": "27pF_0603_50V_5%",
+    "description": "",
+    "prod_id": "CAP-09989",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "330pF_0603_50V_10%",
+    "description": "",
+    "prod_id": "CAP-10108",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "33pF_0402_50V_5%",
+    "description": "",
+    "prod_id": "CAP-15358",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "33pF_0603_50V_5%",
+    "description": "",
+    "prod_id": "CAP-10142",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "4.7uF_0402_6.3V_10%",
+    "description": "",
+    "prod_id": "CAP-24988",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "4.7uF_0603_35V_20%",
+    "description": "",
+    "prod_id": "CAP-14106",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "4.7uF_1206_16V_20%",
+    "description": "",
+    "prod_id": "CAP-10300",
+    "footprint": "SparkFun-Capacitor:C_1206_3216Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_1206_3216Metric.step"
+  },
+  {
+    "name": "470nF_0201_6.3V_20%",
+    "description": "",
+    "prod_id": "CAP-14959",
+    "footprint": "SparkFun-Capacitor:C_0201_0603Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0201_0603Metric.step"
+  },
+  {
+    "name": "470nF_0402_25V_10%",
+    "description": "",
+    "prod_id": "CAP-26768",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "470nF_0402_6.3V_10%",
+    "description": "",
+    "prod_id": "CAP-14242",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "470nF_0603_10V_10%",
+    "description": "",
+    "prod_id": "CAP-13216",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "470nF_0805_100V_10%",
+    "description": "",
+    "prod_id": "CAP-16570",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "470pF_0603_50V_10%",
+    "description": "",
+    "prod_id": "CAP-07884",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "470uF_10x10_25V_20%",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Capacitor:Electrolytic_10.3x10.3mm",
+    "model_path": "3dmodels/Capacitor.3dshapes/CP_Elec_10x7.9.step"
+  },
+  {
+    "name": "47pF_0402_500V_10%",
+    "description": "",
+    "prod_id": "CAP-15063",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "47pF_0603_50V_5%",
+    "description": "",
+    "prod_id": "CAP-08913",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "47uF_0805_6.3V_20%",
+    "description": "",
+    "prod_id": "CAP-13854",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "47uF_3528_10V_10%",
+    "description": "",
+    "prod_id": "CAP-08310",
+    "footprint": "SparkFun-Capacitor:EIA-3528",
+    "model_path": "3dmodels/Capacitor.3dshapes/CP_EIA-3528-21_Vishay-B.step"
+  },
+  {
+    "name": "47uF_35V_20%",
+    "description": "",
+    "prod_id": "CAP-08478",
+    "footprint": "SparkFun-Capacitor:Panasonic_D",
+    "model_path": "3dmodels/Capacitor.3dshapes/CP_Elec_6.3x7.7.step"
+  },
+  {
+    "name": "47uF_6.6x6.6_50V_20%",
+    "description": "",
+    "prod_id": "CAP-10547",
+    "footprint": "SparkFun-Capacitor:Panasonic_D",
+    "model_path": "3dmodels/Capacitor.3dshapes/CP_Elec_6.3x7.7.step"
+  },
+  {
+    "name": "6.8nF_0603_50V_5%",
+    "description": "",
+    "prod_id": "CAP-16239",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "C",
+    "description": "",
+    "prod_id": "CAP-00000",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "C_Small",
+    "description": "",
+    "prod_id": "CAP-00000",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "Crystal_12MHz_2.5x2.0mm",
+    "description": "",
+    "prod_id": "XTAL-15540",
+    "footprint": "SparkFun-Clock:Crystal_SMD_2.5x2.0mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_2.5x2.0mm.step"
+  },
+  {
+    "name": "Crystal_16MHz_2.0x1.6mm",
+    "description": "",
+    "prod_id": "XTAL-14681",
+    "footprint": "SparkFun-Clock:Crystal_SMD_2.0x1.6mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_2.0x1.6mm.step"
+  },
+  {
+    "name": "Crystal_24MHz_2.0x1.6mm",
+    "description": "",
+    "prod_id": "XTAL-14845",
+    "footprint": "SparkFun-Clock:Crystal_SMD_2.0x1.6mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_2.0x1.6mm.step"
+  },
+  {
+    "name": "Crystal_24MHz_3.2x2.5mm",
+    "description": "",
+    "prod_id": "XTAL-25023",
+    "footprint": "SparkFun-Clock:Crystal_SMD_3.2x2.5mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_3.2x2.5mm.step"
+  },
+  {
+    "name": "Crystal_25MHz_2.0x1.6mm",
+    "description": "",
+    "prod_id": "XTAL-16235",
+    "footprint": "SparkFun-Clock:Crystal_SMD_2.0x1.6mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_2.0x1.6mm.step"
+  },
+  {
+    "name": "Crystal_27.12MHz_3.2x2.5mm",
+    "description": "",
+    "prod_id": "XTAL-",
+    "footprint": "SparkFun-Clock:Crystal_SMD_3.2x2.5mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_3.2x2.5mm.step"
+  },
+  {
+    "name": "Crystal_32.768kHz_3.2x1.5mm",
+    "description": "",
+    "prod_id": "XTAL-25022",
+    "footprint": "SparkFun-Clock:Crystal_SMD_3.2x1.5mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_3.2x1.5mm.step"
+  },
+  {
+    "name": "Crystal_40MHz_2.5x2.0mm",
+    "description": "",
+    "prod_id": "XTAL-15127",
+    "footprint": "SparkFun-Clock:Crystal_SMD_2.5x2.0mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_2.5x2.0mm.step"
+  },
+  {
+    "name": "Oscillator_24MHz_3.2x2.5mm",
+    "description": "",
+    "prod_id": "XTAL-25500",
+    "footprint": "SparkFun-Clock:Crystal_SMD_3.2x2.5mm",
+    "model_path": "3dmodels/Clock.3dshapes/Crystal_SMD_3.2x2.5mm.step"
+  },
+  {
+    "name": "Resonator_16MHz",
+    "description": "",
+    "prod_id": "XTAL-08900",
+    "footprint": "SparkFun-Clock:Resonator_SMD_3.2x1.3mm",
+    "model_path": "3dmodels/Clock.3dshapes/Resonator_SMD_3.2x1.3mm.step"
+  },
+  {
+    "name": "SiT5358_TCXO_10MHz_5.0x3.2mm",
+    "description": "",
+    "prod_id": "XTAL-22764",
+    "footprint": "SparkFun-Semiconductor-Standard:Ceramic_QFN_5.0x3.2mm-10",
+    "model_path": "3dmodels/Clock.3dshapes/Ceramic_5032_10pins.step"
+  },
+  {
+    "name": "1.0uH_0805_1.45A",
+    "description": "",
+    "prod_id": "NDUC-14375",
+    "footprint": "SparkFun-Coil:0805",
+    "model_path": "3dmodels/Coil.3dshapes/L_0805_2012Metric.step"
+  },
+  {
+    "name": "10uH_0805_0.35A",
+    "description": "",
+    "prod_id": "NDUC-19198",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "130nH_0603_170mA",
+    "description": "",
+    "prod_id": "NDUC-22763",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "2.2uH_0806_1.2A",
+    "description": "",
+    "prod_id": "NDUC-14257",
+    "footprint": "SparkFun-Coil:0806",
+    "model_path": "3dmodels/Coil.3dshapes/Inductor_0806.step"
+  },
+  {
+    "name": "3.3uH_0805_0.45A",
+    "description": "",
+    "prod_id": "NDUC-13076",
+    "footprint": "SparkFun-Coil:0805",
+    "model_path": "3dmodels/Coil.3dshapes/L_0805_2012Metric.step"
+  },
+  {
+    "name": "3.3uH_0806_1.4A_Polarized",
+    "description": "",
+    "prod_id": "NDUC-23692",
+    "footprint": "SparkFun-Coil:0806_Polarized",
+    "model_path": "3dmodels/Coil.3dshapes/Inductor_0806.step"
+  },
+  {
+    "name": "33nH_0603_0.3A",
+    "description": "",
+    "prod_id": "NDUC-13805",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "4.7uH_1008_1.4A",
+    "description": "",
+    "prod_id": "NDUC-14880",
+    "footprint": "SparkFun-Coil:1008_2520Metric",
+    "model_path": "3dmodels/Coil.3dshapes/L_1008_2520Metric.step"
+  },
+  {
+    "name": "47nH_0402_0.3A",
+    "description": "",
+    "prod_id": "NDUC-26402",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "68nH_0402_0.2A",
+    "description": "",
+    "prod_id": "NDUC-15356",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "9.1nH_0402_1.4A",
+    "description": "",
+    "prod_id": "NDUC-27028",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "Ferrite_120Ohm_0402_0.3A",
+    "description": "",
+    "prod_id": "NDUC-14206",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "Ferrite_120Ohm_0603_2A",
+    "description": "",
+    "prod_id": "NDUC-24995",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "Ferrite_2.66Ohm_0402_110mA",
+    "description": "",
+    "prod_id": "NDUC-15072",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "Ferrite_30Ohm_0603_1.8A",
+    "description": "",
+    "prod_id": "NDUC-07859",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "Ferrite_470Ohm_0603_1.0A",
+    "description": "",
+    "prod_id": "NDUC-12579",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "Ferrite_600Ohm_0805_500mA",
+    "description": "",
+    "prod_id": "NDUC-25563",
+    "footprint": "SparkFun-Capacitor:C_0805_2012Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "name": "Audio_Jack_TRRS_3.5mm_SMD",
+    "description": "",
+    "prod_id": "CONN-10676",
+    "footprint": "SparkFun-Connector:Audio_Jack_3.5mm_TRRS_SMD_RA",
+    "model_path": "3dmodels/Connector.3dshapes/Audio_Jack_3.5mm_TRRS_SMD_RA.step"
+  },
+  {
+    "name": "Barrel_Jack_PTH",
+    "description": "",
+    "prod_id": "CONN-08197",
+    "footprint": "SparkFun-Connector:Barrel_Jack_PTH",
+    "model_path": "3dmodels/Connector.3dshapes/Power_Jack_PTH.step"
+  },
+  {
+    "name": "Barrel_Jack_PTH_Slot",
+    "description": "",
+    "prod_id": "CONN-08197",
+    "footprint": "SparkFun-Connector:Barrel_Jack_PTH_Slot",
+    "model_path": "3dmodels/Connector.3dshapes/Power_Jack_PTH.step"
+  },
+  {
+    "name": "Barrel_Jack_SMD",
+    "description": "",
+    "prod_id": "CONN-08106",
+    "footprint": "SparkFun-Connector:Barrel_Jack_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/Power_Jack_SMD.step"
+  },
+  {
+    "name": "Conn_01x01_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x01_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x01_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x02_JST_P2.0mm_Horizontal_PTH",
+    "description": "",
+    "prod_id": "CONN-09863",
+    "footprint": "SparkFun-Connector:JST_1x02_P2.0mm_Horizontal_PTH",
+    "model_path": "3dmodels/Connector.3dshapes/JST_PTH-2.step"
+  },
+  {
+    "name": "Conn_01x02_JST_P2.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-11443",
+    "footprint": "SparkFun-Connector:JST_1x02_P2.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_2.0mm-2-Black.step"
+  },
+  {
+    "name": "Conn_01x02_JST_P2.0mm_Horizontal_SMD_LiPo",
+    "description": "",
+    "prod_id": "CONN-11443",
+    "footprint": "SparkFun-Connector:JST_1x02_P2.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_2.0mm-2-Black.step"
+  },
+  {
+    "name": "Conn_01x02_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x02_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x02_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x03_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-10492",
+    "footprint": "SparkFun-Connector:JST_1x03_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.0mm-3.step"
+  },
+  {
+    "name": "Conn_01x03_JST_P1.0mm_Vertical_SMD",
+    "description": "",
+    "prod_id": "CONN-24642",
+    "footprint": "SparkFun-Connector:JST_1x03_P1.0mm_Vertical_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.0mm-3_Vertical.step"
+  },
+  {
+    "name": "Conn_01x03_JST_P1.25mm_Locking_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-16521",
+    "footprint": "SparkFun-Connector:JST_1x03_P1.25mm_Locking_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.25mm-3_Locking.step"
+  },
+  {
+    "name": "Conn_01x03_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x03_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x03_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x04_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:JST_1x04_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/Qwiic-Horizontal.step"
+  },
+  {
+    "name": "Conn_01x04_JST_P1.0mm_Vertical_SMD",
+    "description": "",
+    "prod_id": "CONN-14483",
+    "footprint": "SparkFun-Connector:JST_1x04_P1.0mm_Vertical_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/Qwiic-Vertical.step"
+  },
+  {
+    "name": "Conn_01x04_JST_P1.25mm_Locking_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-15303",
+    "footprint": "SparkFun-Connector:JST_1x04_P1.25mm_Locking_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.25mm-4_Locking.step"
+  },
+  {
+    "name": "Conn_01x04_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x04_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x04_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x04_P2.54mm_Header_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-09140",
+    "footprint": "SparkFun-Connector:1x04_P2.54mm_Header_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/1x04_RA_SMD.step"
+  },
+  {
+    "name": "Conn_01x05_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-20121",
+    "footprint": "SparkFun-Connector:JST_1x05_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.0mm-5.step"
+  },
+  {
+    "name": "Conn_01x05_JST_P1.25mm_Locking_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-25024",
+    "footprint": "SparkFun-Connector:JST_1x05_P1.25mm_Locking_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.25mm-5_Locking.step"
+  },
+  {
+    "name": "Conn_01x05_P2.0mm_Socket_Vertical_PTH",
+    "description": "",
+    "prod_id": "CONN-09000",
+    "footprint": "SparkFun-Connector:1x05_P2.0mm_Socket_Vertical_PTH",
+    "model_path": "3dmodels/Connector.3dshapes/1x05_2.0mm.step"
+  },
+  {
+    "name": "Conn_01x05_P2.0mm_Socket_Vertical_SMD_Pin1RightUp",
+    "description": "",
+    "prod_id": "CONN-09344",
+    "footprint": "SparkFun-Connector:1x05_P2.0mm_Socket_Vertical_SMD_Pin1RightDown",
+    "model_path": "3dmodels/Connector.3dshapes/1x05_2.0mm_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x05_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x05_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x05_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x05_P2.54mm_Socket_PTH",
+    "description": "",
+    "prod_id": "CONN-25607",
+    "footprint": "SparkFun-Connector:1x05_P2.54mm_Socket_PTH",
+    "model_path": "3dmodels/Connector.3dshapes/1x05_PTH_2.54mm_8.5mm.step"
+  },
+  {
+    "name": "Conn_01x06_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-09659",
+    "footprint": "SparkFun-Connector:JST_1x06_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.0mm-6.step"
+  },
+  {
+    "name": "Conn_01x06_JST_P1.0mm_Vertical_SMD",
+    "description": "",
+    "prod_id": "CONN-08249",
+    "footprint": "SparkFun-Connector:JST_1x06_P1.0mm_Vertical_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.0mm-6_Vertical.step"
+  },
+  {
+    "name": "Conn_01x06_JST_P1.25mm_Locking_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-16497",
+    "footprint": "SparkFun-Connector:JST_1x06_P1.25mm_Locking_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.25mm-6_Locking.step"
+  },
+  {
+    "name": "Conn_01x06_P2.54mm_Header_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-08971",
+    "footprint": "SparkFun-Connector:1x06_P2.54mm_Header_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x06_P2.54mm_Horizontal_SMD_Right.step"
+  },
+  {
+    "name": "Conn_01x06_P2.54mm_Socket_Vertical_SMD_Combined",
+    "description": "",
+    "prod_id": "CONN-10203",
+    "footprint": "SparkFun-Connector:1x06_P2.54mm_Socket_Vertical_SMD_Combined",
+    "model_path": "3dmodels/Connector.3dshapes/1x06_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x06_P2.54mm_Socket_Vertical_SMD_Pin1RightDown",
+    "description": "",
+    "prod_id": "CONN-10203",
+    "footprint": "SparkFun-Connector:1x06_P2.54mm_Socket_Vertical_SMD_Pin1RightDown",
+    "model_path": "3dmodels/Connector.3dshapes/1x06_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x06_P2.54mm_Socket_Vertical_SMD_Pin1RightDown_Passthru",
+    "description": "",
+    "prod_id": "CONN-10203",
+    "footprint": "SparkFun-Connector:1x06_P2.54mm_Socket_Vertical_SMD_Pin1RightDown_Passthru",
+    "model_path": "3dmodels/Connector.3dshapes/1x06_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x07_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-25140",
+    "footprint": "SparkFun-Connector:JST_1x07_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.0mm-7.step"
+  },
+  {
+    "name": "Conn_01x07_JST_P1.25mm_Locking_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-25025",
+    "footprint": "SparkFun-Connector:JST_1x07_P1.25mm_Locking_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.25mm-7_Locking.step"
+  },
+  {
+    "name": "Conn_01x07_P2.0mm_Socket_Vertical_PTH",
+    "description": "",
+    "prod_id": "CONN-09001",
+    "footprint": "SparkFun-Connector:1x07_P2.0mm_Socket_Vertical_PTH",
+    "model_path": "3dmodels/Connector.3dshapes/1x07_2.0mm.step"
+  },
+  {
+    "name": "Conn_01x07_P2.0mm_Socket_Vertical_SMD_Pin1RightUp",
+    "description": "",
+    "prod_id": "CONN-09345",
+    "footprint": "SparkFun-Connector:1x07_P2.0mm_Socket_Vertical_SMD_Pin1RightUp",
+    "model_path": "3dmodels/Connector.3dshapes/1x07_2.0mm_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x07_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x07_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x07_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x08_FPC_P1.0mm_Horizontal_DualContact_LIF",
+    "description": "",
+    "prod_id": "CONN-...",
+    "footprint": "SparkFun-Connector:FPC_1x08_P1.0mm_Horizontal_DualContact_LIF",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_1x08_P1.0mm_Horizontal_DualContact_LIF.step"
+  },
+  {
+    "name": "Conn_01x08_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-08435",
+    "footprint": "SparkFun-Connector:JST_1x08_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.0mm-8.step"
+  },
+  {
+    "name": "Conn_01x08_JST_P1.25mm_Locking_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-25026",
+    "footprint": "SparkFun-Connector:JST_1x08_P1.25mm_Locking_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.25mm-8_Locking.step"
+  },
+  {
+    "name": "Conn_01x08_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x08_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x08_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x08_P2.54mm_Socket_Vertical_SMD_Combined",
+    "description": "",
+    "prod_id": "CONN-10204",
+    "footprint": "SparkFun-Connector:1x08_P2.54mm_Socket_Vertical_SMD_Combined",
+    "model_path": "3dmodels/Connector.3dshapes/1x08_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x08_P2.54mm_Socket_Vertical_SMD_Pin1RightDown",
+    "description": "",
+    "prod_id": "CONN-10204",
+    "footprint": "SparkFun-Connector:1x08_P2.54mm_Socket_Vertical_SMD_Pin1RightDown",
+    "model_path": "3dmodels/Connector.3dshapes/1x08_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x08_P2.54mm_Socket_Vertical_SMD_Pin1RightDown_Passthru",
+    "description": "",
+    "prod_id": "CONN-10204",
+    "footprint": "SparkFun-Connector:1x08_P2.54mm_Socket_Vertical_SMD_Pin1RightDown_Passthru",
+    "model_path": "3dmodels/Connector.3dshapes/1x08_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x09_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-25141",
+    "footprint": "SparkFun-Connector:JST_1x09_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.0mm-9.step"
+  },
+  {
+    "name": "Conn_01x09_JST_P1.25mm_Locking_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-25027",
+    "footprint": "SparkFun-Connector:JST_1x09_P1.25mm_Locking_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.25mm-6_Locking.step"
+  },
+  {
+    "name": "Conn_01x09_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x09_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x09_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x09_P2.54mm_Socket_Vertical_PTH",
+    "description": "",
+    "prod_id": "CONN-25606",
+    "footprint": "SparkFun-Connector:1x09_P2.54mm_Socket_Vertical_PTH",
+    "model_path": "3dmodels/Connector.3dshapes/1x09_PTH_2.54mm_8.5mm.step"
+  },
+  {
+    "name": "Conn_01x10_FPC_P1.0mm_Horizontal_DualContact_LIF",
+    "description": "",
+    "prod_id": "CONN-...",
+    "footprint": "SparkFun-Connector:FPC_1x10_P1.0mm_Horizontal_DualContact_LIF",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_1x10_P1.0mm_Horizontal_DualContact_LIF.step"
+  },
+  {
+    "name": "Conn_01x10_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-25142",
+    "footprint": "SparkFun-Connector:JST_1x10_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SM12B-SRSS-TB.step"
+  },
+  {
+    "name": "Conn_01x10_JST_P1.25mm_Locking_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-25028",
+    "footprint": "SparkFun-Connector:JST_1x10_P1.25mm_Locking_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SMD_1.25mm-6_Locking.step"
+  },
+  {
+    "name": "Conn_01x10_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x10_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x10_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Conn_01x10_P2.54mm_Socket_Vertical_SMD_Combined",
+    "description": "",
+    "prod_id": "CONN-11219",
+    "footprint": "SparkFun-Connector:1x10_P2.54mm_Socket_Vertical_SMD_Combined",
+    "model_path": "3dmodels/Connector.3dshapes/1x10_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x10_P2.54mm_Socket_Vertical_SMD_Pin1RightDown",
+    "description": "",
+    "prod_id": "CONN-11219",
+    "footprint": "SparkFun-Connector:1x10_P2.54mm_Socket_Vertical_SMD_Pin1RightDown",
+    "model_path": "3dmodels/Connector.3dshapes/1x10_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x10_P2.54mm_Socket_Vertical_SMD_Pin1RightDown_Passthru",
+    "description": "",
+    "prod_id": "CONN-11219",
+    "footprint": "SparkFun-Connector:1x10_P2.54mm_Socket_Vertical_SMD_Pin1RightDown_Passthru",
+    "model_path": "3dmodels/Connector.3dshapes/1x10_SMD_Pin1RightDown.step"
+  },
+  {
+    "name": "Conn_01x12_JST_P1.0mm_Horizontal_SMD",
+    "description": "",
+    "prod_id": "CONN-23694",
+    "footprint": "SparkFun-Connector:JST_1x12_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/JST_SM12B-SRSS-TB.step"
+  },
+  {
+    "name": "Conn_01x16_FPC_P0.5mm_Horizontal_DualContact",
+    "description": "",
+    "prod_id": "CONN-16066",
+    "footprint": "SparkFun-Connector:FPC_1x16_P0.5mm_Horizontal_DualContact",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_0.5mm-16.step"
+  },
+  {
+    "name": "Conn_01x20_SMD_Pin1RightUp",
+    "description": "",
+    "prod_id": "CONN-25435",
+    "footprint": "SparkFun-Connector:1x20_SMD_Pin1RightUp",
+    "model_path": "3dmodels/Connector.3dshapes/1x20_2.54mm_SMD_Pin1RightUp.step"
+  },
+  {
+    "name": "Conn_01x22_FPC_P0.5mm_Horizontal_BottomContact",
+    "description": "",
+    "prod_id": "CONN-25634",
+    "footprint": "SparkFun-Connector:FPC_1x22_P0.5mm_Horizontal_BottomContact",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_0.5mm-22-RA.step"
+  },
+  {
+    "name": "Conn_01x22_FPC_P0.5mm_Vertical_LowerContact",
+    "description": "",
+    "prod_id": "CONN-24643",
+    "footprint": "SparkFun-Connector:FPC_1x22_P0.5mm_Vertical_LowerContact",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_0.5mm-22-Vertical.step"
+  },
+  {
+    "name": "Conn_01x24_FPC_P0.5mm_Horizontal_BottomContact",
+    "description": "",
+    "prod_id": "CONN-14233",
+    "footprint": "SparkFun-Connector:FPC_1x24_P0.5mm_Horizontal_BottomContact",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_0.5mm-24-BottomContact.step"
+  },
+  {
+    "name": "Conn_01x24_FPC_P0.5mm_Horizontal_DualContact",
+    "description": "",
+    "prod_id": "CONN-14195",
+    "footprint": "SparkFun-Connector:FPC_1x24_P0.5mm_Horizontal_DualContact",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_0.5mm-24.step"
+  },
+  {
+    "name": "Conn_01x47_Flexy_P1.27mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:FlexyPin_1x47_P1.27mm",
+    "model_path": "3dmodels/Hardware.3dshapes/FlexyPin_0.4mm.step"
+  },
+  {
+    "name": "Conn_02x03_P2.0mm_Header_Vertical_SMD_Pegs",
+    "description": "",
+    "prod_id": "CONN-27021",
+    "footprint": "SparkFun-Connector:2x03_P2.0mm_Header_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x03_P2.0mm_Header_Vertical_SMD_Pegs.step"
+  },
+  {
+    "name": "Conn_02x10_P2.00mm_Header_Vertical_SMD_Pegs",
+    "description": "",
+    "prod_id": "CONN-25207",
+    "footprint": "SparkFun-Connector:2x10_P2.0mm_Header_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.0mm_Header_SMD_Pegs-1.0mm_22817.step"
+  },
+  {
+    "name": "Conn_02x10_P2.00mm_Socket_Vertical_SMD_Pegs",
+    "description": "",
+    "prod_id": "CONN-25206",
+    "footprint": "SparkFun-Connector:2x10_P2.0mm_Socket_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.0mm_Socket_SMD_Pegs-1.0mm_22815.step"
+  },
+  {
+    "name": "Conn_02x10_P2.54mm_Socket_Vertical_SMD",
+    "description": "",
+    "prod_id": "CONN-27033",
+    "footprint": "SparkFun-Connector:2x10_P2.54mm_Socket_Vertical_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.54mm_Socket_SMD.step"
+  },
+  {
+    "name": "DE9_Header_Horizontal_PTH",
+    "description": "",
+    "prod_id": "CONN-9904",
+    "footprint": "SparkFun-Connector:DE9_Header_Horizontal_PTH",
+    "model_path": "3dmodels/Connector.3dshapes/DE9-Male.step"
+  },
+  {
+    "name": "DE9_Socket_Horizontal_PTH",
+    "description": "",
+    "prod_id": "CONN-08194",
+    "footprint": "SparkFun-Connector:DE9_Socket_Horizontal_PTH",
+    "model_path": "3dmodels/Connector.3dshapes/DE9-Female.step"
+  },
+  {
+    "name": "Debug-Cortex-2x5_P1.27mm-SMD-Unshrouded",
+    "description": "",
+    "prod_id": "CONN-15353",
+    "footprint": "SparkFun-Connector:2x05_P1.27mm_SMD_Unshrouded",
+    "model_path": "3dmodels/Connector.3dshapes/2x05_P1.27mm_SMD_Unshrouded.step"
+  },
+  {
+    "name": "I2CStandard_1x04_P2.54mm",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x04_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x04_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Postcard_Mainboard_10",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x10_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x10_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Postcard_Mainboard_9",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x09_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x09_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Qwiic_Horizontal",
+    "description": "",
+    "prod_id": "CONN-13694",
+    "footprint": "SparkFun-Connector:JST_1x04_P1.0mm_Horizontal_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/Qwiic-Horizontal.step"
+  },
+  {
+    "name": "Qwiic_Vertical",
+    "description": "",
+    "prod_id": "CONN-14483",
+    "footprint": "SparkFun-Connector:JST_1x04_P1.0mm_Vertical_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/Qwiic-Vertical.step"
+  },
+  {
+    "name": "RJ45_MagJack_2.5GB",
+    "description": "",
+    "prod_id": "CONN-...",
+    "footprint": "SparkFun-Connector:MagJack_RJ45_2.5GB",
+    "model_path": "3dmodels/Connector.3dshapes/L829-1J1T-43.step"
+  },
+  {
+    "name": "RJ45_MagJack_PoE",
+    "description": "",
+    "prod_id": "CONN-16253",
+    "footprint": "SparkFun-Connector:MagJack_PoE_RJ45",
+    "model_path": "3dmodels/Connector.3dshapes/MagJack_PoE_RJ45.step"
+  },
+  {
+    "name": "RJ45_Mid_Mount_SMD",
+    "description": "",
+    "prod_id": "CONN-27020",
+    "footprint": "SparkFun-Connector:RJ45_Mid_Mount_SMD",
+    "model_path": "3dmodels/Connector.3dshapes/RJ45_Ethernet_Mid_Mount_SMD.step"
+  },
+  {
+    "name": "Raspberry_Pi_2x20_PTH",
+    "description": "",
+    "prod_id": "CONN-12263",
+    "footprint": "SparkFun-Connector:2x20_Shrouded",
+    "model_path": "3dmodels/Connector.3dshapes/IDC-Header_2x20_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Raspberry_Pi_2x20_PTH_NoSilk",
+    "description": "",
+    "prod_id": "CONN-12263",
+    "footprint": "SparkFun-Connector:2x20_Shrouded_NoSilk",
+    "model_path": "3dmodels/Connector.3dshapes/IDC-Header_2x20_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "Raspberry_Pi_2x20_PTH_SMD_Pass_Through_Bottom_Mount",
+    "description": "",
+    "prod_id": "CONN-13790",
+    "footprint": "SparkFun-Connector:Raspberry_Pi_Shield_Bottom_Entry_No_Mounting_Holes",
+    "model_path": "3dmodels/Connector.3dshapes/Raspberry_Pi_Passthrough_Header.step"
+  },
+  {
+    "name": "Raspberry_Pi_2x20_PTH_SMD_Pass_Through_Top_Mount",
+    "description": "",
+    "prod_id": "CONN-13790",
+    "footprint": "SparkFun-Connector:Raspberry_Pi_Shield_Top_Entry_No_Mounting_Holes",
+    "model_path": "3dmodels/Connector.3dshapes/Raspberry_Pi_Passthrough_Header.step"
+  },
+  {
+    "name": "ScrewCage_1x10_P3.5mm_Green",
+    "description": "",
+    "prod_id": "CONN-17279",
+    "footprint": "SparkFun-Connector:ScrewCage_1x10_P3.5mm_Horizontal",
+    "model_path": "3dmodels/Connector.3dshapes/Screw_Cage_3.5mm-10.step"
+  },
+  {
+    "name": "ScrewTerminal_1x02_P3.5mm_Horizontal_Black",
+    "description": "",
+    "prod_id": "CONN-08399",
+    "footprint": "SparkFun-Connector:ScrewTerminal_1x02_P3.5mm_Horizontal_Black",
+    "model_path": "3dmodels/Connector.3dshapes/Screw_Terminal_3.5mm_2P_Black.step"
+  },
+  {
+    "name": "ScrewTerminal_1x03_P3.5mm_Horizontal_Black",
+    "description": "",
+    "prod_id": "CONN-08288",
+    "footprint": "SparkFun-Connector:ScrewTerminal_1x03_P3.5mm_Horizontal_Black",
+    "model_path": "3dmodels/Connector.3dshapes/Screw_Terminal_3.5mm_3P_Black.step"
+  },
+  {
+    "name": "TestPoint_PTH",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Connector:1x01_P2.54mm",
+    "model_path": "3dmodels/Connector.3dshapes/PinHeader_1x01_P2.54mm_Vertical.step"
+  },
+  {
+    "name": "USB_C_Receptacle",
+    "description": "",
+    "prod_id": "CONN-14122",
+    "footprint": "SparkFun-Connector:USB-C_16",
+    "model_path": "3dmodels/Connector.3dshapes/USB-C_16.step"
+  },
+  {
+    "name": "microSD_Friction",
+    "description": "",
+    "prod_id": "CONN-20948",
+    "footprint": "SparkFun-Connector:microSD_Friction_Fit_Common",
+    "model_path": "3dmodels/Connector.3dshapes/microSD_Friction_Fit.step"
+  },
+  {
+    "name": "microSD_PushPush",
+    "description": "",
+    "prod_id": "CONN-16110",
+    "footprint": "SparkFun-Connector:microSD_External_Pin",
+    "model_path": "3dmodels/Connector.3dshapes/microSD_External_Pin.step"
+  },
+  {
+    "name": "D",
+    "description": "",
+    "prod_id": "~",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-323",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SOD-323.step"
+  },
+  {
+    "name": "D_1A_1000V",
+    "description": "",
+    "prod_id": "DIO-24347",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-123",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SOD-123.step"
+  },
+  {
+    "name": "D_250mA_100V",
+    "description": "",
+    "prod_id": "DIO-09646",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-323",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SOD-323.step"
+  },
+  {
+    "name": "D_Schottky",
+    "description": "",
+    "prod_id": "DIO-",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-323",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SOD-323.step"
+  },
+  {
+    "name": "D_Schottky_0.12A_40V_0.37V",
+    "description": "",
+    "prod_id": "DIO-11018",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-523",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOD-523.step"
+  },
+  {
+    "name": "D_Schottky_0.5A_20V_0.47V",
+    "description": "",
+    "prod_id": "DIO-14986",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-523",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOD-523.step"
+  },
+  {
+    "name": "D_Schottky_0.5A_40V_0.42V",
+    "description": "",
+    "prod_id": "DIO-10955",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-323",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SOD-323.step"
+  },
+  {
+    "name": "D_Schottky_1A_23V_0.62V",
+    "description": "",
+    "prod_id": "DIO-11623",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-323",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SOD-323.step"
+  },
+  {
+    "name": "D_Schottky_1A_40V_0.5V",
+    "description": "",
+    "prod_id": "DIO-08053",
+    "footprint": "SparkFun-Semiconductor-Standard:SMA",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SMA.step"
+  },
+  {
+    "name": "D_Schottky_3A_10V_0.28V",
+    "description": "",
+    "prod_id": "DIO-14072",
+    "footprint": "SparkFun-Semiconductor-Standard:SOD-323",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SOD-323.step"
+  },
+  {
+    "name": "D_Schottky_3A_40V_0.55V",
+    "description": "",
+    "prod_id": "DIO-14989",
+    "footprint": "SparkFun-Semiconductor-Standard:SMA",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SMA.step"
+  },
+  {
+    "name": "D_TVS",
+    "description": "",
+    "prod_id": "IC-",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-363_SC-70-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-363_SC-70-6.step"
+  },
+  {
+    "name": "D_TVS_0402_14V",
+    "description": "",
+    "prod_id": "DIO-15359",
+    "footprint": "SparkFun-Capacitor:C_0402_1005Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0402_1005Metric.step"
+  },
+  {
+    "name": "D_TVS_0603_24V",
+    "description": "",
+    "prod_id": "DIO-14502",
+    "footprint": "SparkFun-Capacitor:C_0603_1608Metric",
+    "model_path": "3dmodels/Capacitor.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "name": "D_TVS_ESD_4_3.3V",
+    "description": "",
+    "prod_id": "DIO-19494",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-353",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-353_SC-70-5.step"
+  },
+  {
+    "name": "D_TVS_ESD_4_HS_3.3V",
+    "description": "",
+    "prod_id": "DIO-20454",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-353",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-353_SC-70-5.step"
+  },
+  {
+    "name": "D_TVS_ESD_USB_5V",
+    "description": "",
+    "prod_id": "IC-13538",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-6.step"
+  },
+  {
+    "name": "D_TVS_ESD_USB_Host",
+    "description": "",
+    "prod_id": "IC-22104",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-6.step"
+  },
+  {
+    "name": "D_TVS_ESD_USB_SOT886_5.5V",
+    "description": "",
+    "prod_id": "DIO-14084",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-886",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-886.step"
+  },
+  {
+    "name": "D_TVS_SMA_16V",
+    "description": "",
+    "prod_id": "DIO-...",
+    "footprint": "SparkFun-Semiconductor-Standard:SMA",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SMA.step"
+  },
+  {
+    "name": "D_TVS_SMA_93.6V",
+    "description": "",
+    "prod_id": "DIO-26160",
+    "footprint": "SparkFun-Semiconductor-Standard:SMA",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/D_SMA.step"
+  },
+  {
+    "name": "Q_NMOS_0.2A_20V",
+    "description": "",
+    "prod_id": "TRANS-14399",
+    "footprint": "SparkFun-Semiconductor-Standard:SC-89 SOT-490",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-490.step"
+  },
+  {
+    "name": "Q_NMOS_0.2A_50V",
+    "description": "",
+    "prod_id": "TRANS-00830",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_NMOS_0.2A_50V_DUAL",
+    "description": "",
+    "prod_id": "TRANS-25637",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-363_SC-70-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-363_SC-70-6.step"
+  },
+  {
+    "name": "Q_NMOS_100A_100V",
+    "description": "",
+    "prod_id": "TRANS-12437",
+    "footprint": "SparkFun-Semiconductor-Standard:TO-263-2_TabPin2",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TO-263-2.step"
+  },
+  {
+    "name": "Q_NMOS_30A_55V_Horizontal",
+    "description": "",
+    "prod_id": "TRANS-20583",
+    "footprint": "SparkFun-Semiconductor-Standard:TO-220-3_Horizontal_TabDown",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TO-220-3_Horizontal_TabDown.step"
+  },
+  {
+    "name": "Q_NMOS_30A_55V_Vertical",
+    "description": "",
+    "prod_id": "TRANS-20583",
+    "footprint": "SparkFun-Semiconductor-Standard:TO-220-3_Vertical",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TO-220-3_Vertical.step"
+  },
+  {
+    "name": "Q_NMOS_5.8A_30V",
+    "description": "",
+    "prod_id": "TRANS-12988",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_NMOS_DGS",
+    "description": "",
+    "prod_id": "~",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_NMOS_GDS",
+    "description": "",
+    "prod_id": "~",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_NPMOS_DUAL_4A_20V",
+    "description": "",
+    "prod_id": "TRANS-15717",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-6-Tight",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-6.step"
+  },
+  {
+    "name": "Q_NPN_1A_40V",
+    "description": "",
+    "prod_id": "TRANS-08049",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_NPN_BCE",
+    "description": "",
+    "prod_id": "~",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_NPN_BEC",
+    "description": "",
+    "prod_id": "~",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_NPN_DUAL",
+    "description": "",
+    "prod_id": "TRANS-13337",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-363_SC-70-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-363_SC-70-6.step"
+  },
+  {
+    "name": "Q_NPN_D_BEC",
+    "description": "",
+    "prod_id": "IC-...",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_NPN_D_BEC_0.1A_50V",
+    "description": "",
+    "prod_id": "IC-24348",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_PMOS_0.1A_20V",
+    "description": "",
+    "prod_id": "TRANS-15421",
+    "footprint": "SparkFun-Semiconductor-Standard:SC-89 SOT-490",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-490.step"
+  },
+  {
+    "name": "Q_PMOS_4.2A_20V",
+    "description": "",
+    "prod_id": "TRANS-14388",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_PMOS_DGS",
+    "description": "",
+    "prod_id": "~",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_PNP_0.2A_40V",
+    "description": "",
+    "prod_id": "TRANS-08052",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_PNP_0.6A_40V",
+    "description": "",
+    "prod_id": "TRANS-09245",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_PNP_BCE",
+    "description": "",
+    "prod_id": "~",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_PNP_BEC",
+    "description": "",
+    "prod_id": "~",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "Q_PNP_DUAL",
+    "description": "",
+    "prod_id": "TRANS-14386",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-363_SC-70-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-363_SC-70-6.step"
+  },
+  {
+    "name": "LCD_TFT_2.0in-CapTouch",
+    "description": "",
+    "prod_id": "LCD-25764",
+    "footprint": "SparkFun-Display:LCD_TFT_2.0in_Waveshare_Outline",
+    "model_path": "3dmodels/Display.3dshapes/2_inch_capacitive_touch_screen.step"
+  },
+  {
+    "name": "OLED_1.3in",
+    "description": "",
+    "prod_id": "LCD-19994",
+    "footprint": "SparkFun-Display:OLED_1.3in_128x64-Folded",
+    "model_path": "3dmodels/Display.3dshapes/UG-2864KSWLG01.step"
+  },
+  {
+    "name": "OLED_1.5in",
+    "description": "",
+    "prod_id": "LCD-...",
+    "footprint": "SparkFun-Display:OLED_1.5in_128x128-Folded",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_0.5mm-24.step"
+  },
+  {
+    "name": "Buzzer_9mm_SMD",
+    "description": "",
+    "prod_id": "COMP-08568",
+    "footprint": "SparkFun-Electromechanical:Buzzer_9mm_SMD",
+    "model_path": "3dmodels/Electromechanical.3dshapes/Buzzer_9mm_SMD.step"
+  },
+  {
+    "name": "Relay_DPDT_1A_3V_10.0x6.5mm_SMD",
+    "description": "",
+    "prod_id": "COMP-27447",
+    "footprint": "SparkFun-Electromechanical:Relay_DPDT_1A_10.0x6.5mm_SMD",
+    "model_path": "3dmodels/Electromechanical.3dshapes/Relay_10.0x6.5mm_SMD.step"
+  },
+  {
+    "name": "Relay_SPDT_10A_3V_15.6x21.6mm",
+    "description": "",
+    "prod_id": "COMP-14214",
+    "footprint": "SparkFun-Electromechanical:Relay_SPDT_10A_15.2x19.0mm",
+    "model_path": "3dmodels/Electromechanical.3dshapes/Relay_15.2x19.0mm.step"
+  },
+  {
+    "name": "Relay_SPDT_10A_5V_15.2x19.0mm",
+    "description": "",
+    "prod_id": "COMP-24446",
+    "footprint": "SparkFun-Electromechanical:Relay_SPDT_10A_15.2x19.0mm",
+    "model_path": "3dmodels/Electromechanical.3dshapes/Relay_15.2x19.0mm.step"
+  },
+  {
+    "name": "Relay_SPDT_2A_5V_7.5x12.5mm",
+    "description": "",
+    "prod_id": "COMP-24444",
+    "footprint": "SparkFun-Electromechanical:Relay_SPDT_2A_7.5x12.5mm",
+    "model_path": "3dmodels/Electromechanical.3dshapes/Relay_7.5x12.5mm.step"
+  },
+  {
+    "name": "Relay_SPDT_5A_5V_10.3x20.3mm",
+    "description": "",
+    "prod_id": "COMP-24447",
+    "footprint": "SparkFun-Electromechanical:Relay_SPDT_5A_10.3x20.3mm",
+    "model_path": "3dmodels/Electromechanical.3dshapes/Relay_10.2x18.4mm.step"
+  },
+  {
+    "name": "Relay_SPST_5A_5V_5.0x20mm",
+    "description": "",
+    "prod_id": "COMP-24445",
+    "footprint": "SparkFun-Electromechanical:Relay_SPST_5A_5.0x20mm",
+    "model_path": "3dmodels/Electromechanical.3dshapes/Relay_5.0x20.0mm.step"
+  },
+  {
+    "name": "Fuse 16V/2.5A/5.0A",
+    "description": "",
+    "prod_id": "RES-14390",
+    "footprint": "SparkFun-Fuse:1812",
+    "model_path": "3dmodels/Fuse.3dshapes/Fuse_1812_4532Metric.step"
+  },
+  {
+    "name": "Fuse 6V/0.140A/0.280A",
+    "description": "",
+    "prod_id": "RES-,,,",
+    "footprint": "SparkFun-Fuse:0805",
+    "model_path": "3dmodels/Fuse.3dshapes/Fuse_0805_2012Metric.step"
+  },
+  {
+    "name": "Fuse 6V/0.5A/1A",
+    "description": "",
+    "prod_id": "RES-13945",
+    "footprint": "SparkFun-Fuse:0805",
+    "model_path": "3dmodels/Fuse.3dshapes/Fuse_0805_2012Metric.step"
+  },
+  {
+    "name": "Fuse 6V/0.75A/1.5A",
+    "description": "",
+    "prod_id": "RES-11150",
+    "footprint": "SparkFun-Fuse:1206",
+    "model_path": "3dmodels/Fuse.3dshapes/Fuse_1206_3216Metric.step"
+  },
+  {
+    "name": "Fuse 6V/2.0A/4.0A",
+    "description": "",
+    "prod_id": "RES-14313",
+    "footprint": "SparkFun-Fuse:1210",
+    "model_path": "3dmodels/Fuse.3dshapes/Fuse_1210_3225Metric.step"
+  },
+  {
+    "name": "Fuse_Holder-Blade",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Fuse:Fuseholder_Automotive",
+    "model_path": "3dmodels/Fuse.3dshapes/Fuse_3522-2.step"
+  },
+  {
+    "name": "DAN-F10N",
+    "description": "",
+    "prod_id": "IC-25933",
+    "footprint": "SparkFun-GNSS:u-blox_DAN-F10N",
+    "model_path": "3dmodels/GNSS.3dshapes/u-blox_DAN-F10N.step"
+  },
+  {
+    "name": "GNSS_Flex_Carrier_Left",
+    "description": "",
+    "prod_id": "CONN-25207",
+    "footprint": "SparkFun-Connector:2x10_P2.0mm_Header_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.0mm_Header_SMD_Pegs-1.0mm_22817.step"
+  },
+  {
+    "name": "GNSS_Flex_Carrier_Mid",
+    "description": "",
+    "prod_id": "CONN-25207",
+    "footprint": "SparkFun-Connector:2x10_P2.0mm_Header_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.0mm_Header_SMD_Pegs-1.0mm_22817.step"
+  },
+  {
+    "name": "GNSS_Flex_Carrier_Right",
+    "description": "",
+    "prod_id": "CONN-25207",
+    "footprint": "SparkFun-Connector:2x10_P2.0mm_Header_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.0mm_Header_SMD_Pegs-1.0mm_22817.step"
+  },
+  {
+    "name": "GNSS_Flex_Module_Left",
+    "description": "",
+    "prod_id": "CONN-25206",
+    "footprint": "SparkFun-Connector:2x10_P2.0mm_Socket_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.0mm_Socket_SMD_Pegs-1.0mm_22815.step"
+  },
+  {
+    "name": "GNSS_Flex_Module_Mid",
+    "description": "",
+    "prod_id": "CONN-25206",
+    "footprint": "SparkFun-Connector:2x10_P2.0mm_Socket_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.0mm_Socket_SMD_Pegs-1.0mm_22815.step"
+  },
+  {
+    "name": "GNSS_Flex_Module_Right",
+    "description": "",
+    "prod_id": "CONN-25206",
+    "footprint": "SparkFun-Connector:2x10_P2.0mm_Socket_Vertical_SMD_Pegs",
+    "model_path": "3dmodels/Connector.3dshapes/2x10_2.0mm_Socket_SMD_Pegs-1.0mm_22815.step"
+  },
+  {
+    "name": "LC762Z",
+    "description": "",
+    "prod_id": "IC-27030",
+    "footprint": "SparkFun-GNSS:Quectel_L7X",
+    "model_path": "3dmodels/GNSS.3dshapes/Quectel_LC762Z.step"
+  },
+  {
+    "name": "LG290P",
+    "description": "",
+    "prod_id": "GPS-23025",
+    "footprint": "SparkFun-GNSS:Quectel_LG290P",
+    "model_path": "3dmodels/GNSS.3dshapes/Quectel_LG290P.step"
+  },
+  {
+    "name": "LG580P",
+    "description": "",
+    "prod_id": "GPS-25039",
+    "footprint": "SparkFun-GNSS:Quectel_LG580P",
+    "model_path": "3dmodels/GNSS.3dshapes/Quectel_LG580P.step"
+  },
+  {
+    "name": "LS550G",
+    "description": "",
+    "prod_id": "IC-...",
+    "footprint": "SparkFun-GNSS:Quectel_LS5x",
+    "model_path": "3dmodels/GNSS.3dshapes/Quectel_LS550G.step"
+  },
+  {
+    "name": "NEO-D9S",
+    "description": "",
+    "prod_id": "IC-16579",
+    "footprint": "SparkFun-GNSS:NEO-M9N_M8T_M8U_D9S_F9P_F10N",
+    "model_path": "3dmodels/GNSS.3dshapes/NEO.step"
+  },
+  {
+    "name": "NEO-F10N",
+    "description": "",
+    "prod_id": "IC-20627",
+    "footprint": "SparkFun-GNSS:NEO-M9N_M8T_M8U_D9S_F9P_F10N",
+    "model_path": "3dmodels/GNSS.3dshapes/NEO.step"
+  },
+  {
+    "name": "P23M",
+    "description": "",
+    "prod_id": "IC-28074",
+    "footprint": "SparkFun-GNSS:P23M",
+    "model_path": "3dmodels/GNSS.3dshapes/P23M.step"
+  },
+  {
+    "name": "SAM-M8Q",
+    "description": "",
+    "prod_id": "IC-14070",
+    "footprint": "SparkFun-GNSS:u-blox_SAM-M8Q",
+    "model_path": "3dmodels/GNSS.3dshapes/u-blox_SAM-M8Q.step"
+  },
+  {
+    "name": "ZED-F9P",
+    "description": "",
+    "prod_id": "IC-16923",
+    "footprint": "SparkFun-GNSS:ZED-F9P_F9T_F9R_X20P",
+    "model_path": "3dmodels/GNSS.3dshapes/zed-f9p.step"
+  },
+  {
+    "name": "ZED-F9T",
+    "description": "",
+    "prod_id": "IC-16292",
+    "footprint": "SparkFun-GNSS:ZED-F9P_F9T_F9R_X20P",
+    "model_path": "3dmodels/GNSS.3dshapes/zed-f9p.step"
+  },
+  {
+    "name": "ZED-X20P",
+    "description": "",
+    "prod_id": "IC-26061",
+    "footprint": "SparkFun-GNSS:ZED-F9P_F9T_F9R_X20P",
+    "model_path": "3dmodels/GNSS.3dshapes/zed-f9p.step"
+  },
+  {
+    "name": "mosaic-G5_P3",
+    "description": "",
+    "prod_id": "IC-26406",
+    "footprint": "SparkFun-GNSS:Septentrio_mosaic-G5_LGA54",
+    "model_path": "3dmodels/GNSS.3dshapes/Septentrio_mosaic-G5.step"
+  },
+  {
+    "name": "mosaic-T",
+    "description": "",
+    "prod_id": "GPS-22762",
+    "footprint": "SparkFun-GNSS:Septentrio_mosaic_LGA",
+    "model_path": "3dmodels/GNSS.3dshapes/Septentrio_mosaic-X5-Rev5.step"
+  },
+  {
+    "name": "mosaic-X5",
+    "description": "",
+    "prod_id": "GPS-19395",
+    "footprint": "SparkFun-GNSS:Septentrio_mosaic_LGA",
+    "model_path": "3dmodels/GNSS.3dshapes/Septentrio_mosaic-X5-Rev5.step"
+  },
+  {
+    "name": "Standoff",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Hardware:Standoff",
+    "model_path": "3dmodels/Hardware.3dshapes/Screw_4-40.step"
+  },
+  {
+    "name": "Standoff_Connected",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Hardware:Standoff_Connected",
+    "model_path": "3dmodels/Hardware.3dshapes/Screw_4-40.step"
+  },
+  {
+    "name": "LMV7219M5",
+    "description": "",
+    "prod_id": "IC-23719",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "OpAmp_MCP6021T",
+    "description": "",
+    "prod_id": "IC-12504",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "TSU114",
+    "description": "",
+    "prod_id": "IC-26767",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-16-1EP_3x3mm_P0.5mm_EP1.7x1.7mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-16-1EP_3x3mm_P0.5mm_EP1.7x1.7mm.step"
+  },
+  {
+    "name": "B1601S",
+    "description": "",
+    "prod_id": "IC-27019",
+    "footprint": "SparkFun-Semiconductor-Nonstandard:B10601S",
+    "model_path": "3dmodels/Semiconductor-Nonstandard.3dshapes/Ethernet_Transformer_B1601S_SMD.step"
+  },
+  {
+    "name": "CH340C",
+    "description": "",
+    "prod_id": "IC-14038",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-16",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-16_3.9x9.9mm_P1.27mm.step"
+  },
+  {
+    "name": "CH340E",
+    "description": "",
+    "prod_id": "IC-14135",
+    "footprint": "SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/MSOP-10_3x3mm_P0.5mm.step"
+  },
+  {
+    "name": "CH340G",
+    "description": "",
+    "prod_id": "IC-13498",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-16",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-16_3.9x9.9mm_P1.27mm.step"
+  },
+  {
+    "name": "CH342F",
+    "description": "",
+    "prod_id": "IC-23059",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-24_4x4mm_P0.5mm.step"
+  },
+  {
+    "name": "KSZ8041NLI",
+    "description": "",
+    "prod_id": "IC-19428",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-32",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-32-1EP_5x5mm_P0.5mm_EP3.3x3.3mm.step"
+  },
+  {
+    "name": "MCP2558FD-xSN",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "ST3222B",
+    "description": "",
+    "prod_id": "IC-26401",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-20_4.4x6.5mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-20_4.4x6.5mm_P0.65mm.step"
+  },
+  {
+    "name": "USB251xB",
+    "description": "",
+    "prod_id": "IC-15827",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-36",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-36-1EP_6x6mm_P0.5mm_EP3.7x3.7mm.step"
+  },
+  {
+    "name": "i226",
+    "description": "",
+    "prod_id": "IC-...",
+    "footprint": "SparkFun-Semiconductor-Standard:VQFN-56",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-56-1EP_7x7mm_P0.4mm_EP5.6x5.6mm.step"
+  },
+  {
+    "name": "74HC4052D",
+    "description": "",
+    "prod_id": "IC-13103",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-16",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-16_3.9x9.9mm_P1.27mm.step"
+  },
+  {
+    "name": "74HC4066BQ",
+    "description": "",
+    "prod_id": "IC-16528",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-14_2.5x3mm_P0.5mm_EP1x1.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-14-1EP_2.5x3.0mm_P0.5mm_EP1.0x1.5mm.step"
+  },
+  {
+    "name": "74HC4066PWR",
+    "description": "",
+    "prod_id": "IC-28175",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-14_4.4x5mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-14_4.4x5mm_P0.65mm.step"
+  },
+  {
+    "name": "74LVC1G14",
+    "description": "",
+    "prod_id": "IC-21903",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-353",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-353_SC-70-5.step"
+  },
+  {
+    "name": "74LVC1G17",
+    "description": "",
+    "prod_id": "IC-21904",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-353",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-353_SC-70-5.step"
+  },
+  {
+    "name": "74LVC1G175",
+    "description": "",
+    "prod_id": "IC-21905",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-363_SC-70-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-363_SC-70-6.step"
+  },
+  {
+    "name": "74LVC2G07",
+    "description": "",
+    "prod_id": "IC-19693",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-6.step"
+  },
+  {
+    "name": "74LVC2T45DC",
+    "description": "",
+    "prod_id": "IC-19989",
+    "footprint": "SparkFun-Semiconductor-Standard:VSSOP8_SOT765-1",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/VSSOP-8_2.3x2mm_P0.5mm.step"
+  },
+  {
+    "name": "APS12808L-3OBM",
+    "description": "",
+    "prod_id": "IC-27418",
+    "footprint": "SparkFun-Semiconductor-Standard:TFBGA-24",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TFBGA-24.step"
+  },
+  {
+    "name": "CAT24C512WI-GT3",
+    "description": "",
+    "prod_id": "IC-14645",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "IS25LP032D-JNLE",
+    "description": "",
+    "prod_id": "IC-14501",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "MX25LM25645G",
+    "description": "",
+    "prod_id": "IC-27417",
+    "footprint": "SparkFun-Semiconductor-Standard:TFBGA-24",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TFBGA-24.step"
+  },
+  {
+    "name": "MX25UW12845G",
+    "description": "",
+    "prod_id": "IC-27519",
+    "footprint": "SparkFun-Semiconductor-Standard:TFBGA-24",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TFBGA-24.step"
+  },
+  {
+    "name": "W25Q128JVPIM",
+    "description": "",
+    "prod_id": "IC-15107",
+    "footprint": "SparkFun-Semiconductor-Standard:WDFN-8_6x5mm-SkinnyCenterPad",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4.3mm.step"
+  },
+  {
+    "name": "ZD25WQ16CTIGT",
+    "description": "",
+    "prod_id": "IC-23949",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "ATmega328P-AU",
+    "description": "",
+    "prod_id": "IC-09069",
+    "footprint": "SparkFun-Semiconductor-Standard:TQFP-32_7x7mm_P0.8mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TQFP-32_7x7mm_P0.8mm.step"
+  },
+  {
+    "name": "ATtiny84A-SS",
+    "description": "",
+    "prod_id": "IC-14155",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-14",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-14_3.9x8.65mm_P1.27mm.step"
+  },
+  {
+    "name": "GD32E230F8",
+    "description": "",
+    "prod_id": "IC-25139",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-20_3x3mm_P0.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-20_3x3mm_P0.5mm.step"
+  },
+  {
+    "name": "MIMXRT1062DVL6B",
+    "description": "",
+    "prod_id": "IC-24992",
+    "footprint": "SparkFun-Semiconductor-Standard:MAPBGA_10x10mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/BGA_10x10mm_P0.65mm.step"
+  },
+  {
+    "name": "MIMXRT1062DVL6B_Extended",
+    "description": "",
+    "prod_id": "IC-24992",
+    "footprint": "SparkFun-Semiconductor-Standard:MAPBGA_10x10mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/BGA_10x10mm_P0.65mm.step"
+  },
+  {
+    "name": "RP2350A",
+    "description": "",
+    "prod_id": "IC-22431",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-60-1EP_7x7mm_P0.4mm_EP3.5x3.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-60-1EP_7x7mm_P0.4mm_EP3.5x3.5mm.step"
+  },
+  {
+    "name": "RP2350B",
+    "description": "",
+    "prod_id": "IC-23690",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-80-1EP_10x10mm_P0.4mm_EP3.4x3.4mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-80-1EP_10x10mm_P0.4mm_EP3.4x3.4mm.step"
+  },
+  {
+    "name": "ACS37800",
+    "description": "",
+    "prod_id": "IC-15728",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-16_Wide_Power",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-16W_7.5x10.3mm_P1.27mm.step"
+  },
+  {
+    "name": "AP3012",
+    "description": "",
+    "prod_id": "VREG-13911",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "AP3429",
+    "description": "",
+    "prod_id": "IC-14465",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "AP3602AKTR",
+    "description": "",
+    "prod_id": "VREG-25636",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-6.step"
+  },
+  {
+    "name": "Ag9205-S",
+    "description": "",
+    "prod_id": "IC-24774",
+    "footprint": "SparkFun-Semiconductor-Nonstandard:Ag9200",
+    "model_path": "3dmodels/Semiconductor-Nonstandard.3dshapes/Ag9200.step"
+  },
+  {
+    "name": "CH213K",
+    "description": "",
+    "prod_id": "IC-28273",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23.step"
+  },
+  {
+    "name": "DP5305",
+    "description": "",
+    "prod_id": "IC-26655",
+    "footprint": "SparkFun-Semiconductor-Nonstandard:DP5300",
+    "model_path": "3dmodels/Semiconductor-Nonstandard.3dshapes/Ag9200.step"
+  },
+  {
+    "name": "IR2104",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "JW5026",
+    "description": "",
+    "prod_id": "IC-...",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-6.step"
+  },
+  {
+    "name": "LMR14203",
+    "description": "",
+    "prod_id": "IC-13918",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-6.step"
+  },
+  {
+    "name": "LT4293",
+    "description": "",
+    "prod_id": "IC-26167",
+    "footprint": "SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/MSOP-10_3x3mm_P0.5mm.step"
+  },
+  {
+    "name": "LTC4417",
+    "description": "",
+    "prod_id": "IC-",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-24_4x4mm_P0.5mm.step"
+  },
+  {
+    "name": "LTC4418",
+    "description": "",
+    "prod_id": "IC-26656",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-20-1EP_4x4mm_P0.5mm_EP2.45x2.45mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-20_4x4mm_P0.5mm.step"
+  },
+  {
+    "name": "MAX17048",
+    "description": "",
+    "prod_id": "IC-12551",
+    "footprint": "SparkFun-Semiconductor-Standard:DFN-8_2x2mm_P0.5mm_EP1.2x0.8mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/DFN-8-1EP_2x2mm_P0.5mm_EP1.05x1.75mm.step"
+  },
+  {
+    "name": "MCP73831",
+    "description": "",
+    "prod_id": "IC-09995",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "MCP73833",
+    "description": "",
+    "prod_id": "IC-19890",
+    "footprint": "SparkFun-Semiconductor-Standard:MSOP-10_3x3mm_P0.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/MSOP-10_3x3mm_P0.5mm.step"
+  },
+  {
+    "name": "MIC94064YC6",
+    "description": "",
+    "prod_id": "IC-16794",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-363_SC-70-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-363_SC-70-6.step"
+  },
+  {
+    "name": "MPM3630GQV",
+    "description": "",
+    "prod_id": "IC-...",
+    "footprint": "SparkFun-Semiconductor-Nonstandard:MPM3630GQV",
+    "model_path": "3dmodels/Semiconductor-Nonstandard.3dshapes/MPM3630.step"
+  },
+  {
+    "name": "REC15E-2405SZ",
+    "description": "",
+    "prod_id": "COMP-19263",
+    "footprint": "SparkFun-Semiconductor-Nonstandard:REC15E",
+    "model_path": "3dmodels/Semiconductor-Nonstandard.3dshapes/REC15E-SZ.step"
+  },
+  {
+    "name": "REC15E-4805SZ",
+    "description": "",
+    "prod_id": "COMP-26127",
+    "footprint": "SparkFun-Semiconductor-Nonstandard:REC15E",
+    "model_path": "3dmodels/Semiconductor-Nonstandard.3dshapes/REC15E-SZ.step"
+  },
+  {
+    "name": "TPD3S014",
+    "description": "",
+    "prod_id": "IC-25006",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-6",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-6.step"
+  },
+  {
+    "name": "XC9140",
+    "description": "",
+    "prod_id": "VREG-14648",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "Authentication Coprocessor",
+    "description": "",
+    "prod_id": "IC-26697",
+    "footprint": "SparkFun-Semiconductor-Standard:DFN-8_3x2mm_P0.5mm_EP1.66x1.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/DFN-8_3x2mm.step"
+  },
+  {
+    "name": "CD74HC4067",
+    "description": "",
+    "prod_id": "IC-08252",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-24_4.4x7.8mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-24_4.4x7.8mm_P0.65mm.step"
+  },
+  {
+    "name": "CMT8021N1",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "CMT8021N1_Wrong_A_Delete",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "EL3H7",
+    "description": "",
+    "prod_id": "IC-24350",
+    "footprint": "SparkFun-Semiconductor-Standard:SSOP-4",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SSOP-4.step"
+  },
+  {
+    "name": "MY1690X-16S",
+    "description": "",
+    "prod_id": "IC-16491",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-16",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-16_3.9x9.9mm_P1.27mm.step"
+  },
+  {
+    "name": "PCA9306",
+    "description": "",
+    "prod_id": "IC-14450",
+    "footprint": "SparkFun-Semiconductor-Standard:VSSOP8_SOT765-1",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/VSSOP-8_2.3x2mm_P0.5mm.step"
+  },
+  {
+    "name": "PCA9534PW",
+    "description": "",
+    "prod_id": "IC-26490",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-16_4.4x5mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-16_4.4x5mm_P0.65mm.step"
+  },
+  {
+    "name": "PCA9536DP",
+    "description": "",
+    "prod_id": "IC-15034",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-8_3x3mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-8_3x3mm_P0.65mm.step"
+  },
+  {
+    "name": "PCA9554PW",
+    "description": "",
+    "prod_id": "IC-23589",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-16_4.4x5mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-16_4.4x5mm_P0.65mm.step"
+  },
+  {
+    "name": "PCA9557PW",
+    "description": "",
+    "prod_id": "IC-23355",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-16_4.4x5mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-16_4.4x5mm_P0.65mm.step"
+  },
+  {
+    "name": "PCA9846",
+    "description": "",
+    "prod_id": "IC-18372",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-16_4.4x5mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-16_4.4x5mm_P0.65mm.step"
+  },
+  {
+    "name": "PCM5100",
+    "description": "",
+    "prod_id": "IC-11708",
+    "footprint": "SparkFun-Semiconductor-Standard:TSSOP-20_4.4x6.5mm_P0.65mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/TSSOP-20_4.4x6.5mm_P0.65mm.step"
+  },
+  {
+    "name": "SX1509",
+    "description": "",
+    "prod_id": "IC-11311",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-28-1EP_4x4mm_P0.4mm_EP2.6x2.6mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-28-1EP_4x4mm_P0.4mm_EP2.4x2.4mm.step"
+  },
+  {
+    "name": "TC78H670FTG",
+    "description": "",
+    "prod_id": "IC-15170",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-16-1EP_3x3mm_P0.5mm_EP1.45x1.45mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-16-1EP_3x3mm_P0.5mm_EP1.7x1.7mm.step"
+  },
+  {
+    "name": "TCA9555RTWR",
+    "description": "",
+    "prod_id": "IC-27579",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-24-1EP_4x4mm_P0.5mm_EP2.45x2.45mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-24_4x4mm_P0.5mm.step"
+  },
+  {
+    "name": "TLP627",
+    "description": "",
+    "prod_id": "NA",
+    "footprint": "SparkFun-Semiconductor-Standard:DIP-4",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/DIP-4_W7.62mm.step"
+  },
+  {
+    "name": "TLP627-4-SMT",
+    "description": "",
+    "prod_id": "NA",
+    "footprint": "SparkFun-Semiconductor-Standard:SMDIP-4",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SMDIP-4_W7.62mm.step"
+  },
+  {
+    "name": "APA102_2020_6Pin",
+    "description": "",
+    "prod_id": "DIO-14111",
+    "footprint": "SparkFun-LED:APA102_2020_6Pin",
+    "model_path": "3dmodels/LED.3dshapes/APA102-2020.step"
+  },
+  {
+    "name": "CBI_LED_Triple_3mm_PTH_YGR",
+    "description": "",
+    "prod_id": "DIO-19990",
+    "footprint": "SparkFun-LED:CBI_LED_Triple_3mm_PTH",
+    "model_path": "3dmodels/LED.3dshapes/CBI_LED_Triple_3mm_PTH.step"
+  },
+  {
+    "name": "LED",
+    "description": "",
+    "prod_id": "LED-",
+    "footprint": "SparkFun-LED:LED_0603_1608Metric",
+    "model_path": "3dmodels/LED.3dshapes/LED_0603_1608Metric.step"
+  },
+  {
+    "name": "LED_Blue_0603",
+    "description": "",
+    "prod_id": "DIO-08575",
+    "footprint": "SparkFun-LED:LED_0603_1608Metric_Blue",
+    "model_path": "3dmodels/LED.3dshapes/LED_0603_1608Metric_Blue.step"
+  },
+  {
+    "name": "LED_Blue_1206",
+    "description": "",
+    "prod_id": "DIO-09911",
+    "footprint": "SparkFun-LED:LED_1206_3216Metric_Blue",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_Blue.step"
+  },
+  {
+    "name": "LED_Green_0603",
+    "description": "",
+    "prod_id": "DIO-00821",
+    "footprint": "SparkFun-LED:LED_0603_1608Metric_Green",
+    "model_path": "3dmodels/LED.3dshapes/LED_0603_1608Metric_Green.step"
+  },
+  {
+    "name": "LED_Green_1206",
+    "description": "",
+    "prod_id": "DIO-09910",
+    "footprint": "SparkFun-LED:LED_1206_3216Metric_Green",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_Green.step"
+  },
+  {
+    "name": "LED_Green_1206_Bottom",
+    "description": "",
+    "prod_id": "DIO-11076",
+    "footprint": "SparkFun-LED:LED_1206_Green_Bottom",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_Green.step"
+  },
+  {
+    "name": "LED_Green_5mm_PTH_Silk",
+    "description": "",
+    "prod_id": "DIO-09862",
+    "footprint": "SparkFun-LED:LED_5mm_PTH_Green_Silk",
+    "model_path": "3dmodels/LED.3dshapes/LED_PTH_5mm_Green.step"
+  },
+  {
+    "name": "LED_Orange_1206",
+    "description": "",
+    "prod_id": "DIO-09908",
+    "footprint": "SparkFun-LED:LED_1206_3216Metric_Orange",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_Orange.step"
+  },
+  {
+    "name": "LED_Pink_1206",
+    "description": "",
+    "prod_id": "DIO-10415",
+    "footprint": "SparkFun-LED:LED_1206_3216Metric_Pink",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_Pink.step"
+  },
+  {
+    "name": "LED_RGB_1205_Bottom",
+    "description": "",
+    "prod_id": "LED-23358",
+    "footprint": "SparkFun-LED:LED_1205_RGB_Bottom",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_Green.step"
+  },
+  {
+    "name": "LED_Red_0402",
+    "description": "",
+    "prod_id": "DIO-16757",
+    "footprint": "SparkFun-LED:LED_0402_1005Metric_Red",
+    "model_path": "3dmodels/LED.3dshapes/LED_0402_1005Metric_Red.step"
+  },
+  {
+    "name": "LED_Red_0603",
+    "description": "",
+    "prod_id": "DIO-17976",
+    "footprint": "SparkFun-LED:LED_0603_1608Metric_Red",
+    "model_path": "3dmodels/LED.3dshapes/LED_0603_1608Metric_Red.step"
+  },
+  {
+    "name": "LED_Red_1206",
+    "description": "",
+    "prod_id": "DIO-09912",
+    "footprint": "SparkFun-LED:LED_1206_3216Metric_Red",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_Red.step"
+  },
+  {
+    "name": "LED_Red_5mm_PTH_NoSilk",
+    "description": "",
+    "prod_id": "DIO-09529",
+    "footprint": "SparkFun-LED:LED_5mm_PTH_Red_NoSilk",
+    "model_path": "3dmodels/LED.3dshapes/LED_PTH_5mm_Red.step"
+  },
+  {
+    "name": "LED_Red_5mm_PTH_Silk",
+    "description": "",
+    "prod_id": "DIO-09529",
+    "footprint": "SparkFun-LED:LED_5mm_PTH_Red_Silk",
+    "model_path": "3dmodels/LED.3dshapes/LED_PTH_5mm_Red.step"
+  },
+  {
+    "name": "LED_White_0603",
+    "description": "",
+    "prod_id": "DIO-09004",
+    "footprint": "SparkFun-LED:LED_0603_1608Metric_White",
+    "model_path": "3dmodels/LED.3dshapes/LED_0603_1608Metric_White.step"
+  },
+  {
+    "name": "LED_White_1206",
+    "description": "",
+    "prod_id": "DIO-09955",
+    "footprint": "SparkFun-LED:LED_1206_3216Metric_White",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_White.step"
+  },
+  {
+    "name": "LED_Yellow_0402",
+    "description": "",
+    "prod_id": "DIO-27085",
+    "footprint": "SparkFun-LED:LED_0402_1005Metric_Yellow",
+    "model_path": "3dmodels/LED.3dshapes/LED_0402_1005Metric_Yellow.step"
+  },
+  {
+    "name": "LED_Yellow_0603",
+    "description": "",
+    "prod_id": "DIO-09003",
+    "footprint": "SparkFun-LED:LED_0603_1608Metric_Yellow",
+    "model_path": "3dmodels/LED.3dshapes/LED_0603_1608Metric_Yellow.step"
+  },
+  {
+    "name": "LED_Yellow_1206",
+    "description": "",
+    "prod_id": "DIO-09909",
+    "footprint": "SparkFun-LED:LED_1206_3216Metric_Yellow",
+    "model_path": "3dmodels/LED.3dshapes/LED_1206_3216Metric_Castellated_Yellow.step"
+  },
+  {
+    "name": "WS2812B_2020",
+    "description": "",
+    "prod_id": "DIO-15591",
+    "footprint": "SparkFun-LED:WS2812_2020",
+    "model_path": "3dmodels/LED.3dshapes/WS2812-2020.step"
+  },
+  {
+    "name": "AP2112K-3.3",
+    "description": "",
+    "prod_id": "VREG-12457",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "AP2127-1.8",
+    "description": "",
+    "prod_id": "VREG-14239",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "AP7361C-3.3V",
+    "description": "",
+    "prod_id": "VREG-14094",
+    "footprint": "SparkFun-Semiconductor-Standard:DFN-8_3x3mm_P0.65mm_EP2.25x1.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/DFN-8_3x3mm_P0.65mm.step"
+  },
+  {
+    "name": "AP7361C-Adjustable",
+    "description": "",
+    "prod_id": "VREG-17088",
+    "footprint": "SparkFun-Semiconductor-Standard:DFN-8_3x3mm_P0.65mm_EP2.25x1.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/DFN-8_3x3mm_P0.65mm.step"
+  },
+  {
+    "name": "LM1117-3.3",
+    "description": "",
+    "prod_id": "IC-26292",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-223-3_TabPin2",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-223.step"
+  },
+  {
+    "name": "LM1117-5",
+    "description": "",
+    "prod_id": "IC-26394",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-223-3_TabPin2",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-223.step"
+  },
+  {
+    "name": "LP5907MFX-3.3",
+    "description": "",
+    "prod_id": "IC-22105",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "RT9080-1.8",
+    "description": "",
+    "prod_id": "VREG-21045",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "RT9080-2.8",
+    "description": "",
+    "prod_id": "VREG-25608",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "RT9080-3.3",
+    "description": "",
+    "prod_id": "VREG-19034",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "STLQ015-3.3",
+    "description": "",
+    "prod_id": "IC-15779",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "TLV70018DCKR",
+    "description": "",
+    "prod_id": "VREG-27518",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-353",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-353_SC-70-5.step"
+  },
+  {
+    "name": "TLV75733PDRV",
+    "description": "",
+    "prod_id": "VREG-21937",
+    "footprint": "SparkFun-Semiconductor-Standard:WDFN-6_2x2mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm.step"
+  },
+  {
+    "name": "TLV77201PDBVR",
+    "description": "",
+    "prod_id": "VREG-28272",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT23-5",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-23-5.step"
+  },
+  {
+    "name": "TLV77201PDQNR",
+    "description": "",
+    "prod_id": "VREG-...",
+    "footprint": "SparkFun-Semiconductor-Standard:XDFN4-1EP_1.0x1.0mm_EP0.48x0.48mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/XDFN4-1EP_1.0x1.0mm_EP0.48x0.48mm.step"
+  },
+  {
+    "name": "TPL730ADJ-CR",
+    "description": "",
+    "prod_id": "VREG-27419",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-353",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-353_SC-70-5.step"
+  },
+  {
+    "name": "0.47_0603",
+    "description": "",
+    "prod_id": "RES-20715",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "0_0402",
+    "description": "",
+    "prod_id": "RES-14244",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "0_0603",
+    "description": "",
+    "prod_id": "RES-08609",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "1.24k_0603",
+    "description": "",
+    "prod_id": "RES-...",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "1.5k_0603",
+    "description": "",
+    "prod_id": "RES-08306",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "100_0402",
+    "description": "",
+    "prod_id": "RES-25568",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "100_0603",
+    "description": "",
+    "prod_id": "RES-07863",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "100k_0402",
+    "description": "",
+    "prod_id": "RES-25013",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "100k_0603",
+    "description": "",
+    "prod_id": "RES-07828",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "10M_0603",
+    "description": "",
+    "prod_id": "RES-...",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "10_0402",
+    "description": "",
+    "prod_id": "RES-16072",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "10_0603",
+    "description": "",
+    "prod_id": "RES-12581",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "10_1206",
+    "description": "",
+    "prod_id": "RES-08705",
+    "footprint": "SparkFun-Resistor:R_1206_3216Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_1206_3216Metric.step"
+  },
+  {
+    "name": "10k_0402",
+    "description": "",
+    "prod_id": "RES-25567",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "10k_0603",
+    "description": "",
+    "prod_id": "RES-00824",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "10k_0603_0.1%",
+    "description": "",
+    "prod_id": "RES-...",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "10k_4x0603_Array",
+    "description": "",
+    "prod_id": "RES-22662",
+    "footprint": "SparkFun-Resistor:R_Array_Convex_4x0603",
+    "model_path": "3dmodels/Resistor.3dshapes/R_Array_Convex_4x0603.step"
+  },
+  {
+    "name": "10k_Trimpot_3386U",
+    "description": "",
+    "prod_id": "RES-09730",
+    "footprint": "SparkFun-Resistor:Trimpot_PTH_3386U",
+    "model_path": "3dmodels/Resistor.3dshapes/Trimpot 3386U With Knob.step"
+  },
+  {
+    "name": "11.3k_0603",
+    "description": "",
+    "prod_id": "RES-23590",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "12.1k_0603",
+    "description": "",
+    "prod_id": "RES-09378",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "12.4k_0603",
+    "description": "",
+    "prod_id": "RES-16236",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "12k_0402",
+    "description": "",
+    "prod_id": "RES-14967",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "13.3_2512",
+    "description": "",
+    "prod_id": "RES-25932",
+    "footprint": "SparkFun-Resistor:R_2512_6332Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_2512_6332Metric.step"
+  },
+  {
+    "name": "13k_0603",
+    "description": "",
+    "prod_id": "RES-14017",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "140_0402",
+    "description": "",
+    "prod_id": "RES-15003",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "150_0402",
+    "description": "",
+    "prod_id": "RES-25016",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "150k_0402",
+    "description": "",
+    "prod_id": "RES-15093",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "150k_0603",
+    "description": "",
+    "prod_id": "RES-09117",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "15k_0603",
+    "description": "",
+    "prod_id": "RES-07854",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "15k_0603_0.1%",
+    "description": "",
+    "prod_id": "RES-...",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "169k_0603",
+    "description": "",
+    "prod_id": "RES-14394",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "180_0603",
+    "description": "",
+    "prod_id": "RES-08788",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "180k_0402",
+    "description": "",
+    "prod_id": "RES-16069",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "180k_0603",
+    "description": "",
+    "prod_id": "RES-10066",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "1M_0402",
+    "description": "",
+    "prod_id": "RES-15185",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "1M_0603",
+    "description": "",
+    "prod_id": "RES-07868",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "1M_0603_0.1%",
+    "description": "",
+    "prod_id": "RES-...",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "1k_0402",
+    "description": "",
+    "prod_id": "RES-14342",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "1k_0603",
+    "description": "",
+    "prod_id": "RES-07856",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "2.0k_0402",
+    "description": "",
+    "prod_id": "RES-15406",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "2.0k_0603",
+    "description": "",
+    "prod_id": "RES-08296",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "2.2M_0402",
+    "description": "",
+    "prod_id": "RES-25020",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "2.2k_0402",
+    "description": "",
+    "prod_id": "RES-25566",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "2.2k_0603",
+    "description": "",
+    "prod_id": "RES-08272",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "2.7k_0603",
+    "description": "",
+    "prod_id": "RES-16714",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "200_0402",
+    "description": "",
+    "prod_id": "RES-15550",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "200_0603",
+    "description": "",
+    "prod_id": "RES-08220",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "200k_0402",
+    "description": "",
+    "prod_id": "RES-15347",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "200k_0603",
+    "description": "",
+    "prod_id": "RES-09385",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "20k_0603",
+    "description": "",
+    "prod_id": "RES-09383",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "220_0402",
+    "description": "",
+    "prod_id": "RES-15348",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "220_0603",
+    "description": "",
+    "prod_id": "RES-07861",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "220_4x0402_Array",
+    "description": "",
+    "prod_id": "RES-25638",
+    "footprint": "SparkFun-Resistor:R_Array_Convex_4x0402",
+    "model_path": "3dmodels/Resistor.3dshapes/R_Array_Convex_4x0402.step"
+  },
+  {
+    "name": "22_0402",
+    "description": "",
+    "prod_id": "RES-12427",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "22_0603",
+    "description": "",
+    "prod_id": "RES-08698",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "22k_0402",
+    "description": "",
+    "prod_id": "RES-14281",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "22k_0603",
+    "description": "",
+    "prod_id": "RES-07853",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "240_0402",
+    "description": "",
+    "prod_id": "RES-15008",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "240_0603",
+    "description": "",
+    "prod_id": "RES-07849",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "27_0402",
+    "description": "",
+    "prod_id": "RES-15238",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "27_0603",
+    "description": "",
+    "prod_id": "RES-09334",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "3.3k_0402",
+    "description": "",
+    "prod_id": "RES-15923",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "3.3k_0603",
+    "description": "",
+    "prod_id": "RES-07851",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "3.6k_0603",
+    "description": "",
+    "prod_id": "RES-08417",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "3.9k_0603",
+    "description": "",
+    "prod_id": "RES-08701",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "300k_0603",
+    "description": "",
+    "prod_id": "RES-10809",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "330_0402",
+    "description": "",
+    "prod_id": "RES-15407",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "330_0603",
+    "description": "",
+    "prod_id": "RES-00818",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "33_0402",
+    "description": "",
+    "prod_id": "RES-14883",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "33_0603",
+    "description": "",
+    "prod_id": "RES-08270",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "33k_0402",
+    "description": "",
+    "prod_id": "RES-15128",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "33k_0603",
+    "description": "",
+    "prod_id": "RES-08416",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "390_0402",
+    "description": "",
+    "prod_id": "RES-27084",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "390_0603",
+    "description": "",
+    "prod_id": "RES-07864",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "390k_0603",
+    "description": "",
+    "prod_id": "RES-12024",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "4.02k_0402",
+    "description": "",
+    "prod_id": "RES-27777",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "4.7M_0402",
+    "description": "",
+    "prod_id": "RES-26766",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "4.7_0402",
+    "description": "",
+    "prod_id": "RES-16312",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "4.7k_0402",
+    "description": "",
+    "prod_id": "RES-15343",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "4.7k_0603",
+    "description": "",
+    "prod_id": "RES-07857",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "430k_0402",
+    "description": "",
+    "prod_id": "RES-22490",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "470_0402",
+    "description": "",
+    "prod_id": "RES-25018",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "470_0603",
+    "description": "",
+    "prod_id": "RES-07869",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "470k_0402",
+    "description": "",
+    "prod_id": "RES-25007",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "47k_0603",
+    "description": "",
+    "prod_id": "RES-07871",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "49.9_0603",
+    "description": "",
+    "prod_id": "RES-16237",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "49.9_1206",
+    "description": "",
+    "prod_id": "RES-16252",
+    "footprint": "SparkFun-Resistor:R_1206_3216Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_1206_3216Metric.step"
+  },
+  {
+    "name": "5.1k_0402",
+    "description": "",
+    "prod_id": "RES-14340",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "5.1k_0603",
+    "description": "",
+    "prod_id": "RES-12083",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "5.62k_0603",
+    "description": "",
+    "prod_id": "RES-09823",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "51k_0603",
+    "description": "",
+    "prod_id": "RES-08495",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "560_0402",
+    "description": "",
+    "prod_id": "RES-13766",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "560_0603",
+    "description": "",
+    "prod_id": "RES-27513",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "56k_0402",
+    "description": "",
+    "prod_id": "RES-22102",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "6.49k_0402",
+    "description": "",
+    "prod_id": "RES-25019",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "6.8k_0603",
+    "description": "",
+    "prod_id": "RES-08597",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "619k_0402",
+    "description": "",
+    "prod_id": "RES-27416",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "634k_0603",
+    "description": "",
+    "prod_id": "RES-...",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "68.1k_0603",
+    "description": "",
+    "prod_id": "RES-09380",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "680_0402",
+    "description": "",
+    "prod_id": "RES-22993",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "680k_0603",
+    "description": "",
+    "prod_id": "RES-...",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "68_0603",
+    "description": "",
+    "prod_id": "RES-07860",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "7.5k_0603",
+    "description": "",
+    "prod_id": "RES-13203",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "75k_0603",
+    "description": "",
+    "prod_id": "RES-09737",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "8.2k_0603",
+    "description": "",
+    "prod_id": "RES-10646",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "806k_0402",
+    "description": "",
+    "prod_id": "RES-22471",
+    "footprint": "SparkFun-Resistor:R_0402_1005Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0402_1005Metric.step"
+  },
+  {
+    "name": "82_0805",
+    "description": "",
+    "prod_id": "RES-...",
+    "footprint": "SparkFun-Resistor:R_0805_2012Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0805_2012Metric.step"
+  },
+  {
+    "name": "866_0603",
+    "description": "",
+    "prod_id": "RES-09991",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "R",
+    "description": "",
+    "prod_id": "RES-07856",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "R_Small",
+    "description": "",
+    "prod_id": "RES-07856",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "Thermistor-NTC-10k",
+    "description": "",
+    "prod_id": "RES-13608",
+    "footprint": "SparkFun-Resistor:R_0603_1608Metric",
+    "model_path": "3dmodels/Resistor.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "name": "Trimpot_10k_SMD_3.0x3.0mm",
+    "description": "",
+    "prod_id": "RES-09285",
+    "footprint": "SparkFun-Resistor:Trimpot_SMD_3.0x3.0mm",
+    "model_path": "3dmodels/Resistor.3dshapes/Trimpot_SMD_3.0x3.0mm.step"
+  },
+  {
+    "name": "Antenna_Ceramic_GNSS_18.0x18.0mm",
+    "description": "",
+    "prod_id": "IC-27032",
+    "footprint": "SparkFun-RF:GNSS_Ceramic_Antenna_18.0x18.0mm",
+    "model_path": "3dmodels/RF.3dshapes/GNSS_Ceramic_Antenna_18.0x18.0mm.step"
+  },
+  {
+    "name": "ESP32-C5-WROOM-1",
+    "description": "",
+    "prod_id": "IC-27645",
+    "footprint": "SparkFun-RF:ESP32-C5-WROOM-1",
+    "model_path": "3dmodels/RF.3dshapes/ESP32-C5-WROOM-1.step"
+  },
+  {
+    "name": "ESP32-C5-WROOM-1-NARROW",
+    "description": "",
+    "prod_id": "IC-27645",
+    "footprint": "SparkFun-RF:ESP32-C5-WROOM-1-NARROW",
+    "model_path": "3dmodels/RF.3dshapes/ESP32-C5-WROOM-1.step"
+  },
+  {
+    "name": "ESP32-PICO-V3-02",
+    "description": "",
+    "prod_id": "IC-19692",
+    "footprint": "SparkFun-RF:ESP32-PICO-MINI",
+    "model_path": "3dmodels/RF.3dshapes/ESP32-PICO-MINI-02.step"
+  },
+  {
+    "name": "ESP32-S3-MINI",
+    "description": "",
+    "prod_id": "IC-20979",
+    "footprint": "SparkFun-RF:ESP32-MINI",
+    "model_path": "3dmodels/RF.3dshapes/ESP32-MINI.step"
+  },
+  {
+    "name": "Power_Divider_BP2G1+",
+    "description": "",
+    "prod_id": "IC-17198",
+    "footprint": "SparkFun-RF:BP2G1+",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "Power_Divider_BP2G1+_Bypass1",
+    "description": "",
+    "prod_id": "IC-17198",
+    "footprint": "SparkFun-RF:BP2G1+_Bypass1",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "Power_Divider_BP2G1+_Bypass2",
+    "description": "",
+    "prod_id": "IC-17198",
+    "footprint": "SparkFun-RF:BP2G1+_Bypass2",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "Power_Splitter_JPS-3-1+",
+    "description": "",
+    "prod_id": "COMP-24906",
+    "footprint": "SparkFun-RF:Mini-Circuits_BH292",
+    "model_path": "3dmodels/RF.3dshapes/BH292.step"
+  },
+  {
+    "name": "RC522",
+    "description": "",
+    "prod_id": "IC-TBD",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-32",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-32-1EP_5x5mm_P0.5mm_EP3.3x3.3mm.step"
+  },
+  {
+    "name": "RM2",
+    "description": "",
+    "prod_id": "IC-21607",
+    "footprint": "SparkFun-RF:RM2",
+    "model_path": "3dmodels/RF.3dshapes/RM2.step"
+  },
+  {
+    "name": "RM2_Tight",
+    "description": "",
+    "prod_id": "IC-21607",
+    "footprint": "SparkFun-RF:RM2_Tight",
+    "model_path": "3dmodels/RF.3dshapes/RM2.step"
+  },
+  {
+    "name": "RP-SMA_EdgeMount",
+    "description": "",
+    "prod_id": "CONN-00827",
+    "footprint": "SparkFun-Connector:RP-SMA_Edge",
+    "model_path": "3dmodels/Connector.3dshapes/RP-SMA-Edge.step"
+  },
+  {
+    "name": "SAW_Filter_1575MHz",
+    "description": "",
+    "prod_id": "IC-27031",
+    "footprint": "SparkFun-RF:Filter_1109-5_1.1x0.9mm",
+    "model_path": "3dmodels/RF.3dshapes/Filter_1109-5_1.1x0.9mm.step"
+  },
+  {
+    "name": "SMA_EdgeMount_6.3mm",
+    "description": "",
+    "prod_id": "CONN-08289",
+    "footprint": "SparkFun-Connector:SMA_Edge_6.3mm",
+    "model_path": "3dmodels/Connector.3dshapes/SMA-Edge.step"
+  },
+  {
+    "name": "SMA_EdgeMount_8mm",
+    "description": "",
+    "prod_id": "CONN-19593",
+    "footprint": "SparkFun-Connector:SMA_Edge_8mm",
+    "model_path": "3dmodels/Connector.3dshapes/SMA-Edge.step"
+  },
+  {
+    "name": "U.FL",
+    "description": "",
+    "prod_id": "CONN-09193",
+    "footprint": "SparkFun-Connector:U.FL",
+    "model_path": "3dmodels/Connector.3dshapes/U.FL.step"
+  },
+  {
+    "name": "BMV080",
+    "description": "",
+    "prod_id": "CONN-22959",
+    "footprint": "SparkFun-Connector:FPC_1x13_P0.3mm_Bottom_Contact",
+    "model_path": "3dmodels/Connector.3dshapes/FPC_0.3mm-13_MOLEX_503566-1302.step"
+  },
+  {
+    "name": "CAP1203",
+    "description": "",
+    "prod_id": "IC-14356",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "CY8CMBR3102",
+    "description": "",
+    "prod_id": "IC-27515",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-8",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "name": "FPC235x",
+    "description": "",
+    "prod_id": "IC-26955",
+    "footprint": "SparkFun-Sensor:FPC253x",
+    "model_path": "3dmodels/Sensor.3dshapes/FPC2530.step"
+  },
+  {
+    "name": "HMC6343",
+    "description": "",
+    "prod_id": "IC-12117",
+    "footprint": "SparkFun-Sensor:LCC-36",
+    "model_path": "3dmodels/Sensor.3dshapes/HMC6343_HNW_LCC36.step"
+  },
+  {
+    "name": "HX711",
+    "description": "",
+    "prod_id": "IC-12445",
+    "footprint": "SparkFun-Semiconductor-Standard:SO-16",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SO-16_3.9x9.9mm_P1.27mm.step"
+  },
+  {
+    "name": "IM19",
+    "description": "",
+    "prod_id": "IC-26590",
+    "footprint": "SparkFun-Sensor:IM19",
+    "model_path": "3dmodels/Sensor.3dshapes/IM19.step"
+  },
+  {
+    "name": "IM23-Outline",
+    "description": "",
+    "prod_id": "IC-28076",
+    "footprint": "SparkFun-Sensor:IM23-Outline",
+    "model_path": "3dmodels/Sensor.3dshapes/IM23TCB.step"
+  },
+  {
+    "name": "LIS3DH",
+    "description": "",
+    "prod_id": "IC-13419",
+    "footprint": "SparkFun-Sensor:ST_LGA-16_3x3mm_P0.5mm_5x3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/LGA-16_3x3x1mm.step"
+  },
+  {
+    "name": "LSM6DSOX",
+    "description": "",
+    "prod_id": "IC-18009",
+    "footprint": "SparkFun-Sensor:ST_LGA-14L_2.5x3.0mm_P0.5mm_4x3",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/LGA-14L.step"
+  },
+  {
+    "name": "MPR121QR2",
+    "description": "",
+    "prod_id": "IC-09490",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-20_3x3mm_P0.4mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-20_3x3mm_P0.5mm.step"
+  },
+  {
+    "name": "MPU-6050",
+    "description": "",
+    "prod_id": "IC-10756",
+    "footprint": "SparkFun-Semiconductor-Standard:QFN-24-1EP_4x4mm_P0.5mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/QFN-24_4x4mm_P0.5mm.step"
+  },
+  {
+    "name": "MS8607-02BA",
+    "description": "",
+    "prod_id": "IC-15048",
+    "footprint": "SparkFun-Semiconductor-Standard:LGA-8_3x5mm_P1.25mm",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/LGA-8_3x5mm_P1.25mm.step"
+  },
+  {
+    "name": "SCD41",
+    "description": "",
+    "prod_id": "IC-16053",
+    "footprint": "SparkFun-Sensor:SCD4X",
+    "model_path": "3dmodels/Sensor.3dshapes/SCD4x.step"
+  },
+  {
+    "name": "SEN55_Outline",
+    "description": "",
+    "prod_id": "COMP-20319",
+    "footprint": "SparkFun-Sensor:SEN5x_Outline",
+    "model_path": "3dmodels/Sensor.3dshapes/SEN5x.step"
+  },
+  {
+    "name": "SHT40",
+    "description": "",
+    "prod_id": "IC-...",
+    "footprint": "SparkFun-Sensor:Sensirion_DFN-4_1.5x1.5mm_P0.8mm_SHT4x_NoCentralPad",
+    "model_path": "3dmodels/Sensor.3dshapes/SHT40.step"
+  },
+  {
+    "name": "SHTC3",
+    "description": "",
+    "prod_id": "IC-14840",
+    "footprint": "SparkFun-Sensor:SHTC3",
+    "model_path": "3dmodels/Sensor.3dshapes/SHTC3.step"
+  },
+  {
+    "name": "STC31",
+    "description": "",
+    "prod_id": "IC-16076",
+    "footprint": "SparkFun-Sensor:STC31",
+    "model_path": "3dmodels/Sensor.3dshapes/STC31.step"
+  },
+  {
+    "name": "STCC4",
+    "description": "",
+    "prod_id": "IC-...",
+    "footprint": "SparkFun-Sensor:STCC4",
+    "model_path": "3dmodels/Sensor.3dshapes/STCC4.step"
+  },
+  {
+    "name": "TMP102",
+    "description": "",
+    "prod_id": "IC-09303",
+    "footprint": "SparkFun-Semiconductor-Standard:SOT-563",
+    "model_path": "3dmodels/Semiconductor-Standard.3dshapes/SOT-563.step"
+  },
+  {
+    "name": "VCNL4040",
+    "description": "",
+    "prod_id": null,
+    "footprint": "SparkFun-Sensor:VCNL4040",
+    "model_path": "3dmodels/Sensor.3dshapes/VCNL4040.step"
+  },
+  {
+    "name": "VEML7700-TT",
+    "description": "",
+    "prod_id": "IC-16311",
+    "footprint": "SparkFun-Sensor:VEML7700-TT",
+    "model_path": "3dmodels/Sensor.3dshapes/VEML7700-TT.step"
+  },
+  {
+    "name": "DP3T_Slide_SMD_9.8x3.5mm",
+    "description": "",
+    "prod_id": "SWCH-16121",
+    "footprint": "SparkFun-Switch:Slide_DP3T_SMD_9.8x3.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_DP3T_SMD_9.8x3.5mm.step"
+  },
+  {
+    "name": "DPDT_Slide_SMD_7.2x3.5mm",
+    "description": "",
+    "prod_id": "SWCH-08179",
+    "footprint": "SparkFun-Switch:Slide_DPDT_SMD_7.2x3.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_DPDT_SMD_7.2x3.5mm.step"
+  },
+  {
+    "name": "DPDT_Slide_SMD_9.0x3.6mm",
+    "description": "",
+    "prod_id": "SWCH-14133",
+    "footprint": "SparkFun-Switch:Slide_DPDT_SMD_9.0x3.6mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_DPDT_SMD_9.0x3.6mm.step"
+  },
+  {
+    "name": "Navigation_5Way_SMD_7.5x7.5mm",
+    "description": "",
+    "prod_id": "SWCH-09905",
+    "footprint": "SparkFun-Switch:Navigation_SMD_7.5x7.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Navigation_SMD_7.5x7.5mm.step"
+  },
+  {
+    "name": "Navigation_5Way_SMD_9.9x9.9mm",
+    "description": "",
+    "prod_id": "SWCH-23356",
+    "footprint": "SparkFun-Switch:Navigation_SMD_9.9x9.9mm",
+    "model_path": "3dmodels/Switch.3dshapes/Navigation_SMD_9.9x9.9mm.step"
+  },
+  {
+    "name": "SP3T_Slide_SMD_9.0x3.6mm",
+    "description": "",
+    "prod_id": "SWCH-10805",
+    "footprint": "SparkFun-Switch:Slide_SP3T_SMD_9.7x2.6mm",
+    "model_path": "3dmodels/Switch.3dshapes/SW_SP3T_PCM13.step"
+  },
+  {
+    "name": "SP3T_Slide_SMD_9.8x3.5mm",
+    "description": "",
+    "prod_id": "SWCH-16121",
+    "footprint": "SparkFun-Switch:Slide_DP3T_SMD_9.8x3.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_DP3T_SMD_9.8x3.5mm.step"
+  },
+  {
+    "name": "SPDT_Slide_PTH_11.6x4.0mm",
+    "description": "",
+    "prod_id": "SWCH-08261",
+    "footprint": "SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_SPDT_PTH_11.6x4.0mm.step"
+  },
+  {
+    "name": "SPDT_Slide_PTH_11.6x4.0mm-ShortPin",
+    "description": "",
+    "prod_id": "SWCH-13151",
+    "footprint": "SparkFun-Switch:Slide_SPDT_PTH_11.6x4.0mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_SPDT_PTH_11.6x4.0mm.step"
+  },
+  {
+    "name": "SPDT_Slide_SMD_6.7x2.6mm",
+    "description": "",
+    "prod_id": "SWCH-10651",
+    "footprint": "SparkFun-Switch:Slide_SPST_SMD_6.7x2.6mm",
+    "model_path": "3dmodels/Switch.3dshapes/SW_SPDT_PCM12.step"
+  },
+  {
+    "name": "SPDT_Slide_SMD_7.2x3.5mm",
+    "description": "",
+    "prod_id": "SWCH-08179",
+    "footprint": "SparkFun-Switch:Slide_DPDT_SMD_7.2x3.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_DPDT_SMD_7.2x3.5mm.step"
+  },
+  {
+    "name": "SPDT_Slide_SMD_7.2x3.5mm-HighFriction",
+    "description": "",
+    "prod_id": "SWCH-20616",
+    "footprint": "SparkFun-Switch:Slide_DPDT_SMD_7.2x3.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_DPDT_SMD_7.2x3.5mm.step"
+  },
+  {
+    "name": "SPDT_Slide_SMD_9.0x3.6mm",
+    "description": "",
+    "prod_id": "SWCH-14133",
+    "footprint": "SparkFun-Switch:Slide_DPDT_SMD_9.0x3.6mm",
+    "model_path": "3dmodels/Switch.3dshapes/Slide_DPDT_SMD_9.0x3.6mm.step"
+  },
+  {
+    "name": "SPST_Push_PTH_RA_7.4x4.3mm",
+    "description": "",
+    "prod_id": "SWCH-10672",
+    "footprint": "SparkFun-Switch:Push_PTH_RA_7.4x4.3mm",
+    "model_path": "3dmodels/Switch.3dshapes/SW_Tactile_SPST_Angled_PTS645Vx39-2LFS.step"
+  },
+  {
+    "name": "SPST_Push_PTH_RA_h7.5mm",
+    "description": "",
+    "prod_id": "SWCH-13896",
+    "footprint": "SparkFun-Switch:Push_PTH_RA_8-020_h7.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/SW_Tactile_SPST_Angled_PTS645Vx58-2LFS.step"
+  },
+  {
+    "name": "SPST_Push_SMD_12x12mm_h8.5mm",
+    "description": "",
+    "prod_id": "SWCH-11967",
+    "footprint": "SparkFun-Switch:Push_SMD_12x12mm",
+    "model_path": "3dmodels/Switch.3dshapes/Tactal Switch - SMD (12mmx12mmx8.5mm).step"
+  },
+  {
+    "name": "SPST_Push_SMD_4.2x3.2mm_h2.5mm_Biege",
+    "description": "",
+    "prod_id": "SWCH-24981",
+    "footprint": "SparkFun-Switch:Push_SMD_4.2x3.2mm_h2.5mm_Beige",
+    "model_path": "3dmodels/Switch.3dshapes/Push_SMD_4.2x3.2mm_h2.5mm_Biege.step"
+  },
+  {
+    "name": "SPST_Push_SMD_4.6x2.8mm_h1.9mm",
+    "description": "",
+    "prod_id": "SWCH-13065",
+    "footprint": "SparkFun-Switch:Push_SMD_4.6x2.8mm_h1.9mm",
+    "model_path": "3dmodels/Switch.3dshapes/Push_SMD_4.6x2.8mm_h1.9mm.step"
+  },
+  {
+    "name": "SPST_Push_SMD_4.6x2.8mm_h2.5mm",
+    "description": "",
+    "prod_id": "SWCH-15606",
+    "footprint": "SparkFun-Switch:Push_SMD_4.6x2.8mm_h2.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Push_SMD_4.6x2.8mm_h2.5mm.step"
+  },
+  {
+    "name": "SPST_Push_SMD_5.2x5.2mm_h1.9mm",
+    "description": "",
+    "prod_id": "SWCH-08247",
+    "footprint": "SparkFun-Switch:Push_SMD_5.2x5.2mm_h1.9mm",
+    "model_path": "3dmodels/Switch.3dshapes/Tactile_Switch_5.2x5.2mm_h1.9mm.step"
+  },
+  {
+    "name": "SPST_Push_SMD_5.2x5.2mm_h2.5mm",
+    "description": "",
+    "prod_id": "SWCH-14139",
+    "footprint": "SparkFun-Switch:Push_SMD_5.2x5.2mm_h2.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Tactile_Switch_5.2x5.2mm_h2.5mm.step"
+  },
+  {
+    "name": "SPST_Push_SMD_6.2x6.2mm_h7.0mm",
+    "description": "",
+    "prod_id": "SWCH-11966",
+    "footprint": "SparkFun-Switch:Push_SMD_6.2x6.2mm",
+    "model_path": "3dmodels/Switch.3dshapes/Push_SMD_6.2x6.2mm_h7.0mm.step"
+  },
+  {
+    "name": "SPST_Push_SMD_6x3.5mm_h2.5mm",
+    "description": "",
+    "prod_id": "SWCH-14278",
+    "footprint": "SparkFun-Switch:Push_SMD_6x3.5mm",
+    "model_path": "3dmodels/Switch.3dshapes/Push_SMD_6x3.5mm.step"
+  },
+  {
+    "name": "SPST_Push_SMD_RA_5x3mm_h3.6mm",
+    "description": "",
+    "prod_id": "SWCH-12265",
+    "footprint": "SparkFun-Switch:Push_SMD_RA_5x3mm",
+    "model_path": "3dmodels/Switch.3dshapes/Push_SMD_RA_5x3mm.step"
+  }
+]
