@@ -8,7 +8,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
-const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/api/ask`;
+const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/ask`;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

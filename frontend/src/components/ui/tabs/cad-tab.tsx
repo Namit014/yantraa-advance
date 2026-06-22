@@ -4,12 +4,12 @@ import { useState, useEffect, Suspense, useMemo, useRef } from "react";
 import { Loader2, Box, Info, Play, Pause, Eye, EyeOff, ListTree, Ruler, Ghost, MessageSquare, Mic, MicOff, Move, Maximize2, RotateCw, Settings, Layers, Network, Scissors, BoxSelect, AlertTriangle, Magnet } from "lucide-react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { 
-    OrbitControls, 
-    Environment, 
-    Grid, 
-    Center, 
-    GizmoHelper, 
+import {
+    OrbitControls,
+    Environment,
+    Grid,
+    Center,
+    GizmoHelper,
     GizmoViewport,
     PivotControls,
     ContactShadows,
@@ -131,7 +131,7 @@ function CameraFlyTo({ selectedMesh, meshes, controlsRef }: { selectedMesh: stri
 
     useEffect(() => {
         if (!selectedMesh || !controlsRef.current) return;
-        
+
         // Use a timeout to ensure the mesh has been rendered and added to the scene graph
         const timer = setTimeout(() => {
             const object3D = scene.getObjectByName(selectedMesh);
@@ -139,24 +139,24 @@ function CameraFlyTo({ selectedMesh, meshes, controlsRef }: { selectedMesh: stri
                 const box = new THREE.Box3().setFromObject(object3D);
                 const center = new THREE.Vector3();
                 box.getCenter(center);
-                
+
                 const size = new THREE.Vector3();
                 box.getSize(size);
                 const maxDim = Math.max(size.x, size.y, size.z);
-                
+
                 targetLookAt.current.copy(center);
                 // Position camera to look at the center from an optimal distance
                 targetPosition.current.copy(center).add(new THREE.Vector3(maxDim * 1.5, maxDim * 1.0, maxDim * 1.5));
-                
+
                 isAnimating.current = true;
             }
         }, 50);
-        
+
         // Failsafe: stop animating after 1.5s so user regains control
         const stopTimer = setTimeout(() => {
             isAnimating.current = false;
         }, 1500);
-        
+
         return () => {
             clearTimeout(timer);
             clearTimeout(stopTimer);
@@ -178,13 +178,13 @@ function CameraFlyTo({ selectedMesh, meshes, controlsRef }: { selectedMesh: stri
     return null;
 }
 
-function CADModel({ 
-    meshes, 
-    url, 
-    explosion, 
-    hoveredMesh, 
-    setHoveredMesh, 
-    selectedMesh, 
+function CADModel({
+    meshes,
+    url,
+    explosion,
+    hoveredMesh,
+    setHoveredMesh,
+    selectedMesh,
     setSelectedMesh,
     hiddenMeshes,
     clipAxis,
@@ -205,13 +205,13 @@ function CADModel({
     setTransforming,
     showBoundingBox,
     magnetEnabled
-}: { 
-    meshes: LoadedMesh[], 
-    url: string, 
-    explosion: number, 
-    hoveredMesh: string | null, 
-    setHoveredMesh: (id: string | null) => void, 
-    selectedMesh: string | null, 
+}: {
+    meshes: LoadedMesh[],
+    url: string,
+    explosion: number,
+    hoveredMesh: string | null,
+    setHoveredMesh: (id: string | null) => void,
+    selectedMesh: string | null,
     setSelectedMesh: (id: string | null) => void,
     hiddenMeshes: Set<string>,
     clipAxis: 'x' | 'y' | 'z' | null,
@@ -237,14 +237,14 @@ function CADModel({
         const vectors = new Map();
         const bBoxes = new Map<string, THREE.Box3>();
         const gBox = new THREE.Box3();
-        
+
         // Compute transformed bounding boxes for all meshes
         meshes.forEach(m => {
             if (!m.geometry.boundingBox) m.geometry.computeBoundingBox();
-            
+
             const box = m.geometry.boundingBox!.clone();
             const pTransform = partTransforms[m.id] || {};
-            
+
             // Apply scale
             const scale = new THREE.Vector3(
                 pTransform.scale?.[0] ?? 1,
@@ -253,7 +253,7 @@ function CADModel({
             );
             box.min.multiply(scale);
             box.max.multiply(scale);
-            
+
             // Apply translation
             const pos = new THREE.Vector3(
                 pTransform.position?.[0] ?? 0,
@@ -261,7 +261,7 @@ function CADModel({
                 pTransform.position?.[2] ?? 0
             );
             box.translate(pos);
-            
+
             bBoxes.set(m.id, box);
             gBox.union(box);
         });
@@ -281,19 +281,19 @@ function CADModel({
 
     const clippingPlane = useMemo(() => {
         if (!clipAxis) return null;
-        
+
         const globalBox = new THREE.Box3();
         meshes.forEach(m => {
             if (m.geometry.boundingBox) globalBox.union(m.geometry.boundingBox);
         });
-        
+
         const min = globalBox.min[clipAxis];
         const max = globalBox.max[clipAxis];
         const pos = min + (max - min) * (clipValue / 100);
-        
+
         const normal = new THREE.Vector3(0, 0, 0);
-        normal[clipAxis] = -1; 
-        
+        normal[clipAxis] = -1;
+
         return new THREE.Plane(normal, pos);
     }, [clipAxis, clipValue, meshes]);
 
@@ -319,18 +319,18 @@ function CADModel({
         let maxVolume = 0;
         let lowestY = Infinity;
         let highestY = -Infinity;
-        
+
         meshes.forEach(m => {
             if (!m.geometry.boundingBox) m.geometry.computeBoundingBox();
             const size = m.geometry.boundingBox!.getSize(new THREE.Vector3());
             const volume = size.x * size.y * size.z;
             if (volume > maxVolume) maxVolume = volume;
-            
+
             const minY = m.geometry.boundingBox!.min.y;
             const maxY = m.geometry.boundingBox!.max.y;
             if (minY < lowestY) lowestY = minY;
             if (maxY > highestY) highestY = maxY;
-            
+
             mats.set(m.id, volume);
         });
 
@@ -339,10 +339,10 @@ function CADModel({
         meshes.forEach(m => {
             const volume = mats.get(m.id);
             const ratio = maxVolume > 0 ? volume / maxVolume : 0;
-            
+
             const box = m.geometry.boundingBox!;
             const isBase = totalHeight > 0 && (box.min.y - lowestY) <= (totalHeight * 0.1) && ratio > 0.01;
-            
+
             let props;
             if (renderMode === 1 && (isBase || ratio > 0.05)) {
                 // Ghost mode: Frosted glass for large structural shells
@@ -361,70 +361,70 @@ function CADModel({
                 };
             } else if (renderMode === 2) {
                 // Actual CAD Mode: Raw original colors without Yantra overrides
-                props = { 
-                    color: m.color || new THREE.Color("#aaaaaa"), 
-                    metalness: 0.2, 
-                    roughness: 0.8 
+                props = {
+                    color: m.color || new THREE.Color("#aaaaaa"),
+                    metalness: 0.2,
+                    roughness: 0.8
                 };
             } else if (m.color) {
                 props = { color: m.color, metalness: 0.6, roughness: 0.4, clearcoat: 0.5, clearcoatRoughness: 0.3, envMapIntensity: 1.0 };
             } else if (isBase) {
                 // Base structure: Heavy Steel
-                props = { 
-                    color: new THREE.Color("#2b2c2f"), 
-                    metalness: 0.8, 
-                    roughness: 0.6, 
-                    clearcoat: 0.0, 
+                props = {
+                    color: new THREE.Color("#2b2c2f"),
+                    metalness: 0.8,
+                    roughness: 0.6,
+                    clearcoat: 0.0,
                     envMapIntensity: 1.0
                 };
             } else if (ratio > 0.005) {
                 // Large structural parts: Glossy Carbon Fiber
-                props = { 
-                    color: new THREE.Color("#151515"), 
-                    metalness: 0.3, 
-                    roughness: 0.7, 
-                    clearcoat: 1.0, 
+                props = {
+                    color: new THREE.Color("#151515"),
+                    metalness: 0.3,
+                    roughness: 0.7,
+                    clearcoat: 1.0,
                     clearcoatRoughness: 0.1,
                     envMapIntensity: 1.5
                 };
             } else if (ratio > 0.0005) {
                 // Medium arms/links: Brushed Aluminum
-                props = { 
+                props = {
                     color: new THREE.Color("#d1d5db"), // Light silver
-                    metalness: 0.9, 
-                    roughness: 0.3, 
-                    clearcoat: 0.2, 
+                    metalness: 0.9,
+                    roughness: 0.3,
+                    clearcoat: 0.2,
                     envMapIntensity: 2.0
                 };
             } else if (ratio > 0.00005) {
                 // Covers, joints, small shells: Molded Plastic
-                props = { 
-                    color: robotColor, 
-                    metalness: 0.1, 
-                    roughness: 0.8, 
-                    clearcoat: 0.1, 
+                props = {
+                    color: robotColor,
+                    metalness: 0.1,
+                    roughness: 0.8,
+                    clearcoat: 0.1,
                     envMapIntensity: 0.5
                 };
             } else {
                 // Tiny parts (Screws/Hardware): Bright Steel/Chrome
-                props = { 
-                    color: new THREE.Color("#e5e7eb"), 
-                    metalness: 1.0, 
-                    roughness: 0.1, 
-                    clearcoat: 0.5, 
+                props = {
+                    color: new THREE.Color("#e5e7eb"),
+                    metalness: 1.0,
+                    roughness: 0.1,
+                    clearcoat: 0.5,
                     clearcoatRoughness: 0.0,
                     envMapIntensity: 2.5
                 };
             }
-            mats.set(m.id, { 
-                ...props, 
+            mats.set(m.id, {
+                ...props,
                 volume,
                 clippingPlanes: clippingPlane ? [clippingPlane] : [],
                 clipShadows: true,
                 side: clippingPlane ? THREE.DoubleSide : THREE.FrontSide
             });
         });
-        
+
         return mats;
     }, [meshes, robotColor, clippingPlane, renderMode]);
 
@@ -435,31 +435,31 @@ function CADModel({
                 const dir = explosionVectors.get(mesh.id);
                 // Multiply explosion percentage by 0.5 to keep parts somewhat close
                 const basePos = dir ? dir.clone().multiplyScalar(explosion * 0.015) : new THREE.Vector3();
-                
+
                 const isHovered = hoveredMesh === mesh.id;
                 const isSelected = selectedMesh === mesh.id;
                 const isHidden = hiddenMeshes.has(mesh.id);
                 const isOptimized = optimizedParts?.has(mesh.id);
                 const hasPivot = activePivot === mesh.id;
                 const pTransform = partTransforms[mesh.id] || {};
-                
+
                 if (isHidden) return null;
 
                 const centerPos = new THREE.Vector3();
                 if (mesh.geometry.boundingBox) mesh.geometry.boundingBox.getCenter(centerPos);
 
                 const MeshComponent = (
-                    <group 
-                        key={mesh.id} 
+                    <group
+                        key={mesh.id}
                         position={pTransform.position || basePos}
                         rotation={pTransform.rotation || [0, 0, 0]}
                         scale={pTransform.scale || [1, 1, 1]}
                     >
                         {isOptimized ? (
                             <mesh name={mesh.id} geometry={mesh.geometry} castShadow receiveShadow>
-                                <meshStandardMaterial 
-                                    color="#00ffcc" 
-                                    wireframe={true} 
+                                <meshStandardMaterial
+                                    color="#00ffcc"
+                                    wireframe={true}
                                     emissive="#00ffcc"
                                     emissiveIntensity={2.0}
                                     transparent={true}
@@ -474,13 +474,13 @@ function CADModel({
                                 receiveShadow
                                 onPointerOver={(e) => {
                                     e.stopPropagation();
-                                    if (!isMeasuring) setHoveredMesh(mesh.id); 
-                                    document.body.style.cursor = isMeasuring ? 'crosshair' : 'pointer'; 
+                                    if (!isMeasuring) setHoveredMesh(mesh.id);
+                                    document.body.style.cursor = isMeasuring ? 'crosshair' : 'pointer';
                                 }}
                                 onPointerOut={(e) => {
                                     e.stopPropagation();
                                     setHoveredMesh(null);
-                                    document.body.style.cursor = 'auto'; 
+                                    document.body.style.cursor = 'auto';
                                 }}
                                 onClick={(e) => {
                                     e.stopPropagation();
@@ -502,30 +502,30 @@ function CADModel({
                                 }}
                             >
                                 {renderMode === 1 ? (
-                                    <meshPhysicalMaterial 
-                                        {...matProps} 
+                                    <meshPhysicalMaterial
+                                        {...matProps}
                                         emissive={isHovered || isSelected ? new THREE.Color(0x3a5a7a) : new THREE.Color(0x000000)}
                                         emissiveIntensity={isHovered ? 1.0 : (isSelected ? 2.0 : 0)}
                                     />
                                 ) : (
-                                    <meshStandardMaterial 
-                                        {...matProps} 
+                                    <meshStandardMaterial
+                                        {...matProps}
                                         emissive={isHovered || isSelected ? new THREE.Color(0x3a5a7a) : new THREE.Color(0x000000)}
                                         emissiveIntensity={isHovered ? 1.0 : (isSelected ? 2.0 : 0)}
                                     />
                                 )}
-                                
+
                             </mesh>
                         )}
-                        
+
                         {/* Highlight outlines */}
                         {(isHovered || isSelected) && !isOptimized && (
                             <mesh geometry={mesh.geometry}>
-                                <meshBasicMaterial 
-                                    color={isSelected ? "#3b82f6" : "#ffffff"} 
-                                    wireframe 
-                                    transparent 
-                                    opacity={isSelected ? 0.8 : 0.3} 
+                                <meshBasicMaterial
+                                    color={isSelected ? "#3b82f6" : "#ffffff"}
+                                    wireframe
+                                    transparent
+                                    opacity={isSelected ? 0.8 : 0.3}
                                     depthTest={false}
                                 />
                             </mesh>
@@ -548,13 +548,13 @@ function CADModel({
 
                                     if (transformMode === 'translate' && magnetEnabled && mesh.geometry.boundingBox) {
                                         const threshold = 15.0; // Snapping threshold
-                                        
+
                                         const dragBox = mesh.geometry.boundingBox.clone();
                                         const scaleVec = new THREE.Vector3(...newScale);
                                         dragBox.min.multiply(scaleVec);
                                         dragBox.max.multiply(scaleVec);
                                         dragBox.translate(newPos);
-                                        
+
                                         const dragCenter = dragBox.getCenter(new THREE.Vector3());
                                         let snapPos = newPos.clone();
 
@@ -564,10 +564,10 @@ function CADModel({
                                             if (m.id === mesh.id || hiddenMeshes.has(m.id)) return;
                                             const otherBox = boundingBoxes.get(m.id);
                                             if (!otherBox) return;
-                                            
+
                                             const otherCenter = otherBox.getCenter(new THREE.Vector3());
-                                            
-                                            const axes: ('x'|'y'|'z')[] = ['x', 'y', 'z'];
+
+                                            const axes: ('x' | 'y' | 'z')[] = ['x', 'y', 'z'];
                                             axes.forEach(ax => {
                                                 const dCenter = Math.abs(dragCenter[ax] - otherCenter[ax]);
                                                 const dMaxMin = Math.abs(dragBox.max[ax] - otherBox.min[ax]);
@@ -584,14 +584,14 @@ function CADModel({
                                                     } else {
                                                         snapPos[ax] -= (dragBox.min[ax] - otherBox.max[ax]);
                                                     }
-                                                    
+
                                                     if (ax === 'x') bestDistX = bestLocalDist;
                                                     if (ax === 'y') bestDistY = bestLocalDist;
                                                     if (ax === 'z') bestDistZ = bestLocalDist;
                                                 }
                                             });
                                         });
-                                        
+
                                         newPos.copy(snapPos);
                                         obj.position.copy(newPos);
                                     }
@@ -660,20 +660,20 @@ function CADModel({
 
 function FallbackAssembly({ designData }: { designData: any }) {
     if (!designData || !designData.subsystems) return null;
-    
+
     const nodes: any[] = [];
     const assemblyTransforms = designData.assembly_transforms || [];
     const assemblyMode = designData.assembly_mode || "side_by_side";
-    
+
     designData.subsystems.forEach((sub: any, subIdx: number) => {
         const components = sub.components || [];
         components.forEach((comp: any, compIdx: number) => {
             const name = comp.name.toLowerCase();
             const role = (comp.role || "").toLowerCase();
-            
+
             let size: [number, number, number] = [12, 12, 12];
-            let color = "#94a3b8"; 
-            
+            let color = "#94a3b8";
+
             if (name.includes("frame")) {
                 size = [120, 6, 120];
                 color = "#475569";
@@ -681,25 +681,25 @@ function FallbackAssembly({ designData }: { designData: any }) {
                 size = [80, 2, 10];
                 color = "#e2e8f0";
             } else if (name.includes("controller") || name.includes("mcu") || name.includes("arduino") || name.includes("raspberry") || name.includes("flight_controller")) {
-                size = [24, 4, 16]; 
+                size = [24, 4, 16];
                 color = "#a78bfa";
             } else if (name.includes("motor") || name.includes("actuator") || name.includes("servo") || name.includes("brushless_motor")) {
-                size = [15, 18, 15]; 
+                size = [15, 18, 15];
                 color = "#f97316";
             } else if (name.includes("sensor") || name.includes("imu") || name.includes("lidar")) {
-                size = [6, 6, 6]; 
+                size = [6, 6, 6];
                 color = "#22d3ee";
             } else if (name.includes("power") || name.includes("battery") || name.includes("supply") || name.includes("lipo_battery")) {
-                size = [40, 15, 20]; 
+                size = [40, 15, 20];
                 color = "#facc15";
             } else if (name.includes("display") || name.includes("screen") || name.includes("oled")) {
-                size = [16, 10, 2]; 
+                size = [16, 10, 2];
                 color = "#4ade80";
             }
-            
+
             let position: [number, number, number] = [0, 0, 0];
             let rotation: [number, number, number] = [0, 0, 0];
-            
+
             if (assemblyMode === "assembled" && assemblyTransforms.length > 0) {
                 const match = assemblyTransforms.find((t: any) => t.id === comp.id);
                 if (match) {
@@ -716,7 +716,7 @@ function FallbackAssembly({ designData }: { designData: any }) {
                 const y = compIdx * 25 + size[1] / 2;
                 position = [x, y, 0];
             }
-            
+
             nodes.push({
                 id: comp.id || `cad-${subIdx}-${compIdx}`,
                 name: comp.name,
@@ -728,26 +728,26 @@ function FallbackAssembly({ designData }: { designData: any }) {
             });
         });
     });
-    
+
     return (
         <group position={[0, 10, 0]}>
             {nodes.map((node) => (
                 <group key={node.id} position={node.position} rotation={node.rotation}>
                     <mesh castShadow receiveShadow>
                         <boxGeometry args={node.size} />
-                        <meshStandardMaterial 
-                            color={node.color} 
-                            roughness={0.4} 
-                            metalness={0.2} 
+                        <meshStandardMaterial
+                            color={node.color}
+                            roughness={0.4}
+                            metalness={0.2}
                         />
                     </mesh>
                     <mesh>
                         <boxGeometry args={[node.size[0] + 0.2, node.size[1] + 0.2, node.size[2] + 0.2]} />
-                        <meshBasicMaterial 
-                            color="#ffffff" 
-                            wireframe 
-                            transparent 
-                            opacity={0.12} 
+                        <meshBasicMaterial
+                            color="#ffffff"
+                            wireframe
+                            transparent
+                            opacity={0.12}
                         />
                     </mesh>
                 </group>
@@ -760,7 +760,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     const [meshes, setMeshes] = useState<LoadedMesh[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    
+
     // Advanced UX State
     const [explosion, setExplosion] = useState(0);
     const [hoveredMesh, setHoveredMesh] = useState<string | null>(null);
@@ -769,7 +769,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     const [hiddenMeshes, setHiddenMeshes] = useState<Set<string>>(new Set());
     const [showBOM, setShowBOM] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
-    const [clipAxis, setClipAxis] = useState<'x'|'y'|'z'|null>(null);
+    const [clipAxis, setClipAxis] = useState<'x' | 'y' | 'z' | null>(null);
     const [clipValue, setClipValue] = useState(50);
     const [isMeasuring, setIsMeasuring] = useState(false);
     const [measurePoints, setMeasurePoints] = useState<THREE.Vector3[]>([]);
@@ -777,22 +777,22 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     const [envPreset, setEnvPreset] = useState<"warehouse" | "studio" | "city" | "dawn">("warehouse");
     const [isAnnotating, setIsAnnotating] = useState(false);
     const [annotations, setAnnotations] = useState<Annotation[]>([]);
-    
+
     // Jarvis Voice Control
     const [isListening, setIsListening] = useState(false);
     const [transcript, setTranscript] = useState('');
-    
+
     // Generative Design & Interaction
     const [optimizedParts, setOptimizedParts] = useState<Set<string>>(new Set());
     const [activePivot, setActivePivot] = useState<string | null>(null);
     const [transformMode, setTransformMode] = useState<'translate' | 'rotate' | 'scale' | null>(null);
     const [partTransforms, setPartTransforms] = useState<Record<string, { position?: [number, number, number], rotation?: [number, number, number], scale?: [number, number, number] }>>({});
     const [transforming, setTransforming] = useState(false);
-    
+
     // Engineering Analysis State
     const [showBoundingBox, setShowBoundingBox] = useState(false);
     const [magnetEnabled, setMagnetEnabled] = useState(true);
-    
+
     const controlsRef = useRef<any>(null);
 
     // Call .dispose() on OrbitControls reference on unmount to prevent stale listeners
@@ -815,9 +815,9 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
         try {
             const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
             const filename = `${partName.replace(/[^a-zA-Z0-9_-]/g, "_")}.step`;
-            
+
             setGeneratingParts(prev => ({ ...prev, [partName]: "Generating (Zoo AI)..." }));
-            
+
             const response = await fetch(`${apiUrl}/api/generate-cad`, {
                 method: "POST",
                 headers: {
@@ -828,12 +828,12 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     filename: filename
                 })
             });
-            
+
             if (!response.ok) {
                 const errData = await response.json();
                 throw new Error(errData.detail || "Zoo generation failed.");
             }
-            
+
             const data = await response.json();
             if (data.cad_url) {
                 setGeneratingParts(prev => {
@@ -942,14 +942,14 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
         const dist = 300;
         const target = new THREE.Vector3(0, 50, 0);
         let pos = new THREE.Vector3();
-        
+
         switch (view) {
             case 'front': pos.set(0, 50, dist); break;
             case 'top': pos.set(0, dist, 0); break;
             case 'side': pos.set(dist, 50, 0); break;
             case 'iso': pos.set(dist, dist, dist); break;
         }
-        
+
         controlsRef.current.object.position.copy(pos);
         controlsRef.current.target.copy(target);
         controlsRef.current.update();
@@ -964,18 +964,18 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
         let isMounted = true;
 
         // Extract assembly transforms from designData if available
-        const assemblyTransforms: Array<{id: string, part: string, cad_url: string, position: number[], rotation: number[]}> = 
+        const assemblyTransforms: Array<{ id: string, part: string, cad_url: string, position: number[], rotation: number[] }> =
             designData?.assembly_transforms || [];
         const assemblyMode = designData?.assembly_mode || "side_by_side";
         async function loadStepFiles() {
             setIsLoading(true);
             setError(null);
-            
+
             try {
                 // Dynamically import to avoid SSR issues
                 // @ts-ignore
                 const occtimportjs = (await import("occt-import-js")).default;
-                
+
                 // Initialize OCCT WebAssembly
                 const occt = await occtimportjs({
                     locateFile: (name: string) => `/${name}`
@@ -984,11 +984,63 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                 const loadedMeshes: LoadedMesh[] = [];
                 let globalMeshId = 0;
 
+<<<<<<< HEAD
+                // Load all step files concurrently
+                const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
+                    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+                    const fetchUrl = url.startsWith('/api')
+                        ? `${apiUrl}${url}`
+                        : url;
+                    const res = await fetch(fetchUrl);
+                    if (!res.ok) throw new Error(`Failed to download CAD file: ${url}`);
+                    const buffer = await res.arrayBuffer();
+
+                    const fileBuffer = new Uint8Array(buffer);
+                    const result = occt.ReadStepFile(fileBuffer, null);
+
+                    if (!result || !result.meshes || result.meshes.length === 0) {
+                        console.warn(`No valid meshes found in CAD file: ${url}`);
+                        return;
+                    }
+
+                    // Add X-axis offset based on file index to space them out initially
+                    const offsetMatrix = new THREE.Matrix4().makeTranslation(fileIndex * 150, 0, 0);
+
+                    for (const m of result.meshes) {
+                        const geometry = new THREE.BufferGeometry();
+
+                        geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
+                        if (m.attributes.normal) {
+                            geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
+                        }
+                        const index = Uint32Array.from(m.index.array);
+                        geometry.setIndex(new THREE.BufferAttribute(index, 1));
+
+                        // Apply the initial spacing offset
+                        geometry.applyMatrix4(offsetMatrix);
+
+                        geometry.computeVertexNormals();
+                        geometry.computeBoundingBox();
+                        geometry.computeBoundingSphere();
+
+                        let color = null;
+                        if (m.color) {
+                            color = new THREE.Color(m.color[0], m.color[1], m.color[2]);
+                        }
+
+                        loadedMeshes.push({
+                            id: `mesh-${fileIndex}-${globalMeshId++}`,
+                            geometry,
+                            color,
+                            name: m.name || `Component ${globalMeshId}`
+                        });
+                    }
+=======
                 // Load all step files concurrently — skip missing files gracefully
                 const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
                     try {
-                        const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL 
-                            ? `${process.env.NEXT_PUBLIC_API_URL}${url}` 
+                        const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL
+                            ? `${process.env.NEXT_PUBLIC_API_URL}${url}`
                             : url;
                         const res = await fetch(fetchUrl);
                         if (!res.ok) {
@@ -996,23 +1048,23 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             return;
                         }
                         const buffer = await res.arrayBuffer();
-                        
+
                         const fileBuffer = new Uint8Array(buffer);
                         const result = occt.ReadStepFile(fileBuffer, null);
-                        
+
                         if (!result || !result.meshes || result.meshes.length === 0) {
                             console.warn(`No valid meshes found in CAD file: ${url}`);
                             return;
                         }
-                        
+
                         // Compute transform matrix — either from assembly engine or side-by-side fallback
                         let offsetMatrix: THREE.Matrix4;
                         let partName = url.split('/').pop()?.replace('.STEP', '').replace('.step', '').replace('.stp', '') || `Part_${fileIndex}`;
-                        
+
                         // Match by index first since cadUrls and assemblyTransforms are in the same order.
                         // This avoids the duplicate .find() matching bug for identical parts.
                         let matchingTransform: typeof assemblyTransforms[0] | null = assemblyTransforms[fileIndex] || null;
-                        
+
                         // Failsafe: if index match does not align with the URL, search the entire array
                         if (matchingTransform) {
                             const tUrl = matchingTransform.cad_url || '';
@@ -1025,20 +1077,20 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 }) || null;
                             }
                         }
-                        
+
                         if (assemblyMode === "assembled" && matchingTransform) {
                             // ASSEMBLY MODE: Apply computed transforms from the assembly engine
                             const pos = matchingTransform.position || [0, 0, 0];
                             const rot = matchingTransform.rotation || [0, 0, 0];
                             partName = matchingTransform.part || partName;
-                            
+
                             const rotMatrix = new THREE.Matrix4().makeRotationFromEuler(
                                 new THREE.Euler(rot[0], rot[1], rot[2], 'XYZ')
                             );
                             offsetMatrix = new THREE.Matrix4()
                                 .multiply(rotMatrix)
                                 .setPosition(pos[0], pos[1], pos[2]);
-                                
+
                             console.log(`[CAD Assembly] ${partName} → pos=[${pos}] rot=[${rot.map((r: number) => (r * 180/Math.PI).toFixed(1))}°]`);
                         } else {
                             // FALLBACK: Side-by-side spacing
@@ -1047,17 +1099,17 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
                         for (const m of result.meshes) {
                             const geometry = new THREE.BufferGeometry();
-                            
+
                             geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
                             if (m.attributes.normal) {
                                 geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
                             }
                             const index = Uint32Array.from(m.index.array);
                             geometry.setIndex(new THREE.BufferAttribute(index, 1));
-                            
+
                             // Apply the transform (either assembly or spacing)
                             geometry.applyMatrix4(offsetMatrix);
-                            
+
                             geometry.computeVertexNormals();
                             geometry.computeBoundingBox();
                             geometry.computeBoundingSphere();
@@ -1120,11 +1172,11 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     <div className="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl p-3 flex flex-col gap-2">
                         <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Visuals</span>
                         <div className="flex flex-col gap-2">
-                            <button 
+                            <button
                                 onClick={() => setRenderMode((prev) => (prev + 1) % 5)}
                                 className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${
-                                    renderMode === 1 ? 'bg-cyan-600/90 text-white shadow-[0_0_15px_rgba(8,145,178,0.4)]' : 
-                                    renderMode === 2 ? 'bg-amber-600/90 text-white shadow-[0_0_15px_rgba(217,119,6,0.4)]' : 
+                                    renderMode === 1 ? 'bg-cyan-600/90 text-white shadow-[0_0_15px_rgba(8,145,178,0.4)]' :
+                                    renderMode === 2 ? 'bg-amber-600/90 text-white shadow-[0_0_15px_rgba(217,119,6,0.4)]' :
                                     renderMode === 3 ? 'bg-rose-600/90 text-white shadow-[0_0_15px_rgba(225,29,72,0.4)]' :
                                     renderMode === 4 ? 'bg-indigo-600/90 text-white shadow-[0_0_15px_rgba(79,70,229,0.4)]' :
                                     'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'
@@ -1135,7 +1187,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 {renderMode === 1 ? 'Ghost Mode' : renderMode === 2 ? 'Actual CAD' : renderMode === 3 ? 'Thermal Analysis' : renderMode === 4 ? 'Stress Analysis' : 'Enable Advanced Render'}
                             </button>
                             {onRemodel && (
-                                <button 
+                                <button
                                     onClick={onRemodel}
                                     disabled={isRemodeling}
                                     className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors border border-blue-500/30 ${
@@ -1148,7 +1200,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             )}
                         </div>
                     </div>
-                    
+
                     {/* Remodeling Overlay */}
                     {isRemodeling && (
                         <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-xl">
@@ -1161,7 +1213,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             </div>
                         </div>
                     )}
-                    
+
 
                     <div className="space-y-3 pt-4 border-t border-white/5">
                         <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider flex items-center justify-between">
@@ -1169,7 +1221,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             {isListening && <span className="flex h-2 w-2 relative"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span></span>}
                         </span>
                         <div className="flex flex-col gap-2">
-                            <button 
+                            <button
                                 onClick={() => setIsListening(!isListening)}
                                 className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${isListening ? 'bg-red-600/90 text-white shadow-[0_0_15px_rgba(220,38,38,0.4)] animate-pulse' : 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'}`}
                             >
@@ -1183,7 +1235,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             )}
                         </div>
                     </div>
-                    
+
                     {/* Remodeling Overlay */}
                     {isRemodeling && (
                         <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-xl">
@@ -1196,7 +1248,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             </div>
                         </div>
                     )}
-                    
+
 
 
 
@@ -1204,7 +1256,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         <div className="space-y-3 pt-4 border-t border-white/5 animate-in fade-in slide-in-from-left-4 duration-300">
                             <span className="text-[10px] uppercase font-bold text-cyan-500 tracking-wider">Part Selected</span>
                             <div className="flex flex-col gap-2">
-                                <button 
+                                <button
                                     onClick={() => {
                                         setOptimizedParts(prev => {
                                             const next = new Set(prev);
@@ -1218,7 +1270,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     <Box size={12} />
                                     {optimizedParts?.has(selectedMesh) ? "Restore Original Part" : "AI Topology Optimize"}
                                 </button>
-                                <button 
+                                <button
                                     onClick={() => setActivePivot(activePivot === selectedMesh ? null : selectedMesh)}
                                     className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium border transition-colors ${activePivot === selectedMesh ? 'bg-indigo-600/40 text-indigo-300 border-indigo-500/50' : 'bg-indigo-600/10 text-indigo-400 hover:bg-indigo-600/20 border-indigo-500/20'}`}
                                 >
@@ -1231,7 +1283,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             </div>
                         </div>
                     )}
-                    
+
                     <div className="space-y-3 pt-4 border-t border-white/5">
                         <div className="flex items-center justify-between">
                             <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Annotation</span>
@@ -1242,7 +1294,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 Clear All
                             </button>
                         </div>
-                        <button 
+                        <button
                             onClick={() => {
                                 setIsAnnotating(!isAnnotating);
                                 if (isMeasuring) setIsMeasuring(false);
@@ -1259,7 +1311,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Environment Studio</span>
                         <div className="grid grid-cols-2 gap-1">
                             {(['warehouse', 'studio', 'city', 'dawn'] as const).map(preset => (
-                                <button 
+                                <button
                                     key={preset}
                                     onClick={() => setEnvPreset(preset)}
                                     className={`px-2 py-1.5 rounded text-[10px] font-bold uppercase transition-colors ${envPreset === preset ? 'bg-indigo-600 text-white shadow-[0_0_10px_rgba(79,70,229,0.4)]' : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700'}`}
@@ -1276,11 +1328,11 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Exploded View</span>
                             <span className="text-[10px] text-blue-400 font-mono">{explosion}%</span>
                         </div>
-                        <input 
-                            type="range" 
-                            min="0" 
-                            max="100" 
-                            value={explosion} 
+                        <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={explosion}
                             onChange={(e) => setExplosion(parseInt(e.target.value))}
                             className="w-full accent-blue-500 h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer mt-1"
                         />
@@ -1292,7 +1344,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Cross-Section</span>
                             <div className="flex gap-1">
                                 {(['x', 'y', 'z'] as const).map(axis => (
-                                    <button 
+                                    <button
                                         key={axis}
                                         onClick={() => setClipAxis(clipAxis === axis ? null : axis)}
                                         className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold uppercase transition-colors ${clipAxis === axis ? 'bg-blue-600 text-white shadow-[0_0_10px_rgba(37,99,235,0.4)]' : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700'}`}
@@ -1303,11 +1355,11 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             </div>
                         </div>
                         {clipAxis && (
-                            <input 
-                                type="range" 
-                                min="0" 
-                                max="100" 
-                                value={clipValue} 
+                            <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value={clipValue}
                                 onChange={(e) => setClipValue(parseInt(e.target.value))}
                                 className="w-full accent-blue-500 h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer mt-1"
                             />
@@ -1319,7 +1371,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         <div className="flex items-center justify-between">
                             <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Distance Tool</span>
                         </div>
-                        <button 
+                        <button
                             onClick={() => {
                                 setIsMeasuring(!isMeasuring);
                                 if (isMeasuring) setMeasurePoints([]);
@@ -1369,18 +1421,18 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
             <div className="w-full h-full">
                 <Canvas camera={{ position: [200, 150, 250], fov: 45 }} gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.1, localClippingEnabled: true }}>
                     <color attach="background" args={['#0e1117']} />
-                    
+
                     <ambientLight intensity={0.5} color="#ffffff" />
                     <spotLight position={[100, 300, 100]} intensity={1.5} angle={0.5} penumbra={1} castShadow color="#fffaf0" />
                     <directionalLight position={[-150, 50, -150]} intensity={1.2} color="#88bbee" />
-                    
+
                     <Environment preset={envPreset} />
 
                     {/* Classic CAD Grid */}
-                    <Grid 
-                        infiniteGrid 
-                        fadeDistance={1000} 
-                        cellColor="#4b5563" 
+                    <Grid
+                        infiniteGrid
+                        fadeDistance={1000}
+                        cellColor="#4b5563"
                         sectionColor="#6b7280"
                         cellThickness={0.7}
                         sectionThickness={1.2}
@@ -1405,16 +1457,16 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
                     <Suspense fallback={null}>
                         {meshes.length > 0 && (
-                            <PivotControls 
-                                activeAxes={[true, true, true]} 
-                                depthTest={false} 
-                                scale={80} 
+                            <PivotControls
+                                activeAxes={[true, true, true]}
+                                depthTest={false}
+                                scale={80}
                                 anchor={[0, -1, 0]}
                                 lineWidth={3}
                             >
                                 <Center bottom>
-                                    <CADModel 
-                                        meshes={meshes} 
+                                    <CADModel
+                                        meshes={meshes}
                                         url={cadUrls ? cadUrls[0] : ''}
                                         explosion={explosion}
                                         hoveredMesh={hoveredMesh}
@@ -1455,9 +1507,9 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     ))}
                     {measurePoints.length === 2 && (
                         <>
-                            <Line 
-                                points={[measurePoints[0], measurePoints[1]]} 
-                                color="#eab308" 
+                            <Line
+                                points={[measurePoints[0], measurePoints[1]]}
+                                color="#eab308"
                                 lineWidth={2}
                                 dashed
                                 dashScale={10}
@@ -1486,14 +1538,14 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     ))}
 
                     <CameraFlyTo selectedMesh={selectedMesh} meshes={meshes} controlsRef={controlsRef} />
-                    <OrbitControls 
+                    <OrbitControls
                         ref={controlsRef}
-                        makeDefault 
-                        enableDamping={!transforming} 
+                        makeDefault
+                        enableDamping={!transforming}
                         enabled={!transforming}
-                        dampingFactor={0.05} 
-                        minDistance={5} 
-                        maxDistance={1000} 
+                        dampingFactor={0.05}
+                        minDistance={5}
+                        maxDistance={1000}
                         target={[0, 50, 0]}
                         autoRotate={autoRotate && !transforming}
                         autoRotateSpeed={1.5}
@@ -1508,19 +1560,19 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
             {/* Component Count & BOM Toggle */}
             {(meshes.length > 0 || (designData?.missing && designData.missing.length > 0)) && (
                 <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
-                    <button 
+                    <button
                         onClick={() => setShowBOM(!showBOM)}
                         className={`flex items-center gap-2 px-3 py-2 rounded-lg border shadow-xl backdrop-blur-md transition-colors ${showBOM ? 'bg-blue-600/90 border-blue-500 text-white' : 'bg-neutral-900/80 border-neutral-800 text-neutral-200 hover:bg-neutral-800'}`}
                     >
                         <ListTree size={16} />
                         <span className="text-xs font-medium">Assembly Tree ({meshes.length})</span>
                     </button>
-                    
+
                     {showBOM && (
                         <div className="w-64 max-h-[60vh] bg-neutral-900/90 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl overflow-hidden flex flex-col">
                             <div className="p-3 border-b border-neutral-800 flex items-center justify-between">
                                 <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Bill of Materials</span>
-                                <button 
+                                <button
                                     onClick={() => setHiddenMeshes(new Set())}
                                     className="text-[10px] text-blue-400 hover:text-blue-300 transition-colors"
                                 >
@@ -1528,9 +1580,9 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 </button>
                             </div>
                             <div className="p-2 border-b border-neutral-800">
-                                <input 
-                                    type="text" 
-                                    placeholder="Search components..." 
+                                <input
+                                    type="text"
+                                    placeholder="Search components..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     className="w-full bg-black/40 border border-neutral-700/50 rounded px-2 py-1.5 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
@@ -1541,9 +1593,9 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     const isHidden = hiddenMeshes.has(mesh.id);
                                     const isSelected = selectedMesh === mesh.id;
                                     const isHovered = hoveredMesh === mesh.id;
-                                    
+
                                     return (
-                                        <div 
+                                        <div
                                             key={mesh.id}
                                             className={`flex items-center justify-between px-2 py-1.5 rounded transition-colors cursor-pointer ${isSelected ? 'bg-blue-600/20 border border-blue-500/30' : isHovered ? 'bg-neutral-800' : 'hover:bg-neutral-800/50 border border-transparent'}`}
                                             onMouseEnter={() => setHoveredMesh(mesh.id)}
@@ -1553,7 +1605,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                             <span className={`text-xs truncate max-w-[140px] ${isHidden ? 'text-neutral-500 line-through' : 'text-neutral-300'}`}>
                                                 {mesh.name}
                                             </span>
-                                            <button 
+                                            <button
                                                 className="text-neutral-500 hover:text-neutral-300 transition-colors p-1"
                                                 onClick={(e) => { e.stopPropagation(); toggleMeshVisibility(mesh.id); }}
                                             >
@@ -1563,7 +1615,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     );
                                 })}
                             </div>
-                            
+
                             {designData?.missing && designData.missing.length > 0 && (
                                 <div className="p-3 border-t border-neutral-800 flex flex-col gap-2">
                                     <span className="text-[10px] uppercase tracking-widest text-red-400 font-bold">Missing Parts (No CAD)</span>
@@ -1581,7 +1633,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                                             {status}
                                                         </span>
                                                     ) : (
-                                                        <button 
+                                                        <button
                                                             onClick={() => handleGenerateCAD(partName)}
                                                             className="text-[10px] text-left text-blue-400 hover:text-blue-300 font-medium transition-colors hover:underline"
                                                         >
@@ -1598,7 +1650,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     )}
                 </div>
             )}
-            
+
             {/* Inspector Sidebar for Component Mapping */}
             {selectedMesh && (
                 <div className="absolute top-0 right-0 h-full w-80 bg-neutral-900/95 backdrop-blur-xl border-l border-neutral-800 shadow-2xl z-30 flex flex-col transform transition-transform duration-300 ease-in-out translate-x-0">
@@ -1615,29 +1667,29 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     </div>
                                     <button onClick={() => setSelectedMesh(null)} className="text-neutral-500 hover:text-white transition-colors">✕</button>
                                 </div>
-                                
+
                                 <h2 className="text-lg font-bold text-white mb-2">{activeMesh.name}</h2>
                                 <p className="text-xs text-neutral-400 mb-6 pb-4 border-b border-neutral-800">
                                     {data.function}
                                 </p>
-                                
+
                                 <h4 className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider mb-3">Transformation Tools</h4>
                                 <div className="grid grid-cols-3 gap-2 mb-6">
-                                    <button 
+                                    <button
                                         onClick={() => setTransformMode(transformMode === 'translate' ? null : 'translate')}
                                         className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'translate' ? 'bg-cyan-600/90 border-cyan-400 text-white' : 'bg-black/40 border-neutral-800/50 text-neutral-400 hover:bg-neutral-800'}`}
                                     >
                                         <Move size={16} />
                                         <span className="text-[10px] font-medium">Move</span>
                                     </button>
-                                    <button 
+                                    <button
                                         onClick={() => setTransformMode(transformMode === 'rotate' ? null : 'rotate')}
                                         className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'rotate' ? 'bg-amber-600/90 border-amber-400 text-white' : 'bg-black/40 border-neutral-800/50 text-neutral-400 hover:bg-neutral-800'}`}
                                     >
                                         <RotateCw size={16} />
                                         <span className="text-[10px] font-medium">Rotate</span>
                                     </button>
-                                    <button 
+                                    <button
                                         onClick={() => setTransformMode(transformMode === 'scale' ? null : 'scale')}
                                         className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'scale' ? 'bg-rose-600/90 border-rose-400 text-white' : 'bg-black/40 border-neutral-800/50 text-neutral-400 hover:bg-neutral-800'}`}
                                     >
@@ -1652,7 +1704,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     <Magnet size={14} />
                                     {magnetEnabled ? "Magnet Snap: ON" : "Magnet Snap: OFF"}
                                 </button>
-                                
+
                                 <h4 className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider mb-3">Specifications</h4>
                                 <div className="bg-black/40 rounded border border-neutral-800/50 p-3 flex flex-col gap-2 mb-6">
                                     {data.specs.map((spec, i) => (
@@ -1685,7 +1737,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 </div>
 
                                 <div className="mt-auto">
-                                    <a 
+                                    <a
                                         href={data.datasheet}
                                         target="_blank"
                                         rel="noreferrer"
@@ -1700,11 +1752,11 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     })()}
                 </div>
             )}
-            
+
             {/* Central Toolbar */}
             <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
                 <div className="flex items-center gap-1 p-1.5 bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 rounded-2xl shadow-2xl">
-                    <button 
+                    <button
                         onClick={() => setAutoRotate(!autoRotate)}
                         className={`p-2.5 rounded-xl transition-all ${autoRotate ? 'bg-blue-600/20 text-blue-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
                         title="Auto Rotate"
@@ -1712,14 +1764,14 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         <RotateCw size={18} />
                     </button>
                     <div className="w-px h-6 bg-neutral-800 mx-1" />
-                    <button 
+                    <button
                         onClick={() => setIsMeasuring(!isMeasuring)}
                         className={`p-2.5 rounded-xl transition-all ${isMeasuring ? 'bg-amber-600/20 text-amber-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
                         title="Measure Distance"
                     >
                         <Ruler size={18} />
                     </button>
-                    <button 
+                    <button
                         onClick={() => setRenderMode((renderMode + 1) % 3)}
                         className={`p-2.5 rounded-xl transition-all ${renderMode === 1 ? 'bg-purple-600/20 text-purple-400' : renderMode === 2 ? 'bg-orange-600/20 text-orange-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
                         title={renderMode === 0 ? "Standard View" : renderMode === 1 ? "Ghost View" : "Original CAD View"}
@@ -1727,7 +1779,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         <Layers size={18} />
                     </button>
                     <div className="w-px h-6 bg-neutral-800 mx-1" />
-                    <button 
+                    <button
                         onClick={() => setShowBoundingBox(!showBoundingBox)}
                         className={`p-2.5 rounded-xl transition-all ${showBoundingBox ? 'bg-cyan-600/20 text-cyan-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
                         title="Bounding Box & Clearances"
@@ -1735,14 +1787,14 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         <BoxSelect size={18} />
                     </button>
                     <div className="w-px h-6 bg-neutral-800 mx-1" />
-                    <button 
+                    <button
                         onClick={() => setExplosion(explosion === 0 ? 50 : 0)}
                         className={`p-2.5 rounded-xl transition-all ${explosion > 0 ? 'bg-orange-600/20 text-orange-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
                         title="Exploded View"
                     >
                         <Network size={18} />
                     </button>
-                    <button 
+                    <button
                         onClick={() => setClipAxis(clipAxis ? null : 'x')}
                         className={`p-2.5 rounded-xl transition-all ${clipAxis ? 'bg-emerald-600/20 text-emerald-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
                         title="Cross Section"
@@ -1750,7 +1802,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         <Scissors size={18} />
                     </button>
                 </div>
-                
+
                 {/* Secondary Panels (Clipping & Explosion Sliders) */}
                 {(clipAxis || explosion > 0) && (
                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-64 p-3 bg-neutral-900/90 backdrop-blur-xl border border-neutral-800 rounded-xl shadow-xl flex flex-col gap-3">
@@ -1760,7 +1812,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     <span className="text-[10px] uppercase font-bold tracking-widest text-neutral-500">Section Plane</span>
                                     <div className="flex gap-1">
                                         {['x', 'y', 'z'].map(axis => (
-                                            <button 
+                                            <button
                                                 key={axis}
                                                 onClick={() => setClipAxis(axis as 'x'|'y'|'z')}
                                                 className={`px-2 py-0.5 rounded text-[10px] uppercase ${clipAxis === axis ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-neutral-800 text-neutral-400 hover:text-white'}`}
@@ -1770,10 +1822,10 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                         ))}
                                     </div>
                                 </div>
-                                <input 
-                                    type="range" 
-                                    min="0" max="100" 
-                                    value={clipValue} 
+                                <input
+                                    type="range"
+                                    min="0" max="100"
+                                    value={clipValue}
                                     onChange={(e) => setClipValue(parseInt(e.target.value))}
                                     className="w-full accent-emerald-500"
                                 />
@@ -1785,10 +1837,10 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     <span className="text-[10px] uppercase font-bold tracking-widest text-neutral-500">Explode Assembly</span>
                                     <span className="text-[10px] text-orange-400 font-mono">{explosion}%</span>
                                 </div>
-                                <input 
-                                    type="range" 
-                                    min="0" max="100" 
-                                    value={explosion} 
+                                <input
+                                    type="range"
+                                    min="0" max="100"
+                                    value={explosion}
                                     onChange={(e) => setExplosion(parseInt(e.target.value))}
                                     className="w-full accent-orange-500"
                                 />

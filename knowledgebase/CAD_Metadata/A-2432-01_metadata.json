@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "filename": "A-2432-01.STEP",
+    "date_created": "2024-02-01T18:21:45",
+    "author": "",
+    "organization": ""
+  },
+  "components": [
+    "A-2432-01",
+    "PCBA-2072-01",
+    "PCBA-2075-01"
+  ],
+  "total_components_found": 3,
+  "analyzed_at": "2026-06-20T15:33:17.219186"
+}

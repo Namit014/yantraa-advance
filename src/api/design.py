@@ -29,6 +29,7 @@ class DesignResponse(BaseModel):
     cad_available: bool = False
     cad_url: Optional[str] = None
     cad_urls: List[str] = []
+    extracted_components: List[str] = []
     chat_reply: Optional[str] = None
     assembly_transforms: List[Dict[str, Any]] = []
     assembly_mode: str = "side_by_side"
@@ -504,6 +505,33 @@ OUTPUT FORMAT:
             cad_urls = [t["cad_url"] for t in assembly_transforms]
             cad_available = True
             cad_url = cad_urls[0] if cad_urls else None
+    
+    # Analyze matched CADs
+    extracted_components = set()
+    try:
+        from step_analyzer import analyze_step_file
+        import glob
+        cad_base_dir = os.path.join(_src_dir, "..", "knowledgebase")
+        meta_dir = os.path.join(cad_base_dir, "CAD_Metadata")
+        os.makedirs(meta_dir, exist_ok=True)
+        
+        for f in matched_cads:
+            search_pattern = os.path.join(cad_base_dir, "**", f)
+            found_files = glob.glob(search_pattern, recursive=True)
+            if found_files:
+                target_file = found_files[0]
+                meta_res = analyze_step_file(target_file)
+                if "components" in meta_res:
+                    extracted_components.update(meta_res["components"])
+                    
+                # Save metadata
+                meta_filename = f.replace(".STEP", "").replace(".step", "") + "_metadata.json"
+                meta_path = os.path.join(meta_dir, meta_filename)
+                with open(meta_path, "w", encoding="utf-8") as mf:
+                    json.dump(meta_res, mf, indent=2)
+                    
+    except Exception as e:
+        print(f"[api/design] CAD metadata extraction failed: {e}")
     
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")
     print(f"[api/design] Assembly mode: {assembly_mode}, CADs: {len(cad_urls)}")
