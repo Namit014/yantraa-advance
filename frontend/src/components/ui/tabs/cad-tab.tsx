@@ -732,6 +732,7 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
     const [meshes, setMeshes] = useState<LoadedMesh[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [warning, setWarning] = useState<string | null>(null);
     
     // Advanced UX State
     const [explosion, setExplosion] = useState(0);
@@ -885,18 +886,31 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
     };
 
     useEffect(() => {
-        if (!cadUrls || cadUrls.length === 0) {
+        const primaryCadUrl = cadUrls?.[0];
+        if (!primaryCadUrl) {
             setMeshes([]);
             return;
         }
 
         let isMounted = true;
 
-        async function loadStepFiles() {
+        async function loadStepFiles(url: string) {
             setIsLoading(true);
             setError(null);
+            setWarning(null);
             
             try {
+                // Before loading
+                const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL 
+                    ? `${process.env.NEXT_PUBLIC_API_URL}${url}` 
+                    : url;
+                
+                const headRes = await fetch(fetchUrl, { method: 'HEAD' });
+                const size = parseInt(headRes.headers.get('content-length') || '0');
+                if (size > 15 * 1024 * 1024) {
+                    setWarning('CAD file is large (>15MB) — loading may take a moment');
+                }
+
                 // Dynamically import to avoid SSR issues
                 // @ts-ignore
                 const occtimportjs = (await import("occt-import-js")).default;
@@ -909,58 +923,50 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                 const loadedMeshes: LoadedMesh[] = [];
                 let globalMeshId = 0;
 
-                // Load all step files concurrently
-                const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
-                    const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL 
-                        ? `${process.env.NEXT_PUBLIC_API_URL}${url}` 
-                        : url;
-                    const res = await fetch(fetchUrl);
-                    if (!res.ok) throw new Error(`Failed to download CAD file: ${url}`);
-                    const buffer = await res.arrayBuffer();
+                const res = await fetch(fetchUrl);
+                if (!res.ok) throw new Error(`Failed to download CAD file: ${url}`);
+                const buffer = await res.arrayBuffer();
+                
+                const fileBuffer = new Uint8Array(buffer);
+                const result = occt.ReadStepFile(fileBuffer, null);
+                
+                if (!result || !result.meshes || result.meshes.length === 0) {
+                    console.warn(`No valid meshes found in CAD file: ${url}`);
+                    return;
+                }
+                
+                // Add X-axis offset (which is 0 since we only load one file)
+                const offsetMatrix = new THREE.Matrix4().makeTranslation(0, 0, 0);
+
+                for (const m of result.meshes) {
+                    const geometry = new THREE.BufferGeometry();
                     
-                    const fileBuffer = new Uint8Array(buffer);
-                    const result = occt.ReadStepFile(fileBuffer, null);
-                    
-                    if (!result || !result.meshes || result.meshes.length === 0) {
-                        console.warn(`No valid meshes found in CAD file: ${url}`);
-                        return;
+                    geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
+                    if (m.attributes.normal) {
+                        geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
                     }
+                    const index = Uint32Array.from(m.index.array);
+                    geometry.setIndex(new THREE.BufferAttribute(index, 1));
                     
-                    // Add X-axis offset based on file index to space them out initially
-                    const offsetMatrix = new THREE.Matrix4().makeTranslation(fileIndex * 150, 0, 0);
+                    // Apply the initial spacing offset
+                    geometry.applyMatrix4(offsetMatrix);
+                    
+                    geometry.computeVertexNormals();
+                    geometry.computeBoundingBox();
+                    geometry.computeBoundingSphere();
 
-                    for (const m of result.meshes) {
-                        const geometry = new THREE.BufferGeometry();
-                        
-                        geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
-                        if (m.attributes.normal) {
-                            geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
-                        }
-                        const index = Uint32Array.from(m.index.array);
-                        geometry.setIndex(new THREE.BufferAttribute(index, 1));
-                        
-                        // Apply the initial spacing offset
-                        geometry.applyMatrix4(offsetMatrix);
-                        
-                        geometry.computeVertexNormals();
-                        geometry.computeBoundingBox();
-                        geometry.computeBoundingSphere();
-
-                        let color = null;
-                        if (m.color) {
-                            color = new THREE.Color(m.color[0], m.color[1], m.color[2]);
-                        }
-
-                        loadedMeshes.push({
-                            id: `mesh-${fileIndex}-${globalMeshId++}`,
-                            geometry,
-                            color,
-                            name: m.name || `Component ${globalMeshId}`
-                        });
+                    let color = null;
+                    if (m.color) {
+                        color = new THREE.Color(m.color[0], m.color[1], m.color[2]);
                     }
-                });
 
-                await Promise.all(fetchPromises);
+                    loadedMeshes.push({
+                        id: `mesh-0-${globalMeshId++}`,
+                        geometry,
+                        color,
+                        name: m.name || `Component ${globalMeshId}`
+                    });
+                }
 
                 if (isMounted) {
                     setMeshes(loadedMeshes);
@@ -973,7 +979,7 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
             }
         }
 
-        loadStepFiles();
+        loadStepFiles(primaryCadUrl);
 
         return () => { isMounted = false; };
     }, [cadUrls]);
@@ -1184,8 +1190,20 @@ export function CADTab({ currentQuery, cadUrls, designData }: CADTabProps) {
                     <Loader2 size={40} className="text-blue-500 animate-spin" />
                     <div className="flex flex-col items-center gap-1">
                         <span className="text-blue-400 text-sm font-medium">Parsing High-Fidelity B-Rep CAD...</span>
-                        <span className="text-blue-500/60 text-xs text-center max-w-xs">Using WebAssembly to render exact continuous surfaces directly from the .stp file.</span>
+                        {warning ? (
+                            <span className="text-amber-400 text-xs text-center max-w-xs font-semibold animate-pulse">{warning}</span>
+                        ) : (
+                            <span className="text-blue-500/60 text-xs text-center max-w-xs">Using WebAssembly to render exact continuous surfaces directly from the .stp file.</span>
+                        )}
                     </div>
+                </div>
+            )}
+
+            {/* Warning Banner */}
+            {warning && !isLoading && (
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-amber-950/80 border border-amber-500/50 text-amber-300 text-xs font-mono px-3 py-2 rounded shadow-xl backdrop-blur-md">
+                    <AlertTriangle size={14} className="text-amber-400" />
+                    <span>{warning}</span>
                 </div>
             )}
 

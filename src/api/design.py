@@ -31,6 +31,26 @@ class DesignResponse(BaseModel):
     chat_reply: Optional[str] = None
     error: Optional[str] = None
 
+def _strip_markdown_json(text: str) -> str:
+    text = text.strip()
+    match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
+    if match:
+        return match.group(1)
+    match = re.search(r'\{.*\}', text, re.DOTALL)
+    if match:
+        return match.group(0)
+    return text
+
+FULL_ASSEMBLY_KEYWORDS = ["full_system", "full-system", "assembly", "complete", "system"]
+
+def pick_primary_cad(matched_files: list[str]) -> list[str]:
+    # Prefer a full assembly file if one exists
+    for f in matched_files:
+        if any(kw in f.lower() for kw in FULL_ASSEMBLY_KEYWORDS):
+            return [f]
+    # Otherwise return only the first match
+    return matched_files[:1] if matched_files else []
+
 def extract_json(text: str) -> dict:
     """Extract and parse JSON object from LLM response text."""
     # Try direct parse first
@@ -406,9 +426,9 @@ USER REQUEST:
         except Exception:
             pass
 
-    cad_available = len(matched_cads) > 0
+    primary_cads = pick_primary_cad(list(matched_cads))
     # Use direct static URL since Next.js hosts the CAD files in public/cad/
-    cad_urls = [f"/cad/{f}" for f in matched_cads]
+    cad_urls = [f"/cad/{f}" for f in primary_cads]
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
     
