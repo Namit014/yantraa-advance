@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 from typing import List, Optional
 
 load_dotenv()
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 
 # ── Path setup ─────────────────────────────────────────────────────────────────
@@ -25,11 +25,16 @@ _src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
+<<<<<<< HEAD
 # ── OpenRouter config ──────────────────────────────────────────────────────────
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Use Gemini 2.5 Flash as the default model
-CONNECTIONS_MODEL = os.environ.get("OPENROUTER_MODEL", "google/gemini-2.5-flash")
+CONNECTIONS_MODEL = "gemini-2.5-flash"
+=======
+# ── LLM Config ─────────────────────────────────────────────────────────
+from llm import invoke_yantra_ai
+>>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
 
 # ── Pydantic models ────────────────────────────────────────────────────────────
 
@@ -64,12 +69,13 @@ def _rag_search(query: str, top_k: int = 5) -> str:
     """Query Qdrant singleton for pinout context for a given component name."""
     try:
         from embedder import Embedder
-        from vectordb import _client
+        from vectordb import get_qdrant_client
 
         embedder = Embedder()
         vec = embedder.embed_text(query)
+        client = get_qdrant_client()
 
-        results = _client.query_points(
+        results = client.query_points(
             collection_name="yantra_knowledgebase",
             query=vec,
             limit=top_k,
@@ -83,24 +89,12 @@ def _rag_search(query: str, top_k: int = 5) -> str:
 
 
 def _call_llm(system: str, user: str) -> str:
-    """Call OpenRouter and return raw content string."""
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000",
-        "X-Title": "Yantra Connections",
-    }
-    payload = {
-        "model": CONNECTIONS_MODEL,
-        "messages": [
-            {"role": "system", "content": system},
-            {"role": "user", "content": user},
-        ],
-        "temperature": 0.3,
-    }
-    resp = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=60)
-    resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"].strip()
+    """Call Google Gemini and return raw content string."""
+    return invoke_yantra_ai(
+        prompt=user,
+        system_prompt=system,
+        response_format="json_object"
+    )
 
 
 def _strip_markdown_json(text: str) -> str:
@@ -197,23 +191,28 @@ def _fallback_diagram(components: List[ComponentIn]) -> dict:
 
 
 @router.post("/api/connections/generate")
-async def generate_connections(request: GenerateRequest):
+async def generate_connections(request: GenerateRequest, req: Request):
     """
     Step 1: For each component, query Qdrant RAG for pinout data.
     Step 2: Call Gemini via OpenRouter with context + prompt.
     Step 3: Return structured node/wire JSON.
     """
-    if not request.components:
-        raise HTTPException(status_code=400, detail="No components provided.")
     if not request.prompt.strip():
         raise HTTPException(status_code=400, detail="Prompt cannot be empty.")
 
     # ── Step 1: RAG context per component ─────────────────────────────────────
     rag_contexts: List[str] = []
-    for comp in request.components[:12]:  # limit to avoid huge prompts
-        ctx = _rag_search(f"{comp.name} pinout datasheet connections")
+    retriever = req.app.state.retriever
+    if request.components:
+        comp_names = [c.name for c in request.components[:12]]
+        combined_query = "pinout datasheet connections for " + ", ".join(comp_names)
+        ctx = _rag_search(combined_query, retriever, top_k=6)
         if ctx:
-            rag_contexts.append(f"## {comp.name}\n{ctx}")
+            rag_contexts.append(f"## Components Pinout Data\n{ctx}")
+    else:
+        ctx = _rag_search(f"{request.prompt} robot components pinout connections datasheet", retriever, top_k=8)
+        if ctx:
+            rag_contexts.append(f"## RAG Context for: {request.prompt}\n{ctx}")
 
     rag_block = "\n\n".join(rag_contexts) if rag_contexts else ""
 
@@ -239,9 +238,12 @@ async def generate_connections(request: GenerateRequest):
     serialized_rules = "\n".join(f"{idx + 1}. {rule}" for idx, rule in enumerate(CONNECTION_RULES))
 
     # ── Step 2: Build LLM prompt ───────────────────────────────────────────────
-    component_list = "\n".join(
-        f"- id={c.id}, name={c.name}, type={c.type}" for c in request.components
-    )
+    if request.components:
+        component_list = "\n".join(
+            f"- id={c.id}, name={c.name}, type={c.type}" for c in request.components
+        )
+    else:
+        component_list = "(No components provided. You MUST determine the necessary components based on the USER PROMPT and RAG PINOUT DATA. Invent logical IDs and names for them, and include them in the nodes array.)"
 
     system_prompt = (
         "You are an expert hardware engineer and circuit diagram generator. "
@@ -276,6 +278,15 @@ NODE SHAPE RULES:
 - Use "breadboard" for breadboards
 - Use "ic-chip" for ICs, drivers, H-bridges
 - Use "generic-board" for everything else
+
+ROBOTICS STANDARDS & REQUIREMENTS:
+- Grounding: Add an explicit "STAR GND" node component. Ensure Logic GND, Motor GND, and Servo GND all explicitly route back to this single "STAR GND" node.
+- Emergency Stop: Clearly implement the E-Stop by either placing a Relay/Contactor that physically cuts main motor power, OR wiring it to pull all driver ENABLE pins to their safe state. Mention which method is used.
+- Fuse Placement: Explicitly include and wire a "Battery Fuse", a "Main System Fuse", and a "Buck Converter Fuse" as separate components.
+- Motor Driver Wiring: Ensure VMOT connects to the main motor supply. Include an explicit "100-470 µF Capacitor" node wired closely across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phases: A+, A-, B+, B-.
+- Servo Power: Provide dedicated step-down voltage regulation (e.g., 5V/6V Buck Converter) for Servos. Include an explicit "470-1000 µF Capacitor" node near the servo power pins.
+- Safe Power Architecture: NEVER directly connect a 24V PSU and LiPo battery simultaneously without power path management.
+- Labeling & Layout: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches. Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
 
 Return ONLY this JSON structure (no markdown fences):
 {{

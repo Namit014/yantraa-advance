@@ -1,0 +1,63 @@
+Source URL: https://docs.isaacsim.omniverse.nvidia.com/4.5.0/gui/tutorial_gui_simple_robot.html
+Scraped: 2026-06-18T18:26:41.258312
+============================================================
+
+# Assembling a Simple Robot in Isaac Sim
+
+This tutorial covers rigging a simple two-wheel mobile robot with three links and two revolute joints in NVIDIA Isaac Sim, introducing core concepts of joints and articulations.
+
+## Prerequisites
+
+Complete the "Add Simple Objects" tutorial first. Open your saved `mock_robot.usd` file via **File > Open**, or load the provided asset from **Samples > Rigging > MockRobot > mock_robot_no_joints** (do not load as a reference, since permanent modifications are required).
+
+## Adding Joints
+
+1. Create a **Scope** to organize the joints by right-clicking **Create > Scope**.
+2. Select both bodies to be joined. Click on the body prim, then hold **Ctrl** and click the wheel prim (e.g., `body` and `wheel_left`).
+3. Right-click and select **Create > Physics > Joints > Revolute Joint**. A `RevoluteJoint` appears under the wheel in the stage tree. Rename it (e.g., `wheel_joint_left`).
+4. In the **Property** tab, verify `body0` is `/mock_robot/body/body` and `body1` is `/mock_robot/wheel_left/wheel_left`.
+5. Set **Local Rotation 0** to `0.0` and **Local Rotation 1** to `-90.0` to account for the transformation between the body and cylinder. Change the joint **Axis** to **Y**.
+6. Repeat for the right wheel joint.
+
+Once joints are added, the bodies move together as a connected unit. You can drag the robot by holding **Shift** and clicking/dragging any part in the viewport.
+
+## Adding a Joint Drive
+
+To control the joints, add a **joint drive API**:
+
+1. Select both joints, click **+ Add** in the Property tab, and select **Physics > Angular Drive**.
+2. For **velocity-controlled joints** (appropriate for wheels), set **Damping** to `1e4` and **Target Velocity** to `200`, with zero stiffness.
+3. For **position-controlled joints**, use high stiffness and low/zero damping.
+4. Joint limits can be set under **Raw USD Properties > Lower (Upper) Limit** in the Property tab.
+
+Press **Play** to see the robot drive off.
+
+## Adding an Articulation
+
+Converting connected rigid bodies and joints into an **articulation** improves simulation fidelity, reduces joint errors, and handles larger mass ratios.
+
+1. Select the root prim (`mock_robot`) in the stage tree.
+2. Open **+ Add** in the Property tab and add **Physics > Articulation Root**.
+3. For **fixed-base articulations**, add the Articulation Root to the fixed joint connecting the base to the world, or to an ancestor of that joint.
+4. For **floating-base articulations**, add it to the root rigid-body link or an ancestor of that link.
+
+Validate the result against the provided asset at **Samples > Rigging > MockRobot > mock_robot_rigged**.
+
+## Adding a Controller
+
+1. Go to **Tools > Robotics > Omnigraph Controllers > Joint Velocity** to add a velocity controller graph.
+2. Click **Add** for "Robot Prim" and select the prim with the Articulation Root API (e.g., `/mock_robot`).
+3. Press **Play** to start the simulation. The robot moves toward any default targets immediately.
+4. To change joint commands, select `JointCommandArray` under `/Graphs/velocity_controller` and adjust `input0` and `input1` in the properties window.
+
+**Note:** Articulation controllers use **radians**, while the default USD Drive API properties are in **degrees**.
+
+The robot can also be controlled using a **Differential Controller**. See **Commonly Used Omnigraph Shortcuts** for more controller options.
+
+## Summary
+
+This tutorial covered connecting rigid bodies with joints, adding joint drives, creating articulations, and controlling the robot with an Articulation Velocity Controller.
+
+## Next Steps
+
+Continue to **Add Camera and Sensors** to learn how to add a camera to the robot.

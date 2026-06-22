@@ -16,7 +16,8 @@ class Embedder:
     def __init__(self):
         print(f"Loading Local Embedding Model: {EMBEDDING_MODEL}")
         # Initialize local sentence-transformers model
-        self.model = SentenceTransformer(EMBEDDING_MODEL)
+        # Use local_files_only=True to prevent HTTP requests during startup that crash the server
+        self.model = SentenceTransformer(EMBEDDING_MODEL, local_files_only=True)
         print("Local Embedder ready.")
 
     def embed_text(self, text):

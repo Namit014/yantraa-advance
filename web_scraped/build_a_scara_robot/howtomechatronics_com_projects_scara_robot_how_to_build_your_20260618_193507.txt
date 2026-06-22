@@ -1,0 +1,43 @@
+Source URL: https://howtomechatronics.com/projects/scara-robot-how-to-build-your-own-arduino-based-robot/
+Scraped: 2026-06-18T19:35:07.762403
+============================================================
+
+Based on the provided text, here are the extracted technical specifications and facts regarding the Arduino based SCARA Robot:
+
+*   **Design:** Developed by Dejan, the robot features 4 degrees of freedom (DOF).
+*   **Actuation:**
+    *   4x NEMA 17 stepper motors.
+    *   1x Servo motor (MG996R) for the end effector/gripper.
+*   **Control System:**
+    *   Brain: Arduino UNO board.
+    *   Drivers: CNC shield with four A4988 stepper drivers.
+    *   Software: Custom Graphics User Interface (GUI) built using the Processing development environment.
+*   **Kinematics & Operation:**
+    *   Supports both Forward and Inverse Kinematics.
+    *   Forward Kinematics: Manual joint movement via sliders to calculate X, Y, and Z end-effector positions.
+    *   Inverse Kinematics: Automatic calculation of joint angles for a desired end-effector position.
+    *   Automation: Capable of saving and executing stored movements in a loop.
+    *   Adjustable speed and acceleration via the User Interface.
+*   **Mechanical Design & 3D Printing:**
+    *   Designed using 3DEXPERIENCE SOLIDWORKS.
+    *   Most parts are 3D printable (PLA+ and normal PLA).
+    *   GT2 pulleys are 3D printable and parametric (adjustable tooth count).
+    *   Total print time: Approximately 120 hours at 60mm/s.
+    *   Horizontal expansion setting: -0.1mm for dimensional accuracy.
+*   **Gear Ratios:**
+    *   Joint 1: 20:1 reduction ratio (two stages).
+    *   Joint 2: 16:1 reduction ratio (two stages).
+    *   Joint 3: 4:1 reduction ratio (single stage).
+*   **Components & Dimensions:**
+    *   **Z-Axis:** Driven by an 8mm lead screw.
+    *   **Smooth Rods:** Four 10mm smooth rods (400mm length).
+    *   **Linear Bearings:** Four 10mm linear ball bearings.
+    *   **Belts:** GT2 belts (200mm and 300mm closed loops).
+    *   **Bearings:**
+        *   1x Thrust ball bearing (40x60x13mm).
+        *   2x Thrust ball bearing (35x52x12mm).
+        *   5x Radial ball bearing (8x22x7mm).
+    *   **Fasteners:** Various M3, M4, and M5 bolts and nuts (including M4x55mm bolts and M8x45mm bolts).
+*   **Physical Dimensions:**
+    *   Height depends on smooth rod length (40cm in this build).
+    *   Lead screw is 2cm shorter than smooth rods (38cm) or requires spacer nuts for the motor.

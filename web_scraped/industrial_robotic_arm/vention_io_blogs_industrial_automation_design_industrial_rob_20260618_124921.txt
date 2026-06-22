@@ -1,0 +1,17 @@
+Source URL: https://vention.io/blogs/industrial-automation-design/industrial-robot-arms-and-cobots-913
+Scraped: 2026-06-18T12:49:21.743439
+============================================================
+
+Industrial robot arms have evolved since their first deployment in 1961. They are programmable machines designed to mimic human arm functions at faster rates and with higher payloads. These systems consist of rigid segments (links) connected by joints, providing degrees of freedom (DOF) for movement.
+
+Common industrial robot arm configurations include:
+
+*   **Articulated 6-axis robot arms:** These have rotary joints similar to a human shoulder, elbow, and wrist, offering dexterity and reach. They create a spherical or irregular workspace, allowing approach from various angles. Precision can decrease slightly at greater extensions.
+*   **Articulated 7-Axis Robot Arms:** These build upon 6-axis designs by adding a vertical lift column or linear actuator, expanding the operational workspace vertically. This is beneficial for tasks like palletizing or pick-and-place operations at different heights.
+*   **Articulated 8-Axis Robot Arms:** These integrate an additional degree of freedom with an overhead linear rail system, allowing horizontal traversal along a track. This extends operational reach and enables servicing multiple workstations, useful in machine tending or linear assembly lines.
+*   **Cobot Robot Arms (Collaborative Robots):** Designed for safe operation alongside humans, cobots typically feature 6 DOF. They usually have lower payload capacities than traditional industrial robots and are equipped with torque-sensing joints and safety sensors for force-limited operation and collision detection.
+*   **Cartesian or Gantry Robots (XYZ Robots):** These create a rectangular work area with linear movement along perpendicular axes (X, Y, Z, plus optional rotation), offering 3-4 DOF. They provide consistent speeds and high repeatability, and can support heavy loads over large areas.
+*   **SCARA Robots (Selective Compliance Assembly Robot Arm):** These robots have two parallel rotary joints for horizontal compliance and vertical rigidity. With a base, two horizontal arms, and a vertical Z-axis, they typically handle small to light payloads and offer precision and speed for assembly and insertion tasks in the horizontal plane.
+*   **Delta Robots:** These feature a parallel linkage system with three arms connected to a common base, typically providing 3-4 DOF within a dome-shaped work area. With motors mounted on the stationary base, they achieve high acceleration for high-speed pick-and-place applications, though with limited payload capacity.
+
+Robot programming often utilizes teach pendants for ease of use, allowing operators to guide the robot through movements. Other methods include offline programming and text-based programming for more complex applications. Digital twins are used for real-time monitoring.

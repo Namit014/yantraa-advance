@@ -1,0 +1,28 @@
+Source URL: https://www.linkedin.com/posts/vanessaloiola_build-your-own-𝗦𝗖𝗔𝗥𝗔-𝗥𝗼𝗯𝗼𝘁-activity-7268929251859390464-uxO9
+Scraped: 2026-06-18T19:36:35.663171
+============================================================
+
+# SCARA Robot – Technical Specifications
+
+## Overview
+A beginner-friendly, build-your-own SCARA robot project designed and documented by Vanessa Loiola.
+
+## Key Technical Details
+
+- **Type:** SCARA robot
+- **Degrees of Freedom:** 4
+- **Motors:** 4 × NEMA 17 stepper motors
+- **Gripper:** 1 × servo motor (controls the gripper)
+- **Controller:** Arduino
+- **Build Method:** 3D printing (implied by project context)
+
+## Project Scope
+The project covers the full design, build, and programming of the SCARA robot using Arduino. It is intended as a learning platform for robotics, mechatronics, and 3D printing.
+
+## Cost Reference
+One commenter (Hans-Günther Nusseck) noted that a comparable SCARA robot's total parts cost is **under €100**.
+
+## Additional Context
+- The project is described as beginner-friendly and suitable for those passionate about robotics looking to expand skills in design and programming.
+- SCARA kinematics are noted as a good teaching tool for forward and inverse kinematics, as the math is based on standard trigonometry.
+- A full step-by-step tutorial is linked at: https://lnkd.in/eDhNBi7f

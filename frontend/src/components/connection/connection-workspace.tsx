@@ -27,7 +27,7 @@ import {
   Position,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { Sparkles, Loader2, AlertCircle, Zap, ChevronRight } from "lucide-react";
+import { Sparkles, Loader2, AlertCircle, Zap, ChevronRight, Check, Save, Plus } from "lucide-react";
 import { ComponentSilhouette } from "./ComponentSilhouette";
 import { ConnectionSidebar } from "./ConnectionSidebar";
 import {
@@ -85,15 +85,17 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
       {ports.flatMap((port) => {
         const rfPos = posMap[port.side] ?? Position.Right;
         const sharedStyle: React.CSSProperties = {
-          opacity: 0,
           width: 12,
           height: 12,
-          background: "#FFD700",
-          border: "1px solid #c8a800",
+          background: "#1e3a5f",
+          border: "2px solid #3b82f6",
+          zIndex: 20,
+          cursor: "crosshair",
           ...(port.side === "top" || port.side === "bottom"
             ? { left: `${port.offsetPercent}%`, transform: "translateX(-50%)" }
             : { top: `${port.offsetPercent}%`, transform: "translateY(-50%)" }),
         };
+        const handleClass = "flex items-center justify-center hover:scale-150 hover:bg-blue-400 hover:border-white transition-all duration-200 shadow-md group";
         return [
           // source handle — id matches edge.sourceHandle
           <Handle
@@ -102,8 +104,11 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
             type="source"
             position={rfPos}
             style={sharedStyle}
+            className={handleClass}
             isConnectable
-          />,
+          >
+            <Plus size={8} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+          </Handle>,
           // target handle — same id matches edge.targetHandle
           <Handle
             key={`${port.id}-tgt`}
@@ -111,14 +116,17 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
             type="target"
             position={rfPos}
             style={sharedStyle}
+            className={handleClass}
             isConnectable
-          />,
+          >
+            <Plus size={8} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+          </Handle>,
         ];
       })}
 
-      {/* Fallback source/target for generic drag-connect */}
-      <Handle type="target" position={Position.Left}  id="left-default"  style={{ opacity: 0, left: 0,  width: 10, height: 10 }} />
-      <Handle type="source" position={Position.Right} id="right-default" style={{ opacity: 0, right: 0, width: 10, height: 10 }} />
+      {/* Fallback source/target for generic drag-connect (hidden) */}
+      <Handle type="target" position={Position.Left}  id="left-default"  style={{ opacity: 0, left: 0,  width: 10, height: 10, zIndex: -1 }} />
+      <Handle type="source" position={Position.Right} id="right-default" style={{ opacity: 0, right: 0, width: 10, height: 10, zIndex: -1 }} />
 
       {/* SVG silhouette */}
       <ComponentSilhouette
@@ -220,6 +228,14 @@ function CircuitWireComponent(props: EdgeProps) {
 // ─── Inner flow (must be child of ReactFlowProvider) ──────────────────────────
 
 function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; designData?: any }) {
+  const nodeTypes = useMemo<NodeTypes>(() => ({
+    circuitNode: CircuitNodeComponent as unknown as NodeTypes[string],
+  }), []);
+
+  const edgeTypes = useMemo<EdgeTypes>(() => ({
+    circuitWire: CircuitWireComponent as unknown as EdgeTypes[string],
+  }), []);
+
   // ── Bug 1 fix: useShallow prevents new object ref on every render ──
   const {
     storeNodes,
@@ -235,6 +251,11 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     setPrompt,
     generate,
     loadDesignData,
+    saveState,
+    setSaveState,
+    saveGraph,
+    loadGraph,
+    isValidConnection,
   } = useConnectionStore(
     useShallow((s) => ({
       storeNodes: s.nodes,
@@ -250,6 +271,11 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
       setPrompt: s.setPrompt,
       generate: s.generate,
       loadDesignData: s.loadDesignData,
+      saveState: s.saveState,
+      setSaveState: s.setSaveState,
+      saveGraph: s.saveGraph,
+      loadGraph: s.loadGraph,
+      isValidConnection: s.isValidConnection,
     }))
   );
 
@@ -378,6 +404,13 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     }
   }, [designData, loadDesignData]);
 
+  // Load from local storage on mount
+  useEffect(() => {
+    if (!designData) {
+      loadGraph();
+    }
+  }, [loadGraph, designData]);
+
   // Auto-generate when currentQuery arrives from chat
   const lastAutoQuery = useRef<string>("");
   useEffect(() => {
@@ -394,15 +427,18 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     }
   }, [currentQuery, isGenerating, generate, libraryComponents, setPrompt, designData]);
 
-  const nodeTypes: NodeTypes = useMemo(
-    () => ({ circuitNode: CircuitNodeComponent as unknown as NodeTypes[string] }),
-    []
-  );
+  // Auto-save mechanism
+  useEffect(() => {
+    if (saveState === "unsaved") {
+      setSaveState("saving");
+      const timeout = setTimeout(() => {
+        saveGraph();
+      }, 1000);
+      return () => clearTimeout(timeout);
+    }
+  }, [saveState, setSaveState, saveGraph]);
 
-  const edgeTypes: EdgeTypes = useMemo(
-    () => ({ circuitWire: CircuitWireComponent as unknown as EdgeTypes[string] }),
-    []
-  );
+  // nodeTypes and edgeTypes are now defined at the module level
 
   return (
     <div
@@ -523,7 +559,14 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
           ))}
         </div>
 
-        {/* Sidebar toggle */}
+        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
+          {/* Save indicator */}
+          <div style={{ display: "flex", alignItems: "center", gap: 6, color: saveState === "saved" ? "#4ade80" : saveState === "saving" ? "#fbbf24" : "#9ca3af", fontSize: 11, fontFamily: "monospace", opacity: 0.9 }}>
+            {saveState === "saved" ? <Check size={13} /> : saveState === "saving" ? <Loader2 size={13} className="animate-spin" /> : <Save size={13} />}
+            {saveState === "saved" ? "Saved" : saveState === "saving" ? "Saving..." : "Unsaved"}
+          </div>
+
+          {/* Sidebar toggle */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           style={{
@@ -550,6 +593,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
           />
           Panel
         </button>
+        </div>
       </div>
 
       {/* ── Error banner ── */}
@@ -574,7 +618,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
 
       {/* ── Main canvas area + sidebar ── */}
       <div style={{ flex: 1, display: "flex", overflow: "hidden", position: "relative" }}>
-        <div style={{ flex: 1, position: "relative" }}>
+      <div style={{ flex: 1, position: "relative", width: "100%", height: "100%", minHeight: 400 }}>
           {/* Empty state */}
           {rfNodes.length === 0 && !isGenerating && (
             <div
@@ -603,12 +647,16 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
               >
                 <Sparkles size={28} style={{ color: "#1a2744" }} />
               </div>
-              <div style={{ textAlign: "center" }}>
-                <p style={{ color: "#374151", fontSize: 13, fontFamily: "monospace", fontWeight: 600 }}>
-                  No circuit yet
+              <div style={{ textAlign: "center", maxWidth: 300 }}>
+                <p style={{ color: "#60a5fa", fontSize: 14, fontFamily: "monospace", fontWeight: 600 }}>
+                  Canvas is Empty
                 </p>
-                <p style={{ color: "#1f2937", fontSize: 11, fontFamily: "monospace", marginTop: 4 }}>
-                  Type a description above and click Generate
+                <p style={{ color: "#6b7280", fontSize: 12, fontFamily: "monospace", marginTop: 8, lineHeight: 1.5 }}>
+                  Type a description above and click Generate to let AI build a circuit.
+                </p>
+                <div style={{ margin: "16px auto", width: 40, height: 1, backgroundColor: "#1a2744" }} />
+                <p style={{ color: "#6b7280", fontSize: 12, fontFamily: "monospace", lineHeight: 1.5 }}>
+                  Or <span style={{ color: "#9ca3af" }}>drag and drop</span> components from the Component Library panel on the right.
                 </p>
               </div>
             </div>
@@ -645,6 +693,10 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
             onNodeDragStop={onNodeDragStop}
             onConnect={handleConnect}
             onEdgeClick={handleEdgeClick}
+            isValidConnection={(connection) => {
+              if (!connection.source || !connection.sourceHandle || !connection.target || !connection.targetHandle) return false;
+              return isValidConnection(connection.source, connection.sourceHandle, connection.target, connection.targetHandle).valid;
+            }}
             nodeTypes={nodeTypes}
             edgeTypes={edgeTypes}
             fitView

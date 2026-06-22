@@ -1,0 +1,37 @@
+Source URL: https://robohub.org/make-your-own-dtto-modular-robot-assembly-instructions-part-1-of-3/
+Scraped: 2026-06-18T18:24:49.505696
+============================================================
+
+Based on the provided source text, here are the technical and descriptive details regarding the assembly of the Dtto Modular Robot (Part 1 of 3):
+
+**Project Overview**
+The Dtto Modular Robot is an open-source project inspired by the MTRAN III. The module is designed to be fully 3D printed and assembled using open-source hardware.
+
+**Materials and Components Required**
+To assemble one module, the following components are necessary:
+*   **3D Printed Parts:** 22 parts total. ABS plastic is recommended for machinability.
+*   **Electronics:** 1 Arduino Nano v3.0, 1 HC-05 Bluetooth Module, 1 NRF24L01+ Wireless Transceiver, and 1 WS2812 RGB LED.
+*   **Actuators:** 2 TowerPro MG92B Servomotors and 3 TowerPro SG90 Servomotors.
+*   **Power:** 2 Li-Po Batteries (3.7V, 600mAh, 25C).
+*   **Mechanical/Hardware:** 24 disk magnets (4x3mm), 40 self-tapping screws (M1.7x4mm), 3 small rubber bands, and a mini switch.
+*   **Electrical:** 4 resistors at 520 Ohms, 1 resistor at 330 Ohms, and 1 resistor at 1200 Ohms.
+
+**Assembly Steps (Part 1)**
+
+*   **Preparation:** All printed parts must be cleaned of supports and sanded. An illustrated guide and Bill of Materials are available via Hackaday.io and GitHub. 
+*   **Fitting:** Begin by fitting two pieces of Part 004-1 with Part 011-1, ensuring they rotate freely around the center to minimize friction.
+*   **Servo Modification (MG92B):** To achieve a full 180-degree rotation, the MG92B servos must be modified:
+    1.  Remove the back cover to access the control circuit and potentiometer.
+    2.  Unsolder the first and third pins of the potentiometer.
+    3.  Solder a 520-ohm resistor to each of those pins, then solder the cable back to the resistor.
+    4.  Secure the circuit to the side of the motor case using tape to prevent short circuits.
+*   **Motor Attachment:** Secure the modified MG92B servos to the printed parts using screws (which may need to be trimmed to length).
+*   **Centering the Servo Arms:** Fix the cross-shaped servo arms to Part 011-1 and Part 012-1. It is critical to ensure the servo is perfectly centered at the 90-degree position to allow the full range of rotation. This can be tested using Arduino "sweep" examples.
+*   **Module Halves:** The module is divided into a "male" and "female" half. Cable management is required by routing the female motor cables through the central hole to the male part during assembly.
+*   **Male Half Construction:** The assembly of the male half begins by fitting and screwing Part 003-1 to Part 004-1 using three screws.
+
+**Software and Design**
+The robot was designed using FreeCAD and utilizes open-source hardware. While this tutorial focuses on the mechanical assembly, it notes that the IR detection system for the module is currently disabled for this version.
+
+**Disclaimer and Licensing**
+The project is licensed under the CC BY-SA 4.0 license. The author provides no liability for any issues occurring during assembly or use. Part 2 of the instructions will cover the installation of magnets and servos.

@@ -1,0 +1,58 @@
+Source URL: https://circuitdigest.com/videos/scara-robotic-arm-using-esp32
+Scraped: 2026-06-18T19:40:26.058128
+============================================================
+
+# DIY SCARA Robot Based on RISC-V Architecture
+
+## Overview
+
+This is a DIY SCARA (Selective Compliance Assembly Robot Arm) robot designed for precision tasks such as assembly, sorting, and pick-and-place operations. The project combines affordability with high functionality for learning and small-scale automation.
+
+## Core Processing
+
+- **Microcontroller:** ESP32-C6 WROOM module (RISC-V architecture)
+- **Connectivity:** Wi-Fi and Bluetooth capabilities
+- **Native USB Interface:** USB Type-C port for computer communication
+
+## Motion System
+
+- **Stepper Motors:** NEMA 17 stepper motors
+- **Stepper Drivers:** TMC2209 (4 units), known for smooth and efficient operation
+- **Gripper Servos:** Two SG90S servo motors for precise object manipulation
+
+## Power System
+
+- **Primary Voltage Regulation:** LM2596-5 buck converter — steps down a wide input voltage to 5V
+- **Secondary Regulation:** ADP7118AUJZ-3.3 — low-noise CMOS LDO from Analog Devices, regulates 5V down to 3.3V for the ESP32-C6
+- **Supervisor IC:** Analog Devices MAX6899 — ensures reliable system boot-up
+- **Visual Feedback:** Onboard RGB LED for status indications
+
+## Software & Firmware
+
+- **Control Software:** Written in Python, featuring direct control and record-and-playback mode for programming complex movements
+- **Firmware Development:** Arduino IDE, enabling customization and further development
+
+## Bill of Materials (Key Components)
+
+| Component | Manufacturer / Part Number | Quantity |
+|---|---|---|
+| 330µF Capacitor (Chinsan Elite) | 4191-UGS1V331MP51016UCT-ND | 2 |
+| 10µF Capacitor (Samsung) | 1276-1096-1-ND | 2 |
+| 0.1µF Capacitor (YAGEO) | 311-1088-1-ND | 4 |
+| 2.2µF Capacitor (Samsung) | 1276-1134-1-ND | 1 |
+| SS34 Diode (Comchip) | 641-2115-1-ND | 2 |
+| ADP7118AUJZ-3.3 LDO (Analog Devices) | 505-ADP7118AUJZ-3.3-R7CT-ND | 1 |
+| Screw Terminal 2P 5.00mm (Phoenix Contact) | 277-12547-ND | 1 |
+| Barrel Jack Switch (GlobTek) | 1939-G-1005B-ND | 1 |
+| USB-C Receptacle USB2.0 (Assmann) | 123-A-USBC-20F0-EA-GSR11CT-ND | 1 |
+| 47µH Inductor | — | 1 |
+| RGB LED (Harvatek) | 3147-T3A83RGB-20C001011U1930CT-ND | 1 |
+| 0Ω Resistor (Stackpole) | RMCF0603ZT0R00CT-ND | 1 |
+| 1KΩ Resistor (YAGEO) | 311-1.00KHRCT-ND | 11 |
+| 10KΩ Resistor (Stackpole) | RMCF0603JT10K0CT-ND | 8 |
+| 47KΩ Resistor (YAGEO) | 311-47.0KHRCT-ND | 1 |
+| Reset Switch (CIT Relay) | 2449-CS1213AGF160CT-ND | 2 |
+| LM2596S-5 Buck Converter (UMW) | 4518-LM2596S-5.0CT-ND | 1 |
+| MAX6899AAZT+T Supervisor (Analog Devices) | MAX6899AAZT+TCT-ND | 1 |
+| ESP32-C6-WROOM-1 (Espressif) | 1965-ESP32-C6-WROOM-1-N8CT-ND | 1 |
+| TMC2209 Stepper Driver Board | 505-TMC2209SILENTSTEPSTICK-ND | 4 |

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import sys
 import os
@@ -24,12 +24,31 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from fastapi.middleware.cors import CORSMiddleware
 from retriever import Retriever
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize the Retriever
+    # This will load the sentence transformer model and connect to the Qdrant Database
+    retriever = Retriever()
+    app.state.retriever = retriever
+    yield
+
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize the Retriever on startup
+    app.state.retriever = Retriever()
+    yield
+    # Shutdown logic (if any)
 
 # Initialize FastAPI app
 app = FastAPI(
     title="Yantra Agentic RAG API",
     description="FastAPI interface for the Yantra RAG Pipeline",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
 # Add CORS middleware
@@ -42,11 +61,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize the Retriever
-# This will load the sentence transformer model and connect to the Qdrant Database
-retriever = Retriever()
-app.state.retriever = retriever
-
 # Register sub-routers
 try:
     from connections.generate import router as connections_router
@@ -55,13 +69,30 @@ try:
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load connections router: {_e}")
 
-try:
-    from design import router as design_router
-    app.include_router(design_router)
-    print("[Yantra API] Registered /api/design")
-except Exception as _e:
-    print(f"[Yantra API] WARNING: Could not load design router: {_e}")
+from design import router as design_router
+app.include_router(design_router)
+print("[Yantra API] Registered /api/design")
 
+try:
+    from generate import router as generate_router
+    app.include_router(generate_router)
+    print("[Yantra API] Registered /api/generate-cad")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load generate router: {_e}")
+
+try:
+    from mapping.generate import router as mapping_router
+    app.include_router(mapping_router)
+    print("[Yantra API] Registered /api/mapping/build-graph")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load mapping router: {_e}")
+
+try:
+    from ros2_export import router as ros2_export_router
+    app.include_router(ros2_export_router)
+    print("[Yantra API] Registered /api/export-ros2")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load ros2_export router: {_e}")
 
 # Define Pydantic models for JSON request/response validation
 class QueryRequest(BaseModel):
@@ -77,8 +108,10 @@ class QueryResponse(BaseModel):
     fallback_used: bool = False
     source_urls: List[str] = []
 
+from fastapi import Request
+
 @app.post("/api/ask", response_model=QueryResponse)
-async def ask_question(request: QueryRequest):
+async def ask_question(request: Request, payload: QueryRequest):
     """
     Executes the following workflow:
     1. User Query (received in JSON payload)
@@ -91,12 +124,14 @@ async def ask_question(request: QueryRequest):
     8. Return JSON Response (returned below)
     """
     try:
-        if not request.query.strip():
+        if not payload.query.strip():
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
+
+        retriever = request.app.state.retriever
 
         # Execute the RAG workflow asynchronously off the event loop
         final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
-            None, retriever.ask, request.query
+            None, retriever.ask, payload.query
         )
 
         # Return JSON Response
@@ -109,10 +144,16 @@ async def ask_question(request: QueryRequest):
         )
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        import traceback
+        error_details = traceback.format_exc()
+        return QueryResponse(
+            response=f"An error occurred in the backend: {str(e)}\n\n{error_details}",
+            status="error",
+            cad_available=False
+        )
 
 @app.get("/search", response_model=QueryResponse)
-async def search_question(query: str):
+async def search_question(request: Request, query: str):
     """
     GET endpoint equivalent for easy browser testing.
     Usage: http://localhost:8000/search?query=your+question
@@ -120,6 +161,8 @@ async def search_question(query: str):
     try:
         if not query.strip():
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
+
+        retriever = request.app.state.retriever
 
         # Execute the RAG workflow asynchronously off the event loop
         final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
@@ -167,4 +210,5 @@ async def health_check():
 if __name__ == "__main__":
     import uvicorn
     # Allow running directly using `python src/api/main.py`
+    print("ALL ROUTES BEFORE RUNNING:", [r.path for r in app.routes])
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)

@@ -1,0 +1,97 @@
+{
+    "6dof_articulated_arm": {
+        "description": "6-DOF Articulated Robot Arm",
+        "keywords": ["articulated", "6-axis", "6 axis", "6-dof", "pick and place", "pick things", "painting", "paint", "welding", "weld", "robotic arm", "robot arm", "cobot", "grab", "manipulation", "assembly line", "spray"],
+        "graph": [
+            {"id": "base", "part": "A-2228-01_T-Slot_Right_Angle_Adapter", "role": "base_mount"},
+            {"id": "j1", "part": "A-2475-08", "role": "shoulder_yaw", "parent": "base", "port": "top_face"},
+            {"id": "b1", "part": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "shoulder_bracket", "parent": "j1", "port": "output_flange"},
+            {"id": "j2", "part": "A-2475-05", "role": "shoulder_pitch", "parent": "b1", "port": "output_face"},
+            {"id": "b2", "part": "A-2220-01_Light_Right_Angle_Bracket", "role": "elbow_bracket", "parent": "j2", "port": "output_flange"},
+            {"id": "j3", "part": "A-2475-05", "role": "elbow_joint", "parent": "b2", "port": "output_face"},
+            {"id": "j4", "part": "A-2475-05", "role": "wrist_pitch", "parent": "j3", "port": "output_flange"},
+            {"id": "grip", "part": "A-2055-01_Gripper_Assembly", "role": "end_effector", "parent": "j4", "port": "output_flange"}
+        ]
+    },
+    "delta_robot": {
+        "description": "Delta Robot (Parallel Kinematic)",
+        "keywords": ["delta", "parallel", "fast pick", "3d print", "sorting", "high speed"],
+        "graph": [
+            {"id": "hub", "part": "A-2096-02_Six_Tube_Adapter", "role": "central_hub"},
+            {"id": "arm1", "part": "A-2475-05", "role": "arm_1_actuator", "parent": "hub", "port": "output_1"},
+            {"id": "arm2", "part": "A-2475-05", "role": "arm_2_actuator", "parent": "hub", "port": "output_2"},
+            {"id": "arm3", "part": "A-2475-05", "role": "arm_3_actuator", "parent": "hub", "port": "output_3"},
+            {"id": "link1", "part": "A-2218-01_Output_Tube_Adapter", "role": "arm_1_link", "parent": "arm1", "port": "output_flange"},
+            {"id": "link2", "part": "A-2218-01_Output_Tube_Adapter", "role": "arm_2_link", "parent": "arm2", "port": "output_flange"},
+            {"id": "link3", "part": "A-2218-01_Output_Tube_Adapter", "role": "arm_3_link", "parent": "arm3", "port": "output_flange"},
+            {"id": "grip", "part": "A-2055-01_Gripper_Assembly", "role": "end_effector", "parent": "link1", "port": "output_tube"}
+        ]
+    },
+    "quadruped_robot": {
+        "description": "Quadruped Walking Robot (Robot Dog)",
+        "keywords": ["quadruped", "dog", "robotic dog", "walking", "four leg", "4 leg", "legged"],
+        "graph": [
+            {"id": "body", "part": "A-2096-02_Six_Tube_Adapter", "role": "body_frame"},
+            {"id": "fl_hip", "part": "A-2475-05", "role": "front_left_hip", "parent": "body", "port": "output_1"},
+            {"id": "fl_knee", "part": "A-2475-05", "role": "front_left_knee", "parent": "fl_hip", "port": "output_flange"},
+            {"id": "fl_ankle", "part": "A-2475-05", "role": "front_left_ankle", "parent": "fl_knee", "port": "output_flange"},
+            {"id": "fr_hip", "part": "A-2475-05", "role": "front_right_hip", "parent": "body", "port": "output_2"},
+            {"id": "fr_knee", "part": "A-2475-05", "role": "front_right_knee", "parent": "fr_hip", "port": "output_flange"},
+            {"id": "fr_ankle", "part": "A-2475-05", "role": "front_right_ankle", "parent": "fr_knee", "port": "output_flange"},
+            {"id": "bl_hip", "part": "A-2475-05", "role": "back_left_hip", "parent": "body", "port": "output_3"},
+            {"id": "bl_knee", "part": "A-2475-05", "role": "back_left_knee", "parent": "bl_hip", "port": "output_flange"}
+        ]
+    },
+    "mobile_base": {
+        "description": "Wheeled Mobile Robot Platform",
+        "keywords": ["mobile", "wheeled", "agv", "autonomous", "warehouse", "patrol", "delivery"],
+        "graph": [
+            {"id": "frame", "part": "A-2228-01_T-Slot_Right_Angle_Adapter", "role": "chassis_frame"},
+            {"id": "drive_l", "part": "A-2438-02", "role": "left_drive", "parent": "frame", "port": "top_face"},
+            {"id": "drive_r", "part": "A-2438-02", "role": "right_drive", "parent": "frame", "port": "top_face"},
+            {"id": "whl_l", "part": "A-2227-01_Wheel_Adapter", "role": "left_wheel_hub", "parent": "drive_l", "port": "output_shaft"},
+            {"id": "whl_r", "part": "A-2227-01_Wheel_Adapter", "role": "right_wheel_hub", "parent": "drive_r", "port": "output_shaft"},
+            {"id": "io", "part": "A-2432-01", "role": "control_board", "parent": "frame", "port": "top_face"},
+            {"id": "batt", "part": "A-2525-01", "role": "battery", "parent": "frame", "port": "top_face"}
+        ]
+    },
+    "simple_3dof_arm": {
+        "description": "Simple 3-DOF Robot Arm",
+        "keywords": ["simple arm", "3 axis", "3-axis", "3 dof", "small arm", "desk arm", "hobby"],
+        "graph": [
+            {"id": "base", "part": "A-2228-01_T-Slot_Right_Angle_Adapter", "role": "base_mount"},
+            {"id": "j1", "part": "A-2475-05", "role": "base_rotation", "parent": "base", "port": "top_face"},
+            {"id": "b1", "part": "A-2220-01_Light_Right_Angle_Bracket", "role": "shoulder_bracket", "parent": "j1", "port": "output_flange"},
+            {"id": "j2", "part": "A-2475-05", "role": "shoulder_joint", "parent": "b1", "port": "output_face"},
+            {"id": "j3", "part": "A-2475-05", "role": "elbow_joint", "parent": "j2", "port": "output_flange"},
+            {"id": "grip", "part": "A-2055-01_Gripper_Assembly", "role": "gripper", "parent": "j3", "port": "output_flange"}
+        ]
+    },
+    "inspection_robot": {
+        "description": "Inspection Robot with Camera Arm",
+        "keywords": ["inspection", "camera", "monitor", "survey", "pipe"],
+        "graph": [
+            {"id": "base", "part": "A-2438-02", "role": "mobile_base"},
+            {"id": "j1", "part": "A-2475-05", "role": "pan_joint", "parent": "base", "port": "output_shaft"},
+            {"id": "b1", "part": "A-2220-01_Light_Right_Angle_Bracket", "role": "tilt_bracket", "parent": "j1", "port": "output_flange"},
+            {"id": "j2", "part": "A-2475-05", "role": "tilt_joint", "parent": "b1", "port": "output_face"}
+        ]
+    },
+    "quadcopter_drone": {
+        "description": "Quadcopter Drone (Flying Robot)",
+        "keywords": ["flying", "drone", "quadcopter", "uav", "flight", "multirotor", "propeller", "quadrotor", "copter", "aircraft"],
+        "graph": [
+            {"id": "frame", "part": "quadcopter_frame", "role": "chassis_frame"},
+            {"id": "motor_fr", "part": "brushless_motor", "role": "front_right_motor", "parent": "frame", "port": "motor_mount_fr"},
+            {"id": "motor_fl", "part": "brushless_motor", "role": "front_left_motor", "parent": "frame", "port": "motor_mount_fl"},
+            {"id": "motor_br", "part": "brushless_motor", "role": "back_right_motor", "parent": "frame", "port": "motor_mount_br"},
+            {"id": "motor_bl", "part": "brushless_motor", "role": "back_left_motor", "parent": "frame", "port": "motor_mount_bl"},
+            {"id": "prop_fr", "part": "propeller", "role": "front_right_propeller", "parent": "motor_fr", "port": "shaft"},
+            {"id": "prop_fl", "part": "propeller", "role": "front_left_propeller", "parent": "motor_fl", "port": "shaft"},
+            {"id": "prop_br", "part": "propeller", "role": "back_right_propeller", "parent": "motor_br", "port": "shaft"},
+            {"id": "prop_bl", "part": "propeller", "role": "back_left_propeller", "parent": "motor_bl", "port": "shaft"},
+            {"id": "fc", "part": "flight_controller", "role": "flight_controller", "parent": "frame", "port": "top_face"},
+            {"id": "batt", "part": "lipo_battery", "role": "lipo_battery", "parent": "frame", "port": "bottom_face"}
+        ]
+    }
+}

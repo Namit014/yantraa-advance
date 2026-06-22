@@ -1,0 +1,9 @@
+Source URL: https://mechanicalengineeringcourse.com/industrial-robotic-arm/
+Scraped: 2026-06-18T12:48:02.962593
+============================================================
+
+Industrial robotic arms are **programmable mechanical manipulators** used to automate repetitive, high-precision, or hazardous tasks in industrial environments.[3][11] They typically consist of a mechanical arm with multiple joints, a controller, actuators, sensors, and an end-effector or other end-of-arm tooling for the specific task.[3][7][8]
+
+Different arm types are selected based on the job: **articulated arms** offer a wide range of motion and are suited to complex 3D work; **SCARA** and **Delta** robots are commonly used where speed and compact footprints matter; **Cartesian** robots are used for linear motion tasks.[4][9][15] Collaborative robots, or **cobots**, are designed for safer human-robot interaction and can work alongside people in shared workspaces using force limitation and sensor-based safety systems.[1][3][5][9]
+
+Their main advantages are **higher productivity**, **greater consistency and precision**, **improved safety**, and **lower long-term operating cost** when the application fits the robot well.[1][5][6][8] Common uses include material handling, welding, painting, assembly, inspection, pick-and-place, palletizing, and other repetitive manufacturing tasks across automotive, electronics, food processing, logistics, and medical applications.[1][5][8][10]
