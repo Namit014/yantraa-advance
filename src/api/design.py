@@ -311,7 +311,6 @@ OUTPUT FORMAT:
     if rag_results:
         user_prompt += f"COMPONENT SPECS & DATA SHEETS:\n{rag_results}\n"
 
-<<<<<<< HEAD
     print("[api/design] Invoking LLM...")
     try:
         res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
@@ -320,31 +319,6 @@ OUTPUT FORMAT:
     except Exception as e:
         print(f"[api/design] Error parsing LLM JSON: {e}")
         data = {}
-=======
-    synthesis_prompt = f"""{component_graph_text}RETRIEVED COMPONENTS:
-{rag_results}
-
-USER REQUEST:
-{query}"""
-
-    synthesis_data = {}
-    try:
-        raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system, response_format="json_object")
-        cleaned_synthesis = _strip_markdown_json(raw_synthesis)
-        synthesis_data = json.loads(cleaned_synthesis)
-    except Exception as e:
-        print(f"[api/design] Phase 3 Synthesis parsing failed: {e}")
-        with open("debug_synthesis.txt", "w", encoding="utf-8") as debug_file:
-            debug_file.write(raw_synthesis)
-        print(f"[api/design] RAW LLM OUTPUT WAS:\n{raw_synthesis[:1000]}...\n---")
-        synthesis_data = {
-            "subsystems": [{"name": "Pre-assembled System", "components": [{"id": "sys_1", "name": "Monolithic Robot System", "role": "Full assembly", "voltage": "N/A", "interface": "Standard"}]}],
-            "connections": [],
-            "bom": [{"id": "sys_1", "name": "Full Robot Assembly", "qty": 1}],
-            "missing": [],
-            "validation": [{"type": "warning", "message": "Standard BOM generated due to complex custom assembly. Reference CAD model for full physical details."}]
-        }
->>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
 
     connections = data.get("connections", [])
     normalized_connections = []
