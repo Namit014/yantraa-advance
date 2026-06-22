@@ -11,15 +11,46 @@ interface ComponentSidebarProps {
 
 export function ComponentSidebar({ onAddComponent }: ComponentSidebarProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [sparkfunComponents, setSparkfunComponents] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Fetch SparkFun components
+    const q = searchQuery.trim();
+    fetch(`/api/sparkfun/components${q ? `?q=${encodeURIComponent(q)}` : ""}`)
+      .then(res => res.json())
+      .then(data => setSparkfunComponents(data))
+      .catch(err => console.error("Failed to fetch SparkFun components:", err));
+  }, [searchQuery]);
 
   const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) return COMPONENT_CATEGORIES;
-    const q = searchQuery.toLowerCase();
-    return COMPONENT_CATEGORIES.map((cat) => ({
-      ...cat,
-      items: cat.items.filter((item) => item.name.toLowerCase().includes(q)),
-    }));
-  }, [searchQuery]);
+    let baseCategories = COMPONENT_CATEGORIES;
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      baseCategories = COMPONENT_CATEGORIES.map((cat) => ({
+        ...cat,
+        items: cat.items.filter((item) => item.name.toLowerCase().includes(q)),
+      }));
+    }
+    
+    // Add SparkFun category
+    if (sparkfunComponents.length > 0) {
+      baseCategories = [
+        ...baseCategories,
+        {
+          name: "SparkFun Library",
+          items: sparkfunComponents.map(c => ({
+            id: `sparkfun-${c.name}`,
+            name: c.name,
+            icon: "⚙️",
+            prodId: c.prod_id,
+            modelUrl: c.model_path
+          }))
+        }
+      ];
+    }
+    
+    return baseCategories;
+  }, [searchQuery, sparkfunComponents]);
 
   return (
     <div className="w-[280px] bg-[#0c1220] border-l border-[#1a2744] flex flex-col shrink-0 h-full">
@@ -102,6 +133,8 @@ export function ComponentSidebar({ onAddComponent }: ComponentSidebarProps) {
                         e.dataTransfer.setData("component-id", item.id);
                         e.dataTransfer.setData("component-name", item.name);
                         e.dataTransfer.setData("component-icon", item.icon);
+                        if (item.prodId) e.dataTransfer.setData("component-prodid", item.prodId);
+                        if (item.modelUrl) e.dataTransfer.setData("component-modelurl", item.modelUrl);
                       }}
                       className={cn(
                         "flex flex-col items-center justify-center gap-1 p-2 rounded-lg",

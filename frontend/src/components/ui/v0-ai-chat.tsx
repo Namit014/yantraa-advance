@@ -12,6 +12,7 @@ import {
 import { MappingTab } from "./tabs/mapping-tab";
 import { ConnectionTab } from "./tabs/connection-tab";
 import { CADTab } from "./tabs/cad-tab";
+import { useConnectionStore } from "@/components/connection/useConnectionStore";
 
 interface UseAutoResizeTextareaProps {
     minHeight: number;
@@ -385,7 +386,21 @@ export function VercelV0Chat() {
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'cad' && (() => {
-                            const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
+                            let urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
+                            
+                            // Combine with SparkFun models from the connection store
+                            const connectionNodes = useConnectionStore.getState().nodes;
+                            const sparkfunUrls = connectionNodes
+                                .map((n: any) => n.data?.modelUrl)
+                                .filter(Boolean)
+                                .map((url: string) => {
+                                    // Extract just the filename from the path
+                                    const filename = url.split('/').pop() || '';
+                                    return `/api/cad/${filename}`;
+                                });
+                                
+                            urls = [...new Set([...urls, ...sparkfunUrls])];
+                            
                             const cadUrl = urls[0] || 'default-cad';
                             return (
                                 <CADTab 

@@ -25,10 +25,12 @@ import {
   BaseEdge,
   Handle,
   Position,
+  useReactFlow,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { Sparkles, Loader2, AlertCircle, Zap, ChevronRight } from "lucide-react";
 import { ComponentSilhouette } from "./ComponentSilhouette";
+import { ComponentSidebar } from "./component-sidebar";
 import { ConnectionSidebar } from "./ConnectionSidebar";
 import {
   useConnectionStore,
@@ -436,11 +438,57 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     []
   );
 
+  const { screenToFlowPosition } = useReactFlow();
+
+  const onDragOver = useCallback((event: React.DragEvent) => {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+  }, []);
+
+  const onDrop = useCallback(
+    (event: React.DragEvent) => {
+      event.preventDefault();
+      
+      const componentId = event.dataTransfer.getData("component-id");
+      const componentName = event.dataTransfer.getData("component-name");
+      const prodId = event.dataTransfer.getData("component-prodid");
+      const modelUrl = event.dataTransfer.getData("component-modelurl");
+      
+      if (!componentId) return;
+
+      const position = screenToFlowPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+
+      const newNode: CircuitNode = {
+        id: `node-${Date.now()}`,
+        type: "circuitNode",
+        position,
+        data: {
+          label: componentName,
+          type: "other",
+          shape: "generic-board",
+          ports: [
+            { id: `p1`, label: "VCC", side: "left", offsetPercent: 20 },
+            { id: `p2`, label: "GND", side: "left", offsetPercent: 80 },
+            { id: `p3`, label: "SIG", side: "right", offsetPercent: 50 },
+          ],
+          prodId,
+          modelUrl,
+        }
+      };
+      
+      setStoreNodes((prev) => [...prev, newNode]);
+    },
+    [setStoreNodes, screenToFlowPosition]
+  );
+
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         width: "100%",
         height: "100%",
         backgroundColor: "#06080f",
@@ -450,184 +498,218 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
         position: "relative",
       }}
     >
-      {/* ── Top bar ── */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-          padding: "10px 14px",
-          borderBottom: "1px solid #1a2744",
-          backgroundColor: "#080d1a",
-          flexShrink: 0,
-          flexWrap: "wrap",
-          rowGap: 8,
-        }}
-      >
-        {/* Prompt input */}
+      <ComponentSidebar onAddComponent={() => {}} />
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+        {/* ── Top bar ── */}
         <div
           style={{
-            flex: 1,
-            minWidth: 180,
             display: "flex",
             alignItems: "center",
-            gap: 8,
-            backgroundColor: "#0d1528",
-            border: "1px solid #1a2744",
-            borderRadius: 8,
-            padding: "6px 12px",
+            gap: 10,
+            padding: "10px 14px",
+            borderBottom: "1px solid #1a2744",
+            backgroundColor: "#080d1a",
+            flexShrink: 0,
+            flexWrap: "wrap",
+            rowGap: 8,
           }}
         >
-          <Sparkles size={13} style={{ color: "#4488ff", flexShrink: 0 }} />
-          <input
-            type="text"
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleGenerate()}
-            placeholder="Describe your circuit… e.g. Arduino + L298N + IR sensors"
+          {/* Prompt input */}
+          <div
             style={{
               flex: 1,
-              background: "none",
-              border: "none",
-              outline: "none",
-              color: "white",
+              minWidth: 180,
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              backgroundColor: "#0d1528",
+              border: "1px solid #1a2744",
+              borderRadius: 8,
+              padding: "6px 12px",
+            }}
+          >
+            <Sparkles size={13} style={{ color: "#4488ff", flexShrink: 0 }} />
+            <input
+              type="text"
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleGenerate()}
+              placeholder="Describe your circuit… e.g. Arduino + L298N + IR sensors"
+              style={{
+                flex: 1,
+                background: "none",
+                border: "none",
+                outline: "none",
+                color: "white",
+                fontSize: 12,
+                fontFamily: "monospace",
+              }}
+            />
+          </div>
+
+          {/* Generate button */}
+          <button
+            onClick={handleGenerate}
+            disabled={isGenerating || !prompt.trim()}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 7,
+              padding: "7px 16px",
+              borderRadius: 8,
+              border: "1px solid",
+              borderColor: isGenerating || !prompt.trim() ? "#1a2744" : "#3b82f6",
+              backgroundColor: isGenerating || !prompt.trim() ? "#0d1528" : "#1e3a5f",
+              color: isGenerating || !prompt.trim() ? "#374151" : "#60a5fa",
               fontSize: 12,
               fontFamily: "monospace",
+              fontWeight: 700,
+              cursor: isGenerating || !prompt.trim() ? "not-allowed" : "pointer",
+              transition: "all 0.2s",
+              whiteSpace: "nowrap",
             }}
-          />
-        </div>
-
-        {/* Generate button */}
-        <button
-          onClick={handleGenerate}
-          disabled={isGenerating || !prompt.trim()}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 7,
-            padding: "7px 16px",
-            borderRadius: 8,
-            border: "1px solid",
-            borderColor: isGenerating || !prompt.trim() ? "#1a2744" : "#3b82f6",
-            backgroundColor: isGenerating || !prompt.trim() ? "#0d1528" : "#1e3a5f",
-            color: isGenerating || !prompt.trim() ? "#374151" : "#60a5fa",
-            fontSize: 12,
-            fontFamily: "monospace",
-            fontWeight: 700,
-            cursor: isGenerating || !prompt.trim() ? "not-allowed" : "pointer",
-            transition: "all 0.2s",
-            whiteSpace: "nowrap",
-          }}
-          onMouseEnter={(e) => {
-            if (!isGenerating && prompt.trim()) {
-              e.currentTarget.style.backgroundColor = "#2563eb";
-              e.currentTarget.style.color = "white";
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (!isGenerating && prompt.trim()) {
-              e.currentTarget.style.backgroundColor = "#1e3a5f";
-              e.currentTarget.style.color = "#60a5fa";
-            }
-          }}
-        >
-          {isGenerating ? <Loader2 size={13} className="animate-spin" /> : <Zap size={13} />}
-          {isGenerating ? "Generating…" : "Generate"}
-        </button>
-
-        {/* Wire legend */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          {LEGEND.map((l) => (
-            <div key={l.type} style={{ display: "flex", alignItems: "center", gap: 4 }}>
-              <div
-                style={{
-                  width: 18,
-                  height: 2,
-                  backgroundColor: WIRE_COLORS[l.type],
-                  borderRadius: 1,
-                  boxShadow: `0 0 4px ${WIRE_COLORS[l.type]}88`,
-                }}
-              />
-              <span style={{ color: WIRE_COLORS[l.type], fontSize: 9, fontFamily: "monospace", opacity: 0.85 }}>
-                {l.label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Sidebar toggle */}
-        <button
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 5,
-            padding: "6px 10px",
-            borderRadius: 6,
-            border: "1px solid #1a2744",
-            backgroundColor: sidebarOpen ? "#1e3a5f" : "#0d1528",
-            color: sidebarOpen ? "#60a5fa" : "#6b7280",
-            fontSize: 11,
-            fontFamily: "monospace",
-            cursor: "pointer",
-            transition: "all 0.15s",
-          }}
-        >
-          <ChevronRight
-            size={13}
-            style={{
-              transform: sidebarOpen ? "rotate(180deg)" : "rotate(0deg)",
-              transition: "transform 0.2s",
+            onMouseEnter={(e) => {
+              if (!isGenerating && prompt.trim()) {
+                e.currentTarget.style.backgroundColor = "#2563eb";
+                e.currentTarget.style.color = "white";
+              }
             }}
-          />
-          Panel
-        </button>
-      </div>
+            onMouseLeave={(e) => {
+              if (!isGenerating && prompt.trim()) {
+                e.currentTarget.style.backgroundColor = "#1e3a5f";
+                e.currentTarget.style.color = "#60a5fa";
+              }
+            }}
+          >
+            {isGenerating ? <Loader2 size={13} className="animate-spin" /> : <Zap size={13} />}
+            {isGenerating ? "Generating…" : "Generate"}
+          </button>
 
-      {/* ── Error banner ── */}
-      {error && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            padding: "8px 16px",
-            backgroundColor: "#2d1010",
-            borderBottom: "1px solid #7f1d1d",
-            color: "#f87171",
-            fontSize: 11,
-            fontFamily: "monospace",
-          }}
-        >
-          <AlertCircle size={13} />
-          {error} — using fallback layout
-        </div>
-      )}
-
-      {/* ── ERC Report Banner ── */}
-      {ercReport && !isGenerating && (
-        <div
-          style={{
-            padding: "10px 16px",
-            backgroundColor: "#0d1f15",
-            borderBottom: "1px solid #144026",
-            color: "#6ee7b7",
-            fontSize: 11,
-            fontFamily: "monospace",
-            maxHeight: "150px",
-            overflowY: "auto",
-            display: "flex",
-            flexDirection: "column",
-            gap: 6
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: "bold" }}>
-            <Sparkles size={13} />
-            Electrical Rule Check (ERC) Pass Complete
+          {/* Wire legend */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+            {LEGEND.map((l) => (
+              <div key={l.type} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                <div
+                  style={{
+                    width: 18,
+                    height: 2,
+                    backgroundColor: WIRE_COLORS[l.type],
+                    borderRadius: 1,
+                    boxShadow: `0 0 4px ${WIRE_COLORS[l.type]}88`,
+                  }}
+                />
+                <span style={{ color: WIRE_COLORS[l.type], fontSize: 9, fontFamily: "monospace", opacity: 0.85 }}>
+                  {l.label}
+                </span>
+              </div>
+            ))}
           </div>
-          <div style={{ whiteSpace: "pre-wrap", opacity: 0.9 }}>{ercReport}</div>
+
+          {/* BOM Export Toggle */}
+          <button
+            onClick={() => {
+              const nodes = useConnectionStore.getState().nodes;
+              const bom = nodes.filter(n => n.data.prodId).map(n => n.data.prodId).join("\n");
+              if (!bom) alert("No components with PROD_ID found.");
+              else {
+                const blob = new Blob([bom], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'bom.csv';
+                a.click();
+              }
+            }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+              padding: "6px 10px",
+              borderRadius: 6,
+              border: "1px solid #1a2744",
+              backgroundColor: "#0d1528",
+              color: "#60a5fa",
+              fontSize: 11,
+              fontFamily: "monospace",
+              cursor: "pointer",
+            }}
+          >
+            Export BOM
+          </button>
+
+          {/* Sidebar toggle */}
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+              padding: "6px 10px",
+              borderRadius: 6,
+              border: "1px solid #1a2744",
+              backgroundColor: sidebarOpen ? "#1e3a5f" : "#0d1528",
+              color: sidebarOpen ? "#60a5fa" : "#6b7280",
+              fontSize: 11,
+              fontFamily: "monospace",
+              cursor: "pointer",
+              transition: "all 0.15s",
+            }}
+          >
+            <ChevronRight
+              size={13}
+              style={{
+                transform: sidebarOpen ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 0.2s",
+              }}
+            />
+            Panel
+          </button>
         </div>
-      )}
+
+        {/* ── Error banner ── */}
+        {error && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              padding: "8px 16px",
+              backgroundColor: "#2d1010",
+              borderBottom: "1px solid #7f1d1d",
+              color: "#f87171",
+              fontSize: 11,
+              fontFamily: "monospace",
+            }}
+          >
+            <AlertCircle size={13} />
+            {error} — using fallback layout
+          </div>
+        )}
+
+        {/* ── ERC Report Banner ── */}
+        {ercReport && !isGenerating && (
+          <div
+            style={{
+              padding: "10px 16px",
+              backgroundColor: "#0d1f15",
+              borderBottom: "1px solid #144026",
+              color: "#6ee7b7",
+              fontSize: 11,
+              fontFamily: "monospace",
+              maxHeight: "150px",
+              overflowY: "auto",
+              display: "flex",
+              flexDirection: "column",
+              gap: 6
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: "bold" }}>
+              <Sparkles size={13} />
+              Electrical Rule Check (ERC) Pass Complete
+            </div>
+            <div style={{ whiteSpace: "pre-wrap", opacity: 0.9 }}>{ercReport}</div>
+          </div>
+        )}
 
       {/* ── Main canvas area + sidebar ── */}
       <div style={{ flex: 1, display: "flex", overflow: "hidden", position: "relative" }}>
@@ -702,6 +784,8 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
             onNodeDragStop={onNodeDragStop}
             onConnect={handleConnect}
             onEdgeClick={handleEdgeClick}
+            onDragOver={onDragOver}
+            onDrop={onDrop}
             nodeTypes={nodeTypes}
             edgeTypes={edgeTypes}
             fitView
@@ -744,6 +828,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
 
         {/* Collapsible right sidebar */}
         <ConnectionSidebar />
+      </div>
       </div>
     </div>
   );

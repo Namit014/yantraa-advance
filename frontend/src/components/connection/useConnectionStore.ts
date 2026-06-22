@@ -4,7 +4,7 @@ import dagre from "dagre";
 
 // ─── Wire / Port Types ─────────────────────────────────────────────────────────
 
-export type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can";
+export type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can" | "feedback" | "safety";
 export type NodeShape =
   | "raspberry-pi"
   | "arduino-uno"
@@ -44,6 +44,8 @@ export interface CircuitNodeData extends Record<string, unknown> {
   voltage?: { value: number; unit: "V" };
   interfaceType?: string;
   isOrphaned?: boolean;
+  prodId?: string;
+  modelUrl?: string;
 }
 
 export interface WireData extends Record<string, unknown> {
@@ -63,9 +65,11 @@ export const WIRE_COLORS: Record<WireType, string> = {
   power: "#FF4444",
   ground: "#444444",
   signal: "#FFD700",
-  data: "#4488FF",
-  pwm: "#FF8C00",
-  can: "#44FF88",
+  data: "#44AAFF",
+  pwm: "#FF44AA",
+  can: "#AA44FF",
+  feedback: "#44FFAA",
+  safety: "#FFAA44"
 };
 
 // ─── API payload types ─────────────────────────────────────────────────────────
@@ -426,7 +430,9 @@ interface ConnectionStore {
   isGenerating: boolean;
   prompt: string;
   error: string | null;
+  ercReport: string | null;
   saveState: "saved" | "saving" | "unsaved";
+  _snapshotEdges?: CircuitEdge[];
 
   // Actions
   setNodes: (nodes: CircuitNode[] | ((prev: CircuitNode[]) => CircuitNode[])) => void;
@@ -475,6 +481,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   isGenerating: false,
   prompt: "Raspberry Pi 4 + Arduino Mega + ESP32 WiFi + L298N motors + MPU6050 IMU + HC-SR04 + OLED display",
   error: null,
+  ercReport: null,
   saveState: "saved",
 
   // Internal snapshot state

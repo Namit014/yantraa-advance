@@ -11,11 +11,13 @@ export interface PlacedComponent {
   icon: string;
   x: number;
   y: number;
+  prodId?: string;
+  modelUrl?: string;
 }
 
 interface WorkspaceCanvasProps {
   components: PlacedComponent[];
-  onDropComponent: (componentId: string, name: string, icon: string, x: number, y: number) => void;
+  onDropComponent: (componentId: string, name: string, icon: string, x: number, y: number, prodId?: string, modelUrl?: string) => void;
   onMoveComponent: (id: string, x: number, y: number) => void;
   onRemoveComponent: (id: string) => void;
   zoom: number;
@@ -65,10 +67,12 @@ export function WorkspaceCanvas({
     const componentId = e.dataTransfer.getData("component-id");
     const componentName = e.dataTransfer.getData("component-name");
     const componentIcon = e.dataTransfer.getData("component-icon");
+    const prodId = e.dataTransfer.getData("component-prodid");
+    const modelUrl = e.dataTransfer.getData("component-modelurl");
     if (!componentId) return;
 
     const pos = getCanvasPosition(e.clientX, e.clientY);
-    onDropComponent(componentId, componentName, componentIcon, pos.x, pos.y);
+    onDropComponent(componentId, componentName, componentIcon, pos.x, pos.y, prodId, modelUrl);
   };
 
   // Canvas panning
