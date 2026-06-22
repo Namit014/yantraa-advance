@@ -1,0 +1,96 @@
+Source URL: https://www.xbox.com/en-US/?msockid=189e4e3f2ff661a7049d59422e63601d
+Scraped: 2026-06-19T14:21:31.390186
+============================================================
+
+# XBOX Official Site: Play Games Anywhere
+
+## Overview
+XBOX is a gaming platform by Microsoft that enables users to play games across multiple devices, including consoles, PCs, handhelds, mobile devices, TVs, and VR headsets.
+
+## Key Offerings
+
+### Games
+- **XBOX Game Pass** – Subscription service for accessing a library of games
+- **XBOX Cloud Gaming** – Stream games without downloading
+- **XBOX Play Anywhere** – Buy once, play on console and PC
+- **Free-to-Play games**
+- **Optimized for XBOX Series X|S**
+- **Optimized for handhelds**
+- **Backward compatible games**
+- **Sales & Specials**
+- **Redeem Code** functionality
+
+### Consoles
+- **XBOX Series X**
+- **XBOX Series S**
+- Compare consoles tool available
+- "Help me choose a console" guide
+
+### Accessories
+- Controllers (including "Design your controller" customization)
+- Headsets
+- Hard drives & storage
+- Mobile gaming accessories
+
+### Platforms
+- XBOX on PC
+- XBOX on handhelds
+- XBOX on mobile
+- XBOX on TVs
+- XBOX on VR headsets
+
+### Community & Support
+- **FanFest**
+- **XBOX News**
+- **Sustainability** initiatives
+- **Family hub** and **XBOX Family Settings app**
+- **Accessible gaming** resources
+- **Community standards**
+- **XBOX Rewards** and **XBOX Mastercard**
+- **Profile Rewards**
+- **Wish list** feature
+
+### Support Topics
+- Account & profile
+- Subscriptions & billing
+- Hardware & networking
+- Family & online safety
+- Games & apps
+- Friends & social activity
+- XBOX system updates
+
+### Related Microsoft Products
+- Microsoft 365
+- Azure
+- Copilot
+- Windows
+- Surface
+- Microsoft AI
+- Microsoft Security
+- Dynamics 365
+- Microsoft Power Platform
+- Windows 365
+- Visual Studio
+- Microsoft Developer
+- Microsoft Learn
+- Microsoft Tech Community
+- Microsoft Marketplace
+
+### Store Features
+- Shop gear
+- Certified Refurbished products
+- Trade-in for cash
+- Gift cards
+- Store locations
+- Order tracking
+- Returns
+
+### Legal & Privacy
+- Consumer Health Privacy
+- Photosensitive Seizure Warning
+- User Research at XBOX
+- Terms of use
+- Trademarks
+- Third Party Notices
+- Safety & eco
+- About our ads

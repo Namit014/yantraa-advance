@@ -8,7 +8,7 @@ _src_dir = os.path.dirname(os.path.abspath(__file__))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
-from vectordb import get_qdrant_client
+from vectordb import _client
 from qdrant_client.models import Distance, VectorParams
 from embedder import Embedder, EMBEDDING_DIMENSION
 
@@ -60,17 +60,18 @@ def optimize_for_web_search(query: str) -> str:
 def _run_async(coro):
     import asyncio
     try:
-        loop = asyncio.get_running_loop()
+        loop = asyncio.get_event_loop()
     except RuntimeError:
-        loop = None
-
-    if loop and loop.is_running():
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+    
+    if loop.is_running():
         from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor() as executor:
             future = executor.submit(asyncio.run, coro)
             return future.result()
     else:
-        return asyncio.run(coro)
+        return loop.run_until_complete(coro)
 
 
 class Retriever:
@@ -79,7 +80,7 @@ class Retriever:
 
         self.embedder = Embedder()
 
-        self.client = get_qdrant_client()
+        self.client = _client
 
         # Explicitly close the Qdrant client on exit to avoid
         # "sys.meta_path is None" warning during Python shutdown
@@ -336,32 +337,12 @@ class Retriever:
         
         from cad_registry import get_known_cads
         known_cads = get_known_cads()
-
-        def _get_cad_url(filename: str) -> str:
-            S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
-            if S3_BUCKET_NAME and os.getenv("AWS_ACCESS_KEY_ID"):
-                try:
-                    import boto3
-                    s3_client = boto3.client('s3', region_name=os.getenv("AWS_REGION", "ap-south-1"))
-                    return s3_client.generate_presigned_url(
-                        'get_object',
-                        Params={'Bucket': S3_BUCKET_NAME, 'Key': filename},
-                        ExpiresIn=900 # 15 minutes
-                    )
-                except Exception as e:
-                    print(f"Error generating presigned URL: {e}")
-            
-            # Fallback to public bucket URL or local path
-            S3_BUCKET_URL = os.getenv("S3_BUCKET_URL")
-            if S3_BUCKET_URL:
-                return f"{S3_BUCKET_URL.rstrip('/')}/{filename}"
-            return f"/api/cad/{filename}"
         
         query_lower = query.lower()
         for key, filename in known_cads.items():
             if key in query_lower:
                 cad_available = True
-                cad_url = _get_cad_url(filename)
+                cad_url = f"/api/cad/{filename}"
                 break
                 
         if not cad_available and results and results.points:
@@ -373,7 +354,7 @@ class Retriever:
                     for key, filename in known_cads.items():
                         if key.replace(" ", "_") in r_lower or key in r_lower:
                             cad_available = True
-                            cad_url = _get_cad_url(filename)
+                            cad_url = f"/api/cad/{filename}"
                             break
                 if cad_available:
                     break

@@ -1,0 +1,73 @@
+Source URL: https://www.office.com/
+Scraped: 2026-06-19T14:19:32.077862
+============================================================
+
+# Microsoft 365 — Technical Overview
+
+**Product Name:** Microsoft 365
+**Deployment Environment:** Production
+**Platform:** Web (OfficeTaosHub)
+**Market Locale:** en-US (LCID 1033)
+**Geographic Region:** SEA
+**Domain Origin:** Office
+**Build Date (UTC):** 2026-06-19 08:48:38Z
+
+---
+
+## Core Description
+
+Microsoft 365 is a subscription-based productivity suite that integrates AI assistance (Microsoft 365 Copilot) directly into its applications. It enables users to create, collaborate, and work across documents, presentations, and data.
+
+## Included Applications
+
+- **Word with Copilot** — Draft documents smarter and finish faster.
+- **Excel with Copilot** — Unlock insights and make informed decisions.
+- **PowerPoint with Copilot** — Turn ideas into polished presentations.
+- **Outlook with Copilot** — Manage email and calendar to move work forward.
+
+## AI / Copilot Features
+
+- **Image Generation:** Users can describe what they want, and Copilot generates images for inspiration, storytelling, or polished headshots.
+- **File Context:** Users can add files to prompts to provide context and ground AI responses in their content.
+- **Slide Generation:** PowerPoint agent can build slides from notes, documents, or outlines.
+- **Brainstorming Agents:** The Analyst agent helps plan and gather insights for meetings.
+- **AI Activation:** AI features respond only when the user chooses to use them.
+
+## Included Services
+
+- OneDrive
+- Microsoft Teams
+- Outlook
+- Copilot app
+
+## Access & Plans
+
+- **Free Tier:** Word, Excel, and PowerPoint are available for free in the browser with a Microsoft account.
+- **Paid Subscription:** Additional features are available through paid plans; users can compare plans and upgrade.
+- **Existing Subscribers:** Users with an active Microsoft 365 subscription (or work/school license) can sign in to download and install desktop apps.
+
+## Platform Availability
+
+- **Desktop:** Download available for Windows, providing a focused desktop experience integrating Copilot.
+- **Mobile:** A mobile experience is available, designed for flexible access to work.
+
+## Telemetry & Configuration
+
+- **OTel (OpenTelemetry):** Enabled for the application namespace `Office.Taos.Hub`.
+- **Click Tracking:** Enabled.
+- **Page View Tracking:** Enabled.
+- **Performance Tracking:** Enabled.
+- **Error Tracking:** Enabled.
+- **Feature Tracking:** Enabled.
+- **Impression Tracking:** Enabled.
+- **Request Tracking:** Enabled.
+- **Diagnostic OTel:** Disabled.
+- **Sampling (Performance/Request):** Disabled.
+- **IP Scrubbing:** Disabled.
+- **EUDB Endpoint:** Disabled.
+- **Win11 Detection:** Enabled.
+- **PWA V2 Token:** Enabled.
+- **Feed API:** Enabled.
+- **MRU S2S Flow:** Enabled.
+- **Cookie Consent:** Required.
+- **Test Traffic:** False.
