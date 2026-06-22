@@ -227,7 +227,8 @@ NODE SHAPE RULES:
 - Use "generic-board" for everything else
 
 ROBOTICS STANDARDS & REQUIREMENTS:
-- SIMPLICITY FIRST (CRITICAL): ONLY generate the strictly necessary components. DO NOT add unnecessary components like decoupling capacitors, flyback diodes, or limit switches unless requested.
+- SENSORS & LOGICAL COMPLETENESS: If the prompt implies a standard robot (e.g. "2 wheel robot", "rover", "arm"), automatically include common necessary sensors (like ultrasonic sensors, IMU, encoders, limits) to make the design functionally complete. DO NOT omit core functional sensors.
+- SIMPLICITY FIRST (CRITICAL): ONLY generate the strictly necessary functional components. DO NOT add unnecessary passive components like decoupling capacitors or flyback diodes unless explicitly requested.
 - STRICTLY ELECTRICAL: DO NOT include purely mechanical brackets, adapters, tubes, or structural mounts in the diagram. Only electrical/electronic components (motors, controllers, sensors, power) are allowed.
 - CORE ELECTRONICS: You MUST include the main microcontroller (e.g., Arduino/Raspberry Pi), required motor drivers (e.g., L298N or A4988) for any actuators provided, and a main power supply/battery.
 - SEMANTIC LABELING: Assign role-based labels to EACH component. NEVER use generic duplicate names for multiple parts.
@@ -303,7 +304,7 @@ IMPORTANT:
         print("[connections/generate] Starting Pass 2: Deep LLM ERC Validation...")
         validated_data = llm_validate_diagram(diagram, request.prompt)
         
-        final_diagram = validated_data.get("diagram", diagram)
+        final_diagram = validated_data if ("nodes" in validated_data and "wires" in validated_data) else diagram
         erc_report = validated_data.get("erc_report", "Validation passed with no remarks.")
         
         # Ensure diagram structure is maintained

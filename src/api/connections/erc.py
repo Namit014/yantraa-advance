@@ -64,10 +64,9 @@ def llm_validate_diagram(diagram: dict, user_prompt: str) -> dict:
 
     system_prompt = (
         "You are a Senior Electrical Engineer reviewing a generated circuit diagram. "
-        "The current diagram may contain unnecessary industrial components like limit switches, "
-        "excessive decoupling capacitors, emergency stops, or overly complex routing that clutters the UI. "
+        "The current diagram may contain overly complex routing or unnecessary passive components (like excess decoupling caps) that clutter the UI. "
         "Your job is to SIMPLIFY the diagram while ensuring it still strictly works. "
-        "REMOVE any components that are not strictly necessary for the core functionality requested in the user prompt. "
+        "DO NOT REMOVE any functional sensors (like ultrasonic, IMU, cameras), motor drivers, motors, or microcontrollers! "
         "Ensure all grounds are logically routed to the main controller or power supply without creating unnecessary 'STAR GND' blocks. "
         "Fix any floating power or signal connections for the remaining essential parts. "
         "Return the EXACT updated JSON containing ONLY the 'nodes' and 'wires' arrays, AND add a third top-level key called 'erc_report' containing a short 2-3 sentence string explaining what you fixed or removed to simplify it. "

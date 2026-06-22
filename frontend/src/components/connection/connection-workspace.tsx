@@ -274,26 +274,37 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
       (storeNodes as CircuitNode[]).map((n) => [n.id, n])
     );
 
-    const validEdges = (storeEdges as CircuitEdge[]).filter((edge) => {
-      if (!edge.sourceHandle && !edge.targetHandle) return true;
+    const validEdges = (storeEdges as CircuitEdge[]).map((edge) => {
+      if (!edge.sourceHandle && !edge.targetHandle) return edge;
 
       const srcNode = nodeMap.get(edge.source);
       const tgtNode = nodeMap.get(edge.target);
+      
+      // If the node itself is completely missing, we MUST drop the edge.
+      if (!srcNode || !tgtNode) {
+        console.warn(`[ConnectionWorkspace] Dropping edge "${edge.id}" — node missing.`);
+        return null;
+      }
+
       const srcPorts = (srcNode?.data?.ports as { id: string }[] | undefined) ?? [];
       const tgtPorts = (tgtNode?.data?.ports as { id: string }[] | undefined) ?? [];
 
       const srcOk = !edge.sourceHandle || srcPorts.some((p) => p.id === edge.sourceHandle);
       const tgtOk = !edge.targetHandle || tgtPorts.some((p) => p.id === edge.targetHandle);
 
-      if (!srcOk || !tgtOk) {
-        console.warn(
-          `[ConnectionWorkspace] Dropping edge "${edge.id}" — handle not found.`,
-          { sourceHandle: edge.sourceHandle, srcOk, targetHandle: edge.targetHandle, tgtOk }
-        );
-        return false;
-      }
-      return true;
-    });
+      if (srcOk && tgtOk) return edge;
+
+      console.warn(
+        `[ConnectionWorkspace] Auto-repairing edge "${edge.id}" — handle not found.`,
+        { sourceHandle: edge.sourceHandle, srcOk, targetHandle: edge.targetHandle, tgtOk }
+      );
+      
+      return {
+        ...edge,
+        sourceHandle: srcOk ? edge.sourceHandle : "right-default",
+        targetHandle: tgtOk ? edge.targetHandle : "left-default",
+      };
+    }).filter((e): e is CircuitEdge => e !== null);
 
     setRfEdges(validEdges);
   }, [storeEdges, storeNodes]);
