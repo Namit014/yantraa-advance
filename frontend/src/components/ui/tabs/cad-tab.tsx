@@ -1207,6 +1207,44 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     <RotateCw size={12} className={isRemodeling ? "animate-spin" : ""} />
                                     {isRemodeling ? 'Remodeling...' : 'Re-model'}
                                 </button>
+<<<<<<< HEAD
+=======
+                            )}
+                        </div>
+                    </div>
+                    
+                    {/* Remodeling Overlay */}
+                    {isRemodeling && (
+                        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-xl">
+                            <div className="flex flex-col items-center gap-4 bg-neutral-900 border border-neutral-800 p-6 rounded-2xl shadow-2xl">
+                                <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
+                                <div className="text-center">
+                                    <h3 className="text-white font-medium">Acquiring New Model</h3>
+                                    <p className="text-neutral-400 text-sm mt-1">Scraping GrabCAD for alternatives...</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
+
+                    <div className="space-y-3 pt-4 border-t border-white/5">
+                        <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider flex items-center justify-between">
+                            <span>Jarvis AI</span>
+                            {isListening && <span className="flex h-2 w-2 relative"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span></span>}
+                        </span>
+                        <div className="flex flex-col gap-2">
+                            <button 
+                                onClick={() => setIsListening(!isListening)}
+                                className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${isListening ? 'bg-red-600/90 text-white shadow-[0_0_15px_rgba(220,38,38,0.4)] animate-pulse' : 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'}`}
+                            >
+                                {isListening ? <Mic size={12} /> : <MicOff size={12} />}
+                                {isListening ? 'Listening...' : 'Voice Control'}
+                            </button>
+                            {transcript && (
+                                <div className="text-[10px] text-neutral-400 italic bg-black/40 p-2 rounded border border-white/5 truncate px-1">
+                                    "{transcript}"
+                                </div>
+>>>>>>> saksham-dev
                             )}
                         </div>
                     </div>
@@ -1534,10 +1572,14 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
             {/* Component Count & BOM Toggle */}
 <<<<<<< HEAD
+<<<<<<< HEAD
             {meshes.length > 0 && (
 =======
             {(meshes.length > 0 || (designData?.missing && designData.missing.length > 0)) ? (
 >>>>>>> a61276f7a6f8fc54f4dad3d5a2dee9f19487edcc
+=======
+            {meshes.length > 0 && (
+>>>>>>> saksham-dev
                 <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
                     <button 
                         onClick={() => setShowBOM(!showBOM)}

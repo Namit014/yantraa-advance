@@ -8,7 +8,19 @@ from qdrant_client.models import (
 )
 
 QDRANT_DATA_PATH = "./qdrant_data"
-_client = QdrantClient(path=QDRANT_DATA_PATH)
+_client_instance = None
+
+def get_qdrant_client():
+    global _client_instance
+    if _client_instance is None:
+        try:
+            _client_instance = QdrantClient(path=QDRANT_DATA_PATH)
+        except Exception as e:
+            if "already accessed by another instance" in str(e):
+                print(f"[Yantra AI] WARNING: Qdrant Database is locked by another process. Returning existing instance or running without Qdrant.")
+                raise RuntimeError("Storage folder is locked. Please ensure only one backend instance is running.") from e
+            raise e
+    return _client_instance
 
 def compute_content_hash(text: str) -> str:
     """Compute SHA-256 hash of a string."""
@@ -56,7 +68,7 @@ class VectorDB:
         if client:
             self.client = client
         else:
-            self.client = _client
+            self.client = get_qdrant_client()
 
         self._create_collection(
             vector_size

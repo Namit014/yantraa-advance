@@ -8,7 +8,7 @@ _src_dir = os.path.dirname(os.path.abspath(__file__))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
-from vectordb import _client
+from vectordb import get_qdrant_client
 from qdrant_client.models import Distance, VectorParams
 from embedder import Embedder, EMBEDDING_DIMENSION
 
@@ -79,7 +79,7 @@ class Retriever:
 
         self.embedder = Embedder()
 
-        self.client = _client
+        self.client = get_qdrant_client()
 
         # Explicitly close the Qdrant client on exit to avoid
         # "sys.meta_path is None" warning during Python shutdown

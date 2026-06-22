@@ -483,18 +483,6 @@ USER REQUEST:
         except Exception:
             pass
 
-<<<<<<< HEAD
-    frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
-    
-    valid_cad_urls = []
-    for f in matched_cads:
-        if os.path.exists(os.path.join(frontend_public_cad, f)):
-            valid_cad_urls.append(f"/cad/{f}")
-        else:
-            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
-
-    cad_urls = valid_cad_urls
-=======
     # Universal CAD Scraper Fallback
     if not matched_cads:
         print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
@@ -504,9 +492,16 @@ USER REQUEST:
             matched_cads.add(scraped_filename)
 
     cad_available = len(matched_cads) > 0
-    # Use direct static URL since Next.js hosts the CAD files in public/cad/
-    cad_urls = [f"/cad/{f}" for f in matched_cads]
->>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
+    
+    frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
+    valid_cad_urls = []
+    for f in matched_cads:
+        if os.path.exists(os.path.join(frontend_public_cad, f)):
+            valid_cad_urls.append(f"/cad/{f}")
+        else:
+            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
+
+    cad_urls = valid_cad_urls
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
     
