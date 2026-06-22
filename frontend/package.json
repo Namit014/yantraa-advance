@@ -7,7 +7,11 @@
     "next-dev": "next dev",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "fastapi-dev": "..\\.venv\\Scripts\\python ../src/api/main.py",
+=======
+    "fastapi-dev": "py -3.11 ../src/api/main.py",
+>>>>>>> 120d21e6894fd78eb265ebfab82acff4a95c66d2
 =======
     "fastapi-dev": "py -3.11 ../src/api/main.py",
 >>>>>>> 120d21e6894fd78eb265ebfab82acff4a95c66d2
