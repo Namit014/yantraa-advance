@@ -49,8 +49,8 @@ export interface CircuitNodeData extends Record<string, unknown> {
 }
 
 export interface WireData extends Record<string, unknown> {
-  from: { nodeId: string; portId: string };
-  to: { nodeId: string; portId: string };
+  from: { nodeId: string; portId: string; sourcePin?: string };
+  to: { nodeId: string; portId: string; targetPin?: string };
   color: string;
   label: string;
   wireType: WireType;
@@ -441,6 +441,7 @@ interface ConnectionStore {
   setSelectedEdge: (id: string | null) => void;
   setSidebarOpen: (open: boolean) => void;
   setSaveState: (state: "saved" | "saving" | "unsaved") => void;
+  setErcReport: (report: string | null) => void;
 
   updateEdge: (
     id: string,
@@ -773,6 +774,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     set({ selectedEdgeId: id, sidebarOpen: id !== null }),
   setSidebarOpen: (open) => set({ sidebarOpen: open }),
   setSaveState: (state) => set({ saveState: state }),
+  setErcReport: (ercReport) => set({ ercReport }),
 
   updateEdge: (id, patch) => {
     const edges = get().edges.map((e) => {

@@ -3,6 +3,8 @@ export interface ComponentItem {
   name: string;
   icon: string; // emoji or lucide icon name
   category: string;
+  prodId?: string;
+  modelUrl?: string;
 }
 
 export interface ComponentCategory {

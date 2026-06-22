@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { COMPONENT_CATEGORIES } from "./component-data";
 import { cn } from "@/lib/utils";
@@ -38,10 +38,12 @@ export function ComponentSidebar({ onAddComponent }: ComponentSidebarProps) {
         ...baseCategories,
         {
           name: "SparkFun Library",
+          count: sparkfunComponents.length,
           items: sparkfunComponents.map(c => ({
             id: `sparkfun-${c.name}`,
             name: c.name,
             icon: "⚙️",
+            category: "SparkFun Library",
             prodId: c.prod_id,
             modelUrl: c.model_path
           }))
