@@ -795,7 +795,6 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     
     const controlsRef = useRef<any>(null);
 
-<<<<<<< HEAD
     // Call .dispose() on OrbitControls reference on unmount to prevent stale listeners
     useEffect(() => {
         return () => {
@@ -808,7 +807,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
             }
         };
     }, []);
-=======
+
     const [generatingParts, setGeneratingParts] = useState<Record<string, string>>({});
 
     const handleGenerateCAD = async (partName: string) => {
@@ -851,7 +850,6 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
             setGeneratingParts(prev => ({ ...prev, [partName]: `Error: ${err.message || err}` }));
         }
     };
->>>>>>> a61276f7a6f8fc54f4dad3d5a2dee9f19487edcc
 
     const autoScale = useMemo(() => {
         if (!meshes.length) return 1;
@@ -965,14 +963,10 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
         let isMounted = true;
 
-<<<<<<< HEAD
-=======
         // Extract assembly transforms from designData if available
         const assemblyTransforms: Array<{id: string, part: string, cad_url: string, position: number[], rotation: number[]}> = 
             designData?.assembly_transforms || [];
         const assemblyMode = designData?.assembly_mode || "side_by_side";
-
->>>>>>> a61276f7a6f8fc54f4dad3d5a2dee9f19487edcc
         async function loadStepFiles() {
             setIsLoading(true);
             setError(null);
@@ -990,57 +984,6 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                 const loadedMeshes: LoadedMesh[] = [];
                 let globalMeshId = 0;
 
-<<<<<<< HEAD
-                // Load all step files concurrently
-                const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
-                    const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL 
-                        ? `${process.env.NEXT_PUBLIC_API_URL}${url}` 
-                        : url;
-                    const res = await fetch(fetchUrl);
-                    if (!res.ok) throw new Error(`Failed to download CAD file: ${url}`);
-                    const buffer = await res.arrayBuffer();
-                    
-                    const fileBuffer = new Uint8Array(buffer);
-                    const result = occt.ReadStepFile(fileBuffer, null);
-                    
-                    if (!result || !result.meshes || result.meshes.length === 0) {
-                        console.warn(`No valid meshes found in CAD file: ${url}`);
-                        return;
-                    }
-                    
-                    // Add X-axis offset based on file index to space them out initially
-                    const offsetMatrix = new THREE.Matrix4().makeTranslation(fileIndex * 150, 0, 0);
-
-                    for (const m of result.meshes) {
-                        const geometry = new THREE.BufferGeometry();
-                        
-                        geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
-                        if (m.attributes.normal) {
-                            geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
-                        }
-                        const index = Uint32Array.from(m.index.array);
-                        geometry.setIndex(new THREE.BufferAttribute(index, 1));
-                        
-                        // Apply the initial spacing offset
-                        geometry.applyMatrix4(offsetMatrix);
-                        
-                        geometry.computeVertexNormals();
-                        geometry.computeBoundingBox();
-                        geometry.computeBoundingSphere();
-
-                        let color = null;
-                        if (m.color) {
-                            color = new THREE.Color(m.color[0], m.color[1], m.color[2]);
-                        }
-
-                        loadedMeshes.push({
-                            id: `mesh-${fileIndex}-${globalMeshId++}`,
-                            geometry,
-                            color,
-                            name: m.name || `Component ${globalMeshId}`
-                        });
-                    }
-=======
                 // Load all step files concurrently — skip missing files gracefully
                 const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
                     try {
@@ -1134,7 +1077,6 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     } catch (fileErr) {
                         console.warn(`[CAD] Error loading ${url}, skipping:`, fileErr);
                     }
->>>>>>> a61276f7a6f8fc54f4dad3d5a2dee9f19487edcc
                 });
 
                 await Promise.all(fetchPromises);
@@ -1153,11 +1095,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
         loadStepFiles();
 
         return () => { isMounted = false; };
-<<<<<<< HEAD
-    }, [cadUrls]);
-=======
     }, [cadUrls, designData?.assembly_transforms, designData?.assembly_mode]);
->>>>>>> a61276f7a6f8fc54f4dad3d5a2dee9f19487edcc
 
     return (
         <div className="relative w-full h-full bg-[#060810] overflow-hidden rounded-xl border border-neutral-800 select-none">
@@ -1207,8 +1145,6 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     <RotateCw size={12} className={isRemodeling ? "animate-spin" : ""} />
                                     {isRemodeling ? 'Remodeling...' : 'Re-model'}
                                 </button>
-<<<<<<< HEAD
-=======
                             )}
                         </div>
                     </div>
@@ -1244,7 +1180,6 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 <div className="text-[10px] text-neutral-400 italic bg-black/40 p-2 rounded border border-white/5 truncate px-1">
                                     "{transcript}"
                                 </div>
->>>>>>> saksham-dev
                             )}
                         </div>
                     </div>
@@ -1571,15 +1506,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
             </div>
 
             {/* Component Count & BOM Toggle */}
-<<<<<<< HEAD
-<<<<<<< HEAD
-            {meshes.length > 0 && (
-=======
-            {(meshes.length > 0 || (designData?.missing && designData.missing.length > 0)) ? (
->>>>>>> a61276f7a6f8fc54f4dad3d5a2dee9f19487edcc
-=======
-            {meshes.length > 0 && (
->>>>>>> saksham-dev
+            {(meshes.length > 0 || (designData?.missing && designData.missing.length > 0)) && (
                 <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
                     <button 
                         onClick={() => setShowBOM(!showBOM)}
