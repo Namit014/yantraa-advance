@@ -760,6 +760,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     const [meshes, setMeshes] = useState<LoadedMesh[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [warning, setWarning] = useState<string | null>(null);
 
     // Advanced UX State
     const [explosion, setExplosion] = useState(0);
@@ -956,7 +957,8 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     };
 
     useEffect(() => {
-        if (!cadUrls || cadUrls.length === 0) {
+        const primaryCadUrl = cadUrls?.[0];
+        if (!primaryCadUrl) {
             setMeshes([]);
             return;
         }
@@ -972,6 +974,20 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
             setError(null);
 
             try {
+                // Before loading
+                const headUrls = cadUrls || [];
+                const firstUrl = headUrls[0];
+                if (firstUrl) {
+                    const fetchUrl = firstUrl.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL
+                        ? `${process.env.NEXT_PUBLIC_API_URL}${firstUrl}`
+                        : firstUrl;
+                    const headRes = await fetch(fetchUrl, { method: 'HEAD' });
+                    const size = parseInt(headRes.headers.get('content-length') || '0');
+                    if (size > 15 * 1024 * 1024) {
+                        setWarning('CAD file is large (>15MB) — loading may take a moment');
+                    }
+                }
+
                 // Dynamically import to avoid SSR issues
                 // @ts-ignore
                 const occtimportjs = (await import("occt-import-js")).default;
@@ -1396,8 +1412,20 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     <Loader2 size={40} className="text-blue-500 animate-spin" />
                     <div className="flex flex-col items-center gap-1">
                         <span className="text-blue-400 text-sm font-medium">Parsing High-Fidelity B-Rep CAD...</span>
-                        <span className="text-blue-500/60 text-xs text-center max-w-xs">Using WebAssembly to render exact continuous surfaces directly from the .stp file.</span>
+                        {warning ? (
+                            <span className="text-amber-400 text-xs text-center max-w-xs font-semibold animate-pulse">{warning}</span>
+                        ) : (
+                            <span className="text-blue-500/60 text-xs text-center max-w-xs">Using WebAssembly to render exact continuous surfaces directly from the .stp file.</span>
+                        )}
                     </div>
+                </div>
+            )}
+
+            {/* Warning Banner */}
+            {warning && !isLoading && (
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-amber-950/80 border border-amber-500/50 text-amber-300 text-xs font-mono px-3 py-2 rounded shadow-xl backdrop-blur-md">
+                    <AlertTriangle size={14} className="text-amber-400" />
+                    <span>{warning}</span>
                 </div>
             )}
 

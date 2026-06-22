@@ -35,18 +35,34 @@ class DesignResponse(BaseModel):
     assembly_mode: str = "side_by_side"
 
 def _strip_markdown_json(text: str) -> str:
-    """Remove ```json``` fences and find the JSON object/array."""
-    cleaned = re.sub(r"```json\s*", "", text, flags=re.IGNORECASE)
-    cleaned = re.sub(r"```\s*", "", cleaned)
-    start = cleaned.find("{")
-    end = cleaned.rfind("}")
-    if start != -1 and end != -1:
-        return cleaned[start : end + 1]
-    arr_start = cleaned.find("[")
-    arr_end = cleaned.rfind("]")
-    if arr_start != -1 and arr_end != -1:
-        return cleaned[arr_start : arr_end + 1]
-    return cleaned.strip()
+    text = text.strip()
+    # Remove markdown code blocks if present
+    match = re.search(r'```(?:json)?\s*(.*?)\s*```', text, re.DOTALL)
+    if match:
+        text = match.group(1).strip()
+    
+    # Find first '{' or '[' and last '}' or ']'
+    start_obj = text.find("{")
+    end_obj = text.rfind("}")
+    start_arr = text.find("[")
+    end_arr = text.rfind("]")
+    
+    # If both exist, find the outer one or default to the object
+    if start_obj != -1 and (start_arr == -1 or start_obj < start_arr) and end_obj != -1:
+        return text[start_obj : end_obj + 1]
+    elif start_arr != -1 and end_arr != -1:
+        return text[start_arr : end_arr + 1]
+    return text
+
+FULL_ASSEMBLY_KEYWORDS = ["full_system", "full-system", "assembly", "complete", "system"]
+
+def pick_primary_cad(matched_files: list[str]) -> list[str]:
+    # Prefer a full assembly file if one exists
+    for f in matched_files:
+        if any(kw in f.lower() for kw in FULL_ASSEMBLY_KEYWORDS):
+            return [f]
+    # Otherwise return only the first match
+    return matched_files[:1] if matched_files else []
 
 def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
     bom_map = {}
@@ -466,17 +482,15 @@ OUTPUT FORMAT:
         if scraped_filename:
             matched_cads.add(scraped_filename)
 
-    cad_available = len(matched_cads) > 0
+    primary_cads = pick_primary_cad(list(matched_cads))
     
     frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
-    valid_cad_urls = []
-    for f in matched_cads:
+    cad_urls = []
+    for f in primary_cads:
         if os.path.exists(os.path.join(frontend_public_cad, f)):
-            valid_cad_urls.append(f"/cad/{f}")
+            cad_urls.append(f"/cad/{f}")
         else:
             print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
-
-    cad_urls = valid_cad_urls
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
     
