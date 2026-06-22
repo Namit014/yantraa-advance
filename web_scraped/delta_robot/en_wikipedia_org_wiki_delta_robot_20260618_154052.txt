@@ -1,0 +1,51 @@
+Source URL: https://en.wikipedia.org/wiki/Delta_robot
+Scraped: 2026-06-18T15:40:52.735860
+============================================================
+
+**Technical Specifications and Facts Extracted from Wikipedia (Delta Robot):**  
+
+### **Design Features**  
+- **Parallel Kinematic Configuration**: Three arms connected to universal joints at the base.  
+- **Parallelogram-Based Arms**: Guarantees end-effector orientation remains fixed (no rotation).  
+- **Actuators**:  
+  - **Rotary Actuators**: Most common; mounted on the base.  
+  - **Vertical Linear Actuators**: Emerging in 3D printers for faster movement and larger build volumes.  
+  - **Flexure-Hinges Joints**: Used in the Delta Cube for ultra-high precision.  
+- **Advantages**:  
+  - **High Speed**: Actuator forces limited by robot weight; low mass enables accelerations up to **100g**.  
+  - **Stiffness**: Parallel linkages increase rigidity but restrict working volume.  
+  - **Precision**: Sub-millimeter accuracy (e.g., 5 μm resolution in microscale robots).  
+
+### **Kinematics**  
+- **Degrees of Freedom (DOF)**:  
+  - Original Clavel design: **4 DOF** (3 translations + 1 rotation).  
+  - Modern variants:  
+    - **6 DOF** (Fanuc): Adds 3 rotational DOF to the end effector.  
+    - **4 DOF** (Adept): Four parallelograms connecting to the end platform.  
+- **Linear Delta Arrangements**: Motors drive linear actuators, enabling larger workspaces.  
+
+### **Applications**  
+1. **Industrial Automation**:  
+   - **High-Speed Pick-and-Place**: Up to **300 cycles/min** (e.g., sorting confectionery, electronics).  
+   - **Electronics**: PCB placement, wire bonding, micro-assembly in cleanrooms (minimizes vibrations).  
+2. **Medical**:  
+   - **Neurosurgical Systems**: Sub-millimeter accuracy for surgical microscopes (e.g., Surgiscope).  
+3. **Research**:  
+   - **Microscale Delta Robots**:  
+     - **milliDelta**: Piezoelectric actuators; 1.3g payload, 5 μm precision, 75 Hz repeatability.  
+     - **Harvard’s Miniaturized Robot**: 0.43g weight, 7 mm³ workspace, 0.45 m/s speed.  
+4. **3D Printing**:  
+   - Delta-style printers prioritize fast XYZ movement over Cartesian models.  
+
+### **Commercial History**  
+- **1980s**: Invented by Reymond Clavel’s team at EPFL (Switzerland) for packaging small objects (e.g., pralines).  
+- **1999**:  
+  - ABB launched FlexPicker.  
+  - Awarded Golden Robot Award to Clavel.  
+- **1991**: Clavel’s doctoral thesis on 4-DOF parallel robots.  
+
+### **Advanced Variants**  
+- **Delta Direct Drive**: Rotary motors directly connected to arms for rapid accelerations (30–100g).  
+- **Delta Cube**: Monolithic design for precision tasks.  
+
+This summary adheres strictly to the source text, excluding non-technical or duplicate information.

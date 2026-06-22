@@ -18,3 +18,12 @@ painting_robot_cad.stp
 palletizing_robot_cad.STEP
 scara_robot_cad.stp
 welding_cad.stp
+
+# Yantraa temp and config ignores
+.env.local
+*.bak
+debug_*.txt
+api_response.json
+.temp_*/
+scratch/
+.scraped_url_cache.json

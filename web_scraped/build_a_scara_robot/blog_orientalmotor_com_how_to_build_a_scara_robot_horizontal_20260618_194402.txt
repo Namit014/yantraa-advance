@@ -1,0 +1,100 @@
+Source URL: https://blog.orientalmotor.com/how-to-build-a-scara-robot-horizontal-articulated-robot-with-off-the-shelf-products
+Scraped: 2026-06-18T19:44:02.379896
+============================================================
+
+# How to Build a SCARA Robot with Off-The-Shelf Products
+
+## Overview
+
+A 5-axis SCARA (horizontal articulated) robot was built in-house to automate pick-and-place and transport between processes in a limited space. It is used in automated production lines for gluing, measuring, and assembly tasks that were conventionally done manually. Traditional robots are typically large and cannot be customized to fit tight spaces.
+
+## Specifications
+
+- **Number of axes:** 5 axes (3 links + lift + electric gripper)
+- **Payload:** 0.7 kg
+- **Maximum speed at gripper tip:** 500 mm/s
+- **Axis 1 speed:** 500 mm/s
+- **Axis 2 speed:** 500 mm/s
+- **Axis 3 speed:** 500 mm/s
+- **Axis 4 speed:** 40 mm/s
+- **Axis 5 speed:** 156 mm/s (both sides)
+- **Main power:** 115 VAC
+- **Drive/control power supply:** 24 VDC
+- **Mass (SCARA robot part):** 4 kg
+
+## System Configuration
+
+The SCARA robot is controlled by Ethernet/IP from a host controller such as a PLC. The MRC01 robot controller communicates with all AZ Series drivers via RS-485 communication (Modbus RTU).
+
+## Component List
+
+**Axis 1:**
+- Hollow rotary actuator: DGM85R-AZAK
+- Driver (built-in positioning function type): AZD-KD
+- Flexible connection cable: CC030VZR2
+- DC power cable: CC02D010-3
+- RS-485 communication cable: CC001-RS4
+
+**Axis 2:**
+- Hollow rotary actuator: DGM60-AZAK
+- Driver (built-in positioning function type): AZD-KD
+- Flexible connection cable: CC030VZ2R2
+- DC power cable: CC02D010-3
+- RS-485 communication cable: CC001-RS4
+
+**Axis 3:**
+- αSTEP harmonic geared type: AZM24AK-HS50
+- Driver (built-in positioning function type): AZD-KD
+- Flexible connection cable: CC030VZ2R2
+- DC power cable: CC02D010-3
+- RS-485 communication cable: CC001-RS4
+
+**Axis 4:**
+- Compact cylinder: DR28T1A03-AZAKD-F
+- Driver (built-in positioning function type): AZD-KD
+- Flexible connection cable: CC030VZ2R2
+- DC power cable: CC02D010-3
+- RS-485 communication cable: CC001-RS4
+
+**Axis 5:**
+- Compact gripper: EH3-AZAKH
+- Driver (built-in positioning function type): AZD-KD
+- Flexible connection cable: CC030VZ2R2
+- DC power cable: CC02D010-3
+
+**Controller:**
+- Robot controller: MRC01
+- DC power cable: CC02D010-3
+- RS-485 communication cable: CC001-RS4
+
+All motor cables are 3m long, all DC power cables are 1m long, and all RS-485 communication cables are 0.1m long.
+
+## Total Estimated Cost
+
+~$11,969. Typical 5-axis SCARA robots meeting these requirements cost between $15,000 and $25,000, resulting in savings of $3,031 to $13,031. This does not include special features like vision systems.
+
+## MRC01 Robot Controller and MRC Studio Programming Software
+
+- No ladder logic knowledge required.
+- Linkage between MRC01 and host system is directly controlled by EtherNet/IP, allowing easy integration without major changes to existing equipment control systems.
+- Initial settings use a wizard for robot type selection and mechanism information input. Targeted commands can be added via teaching operations.
+- A designer was able to create a program by teaching in about two hours, as multiple axes can be set with a single command.
+- Online 3D simulation allows operation program verification without driving the motor and without requiring a connection to a host PLC.
+- Supports vertical articulated robots, SCARA robots, and orthogonal robots. The end effector axis can also be controlled by the MRC01.
+- Compatible with AZ series and electric actuators.
+
+## Products Used for Each Axis
+
+All motors, actuators, and drivers are from the αSTEP AZ Series family, featuring a battery-free mechanical multi-rotation absolute sensor. This eliminates external sensors on all axes, reduces wiring, and retains absolute position information even after power loss from emergency stops or power failures. There are no battery costs or maintenance concerns.
+
+**Axis 1 & 2 – DGⅡ Series Hollow Rotary Actuator:**
+Uses cross-roller bearings for the hollow output table to achieve high allowable moment, expanding the arm's range of motion. Hollow through-holes allow cable routing, simplifying robot design.
+
+**Axis 3 – αSTEP AZ Series Harmonic Geared Type:**
+Geared stepper motor with no backlash, suppressing misalignment and achieving accurate operation at the arm tip.
+
+**Axis 4 – DR Series Compact Cylinder:**
+Integrates the αSTEP AZ series with a ball screw in a compact body, reducing the load on the robot mechanism tip and improving design freedom.
+
+**Axis 5 – EH Series Compact Gripper:**
+Position, gripping time, and gripping force can be freely set. The lightweight end effector reduces the burden on each joint, contributing to overall robot size and cost reduction.

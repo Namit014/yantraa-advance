@@ -69,7 +69,8 @@ def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
                 "qty": qty
             }
     return list(bom_map.values())
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/owl-alpha") -> str:
+
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "gemini-2.5-flash") -> str:
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
@@ -87,11 +88,25 @@ def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json
         return res
     except Exception as e:
         print(f"[api/design] LLM invocation failed: {e}. Retrying with plain text response...")
-        return invoke_yantra_ai(
-            prompt=prompt,
-            system_prompt=system_prompt,
-            response_format="text"
-        )
+        try:
+            return invoke_yantra_ai(
+                prompt=prompt,
+                system_prompt=system_prompt,
+                response_format="text"
+            )
+        except Exception as e2:
+            print(f"[api/design] Final LLM invocation failed: {e2}")
+            import json
+            return json.dumps({
+                "subsystems": [],
+                "connections": [],
+                "bom": [],
+                "missing": [],
+                "validation": [{"type": "error", "message": f"AI Engine Error: {str(e2)}"}],
+                "cad_available": False,
+                "cad_urls": [],
+                "chat_reply": "I apologize, but my upstream AI provider is currently experiencing high traffic or rate limits (Too Many Requests). Please try again in a moment."
+            })
 
 @router.post("/api/design", response_model=DesignResponse)
 async def generate_robot_design(request: Request, design_request: DesignRequest):
@@ -197,7 +212,7 @@ OUTPUT FORMAT:
     # Search for each term (limit to top 8 to prevent huge contexts)
     for search_term in components_to_search[:8]:
         try:
-            points = retriever_instance.search(search_term, top_k=2)
+            points = retriever_instance.search(f"{search_term} pinout datasheet connection", top_k=3)
             for pt in points:
                 if pt.payload and "text" in pt.payload:
                     retrieved_texts.append(f"## {search_term}\n{pt.payload['text']}")
@@ -226,57 +241,28 @@ OUTPUT FORMAT:
 
     # ─── PHASE 3: Synthesis Agent (Mapping + Connection + Validation) ────────
     print("[api/design] Phase 3: Running Synthesis Agent...")
-    synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to design a complete robot assembly.
-    
-If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
-However, if the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone, flight controller, propeller, plane, hexacopter, underwater ROV, etc.), you should generate standard generic custom components matching: `quadcopter_frame`, `brushless_motor`, `propeller`, `flight_controller`, `lipo_battery`.
+    synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to assemble a complete, industrial-grade robot according to the USER REQUEST.
+You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
 
-ROBOT ASSEMBLY TEMPLATES (use these as guides):
-
-1. ARTICULATED ARM (painting, welding, pick-and-place, cobot):
-   - Actuators: A-2475-08 (base), A-2475-05 (joints x2-4)
-   - Mounts: A-2221-01_Heavy_Right_Angle_Bracket_Inside (base mount), A-2220-01_Light_Right_Angle_Bracket (joint brackets), A-2218-01_Output_Tube_Adapter (link connectors)
-   - End Effector: A-2055-01_Gripper_Assembly (gripping) or A-2143-02 (parallel gripper) or A-2292-01 (custom tool)
-   - Electronics: A-2433-01_Motor_Driver_RJ45 (1 per actuator), A-2525-01 (battery)
-
-2. DELTA ROBOT (fast pick-and-place, 3D printing):
-   - Actuators: A-2475-05 x3 (parallel arms)
-   - Mounts: A-2096-02_Six_Tube_Adapter (central hub), A-2220-01_Light_Right_Angle_Bracket x3
-   - End Effector: A-2055-01_Gripper_Assembly
-   - Electronics: A-2433-01_Motor_Driver_RJ45 x3
-
-3. MOBILE ROBOT (wheeled, AGV):
-   - Actuators: A-2438-02 (track/wheel drive x2-4)
-   - Mounts: A-2227-01_Wheel_Adapter x4, A-2228-01_T-Slot_Right_Angle_Adapter (frame)
-   - Electronics: A-2432-01 (IO board), A-2525-01 (battery)
-
-4. QUADRUPED / DOG ROBOT:
-   - Actuators: A-2475-05 x12 (3 per leg)
-   - Mounts: A-2221-01_Heavy_Right_Angle_Bracket_Inside x8
-   - Electronics: A-2433-01_Motor_Driver_RJ45 x4, A-2525-01
-
-5. HUMANOID:
-   - Actuators: A-2269-01_R-Series_Double_Shoulder x2, A-2475-08 x4, A-2475-05 x6
-   - Mounts: A-2221-01_Heavy_Right_Angle_Bracket_Inside, A-2096-02_Six_Tube_Adapter
-   - End Effector: A-2055-01_Gripper_Assembly x2
-
-6. DRONE / FLYING ROBOT:
-   - Chassis: quadcopter_frame
-   - Actuators: brushless_motor (qty 4), propeller (qty 4)
-   - Electronics: flight_controller, lipo_battery
-   - Port mappings (parent_port on frame/motor -> child_port 'input_flange' on child):
-     * quadcopter_frame -> brushless_motor (motor_fr, motor_fl, motor_br, motor_bl) at ports (motor_mount_fr, motor_mount_fl, motor_mount_br, motor_mount_bl)
-     * brushless_motor -> propeller at port (shaft)
-     * quadcopter_frame -> flight_controller at port (top_face)
-     * quadcopter_frame -> lipo_battery at port (bottom_face)
-
-RULES:
-- For HEBI robots, use ONLY component names from the AVAILABLE list below.
-- For flying robots/drones, use custom component names (`quadcopter_frame`, `brushless_motor`, `propeller`, `flight_controller`, `lipo_battery`) and define the assembly_graph.
-- Any custom component you generate (e.g. quadcopter_frame, brushless_motor, lipo_battery) MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
+CRITICAL RULES:
+- If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
+- If the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone), you should generate standard generic custom components (e.g., `quadcopter_frame`, `brushless_motor`).
+- Any custom component you generate MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
 - If you use custom components or define an assembly, you MUST include 'assembly_graph' in your JSON output detailing the parent-child relationships and connection ports.
-- Output ONLY valid JSON. No extra conversational text.
-- Keep output SHORT: max 12 components, 10 connections.
+- Output ONLY valid JSON in the exact structure requested.
+
+ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
+1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot. Instead, use a Trunk-and-Branch topology.
+2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node".
+3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power via a Safety Relay or Contactor.
+4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring.
+5. **Power Supply Sizing & Fusing**: Every individual branch from the PSU to a Driver MUST pass through a dedicated Fuse or Circuit Breaker.
+6. **Communication Architecture (Daisy-Chain)**: Wire the Fieldbus in a Daisy-Chain topology to minimize long signal wires.
+7. **Power Isolation**: Strictly separate Logic and Motor power. Use a DC-DC Buck Converter for logic.
+8. **Dynamic Joint Naming**: Explicitly name motors/actuators with their kinematic role (e.g., "J1 Base Rotation Motor").
+9. **Strict Connectivity**: 
+   - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
+   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
 
 OUTPUT FORMAT:
 {
@@ -284,12 +270,25 @@ OUTPUT FORMAT:
     {
       "name": "subsystem name",
       "components": [
-        {"id": "unique_id", "name": "component name", "role": "what it does", "voltage": "48V", "interface": "RJ45"}
+        {
+          "id": "unique_id",
+          "name": "exact component name",
+          "role": "what it does",
+          "voltage": "operating voltage",
+          "interface": "communication protocol"
+        }
       ]
     }
   ],
   "connections": [
-    {"from": "id", "to": "id", "relation": "controlled_by", "protocol": "RJ45"}
+    {
+      "from": "component_id",
+      "from_port": "exact_pin_name",
+      "to": "component_id",
+      "to_port": "exact_pin_name",
+      "wire_type": "power | ground | signal | data | pwm | can",
+      "relation": "powered_by | controlled_by | drives | communicates_with"
+    }
   ],
   "bom": [
     {"id": "id", "name": "exact name", "qty": 1}
@@ -297,34 +296,36 @@ OUTPUT FORMAT:
   "missing": [
     {"name": "component name"}
   ],
-  "validation": [],
+  "validation": [
+    {"type": "error | warning", "message": "validation check"}
+  ],
   "assembly_graph": [
     {"parent": "parent_id", "child": "child_id", "parent_port": "port_name", "child_port": "port_name"}
   ]
 }"""
 
-    # Build a compact component list to minimize token usage
-    compact_components = []
+    # Build user prompt
+    user_prompt = f"USER REQUEST: {query}\n\n"
+    if component_graph_text:
+        user_prompt += f"{component_graph_text}\n"
+    if rag_results:
+        user_prompt += f"COMPONENT SPECS & DATA SHEETS:\n{rag_results}\n"
+
+<<<<<<< HEAD
+    print("[api/design] Invoking LLM...")
     try:
-        if os.path.exists(hebi_path):
-            with open(hebi_path, "r", encoding="utf-8") as f:
-                hebi_data = json.load(f)
-                for comp in hebi_data.get("components", []):
-                    compact_components.append(f"- {comp.get('name')} ({comp.get('category')})")
-    except Exception:
-        pass
-    
-    available_list = "\n".join(compact_components) if compact_components else "(No components loaded)"
+        res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
+        json_str = _strip_markdown_json(res_text)
+        data = json.loads(json_str)
+    except Exception as e:
+        print(f"[api/design] Error parsing LLM JSON: {e}")
+        data = {}
+=======
+    synthesis_prompt = f"""{component_graph_text}RETRIEVED COMPONENTS:
+{rag_results}
 
-    synthesis_prompt = f"""AVAILABLE HEBI COMPONENTS:
-{available_list}
-
-RETRIEVED SPECS:
-{rag_results[:2000]}
-
-USER REQUEST: {query}
-
-Generate the robot assembly JSON now."""
+USER REQUEST:
+{query}"""
 
     synthesis_data = {}
     try:
@@ -343,17 +344,15 @@ Generate the robot assembly JSON now."""
             "missing": [],
             "validation": [{"type": "warning", "message": "Standard BOM generated due to complex custom assembly. Reference CAD model for full physical details."}]
         }
+>>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
 
-    # ─── PHASE 4: Assemble Final Response & CAD Checks ───────────────────────
-    print("[api/design] Phase 4: Finalizing assembly...")
-    subsystems = synthesis_data.get("subsystems", [])
-    connections = synthesis_data.get("connections", [])
-    bom = synthesis_data.get("bom", [])
-    missing = synthesis_data.get("missing", [])
-    validation = synthesis_data.get("validation", [])
-
-    # Normalize connections to have 'from' and 'to' fields
+    connections = data.get("connections", [])
     normalized_connections = []
+    bom = data.get("bom", [])
+    subsystems = data.get("subsystems", [])
+    missing = data.get("missing", [])
+    validation = data.get("validation", [])
+
     if isinstance(connections, list):
         for conn in connections:
             if not isinstance(conn, dict):
@@ -363,7 +362,10 @@ Generate the robot assembly JSON now."""
             if c_from and c_to:
                 normalized_connections.append({
                     "from": str(c_from),
+                    "from_port": str(conn.get("from_port") or "IO1"),
                     "to": str(c_to),
+                    "to_port": str(conn.get("to_port") or "IO1"),
+                    "wire_type": str(conn.get("wire_type") or "signal"),
                     "relation": conn.get("relation", "connected_to"),
                     "protocol": conn.get("protocol", "DC")
                 })
@@ -371,6 +373,7 @@ Generate the robot assembly JSON now."""
     # Check CAD availability based on query
     cad_available = False
     cad_url = None
+    assembly_transforms = []
     
     known_cads = {
         "autonomous mobile": "autonomous_mobile_robot.stp",
@@ -480,17 +483,39 @@ Generate the robot assembly JSON now."""
         except Exception:
             pass
 
+<<<<<<< HEAD
+    frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
+    
+    valid_cad_urls = []
+    for f in matched_cads:
+        if os.path.exists(os.path.join(frontend_public_cad, f)):
+            valid_cad_urls.append(f"/cad/{f}")
+        else:
+            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
+
+    cad_urls = valid_cad_urls
+=======
+    # Universal CAD Scraper Fallback
+    if not matched_cads:
+        print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
+        from scraper.cad_scraper import scrape_missing_component
+        scraped_filename = await scrape_missing_component(query)
+        if scraped_filename:
+            matched_cads.add(scraped_filename)
+
     cad_available = len(matched_cads) > 0
     # Use direct static URL since Next.js hosts the CAD files in public/cad/
     cad_urls = [f"/cad/{f}" for f in matched_cads]
+>>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
     cad_url = cad_urls[0] if cad_urls else None
+    cad_available = len(cad_urls) > 0
     
     # ─── PHASE 5: Assembly Engine (Compute Transforms) ────────────────────────
     assembly_transforms = []
     assembly_mode = "side_by_side"
     
     # Try to build assembly graph from LLM synthesis data
-    llm_assembly_graph = synthesis_data.get("assembly_graph", [])
+    llm_assembly_graph = data.get("assembly_graph", [])
     if llm_assembly_graph:
         # LLM provided assembly graph — use it
         graph_nodes = []

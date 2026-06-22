@@ -1,1 +1,530 @@
-{"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]} , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "DRV1", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV2", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV3", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "DRV4", "to": "CTRL", "relation": "connected_to", "protocol": "USB"}, {"from": "PWR", "to": "DRV1", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV2", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV3", "relation": "powers", "protocol": ""}, {"from": "PWR", "to": "DRV4", "relation": "powers", "protocol": ""}], "bom": [{"id": "J1", "name": "A-2475-08", "qty": 1}, {"id": "J2", "name": "A-2475-05", "qty": 1}, {"id": "J3", "name": "A-2475-05", "qty": 1}, {"id": "J4", "name": "A-2475-05", "qty": 1}, {"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "qty": 1}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "qty": 1}, {"id": "EE", "name": "A-2055-01_Gripper_Assembly", "qty": 1}, {"id": "PWR", "name": "A-2525-01", "qty": 1}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "qty": 1}, {"id": "CTRL", "name": "Raspberry Pi", "qty": 1}], "missing": [], "validation": [], "assembly_graph": [{"parent": "BASE", "child": "J1", "parent_port": "mount", "child_port": "input_flange"}, {"parent": "J1", "child": "L1", "parent_port": "output", "child_port": "input"}, {"parent": "L1", "child": "J2", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J2", "child": "L2", "parent_port": "output", "child_port": "input"}, {"parent": "L2", "child": "J3", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J3", "child": "L3", "parent_port": "output", "child_port": "input"}, {"parent": "L3", "child": "J4", "parent_port": "output", "child_port": "input_flange"}, {"parent": "J4", "child": "EE", "parent_port": "output", "child_port": "input_flange"}]}  , {"subsystems": [{"name": "Actuation", "components": [{"id": "J1", "name": "A-2475-08", "role": "Base Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J2", "name": "A-2475-05", "role": "Shoulder Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J3", "name": "A-2475-05", "role": "Elbow Joint", "voltage": "48V", "interface": "RJ45"}, {"id": "J4", "name": "A-2475-05", "role": "Wrist Joint", "voltage": "48V", "interface": "RJ45"}]}, {"name": "Structure", "components": [{"id": "BASE", "name": "A-2221-01_Heavy_Right_Angle_Bracket_Inside", "role": "Robot Base", "voltage": "", "interface": ""}, {"id": "L1", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 1", "voltage": "", "interface": ""}, {"id": "L2", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 2", "voltage": "", "interface": ""}, {"id": "L3", "name": "A-2218-01_Output_Tube_Adapter", "role": "Link 3", "voltage": "", "interface": ""}]}, {"name": "End Effector", "components": [{"id": "EE", "name": "A-2055-01_Gripper_Assembly", "role": "Gripper", "voltage": "", "interface": ""}]}, {"name": "Electronics", "components": [{"id": "PWR", "name": "A-2525-01", "role": "Power Supply", "voltage": "48V", "interface": ""}, {"id": "DRV1", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 1", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV2", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 2", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV3", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 3", "voltage": "48V", "interface": "RJ45"}, {"id": "DRV4", "name": "A-2433-01_Motor_Driver_RJ45", "role": "Driver 4", "voltage": "48V", "interface": "RJ45"}, {"id": "CTRL", "name": "Raspberry Pi", "role": "Controller", "voltage": "5V", "interface": "USB"}], "connections": [{"from": "J1", "to": "DRV1", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J2", "to": "DRV2", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J3", "to": "DRV3", "relation": "controlled_by", "protocol": "RJ45"}, {"from": "J4", "to": "DRV4", "relation": "controlled_by", "protocol": "RJ45"}, {"
+{
+  "subsystems": [
+    {
+      "name": "Power Management System",
+      "components": [
+        {
+          "id": "battery_01",
+          "name": "LiPo Battery Pack (14.8V 5000mAh)",
+          "role": "Main Power Source",
+          "voltage": "14.8V",
+          "interface": "power"
+        },
+        {
+          "id": "main_psu_01",
+          "name": "Main Power Distribution Board",
+          "role": "Trunk Power Distribution Hub",
+          "voltage": "14.8V",
+          "interface": "power"
+        },
+        {
+          "id": "buck_conv_01",
+          "name": "DC-DC Buck Converter (5V 10A)",
+          "role": "Logic Power Supply",
+          "voltage": "5V",
+          "interface": "power"
+        },
+        {
+          "id": "buck_conv_02",
+          "name": "DC-DC Buck Converter (3.3V 5A)",
+          "role": "Sensor Power Supply",
+          "voltage": "3.3V",
+          "interface": "power"
+        },
+        {
+          "id": "fuse_01",
+          "name": "Main Blade Fuse (60A)",
+          "role": "Main Power Short Circuit Protection",
+          "voltage": "14.8V",
+          "interface": "power"
+        },
+        {
+          "id": "fuse_block_01",
+          "name": "4-Circuit Fuse Block (10A per channel)",
+          "role": "Motor Branch Protection",
+          "voltage": "14.8V",
+          "interface": "power"
+        },
+        {
+          "id": "e_stop_btn_01",
+          "name": "Emergency Stop Button (Red Mushroom)",
+          "role": "Manual Safety Cutoff",
+          "voltage": "14.8V",
+          "interface": "signal"
+        },
+        {
+          "id": "safety_relay_01",
+          "name": "Safety Contactor Relay",
+          "role": "Hardware Motor Power Cutoff",
+          "voltage": "14.8V",
+          "interface": "power"
+        }
+      ]
+    },
+    {
+      "name": "Central Control Unit",
+      "components": [
+        {
+          "id": "mcu_01",
+          "name": "Arduino Mega 2560",
+          "role": "Main Microcontroller Unit",
+          "voltage": "5V",
+          "interface": "digital/usb"
+        },
+        {
+          "id": "can_transceiver_01",
+          "name": "MCP2515 CAN Bus Transceiver",
+          "role": "CAN Bus Communication",
+          "voltage": "5V",
+          "interface": "can"
+        },
+        {
+          "id": "imu_01",
+          "name": "BNO055 9-DOF IMU",
+          "role": "Body Orientation Sensing",
+          "voltage": "3.3V",
+          "interface": "i2c"
+        },
+        {
+          "id": "usb_cam_01",
+          "name": "USB Camera Module",
+          "role": "Vision System",
+          "voltage": "5V",
+          "interface": "usb"
+        }
+      ]
+    },
+    {
+      "name": "Leg Actuation System",
+      "components": [
+        {
+          "id": "servo_hip_fl",
+          "name": "MG995 Servo (Front Left Hip)",
+          "role": "Front Left Hip Abduction/Adduction",
+          "voltage": "6V",
+          "interface": "pwm"
+        },
+        {
+          "id": "servo_knee_fl",
+          "name": "MG995 Servo (Front Left Knee)",
+          "role": "Front Left Knee Flexion",
+          "voltage": "6V",
+          "interface": "pwm"
+        },
+        {
+          "id": "servo_hip_fr",
+          "name": "MG995 Servo (Front Right Hip)",
+          "role": "Front Right Hip Abduction/Adduction",
+          "voltage": "6V",
+          "interface": "pwm"
+        },
+        {
+          "id": "servo_knee_fr",
+          "name": "MG995 Servo (Front Right Knee)",
+          "role": "Front Right Knee Flexion",
+          "voltage": "6V",
+          "interface": "pwm"
+        },
+        {
+          "id": "servo_hip_rl",
+          "name": "MG995 Servo (Rear Left Hip)",
+          "role": "Rear Left Hip Abduction/Adduction",
+          "voltage": "6V",
+          "interface": "pwm"
+        },
+        {
+          "id": "servo_knee_rl",
+          "name": "MG995 Servo (Rear Left Knee)",
+          "role": "Rear Left Knee Flexion",
+          "voltage": "6V",
+          "interface": "pwm"
+        },
+        {
+          "id": "servo_hip_rr",
+          "name": "MG995 Servo (Rear Right Hip)",
+          "role": "Rear Right Hip Abduction/Adduction",
+          "voltage": "6V",
+          "interface": "pwm"
+        },
+        {
+          "id": "servo_knee_rr",
+          "name": "MG995 Servo (Rear Right Knee)",
+          "role": "Rear Right Knee Flexion",
+          "voltage": "6V",
+          "interface": "pwm"
+        },
+        {
+          "id": "motor_driver_01",
+          "name": "L298N Motor Driver Board",
+          "role": "Servo Power Distribution & PWM Amplification",
+          "voltage": "5V Logic / 12V Motor",
+          "interface": "pwm"
+        }
+      ]
+    },
+    {
+      "name": "Sensor Array",
+      "components": [
+        {
+          "id": "us_fl_01",
+          "name": "HC-SR04 Ultrasonic (Front Left)",
+          "role": "Front Left Obstacle Detection",
+          "voltage": "5V",
+          "interface": "signal"
+        },
+        {
+          "id": "us_fr_01",
+          "name": "HC-SR04 Ultrasonic (Front Right)",
+          "role": "Front Right Obstacle Detection",
+          "voltage": "5V",
+          "interface": "signal"
+        },
+        {
+          "id": "us_r_01",
+          "name": "HC-SR04 Ultrasonic (Rear)",
+          "role": "Rear Obstacle Detection",
+          "voltage": "5V",
+          "interface": "signal"
+        }
+      ]
+    },
+    {
+      "name": "Chassis & Structure",
+      "components": [
+        {
+          "id": "chassis_01",
+          "name": "3D Printed Dog Chassis Frame",
+          "role": "Structural Body",
+          "voltage": "N/A",
+          "interface": "N/A"
+        },
+        {
+          "id": "bracket_01",
+          "name": "A-2090-02 Mounting Bracket",
+          "role": "Servo Mounting Hardware",
+          "voltage": "N/A",
+          "interface": "N/A"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "battery_01",
+      "from_port": "VCC",
+      "to": "fuse_01",
+      "to_port": "Input",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "fuse_01",
+      "from_port": "Output",
+      "to": "safety_relay_01",
+      "to_port": "Input",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "e_stop_btn_01",
+      "from_port": "NO",
+      "to": "safety_relay_01",
+      "to_port": "Coil",
+      "wire_type": "signal",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "safety_relay_01",
+      "from_port": "Output",
+      "to": "main_psu_01",
+      "to_port": "Input",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "main_psu_01",
+      "from_port": "Power_Out_1",
+      "to": "buck_conv_01",
+      "to_port": "Input",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "main_psu_01",
+      "from_port": "Power_Out_2",
+      "to": "buck_conv_02",
+      "to_port": "Input",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "main_psu_01",
+      "from_port": "Power_Out_3",
+      "to": "fuse_block_01",
+      "to_port": "Input",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "buck_conv_01",
+      "from_port": "Output",
+      "to": "mcu_01",
+      "to_port": "5V_Pin",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "buck_conv_01",
+      "from_port": "Output",
+      "to": "can_transceiver_01",
+      "to_port": "VCC",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "buck_conv_02",
+      "from_port": "Output",
+      "to": "imu_01",
+      "to_port": "VCC",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "buck_conv_01",
+      "from_port": "Output",
+      "to": "usb_cam_01",
+      "to_port": "VCC",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "buck_conv_01",
+      "from_port": "Output",
+      "to": "us_fl_01",
+      "to_port": "VCC",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "buck_conv_01",
+      "from_port": "Output",
+      "to": "us_fr_01",
+      "to_port": "VCC",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "buck_conv_01",
+      "from_port": "Output",
+      "to": "us_r_01",
+      "to_port": "VCC",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "fuse_block_01",
+      "from_port": "Out_1",
+      "to": "servo_hip_fl",
+      "to_port": "Power",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "fuse_block_01",
+      "from_port": "Out_2",
+      "to": "servo_knee_fl",
+      "to_port": "Power",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "fuse_block_01",
+      "from_port": "Out_3",
+      "to": "servo_hip_fr",
+      "to_port": "Power",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "fuse_block_01",
+      "from_port": "Out_4",
+      "to": "servo_knee_fr",
+      "to_port": "Power",
+      "wire_type": "power",
+      "relation": "powered_by"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "PWM_2",
+      "to": "motor_driver_01",
+      "to_port": "Input_1",
+      "wire_type": "pwm",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "PWM_3",
+      "to": "motor_driver_01",
+      "to_port": "Input_2",
+      "wire_type": "pwm",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "SCL",
+      "to": "imu_01",
+      "to_port": "SCL",
+      "wire_type": "data",
+      "relation": "communicates_with"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "SDA",
+      "to": "imu_01",
+      "to_port": "SDA",
+      "wire_type": "data",
+      "relation": "communicates_with"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "TX",
+      "to": "can_transceiver_01",
+      "to_port": "TX",
+      "wire_type": "data",
+      "relation": "communicates_with"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "RX",
+      "to": "can_transceiver_01",
+      "to_port": "RX",
+      "wire_type": "data",
+      "relation": "communicates_with"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "Digital_4",
+      "to": "us_fl_01",
+      "to_port": "Trig",
+      "wire_type": "signal",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "Digital_5",
+      "to": "us_fl_01",
+      "to_port": "Echo",
+      "wire_type": "signal",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "Digital_6",
+      "to": "us_fr_01",
+      "to_port": "Trig",
+      "wire_type": "signal",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "Digital_7",
+      "to": "us_fr_01",
+      "to_port": "Echo",
+      "wire_type": "signal",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "Digital_8",
+      "to": "us_r_01",
+      "to_port": "Trig",
+      "wire_type": "signal",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "mcu_01",
+      "from_port": "Digital_9",
+      "to": "us_r_01",
+      "to_port": "Echo",
+      "wire_type": "signal",
+      "relation": "controlled_by"
+    },
+    {
+      "from": "motor_driver_01",
+      "from_port": "Out_1",
+      "to": "servo_hip_rl",
+      "to_port": "Signal",
+      "wire_type": "pwm",
+      "relation": "drives"
+    },
+    {
+      "from": "motor_driver_01",
+      "from_port": "Out_2",
+      "to": "servo_knee_rl",
+      "to_port": "Signal",
+      "wire_type": "pwm",
+      "relation": "drives"
+    },
+    {
+      "from": "motor_driver_01",
+      "from_port": "Out_3",
+      "to": "servo_hip_rr",
+      "to_port": "Signal",
+      "wire_type": "pwm",
+      "relation": "drives"
+    },
+    {
+      "from": "motor_driver_01",
+      "from_port": "Out_4",
+      "to": "servo_knee_rr",
+      "to_port": "Signal",
+      "wire_type": "pwm",
+      "relation": "drives"
+    },
+    {
+      "from": "chassis_01",
+      "from_port": "Frame",
+      "to": "bracket_01",
+      "to_port": "Mount",
+      "wire_type": "ground",
+      "relation": "grounded_by"
+    }
+  ],
+  "bom": [
+    {"id": "battery_01", "name": "LiPo Battery Pack (14.8V 5000mAh)", "qty": 1},
+    {"id": "main_psu_01", "name": "Main Power Distribution Board", "qty": 1},
+    {"id": "buck_conv_01", "name": "DC-DC Buck Converter (5V 10A)", "qty": 1},
+    {"id": "buck_conv_02", "name": "DC-DC Buck Converter (3.3V 5A)", "qty": 1},
+    {"id": "fuse_01", "name": "Main Blade Fuse (60A)", "qty": 1},
+    {"id": "fuse_block_01", "name": "4-Circuit Fuse Block (10A per channel)", "qty": 1},
+    {"id": "e_stop_btn_01", "name": "Emergency Stop Button (Red Mushroom)", "qty": 1},
+    {"id": "safety_relay_01", "name": "Safety Contactor Relay", "qty": 1},
+    {"id": "mcu_01", "name": "Arduino Mega 2560", "qty": 1},
+    {"id": "can_transceiver_01", "name": "MCP2515 CAN Bus Transceiver", "qty": 1},
+    {"id": "imu_01", "name": "BNO055 9-DOF IMU", "qty": 1},
+    {"id": "usb_cam_01", "name": "USB Camera Module", "qty": 1},
+    {"id": "servo_hip_fl", "name": "MG995 Servo (Front Left Hip)", "qty": 1},
+    {"id": "servo_knee_fl", "name": "MG995 Servo (Front Left Knee)", "qty": 1},
+    {"id": "servo_hip_fr", "name": "MG995 Servo (Front Right Hip)", "qty": 1},
+    {"id": "servo_knee_fr", "name": "MG995 Servo (Front Right Knee)", "qty": 1},
+    {"id": "servo_hip_rl", "name": "MG995 Servo (Rear Left Hip)", "qty": 1},
+    {"id": "servo_knee_rl", "name": "MG995 Servo (Rear Left Knee)", "qty": 1},
+    {"id": "servo_hip_rr", "name": "MG995 Servo (Rear Right Hip)", "qty": 1},
+    {"id": "servo_knee_rr", "name": "MG995 Servo (Rear Right Knee)", "qty": 1},
+    {"id": "motor_driver_01", "name": "L298N Motor Driver Board", "qty": 1},
+    {"id": "us_fl_01", "name": "HC-SR04 Ultrasonic (Front Left)", "qty": 1},
+    {"id": "us_fr_01", "name": "HC-SR04 Ultrasonic (Front Right)", "qty": 1},
+    {"id": "us_r_01", "name": "HC-SR04 Ultrasonic (Rear)", "qty": 1},
+    {"id": "chassis_01", "name": "3D Printed Dog Chassis Frame", "qty": 1},
+    {"id": "bracket_01", "name": "A-2090-02 Mounting Bracket", "qty": 12}
+  ],
+  "missing": [
+    {"name": "CAN Bus Servo Controllers", "reason": "Dedicated servo controllers needed for daisy-chain architecture to reduce wiring load on MCU"},
+    {"name": "Star Ground Terminal Block", "reason": "Required for proper grounding strategy to tie motor, logic, and sensor grounds at a single point"}
+  ],
+  "validation": [
+    {"type": "warning", "message": "Power supply sizing assumes peak stall current of all servos simultaneously. Ensure battery can deliver 60A burst current."},
+    {"type": "error", "message": "E-Stop circuit must be tested to ensure safety relay cuts power to motor bus within 100ms of button press."},
+    {"type": "warning", "message": "Ultrasonic sensors may interfere with each other. Implement time-division multiplexing in software."}
+  ]
+}

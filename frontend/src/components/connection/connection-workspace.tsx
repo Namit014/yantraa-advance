@@ -159,7 +159,7 @@ function CircuitWireComponent(props: EdgeProps) {
   const label = wireData?.label ?? "";
   const setSelectedEdge = useConnectionStore((s) => s.setSelectedEdge);
 
-  // getSmoothStepPath with borderRadius:0 gives sharp right-angle PCB-trace routing
+  // getSmoothStepPath with borderRadius:16 gives clean smoothstep routing
   const [edgePath, labelX, labelY] = getSmoothStepPath({
     sourceX,
     sourceY,
@@ -167,7 +167,7 @@ function CircuitWireComponent(props: EdgeProps) {
     targetX,
     targetY,
     targetPosition,
-    borderRadius: 0,
+    borderRadius: 16,
   });
 
   return (
@@ -187,7 +187,7 @@ function CircuitWireComponent(props: EdgeProps) {
         markerEnd={markerEnd}
         style={{
           stroke: color,
-          strokeWidth: selected ? 3 : 2,
+          strokeWidth: selected ? 2.5 : 1.5,
           filter: selected
             ? `drop-shadow(0 0 6px ${color})`
             : `drop-shadow(0 0 3px ${color}88)`,
@@ -225,19 +225,17 @@ function CircuitWireComponent(props: EdgeProps) {
   );
 }
 
-// ─── Constants ─────────────────────────────────────────────────────────────────
-
-const nodeTypes: NodeTypes = {
-  circuitNode: CircuitNodeComponent as unknown as NodeTypes[string],
-};
-
-const edgeTypes: EdgeTypes = {
-  circuitWire: CircuitWireComponent as unknown as EdgeTypes[string],
-};
-
 // ─── Inner flow (must be child of ReactFlowProvider) ──────────────────────────
 
 function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; designData?: any }) {
+  const nodeTypes = useMemo<NodeTypes>(() => ({
+    circuitNode: CircuitNodeComponent as unknown as NodeTypes[string],
+  }), []);
+
+  const edgeTypes = useMemo<EdgeTypes>(() => ({
+    circuitWire: CircuitWireComponent as unknown as EdgeTypes[string],
+  }), []);
+
   // ── Bug 1 fix: useShallow prevents new object ref on every render ──
   const {
     storeNodes,
@@ -395,8 +393,9 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
 
   const handleGenerate = useCallback(async () => {
     if (!prompt.trim() || isGenerating) return;
-    await generate(libraryComponents, prompt);
-  }, [prompt, isGenerating, generate, libraryComponents]);
+    const subsystems = designData?.subsystems || null;
+    await generate(libraryComponents, prompt, subsystems);
+  }, [prompt, isGenerating, generate, libraryComponents, designData]);
 
   // Load designData when it arrives
   useEffect(() => {
@@ -424,7 +423,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     ) {
       lastAutoQuery.current = currentQuery;
       setPrompt(currentQuery);
-      generate(libraryComponents, currentQuery);
+      generate(libraryComponents, currentQuery, null);
     }
   }, [currentQuery, isGenerating, generate, libraryComponents, setPrompt, designData]);
 
@@ -705,9 +704,10 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
             minZoom={0.05}
             maxZoom={3}
             connectionLineType={ConnectionLineType.SmoothStep}
+            edgesFocusable={false}
             defaultEdgeOptions={{
               type: "circuitWire",
-              style: { stroke: WIRE_COLORS.signal, strokeWidth: 2 },
+              style: { stroke: WIRE_COLORS.signal, strokeWidth: 1.5 },
             }}
             style={{ backgroundColor: "#06080f" }}
             proOptions={{ hideAttribution: true }}

@@ -1,0 +1,5 @@
+Source URL: https://www.youtube.com/watch?v=oJ2Y9hZgCEY
+Scraped: 2026-06-18T19:00:34.915052
+============================================================
+
+Navigate to the official PetoiCamp website to download the assembly manual and 3D instructions. Download the Petoi mobile app for remote control and programming. Unbox the Bittle kit and identify all components. Follow the step-by-step assembly guide to connect the body frame, legs, and servos. Install the NyBoard motherboard and connect the wiring harness. Attach the battery and secure the chassis. Calibrate the servos using the mobile app. Test basic movements and gaits. Explore advanced programming via the Arduino IDE or mobile app.

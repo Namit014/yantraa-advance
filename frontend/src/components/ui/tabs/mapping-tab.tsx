@@ -758,15 +758,8 @@ const CustomComponentNode = ({ data }: any) => {
     );
 };
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
-    
-    // Memoize nodeTypes to prevent React Flow "new nodeTypes object" warnings (#002)
-    const nodeTypes = useMemo(() => ({
-        customComponent: CustomComponentNode,
-    }), []);
-
+    const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
     const [activeView, setActiveView] = useState<"matrix" | "canvas" | "bom">("matrix");
     
     useEffect(() => {
@@ -1424,6 +1417,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                     onNodeClick={(_, node) => setSelectedId(node.id)}
                                     nodeTypes={nodeTypes}
                                     fitView
+                                    onlyRenderVisibleElements={true}
                                     proOptions={{ hideAttribution: true }}
                                 >
                                     <Background color="#222" gap={16} />

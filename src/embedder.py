@@ -16,7 +16,8 @@ class Embedder:
     def __init__(self):
         print(f"Loading Local Embedding Model: {EMBEDDING_MODEL}")
         # Initialize local sentence-transformers model
-        self.model = SentenceTransformer(EMBEDDING_MODEL)
+        # Use local_files_only=True to prevent HTTP requests during startup that crash the server
+        self.model = SentenceTransformer(EMBEDDING_MODEL, local_files_only=True)
         print("Local Embedder ready.")
 
     def embed_text(self, text):
@@ -43,27 +44,22 @@ class Embedder:
         embedded_chunks = []
         MAX_CHARS = 1200
 
-        # Safety check: split any oversized chunks before embedding
-        safe_chunks = []
+        import logging
+        logger = logging.getLogger(__name__)
+
+        # The embedder's job is only to embed — never to split. The chunker owns that.
         for chunk in chunks:
             text = chunk["text"]
             if len(text) > MAX_CHARS:
-                # Split into smaller pieces
-                for j in range(0, len(text), MAX_CHARS):
-                    piece = text[j:j + MAX_CHARS]
-                    # Create a new chunk object for the piece
-                    new_chunk = chunk.copy()
-                    new_chunk["text"] = piece
-                    # Optionally append something to chunk_id to make it unique
-                    new_chunk["chunk_id"] = f"{chunk['chunk_id']}_p{j//MAX_CHARS}"
-                    safe_chunks.append(new_chunk)
-            else:
-                safe_chunks.append(chunk)
+                logger.warning(
+                    f"Oversized chunk detected (length {len(text)} > max {MAX_CHARS}). "
+                    f"Snippet: {text[:100]}..."
+                )
 
         # Process in batches of 20 for efficiency
         batch_size = 20
-        for i in range(0, len(safe_chunks), batch_size):
-            batch = safe_chunks[i:i + batch_size]
+        for i in range(0, len(chunks), batch_size):
+            batch = chunks[i:i + batch_size]
             texts = [chunk["text"] for chunk in batch]
 
             embeddings = self.embed_batch(texts)
