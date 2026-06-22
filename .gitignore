@@ -5,3 +5,10 @@ __pycache__/
 .env
 .vscode/
 qdrant_data/
+
+# CAD Files (Store in AWS S3 instead)
+*.step
+*.stp
+*.stl
+*.3mf
+*.obj
