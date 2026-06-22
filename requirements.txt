@@ -11,3 +11,6 @@ python-dotenv
 requests
 httpx>=0.27.0
 beautifulsoup4>=4.12.0
+crawl4ai
+playwright
+boto3

@@ -1,0 +1,28 @@
+Source URL: https://plcblog.in/instruments/switch/limit-switch-types-working-principle-applications.php
+Scraped: 2026-06-18T12:32:31.776587
+============================================================
+
+A limit switch is an electromechanical device that detects the presence or position of an object by making or breaking an electrical connection. They are used in industrial automation and machinery control systems, operating reliably in a range of environments.
+
+**Working Principle:**
+A limit switch operates through physical contact between its actuator (plunger, roller, or lever) and a moving object. When the object contacts the actuator and reaches a defined position (the operating point), it causes the internal electrical contacts to change state.
+
+**Internal Electrical Contacts:**
+*   **Normally Closed (NC) Contact:** Closed by default, allowing current flow. Opens and stops current when the actuator is pressed.
+*   **Normally Open (NO) Contact:** Open by default. Closes and allows current to pass when the actuator is pressed.
+The contact transition is often accompanied by a snap-action mechanism, indicated by a tactile "click."
+
+**Key Features:**
+*   **Actuator Types:** Plain plunger, roller plunger, roller levers (adjustable or fixed). The operating head can be rotated in 90-degree increments, and the actuator can be adjusted 360 degrees.
+*   **Contact Block Configurations:** Available in multiple configurations such as 1 NO + 1 NC or 2 NO / 2 NC. Contacts are electrically isolated from each other (Zb Contact Shape).
+*   **Enclosure/Casing:** Available in 30 mm and 40 mm widths and designed with IP-rated sealing gaskets for dust and water protection.
+*   **Electrical Connections:** Supports various cable inlets, including Pg gland, ISO gland, and ½" NPT thread, compliant with international standards like EN 50041 and EN 50047.
+*   **Mounting:** Can be mounted using M4 or M5 screws depending on the body size.
+
+**Components:**
+The main components are the operating head and actuator, the switch body/enclosure case, and the contact block. The switch body contains the core mechanism, terminal connections, and attaches to the operating head.
+
+**Operation Details:**
+*   **Pre-travel:** The short distance the actuator moves before the contacts are triggered.
+*   **Operating point:** The position where the internal contacts are triggered.
+*   **Over-travel:** The additional movement of the actuator beyond the operating point, ensuring reliable function.

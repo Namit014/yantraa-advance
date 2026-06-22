@@ -1,0 +1,17 @@
+Source URL: https://tameson.com/pages/limit-switch
+Scraped: 2026-06-18T12:32:59.400744
+============================================================
+
+A **limit switch** is an electromechanical device that detects the presence, absence, or travel limit of an object by **physical contact** and converts that movement into an electrical signal.[9][11] It is commonly used in industrial control and safety applications to stop, start, count, or monitor machinery and moving parts.[9][11]
+
+- **How it works:** an actuator is mechanically linked to internal contacts; when an object presses the actuator, the contacts open or close depending on the switch configuration.[1][2][4]
+- **Typical functions:** end-of-travel detection, position sensing, safety interlocking, and object counting.[2][5][8][11]
+- **Common applications:** conveyors, elevators, machine tools, refrigerator doors, garage doors, and hydraulic or pneumatic systems.[2][5][6][8]
+- **Construction:** basic parts include the actuator, switch body/contact block, and terminals; the enclosure protects internal parts from water, oil, dust, gas, and mechanical damage.[3][6]
+- **Contact types:** **normally open (NO)** and **normally closed (NC)** are the main configurations described in the sources.[1][2]
+- **Materials:** stainless steel is used where moisture or corrosion resistance is needed; in chemically harsh environments, copper contacts may be chosen over silver for better corrosion resistance in some cases.[10]
+- **Micro limit switches:** these are smaller versions for tight spaces, with small actuating plungers and typical ratings around **250 VAC** and **10–15 A**.[10]
+- **Advantages:** rugged, low power, easy to install, and capable of directly switching higher currents without an added relay in many cases.[10]
+- **Disadvantages:** they are mechanical, so they are better suited to lower speeds, require direct contact, and can wear out over time.[10]
+
+The core principle is the same across sources: a physical motion is translated into an electrical state change that a controller or circuit can use.[1][2][4][9]

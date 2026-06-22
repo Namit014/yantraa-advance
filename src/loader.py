@@ -62,6 +62,15 @@ def load_files():
     for file_path in KNOWLEDGEBASE_PATH.rglob("*"):
 
         if file_path.is_file():
+            
+            # Skip hidden files/folders like .git
+            if any(part.startswith('.') for part in file_path.parts):
+                continue
+                
+            # Skip boilerplate files
+            name_lower = file_path.name.lower()
+            if name_lower in ["readme.md", "license", "license.txt", "contributing.md"]:
+                continue
 
             relative_path = file_path.relative_to(
                 KNOWLEDGEBASE_PATH

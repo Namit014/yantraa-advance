@@ -3,9 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "npx kill-port 3000 8000 || exit 0",
     "dev": "concurrently \"npm run fastapi-dev\" \"npm run next-dev\"",
     "next-dev": "next dev",
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "fastapi-dev": "..\\.venv\\Scripts\\python ../src/api/main.py",
+=======
     "fastapi-dev": "py -3.11 ../src/api/main.py",
+>>>>>>> 120d21e6894fd78eb265ebfab82acff4a95c66d2
+=======
+    "fastapi-dev": "py -3.11 ../src/api/main.py",
+>>>>>>> 120d21e6894fd78eb265ebfab82acff4a95c66d2
+=======
+    "fastapi-dev": "py -3.11 ../src/api/main.py",
+>>>>>>> 120d21e6894fd78eb265ebfab82acff4a95c66d2
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -24,6 +37,7 @@
     "occt-import-js": "^0.0.23",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "reactflow": "^11.11.4",
     "shadcn": "^4.10.0",
     "tailwind-merge": "^3.6.0",
     "three": "^0.184.0",
