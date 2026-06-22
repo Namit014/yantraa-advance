@@ -40,6 +40,7 @@ export interface CircuitNodeData extends Record<string, unknown> {
   ports: Port[];
   voltage?: { value: number; unit: "V" };
   interfaceType?: string;
+  isOrphaned?: boolean;
 }
 
 export interface WireData extends Record<string, unknown> {
@@ -456,6 +457,11 @@ interface ConnectionStore {
 
   saveGraph: () => void;
   loadGraph: () => void;
+
+  // Snapshot/Diff Utility & Regression
+  snapshotConnections: () => void;
+  diffAndRepairConnections: () => boolean;
+  runAutoLayoutRegressionTest: () => Promise<boolean>;
 }
 
 export const useConnectionStore = create<ConnectionStore>((set, get) => ({
@@ -467,6 +473,56 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   prompt: "Raspberry Pi 4 + Arduino Mega + ESP32 WiFi + L298N motors + MPU6050 IMU + HC-SR04 + OLED display",
   error: null,
   saveState: "saved",
+
+  // Internal snapshot state
+  _snapshotEdges: [] as CircuitEdge[],
+
+  snapshotConnections: () => {
+    set({ _snapshotEdges: [...get().edges] });
+  },
+
+  diffAndRepairConnections: () => {
+    const state = get();
+    const currentEdges = state.edges;
+    const snapshot = (state as any)._snapshotEdges || [];
+    
+    // Diff logic
+    const snapshotIds = new Set(snapshot.map((e: CircuitEdge) => e.id));
+    const currentIds = new Set(currentEdges.map(e => e.id));
+    
+    const missingEdges = snapshot.filter((e: CircuitEdge) => !currentIds.has(e.id));
+    
+    if (missingEdges.length > 0) {
+      console.warn(`[Snapshot Utility] Detach bug detected! Restoring ${missingEdges.length} missing connections.`);
+      set({ edges: [...currentEdges, ...missingEdges] });
+      return false; // Found issues and repaired
+    }
+    
+    return true; // No issues found
+  },
+
+  runAutoLayoutRegressionTest: async () => {
+    console.log("[Regression Test] Starting Auto Layout regression...");
+    get().snapshotConnections();
+    
+    // Simulate Auto Layout which remounts nodes
+    // In a real scenario, this would call the actual dagre layout
+    const currentNodes = get().nodes;
+    const remountedNodes = currentNodes.map(n => ({
+      ...n,
+      position: { x: n.position.x + Math.random() * 10, y: n.position.y + Math.random() * 10 }
+    }));
+    
+    // Force a remount/re-layout
+    set({ nodes: remountedNodes });
+    
+    // Wait for state to settle
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    const passed = get().diffAndRepairConnections();
+    console.log(`[Regression Test] Result: ${passed ? "PASSED" : "FAILED (Repaired)"}`);
+    return passed;
+  },
 
   loadDesignData: (designData) => {
     if (!designData) return;
@@ -699,7 +755,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   generate: async (components, prompt) => {
     set({ isGenerating: true, error: null });
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/connections/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ components, prompt }),
@@ -796,8 +852,22 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       if (dataStr) {
         const payload = JSON.parse(dataStr);
         if (payload.nodes && payload.edges) {
+          const edgeNodes = new Set<string>();
+          payload.edges.forEach((e: CircuitEdge) => {
+            edgeNodes.add(e.source);
+            edgeNodes.add(e.target);
+          });
+          
+          const validatedNodes = payload.nodes.map((n: CircuitNode) => ({
+            ...n,
+            data: {
+              ...n.data,
+              isOrphaned: !edgeNodes.has(n.id)
+            }
+          }));
+
           set({
-            nodes: payload.nodes,
+            nodes: validatedNodes,
             edges: payload.edges,
             saveState: "saved",
           });

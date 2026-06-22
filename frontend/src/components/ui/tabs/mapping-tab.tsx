@@ -8,7 +8,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
-const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/api/ask`;
+const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/ask`;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -27,6 +27,8 @@ interface RawComponent {
     connects_to: string[];
     quantity?: number;
     partNumber?: string;
+    unit?: string;
+    supplier?: string;
 }
 
 interface ComponentNode {
@@ -40,6 +42,8 @@ interface ComponentNode {
     height?: number;
     quantity?: number;
     partNumber?: string;
+    unit?: string;
+    supplier?: string;
 }
 
 interface Connection {
@@ -92,6 +96,34 @@ function inferCategory(text: string): ComponentCategory {
     if (/frame|arm|link|rod|joint|bracket|shaft|bearing|gear|effector|structure|base/.test(t)) return "mechanical";
     if (/power|supply|battery|cable|wire|psu|capacitor|regulator/.test(t)) return "power";
     return "electronic";
+}
+
+// ─── Unit & Supplier inference ────────────────────────────────────────────────
+
+function inferUnit(category: ComponentCategory): string {
+    switch (category) {
+        case "mechanical": return "pcs";
+        case "actuator":   return "pcs";
+        case "sensor":     return "pcs";
+        case "controller": return "pcs";
+        case "power":      return "pcs";
+        case "electronic": return "pcs";
+        default:           return "pcs";
+    }
+}
+
+function inferSupplier(name: string, category: ComponentCategory): string {
+    const n = name.toLowerCase();
+    if (/arduino/.test(n))              return "Arduino / Mouser";
+    if (/raspberry/.test(n))            return "Raspberry Pi / RS Components";
+    if (/esp32|esp8266/.test(n))        return "Espressif / Mouser";
+    if (/servo/.test(n))               return "Hitec / Futaba / DigiKey";
+    if (/l298|drv8825|a4988/.test(n))  return "ST Microelectronics / DigiKey";
+    if (/imu|mpu|bno/.test(n))         return "InvenSense / TDK / DigiKey";
+    if (/lidar/.test(n))               return "RPLIDAR / Velodyne";
+    if (/battery|lipo/.test(n))        return "Turnigy / MaxAmps";
+    if (category === "mechanical")     return "McMaster-Carr";
+    return "DigiKey / Mouser";
 }
 
 // ─── Fuzzy Matcher ────────────────────────────────────────────────────────────
@@ -166,6 +198,8 @@ function parseRAGJson(text: string): RawComponent[] | null {
                 description: String(item.description ?? ""),
                 quantity: Number(item.quantity) || 1,
                 partNumber: item.partNumber ? String(item.partNumber) : undefined,
+                unit: inferUnit(inferredCategory),
+                supplier: inferSupplier(name, inferredCategory),
                 connects_to: Array.isArray(item.connects_to)
                     ? item.connects_to.map(String)
                     : [],
@@ -1083,7 +1117,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     const outputsFromSelected = connections.filter(c => c.fromId === selectedId);
 
     const handleExportBOM = useCallback(() => {
-        const rows = [["Category", "Name", "Part Number", "Quantity", "Description", "Connections"]];
+        const rows = [["Category", "Part Number", "Description", "Quantity", "Unit", "Supplier / Source", "Key Specs", "Connections To"]];
         CATEGORY_ORDER.forEach(cat => {
             const group = groupedNodes[cat];
             if (!group || group.length === 0) return;
@@ -1092,11 +1126,14 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                     const t = nodes.find(x => x.id === c.toId);
                     return t ? t.label : c.toId;
                 }).join(" | ");
+                const rawComp = rawComponents.find(r => fuzzyMatch(r.name, n.label));
                 rows.push([
                     n.category,
+                    `"${(n.partNumber || "N/A").replace(/"/g, '""')}"`,
                     `"${n.label.replace(/"/g, '""')}"`,
-                    `"${(n.partNumber || "").replace(/"/g, '""')}"`,
                     String(n.quantity || 1),
+                    n.unit || inferUnit(n.category),
+                    `"${(n.supplier || rawComp?.supplier || inferSupplier(n.label, n.category)).replace(/"/g, '""')}"`,
                     `"${n.description.replace(/"/g, '""')}"`,
                     `"${conns.replace(/"/g, '""')}"`
                 ]);
@@ -1110,7 +1147,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         a.download = "robot-bom.csv";
         a.click();
         URL.revokeObjectURL(url);
-    }, [nodes, connections, groupedNodes]);
+    }, [nodes, connections, groupedNodes, rawComponents]);
 
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
@@ -1206,9 +1243,17 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                 <div className="flex-1 h-full bg-[#050505] relative border-r border-neutral-800/50 flex flex-col">
                     {activeView === "bom" ? (
                         <div className="flex-1 overflow-y-auto p-8 bg-[#050505]">
-                            <div className="max-w-5xl mx-auto pb-10">
+                            <div className="max-w-6xl mx-auto pb-10">
                                 <div className="flex items-center justify-between mb-8">
-                                    <h1 className="text-xl font-bold text-white tracking-widest uppercase">Bill of Materials</h1>
+                                    <div>
+                                        <h1 className="text-xl font-bold text-white tracking-widest uppercase">Bill of Materials</h1>
+                                        <p className="text-neutral-500 text-xs mt-1">Auto-generated · {nodes.length} components · {nodes.reduce((s, n) => s + (n.quantity || 1), 0)} total units</p>
+                                    </div>
+                                    {nodes.some(n => connections.filter(c => c.fromId === n.id || c.toId === n.id).length === 0) && (
+                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-red-950/40 border border-red-900/50 rounded-lg text-xs text-red-400">
+                                            ⚠ Some components have zero connections
+                                        </div>
+                                    )}
                                 </div>
                                 {CATEGORY_ORDER.map(cat => {
                                     const group = groupedNodes[cat];
@@ -1221,45 +1266,63 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                                 <div className="text-sm font-black uppercase tracking-[0.2em] flex items-center gap-3" style={{ color: catColor }}>
                                                     <CategoryIcon category={cat} size={16} /> {cat}
                                                 </div>
-                                                <div className="text-xs font-medium text-neutral-400 bg-[#0f1219] px-3 py-1 rounded-full border border-neutral-800/50">
-                                                    {group.length} unique component{group.length !== 1 && 's'}
+                                                <div className="flex items-center gap-3">
+                                                    <div className="text-xs font-medium text-neutral-400 bg-[#0f1219] px-3 py-1 rounded-full border border-neutral-800/50">
+                                                        {group.length} unique · {totalQty} total units
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div className="overflow-x-auto">
                                                 <table className="w-full text-left border-collapse">
                                                     <thead>
                                                         <tr className="bg-[#0a0c10] text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-1/4">Component Name</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-32">Part Number</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-24 text-center">Qty</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50">Key Specs</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-1/4">Connections To</th>
+                                                            <th className="px-5 py-3 border-b border-neutral-800/50">Part Number</th>
+                                                            <th className="px-5 py-3 border-b border-neutral-800/50">Description</th>
+                                                            <th className="px-5 py-3 border-b border-neutral-800/50 w-16 text-center">Qty</th>
+                                                            <th className="px-5 py-3 border-b border-neutral-800/50 w-16 text-center">Unit</th>
+                                                            <th className="px-5 py-3 border-b border-neutral-800/50">Supplier / Source</th>
+                                                            <th className="px-5 py-3 border-b border-neutral-800/50">Key Specs</th>
+                                                            <th className="px-5 py-3 border-b border-neutral-800/50">Connections To</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody className="text-xs text-neutral-300">
                                                         {group.map(node => {
                                                             const nodeOutputs = connections.filter(c => c.fromId === node.id);
+                                                            const rawComp = rawComponents.find(r => fuzzyMatch(r.name, node.label));
+                                                            const supplier = node.supplier || rawComp?.supplier || inferSupplier(node.label, node.category);
+                                                            const unit = node.unit || rawComp?.unit || inferUnit(node.category);
+                                                            const isOrphan = connections.filter(c => c.fromId === node.id || c.toId === node.id).length === 0;
                                                             return (
-                                                                <tr key={`bom-row-${node.id}`} className="border-b border-neutral-800/30 hover:bg-[#13161c] transition-colors group">
-                                                                    <td className="px-6 py-4 font-bold text-white tracking-wide">{node.label}</td>
-                                                                    <td className="px-6 py-4 text-neutral-500 font-mono text-[10px]">{node.partNumber || "N/A"}</td>
-                                                                    <td className="px-6 py-4 text-center">
-                                                                        <span className="font-black text-sky-400 bg-sky-900/20 px-3 py-1 rounded text-[11px] border border-sky-900/30">
+                                                                <tr key={`bom-row-${node.id}`} className={`border-b border-neutral-800/30 hover:bg-[#13161c] transition-colors group ${isOrphan ? 'bg-red-950/10' : ''}`}>
+                                                                    <td className="px-5 py-4 font-mono text-[10px] text-blue-400">
+                                                                        {node.partNumber || "N/A"}
+                                                                    </td>
+                                                                    <td className="px-5 py-4">
+                                                                        <div className="font-bold text-white">{node.label}</div>
+                                                                        {isOrphan && <div className="text-[9px] text-red-400 mt-0.5 font-medium">⚠ No connections — verify canvas</div>}
+                                                                    </td>
+                                                                    <td className="px-5 py-4 text-center">
+                                                                        <span className="font-black text-sky-400 bg-sky-900/20 px-2 py-0.5 rounded text-[11px] border border-sky-900/30">
                                                                             {node.quantity || 1}
                                                                         </span>
                                                                     </td>
-                                                                    <td className="px-6 py-4 text-neutral-400 max-w-xs leading-relaxed">{node.description}</td>
-                                                                    <td className="px-6 py-4">
+                                                                    <td className="px-5 py-4 text-center text-neutral-400">{unit}</td>
+                                                                    <td className="px-5 py-4 text-neutral-400 text-[10px] leading-relaxed">{supplier}</td>
+                                                                    <td className="px-5 py-4 text-neutral-400 max-w-[180px] leading-relaxed text-[10px]">{node.description || "—"}</td>
+                                                                    <td className="px-5 py-4">
                                                                         <div className="flex flex-wrap gap-1.5">
-                                                                            {nodeOutputs.length === 0 ? <span className="text-neutral-600 italic text-[11px]">None</span> : nodeOutputs.map(conn => {
-                                                                                const targetNode = nodes.find(n => n.id === conn.toId);
-                                                                                if (!targetNode) return null;
-                                                                                return (
-                                                                                    <span key={`bom-conn-${conn.id}`} className="px-2 py-1 bg-[#1a1f2e] border border-neutral-700/50 rounded text-[10px] text-neutral-300">
-                                                                                        {targetNode.label}
-                                                                                    </span>
-                                                                                );
-                                                                            })}
+                                                                            {nodeOutputs.length === 0
+                                                                                ? <span className="text-neutral-600 italic text-[11px]">None</span>
+                                                                                : nodeOutputs.map(conn => {
+                                                                                    const targetNode = nodes.find(n => n.id === conn.toId);
+                                                                                    if (!targetNode) return null;
+                                                                                    return (
+                                                                                        <span key={`bom-conn-${conn.id}`} className="px-2 py-0.5 bg-[#1a1f2e] border border-neutral-700/50 rounded text-[10px] text-neutral-300">
+                                                                                            {targetNode.label}
+                                                                                        </span>
+                                                                                    );
+                                                                                })
+                                                                            }
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -1268,9 +1331,9 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div className="px-6 py-4 bg-[#0a0c10] border-t border-neutral-800/50 flex justify-between items-center text-xs">
+                                            <div className="px-6 py-3 bg-[#0a0c10] border-t border-neutral-800/50 flex justify-between items-center text-xs">
                                                 <span className="font-bold text-neutral-500 uppercase tracking-widest">Total Category Items</span>
-                                                <span className="font-black text-white bg-neutral-800/80 px-3 py-1 rounded border border-neutral-700">{totalQty}</span>
+                                                <span className="font-black text-white bg-neutral-800/80 px-3 py-1 rounded border border-neutral-700">{totalQty} units</span>
                                             </div>
                                         </div>
                                     );
@@ -1371,137 +1434,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                     )}
                 </div>
 
-                {/* 3. INSPECTOR (Right Column) */}
-                <div className="w-[340px] h-full bg-[#0B0E14] flex flex-col shrink-0 z-20">
-                    <div className="flex items-center justify-between p-4 border-b border-neutral-800/50 bg-[#0f1219]">
-                        <h2 className="text-xs font-bold text-white tracking-widest uppercase">Inspector</h2>
-                    </div>
-                    
-                    {selectedNode ? (
-                        <div className="flex-1 overflow-y-auto">
-                            {/* Header Details */}
-                            <div className="p-5 border-b border-neutral-800/50">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div style={{ width: 48, height: 48, background: "rgba(255,255,255,0.03)", border: `1px solid ${CATEGORY_COLOR[selectedNode.category]}40`, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                        <CategoryIcon category={selectedNode.category} size={24} />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-white text-sm font-bold leading-tight">{selectedNode.label}</h3>
-                                        <span className="inline-block mt-1 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded" style={{ background: `${CATEGORY_COLOR[selectedNode.category]}20`, color: CATEGORY_COLOR[selectedNode.category] }}>
-                                            {selectedNode.category}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="text-xs text-neutral-400 leading-relaxed mb-4">
-                                    {selectedNode.description || "No description provided for this component."}
-                                </div>
-                                <button 
-                                    onClick={() => {
-                                        setNodes(p => p.filter(n => n.id !== selectedId));
-                                        setConnections(p => p.filter(c => c.fromId !== selectedId && c.toId !== selectedId));
-                                        setSelectedId(null);
-                                    }}
-                                    className="w-full py-2 bg-red-950/30 hover:bg-red-900/40 text-red-400 text-xs font-semibold rounded border border-red-900/30 transition-colors"
-                                >
-                                    Delete Component
-                                </button>
-                            </div>
-
-                            {/* Connection Manager */}
-                            <div className="p-5">
-                                <h4 className="text-[11px] font-bold text-neutral-500 uppercase tracking-widest mb-4">Connection Manager</h4>
-                                
-                                <div className="mb-6">
-                                    <div className="text-xs font-semibold text-neutral-300 mb-2 flex items-center gap-2"><span className="text-emerald-500">▼</span> Inputs To This</div>
-                                    {inputsToSelected.length === 0 ? (
-                                        <div className="text-xs text-neutral-600 bg-[#0f1219] p-3 rounded border border-neutral-800/50">None</div>
-                                    ) : (
-                                        <div className="flex flex-col gap-2">
-                                            {inputsToSelected.map(conn => {
-                                                const fromNode = nodes.find(n => n.id === conn.fromId);
-                                                const labelColor = WIRE_COLORS[conn.label?.toLowerCase()] || WIRE_COLORS.default;
-                                                return (
-                                                    <div key={conn.id} className="flex items-center justify-between bg-[#13161c] p-2.5 rounded border border-neutral-800/80">
-                                                        <div className="text-xs text-neutral-300 truncate pr-2 flex items-center">
-                                                            From: <span className="font-medium text-white ml-1">{fromNode?.label || "Unknown"}</span>
-                                                            <span className="ml-2 text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded" style={{color: labelColor, border: `1px solid ${labelColor}40`, background: `${labelColor}15`}}>{conn.label}</span>
-                                                        </div>
-                                                        <button onClick={() => setConnections(p => p.filter(c => c.id !== conn.id))} className="text-neutral-500 hover:text-red-400"><Trash2 size={12} /></button>
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div className="mb-6">
-                                    <div className="text-xs font-semibold text-neutral-300 mb-2 flex items-center gap-2"><span className="text-sky-500">▲</span> Outputs From This</div>
-                                    {outputsFromSelected.length === 0 ? (
-                                        <div className="text-xs text-neutral-600 bg-[#0f1219] p-3 rounded border border-neutral-800/50">None</div>
-                                    ) : (
-                                        <div className="flex flex-col gap-2">
-                                            {outputsFromSelected.map(conn => {
-                                                const toNode = nodes.find(n => n.id === conn.toId);
-                                                const labelColor = WIRE_COLORS[conn.label?.toLowerCase()] || WIRE_COLORS.default;
-                                                return (
-                                                    <div key={conn.id} className="flex items-center justify-between bg-[#13161c] p-2.5 rounded border border-neutral-800/80">
-                                                        <div className="text-xs text-neutral-300 truncate pr-2 flex items-center">
-                                                            To: <span className="font-medium text-white ml-1">{toNode?.label || "Unknown"}</span>
-                                                            <span className="ml-2 text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded" style={{color: labelColor, border: `1px solid ${labelColor}40`, background: `${labelColor}15`}}>{conn.label}</span>
-                                                        </div>
-                                                        <button onClick={() => setConnections(p => p.filter(c => c.id !== conn.id))} className="text-neutral-500 hover:text-red-400"><Trash2 size={12} /></button>
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Add Connection */}
-                                <div className="mt-8 pt-6 border-t border-neutral-800/50">
-                                    <h5 className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-3">Add New Connection</h5>
-                                    <div className="flex flex-col gap-3">
-                                        <select 
-                                            value={inspectorConnTarget} 
-                                            onChange={e => setInspectorConnTarget(e.target.value)}
-                                            className="w-full bg-[#0f1219] border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-200 outline-none focus:border-sky-500/50"
-                                        >
-                                            <option value="">Select target component...</option>
-                                            {nodes.filter(n => n.id !== selectedId).map(n => (
-                                                <option key={`opt-${n.id}`} value={n.id}>{n.label}</option>
-                                            ))}
-                                        </select>
-                                        <div className="flex gap-2">
-                                            <input 
-                                                value={inspectorConnLabel}
-                                                onChange={e => setInspectorConnLabel(e.target.value)}
-                                                placeholder="Connection label"
-                                                className="flex-1 bg-[#0f1219] border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-200 outline-none focus:border-sky-500/50"
-                                            />
-                                            <button 
-                                                onClick={handleAddConnection}
-                                                disabled={!inspectorConnTarget}
-                                                className="px-4 bg-sky-600 hover:bg-sky-500 disabled:bg-neutral-800 disabled:text-neutral-600 text-white text-xs font-bold rounded transition-colors"
-                                            >
-                                                Add
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-                            <div className="w-16 h-16 rounded-full bg-[#0f1219] border border-neutral-800 flex items-center justify-center mb-4 text-neutral-700">
-                                <LayoutGrid size={24} />
-                            </div>
-                            <h3 className="text-sm font-semibold text-neutral-300 mb-2">No Component Selected</h3>
-                            <p className="text-xs text-neutral-500 leading-relaxed">
-                                Select a component from the Assembly Matrix to view its details and manage connections.
-                            </p>
-                        </div>
-                    )}
-                </div>
 
                 {/* Add Custom Component Modal */}
                 {showAddModal && (

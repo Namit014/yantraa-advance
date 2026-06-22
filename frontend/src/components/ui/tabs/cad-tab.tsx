@@ -973,8 +973,8 @@ export function CADTab({ currentQuery, cadUrls, designData, onGeneratedCad }: CA
                 // Load all step files concurrently — skip missing files gracefully
                 const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
                     try {
-                        const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL 
-                            ? `${process.env.NEXT_PUBLIC_API_URL}${url}` 
+                        const fetchUrl = url.startsWith('/api') 
+                            ? `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}${url}` 
                             : url;
                         const res = await fetch(fetchUrl);
                         if (!res.ok) {

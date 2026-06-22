@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Trash2, Save, Plus, ChevronRight } from "lucide-react";
+import { X, Trash2, Save, Plus, ChevronRight, AlertCircle } from "lucide-react";
 import {
   useConnectionStore,
   WIRE_COLORS,
@@ -630,6 +630,94 @@ export function ConnectionSidebar() {
               Add Wire
             </button>
           </div>
+
+          {/* ── Diagnostics & Repair Section ── */}
+          {nodes.some((n) => n.data.isOrphaned) && (
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 16 }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                  color: "#ef4444",
+                  fontSize: 11,
+                  fontFamily: "monospace",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                <AlertCircle size={11} />
+                Diagnostics (Orphans Detected)
+              </div>
+              
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {nodes
+                  .filter((n) => n.data.isOrphaned)
+                  .map((n) => (
+                    <div
+                      key={n.id}
+                      style={{
+                        padding: "8px 12px",
+                        backgroundColor: "#2d1010",
+                        border: "1px solid #7f1d1d",
+                        borderRadius: 6,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <span style={{ color: "#fca5a5", fontSize: 11, fontFamily: "monospace", maxWidth: 120, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        {n.data.label as string}
+                      </span>
+                      <button
+                        onClick={() => {
+                          // Quick repair heuristic: connect to first available node's ground or first port
+                          const targetNode = nodes.find(other => other.id !== n.id);
+                          if (targetNode) {
+                            const newEdge: CircuitEdge = {
+                              id: `wire-repair-${Date.now()}`,
+                              source: n.id,
+                              target: targetNode.id,
+                              sourceHandle: n.data.ports && n.data.ports.length > 0 ? (n.data.ports[0] as any).id : undefined,
+                              targetHandle: targetNode.data.ports && targetNode.data.ports.length > 0 ? (targetNode.data.ports[0] as any).id : undefined,
+                              type: "circuitWire",
+                              label: "repair",
+                              data: {
+                                from: { nodeId: n.id, portId: n.data.ports && n.data.ports.length > 0 ? (n.data.ports[0] as any).id : "" },
+                                to: { nodeId: targetNode.id, portId: targetNode.data.ports && targetNode.data.ports.length > 0 ? (targetNode.data.ports[0] as any).id : "" },
+                                color: WIRE_COLORS.signal,
+                                label: "repaired",
+                                wireType: "signal",
+                              },
+                              style: { stroke: WIRE_COLORS.signal, strokeWidth: 2, strokeDasharray: "4 4" },
+                            };
+                            addEdge(newEdge);
+                            
+                            // Remove orphaned flag
+                            const useConnectionStoreLocal = require("./useConnectionStore").useConnectionStore;
+                            useConnectionStoreLocal.getState().setNodes((prev: any) => 
+                              prev.map((node: any) => node.id === n.id ? { ...node, data: { ...node.data, isOrphaned: false } } : node)
+                            );
+                          }
+                        }}
+                        style={{
+                          backgroundColor: "#7f1d1d",
+                          color: "white",
+                          border: "none",
+                          borderRadius: 4,
+                          padding: "4px 8px",
+                          fontSize: 10,
+                          cursor: "pointer",
+                          fontFamily: "monospace",
+                        }}
+                      >
+                        Repair
+                      </button>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
