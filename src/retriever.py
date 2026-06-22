@@ -336,12 +336,32 @@ class Retriever:
         
         from cad_registry import get_known_cads
         known_cads = get_known_cads()
+
+        def _get_cad_url(filename: str) -> str:
+            S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
+            if S3_BUCKET_NAME and os.getenv("AWS_ACCESS_KEY_ID"):
+                try:
+                    import boto3
+                    s3_client = boto3.client('s3', region_name=os.getenv("AWS_REGION", "ap-south-1"))
+                    return s3_client.generate_presigned_url(
+                        'get_object',
+                        Params={'Bucket': S3_BUCKET_NAME, 'Key': filename},
+                        ExpiresIn=900 # 15 minutes
+                    )
+                except Exception as e:
+                    print(f"Error generating presigned URL: {e}")
+            
+            # Fallback to public bucket URL or local path
+            S3_BUCKET_URL = os.getenv("S3_BUCKET_URL")
+            if S3_BUCKET_URL:
+                return f"{S3_BUCKET_URL.rstrip('/')}/{filename}"
+            return f"/api/cad/{filename}"
         
         query_lower = query.lower()
         for key, filename in known_cads.items():
             if key in query_lower:
                 cad_available = True
-                cad_url = f"/api/cad/{filename}"
+                cad_url = _get_cad_url(filename)
                 break
                 
         if not cad_available and results and results.points:
@@ -353,7 +373,7 @@ class Retriever:
                     for key, filename in known_cads.items():
                         if key.replace(" ", "_") in r_lower or key in r_lower:
                             cad_available = True
-                            cad_url = f"/api/cad/{filename}"
+                            cad_url = _get_cad_url(filename)
                             break
                 if cad_available:
                     break
