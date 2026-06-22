@@ -1,0 +1,94 @@
+Source URL: https://www.techspot.com/downloads/7002-anydesk.html
+Scraped: 2026-06-19T14:45:08.551987
+============================================================
+
+# AnyDesk 9.7.6 — Technical Specifications
+
+**Developer:** AnyDesk
+**License:** Freeware
+**Supported OS:** Windows, macOS, Linux, Android
+**File Size:** 7.9 MB
+**Last Updated:** June 15, 2026
+
+## Core Description
+
+AnyDesk is remote desktop software that enables users to access their data, images, and applications from anywhere and share them with others. It delivers a fluent on-screen experience as if sitting directly in front of the remote device, supporting **60 fps** on local networks and most internet connections, and performs smoothly even with bandwidths as low as **100 kb/sec**. It is noted as a preferred solution for areas with poor internet connectivity.
+
+## Codec & Performance
+
+AnyDesk uses **DeskRT**, a proprietary video codec specifically designed for graphical user interfaces. Unlike conventional remote desktop applications based on outdated compression techniques (X11, RDP, VNC) or codecs designed for photos (JPEG) or video (H.264), DeskRT exploits GUI-specific image properties such as large areas of same color, high contrasts, sharp edges, repeating patterns, and linear translation of image contents to achieve high image quality and low response times.
+
+## Encryption & Security
+
+- **TLS 1.2** based encryption (the same standard used in online banking) for secure communication.
+- **AES-128 bit encryption in GCM mode** is used by default for all connections.
+- **AES-256** end-to-end data encryption is also referenced, ensuring transmitted data cannot be read by third parties, including AnyDesk itself.
+- Both ends of a connection are cryptographically verified, preventing impersonation of an AnyDesk ID.
+- Users can verify the encryption mode, verification status, and client fingerprint by hovering over the lock icon in the status bar.
+- Licensed versions provide even stronger encryption.
+
+## Access Control
+
+- Remote access requires the user's **AnyDesk ID and password**; without these, unauthorized access is not possible.
+- Additional options include **unattended access** and the ability to block specific devices.
+- Remote sessions are typically **sandboxed**, meaning personal files remain inaccessible to the remote party unless explicitly shared.
+
+## Installation & Portability
+
+AnyDesk requires only **1 MB** of download, can be sent via email or run from a USB drive, and requires **no administrative privileges or installation**.
+
+## Known Issues & Troubleshooting
+
+- **Black screen / "Waiting for image":** Usually caused by the remote computer lacking a connected monitor. Connecting a display or using a dummy HDMI adapter resolves this.
+- **Administrator privileges / UAC:** AnyDesk may prompt for elevated permissions for certain actions. Windows User Account Control (UAC) can interfere with these during remote sessions.
+
+## What's New in 9.7.6
+
+**Bug Fixes:**
+- Added validation feedback for passwords shorter than five characters.
+- Fixed an issue in AnyDesk One Meeting where the account name was used instead of the entered username after logging out.
+- Fixed crashes related to message editing and context menu interactions.
+- Fixed issues affecting message scrolling, text formatting, typing indicators, quoted messages, and community privacy settings.
+- Prevented users from editing automated system messages.
+- Corrected download status reporting, temporary file naming, and menu overlap issues in Download History and Reactions pop-ups.
+
+**Other Changes:**
+- Added chat list grouping settings.
+- Added keyboard navigation support (Page Up, Page Down, Home, End) for the message feed.
+- Removed Chat language options.
+- Updated translations.
+
+## AnyDesk One Meeting Updates (Recent Versions)
+
+- Selecting different audio or video devices now takes effect immediately without needing to unmute or re-enable.
+- Audio and video device configurations are persistent across sessions.
+- All audio and video settings moved from Preferences to in-meeting device settings.
+- Added a microphone boost slider for precise loudness control.
+- A chat panel can now be shown during meetings initiated from AnyDesk One Chat.
+- Supports more webcams with improved automatic resolution and frame rate selection (targeting **720p at 30 FPS**).
+
+## Recent Version History
+
+**Windows 9.7.2:**
+- Leaving a meeting now immediately returns the user to the home panel.
+- Added validation for duplicate Address Book entries.
+- Redesigned Unattended Access window.
+- Added Address Book feature to AnyDesk One.
+- Fixed MSI installation of AnyDesk Assist, client stability crashes, crash when creating/joining meetings from chat, Group Policy template generation, and added error message for license key registration via URL handler while logged in.
+
+**macOS 9.6.5:**
+- Fixed automatic update checker.
+- Final version supporting macOS 10.13–10.15; users must upgrade macOS to continue receiving updates.
+
+**Android 8.3.2:**
+- Added support for new plugin.
+- Implemented error messages when address book limits are reached.
+- Fixed audio transmission issues when audio permission is revoked and re-granted.
+- Fixed minor stability issues, AnyDesk One chat compatibility, autocorrect on GBoard, and adapted user list view to mobile UI.
+
+## Free Alternatives
+
+- **TeamViewer 15.78.4** — Freeware, Windows/macOS/Linux/Android.
+- **RustDesk 1.4.7** — Freeware, multiple OS, supports self-hosted servers.
+- **SupRemo Remote Desktop 4.12.0** — Freeware, Windows/macOS.
+- **Chrome Remote Desktop** — Free for personal use, cross-platform.

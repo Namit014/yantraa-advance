@@ -34,6 +34,15 @@ async def lifespan(app: FastAPI):
     app.state.retriever = retriever
     yield
 
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize the Retriever on startup
+    app.state.retriever = Retriever()
+    yield
+    # Shutdown logic (if any)
+
 # Initialize FastAPI app
 app = FastAPI(
     title="Yantra Agentic RAG API",
@@ -99,8 +108,10 @@ class QueryResponse(BaseModel):
     fallback_used: bool = False
     source_urls: List[str] = []
 
+from fastapi import Request
+
 @app.post("/api/ask", response_model=QueryResponse)
-async def ask_question(request: QueryRequest, req: Request):
+async def ask_question(request: Request, payload: QueryRequest):
     """
     Executes the following workflow:
     1. User Query (received in JSON payload)
@@ -113,13 +124,14 @@ async def ask_question(request: QueryRequest, req: Request):
     8. Return JSON Response (returned below)
     """
     try:
-        if not request.query.strip():
+        if not payload.query.strip():
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
+        retriever = request.app.state.retriever
+
         # Execute the RAG workflow asynchronously off the event loop
-        loop = asyncio.get_running_loop()
-        final_answer, cad_available, cad_url, fallback_used, source_urls = await loop.run_in_executor(
-            None, req.app.state.retriever.ask, request.query
+        final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
+            None, retriever.ask, payload.query
         )
 
         # Return JSON Response
@@ -141,7 +153,7 @@ async def ask_question(request: QueryRequest, req: Request):
         )
 
 @app.get("/search", response_model=QueryResponse)
-async def search_question(query: str, req: Request):
+async def search_question(request: Request, query: str):
     """
     GET endpoint equivalent for easy browser testing.
     Usage: http://localhost:8000/search?query=your+question
@@ -150,9 +162,11 @@ async def search_question(query: str, req: Request):
         if not query.strip():
             raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
+        retriever = request.app.state.retriever
+
         # Execute the RAG workflow asynchronously off the event loop
         final_answer, cad_available, cad_url, fallback_used, source_urls = await asyncio.get_event_loop().run_in_executor(
-            None, req.app.state.retriever.ask, query
+            None, retriever.ask, query
         )
 
         # Return JSON Response

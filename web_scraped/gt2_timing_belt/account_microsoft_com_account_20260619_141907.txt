@@ -1,0 +1,15 @@
+Source URL: https://account.microsoft.com/account
+Scraped: 2026-06-19T14:19:07.408732
+============================================================
+
+# Microsoft Account – Sign In or Create Your Account
+
+**Website:** Microsoft account portal
+
+**Functionality:**
+- Sign in to an existing Microsoft account
+- Create a new Microsoft account
+
+**Technical Notes:**
+- The website requires cookies to be enabled in browser settings for full functionality.
+- A "Skip to main content" link is available for accessibility/navigation purposes.

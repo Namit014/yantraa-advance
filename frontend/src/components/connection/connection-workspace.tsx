@@ -27,7 +27,7 @@ import {
   Position,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { Sparkles, Loader2, AlertCircle, Zap, ChevronRight, Check, Save, Plus } from "lucide-react";
+import { Sparkles, Loader2, AlertCircle, Zap, ChevronRight } from "lucide-react";
 import { ComponentSilhouette } from "./ComponentSilhouette";
 import { ConnectionSidebar } from "./ConnectionSidebar";
 import {
@@ -43,13 +43,14 @@ import { COMPONENT_CATEGORIES } from "./component-data";
 
 // ─── Wire color legend ─────────────────────────────────────────────────────────
 
-type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can";
+type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can" | "feedback" | "safety";
 
 const LEGEND: { type: WireType; label: string }[] = [
   { type: "power", label: "Power" },
   { type: "ground", label: "Ground" },
-  { type: "signal", label: "Signal" },
-  { type: "data", label: "I²C/UART" },
+  { type: "signal", label: "Control/Signal" },
+  { type: "feedback", label: "Sensor/Feedback" },
+  { type: "safety", label: "Safety/E-Stop" },
 ];
 
 // ─── Custom Circuit Node ───────────────────────────────────────────────────────
@@ -85,17 +86,15 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
       {ports.flatMap((port) => {
         const rfPos = posMap[port.side] ?? Position.Right;
         const sharedStyle: React.CSSProperties = {
+          opacity: 0,
           width: 12,
           height: 12,
-          background: "#1e3a5f",
-          border: "2px solid #3b82f6",
-          zIndex: 20,
-          cursor: "crosshair",
+          background: "#FFD700",
+          border: "1px solid #c8a800",
           ...(port.side === "top" || port.side === "bottom"
             ? { left: `${port.offsetPercent}%`, transform: "translateX(-50%)" }
             : { top: `${port.offsetPercent}%`, transform: "translateY(-50%)" }),
         };
-        const handleClass = "flex items-center justify-center hover:scale-150 hover:bg-blue-400 hover:border-white transition-all duration-200 shadow-md group";
         return [
           // source handle — id matches edge.sourceHandle
           <Handle
@@ -104,11 +103,8 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
             type="source"
             position={rfPos}
             style={sharedStyle}
-            className={handleClass}
             isConnectable
-          >
-            <Plus size={8} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-          </Handle>,
+          />,
           // target handle — same id matches edge.targetHandle
           <Handle
             key={`${port.id}-tgt`}
@@ -116,17 +112,14 @@ function CircuitNodeComponent({ data }: { data: CircuitNodeData }) {
             type="target"
             position={rfPos}
             style={sharedStyle}
-            className={handleClass}
             isConnectable
-          >
-            <Plus size={8} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-          </Handle>,
+          />,
         ];
       })}
 
-      {/* Fallback source/target for generic drag-connect (hidden) */}
-      <Handle type="target" position={Position.Left}  id="left-default"  style={{ opacity: 0, left: 0,  width: 10, height: 10, zIndex: -1 }} />
-      <Handle type="source" position={Position.Right} id="right-default" style={{ opacity: 0, right: 0, width: 10, height: 10, zIndex: -1 }} />
+      {/* Fallback source/target for generic drag-connect */}
+      <Handle type="target" position={Position.Left}  id="left-default"  style={{ opacity: 0, left: 0,  width: 10, height: 10 }} />
+      <Handle type="source" position={Position.Right} id="right-default" style={{ opacity: 0, right: 0, width: 10, height: 10 }} />
 
       {/* SVG silhouette */}
       <ComponentSilhouette
@@ -228,14 +221,6 @@ function CircuitWireComponent(props: EdgeProps) {
 // ─── Inner flow (must be child of ReactFlowProvider) ──────────────────────────
 
 function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; designData?: any }) {
-  const nodeTypes = useMemo<NodeTypes>(() => ({
-    circuitNode: CircuitNodeComponent as unknown as NodeTypes[string],
-  }), []);
-
-  const edgeTypes = useMemo<EdgeTypes>(() => ({
-    circuitWire: CircuitWireComponent as unknown as EdgeTypes[string],
-  }), []);
-
   // ── Bug 1 fix: useShallow prevents new object ref on every render ──
   const {
     storeNodes,
@@ -247,15 +232,11 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     setSidebarOpen,
     isGenerating,
     error,
+    ercReport,
     prompt,
     setPrompt,
     generate,
     loadDesignData,
-    saveState,
-    setSaveState,
-    saveGraph,
-    loadGraph,
-    isValidConnection,
   } = useConnectionStore(
     useShallow((s) => ({
       storeNodes: s.nodes,
@@ -267,15 +248,11 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
       setSidebarOpen: s.setSidebarOpen,
       isGenerating: s.isGenerating,
       error: s.error,
+      ercReport: s.ercReport,
       prompt: s.prompt,
       setPrompt: s.setPrompt,
       generate: s.generate,
       loadDesignData: s.loadDesignData,
-      saveState: s.saveState,
-      setSaveState: s.setSaveState,
-      saveGraph: s.saveGraph,
-      loadGraph: s.loadGraph,
-      isValidConnection: s.isValidConnection,
     }))
   );
 
@@ -297,26 +274,37 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
       (storeNodes as CircuitNode[]).map((n) => [n.id, n])
     );
 
-    const validEdges = (storeEdges as CircuitEdge[]).filter((edge) => {
-      if (!edge.sourceHandle && !edge.targetHandle) return true;
+    const validEdges = (storeEdges as CircuitEdge[]).map((edge) => {
+      if (!edge.sourceHandle && !edge.targetHandle) return edge;
 
       const srcNode = nodeMap.get(edge.source);
       const tgtNode = nodeMap.get(edge.target);
+      
+      // If the node itself is completely missing, we MUST drop the edge.
+      if (!srcNode || !tgtNode) {
+        console.warn(`[ConnectionWorkspace] Dropping edge "${edge.id}" — node missing.`);
+        return null;
+      }
+
       const srcPorts = (srcNode?.data?.ports as { id: string }[] | undefined) ?? [];
       const tgtPorts = (tgtNode?.data?.ports as { id: string }[] | undefined) ?? [];
 
       const srcOk = !edge.sourceHandle || srcPorts.some((p) => p.id === edge.sourceHandle);
       const tgtOk = !edge.targetHandle || tgtPorts.some((p) => p.id === edge.targetHandle);
 
-      if (!srcOk || !tgtOk) {
-        console.warn(
-          `[ConnectionWorkspace] Dropping edge "${edge.id}" — handle not found.`,
-          { sourceHandle: edge.sourceHandle, srcOk, targetHandle: edge.targetHandle, tgtOk }
-        );
-        return false;
-      }
-      return true;
-    });
+      if (srcOk && tgtOk) return edge;
+
+      console.warn(
+        `[ConnectionWorkspace] Auto-repairing edge "${edge.id}" — handle not found.`,
+        { sourceHandle: edge.sourceHandle, srcOk, targetHandle: edge.targetHandle, tgtOk }
+      );
+      
+      return {
+        ...edge,
+        sourceHandle: srcOk ? edge.sourceHandle : "right-default",
+        targetHandle: tgtOk ? edge.targetHandle : "left-default",
+      };
+    }).filter((e): e is CircuitEdge => e !== null);
 
     setRfEdges(validEdges);
   }, [storeEdges, storeNodes]);
@@ -398,20 +386,31 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
   }, [prompt, isGenerating, generate, libraryComponents, designData]);
 
   // Load designData when it arrives
+  const hasAutoGeneratedForDesign = useRef(false);
   useEffect(() => {
     if (designData) {
       loadDesignData(designData);
+      
+      // Auto-trigger electrical generation if there are no valid electrical connections
+      const hasElectrical = (designData.connections || []).some((c: any) => {
+         const rel = (c.relation || "").toLowerCase();
+         const protocol = (c.protocol || "").toLowerCase();
+         return rel !== "mounted_on" && rel !== "attached_to" && rel !== "fastened_to" && protocol !== "mechanical";
+      });
+      
+      const activeQuery = (currentQuery && currentQuery.trim()) ? currentQuery : prompt;
+      
+      if (!hasElectrical && activeQuery && activeQuery.trim() && !hasAutoGeneratedForDesign.current) {
+         hasAutoGeneratedForDesign.current = true;
+         // Give it a tiny delay so the UI renders the empty canvas first before starting generation
+         setTimeout(() => {
+           generate(libraryComponents, activeQuery, designData.subsystems);
+         }, 100);
+      }
     }
-  }, [designData, loadDesignData]);
+  }, [designData, loadDesignData, generate, libraryComponents, currentQuery]);
 
-  // Load from local storage on mount
-  useEffect(() => {
-    if (!designData) {
-      loadGraph();
-    }
-  }, [loadGraph, designData]);
-
-  // Auto-generate when currentQuery arrives from chat
+  // Auto-generate when currentQuery arrives from chat (for cases where designData wasn't passed directly)
   const lastAutoQuery = useRef<string>("");
   useEffect(() => {
     if (designData) return;
@@ -427,18 +426,15 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     }
   }, [currentQuery, isGenerating, generate, libraryComponents, setPrompt, designData]);
 
-  // Auto-save mechanism
-  useEffect(() => {
-    if (saveState === "unsaved") {
-      setSaveState("saving");
-      const timeout = setTimeout(() => {
-        saveGraph();
-      }, 1000);
-      return () => clearTimeout(timeout);
-    }
-  }, [saveState, setSaveState, saveGraph]);
+  const nodeTypes: NodeTypes = useMemo(
+    () => ({ circuitNode: CircuitNodeComponent as unknown as NodeTypes[string] }),
+    []
+  );
 
-  // nodeTypes and edgeTypes are now defined at the module level
+  const edgeTypes: EdgeTypes = useMemo(
+    () => ({ circuitWire: CircuitWireComponent as unknown as EdgeTypes[string] }),
+    []
+  );
 
   return (
     <div
@@ -559,14 +555,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
           ))}
         </div>
 
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
-          {/* Save indicator */}
-          <div style={{ display: "flex", alignItems: "center", gap: 6, color: saveState === "saved" ? "#4ade80" : saveState === "saving" ? "#fbbf24" : "#9ca3af", fontSize: 11, fontFamily: "monospace", opacity: 0.9 }}>
-            {saveState === "saved" ? <Check size={13} /> : saveState === "saving" ? <Loader2 size={13} className="animate-spin" /> : <Save size={13} />}
-            {saveState === "saved" ? "Saved" : saveState === "saving" ? "Saving..." : "Unsaved"}
-          </div>
-
-          {/* Sidebar toggle */}
+        {/* Sidebar toggle */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           style={{
@@ -593,7 +582,6 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
           />
           Panel
         </button>
-        </div>
       </div>
 
       {/* ── Error banner ── */}
@@ -616,9 +604,34 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
         </div>
       )}
 
+      {/* ── ERC Report Banner ── */}
+      {ercReport && !isGenerating && (
+        <div
+          style={{
+            padding: "10px 16px",
+            backgroundColor: "#0d1f15",
+            borderBottom: "1px solid #144026",
+            color: "#6ee7b7",
+            fontSize: 11,
+            fontFamily: "monospace",
+            maxHeight: "150px",
+            overflowY: "auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: 6
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: "bold" }}>
+            <Sparkles size={13} />
+            Electrical Rule Check (ERC) Pass Complete
+          </div>
+          <div style={{ whiteSpace: "pre-wrap", opacity: 0.9 }}>{ercReport}</div>
+        </div>
+      )}
+
       {/* ── Main canvas area + sidebar ── */}
       <div style={{ flex: 1, display: "flex", overflow: "hidden", position: "relative" }}>
-      <div style={{ flex: 1, position: "relative", width: "100%", height: "100%", minHeight: 400 }}>
+        <div style={{ flex: 1, position: "relative" }}>
           {/* Empty state */}
           {rfNodes.length === 0 && !isGenerating && (
             <div
@@ -647,16 +660,12 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
               >
                 <Sparkles size={28} style={{ color: "#1a2744" }} />
               </div>
-              <div style={{ textAlign: "center", maxWidth: 300 }}>
-                <p style={{ color: "#60a5fa", fontSize: 14, fontFamily: "monospace", fontWeight: 600 }}>
-                  Canvas is Empty
+              <div style={{ textAlign: "center" }}>
+                <p style={{ color: "#374151", fontSize: 13, fontFamily: "monospace", fontWeight: 600 }}>
+                  No circuit yet
                 </p>
-                <p style={{ color: "#6b7280", fontSize: 12, fontFamily: "monospace", marginTop: 8, lineHeight: 1.5 }}>
-                  Type a description above and click Generate to let AI build a circuit.
-                </p>
-                <div style={{ margin: "16px auto", width: 40, height: 1, backgroundColor: "#1a2744" }} />
-                <p style={{ color: "#6b7280", fontSize: 12, fontFamily: "monospace", lineHeight: 1.5 }}>
-                  Or <span style={{ color: "#9ca3af" }}>drag and drop</span> components from the Component Library panel on the right.
+                <p style={{ color: "#1f2937", fontSize: 11, fontFamily: "monospace", marginTop: 4 }}>
+                  Type a description above and click Generate
                 </p>
               </div>
             </div>
@@ -693,10 +702,6 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
             onNodeDragStop={onNodeDragStop}
             onConnect={handleConnect}
             onEdgeClick={handleEdgeClick}
-            isValidConnection={(connection) => {
-              if (!connection.source || !connection.sourceHandle || !connection.target || !connection.targetHandle) return false;
-              return isValidConnection(connection.source, connection.sourceHandle, connection.target, connection.targetHandle).valid;
-            }}
             nodeTypes={nodeTypes}
             edgeTypes={edgeTypes}
             fitView

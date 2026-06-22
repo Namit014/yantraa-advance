@@ -769,6 +769,8 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     const [nodes, setNodes] = useState<ComponentNode[]>(SEED_NODES);
     const [rawComponents, setRawComponents] = useState<RawComponent[]>(SEED_RAW);
     const [connections, setConnections] = useState<Connection[]>(SEED_CONNECTIONS);
+    const [sidebarTab, setSidebarTab] = useState<"library" | "bom" | "validation">("library");
+    const hasSubsystemsError = designData && (!designData.subsystems || designData.subsystems.length === 0);
     const [isLoading, setIsLoading] = useState(false);
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -1414,7 +1416,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                     edges={rfEdges}
                                     onNodesChange={onNodesChange}
                                     onConnect={onConnect}
-                                    onNodeClick={(_, node) => setSelectedId(node.id)}
+                                    onNodeClick={(_: any, node: any) => setSelectedId(node.id)}
                                     nodeTypes={nodeTypes}
                                     fitView
                                     onlyRenderVisibleElements={true}
