@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "concurrently \"npm run fastapi-dev\" \"npm run next-dev\"",
     "next-dev": "next dev",
+<<<<<<< HEAD
     "fastapi-dev": "..\\.venv\\Scripts\\python ../src/api/main.py",
+=======
+    "fastapi-dev": "py -3.11 ../src/api/main.py",
+>>>>>>> 120d21e6894fd78eb265ebfab82acff4a95c66d2
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -14,9 +18,11 @@
     "@base-ui/react": "^1.5.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
+    "@types/dagre": "^0.7.54",
     "@xyflow/react": "^12.11.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dagre": "^0.8.5",
     "lucide-react": "^1.17.0",
     "next": "16.2.7",
     "occt-import-js": "^0.0.23",

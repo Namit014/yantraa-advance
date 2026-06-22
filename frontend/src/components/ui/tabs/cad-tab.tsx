@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, Suspense, useMemo, useRef } from "react";
-import { Loader2, Box, Info, Play, Pause, Eye, EyeOff, ListTree, Ruler, Ghost, MessageSquare, Mic, MicOff, Move, Maximize2, RotateCw, Settings, Layers, Network, Scissors, BoxSelect, AlertTriangle } from "lucide-react";
+import { Loader2, Box, Info, Play, Pause, Eye, EyeOff, ListTree, Ruler, Ghost, MessageSquare, Mic, MicOff, Move, Maximize2, RotateCw, Settings, Layers, Network, Scissors, BoxSelect, AlertTriangle, Magnet } from "lucide-react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { 
@@ -20,8 +20,10 @@ import {
 
 interface CADTabProps {
     currentQuery?: string;
-    cadUrl?: string | null;
+    cadUrls?: string[] | null;
     designData?: any;
+    onRemodel?: () => void;
+    isRemodeling?: boolean;
 }
 
 interface LoadedMesh {
@@ -200,7 +202,8 @@ function CADModel({
     partTransforms,
     setPartTransforms,
     setTransforming,
-    showBoundingBox
+    showBoundingBox,
+    magnetEnabled
 }: { 
     meshes: LoadedMesh[], 
     url: string, 
@@ -226,7 +229,8 @@ function CADModel({
     partTransforms: Record<string, { position?: [number, number, number], rotation?: [number, number, number], scale?: [number, number, number] }>,
     setPartTransforms: React.Dispatch<React.SetStateAction<Record<string, { position?: [number, number, number], rotation?: [number, number, number], scale?: [number, number, number] }>>>,
     setTransforming: (v: boolean) => void,
-    showBoundingBox?: boolean
+    showBoundingBox?: boolean,
+    magnetEnabled: boolean
 }) {
     const { explosionVectors, globalBox, boundingBoxes } = useMemo(() => {
         const vectors = new Map();
@@ -537,12 +541,66 @@ function CADModel({
                                 setTransforming(false);
                                 if (e?.target?.object) {
                                     const obj = e.target.object;
+                                    let newPos = new THREE.Vector3(obj.position.x, obj.position.y, obj.position.z);
+                                    const newRot: [number, number, number] = [obj.rotation.x, obj.rotation.y, obj.rotation.z];
+                                    const newScale: [number, number, number] = [obj.scale.x, obj.scale.y, obj.scale.z];
+
+                                    if (transformMode === 'translate' && magnetEnabled && mesh.geometry.boundingBox) {
+                                        const threshold = 15.0; // Snapping threshold
+                                        
+                                        const dragBox = mesh.geometry.boundingBox.clone();
+                                        const scaleVec = new THREE.Vector3(...newScale);
+                                        dragBox.min.multiply(scaleVec);
+                                        dragBox.max.multiply(scaleVec);
+                                        dragBox.translate(newPos);
+                                        
+                                        const dragCenter = dragBox.getCenter(new THREE.Vector3());
+                                        let snapPos = newPos.clone();
+
+                                        let bestDistX = threshold, bestDistY = threshold, bestDistZ = threshold;
+
+                                        meshes.forEach(m => {
+                                            if (m.id === mesh.id || hiddenMeshes.has(m.id)) return;
+                                            const otherBox = boundingBoxes.get(m.id);
+                                            if (!otherBox) return;
+                                            
+                                            const otherCenter = otherBox.getCenter(new THREE.Vector3());
+                                            
+                                            const axes: ('x'|'y'|'z')[] = ['x', 'y', 'z'];
+                                            axes.forEach(ax => {
+                                                const dCenter = Math.abs(dragCenter[ax] - otherCenter[ax]);
+                                                const dMaxMin = Math.abs(dragBox.max[ax] - otherBox.min[ax]);
+                                                const dMinMax = Math.abs(dragBox.min[ax] - otherBox.max[ax]);
+
+                                                let bestLocalDist = Math.min(dCenter, dMaxMin, dMinMax);
+                                                let currentBest = ax === 'x' ? bestDistX : (ax === 'y' ? bestDistY : bestDistZ);
+
+                                                if (bestLocalDist < currentBest) {
+                                                    if (bestLocalDist === dCenter) {
+                                                        snapPos[ax] -= (dragCenter[ax] - otherCenter[ax]);
+                                                    } else if (bestLocalDist === dMaxMin) {
+                                                        snapPos[ax] -= (dragBox.max[ax] - otherBox.min[ax]);
+                                                    } else {
+                                                        snapPos[ax] -= (dragBox.min[ax] - otherBox.max[ax]);
+                                                    }
+                                                    
+                                                    if (ax === 'x') bestDistX = bestLocalDist;
+                                                    if (ax === 'y') bestDistY = bestLocalDist;
+                                                    if (ax === 'z') bestDistZ = bestLocalDist;
+                                                }
+                                            });
+                                        });
+                                        
+                                        newPos.copy(snapPos);
+                                        obj.position.copy(newPos);
+                                    }
+
                                     setPartTransforms(prev => ({
                                         ...prev,
                                         [mesh.id]: {
-                                            position: [obj.position.x, obj.position.y, obj.position.z],
-                                            rotation: [obj.rotation.x, obj.rotation.y, obj.rotation.z],
-                                            scale: [obj.scale.x, obj.scale.y, obj.scale.z]
+                                            position: [newPos.x, newPos.y, newPos.z],
+                                            rotation: newRot,
+                                            scale: newScale
                                         }
                                     }));
                                 }
@@ -672,7 +730,7 @@ function FallbackAssembly({ designData }: { designData: any }) {
     );
 }
 
-export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
+export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodeling }: CADTabProps) {
     const [meshes, setMeshes] = useState<LoadedMesh[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -707,8 +765,22 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
     
     // Engineering Analysis State
     const [showBoundingBox, setShowBoundingBox] = useState(false);
+    const [magnetEnabled, setMagnetEnabled] = useState(true);
     
     const controlsRef = useRef<any>(null);
+
+    // Call .dispose() on OrbitControls reference on unmount to prevent stale listeners
+    useEffect(() => {
+        return () => {
+            if (controlsRef.current) {
+                try {
+                    controlsRef.current.dispose();
+                } catch (e) {
+                    console.warn("Error disposing OrbitControls:", e);
+                }
+            }
+        };
+    }, []);
 
     const autoScale = useMemo(() => {
         if (!meshes.length) return 1;
@@ -815,14 +887,14 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
     };
 
     useEffect(() => {
-        if (!cadUrl) {
+        if (!cadUrls || cadUrls.length === 0) {
             setMeshes([]);
             return;
         }
 
         let isMounted = true;
 
-        async function loadStep() {
+        async function loadStepFiles() {
             setIsLoading(true);
             setError(null);
             
@@ -836,64 +908,77 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                     locateFile: (name: string) => `/${name}`
                 });
 
-                // Fetch STEP file
-                const res = await fetch(cadUrl!);
-                if (!res.ok) throw new Error("Failed to download CAD file.");
-                const buffer = await res.arrayBuffer();
-                
-                // Parse the STEP file directly
-                const fileBuffer = new Uint8Array(buffer);
-                const result = occt.ReadStepFile(fileBuffer, null);
-                
-                if (!result || !result.meshes || result.meshes.length === 0) {
-                    throw new Error("No valid meshes found in the CAD file.");
-                }
-
                 const loadedMeshes: LoadedMesh[] = [];
-                let i = 0;
-                
-                for (const m of result.meshes) {
-                    const geometry = new THREE.BufferGeometry();
-                    
-                    geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
-                    if (m.attributes.normal) {
-                        geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
-                    }
-                    const index = Uint32Array.from(m.index.array);
-                    geometry.setIndex(new THREE.BufferAttribute(index, 1));
-                    
-                    geometry.computeVertexNormals();
-                    geometry.computeBoundingBox();
-                    geometry.computeBoundingSphere();
+                let globalMeshId = 0;
 
-                    let color = null;
-                    if (m.color) {
-                        color = new THREE.Color(m.color[0], m.color[1], m.color[2]);
+                // Load all step files concurrently
+                const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
+                    const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL 
+                        ? `${process.env.NEXT_PUBLIC_API_URL}${url}` 
+                        : url;
+                    const res = await fetch(fetchUrl);
+                    if (!res.ok) throw new Error(`Failed to download CAD file: ${url}`);
+                    const buffer = await res.arrayBuffer();
+                    
+                    const fileBuffer = new Uint8Array(buffer);
+                    const result = occt.ReadStepFile(fileBuffer, null);
+                    
+                    if (!result || !result.meshes || result.meshes.length === 0) {
+                        console.warn(`No valid meshes found in CAD file: ${url}`);
+                        return;
                     }
+                    
+                    // Add X-axis offset based on file index to space them out initially
+                    const offsetMatrix = new THREE.Matrix4().makeTranslation(fileIndex * 150, 0, 0);
 
-                    loadedMeshes.push({
-                        id: `mesh-${i++}`,
-                        geometry,
-                        color,
-                        name: m.name || `Component ${i}`
-                    });
-                }
-                
+                    for (const m of result.meshes) {
+                        const geometry = new THREE.BufferGeometry();
+                        
+                        geometry.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
+                        if (m.attributes.normal) {
+                            geometry.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
+                        }
+                        const index = Uint32Array.from(m.index.array);
+                        geometry.setIndex(new THREE.BufferAttribute(index, 1));
+                        
+                        // Apply the initial spacing offset
+                        geometry.applyMatrix4(offsetMatrix);
+                        
+                        geometry.computeVertexNormals();
+                        geometry.computeBoundingBox();
+                        geometry.computeBoundingSphere();
+
+                        let color = null;
+                        if (m.color) {
+                            color = new THREE.Color(m.color[0], m.color[1], m.color[2]);
+                        }
+
+                        loadedMeshes.push({
+                            id: `mesh-${fileIndex}-${globalMeshId++}`,
+                            geometry,
+                            color,
+                            name: m.name || `Component ${globalMeshId}`
+                        });
+                    }
+                });
+
+                await Promise.all(fetchPromises);
+
                 if (isMounted) {
                     setMeshes(loadedMeshes);
                 }
             } catch (err: any) {
                 console.error("CAD load error:", err);
-                if (isMounted) setError(err.message || "Failed to parse the CAD file.");
+                if (isMounted) setError(err.message || "Failed to parse the CAD files.");
             } finally {
                 if (isMounted) setIsLoading(false);
             }
         }
 
-        loadStep();
+        loadStepFiles();
 
         return () => { isMounted = false; };
-    }, [cadUrl]);
+    }, [cadUrls]);
 
     return (
         <div className="relative w-full h-full bg-[#060810] overflow-hidden rounded-xl border border-neutral-800 select-none">
@@ -932,8 +1017,33 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                                 <Ghost size={12} />
                                 {renderMode === 1 ? 'Ghost Mode' : renderMode === 2 ? 'Actual CAD' : renderMode === 3 ? 'Thermal Analysis' : renderMode === 4 ? 'Stress Analysis' : 'Enable Advanced Render'}
                             </button>
+                            {onRemodel && (
+                                <button 
+                                    onClick={onRemodel}
+                                    disabled={isRemodeling}
+                                    className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors border border-blue-500/30 ${
+                                        isRemodeling ? 'bg-blue-900/50 text-blue-300 cursor-not-allowed' : 'bg-blue-600/20 text-blue-400 hover:bg-blue-600/40'
+                                    }`}
+                                >
+                                    <RotateCw size={12} className={isRemodeling ? "animate-spin" : ""} />
+                                    {isRemodeling ? 'Remodeling...' : 'Re-model'}
+                                </button>
+                            )}
                         </div>
                     </div>
+                    
+                    {/* Remodeling Overlay */}
+                    {isRemodeling && (
+                        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-xl">
+                            <div className="flex flex-col items-center gap-4 bg-neutral-900 border border-neutral-800 p-6 rounded-2xl shadow-2xl">
+                                <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
+                                <div className="text-center">
+                                    <h3 className="text-white font-medium">Acquiring New Model</h3>
+                                    <p className="text-neutral-400 text-sm mt-1">Scraping GrabCAD for alternatives...</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                     
 
                     <div className="space-y-3 pt-4 border-t border-white/5">
@@ -1115,7 +1225,7 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
             )}
 
             {/* Empty State Overlay */}
-            {!cadUrl && !designData && !isLoading && !error && (
+            {(!cadUrls || cadUrls.length === 0) && !designData && !isLoading && !error && (
                 <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#060810]/50 backdrop-blur-sm gap-4">
                     <Box size={40} className="text-neutral-500" />
                     <span className="text-neutral-400 text-sm font-medium">No 3D CAD available for this model yet.</span>
@@ -1161,7 +1271,7 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                     <ContactShadows position={[0, 0, 0]} opacity={0.75} scale={300} blur={2} far={100} resolution={1024} color="#000000" />
 
                     <Suspense fallback={null}>
-                        {meshes.length > 0 ? (
+                        {meshes.length > 0 && (
                             <PivotControls 
                                 activeAxes={[true, true, true]} 
                                 depthTest={false} 
@@ -1172,7 +1282,7 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                                 <Center bottom>
                                     <CADModel 
                                         meshes={meshes} 
-                                        url={cadUrl!} 
+                                        url={cadUrls ? cadUrls[0] : ''}
                                         explosion={explosion}
                                         hoveredMesh={hoveredMesh}
                                         setHoveredMesh={setHoveredMesh}
@@ -1196,11 +1306,10 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                                         setPartTransforms={setPartTransforms}
                                         setTransforming={setTransforming}
                                         showBoundingBox={showBoundingBox}
+                                        magnetEnabled={magnetEnabled}
                                     />
                                 </Center>
                             </PivotControls>
-                        ) : (
-                            designData && <FallbackAssembly designData={designData} />
                         )}
                     </Suspense>
 
@@ -1264,7 +1373,7 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
             </div>
 
             {/* Component Count & BOM Toggle */}
-            {meshes.length > 0 ? (
+            {meshes.length > 0 && (
                 <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
                     <button 
                         onClick={() => setShowBOM(!showBOM)}
@@ -1324,17 +1433,6 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                         </div>
                     )}
                 </div>
-            ) : (
-                designData && (
-                    <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl">
-                            <Box size={14} className="text-purple-400" />
-                            <span className="text-xs font-medium text-neutral-200">
-                                3D Block Assembly Generated
-                            </span>
-                        </div>
-                    </div>
-                )
             )}
             
             {/* Inspector Sidebar for Component Mapping */}
@@ -1383,6 +1481,13 @@ export function CADTab({ currentQuery, cadUrl, designData }: CADTabProps) {
                                         <span className="text-[10px] font-medium">Stretch</span>
                                     </button>
                                 </div>
+                                <button
+                                    onClick={() => setMagnetEnabled(!magnetEnabled)}
+                                    className={`w-full flex items-center justify-center gap-2 mb-6 px-3 py-2 rounded text-xs font-medium border transition-colors ${magnetEnabled ? 'bg-fuchsia-600/40 border-fuchsia-500 text-fuchsia-300 shadow-[0_0_15px_rgba(192,38,211,0.3)]' : 'bg-black/40 border-neutral-800/50 text-neutral-400 hover:bg-neutral-800'}`}
+                                >
+                                    <Magnet size={14} />
+                                    {magnetEnabled ? "Magnet Snap: ON" : "Magnet Snap: OFF"}
+                                </button>
                                 
                                 <h4 className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider mb-3">Specifications</h4>
                                 <div className="bg-black/40 rounded border border-neutral-800/50 p-3 flex flex-col gap-2 mb-6">

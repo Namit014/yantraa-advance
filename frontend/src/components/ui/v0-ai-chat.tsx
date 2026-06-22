@@ -125,9 +125,10 @@ export function VercelV0Chat() {
     const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad'>('mapping');
-    const [cadPrompt, setCadPrompt] = useState<{ available: boolean, url: string | null }>({ available: false, url: null });
-    const [acceptedCadUrl, setAcceptedCadUrl] = useState<string | null>(null);
+    const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
+    const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
     const [robotDesign, setRobotDesign] = useState<any | null>(null);
+    const [isRemodeling, setIsRemodeling] = useState(false);
 
     // Derive latest AI response and last user query to feed into MappingTab
     const latestAIResponse = [...messages].reverse().find(m => m.role === 'assistant')?.content ?? "";
@@ -183,10 +184,12 @@ export function VercelV0Chat() {
                 setMessages(prev => [...prev, { role: 'assistant', content: formattedContent }]);
             }
             
-            if (data.cad_available && data.cad_url) {
-                setCadPrompt({ available: true, url: data.cad_url });
+            if (data.cad_available && data.cad_urls && data.cad_urls.length > 0) {
+                setCadPrompt({ available: true, urls: data.cad_urls });
+            } else if (data.cad_available && data.cad_url) {
+                setCadPrompt({ available: true, urls: [data.cad_url] });
             } else {
-                setCadPrompt({ available: false, url: null });
+                setCadPrompt({ available: false, urls: [] });
             }
 
         } catch (error) {
@@ -194,6 +197,40 @@ export function VercelV0Chat() {
             setMessages(prev => [...prev, { role: 'assistant', content: "Sorry, I encountered an error while processing your request." }]);
         } finally {
             setIsLoading(false);
+        }
+    };
+
+    const handleRemodel = async () => {
+        if (!latestUserQuery || isRemodeling) return;
+        
+        setIsRemodeling(true);
+        try {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            const response = await fetch(`${apiUrl}/api/design`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "ngrok-skip-browser-warning": "true"
+                },
+                body: JSON.stringify({ query: latestUserQuery, remodel: true })
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch response");
+            }
+
+            const data = await response.json();
+            setRobotDesign(data);
+            
+            if (data.cad_available && data.cad_urls && data.cad_urls.length > 0) {
+                setAcceptedCadUrls(data.cad_urls);
+            } else if (data.cad_available && data.cad_url) {
+                setAcceptedCadUrls([data.cad_url]);
+            }
+        } catch (error) {
+            console.error("Error remodeling:", error);
+        } finally {
+            setIsRemodeling(false);
         }
     };
 
@@ -267,19 +304,23 @@ export function VercelV0Chat() {
                 )}>
                     {cadPrompt.available && (
                         <div className="mb-4 bg-blue-900/40 border border-blue-500/50 rounded-xl p-4 flex flex-col gap-3 shadow-xl animate-in slide-in-from-bottom-2">
-                            <p className="text-blue-100 text-sm font-medium">A highly detailed 3D CAD model for this robot is available in our knowledge base. Do you want to view it?</p>
+                            <p className="text-blue-100 text-sm font-medium">
+                                {cadPrompt.urls.length > 1 
+                                    ? `A highly detailed 3D CAD assembly with ${cadPrompt.urls.length} parts is available in our knowledge base. Do you want to view it?` 
+                                    : "A highly detailed 3D CAD model for this robot is available in our knowledge base. Do you want to view it?"}
+                            </p>
                             <div className="flex gap-2">
                                 <button 
                                     onClick={() => {
-                                        setAcceptedCadUrl(cadPrompt.url);
+                                        setAcceptedCadUrls(cadPrompt.urls);
                                         setActiveTab('cad');
-                                        setCadPrompt({ available: false, url: null });
+                                        setCadPrompt({ available: false, urls: [] });
                                     }}
                                     className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded-lg text-sm transition-colors font-medium">
                                     Yes, View CAD
                                 </button>
                                 <button 
-                                    onClick={() => setCadPrompt({ available: false, url: null })}
+                                    onClick={() => setCadPrompt({ available: false, urls: [] })}
                                     className="bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-1.5 rounded-lg text-sm transition-colors font-medium">
                                     No
                                 </button>
@@ -364,7 +405,13 @@ export function VercelV0Chat() {
                         <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
                             <button onClick={() => setActiveTab('mapping')} className={cn("transition-colors", activeTab === 'mapping' ? "text-white" : "hover:text-white")}>Mapping</button>
                             <button onClick={() => setActiveTab('connection')} className={cn("transition-colors", activeTab === 'connection' ? "text-white" : "hover:text-white")}>Connection</button>
-                            <button onClick={() => setActiveTab('cad')} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
+                            <button onClick={() => {
+                                if (cadPrompt.available) {
+                                    setAcceptedCadUrls(cadPrompt.urls);
+                                    setCadPrompt({ available: false, urls: [] });
+                                }
+                                setActiveTab('cad');
+                            }} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
                         </div>
                     </div>
 
@@ -372,7 +419,20 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
-                        {activeTab === 'cad' && <CADTab currentQuery={latestUserQuery} cadUrl={acceptedCadUrl} designData={robotDesign} />}
+                        {activeTab === 'cad' && (() => {
+                            const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
+                            const cadUrl = urls[0] || 'default-cad';
+                            return (
+                                <CADTab
+                                    key={cadUrl}
+                                    currentQuery={latestUserQuery}
+                                    cadUrls={urls}
+                                    designData={robotDesign}
+                                    onRemodel={handleRemodel}
+                                    isRemodeling={isRemodeling}
+                                />
+                            );
+                        })()}
                     </div>
                 </div>
             )}
