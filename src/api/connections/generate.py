@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 from typing import List, Optional
 
 load_dotenv()
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 
 # ── Path setup ─────────────────────────────────────────────────────────────────
@@ -25,8 +25,16 @@ _src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
+<<<<<<< HEAD
+# ── OpenRouter config ──────────────────────────────────────────────────────────
+OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+# Use Gemini 2.5 Flash as the default model
+CONNECTIONS_MODEL = "gemini-2.5-flash"
+=======
 # ── LLM Config ─────────────────────────────────────────────────────────
 from llm import invoke_yantra_ai
+>>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
 
 # ── Pydantic models ────────────────────────────────────────────────────────────
 
@@ -61,12 +69,13 @@ def _rag_search(query: str, top_k: int = 5) -> str:
     """Query Qdrant singleton for pinout context for a given component name."""
     try:
         from embedder import Embedder
-        from vectordb import _client
+        from vectordb import get_qdrant_client
 
         embedder = Embedder()
         vec = embedder.embed_text(query)
+        client = get_qdrant_client()
 
-        results = _client.query_points(
+        results = client.query_points(
             collection_name="yantra_knowledgebase",
             query=vec,
             limit=top_k,
@@ -182,7 +191,7 @@ def _fallback_diagram(components: List[ComponentIn]) -> dict:
 
 
 @router.post("/api/connections/generate")
-async def generate_connections(request: GenerateRequest):
+async def generate_connections(request: GenerateRequest, req: Request):
     """
     Step 1: For each component, query Qdrant RAG for pinout data.
     Step 2: Call Gemini via OpenRouter with context + prompt.
@@ -193,13 +202,15 @@ async def generate_connections(request: GenerateRequest):
 
     # ── Step 1: RAG context per component ─────────────────────────────────────
     rag_contexts: List[str] = []
+    retriever = req.app.state.retriever
     if request.components:
-        for comp in request.components[:12]:  # limit to avoid huge prompts
-            ctx = _rag_search(f"{comp.name} pinout datasheet connections")
-            if ctx:
-                rag_contexts.append(f"## {comp.name}\n{ctx}")
+        comp_names = [c.name for c in request.components[:12]]
+        combined_query = "pinout datasheet connections for " + ", ".join(comp_names)
+        ctx = _rag_search(combined_query, retriever, top_k=6)
+        if ctx:
+            rag_contexts.append(f"## Components Pinout Data\n{ctx}")
     else:
-        ctx = _rag_search(f"{request.prompt} robot components pinout connections datasheet", top_k=8)
+        ctx = _rag_search(f"{request.prompt} robot components pinout connections datasheet", retriever, top_k=8)
         if ctx:
             rag_contexts.append(f"## RAG Context for: {request.prompt}\n{ctx}")
 

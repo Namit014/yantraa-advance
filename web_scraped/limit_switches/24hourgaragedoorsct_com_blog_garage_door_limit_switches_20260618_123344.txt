@@ -1,0 +1,19 @@
+Source URL: https://24hourgaragedoorsct.com/blog/garage-door-limit-switches/
+Scraped: 2026-06-18T12:33:44.270958
+============================================================
+
+Limit switches are electromechanical devices that signal to the garage door opener motor when the door has reached its fully open or fully closed position. They function by cutting power to the motor at the precise moment the door completes its travel. This prevents the motor from continuing to run and potentially damaging the door or opener.
+
+Inside most openers, a threaded rod spins as the door moves, carrying a traveler nut along its threads. Two physical switches, the "up limit" and "down limit," are positioned on either side of this traveler nut. When adjustment screws on the opener are turned, the physical location of these switches is altered. The traveler nut then makes contact with the appropriate switch when the door reaches its set open or closed positions, triggering it and stopping the motor.
+
+Common issues that may indicate a limit switch problem include a garage door stopping before it is fully closed, leaving a gap, or the motor continuing to run after the door has reached its fully closed position.
+
+To adjust limit switches, first disconnect the garage door from the opener by pulling the red emergency release cord. This allows for manual door movement. Openers typically use either mechanical adjustment screws or digital buttons. For screw-based systems, a full turn of the screw typically adjusts about two inches of door travel. Turning the screw towards the "+" or away from the motor generally increases travel, while turning it in the opposite direction decreases travel. After making small adjustments, reconnect the door to the opener and test a full cycle. It is important to confirm safety reversal by placing a 2x4 board on the ground where the door closes; the door should reverse upon contact.
+
+A common mistake is confusing Travel Limit settings with Force settings. Travel Limit determines where the door stops, while Force adjusts the power the motor uses. If the door stops at the wrong position, the Travel Limit should be adjusted. If the door reverses mid-travel unexpectedly, the Force setting may need adjustment.
+
+Weather shifts can affect limit settings as wooden doors swell or contract, or the system contracts in extreme cold, requiring minor limit adjustments. If adjustment screws have no effect, the limit switch assembly may have failed, potentially due to stripped gears or a broken switch.
+
+Limit switches control the opener, while springs handle the lifting. Proper door balance from correct spring tension reduces strain on the opener, allowing limit and force settings to function reliably. Adjusting garage door spring tension is a professional task due to safety risks.
+
+Beeping sounds from an opener typically indicate issues with battery backup or internal diagnostics, not limit switches.

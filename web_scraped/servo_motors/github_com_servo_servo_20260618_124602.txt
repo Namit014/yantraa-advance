@@ -1,0 +1,46 @@
+Source URL: https://github.com/servo/servo
+Scraped: 2026-06-18T12:46:02.204046
+============================================================
+
+Here are theextracted technical specifications, facts, and details from the text:
+
+1. **Project Overview**  
+   - Servo is a prototype web browser engine written in Rust.  
+   - Purpose: A lightweight, high-performance alternative for embedding web technologies in applications.  
+
+2. **Key Statistics**  
+   - GitHub repository: 37.1k stars, 3.7k forks.  
+   - Last commit: May 31, 2026 (future date, potentially placeholder).  
+
+3. **Supported Platforms**  
+   - macOS (64-bit), Linux (64-bit), Windows (64-bit), OpenHarmony, Android.  
+
+4. **Build Dependencies & Setup**  
+   - **macOS**: Requires Xcode, Homebrew, `uv` (installed via curl), and `rustup` (via Rustup). Build command: `./mach bootstrap`.  
+   - **Linux**:  
+     - Ubuntu/Debian: `sudo apt install curl`.  
+     - Arch: `sudo pacman -S --needed curl`.  
+     - Fedora: `sudo dnf install curl`.  
+     - Gentoo: `sudo emerge net-misc/curl`.  
+     - Build command: `./mach bootstrap`.  
+   - **Windows**: Requires Visual Studio Community installer with components:  
+     - Windows 10/11 SDK (≥10.0.19041.0).  
+     - MSVC v143 (Latest).  
+     - C++ ATL.  
+     - Build command: `.\mach bootstrap`.  
+   - **Android**:  
+     - Environment variables: `ANDROID_SDK_ROOT`, `ANDROID_NDK_ROOT`.  
+     - SDK components: `build-tools;36.0.0`, `emulator`, `ndk;28.2.13676358`, `platforms;android-37`, `system_images;android-37;google_apis;x86_64`.  
+   - **OpenHarmony**:  
+     - Environment variables: `DEVECO_SDK_HOME`, `OHOS_BASE_SDK_HOME`, `OHOS_SDK_NATIVE`, `SERVO_OHOS_SIGNING_CONFIG`.  
+
+5. **Technical Components**  
+   - Language: 63.4% Rust, 29.3% HTML, 4.3% Python, 2.2% WebIDL, 0.4% JavaScript, 0.1% CSS.  
+   - License: MPL-2.0.  
+   - Security: Security.md file exists.  
+
+6. **Documentation & Resources**  
+   - Servo Book for build instructions and documentation.  
+   - Servo.zulip and GitHub Issues for coordination.  
+
+Let me know if you need further details!

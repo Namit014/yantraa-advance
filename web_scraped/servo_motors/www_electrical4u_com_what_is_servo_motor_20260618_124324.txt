@@ -1,0 +1,13 @@
+Source URL: https://www.electrical4u.com/what-is-servo-motor/
+Scraped: 2026-06-18T12:43:24.796391
+============================================================
+
+A servo motoris an electric motor that provides precise control of angular or linear position, speed, and torque through a closed‑loop feedback system. Its core construction includes a motor (either DC or AC), a sensor such as a potentiometer, encoder, or resolver that measures the output shaft’s position, speed, or torque, and a controller—analog or digital—that compares the sensor’s feedback signal with a desired setpoint and generates control signals via algorithms like PID or fuzzy logic.  
+
+AC servo motors operate on alternating current and are divided into synchronous and asynchronous types; synchronous motors use a permanent‑magnet rotor that rotates with the stator’s rotating magnetic field, offering higher efficiency, precision, and responsiveness, while asynchronous motors rely on an induced rotor current and are simpler, cheaper, and more rugged but less accurate. DC servo motors run on direct current and are classified as brushed or brushless; brushed motors use a commutator and brushes, resulting in lower efficiency and shorter life, whereas brushless motors employ electronic commutation, delivering higher efficiency, durability, and speed but requiring more complex control.  
+
+Linear servo motors generate straight‑line motion using a stationary forcer (coils or magnets) and a moving platen (magnets or iron cores). They are categorized as iron‑core, which provides high force density, stiffness, and accuracy but incurs higher cogging force, weight, and heat, or ironless, which reduces cogging and weight at the cost of lower force density and stiffness.  
+
+The control architecture relies on two input signals: a setpoint signal that defines the target position, speed, or torque, and a feedback signal that reports the actual output. The controller computes an error signal, processes it with a control algorithm, and drives a power amplifier (e.g., an H‑bridge) that supplies the appropriate voltage or current to the motor. This iterative loop continues until the error is minimized, achieving the desired setpoint.  
+
+Because of their precision, rapid response, and smooth motion, servo motors are widely used in high‑precision industries such as robotics, CNC machining, automated manufacturing, semiconductor production, metrology, and laser cutting.

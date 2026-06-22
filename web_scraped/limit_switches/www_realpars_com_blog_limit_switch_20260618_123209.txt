@@ -1,0 +1,30 @@
+Source URL: https://www.realpars.com/blog/limit-switch
+Scraped: 2026-06-18T12:32:09.375749
+============================================================
+
+Limit switches are electromechanical devices that use an actuator to detect the presence or absence of an object through physical force. When an object contacts the actuator, it mechanically operates an electrical switch, causing an electrical connection to make or break. This signals that a component has reached a predefined point or position.
+
+There are four general styles of limit switch actuators:
+1.  Whisker
+2.  Roller
+3.  Lever
+4.  Plunger
+
+These styles can sometimes be combined, such as a roller-lever actuator.
+
+Limit switches are available in several switch configurations:
+*   Normally Open (NO)
+*   Normally Closed (NC)
+*   A combination of both (often found in microswitches)
+
+A microswitch, a type of limit switch, features two limit switches sharing a common terminal. One is normally open, and the other is normally closed. This configuration is technically a Single Pole Double Throw (SPDT). A dashed line indicates that both switches are mechanically connected and operate simultaneously. Some microswitches are configured as Single Pole Single Throw (SPST), having only two terminals.
+
+Examples of limit switch applications include:
+*   Detecting if a refrigerator door is open or closed.
+*   Stopping an overhead garage door when it reaches its fully opened position.
+*   Detecting a container on an assembly line.
+*   Monitoring the position of a rotating machine part.
+*   Counting passing objects.
+*   Determining the position of a hydraulic cylinder.
+
+Limit switches are being increasingly replaced by proximity sensors, which lack mechanical moving parts and use electronic switches for operation. However, limit switches remain advantageous in ruggedness, reliable operation in difficult environments, and their capability to handle higher current values than proximity sensors.

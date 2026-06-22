@@ -13,6 +13,7 @@ if _src_dir not in sys.path:
 
 from retriever import Retriever
 from llm import invoke_yantra_ai
+from assembly_engine import match_template, template_to_design_data, solve_assembly, validate_assembly
 
 router = APIRouter()
 
@@ -29,9 +30,11 @@ class DesignResponse(BaseModel):
     cad_url: Optional[str] = None
     cad_urls: List[str] = []
     chat_reply: Optional[str] = None
-    error: Optional[str] = None
+    assembly_transforms: List[Dict[str, Any]] = []
+    assembly_mode: str = "side_by_side"
 
 def _strip_markdown_json(text: str) -> str:
+<<<<<<< HEAD
     text = text.strip()
     match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
     if match:
@@ -61,22 +64,45 @@ def extract_json(text: str) -> dict:
     # Try extracting from markdown code block
     match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
     if match:
-        try:
-            return json.loads(match.group(1))
-        except json.JSONDecodeError:
-            pass
-    # Try finding the outermost { } block
-    match = re.search(r'\{.*\}', text, re.DOTALL)
-    if match:
-        try:
-            return json.loads(match.group(0))
-        except json.JSONDecodeError:
-            pass
-    raise ValueError(f"Could not extract JSON from LLM response: {text[:300]}")
+=======
+    """Remove ```json``` fences and find the JSON object/array."""
+    cleaned = re.sub(r"```json\s*", "", text, flags=re.IGNORECASE)
+    cleaned = re.sub(r"```\s*", "", cleaned)
+    start = cleaned.find("{")
+    end = cleaned.rfind("}")
+    if start != -1 and end != -1:
+        return cleaned[start : end + 1]
+    arr_start = cleaned.find("[")
+    arr_end = cleaned.rfind("]")
+    if arr_start != -1 and arr_end != -1:
+        return cleaned[arr_start : arr_end + 1]
+    return cleaned.strip()
 
-from llm import DEFAULT_MODEL
+def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
+    bom_map = {}
+    for item in bom:
+        if not isinstance(item, dict):
+            continue
+        name = item.get("name", "").strip()
+        if not name:
+            continue
+        qty = item.get("qty", 1)
+>>>>>>> 92d50e2abd44a499b418ea6d9bf60a2bae70368a
+        try:
+            qty = int(qty)
+        except Exception:
+            qty = 1
+        if name in bom_map:
+            bom_map[name]["qty"] += qty
+        else:
+            bom_map[name] = {
+                "id": item.get("id", name),
+                "name": name,
+                "qty": qty
+            }
+    return list(bom_map.values())
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = DEFAULT_MODEL) -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "gemini-2.5-flash") -> str:
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
@@ -85,7 +111,7 @@ def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json
             model=model
         )
         if res.startswith("OpenRouter API Error") or res.startswith("Error calling AI"):
-            print(f"[api/design] Warning: API call failed. Falling back to default model...")
+            print(f"[api/design] Warning: owl-alpha call failed. Falling back to default model...")
             res = invoke_yantra_ai(
                 prompt=prompt,
                 system_prompt=system_prompt,
@@ -150,7 +176,8 @@ OUTPUT FORMAT:
     
     try:
         raw_router = _safe_llm_call(router_prompt, router_system, response_format="json_object")
-        router_data = extract_json(raw_router)
+        cleaned_router = _strip_markdown_json(raw_router)
+        router_data = json.loads(cleaned_router)
         
         is_design_query = router_data.get("is_design_query", True)
         conversational_reply = router_data.get("response", "")
@@ -179,6 +206,36 @@ OUTPUT FORMAT:
         
     print(f"[api/design] Search terms extracted: {components_to_search}")
 
+    # ─── PHASE 1.5: Check Assembly Templates ──────────────────────────────────
+    template = match_template(query)
+    if template:
+        print(f"[api/design] Template matched! Skipping LLM synthesis.")
+        template_data = template_to_design_data(template)
+        
+        # Solve assembly transforms
+        graph_nodes = template_data.get("_template_graph", [])
+        assembly_graph = template_data.get("assembly_graph", [])
+        assembly_transforms = solve_assembly(graph_nodes, assembly_graph)
+        
+        # Validate
+        assembly_validation = validate_assembly(assembly_transforms)
+        
+        # Build CAD URLs from assembly transforms
+        cad_urls = [t["cad_url"] for t in assembly_transforms]
+        
+        return DesignResponse(
+            subsystems=template_data.get("subsystems", []),
+            connections=template_data.get("connections", []),
+            bom=_consolidate_bom(template_data.get("bom", [])),
+            missing=template_data.get("missing", []),
+            validation=template_data.get("validation", []) + assembly_validation,
+            cad_available=len(cad_urls) > 0,
+            cad_url=cad_urls[0] if cad_urls else None,
+            cad_urls=cad_urls,
+            assembly_transforms=assembly_transforms,
+            assembly_mode="assembled"
+        )
+
     # ─── PHASE 2: Qdrant RAG Search ─────────────────────────────────────────────
     print("[api/design] Phase 2: Querying Qdrant Database...")
     retrieved_texts = []
@@ -195,6 +252,7 @@ OUTPUT FORMAT:
             print(f"[api/design] RAG search failed for '{search_term}': {e}")
             
     rag_results = "\n\n".join(retrieved_texts) if retrieved_texts else "(No component specifications retrieved from RAG. Use general specifications.)"
+
 
     # Load component graph if available
     component_graph_text = ""
@@ -219,22 +277,24 @@ OUTPUT FORMAT:
 You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
 
 CRITICAL RULES:
-- Select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list. Prioritize HEBI components for the physical body.
-- If a required component is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them so the robot is complete and functional!
+- If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
+- If the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone), you should generate standard generic custom components (e.g., `quadcopter_frame`, `brushless_motor`).
+- Any custom component you generate MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
+- If you use custom components or define an assembly, you MUST include 'assembly_graph' in your JSON output detailing the parent-child relationships and connection ports.
 - Output ONLY valid JSON in the exact structure requested.
 
 ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
-1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot (this causes EMI). Instead, use a Trunk-and-Branch topology: Route a thick "Main Power Trunk" to a "Local Distribution Hub" or "Local Busbar" near each joint, and branch off to local drivers.
-2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node" or "Common Ground Bus".
-3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power. Generate an "E-Stop Button" connected to a "Safety Relay" or "Contactor". The Safety Relay MUST sit between the PSU and the Motor Drivers on the 24V/48V lines. Do NOT route E-Stop solely to the MCU.
-4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring. Use differential signals (RS-422) for noise immunity. Encoders MUST route back to the Controller or local Joint Controller.
-5. **Power Supply Sizing & Fusing**: Size power supplies for PEAK stall current (2-3x nominal). Every individual branch from the PSU to a Driver MUST pass through a dedicated "Fuse" or "Circuit Breaker".
-6. **Communication Architecture (Daisy-Chain)**: For complex robots, do NOT wire the MCU directly to every driver with a massive harness. You MUST enforce a Fieldbus Architecture (CAN Bus or EtherCAT). CRITICAL: Wire the Fieldbus in a Daisy-Chain topology (`Main MCU` -> `Joint 1 Controller` -> `Joint 2 Controller` -> `Joint 3 Controller`) to minimize long signal wires.
-7. **Power Isolation**: Strictly separate Logic and Motor power. 24V/48V feeds motor drivers directly. 24V MUST feed a dedicated "DC-DC Buck Converter" which provides isolated 5V/3.3V logic power to the MCU and sensors.
-8. **Dynamic Joint Naming**: You MUST explicitly name motors/actuators with their kinematic role based on the requested robot type (e.g., "J1 Base Rotation Motor", "J2 Arm Motor").
+1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot. Instead, use a Trunk-and-Branch topology.
+2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node".
+3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power via a Safety Relay or Contactor.
+4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring.
+5. **Power Supply Sizing & Fusing**: Every individual branch from the PSU to a Driver MUST pass through a dedicated Fuse or Circuit Breaker.
+6. **Communication Architecture (Daisy-Chain)**: Wire the Fieldbus in a Daisy-Chain topology to minimize long signal wires.
+7. **Power Isolation**: Strictly separate Logic and Motor power. Use a DC-DC Buck Converter for logic.
+8. **Dynamic Joint Naming**: Explicitly name motors/actuators with their kinematic role (e.g., "J1 Base Rotation Motor").
 9. **Strict Connectivity**: 
    - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
-   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array. DO NOT use the `name` field for connections. Do not invent IDs that do not exist in the components array.
+   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
 
 OUTPUT FORMAT:
 {
@@ -244,7 +304,7 @@ OUTPUT FORMAT:
       "components": [
         {
           "id": "unique_id",
-          "name": "exact component name (e.g., J1 Base Rotation Servo, Arduino Mega, L298N Driver)",
+          "name": "exact component name",
           "role": "what it does",
           "voltage": "operating voltage",
           "interface": "communication protocol"
@@ -263,146 +323,149 @@ OUTPUT FORMAT:
     }
   ],
   "bom": [
-    {"id": "component_id", "name": "exact name", "qty": 1}
+    {"id": "id", "name": "exact name", "qty": 1}
   ],
   "missing": [
-    {"name": "missing component name", "reason": "why it is needed"}
+    {"name": "component name"}
   ],
   "validation": [
     {"type": "error | warning", "message": "validation check"}
+  ],
+  "assembly_graph": [
+    {"parent": "parent_id", "child": "child_id", "parent_port": "port_name", "child_port": "port_name"}
   ]
-}
+}"""
 
-CRITICAL: Your response must be valid JSON only. No markdown, no backticks, no explanation text before or after the JSON object. Start your response with { and end with }."""
+    # Build user prompt
+    user_prompt = f"USER REQUEST: {query}\n\n"
+    if component_graph_text:
+        user_prompt += f"{component_graph_text}\n"
+    if rag_results:
+        user_prompt += f"COMPONENT SPECS & DATA SHEETS:\n{rag_results}\n"
 
-    synthesis_prompt = f"""{component_graph_text}RETRIEVED COMPONENTS:
-{rag_results}
-
-USER REQUEST:
-{query}"""
-
-    synthesis_data = {}
+    print("[api/design] Invoking LLM...")
     try:
-        raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system, response_format="json_object")
-        cleaned_synthesis = _strip_markdown_json(raw_synthesis)
-        synthesis_data = json.loads(cleaned_synthesis)
+        res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
+        json_str = _strip_markdown_json(res_text)
+        data = json.loads(json_str)
     except Exception as e:
-        print(f"[api/design] Phase 3 Synthesis parsing failed: {e}")
-        with open("debug_synthesis.txt", "w", encoding="utf-8") as debug_file:
-            debug_file.write(raw_synthesis)
-        print(f"[api/design] RAW LLM OUTPUT WAS:\n{raw_synthesis[:1000]}...\n---")
-        synthesis_data = {
-            "subsystems": [{"name": "Pre-assembled System", "components": [{"id": "sys_1", "name": "Monolithic Robot System", "role": "Full assembly", "voltage": "N/A", "interface": "Standard"}]}],
-            "connections": [],
-            "bom": [{"id": "sys_1", "name": "Full Robot Assembly", "qty": 1}],
-            "missing": [],
-            "validation": [{"type": "warning", "message": "Standard BOM generated due to complex custom assembly. Reference CAD model for full physical details."}]
-        }
+        print(f"[api/design] Error parsing LLM JSON: {e}")
+        data = {}
 
-    # ─── PHASE 4: Assemble Final Response & CAD Checks ───────────────────────
-    print("[api/design] Phase 4: Finalizing assembly...")
-    subsystems = synthesis_data.get("subsystems", [])
-    connections = synthesis_data.get("connections", [])
-    bom = synthesis_data.get("bom", [])
-    missing = synthesis_data.get("missing", [])
-    validation = synthesis_data.get("validation", [])
-    chat_reply = synthesis_data.get("chat_reply", None)
-
-    # Ensure validation is a list
-    if validation is None:
-        validation = []
-
-    # Normalize BOM
-    if not bom and "bill_of_materials" in synthesis_data:
-        bom = synthesis_data["bill_of_materials"]
-    if bom is None:
-        bom = []
-
-    # Normalize connections to have 'from' and 'to' fields
+    connections = data.get("connections", [])
     normalized_connections = []
-    for conn in connections:
-        c_from = conn.get("from") or conn.get("id_from") or conn.get("from_id")
-        c_to = conn.get("to") or conn.get("id_to") or conn.get("to_id")
-        if c_from and c_to:
-            normalized_connections.append({
-                "from": str(c_from),
-                "from_port": str(conn.get("from_port") or "IO1"),
-                "to": str(c_to),
-                "to_port": str(conn.get("to_port") or "IO1"),
-                "wire_type": str(conn.get("wire_type") or "signal"),
-                "relation": conn.get("relation", "connected_to"),
-                "protocol": conn.get("protocol", "DC")
-            })
+    bom = data.get("bom", [])
+    subsystems = data.get("subsystems", [])
+    missing = data.get("missing", [])
+    validation = data.get("validation", [])
 
-    # Run basic local validation pass
-    local_validation = []
-    
-    # 1. Flag any subsystem with 0 components
-    for sub in subsystems:
-        if not sub.get("components"):
-            local_validation.append({
-                "type": "warning",
-                "message": f"Subsystem '{sub.get('name', 'Unknown')}' has no components."
-            })
-            
-    # 2. Flag any component that appears in connections but is missing from subsystems
-    all_comp_ids = set()
-    for sub in subsystems:
-        for comp in sub.get("components", []):
-            if comp.get("id"):
-                all_comp_ids.add(str(comp.get("id")))
-                
-    for conn in normalized_connections:
-        c_from = conn.get("from")
-        c_to = conn.get("to")
-        if c_from and str(c_from) not in all_comp_ids:
-            local_validation.append({
-                "type": "error",
-                "message": f"Connection source '{c_from}' is not defined in any subsystem components."
-            })
-        if c_to and str(c_to) not in all_comp_ids:
-            local_validation.append({
-                "type": "error",
-                "message": f"Connection target '{c_to}' is not defined in any subsystem components."
-            })
-            
-    # 3. Flag if no power subsystem is present
-    has_power_sub = any("power" in str(sub.get("name", "")).lower() for sub in subsystems)
-    if not has_power_sub:
-        local_validation.append({
-            "type": "warning",
-            "message": "No dedicated power subsystem detected in the design."
-        })
-        
-    validation.extend(local_validation)
+    if isinstance(connections, list):
+        for conn in connections:
+            if not isinstance(conn, dict):
+                continue
+            c_from = conn.get("from") or conn.get("id_from") or conn.get("from_id")
+            c_to = conn.get("to") or conn.get("id_to") or conn.get("to_id")
+            if c_from and c_to:
+                normalized_connections.append({
+                    "from": str(c_from),
+                    "from_port": str(conn.get("from_port") or "IO1"),
+                    "to": str(c_to),
+                    "to_port": str(conn.get("to_port") or "IO1"),
+                    "wire_type": str(conn.get("wire_type") or "signal"),
+                    "relation": conn.get("relation", "connected_to"),
+                    "protocol": conn.get("protocol", "DC")
+                })
 
     # Check CAD availability based on query
-    from cad_registry import get_known_cads
-    known_cads = get_known_cads()
+    cad_available = False
+    cad_url = None
+    assembly_transforms = []
+    
+    known_cads = {
+        "autonomous mobile": "autonomous_mobile_robot.stp",
+        "agv": "AVGs_robot_cad.step",
+        "cartesian": "cartesian_robot_cad.stp",
+        "cobot": "Articulated_robot_cad.STEP",
+        "delta": "DeltaRobot2.STEP",
+        "painting": "Painting_Robot.step",
+        "paint": "Painting_Robot.step",
+        "spray": "Painting_Robot.step",
+        "scara": "scara_robot_cad.stp",
+        "welding": "welding_robot.stp",
+        "weld": "welding_robot.stp",
+        "articulated": "Articulated_robot_cad.STEP",
+        "6 axis": "Articulated_robot_cad.STEP",
+        "6-axis": "Articulated_robot_cad.STEP",
+        "6 dof": "Articulated_robot_cad.STEP",
+        "6-dof": "Articulated_robot_cad.STEP",
+        "robotic arm": "Articulated_robot_cad.STEP",
+        "robot arm": "Articulated_robot_cad.STEP",
+        "pick and place": "Articulated_robot_cad.STEP",
+        "pick-and-place": "Articulated_robot_cad.STEP",
+        "pick things": "Articulated_robot_cad.STEP",
+        "grab": "Articulated_robot_cad.STEP",
+        "assembly line": "Articulated_robot_cad.STEP",
+        "manipulation": "Articulated_robot_cad.STEP",
+        "inspection": "inspection_robot_cad.STEP",
+        "humanoid": "Robot_humanoid.step",
+        "machine tending": "machine_tending_robot.stp",
+        "in-pipe": "InPipeInspectionRobot.STEP",
+        "in pipe": "InPipeInspectionRobot.STEP",
+        "pipeline": "InPipeInspectionRobot.STEP",
+        "corrosion": "InPipeInspectionRobot.STEP",
+        "dog": "Full_System_A-2403-02.step",
+        "robotic dog": "Full_System_A-2403-02.step",
+        "quadruped": "Full_System_A-2403-02.step",
+        "four leg": "Full_System_A-2403-02.step",
+        "4 leg": "Full_System_A-2403-02.step",
+    }
+    
+    # Dynamically add HEBI CADs
+    try:
+        if os.path.exists(hebi_path):
+            with open(hebi_path, "r", encoding="utf-8") as f:
+                hebi_data = json.load(f)
+                for comp in hebi_data.get("components", []):
+                    name = comp.get("name", "")
+                    filename = comp.get("filename", "")
+                    if name and filename:
+                        # Add full name e.g. "a-2020-05"
+                        known_cads[name.lower()] = filename
+                        known_cads[name.lower().replace("-", " ")] = filename
+    except Exception as e:
+        print(f"[api/design] Error loading HEBI cads: {e}")
     
     # Extract all text from BOM and subsystems to match against
     matched_cads = set()
     
     # Check each BOM item
-    for b in bom:
-        name = b.get("name", "").lower()
-        desc = b.get("description", "").lower()
-        search_text = f"{name} {desc}"
-        
-        for key, filename in known_cads.items():
-            if key in search_text:
-                matched_cads.add(filename)
-                
-    # Also check subsystems as LLMs sometimes put components there but forget them in BOM
-    for sub in subsystems:
-        for comp in sub.get("components", []):
-            name = comp.get("name", "").lower()
-            role = comp.get("role", "").lower()
-            search_text = f"{name} {role}"
+    if isinstance(bom, list):
+        for b in bom:
+            if not isinstance(b, dict):
+                continue
+            name = b.get("name", "").lower()
+            desc = b.get("description", "").lower()
+            search_text = f"{name} {desc}"
             
             for key, filename in known_cads.items():
                 if key in search_text:
                     matched_cads.add(filename)
+                
+    # Also check subsystems as LLMs sometimes put components there but forget them in BOM
+    if isinstance(subsystems, list):
+        for sub in subsystems:
+            if not isinstance(sub, dict):
+                continue
+            for comp in sub.get("components", []):
+                if not isinstance(comp, dict):
+                    continue
+                name = comp.get("name", "").lower()
+                role = comp.get("role", "").lower()
+                search_text = f"{name} {role}"
+                
+                for key, filename in known_cads.items():
+                    if key in search_text:
+                        matched_cads.add(filename)
                 
     # Fallback to monolithic robots if modular assembly yielded nothing
     if len(matched_cads) == 0:
@@ -426,23 +489,72 @@ USER REQUEST:
         except Exception:
             pass
 
+<<<<<<< HEAD
     primary_cads = pick_primary_cad(list(matched_cads))
     # Use direct static URL since Next.js hosts the CAD files in public/cad/
     cad_urls = [f"/cad/{f}" for f in primary_cads]
+=======
+    # Universal CAD Scraper Fallback
+    if not matched_cads:
+        print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
+        from scraper.cad_scraper import scrape_missing_component
+        scraped_filename = await scrape_missing_component(query)
+        if scraped_filename:
+            matched_cads.add(scraped_filename)
+
+    cad_available = len(matched_cads) > 0
+    
+    frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
+    valid_cad_urls = []
+    for f in matched_cads:
+        if os.path.exists(os.path.join(frontend_public_cad, f)):
+            valid_cad_urls.append(f"/cad/{f}")
+        else:
+            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
+
+    cad_urls = valid_cad_urls
+>>>>>>> 92d50e2abd44a499b418ea6d9bf60a2bae70368a
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
     
+    # ─── PHASE 5: Assembly Engine (Compute Transforms) ────────────────────────
+    assembly_transforms = []
+    assembly_mode = "side_by_side"
+    
+    # Try to build assembly graph from LLM synthesis data
+    llm_assembly_graph = data.get("assembly_graph", [])
+    if llm_assembly_graph:
+        # LLM provided assembly graph — use it
+        graph_nodes = []
+        if isinstance(subsystems, list):
+            for sub in subsystems:
+                if not isinstance(sub, dict):
+                    continue
+                for comp in sub.get("components", []):
+                    if not isinstance(comp, dict):
+                        continue
+                    graph_nodes.append({"id": comp["id"], "part": comp["name"]})
+        
+        assembly_transforms = solve_assembly(graph_nodes, llm_assembly_graph)
+        if assembly_transforms:
+            assembly_mode = "assembled"
+            # Override cad_urls with assembly-computed URLs
+            cad_urls = [t["cad_url"] for t in assembly_transforms]
+            cad_available = True
+            cad_url = cad_urls[0] if cad_urls else None
+    
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")
-    print(f"[api/design] CADs matched: {cad_urls}")
+    print(f"[api/design] Assembly mode: {assembly_mode}, CADs: {len(cad_urls)}")
 
     return DesignResponse(
         subsystems=subsystems,
         connections=normalized_connections,
-        bom=bom,
+        bom=_consolidate_bom(bom),
         missing=missing,
         validation=validation,
         cad_available=cad_available,
         cad_url=cad_url,
         cad_urls=cad_urls,
-        error=None
+        assembly_transforms=assembly_transforms,
+        assembly_mode=assembly_mode
     )
