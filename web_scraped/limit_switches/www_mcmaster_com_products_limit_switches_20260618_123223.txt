@@ -1,0 +1,53 @@
+Source URL: https://www.mcmaster.com/products/limit-switches/
+Scraped: 2026-06-18T12:32:23.937829
+============================================================
+
+Linux 系统不直接支持“今天的日期是 Thursday, June 18, 2026, 7 AM UTC”这一信息作为系统内置事实，因为日期和时间是动态变化的，取决于系统的时钟设置和配置。
+
+如果您希望在 Linux 系统中获取当前日期和时间，可以使用以下命令：
+
+```bash
+date
+```
+
+该命令会显示当前系统的日期和时间，包括时区信息。
+
+如果您需要设置特定日期和时间（例如设置为 2026 年 6 月 18 日 7:00 UTC），可以使用 `timedatectl`（适用于 systemd 系统）或 `date` 命令（需 root 权限）：
+
+```bash
+sudo timedatectl set-time "2026-06-18 07:00:00"
+sudo timedatectl set-timezone UTC
+```
+
+或者：
+
+```bash
+sudo date -u "2026-06-18 07:00:00"
+```
+
+⚠️ 注意：手动设置系统时间可能影响系统日志、安全认证、定时任务等，请谨慎操作。
+
+---
+
+关于您提到的 **McMaster-Carr Limit Switches** 页面，其中列出了多种限开关类型，包括：
+
+- **Actuator Style（操作器类型）**：An angled lever, ball roller, cross roller, plunger, dial, dual switch, roller lever, foot pedal, hinge, key lever, paddle lever, palm button, push button, rod, roller plunger 等。
+- **Switch Starting Position（开关起始位置）**：1 Off, 1 Off and 1 On, 1 Off or 1 On, 2 Off, 2 Off and 2 On 等。
+- **Switch Action（开关动作）**：Maintained（保持）、Momentary（瞬时）。
+- **Electrical Connection Type（电气连接类型）**：Hardwire（硬线）、Plug In（插接）。
+- **Environment（环境）**：Corrosive, Dusty, Harsh, Hazardous, High-Pressure, Washdown, High-Temperature, Oily, Outdoor, Submersible, Wet 等。
+- **Switching Voltage（开关电压）**：覆盖 AC 24V 到 600V，DC 8V 到 600V。
+- **Enclosure Rating（防护等级）**：IP02 到 IP69K，NEMA 1 到 NEMA 13 等多种标准。
+
+这些限开关广泛用于工业自动化、传送带、料仓填充等场景，通过物体接触操作器来触发电路通断。
+
+如需进一步筛选或查看具体产品规格，可访问 [McMaster-Carr Limit Switches 页面](https://www.mcmaster.com/products/limit-switches/) 并使用其丰富的过滤选项。
+
+--- 
+
+📌 总结：  
+- Linux 系统不“记住”当前日期，需通过命令动态获取或设置。  
+- McMaster-Carr 提供多种限开关，适用于复杂工业环境，具备丰富的电气和环境参数可选。  
+- 如需模拟特定时间（如 2026 年 6 月 18 日），可通过系统命令临时设置，但需注意潜在风险。
+
+是否需要我帮您生成一个脚本，用于在 Linux 中自动检查并格式化当前日期（如 ISO 格式、RFC 2822 格式等）？

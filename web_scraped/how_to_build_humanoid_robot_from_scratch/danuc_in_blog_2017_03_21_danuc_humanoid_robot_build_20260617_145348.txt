@@ -1,0 +1,40 @@
+Source URL: https://danuc.in/blog/2017/03/21/danuc-humanoid-robot-build/
+Scraped: 2026-06-17T14:53:48.370133
+============================================================
+
+The Danuc Humanoid Robot is a 17 degrees of freedom (DOF) humanoid robot developed by Danuc Robotics And Automation. Key technical specifications and requirements include:
+
+- **Construction Materials**:  
+  - 2mm thickness high-grade aluminum brackets (stamped using a 25-ton electric power press and bent with a bending die).  
+  - 3mm thick acrylic torso (laser-cut).  
+  - 3D-printed standard servo brackets.  
+
+- **Motors**:  
+  - 17 standard-size double ball bearing metal gear servo motors.  
+  - Torque: 15 kg-cm per motor.  
+
+- **Controller**:  
+  - Arduino Mega 2560 with a servo controller shield and onboard DC-DC converter.  
+  - Operated via a 30-cell lithium polymer (LiPo) battery.  
+
+- **Sensors**:  
+  - 9 DOF Inertial Measurement Unit (IMU) with accelerometer, gyroscope, and magnetometer.  
+  - Ultrasonic range finder mounted on tilt-and-pan mechanism.  
+
+- **Software**:  
+  - Inverse Kinematics (IK)-based fully tested code.  
+
+- **Requirements for Build**:  
+  1. Fully assembled 2mm thickness robot torso with 50mm tall studs (1 set).  
+  2. 30-cell LiPo battery.  
+  3. Complete servo erector set for two legs and hands.  
+  4. Arduino Mega 2560 controller.  
+  5. Servo controller shield (sandwiched on Arduino Mega 2560).  
+  6. Battery charger.  
+  7. Ultrasonic range finder with tilt-and-pan mechanism.  
+  8. IK-based software.  
+  9. 17 standard-size 15 kg-cm torque servo motors.  
+  10. 3mm ID 8mm OD flanged bearings on each motor pivot.  
+  11. 9 DOF IMU with accelerometer, gyroscope, and magnetometer.  
+
+The robot was developed over approximately one year (2012–2013), with iterative design testing to address center-of-gravity imbalance issues, resulting in a finalized configuration optimized for stability and performance.

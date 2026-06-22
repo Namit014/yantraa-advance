@@ -28,6 +28,12 @@ export interface Port {
   label: string;
   side: "top" | "bottom" | "left" | "right";
   offsetPercent: number;
+  pins?: {
+    id: string;
+    name: string;
+    type: string;
+    direction: "in" | "out" | "bidi";
+  }[];
 }
 
 export interface CircuitNodeData extends Record<string, unknown> {
@@ -35,6 +41,8 @@ export interface CircuitNodeData extends Record<string, unknown> {
   type: NodeType;
   shape: NodeShape;
   ports: Port[];
+  voltage?: { value: number; unit: "V" };
+  interfaceType?: string;
 }
 
 export interface WireData extends Record<string, unknown> {
@@ -417,6 +425,7 @@ interface ConnectionStore {
   isGenerating: boolean;
   prompt: string;
   error: string | null;
+  saveState: "saved" | "saving" | "unsaved";
 
   // Actions
   setNodes: (nodes: CircuitNode[] | ((prev: CircuitNode[]) => CircuitNode[])) => void;
@@ -424,6 +433,7 @@ interface ConnectionStore {
   setPrompt: (prompt: string) => void;
   setSelectedEdge: (id: string | null) => void;
   setSidebarOpen: (open: boolean) => void;
+  setSaveState: (state: "saved" | "saving" | "unsaved") => void;
 
   updateEdge: (
     id: string,
@@ -439,6 +449,16 @@ interface ConnectionStore {
 
   generate: (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => Promise<void>;
   loadDesignData: (designData: any) => void;
+
+  isValidConnection: (
+    sourceNodeId: string,
+    sourcePortId: string,
+    targetNodeId: string,
+    targetPortId: string
+  ) => { valid: boolean; reason?: string };
+
+  saveGraph: () => void;
+  loadGraph: () => void;
 }
 
 export const useConnectionStore = create<ConnectionStore>((set, get) => ({
@@ -449,6 +469,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   isGenerating: false,
   prompt: "Raspberry Pi 4 + Arduino Mega + ESP32 WiFi + L298N motors + MPU6050 IMU + HC-SR04 + OLED display",
   error: null,
+  saveState: "saved",
 
   loadDesignData: (designData) => {
     if (!designData) return;
@@ -561,11 +582,29 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       });
     });
 
-    const rfEdges: CircuitEdge[] = connections.map((conn: any, idx: number) => {
-      const fromNodeId = conn.from;
-      const toNodeId = conn.to;
+    const rfEdges: CircuitEdge[] = connections.reduce((acc: CircuitEdge[], conn: any, idx: number) => {
+      let fromNodeId = conn.from;
+      let toNodeId = conn.to;
+
+      // Fuzzy match IDs if they don't exactly match a node
+      const fromExists = rfNodes.some(n => n.id === fromNodeId);
+      const toExists = rfNodes.some(n => n.id === toNodeId);
+
+      if (!fromExists) {
+        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(fromNodeId.toLowerCase()) || n.data.label.toLowerCase().includes(fromNodeId.toLowerCase()));
+        if (fuzzyNode) fromNodeId = fuzzyNode.id;
+      }
+      if (!toExists) {
+        const fuzzyNode = rfNodes.find(n => n.id.toLowerCase().includes(toNodeId.toLowerCase()) || n.data.label.toLowerCase().includes(toNodeId.toLowerCase()));
+        if (fuzzyNode) toNodeId = fuzzyNode.id;
+      }
+
+      // If still not found, skip to avoid React Flow errors
+      if (!rfNodes.some(n => n.id === fromNodeId) || !rfNodes.some(n => n.id === toNodeId)) {
+        return acc;
+      }
+
       const protocol = (conn.protocol || "signal").toUpperCase();
-      
       let wireType: WireType = "signal";
       if (protocol.includes("I2C") || protocol.includes("UART") || protocol.includes("SPI") || protocol.includes("RS485")) {
         wireType = "data";
@@ -599,11 +638,11 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       if (wireType === "power") {
         const srcVcc = `${fromNodeId}-vcc`;
         const tgtVcc = `${toNodeId}-vcc`;
-        if (fromNode?.data.ports.some(p => p.id === srcVcc)) srcPort = srcVcc;
-        if (toNode?.data.ports.some(p => p.id === tgtVcc)) tgtPort = tgtVcc;
+        if (fromNode?.data.ports.some((p: any) => p.id === srcVcc)) srcPort = srcVcc;
+        if (toNode?.data.ports.some((p: any) => p.id === tgtVcc)) tgtPort = tgtVcc;
       }
 
-      return {
+      acc.push({
         id: `wire-design-${idx}-${Date.now()}`,
         source: fromNodeId,
         target: toNodeId,
@@ -622,24 +661,56 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
           stroke: WIRE_COLORS[wireType],
           strokeWidth: 2
         }
-      };
+      });
+      return acc;
+    }, []);
+
+    // Apply Dagre auto-layout
+    const g = new dagre.graphlib.Graph();
+    g.setGraph({ rankdir: "TB", nodesep: 150, ranksep: 200, marginx: 50, marginy: 50 });
+    g.setDefaultEdgeLabel(() => ({}));
+
+    rfNodes.forEach((node) => {
+      g.setNode(node.id, { width: 220, height: 150 });
+    });
+
+    rfEdges.forEach((edge) => {
+      g.setEdge(edge.source, edge.target);
+    });
+
+    dagre.layout(g);
+
+    rfNodes.forEach((node) => {
+      const nodeWithPosition = g.node(node.id);
+      if (nodeWithPosition) {
+        node.position = {
+          x: nodeWithPosition.x - 110,
+          y: nodeWithPosition.y - 75,
+        };
+      }
     });
 
     set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false });
   },
 
   setNodes: (nodesOrUpdater) =>
-    set((state) => ({
-      nodes:
-        typeof nodesOrUpdater === "function"
-          ? nodesOrUpdater(state.nodes)
-          : nodesOrUpdater,
-    })),
-  setEdges: (edges) => set({ edges }),
+    set((state) => {
+      const newNodes = typeof nodesOrUpdater === "function" ? nodesOrUpdater(state.nodes) : nodesOrUpdater;
+      console.log(`[Store] setNodes called. Node count: ${newNodes.length}`);
+      return {
+        nodes: newNodes,
+        saveState: "unsaved"
+      };
+    }),
+  setEdges: (edges) => {
+    console.log(`[Store] setEdges called. Edge count: ${edges.length}`);
+    set({ edges, saveState: "unsaved" });
+  },
   setPrompt: (prompt) => set({ prompt }),
   setSelectedEdge: (id) =>
     set({ selectedEdgeId: id, sidebarOpen: id !== null }),
   setSidebarOpen: (open) => set({ sidebarOpen: open }),
+  setSaveState: (state) => set({ saveState: state }),
 
   updateEdge: (id, patch) => {
     const edges = get().edges.map((e) => {
@@ -659,19 +730,23 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         label: data.label,
       };
     });
-    set({ edges });
+    console.log(`[Store] updateEdge completed for id: ${id}`, patch);
+    set({ edges, saveState: "unsaved" });
   },
 
   deleteEdge: (id) => {
+    console.log(`[Store] deleteEdge called for id: ${id}`);
     set({
       edges: get().edges.filter((e) => e.id !== id),
       selectedEdgeId: null,
       sidebarOpen: false,
+      saveState: "unsaved"
     });
   },
 
   addEdge: (edge) => {
-    set({ edges: [...get().edges, edge] });
+    console.log(`[Store] addEdge called for new edge id: ${edge.id}`);
+    set({ edges: [...get().edges, edge], saveState: "unsaved" });
   },
 
   generate: async (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => {
@@ -744,12 +819,64 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         };
       });
 
-      set({ nodes: rfNodes, edges: rfEdges });
+      set({ nodes: rfNodes, edges: rfEdges, saveState: "unsaved" });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       set({ error: msg });
     } finally {
       set({ isGenerating: false });
+    }
+  },
+
+  isValidConnection: (sourceNodeId, sourcePortId, targetNodeId, targetPortId) => {
+    const state = get();
+    const sourceNode = state.nodes.find((n) => n.id === sourceNodeId);
+    const targetNode = state.nodes.find((n) => n.id === targetNodeId);
+
+    if (!sourceNode || !targetNode) return { valid: false, reason: "Node not found" };
+
+    const vSource = sourceNode.data.voltage?.value;
+    const vTarget = targetNode.data.voltage?.value;
+
+    if (vSource !== undefined && vTarget !== undefined && vSource !== vTarget) {
+      return {
+        valid: false,
+        reason: `Voltage mismatch: ${vSource}V vs ${vTarget}V`,
+      };
+    }
+
+    return { valid: true };
+  },
+
+  saveGraph: () => {
+    const state = get();
+    const payload = {
+      nodes: state.nodes,
+      edges: state.edges,
+    };
+    try {
+      localStorage.setItem("yantraa_canvas_state", JSON.stringify(payload));
+      set({ saveState: "saved" });
+    } catch (e) {
+      console.error("Failed to save to localStorage", e);
+    }
+  },
+
+  loadGraph: () => {
+    try {
+      const dataStr = localStorage.getItem("yantraa_canvas_state");
+      if (dataStr) {
+        const payload = JSON.parse(dataStr);
+        if (payload.nodes && payload.edges) {
+          set({
+            nodes: payload.nodes,
+            edges: payload.edges,
+            saveState: "saved",
+          });
+        }
+      }
+    } catch (e) {
+      console.error("Failed to load from localStorage", e);
     }
   },
 }));

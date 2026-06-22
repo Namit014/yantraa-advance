@@ -1,0 +1,5 @@
+Source URL: https://www.realsenseai.com/wp-content/uploads/2019/09/Depth_Map_Improvements_for_Stereo-based_Depth_Cameras_on_Drones.pdf
+Scraped: 2026-06-17T20:35:03.336284
+============================================================
+
+This document contains technical specifications related to a drone use case, system improvements, calibration, depth camera settings, post-processing of depth images, results, performance, and limitations. It also includes an appendix. The document is in PDF format and contains several embedded objects, including images.

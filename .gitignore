@@ -5,6 +5,19 @@ __pycache__/
 .env
 .vscode/
 qdrant_data/
+knowledgebase/openarm/cad/openarm_cad/OpenArm_Cell+OpenArm_2.0.STEP
+knowledgebase/openarm/cad/openarm_cad/OpenEvalCell_defeature.STEP
+AVGs_robot_cad.step
+Articulated_robot_cad.STEP
+Automate_mobile_Robot.step
+DeltaRobot2.STEP
+cartesian_robot_cad.stp
+cobot_robot_cad.stp
+inspection_robot_cad.STEP
+painting_robot_cad.stp
+palletizing_robot_cad.STEP
+scara_robot_cad.stp
+welding_cad.stp
 
 # CAD Files (Store in AWS S3 instead)
 *.step
@@ -12,3 +25,12 @@ qdrant_data/
 *.stl
 *.3mf
 *.obj
+
+# Yantraa temp and config ignores
+.env.local
+*.bak
+debug_*.txt
+api_response.json
+.temp_*/
+scratch/
+.scraped_url_cache.json

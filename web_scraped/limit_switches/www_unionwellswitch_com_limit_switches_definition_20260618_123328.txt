@@ -1,0 +1,61 @@
+Source URL: https://www.unionwellswitch.com/limit-switches-definition/
+Scraped: 2026-06-18T12:33:28.958866
+============================================================
+
+A limit switch is an electromechanical device that automatically senses an object's presence and signifies if its movement has exceeded set limits. It contains an actuator connected to electrical connections. When an object contacts the actuator, its movement causes the electrical connections to close or open a circuit.
+
+**Elements of a Limit Switch:**
+*   **Actuator:** Often includes an operating head.
+*   **Switching Body:** Contains the electrical switch mechanism.
+*   **Electrical Terminals:** For connecting the switch to a circuit.
+
+**Key Features for Installation and Maintenance:**
+*   Dimensions
+*   Operating force
+*   Mounting technique
+*   Stroke rate
+
+**Power Rating:** Must be matched to the load it controls.
+
+**Operation:**
+Limit switches operate when moving equipment or a component contacts the actuator, activating the switch. This switch then controls the electrical circuit of the equipment. They can be used for starting, stopping, reducing, or accelerating electric motor functions, serving as control instruments or emergency devices.
+
+**Contact Types:**
+*   **Maintained Contact:** Remains in its state until acted upon again.
+*   **Momentary Contact:** Returns to its original state once the actuating force is removed.
+
+**Limit Switch Connections:**
+Control schematics commonly use symbols to indicate the state of switch contacts (normally open or normally closed).
+
+**Micro Limit Switches (Micro Switches):**
+These are smaller versions suitable for tight spaces.
+*   **Actuating Plunger:** Requires a small travel distance to activate.
+*   **Spring-Loading System:** Facilitates quick breaking between contact positions.
+*   **Electrical Ratings:** Typically around 250 volts AC and 10 to 15 amperes.
+*   **Subminiature Micro Switches:** Even smaller, with electrical ratings from 1 to 7 amperes.
+
+**Advantages of Limit Switches:**
+*   Simple design
+*   Suitable for industrial settings
+*   High precision and repeatability
+*   Low energy consumption
+*   Capable of switching high-inductance loads
+*   Can switch multiple loads
+*   Easy to install
+*   Durable and reliable
+*   Sturdy electrical contacts for direct switching of higher currents
+
+**Limitations of Limit Switches:**
+*   Best suited for relatively low-speed applications due to mechanical action reliance.
+*   Require physical contact with the object to operate.
+*   Subject to mechanical wear and tear over time.
+
+**Key Technical Terms:**
+*   **Pretravel:** The distance or position the actuator moves before tripping the switch contacts.
+*   **Operating Point:** The actuator's position when the switch contacts move to the operating state.
+*   **Release Point:** The actuator's position when the contacts return to their original state.
+*   **Differential:** The distance or angular variation between the operating and release points.
+*   **Overtravel:** Any actuator movement beyond the switch's rated travel.
+*   **Initial Position:** The actuator's setting when not subjected to external pressure.
+*   **Operating Force (Torque):** The force or torque required to move the actuator.
+*   **Minimum Required to Return Power (Torque):** The force or torque needed to return the actuator to its initial position.

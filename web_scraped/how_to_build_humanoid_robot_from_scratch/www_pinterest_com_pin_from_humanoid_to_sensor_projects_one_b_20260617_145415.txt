@@ -1,0 +1,10 @@
+Source URL: https://www.pinterest.com/pin/from-humanoid-to-sensor-projects-one-board-you-need--684969424570330027/
+Scraped: 2026-06-17T14:54:15.606188
+============================================================
+
+**Robot Name:** MOFIZA
+**Type:** Smart Talking Humanoid Robot
+**Controller:** Arduino
+**Key Specifications:**
+*   **Degrees of Freedom (DOF):** 3DOF
+*   **Capabilities:** Ability to talk and react to surroundings.

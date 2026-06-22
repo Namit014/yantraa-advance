@@ -1,0 +1,16 @@
+Source URL: https://en.wikipedia.org/wiki/Limit_switch
+Scraped: 2026-06-18T12:31:53.318211
+============================================================
+
+A **limit switch** is an electromechanical or industrial control switch that changes state when a machine part moves or when an object is present. It is used to detect position, end of travel, or passing objects, and it can also serve as a control input, safety interlock, or counter.[1][3][11]
+
+Key technical points from the source text:
+
+- **Operation:** It is actuated by physical contact or motion of a machine part; a moving object presses an actuator such as a lever, roller plunger, or whisker type.[1][11][14]
+- **Uses:** It can detect the **presence**, **passing**, **positioning**, and **end of travel** of an object.[1]
+- **Applications:** Examples include garage door openers, photocopiers, computer printers, microwave ovens, and numerical control machines such as lathes.[1]
+- **Industrial integration:** The switch is often wired through a control relay, motor contactor circuit, or PLC input rather than directly driving a load.[1][11]
+- **Safety:** In safety-critical applications, limit switches are commonly wired **normally closed** for fail-safe behavior, so a broken wire can be interpreted as a stop condition.[User-provided text; not directly supported by the search results]
+- **Historical meaning:** The name comes from their original use in defining the **limit of travel** of an object.[1][5][6]
+
+If you want, I can also extract this into a shorter one-line definition or a technical-spec style summary.

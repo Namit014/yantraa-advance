@@ -1,0 +1,42 @@
+Source URL: https://www.dnc-automation.com/what-is-delta-robot/
+Scraped: 2026-06-18T15:43:06.806674
+============================================================
+
+**Delta Robot – Technical Overview**
+
+**Structure & Components**  
+- **Base frame** – Rigid mounting platform, typically positioned overhead to free floor space.  
+- **Parallel arms** – 3 (or 4) lightweight arms made of aluminum, composite, or carbon‑fiber; arranged in a parallel‑link configuration that moves synchronously.  
+- **Universal joints** – Connect each arm to the end‑effector, allowing multi‑directional movement.  
+- **End‑effector (tool)** – Swappable device (vacuum head, mechanical gripper, or custom tool) that directly contacts the workpiece.  
+- **Control system** – Servo motors, position sensors and a programmable controller that coordinate arm length and angles for precise trajectory control.
+
+**Key Performance Characteristics**  
+- **Speed** – Capable of hundreds of pick‑and‑place cycles per minute (typical rates 200–1,200 cpm, depending on model and payload).  
+- **Precision & repeatability** – Millimetre‑to‑sub‑millimetre accuracy; repeatability often quoted as ±0.02 mm to ±0.05 mm.  
+- **Payload** – Optimized for light loads; commonly 0.5 kg – 5 kg (some heavy‑duty versions up to ≈10 kg).  
+- **Reach / work envelope** – Generally a cylindrical volume; typical horizontal reach 400 mm – 800 mm and vertical travel 300 mm – 600 mm.  
+- **Footprint** – Overhead mounting means floor space usage is limited to the conveyor or workstation beneath the robot.
+
+**Advantages**  
+1. **Very high cycle rates** – Ideal for high‑speed packaging, sorting, and assembly lines.  
+2. **Exceptional repeatability** – Maintains product quality for electronics, pharmaceuticals, and food items.  
+3. **Space‑saving layout** – Overhead installation leaves the shop floor free for other equipment.  
+4. **Easy tool change** – Quick swap of end‑effectors enables flexible handling of different product types.  
+5. **Labor cost reduction** – Automates repetitive pick‑and‑place tasks, raising overall line productivity.
+
+**Disadvantages**  
+- **Limited payload** – Not suited for heavy or bulky items; other robot types (e.g., six‑axis arms) are required for large loads.  
+- **Restricted work envelope** – Parallel‑link geometry confines the reachable volume compared with articulated robots.  
+- **High upfront cost** – Full system (robot, controller, vision/camera integration) demands a significant capital investment.  
+- **Specialized maintenance** – Requires technicians familiar with parallel‑kinematic systems and servo control.
+
+**Typical Applications**  
+- **Food & beverage** – Sorting, arranging, and packaging confectionery, snacks, beverages, fresh produce.  
+- **Electronics** – Placement of small components, chips, printed‑circuit boards, and inspection tasks requiring sub‑millimetre accuracy.  
+- **Pharmaceuticals** – Handling of vials, blisters, drug packs with strict hygiene and precision demands.  
+- **E‑commerce & logistics** – Rapid order fulfillment, product classification, and high‑throughput packing stations.
+
+**DNC Automation Solution Highlights (Malaysia)**  
+- End‑to‑end service: needs assessment, system design, integration with conveyors/vision, installation, training, and ongoing maintenance.  
+- Proven project experience and local after‑sales support aimed at minimizing downtime and maximizing ROI.

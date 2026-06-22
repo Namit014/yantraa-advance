@@ -1,0 +1,20 @@
+Source URL: https://anninrobotics.com/?srsltid=AfmBOorg4JtOpd8BHwNuB00qAL7QAfa1ui8S6n1GlcasQB3dAEO5rcrM
+Scraped: 2026-06-18T19:37:26.466401
+============================================================
+
+**Annin Robotics AR4 – Technical Overview**
+
+The AR4 is a low-cost, open-source, 6-degree-of-freedom (6DOF) industrial robotic arm designed for desktop use. It is intended to be user-buildable, with parts machinable from aluminum or 3D-printable.
+
+**Key Specifications & Features:**
+- **Axes:** 6DOF
+- **Control:** Arduino-based, programmable via Python or ROS (Robot Operating System)
+- **Integration:** Supports Modbus protocol; compatible with PLCs, pneumatic grippers, and 7th-axis tracks
+- **Customization:** Open-source design allows for code modification and 3D-printed custom parts
+- **Applications:** Light assembly, CNC machine tending, R&D prototyping, vision-guided tasks (e.g., dish loading, label printing), custom workflows with G-code integration
+
+**Target Users:**
+- **Education:** Deployed in high schools, colleges, STEM classrooms, and university labs for teaching robotics, automation, and coding.
+- **Industry & Makers:** Used by workshops, startups, and creative professionals for affordable automation, packaging, sample processing, and light production tasks.
+
+**Design Philosophy:** Bridges DIY projects and professional automation, offering plug-and-play integration and flexibility for real-world applications.

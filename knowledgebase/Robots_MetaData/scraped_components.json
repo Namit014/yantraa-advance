@@ -1,0 +1,124 @@
+{
+    "components": [
+        {
+            "name": "Voltage Regulator (Buck Converter)",
+            "category": "Power",
+            "voltage": "N/A",
+            "interface": "None",
+            "description": "A DC-to-DC buck converter that steps down a higher input voltage to a stable lower output voltage efficiently.",
+            "cad_file": ".STEP/.STP",
+            "scraped_at": "2026-06-18T18:09:14.671958",
+            "source_url": "https://www.youtube.com/watch?v=KBfdG3A-Iz8"
+        },
+        {
+            "name": "Camera Module (e.g., OV7670 or Raspberry Pi Camera)",
+            "category": "Sensors",
+            "voltage": "3.3V",
+            "interface": "I2C (SCCB), 8-bit parallel digital video output",
+            "description": "A digital image sensor module that captures VGA-resolution video frames at up to 30 fps and is used in robotics, AI, and machine learning applications for tasks such as object detection, motion detection, and facial recognition.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T18:10:15.277118",
+            "source_url": "https://microkontroller.ru/arduino-projects/podklyuchenie-kamery-ov7670-k-arduino-uno/"
+        },
+        {
+            "name": "IMU (Inertial Measurement Unit, e.g., MPU6050)",
+            "category": "Sensors",
+            "voltage": "3.3V-5V (typical for MPU6050)",
+            "interface": "I2C, SPI",
+            "description": "Measures a body's specific force, angular rate, and sometimes the magnetic field, using a combination of accelerometers, gyroscopes, and sometimes magnetometers.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T18:10:55.076183",
+            "source_url": "https://link.springer.com/content/pdf/10.1007/978-3-032-08359-3.pdf"
+        },
+        {
+            "name": "Foot End-Caps",
+            "category": "EndEffectors",
+            "voltage": "N/A",
+            "interface": "None",
+            "description": "Protective caps designed to be attached to the feet of a robot, providing stability and preventing damage to surfaces.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T18:40:30.574128",
+            "source_url": "https://sharecad.org/"
+        },
+        {
+            "name": "CAN Bus Cabling and Connectors",
+            "category": "Electronics",
+            "voltage": "N/A",
+            "interface": "CAN",
+            "description": "Provides cabling and connectors for CAN bus communication in robotic systems.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T18:40:59.275430",
+            "source_url": "https://www.harting.com/en-NO/download-documents"
+        },
+        {
+            "name": "Mounting Hardware (screws, washers, pins)",
+            "category": "Structure",
+            "voltage": "N/A",
+            "interface": "None",
+            "description": "Mounting hardware such as screws, washers, and pins are used to mechanically fasten and secure robotic components.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T18:41:33.672285",
+            "source_url": "https://www.youtube.com/watch?v=KBfdG3A-Iz8"
+        },
+        {
+            "name": "Power Distribution Board",
+            "category": "Power",
+            "voltage": "N/A",
+            "interface": "None",
+            "description": "A board that distributes electrical power from a source to various components within a robotic system.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T19:18:40.533786",
+            "source_url": "https://www.youtube.com/watch?v=KBfdG3A-Iz8"
+        },
+        {
+            "name": "GPS Module",
+            "category": "Sensors",
+            "voltage": "N/A",
+            "interface": "N/A",
+            "description": "A GPS module provides geolocation and precise timing data for robotic and drone navigation systems.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T19:24:55.097444",
+            "source_url": "https://docs.holybro.com/autopilot/pixhawk-baseboards/download"
+        },
+        {
+            "name": "Power Supply (24V DC)",
+            "category": "Power",
+            "voltage": "24V",
+            "interface": "None",
+            "description": "A switching power supply that converts AC input to a regulated 24 VDC output at 4.5A/100W for powering industrial automation components.",
+            "cad_file": "power_supply_24v_dc.step",
+            "scraped_at": "2026-06-18T19:47:16.481592",
+            "source_url": "https://www.automationdirect.com/adc/shopping/catalog/power_products_(electrical)/dc_power_supplies/enclosed_chassis_mount/pss24-100-s"
+        },
+        {
+            "name": "Limit Switches",
+            "category": "Sensors",
+            "voltage": "24V",
+            "interface": "None",
+            "description": "Limit switches are electromechanical sensors that detect the presence or absence of an object by making physical contact, used to define travel boundaries or safety stops in robotic systems.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T19:47:54.073337",
+            "source_url": "https://www.youtube.com/watch?v=KBfdG3A-Iz8"
+        },
+        {
+            "name": "Mounting Hardware (screws, nuts, standoffs)",
+            "category": "Structure",
+            "voltage": "N/A",
+            "interface": "None",
+            "description": "Mechanical fasteners and hardware used to physically assemble and secure components in robotic and mechanical builds.",
+            "cad_file": "",
+            "scraped_at": "2026-06-18T19:48:53.772696",
+            "source_url": "https://github.com/earthtojake/step.parts"
+        },
+        {
+            "name": "Build a Robotic Dog",
+            "category": "Structure",
+            "voltage": "N/A",
+            "interface": "None",
+            "description": "A 3D printed quadrupedal robot dog designed for dynamic movements and realistic appearance.",
+            "cad_file": "ARES_STEP_File.step",
+            "scraped_at": "2026-06-20T17:07:38.153977",
+            "source_url": "https://www.instructables.com/3D-Printed-Robot-Dog/"
+        }
+    ]
+}
