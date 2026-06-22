@@ -37,7 +37,13 @@ KNOWN_CADS = {
     "in-pipe": "InPipeInspectionRobot.STEP",
     "in pipe": "InPipeInspectionRobot.STEP",
     "pipeline": "InPipeInspectionRobot.STEP",
-    "corrosion": "InPipeInspectionRobot.STEP"
+    "corrosion": "InPipeInspectionRobot.STEP",
+    
+    # Motor Controllers
+    "odrive": "odrive_s1.step",
+    "odrive s1": "odrive_s1.step",
+    "odrive pro": "odrive_pro.step",
+    "odrive micro": "odrive_micro.step"
 }
 
 _hebi_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "knowledgebase", "Robots_MetaData", "hebi_components.json"))
