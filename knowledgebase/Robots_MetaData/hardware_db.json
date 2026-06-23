@@ -179,6 +179,103 @@
         {"id": "out", "label": "OUT", "type": "digital_out"}
       ]
     },
+    "vl53l0x": {
+      "label": "VL53L0X ToF Sensor",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "scl", "label": "SCL", "type": "i2c_clock"},
+        {"id": "sda", "label": "SDA", "type": "i2c_data"}
+      ]
+    },
+    "encoder": {
+      "label": "Rotary Encoder",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "dt", "label": "DT", "type": "digital_out"},
+        {"id": "clk", "label": "CLK", "type": "digital_out"}
+      ]
+    },
+    "limit switch": {
+      "label": "Limit Switch",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "sig", "label": "Signal", "type": "digital_out"}
+      ]
+    },
+    "current sensor": {
+      "label": "Current Sensor",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "out", "label": "OUT", "type": "analog_out"}
+      ]
+    },
+    "lidar": {
+      "label": "LiDAR Sensor",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "tx", "label": "TX", "type": "digital_out"},
+        {"id": "rx", "label": "RX", "type": "digital_in"}
+      ]
+    },
+    "gps": {
+      "label": "NEO-6M GPS Module",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "tx", "label": "TX", "type": "digital_out"},
+        {"id": "rx", "label": "RX", "type": "digital_in"}
+      ]
+    },
+    "camera": {
+      "label": "Camera Module",
+      "type": "sensor",
+      "operating_voltage": [3.3],
+      "ports": [
+        {"id": "3v3", "label": "3.3V", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "scl", "label": "SCL", "type": "i2c_clock"},
+        {"id": "sda", "label": "SDA", "type": "i2c_data"},
+        {"id": "d0", "label": "D0", "type": "digital_out"}
+      ]
+    },
+    "bno055": {
+      "label": "BNO055 IMU",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "scl", "label": "SCL", "type": "i2c_clock"},
+        {"id": "sda", "label": "SDA", "type": "i2c_data"}
+      ]
+    },
+    "hall effect": {
+      "label": "Hall Effect Sensor",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "sig", "label": "Signal", "type": "digital_out"}
+      ]
+    },
     "dc motor": {
       "label": "DC Gear Motor 12V 100 RPM",
       "type": "motor",
