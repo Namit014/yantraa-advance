@@ -94,7 +94,7 @@ dagreGraph.setDefaultEdgeLabel(() => ({}));
 
 const getLayoutedElements = (nodes: any[], edges: any[], direction = 'LR') => {
     const isHorizontal = direction === 'LR';
-    dagreGraph.setGraph({ rankdir: direction, align: 'UL', ranksep: 200, nodesep: 100 });
+    dagreGraph.setGraph({ rankdir: direction, ranksep: 350, nodesep: 150 });
 
     nodes.forEach((node) => {
         // Approximate width and height based on ports length
