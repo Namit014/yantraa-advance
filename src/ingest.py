@@ -22,7 +22,7 @@ from chunker import (
 )
 
 from embedder import Embedder
-from vectordb import VectorDB, get_all_content_hashes, compute_content_hash, _client
+from vectordb import VectorDB, get_all_content_hashes, compute_content_hash, get_qdrant_client
 
 
 def ingest():
@@ -36,7 +36,7 @@ def ingest():
     vectordb = VectorDB()
 
     # Retrieve all existing content hashes from Qdrant
-    existing_hashes = get_all_content_hashes(_client, collection_name=vectordb.collection_name)
+    existing_hashes = get_all_content_hashes(get_qdrant_client(), collection_name=vectordb.collection_name)
     print(f"Retrieved {len(existing_hashes)} existing chunk hashes from Qdrant.")
 
     total_chunks = 0
