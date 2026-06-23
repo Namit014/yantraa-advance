@@ -1,0 +1,116 @@
+{
+  "project_name": "inspection_robot",
+  "sub_assemblies": [
+    {
+      "folder": "inspection_robot\\inspection_robot_cad",
+      "assembly_file": "inspection_robot_cad.STEP",
+      "total_unique_parts": 26,
+      "bom": [
+        {
+          "part_name": "Antenna assy_0",
+          "quantity": 1
+        },
+        {
+          "part_name": "Antenna base___ _________",
+          "quantity": 1
+        },
+        {
+          "part_name": "Antenna top___ _________",
+          "quantity": 1
+        },
+        {
+          "part_name": "Assemblage3",
+          "quantity": 1
+        },
+        {
+          "part_name": "Clear LED",
+          "quantity": 1
+        },
+        {
+          "part_name": "Copie (2) de Assemblage2^Assemblage3",
+          "quantity": 1
+        },
+        {
+          "part_name": "Copie (3) de Assemblage2^Assemblage3",
+          "quantity": 1
+        },
+        {
+          "part_name": "Copie (4) de Assemblage2^Assemblage3",
+          "quantity": 1
+        },
+        {
+          "part_name": "Copie de Assemblage2^Assemblage3",
+          "quantity": 1
+        },
+        {
+          "part_name": "GoExtreme Pioneer Camera",
+          "quantity": 1
+        },
+        {
+          "part_name": "MG90_Rebuild.step",
+          "quantity": 1
+        },
+        {
+          "part_name": "Metal-gear-motor_47_1_Predeterminado",
+          "quantity": 1
+        },
+        {
+          "part_name": "NRF24L01L+Antenna___ _________",
+          "quantity": 1
+        },
+        {
+          "part_name": "NRF24L01L___ _________",
+          "quantity": 1
+        },
+        {
+          "part_name": "Pice1",
+          "quantity": 1
+        },
+        {
+          "part_name": "Pice10",
+          "quantity": 1
+        },
+        {
+          "part_name": "Pice11",
+          "quantity": 1
+        },
+        {
+          "part_name": "Pice12",
+          "quantity": 1
+        },
+        {
+          "part_name": "Pice14",
+          "quantity": 1
+        },
+        {
+          "part_name": "Pice8",
+          "quantity": 1
+        },
+        {
+          "part_name": "Pice9",
+          "quantity": 1
+        },
+        {
+          "part_name": "Switch_Predeterminado",
+          "quantity": 1
+        },
+        {
+          "part_name": "cambox",
+          "quantity": 1
+        },
+        {
+          "part_name": "motor hub",
+          "quantity": 1
+        },
+        {
+          "part_name": "pice 15",
+          "quantity": 1
+        },
+        {
+          "part_name": "roue",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

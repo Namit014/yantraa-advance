@@ -1,0 +1,428 @@
+{
+  "project_name": "welding_robot",
+  "sub_assemblies": [
+    {
+      "folder": "welding_robot\\welding_robot_cad",
+      "assembly_file": "welding_cad.stp",
+      "total_unique_parts": 104,
+      "bom": [
+        {
+          "part_name": "AIR.UNTILITIES.ASM",
+          "quantity": 1
+        },
+        {
+          "part_name": "AN10-01",
+          "quantity": 1
+        },
+        {
+          "part_name": "AN20-02",
+          "quantity": 1
+        },
+        {
+          "part_name": "BASE_AXIS",
+          "quantity": 1
+        },
+        {
+          "part_name": "BOLT.BOARD.BUSBAR",
+          "quantity": 1
+        },
+        {
+          "part_name": "BOLT.M5.BUSBAR",
+          "quantity": 1
+        },
+        {
+          "part_name": "BUSBAR.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "BUSBAR.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "BUSBAR.3",
+          "quantity": 1
+        },
+        {
+          "part_name": "BUSBAR.4",
+          "quantity": 1
+        },
+        {
+          "part_name": "BUSBAR.5",
+          "quantity": 1
+        },
+        {
+          "part_name": "BUSH.PLATE.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "BUSH.PLATE.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "B_AXIS",
+          "quantity": 1
+        },
+        {
+          "part_name": "B_AXIS-NONE",
+          "quantity": 1
+        },
+        {
+          "part_name": "B_AXIS-NONE1",
+          "quantity": 1
+        },
+        {
+          "part_name": "CABLE.DUCT",
+          "quantity": 1
+        },
+        {
+          "part_name": "CALBE.BRACKET.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "CAP.COVER.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "CAP.MOUNT.PLATE.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "CAP.MOUNT.PLATE.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "CAP.MOUNT.PLATE.3",
+          "quantity": 1
+        },
+        {
+          "part_name": "CAPACITY.ASM.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "CAPACITY.BRACKET.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "CAPACITY.BRACKET.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "CAPACITY.SET.AS",
+          "quantity": 1
+        },
+        {
+          "part_name": "CIRCUIT.BOARD",
+          "quantity": 1
+        },
+        {
+          "part_name": "CLAMPING.PLATE.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "CLAVIS.BLOCK",
+          "quantity": 1
+        },
+        {
+          "part_name": "COMP.COVER.SPOT.WELDING.MC",
+          "quantity": 1
+        },
+        {
+          "part_name": "COMPCOVERSPOTWELDINGMC-240716-3D",
+          "quantity": 1
+        },
+        {
+          "part_name": "COMPRESSION.SPRING.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "CU25-20D(0_0_0)",
+          "quantity": 1
+        },
+        {
+          "part_name": "CYL.BRK",
+          "quantity": 1
+        },
+        {
+          "part_name": "CYLINDER.BLOCK",
+          "quantity": 1
+        },
+        {
+          "part_name": "DUCT.HOLDER",
+          "quantity": 1
+        },
+        {
+          "part_name": "ELECTRID.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "ELECTRID.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "ELECTROD.HOLDER.1",
+          "quantity": 1
+        },
+        {
+          "part_name": "ELECTROD.HOLDER.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "FPSFJBD-D8-L67-M5-T14-Q6",
+          "quantity": 1
+        },
+        {
+          "part_name": "FPSPJCE-D30-L247-F39-M24-B23-T5-N20-Q25-SC210",
+          "quantity": 1
+        },
+        {
+          "part_name": "GFM-0810-07",
+          "quantity": 1
+        },
+        {
+          "part_name": "HAND.ADAPTER",
+          "quantity": 1
+        },
+        {
+          "part_name": "HEX NUT - KS B 1012 - M24",
+          "quantity": 1
+        },
+        {
+          "part_name": "JKPZFA3-6.00",
+          "quantity": 1
+        },
+        {
+          "part_name": "JOINT.ADAPTER",
+          "quantity": 1
+        },
+        {
+          "part_name": "JOINT.PALTE.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "JOINT.PLATE.42",
+          "quantity": 1
+        },
+        {
+          "part_name": "JOINT.PLATE.REAR",
+          "quantity": 1
+        },
+        {
+          "part_name": "JOINT.PLTE.41",
+          "quantity": 1
+        },
+        {
+          "part_name": "JZB15-20",
+          "quantity": 1
+        },
+        {
+          "part_name": "LINEAR.SHAFT.2",
+          "quantity": 1
+        },
+        {
+          "part_name": "LSUC.2.8V.300F",
+          "quantity": 1
+        },
+        {
+          "part_name": "L_AXIS",
+          "quantity": 1
+        },
+        {
+          "part_name": "MGJ10-5(0_0)",
+          "quantity": 1
+        },
+        {
+          "part_name": "MGPL63-25Z-A93L(0_0_0)",
+          "quantity": 1
+        },
+        {
+          "part_name": "MID.PLATE",
+          "quantity": 1
+        },
+        {
+          "part_name": "MS165-MH180",
+          "quantity": 1
+        },
+        {
+          "part_name": "MXQ20A-40Z(0_0)",
+          "quantity": 1
+        },
+        {
+          "part_name": "MXQ25A-40ZH3(0_0)",
+          "quantity": 1
+        },
+        {
+          "part_name": "POST.ASM",
+          "quantity": 1
+        },
+        {
+          "part_name": "PR18-5DN_PR18-5DN2_PRT18-5DO_PRT18-5XO",
+          "quantity": 1
+        },
+        {
+          "part_name": "RDJW4-42",
+          "quantity": 1
+        },
+        {
+          "part_name": "R_AXIS",
+          "quantity": 1
+        },
+        {
+          "part_name": "SPINRG.HOUSING",
+          "quantity": 1
+        },
+        {
+          "part_name": "SPO.WELDING.UNIT.ASM",
+          "quantity": 1
+        },
+        {
+          "part_name": "SPOT.WELDING.HEAD.ASM",
+          "quantity": 1
+        },
+        {
+          "part_name": "SPOT.WELDING.HEAD.ASM.MI",
+          "quantity": 1
+        },
+        {
+          "part_name": "SPRING WASHER - KS B 1324",
+          "quantity": 1
+        },
+        {
+          "part_name": "SS5Y3-20-10_20-5LZ-C4_1111111111",
+          "quantity": 1
+        },
+        {
+          "part_name": "SS5Y5-20-06_20-5LZ-C6_111100",
+          "quantity": 1
+        },
+        {
+          "part_name": "S_AXIS",
+          "quantity": 1
+        },
+        {
+          "part_name": "TBOX",
+          "quantity": 1
+        },
+        {
+          "part_name": "TWIST.ARM",
+          "quantity": 1
+        },
+        {
+          "part_name": "T_AXIS",
+          "quantity": 1
+        },
+        {
+          "part_name": "U_AXIS",
+          "quantity": 1
+        },
+        {
+          "part_name": "WEDLING.HEAD.SIDE.LH",
+          "quantity": 1
+        },
+        {
+          "part_name": "WEDLING.HEAD.SIDE.RH",
+          "quantity": 1
+        },
+        {
+          "part_name": "WELDING.HEAD.FRONT",
+          "quantity": 1
+        },
+        {
+          "part_name": "WELDING.HEAD.REAR",
+          "quantity": 1
+        },
+        {
+          "part_name": "WORK.11",
+          "quantity": 1
+        },
+        {
+          "part_name": "WORK.ASM.11",
+          "quantity": 1
+        },
+        {
+          "part_name": "WORK.COVER.11",
+          "quantity": 1
+        },
+        {
+          "part_name": "WSJJ15-8-2",
+          "quantity": 1
+        },
+        {
+          "part_name": "_CU25-20D(0)_ROD",
+          "quantity": 1
+        },
+        {
+          "part_name": "_CU25-20D(0_0)_BODY",
+          "quantity": 1
+        },
+        {
+          "part_name": "_CU_NT-02",
+          "quantity": 1
+        },
+        {
+          "part_name": "_D-A93_MGP-Z(1)",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MGJ10-5_BODY(0)",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MGJ10-5_CYROD(0)",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MGP-Z_PLUG_63",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MGPL63-25Z(0)_BODY",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MGPL63-25Z(0)_ROD",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MXQ20A-40Z(0)_BODY",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MXQ20A-40Z(0)_T",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MXQ25A-40ZH3(0)_BODY",
+          "quantity": 1
+        },
+        {
+          "part_name": "_MXQ25A-40ZH3(0)_T",
+          "quantity": 1
+        },
+        {
+          "part_name": "_SS5Y3-20-10",
+          "quantity": 1
+        },
+        {
+          "part_name": "_SS5Y5-20-06",
+          "quantity": 1
+        },
+        {
+          "part_name": "_SY3120-5LZ-C4_V",
+          "quantity": 1
+        },
+        {
+          "part_name": "_SY5000-26-20A",
+          "quantity": 1
+        },
+        {
+          "part_name": "_SY5120-5LZ-C6_V",
+          "quantity": 1
+        },
+        {
+          "part_name": "~TERMINAL.LUG1",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

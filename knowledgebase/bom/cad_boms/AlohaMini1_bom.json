@@ -1,0 +1,11 @@
+{
+  "project_name": "AlohaMini1",
+  "sub_assemblies": [
+    {
+      "folder": "main_assembly",
+      "assembly_file": "O_Main_Assembly_Post4.stp",
+      "total_unique_parts": 0,
+      "bom": []
+    }
+  ]
+}
