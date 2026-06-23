@@ -13,8 +13,10 @@ import {
     Position,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { Loader2 } from "lucide-react";
+import { Loader2, Download, ChevronDown } from "lucide-react";
 import dagre from "dagre";
+import { toPng, toSvg } from 'html-to-image';
+import jsPDF from 'jspdf';
 
 // --- Custom Schematic Node ---
 const SchematicNode = ({ data }: { data: any }) => {
@@ -132,6 +134,80 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [exportOpen, setExportOpen] = useState(false);
+
+    const handleExport = async (format: "png" | "svg" | "pdf") => {
+        setExportOpen(false);
+        const viewportNode = document.querySelector('.react-flow__viewport') as HTMLElement;
+        if (!viewportNode) return;
+
+        try {
+            // Give a little time for dropdown to close visually
+            await new Promise((r) => setTimeout(r, 100));
+
+            // Compute exact bounding box of all nodes
+            let minX = Infinity;
+            let minY = Infinity;
+            let maxX = -Infinity;
+            let maxY = -Infinity;
+            
+            nodes.forEach((n: any) => {
+                if (n.position.x < minX) minX = n.position.x;
+                if (n.position.y < minY) minY = n.position.y;
+                // Node width is ~220, height is variable but max ~400
+                if (n.position.x + 350 > maxX) maxX = n.position.x + 350;
+                if (n.position.y + 450 > maxY) maxY = n.position.y + 450;
+            });
+            
+            if (minX === Infinity) return; // No nodes
+            
+            // Add padding
+            minX -= 100;
+            minY -= 100;
+            maxX += 100;
+            maxY += 100;
+            
+            const graphWidth = maxX - minX;
+            const graphHeight = maxY - minY;
+            
+            // Adjust these parameters for high quality
+            const options = {
+                backgroundColor: '#171717',
+                width: graphWidth,
+                height: graphHeight,
+                style: {
+                    width: graphWidth.toString() + 'px',
+                    height: graphHeight.toString() + 'px',
+                    transform: `translate(${-minX}px, ${-minY}px) scale(1)`
+                }
+            };
+
+            if (format === "png") {
+                const dataUrl = await toPng(viewportNode, { ...options, pixelRatio: 2 });
+                const link = document.createElement('a');
+                link.download = 'robot_schematic.png';
+                link.href = dataUrl;
+                link.click();
+            } else if (format === "svg") {
+                const dataUrl = await toSvg(viewportNode, options);
+                const link = document.createElement('a');
+                link.download = 'robot_schematic.svg';
+                link.href = dataUrl;
+                link.click();
+            } else if (format === "pdf") {
+                const dataUrl = await toPng(viewportNode, { ...options, pixelRatio: 2 });
+                const pdf = new jsPDF({
+                    orientation: graphWidth > graphHeight ? 'landscape' : 'portrait',
+                    unit: 'px',
+                    format: [graphWidth, graphHeight]
+                });
+                pdf.addImage(dataUrl, 'PNG', 0, 0, graphWidth, graphHeight);
+                pdf.save('robot_schematic.pdf');
+            }
+        } catch (error) {
+            console.error("Failed to export diagram:", error);
+        }
+    };
 
     const generateSchematics = useCallback(async () => {
         if (!designData || !designData.subsystems) return;
@@ -233,6 +309,43 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
                 <Background color="#333" gap={16} />
                 <Controls className="bg-neutral-800 border-neutral-700 fill-white" />
             </ReactFlow>
+
+            {/* Export Menu Overlay */}
+            <div className="absolute top-4 right-4 z-50">
+                <div className="relative">
+                    <button 
+                        onClick={() => setExportOpen(!exportOpen)}
+                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-black/50 border border-blue-500"
+                    >
+                        <Download className="w-4 h-4" />
+                        Export
+                        <ChevronDown className={`w-4 h-4 transition-transform ${exportOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {exportOpen && (
+                        <div className="absolute top-full right-0 mt-2 w-48 bg-neutral-800 border border-neutral-700 rounded-lg shadow-xl overflow-hidden py-1">
+                            <button 
+                                onClick={() => handleExport("svg")}
+                                className="w-full text-left px-4 py-2 text-sm text-neutral-200 hover:bg-neutral-700 hover:text-white transition-colors"
+                            >
+                                Export as SVG
+                            </button>
+                            <button 
+                                onClick={() => handleExport("png")}
+                                className="w-full text-left px-4 py-2 text-sm text-neutral-200 hover:bg-neutral-700 hover:text-white transition-colors"
+                            >
+                                Export as PNG
+                            </button>
+                            <button 
+                                onClick={() => handleExport("pdf")}
+                                className="w-full text-left px-4 py-2 text-sm text-neutral-200 hover:bg-neutral-700 hover:text-white transition-colors"
+                            >
+                                Export as PDF
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }

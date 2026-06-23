@@ -247,8 +247,10 @@ OUTPUT FORMAT:
 You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
 
 CRITICAL RULES:
-- Select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list. Prioritize HEBI components for the physical body.
+- Select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list.
 - If a required component is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them so the robot is complete and functional!
+- ONLY include ELECTRICAL components (motors, motor drivers, sensors, microcontrollers, power supplies) in the components list. DO NOT include structural or mechanical parts like brackets, chassis, plates, or screws in the components list.
+- Give all components proper, real-world industry names (e.g., "L298N Motor Driver", "HC-SR04 Ultrasonic Sensor", "NEMA 17 Stepper Motor"). Do not use generic names like "Motor" or "Sensor".
 - Output ONLY valid JSON in the exact structure requested.
 
 ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):

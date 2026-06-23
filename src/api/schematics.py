@@ -26,6 +26,11 @@ def match_hardware(component_name: str, component_role: str, hw_db: dict):
     norm_name = normalize_name(component_name)
     norm_role = normalize_name(component_role)
     
+    # Ignore mechanical/structural components
+    ignore_keywords = ["bracket", "adapter", "tube", "mount", "frame", "chassis", "plate", "screw", "nut", "bolt", "link"]
+    if any(kw in norm_name or kw in norm_role for kw in ignore_keywords):
+        return "ignore", None
+
     # Try direct match
     for key, hw in hw_db.items():
         if key in norm_name:
@@ -37,62 +42,18 @@ def match_hardware(component_name: str, component_role: str, hw_db: dict):
             return key, hw
             
     # Heuristics based on common parts
-    if "motor driver" in norm_name or "motor driver" in norm_role:
-        if "tb6612" in norm_name:
-            return "tb6612fng", hw_db.get("tb6612fng")
-        elif "a4988" in norm_name:
-            return "a4988", hw_db.get("a4988")
+    if "motor driver" in norm_name or "motor driver" in norm_role or "esc" in norm_name:
         return "l298n", hw_db.get("l298n")
-    if "stepper" in norm_name or "stepper" in norm_role:
-        return "stepper motor", hw_db.get("stepper motor")
-    if "servo" in norm_name or "servo" in norm_role:
-        return "servo", hw_db.get("servo")
-    if "battery" in norm_name or "power" in norm_name:
-        return "battery", hw_db.get("battery")
-        
-    # Microcontroller specific match
-    if "mega" in norm_name or "mega" in norm_role:
-        return "arduino mega", hw_db.get("arduino mega")
-    if "esp32" in norm_name or "esp32" in norm_role:
-        return "esp32", hw_db.get("esp32")
-    if "stm32" in norm_name or "stm32" in norm_role:
-        return "stm32", hw_db.get("stm32")
-    if "pico" in norm_name or "pico" in norm_role:
-        return "raspberry pi pico", hw_db.get("raspberry pi pico")
-    if "raspberry pi 5" in norm_name or "raspberry pi 5" in norm_role:
-        return "raspberry pi 5", hw_db.get("raspberry pi 4") # map pi 5 to pi 4 port layout
-    if "raspberry pi" in norm_name or "raspberry pi" in norm_role:
-        return "raspberry pi 4", hw_db.get("raspberry pi 4")
-    if "arduino" in norm_name or "microcontroller" in norm_role or "controller" in norm_role:
-        return "arduino uno", hw_db.get("arduino uno")
-        
-    # Sensors
-    if "imu" in norm_name or "mpu" in norm_name or "gyro" in norm_name:
-        if "bno055" in norm_name: return "bno055", hw_db.get("bno055")
-        return "mpu6050", hw_db.get("mpu6050")
-    if "ultrasonic" in norm_name or "sonar" in norm_name or "distance" in norm_name:
-        if "vl53l0x" in norm_name or "tof" in norm_name: return "vl53l0x", hw_db.get("vl53l0x")
-        return "ultrasonic sensor", hw_db.get("ultrasonic sensor")
-    if "ir " in norm_name or "infrared" in norm_name or "obstacle" in norm_name:
-        return "ir sensor", hw_db.get("ir sensor")
-    if "encoder" in norm_name:
-        return "encoder", hw_db.get("encoder")
-    if "limit" in norm_name or "switch" in norm_name:
-        return "limit switch", hw_db.get("limit switch")
-    if "current" in norm_name and "sensor" in norm_name:
-        return "current sensor", hw_db.get("current sensor")
-    if "lidar" in norm_name:
-        return "lidar", hw_db.get("lidar")
-    if "gps" in norm_name or "neo" in norm_name:
-        return "gps", hw_db.get("gps")
-    if "camera" in norm_name or "vision" in norm_name:
-        return "camera", hw_db.get("camera")
-    if "hall" in norm_name or "magnetic" in norm_name:
-        return "hall effect", hw_db.get("hall effect")
-    
-    # Motor
-    if "motor" in norm_name or "motor" in norm_role:
+    if "motor" in norm_name or "motor" in norm_role or "actuator" in norm_name or "pump" in norm_name or "servo" in norm_name:
         return "dc motor", hw_db.get("dc motor")
+    if "sensor" in norm_name or "sensor" in norm_role or "camera" in norm_name or "encoder" in norm_name:
+        return "ultrasonic sensor", hw_db.get("ultrasonic sensor")
+    if "power" in norm_name or "power" in norm_role or "battery" in norm_name or "supply" in norm_name:
+        return "battery", hw_db.get("battery")
+    if "microcontroller" in norm_name or "brain" in norm_role or "board" in norm_name or "pi" in norm_name:
+        return "arduino uno", hw_db.get("arduino uno")
+    if "switch" in norm_name or "button" in norm_name or "relay" in norm_name:
+        return "limit switch", hw_db.get("limit switch")
         
     return None, None
 
@@ -109,15 +70,32 @@ async def generate_schematics(req: SchematicsRequest):
         for sub in subsystems:
             for comp in sub.get("components", []):
                 hw_key, hw_info = match_hardware(comp.get("name", ""), comp.get("role", ""), hw_db)
+                
+                if hw_key == "ignore":
+                    continue
+                    
                 if hw_info:
                     components_to_route.append({
                         "node_id": f"comp_{node_id_counter}",
-                        "name": hw_info.get("label", hw_key.title()),
-                        "type": hw_info.get("type"),
+                        "name": hw_info.get("label", hw_info.get("name", comp.get("name"))),
+                        "type": hw_info.get("type", "generic"),
                         "ports": hw_info.get("ports", []),
                         "hw_key": hw_key
                     })
-                    node_id_counter += 1
+                else:
+                    # Fallback for unknown components to ensure they appear on the schematic
+                    components_to_route.append({
+                        "node_id": f"comp_{node_id_counter}",
+                        "name": comp.get("name", "Generic Module").title(),
+                        "type": "generic_module",
+                        "ports": [
+                            {"id": "vcc", "label": "VCC", "type": "power_in"},
+                            {"id": "gnd", "label": "GND", "type": "ground"},
+                            {"id": "sig", "label": "SIG", "type": "digital_in_out"}
+                        ],
+                        "hw_key": "generic"
+                    })
+                node_id_counter += 1
                     
         # Ensure a microcontroller always exists
         if not any(c["type"] == "microcontroller" for c in components_to_route):
@@ -310,7 +288,7 @@ async def generate_schematics(req: SchematicsRequest):
                 mcu_5v = next((p["id"] for p in mcu["ports"] if p["type"] == "power_out"), None)
                 
             for c in components_to_route:
-                if c["type"] in ["sensor", "motor_driver", "motor"]:
+                if c["type"] in ["sensor", "motor_driver", "motor", "generic_module"]:
                     # Motors handled separately, but some logic might need power
                     if c["type"] == "motor" and c["hw_key"] != "servo": continue
                     
