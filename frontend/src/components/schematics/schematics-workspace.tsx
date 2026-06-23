@@ -14,15 +14,16 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { Loader2 } from "lucide-react";
+import dagre from "dagre";
 
 // --- Custom Schematic Node ---
 const SchematicNode = ({ data }: { data: any }) => {
     const { label, ports, hwType } = data;
     
     return (
-        <div className="bg-neutral-900 border-2 border-neutral-700 rounded-lg min-w-[150px] shadow-xl overflow-hidden font-mono">
+        <div className="bg-neutral-900 border-2 border-neutral-700 rounded-lg min-w-[200px] shadow-xl overflow-hidden font-mono">
             <div className="bg-neutral-800 px-3 py-2 text-center border-b border-neutral-700">
-                <span className="font-bold text-white text-sm">{label}</span>
+                <span className="font-bold text-white text-sm block truncate px-2">{label}</span>
                 <span className="block text-xs text-neutral-400 mt-1 uppercase">{hwType}</span>
             </div>
             
@@ -35,29 +36,46 @@ const SchematicNode = ({ data }: { data: any }) => {
                     
                     let color = "bg-neutral-400";
                     if (port.type === "power_out" || port.type === "power_in") color = "bg-red-500";
-                    else if (port.type === "ground") color = "bg-black border border-neutral-500";
+                    else if (port.type === "ground") color = "bg-neutral-300 border border-neutral-500";
                     else if (port.type.includes("pwm") || port.type.includes("i2c")) color = "bg-blue-400";
                     else if (port.type.includes("digital")) color = "bg-green-400";
-                    else if (port.type === "motor_phase") color = "bg-yellow-500";
+                    else if (port.type.includes("analog")) color = "bg-orange-400";
+                    else if (port.type === "motor_phase") color = "bg-purple-500";
 
                     return (
                         <div key={port.id} className={`flex relative items-center justify-between text-xs py-1 ${isInputSide ? 'flex-row' : 'flex-row-reverse'}`}>
                             {isInputSide && (
+                                <>
                                 <Handle
                                     type="target"
                                     position={Position.Left}
                                     id={port.id}
                                     className={`w-3 h-3 ${color} -left-[14px] !border-2 !border-neutral-900`}
                                 />
+                                <Handle
+                                    type="source"
+                                    position={Position.Left}
+                                    id={port.id}
+                                    className={`w-3 h-3 opacity-0`} // Invisible source handle to fix bi-directional Edge routing errors
+                                />
+                                </>
                             )}
                             <span className="text-neutral-300 px-2">{port.label || port.id}</span>
                             {!isInputSide && (
+                                <>
                                 <Handle
                                     type="source"
                                     position={Position.Right}
                                     id={port.id}
                                     className={`w-3 h-3 ${color} -right-[14px] !border-2 !border-neutral-900`}
                                 />
+                                <Handle
+                                    type="target"
+                                    position={Position.Right}
+                                    id={port.id}
+                                    className={`w-3 h-3 opacity-0`} // Invisible target handle
+                                />
+                                </>
                             )}
                         </div>
                     );
@@ -69,6 +87,44 @@ const SchematicNode = ({ data }: { data: any }) => {
 
 const nodeTypes = {
     schematicNode: SchematicNode,
+};
+
+const dagreGraph = new dagre.graphlib.Graph();
+dagreGraph.setDefaultEdgeLabel(() => ({}));
+
+const getLayoutedElements = (nodes: any[], edges: any[], direction = 'LR') => {
+    const isHorizontal = direction === 'LR';
+    dagreGraph.setGraph({ rankdir: direction, align: 'UL', ranksep: 200, nodesep: 100 });
+
+    nodes.forEach((node) => {
+        // Approximate width and height based on ports length
+        const height = Math.max(100, (node.data?.ports?.length || 1) * 30 + 50);
+        dagreGraph.setNode(node.id, { width: 220, height });
+    });
+
+    edges.forEach((edge) => {
+        dagreGraph.setEdge(edge.source, edge.target);
+    });
+
+    dagre.layout(dagreGraph);
+
+    const layoutedNodes = nodes.map((node) => {
+        const nodeWithPosition = dagreGraph.node(node.id);
+        const height = Math.max(100, (node.data?.ports?.length || 1) * 30 + 50);
+        
+        return {
+            ...node,
+            targetPosition: isHorizontal ? 'left' : 'top',
+            sourcePosition: isHorizontal ? 'right' : 'bottom',
+            // Shift coordinates because dagre anchors on center-center, but ReactFlow anchors on top-left
+            position: {
+                x: nodeWithPosition.x - 110,
+                y: nodeWithPosition.y - height / 2,
+            },
+        };
+    });
+
+    return { nodes: layoutedNodes, edges };
 };
 
 export function SchematicsWorkspace({ designData }: { designData?: any }) {
@@ -100,18 +156,27 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
             const coloredEdges = data.edges.map((e: any) => {
                 let stroke = "#9ca3af";
                 if (e.data?.wireType === "power") stroke = "#ef4444"; // red
-                else if (e.data?.wireType === "ground") stroke = "#000000"; // black
-                else if (e.data?.wireType?.includes("pwm") || e.data?.wireType?.includes("i2c")) stroke = "#60a5fa"; // blue
-                else if (e.data?.wireType?.includes("digital")) stroke = "#4ade80"; // green
+                else if (e.data?.wireType === "ground") stroke = "#e5e7eb"; // brighter gray
+                else if (e.data?.wireType?.includes("pwm") || e.data?.wireType?.includes("i2c")) stroke = "#3b82f6"; // bright blue
+                else if (e.data?.wireType?.includes("digital")) stroke = "#22c55e"; // bright green
+                else if (e.data?.wireType?.includes("analog")) stroke = "#f97316"; // bright orange
+                else if (e.data?.wireType === "motor_phase") stroke = "#a855f7"; // bright purple
                 
                 return {
                     ...e,
-                    style: { stroke, strokeWidth: 2 },
+                    style: { stroke, strokeWidth: 4 },
                 };
             });
 
-            setNodes(data.nodes || []);
-            setEdges(coloredEdges || []);
+            // Perform Dagre Layout
+            const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+                data.nodes || [],
+                coloredEdges || [],
+                'LR' // Left-to-Right layout
+            );
+
+            setNodes(layoutedNodes);
+            setEdges(layoutedEdges);
         } catch (err: any) {
             console.error("Schematics generation error:", err);
             setError(err.message);
