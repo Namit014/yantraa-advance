@@ -282,7 +282,8 @@
       "operating_voltage": [5.0, 12.0],
       "ports": [
         {"id": "vcc", "label": "Terminal 1", "type": "power_in"},
-        {"id": "gnd", "label": "Terminal 2", "type": "ground"}
+        {"id": "gnd", "label": "Terminal 2", "type": "ground"},
+        {"id": "shaft", "label": "Shaft", "type": "mechanical_out"}
       ]
     },
     "servo": {
@@ -292,7 +293,8 @@
       "ports": [
         {"id": "vcc", "label": "VCC (Red)", "type": "power_in", "voltage": 5.0},
         {"id": "gnd", "label": "GND (Brown)", "type": "ground"},
-        {"id": "signal", "label": "Signal (Orange)", "type": "pwm_in"}
+        {"id": "signal", "label": "Signal (Orange)", "type": "pwm_in"},
+        {"id": "shaft", "label": "Shaft", "type": "mechanical_out"}
       ]
     },
     "stepper motor": {
@@ -303,7 +305,8 @@
         {"id": "a_plus", "label": "A+", "type": "motor_phase"},
         {"id": "a_minus", "label": "A-", "type": "motor_phase"},
         {"id": "b_plus", "label": "B+", "type": "motor_phase"},
-        {"id": "b_minus", "label": "B-", "type": "motor_phase"}
+        {"id": "b_minus", "label": "B-", "type": "motor_phase"},
+        {"id": "shaft", "label": "Shaft", "type": "mechanical_out"}
       ]
     },
     "a4988": {
@@ -350,6 +353,22 @@
       "ports": [
         {"id": "in", "label": "IN", "type": "power_in"},
         {"id": "out", "label": "OUT", "type": "power_out"}
+      ]
+    },
+    "wheel": {
+      "label": "Rubber Wheel 65mm",
+      "type": "mechanical",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "axle", "label": "Axle", "type": "mechanical_in"}
+      ]
+    },
+    "nozzle": {
+      "label": "Paint Spray Nozzle",
+      "type": "mechanical",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "fluid", "label": "Fluid Tube", "type": "mechanical_in"}
       ]
     }
   }

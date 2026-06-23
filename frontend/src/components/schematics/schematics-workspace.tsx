@@ -43,6 +43,7 @@ const SchematicNode = ({ data }: { data: any }) => {
                     else if (port.type.includes("digital")) color = "bg-green-400";
                     else if (port.type.includes("analog")) color = "bg-orange-400";
                     else if (port.type === "motor_phase") color = "bg-purple-500";
+                    else if (port.type.includes("mechanical")) color = "bg-neutral-100 border-2 border-dashed border-neutral-500";
 
                     return (
                         <div key={port.id} className={`flex relative items-center justify-between text-xs py-1 ${isInputSide ? 'flex-row' : 'flex-row-reverse'}`}>
@@ -231,16 +232,21 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
             // Color edges
             const coloredEdges = data.edges.map((e: any) => {
                 let stroke = "#9ca3af";
+                let strokeDasharray = "0";
                 if (e.data?.wireType === "power") stroke = "#ef4444"; // red
                 else if (e.data?.wireType === "ground") stroke = "#e5e7eb"; // brighter gray
                 else if (e.data?.wireType?.includes("pwm") || e.data?.wireType?.includes("i2c")) stroke = "#3b82f6"; // bright blue
                 else if (e.data?.wireType?.includes("digital")) stroke = "#22c55e"; // bright green
                 else if (e.data?.wireType?.includes("analog")) stroke = "#f97316"; // bright orange
                 else if (e.data?.wireType === "motor_phase") stroke = "#a855f7"; // bright purple
+                else if (e.data?.wireType === "mechanical") {
+                    stroke = "#ffffff";
+                    strokeDasharray = "8 8"; // dashed line
+                }
                 
                 return {
                     ...e,
-                    style: { stroke, strokeWidth: 4 },
+                    style: { stroke, strokeWidth: 4, strokeDasharray },
                 };
             });
 

@@ -44,16 +44,22 @@ def match_hardware(component_name: str, component_role: str, hw_db: dict):
     # Heuristics based on common parts
     if "motor driver" in norm_name or "motor driver" in norm_role or "esc" in norm_name:
         return "l298n", hw_db.get("l298n")
-    if "motor" in norm_name or "motor" in norm_role or "actuator" in norm_name or "pump" in norm_name or "servo" in norm_name:
+    if "motor" in norm_name or "motor" in norm_role or "actuator" in norm_name or "pump" in norm_name or "a 2475" in norm_name or "a 2438" in norm_name:
         return "dc motor", hw_db.get("dc motor")
+    if "servo" in norm_name or "gripper" in norm_name or "a 2055" in norm_name:
+        return "servo", hw_db.get("servo")
     if "sensor" in norm_name or "sensor" in norm_role or "camera" in norm_name or "encoder" in norm_name:
         return "ultrasonic sensor", hw_db.get("ultrasonic sensor")
-    if "power" in norm_name or "power" in norm_role or "battery" in norm_name or "supply" in norm_name:
+    if "power" in norm_name or "power" in norm_role or "battery" in norm_name or "supply" in norm_name or "a 2525" in norm_name:
         return "battery", hw_db.get("battery")
-    if "microcontroller" in norm_name or "brain" in norm_role or "board" in norm_name or "pi" in norm_name:
+    if "microcontroller" in norm_name or "brain" in norm_role or "board" in norm_name or "pi" in norm_name or "a 2432" in norm_name or "flight" in norm_name:
         return "arduino uno", hw_db.get("arduino uno")
     if "switch" in norm_name or "button" in norm_name or "relay" in norm_name:
         return "limit switch", hw_db.get("limit switch")
+    if "wheel" in norm_name or "tire" in norm_name:
+        return "wheel", hw_db.get("wheel")
+    if "nozzle" in norm_name or "spray" in norm_name or "extruder" in norm_name:
+        return "nozzle", hw_db.get("nozzle")
         
     return None, None
 
@@ -368,6 +374,19 @@ async def generate_schematics(req: SchematicsRequest):
                     mcu_pwm = get_available_mcu_port("pwm_out")
                     if sig and mcu_pwm:
                         add_edge(mcu["node_id"], mcu_pwm, motor["node_id"], sig, "pwm_out")
+
+        # Route mechanicals from Motors to Wheels/Nozzles
+        mechanicals = [c for c in components_to_route if c["type"] == "mechanical"]
+        mech_idx = 0
+        for motor in motors:
+            if mech_idx >= len(mechanicals): break
+            mech_out = next((p["id"] for p in motor["ports"] if p["type"] == "mechanical_out"), None)
+            if mech_out:
+                mech_comp = mechanicals[mech_idx]
+                mech_in = next((p["id"] for p in mech_comp["ports"] if p["type"] == "mechanical_in"), None)
+                if mech_in:
+                    add_edge(motor["node_id"], mech_out, mech_comp["node_id"], mech_in, "mechanical")
+                    mech_idx += 1
 
         return {
             "status": "success",
