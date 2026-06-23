@@ -8,7 +8,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
