@@ -72,7 +72,7 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="teams@yantraa.tech"
+                placeholder="Enter your email"
                 className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-200"
                 required
               />
