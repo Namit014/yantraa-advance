@@ -8,7 +8,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
-const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/ask`;
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -216,9 +216,11 @@ async function fetchComponentsFromRAG(
         `"description": string, "connects_to": string[]}`;
 
     try {
-        const res1 = await fetch(RAG_ENDPOINT, {
+        const res1 = await fetch(`${API_BASE}/api/ask`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify({ query: prompt1 }),
         });
         if (res1.ok) {
@@ -233,9 +235,11 @@ async function fetchComponentsFromRAG(
         `Output only raw JSON, no prose. Array of objects with fields: name, category, description, connects_to. ` +
         `Topic: '${topic}'`;
     try {
-        const res2 = await fetch(RAG_ENDPOINT, {
+        const res2 = await fetch(`${API_BASE}/api/ask`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify({ query: prompt2 }),
         });
         if (res2.ok) {
