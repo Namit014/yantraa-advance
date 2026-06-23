@@ -1,0 +1,143 @@
+{
+  "project": "auto_rover",
+  "robot_type": "Mobile Robot",
+  "components": [
+    {
+      "ref": "U1",
+      "part": "Raspberry Pi",
+      "category": "controller"
+    },
+    {
+      "ref": "DRV1",
+      "part": "BTS7960",
+      "category": "driver"
+    },
+    {
+      "ref": "DRV2",
+      "part": "BTS7960",
+      "category": "driver"
+    },
+    {
+      "ref": "ML",
+      "part": "DC Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "MR",
+      "part": "DC Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "IMU1",
+      "part": "IMU",
+      "category": "sensor"
+    },
+    {
+      "ref": "CAM1",
+      "part": "Camera",
+      "category": "sensor"
+    },
+    {
+      "ref": "BATT1",
+      "part": "Batteries",
+      "category": "power"
+    }
+  ],
+  "nets": [
+    {
+      "name": "PWM_L",
+      "connections": [
+        "U1.GPIO12",
+        "DRV1.RPWM"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_L",
+      "connections": [
+        "U1.GPIO13",
+        "DRV1.LPWM"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "PWM_R",
+      "connections": [
+        "U1.GPIO18",
+        "DRV2.RPWM"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_R",
+      "connections": [
+        "U1.GPIO19",
+        "DRV2.LPWM"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "MOT_L_OUT",
+      "connections": [
+        "DRV1.OUT",
+        "ML.TERM"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "MOT_R_OUT",
+      "connections": [
+        "DRV2.OUT",
+        "MR.TERM"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "I2C_SDA",
+      "connections": [
+        "U1.SDA",
+        "IMU1.SDA"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "I2C_SCL",
+      "connections": [
+        "U1.SCL",
+        "IMU1.SCL"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "CSI_DATA",
+      "connections": [
+        "U1.CSI",
+        "CAM1.CSI"
+      ],
+      "inferred": true
+    }
+  ],
+  "functional_blocks": [
+    {
+      "name": "Drive_Left",
+      "components": [
+        "DRV1",
+        "ML"
+      ]
+    },
+    {
+      "name": "Drive_Right",
+      "components": [
+        "DRV2",
+        "MR"
+      ]
+    },
+    {
+      "name": "Perception",
+      "components": [
+        "IMU1",
+        "CAM1"
+      ]
+    }
+  ]
+}
