@@ -1,0 +1,36 @@
+[
+  {
+    "component": "AFBR-1624Z",
+    "type": "Fiber_Optic",
+    "pins": [
+      "VCCT",
+      "NC",
+      "VEET",
+      "Data_in",
+      "HP"
+    ],
+    "description": "Versatile Link Fiber Optic Transmitter",
+    "keywords": [
+      "Fiber",
+      "optic",
+      "transmitter"
+    ]
+  },
+  {
+    "component": "AFBR-2624Z",
+    "type": "Fiber_Optic",
+    "pins": [
+      "Data_Out",
+      "VEER",
+      "VCCR",
+      "NC",
+      "HP"
+    ],
+    "description": "Versatile Link Fiber Optic Receiver",
+    "keywords": [
+      "fiber",
+      "optic",
+      "receiver"
+    ]
+  }
+]

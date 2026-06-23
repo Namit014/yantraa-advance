@@ -1,0 +1,146 @@
+[
+  {
+    "component": "LM134H",
+    "type": "Reference_Current",
+    "pins": [],
+    "description": "1\u03bcA to 10mA 3-Terminal Adjustable Current Source, TO-46",
+    "keywords": [
+      "Adjustable",
+      "Current",
+      "Source",
+      "10mA"
+    ]
+  },
+  {
+    "component": "LM334M",
+    "type": "Reference_Current",
+    "pins": [],
+    "description": "1\u03bcA to 10mA 3-Terminal Adjustable Current Source, SO-8",
+    "keywords": [
+      "Adjustable",
+      "Current",
+      "Source",
+      "10mA"
+    ]
+  },
+  {
+    "component": "LM334SM",
+    "type": "Reference_Current",
+    "pins": [],
+    "description": "1\u03bcA to 10mA 3-Terminal Adjustable Current Source, SO-8 Alternate",
+    "keywords": [
+      "Adjustable",
+      "Current",
+      "Source",
+      "10mA"
+    ]
+  },
+  {
+    "component": "LM334Z",
+    "type": "Reference_Current",
+    "pins": [],
+    "description": "1\u03bcA to 10mA 3-Terminal Adjustable Current Source, TO-92",
+    "keywords": [
+      "Adjustable",
+      "Current",
+      "Source",
+      "10mA"
+    ]
+  },
+  {
+    "component": "LM334Z-LFT1",
+    "type": "Reference_Current",
+    "pins": [],
+    "description": "1\u03bcA to 10mA 3-Terminal Adjustable Current Source, TO-92",
+    "keywords": [
+      "Adjustable",
+      "Current",
+      "Source",
+      "10mA"
+    ]
+  },
+  {
+    "component": "LM234Z-3",
+    "type": "Reference_Current",
+    "pins": [],
+    "description": "1\u03bcA to 10mA 3-Terminal Adjustable Current Source, TO-92",
+    "keywords": [
+      "Adjustable",
+      "Current",
+      "Source",
+      "10mA"
+    ]
+  },
+  {
+    "component": "LM234Z-6",
+    "type": "Reference_Current",
+    "pins": [],
+    "description": "1\u03bcA to 10mA 3-Terminal Adjustable Current Source, TO-92",
+    "keywords": [
+      "Adjustable",
+      "Current",
+      "Source",
+      "10mA"
+    ]
+  },
+  {
+    "component": "LT3092xDD",
+    "type": "Reference_Current",
+    "pins": [
+      "NC"
+    ],
+    "description": "200mA 2-Terminal Programmable Current Source, DFN-8",
+    "keywords": [
+      "current",
+      "source"
+    ]
+  },
+  {
+    "component": "LT3092xST",
+    "type": "Reference_Current",
+    "pins": [],
+    "description": "200mA 2-Terminal Programmable Current Source, SOT-223",
+    "keywords": [
+      "current",
+      "source"
+    ]
+  },
+  {
+    "component": "LT3092xTS8",
+    "type": "Reference_Current",
+    "pins": [
+      "NC"
+    ],
+    "description": "200mA 2-Terminal Programmable Current Source, TSOT-23-8",
+    "keywords": [
+      "current",
+      "source"
+    ]
+  },
+  {
+    "component": "PSSI2021SAY",
+    "type": "Reference_Current",
+    "pins": [
+      "NC",
+      "GND"
+    ],
+    "description": "Constant current source, Io 15\u00b5A to 50mA, SOT-353",
+    "keywords": [
+      "iref",
+      "adjustable"
+    ]
+  },
+  {
+    "component": "REF200AU",
+    "type": "Reference_Current",
+    "pins": [
+      "S"
+    ],
+    "description": "2x100\u03bcA Current Sources/Sinks with Current Mirror, SO-8",
+    "keywords": [
+      "Current",
+      "Source/Sink",
+      "100\u03bcA"
+    ]
+  }
+]

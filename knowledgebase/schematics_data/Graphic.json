@@ -1,0 +1,205 @@
+[
+  {
+    "component": "~Logo_Open_Hardware_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~Logo_Open_Hardware_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow45_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow45_Normal",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow45_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow45_Tiny",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow45_XLarge",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow_Normal",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow_Tiny",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Arrow_XLarge",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_ESD_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_ESD_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Earth_Protective_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Earth_Protective_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Flash_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Flash_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Flash_XLarge",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Hot_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Hot_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_LASER_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_LASER_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Magnet_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Magnet_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Radio_Waves_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Radio_Waves_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Radioactive_Large",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "~SYM_Radioactive_Radiation_Small",
+    "type": "Graphic",
+    "pins": [],
+    "description": "",
+    "keywords": []
+  }
+]

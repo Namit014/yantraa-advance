@@ -1,0 +1,249 @@
+[
+  {
+    "component": "AD628",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "+",
+      "V-",
+      "VREF",
+      "CFILT",
+      "RG",
+      "V+",
+      "-"
+    ],
+    "description": "High Common-Mode Voltage, Programmable Gain Difference Amplifier, +/-120V, Gain = 0.1 to 100, SOIC-8/MSOP-8",
+    "keywords": [
+      "difference",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD8207",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "-IN",
+      "GND",
+      "Vref2",
+      "RANGE",
+      "OUT",
+      "V+",
+      "Vref1",
+      "+IN"
+    ],
+    "description": "65V (35V) Zero-Drift, High Voltage, Bidirectional, Difference Amplifier, 20V/V gain, bandwidth 150kHz, Vcc=5V (3.3V), SOIC-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "difference",
+      "amplifier",
+      "linear",
+      "buffered"
+    ]
+  },
+  {
+    "component": "AD8276",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "REF",
+      "-",
+      "+",
+      "V-",
+      "SENSE",
+      "V+"
+    ],
+    "description": "Low Power, Wide Supply Range, Low Cost Unity-Gain Difference Amplifier, SOIC-8/MSOP-8",
+    "keywords": [
+      "difference",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD8475ACPZ",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "+IN0.4x",
+      "+",
+      "-",
+      "NC",
+      "-Vs",
+      "EP",
+      "+IN0.8x",
+      "-IN0.8x",
+      "-IN0.4x",
+      "+Vs",
+      "VOCM"
+    ],
+    "description": "Precision, Selectable Gain, Fully Differential Funnel Amplifier, LFCSP-16",
+    "keywords": [
+      "selectable",
+      "gain",
+      "ADC",
+      "driver"
+    ]
+  },
+  {
+    "component": "AD8475xRMZ",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "-IN0.8x",
+      "+IN0.8x",
+      "-IN0.4x",
+      "+Vs",
+      "VOCM",
+      "+",
+      "-",
+      "NC",
+      "-Vs",
+      "+IN0.4x"
+    ],
+    "description": "Precision, Selectable Gain, Fully Differential Funnel Amplifier, MSOP-10",
+    "keywords": [
+      "selectable",
+      "gain",
+      "ADC",
+      "driver"
+    ]
+  },
+  {
+    "component": "ADA4940-1xCP",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "-FB",
+      "+OUT",
+      "-OUT",
+      "~DISABLE",
+      "+IN",
+      "-IN",
+      "+FB",
+      "VOCM",
+      "-Vs",
+      "EP",
+      "+Vs"
+    ],
+    "description": "Ultralow Power, Low Distortion, Fully Differential ADC Drivers, LFCSP-16",
+    "keywords": [
+      "differential",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "ADA4940-2",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "-IN1",
+      "VOCM1",
+      "+1",
+      "-1",
+      "+FB1",
+      "~DISABLE1",
+      "-FB1",
+      "+IN1",
+      "VOCM2",
+      "+2",
+      "-2",
+      "~DISABLE2",
+      "-FB2",
+      "+IN2",
+      "-IN2",
+      "+FB2",
+      "EP"
+    ],
+    "description": "Ultralow Power, Low Distortion, Fully Differential ADC Drivers, Dual-Channel, LFCSP-24",
+    "keywords": [
+      "differential",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AMC1100DWV",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "V-"
+    ],
+    "description": "Fully-Differential Isolation Amplifier, Fixed Gain = 8, UL1577/IEC60747-5-2 Approved, SOIC-8",
+    "keywords": [
+      "isolated",
+      "difference",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AMC1300DWV",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "V-"
+    ],
+    "description": "Precision, \u00b1250-mV Input, Reinforced Isolated Amplifier, Fixed Gain = 8.2, UL1577/VDE V 0884-11 Approved, SOIC-8",
+    "keywords": [
+      "isolated",
+      "difference",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LM733CH",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "2A",
+      "2B",
+      "1B",
+      "V-",
+      "V+",
+      "1A"
+    ],
+    "description": "Single Differential Amplifier, TO-5-10",
+    "keywords": [
+      "single",
+      "differential",
+      "video",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM733H",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "2A",
+      "2B",
+      "1B",
+      "V-",
+      "V+",
+      "1A"
+    ],
+    "description": "Single Differential Amplifier, TO-5-10",
+    "keywords": [
+      "single",
+      "differential",
+      "video",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM733CN",
+    "type": "Amplifier_Difference",
+    "pins": [
+      "V+",
+      "1A",
+      "2A",
+      "NC",
+      "2B",
+      "1B",
+      "V-"
+    ],
+    "description": "Single Differential Amplifier, DIP-14",
+    "keywords": [
+      "single",
+      "differential",
+      "video",
+      "opamp"
+    ]
+  }
+]

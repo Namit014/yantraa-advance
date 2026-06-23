@@ -1,0 +1,1704 @@
+[
+  {
+    "component": "24AA02-OT",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "SCL",
+      "GND",
+      "SDA",
+      "VCC",
+      "NC"
+    ],
+    "description": "I2C Serial EEPROM, 2Kb, SOT-23",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC16",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 16Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC02",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 2Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC00",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 128 Bits, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC04",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 4Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC08",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 8Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC01",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 1Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC512",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 512Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC64",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 64Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC1025",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 1024Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC32",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 32Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC256",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 256Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "24LC128",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 128Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "CAT24C256",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "256 kb CMOS Serial EEPROM, DIP-8/SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "EEPROM",
+      "Serial",
+      "256kb"
+    ]
+  },
+  {
+    "component": "CAT24C128",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "128 kb CMOS Serial EEPROM, SOIC-8/TSSOP-8/DFN-8",
+    "keywords": [
+      "I2C",
+      "EEPROM",
+      "Serial",
+      "128kb"
+    ]
+  },
+  {
+    "component": "25LCxxx",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~CS",
+      "MISO",
+      "~WP",
+      "GND",
+      "MOSI",
+      "SCK",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "SPI",
+      "serial"
+    ]
+  },
+  {
+    "component": "BR25Sxxx",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~CS",
+      "MISO",
+      "~WP",
+      "GND",
+      "MOSI",
+      "SCK",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "ROHM Semiconductor SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "SPI",
+      "serial"
+    ]
+  },
+  {
+    "component": "CAT250xxx",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~CS",
+      "MISO",
+      "~WP",
+      "GND",
+      "MOSI",
+      "SCK",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "ON Semiconductor SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "SPI",
+      "serial"
+    ]
+  },
+  {
+    "component": "AT25xxx",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~CS",
+      "MISO",
+      "~WP",
+      "GND",
+      "MOSI",
+      "SCK",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "Microchip SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "SPI",
+      "serial"
+    ]
+  },
+  {
+    "component": "25LCxxx-MC",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~CS",
+      "MISO",
+      "~WP",
+      "GND",
+      "MOSI",
+      "SCK",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "SPI Serial EEPROM, DFN8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "SPI",
+      "serial"
+    ]
+  },
+  {
+    "component": "BR25xxx-NUX",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~CS",
+      "MISO",
+      "~WP",
+      "GND",
+      "MOSI",
+      "SCK",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "ROHM Semiconductor SPI Serial EEPROM, DFN8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "SPI",
+      "serial"
+    ]
+  },
+  {
+    "component": "AT25xxx-MA",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~CS",
+      "MISO",
+      "~WP",
+      "GND",
+      "MOSI",
+      "SCK",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "Microchip SPI Serial EEPROM, DFN8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "SPI",
+      "serial"
+    ]
+  },
+  {
+    "component": "CAT250xxx-HU4",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~CS",
+      "MISO",
+      "~WP",
+      "GND",
+      "MOSI",
+      "SCK",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "ON Semiconductor SPI Serial EEPROM, DFN8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "SPI",
+      "serial"
+    ]
+  },
+  {
+    "component": "28C256",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A14",
+      "A0",
+      "D0",
+      "D1",
+      "D2",
+      "GND",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "A12",
+      "~CS",
+      "A10",
+      "~OE",
+      "A11",
+      "A9",
+      "A8",
+      "A13",
+      "~WE",
+      "VCC",
+      "A7",
+      "A6",
+      "A5",
+      "A4",
+      "A3",
+      "A2",
+      "A1"
+    ],
+    "description": "Paged Parallel EEPROM 256Kb (32K x 8), DIP-28/SOIC-28",
+    "keywords": [
+      "Parallel",
+      "EEPROM",
+      "256Kb"
+    ]
+  },
+  {
+    "component": "93AAxxA",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, 1.8V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93AAxxB",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, 1.8V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93AAxxAT-xOT",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "DO",
+      "Vss",
+      "DI",
+      "CLK",
+      "CS",
+      "V\u0441\u0441"
+    ],
+    "description": "Serial EEPROM, 93 Series, 8-bit word, 1.8V, SOT-23-6",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93AAxxBT-xOT",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "DO",
+      "Vss",
+      "DI",
+      "CLK",
+      "CS",
+      "V\u0441\u0441"
+    ],
+    "description": "Serial EEPROM, 93 Series, 16-bit word, 1.8V, SOT-23",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93AAxxC",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "ORG",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, with ORG Pin, 1.8V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93CxxA",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, 5.0V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93CxxB",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, 5.0V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93CxxC",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "ORG",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, with ORG Pin, 5.0V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93LCxxA",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, 2.5V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93LCxxB",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, 2.5V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93LCxxAxxOT",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "DO",
+      "GND",
+      "DI",
+      "CLK",
+      "CS",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, 2.5V, SOT-23-6",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "93LCxxBxxOT",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "DO",
+      "GND",
+      "DI",
+      "CLK",
+      "CS",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, 2.5V, SOT-23-6",
+    "keywords": [
+      "1K",
+      "Microwire",
+      "Serial",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "93LCxxC",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "CS",
+      "SCLK",
+      "DI",
+      "DO",
+      "GND",
+      "ORG",
+      "NC",
+      "VCC"
+    ],
+    "description": "Serial EEPROM, 93 Series, with ORG Pin, 2.5V, DIP-8/SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "memory",
+      "Microwire"
+    ]
+  },
+  {
+    "component": "AT24CS01-MAHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 1Kb (128x8) with Unique Serial Number, UDFN8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS64-MAHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 64Kb (8192x8) with Unique Serial Number, UDFN8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS32-MAHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 32Kb (4096x8) with Unique Serial Number, UDFN8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS02-MAHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 2Kb (256x8) with Unique Serial Number, UDFN8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS01-SSHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 1Kb (128x8) with Unique Serial Number, SO8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS02-SSHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 2Kb (256x8) with Unique Serial Number, SO8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS01-STUM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "SCL",
+      "GND",
+      "SDA",
+      "VCC",
+      "WP"
+    ],
+    "description": "I2C Serial EEPROM, 1Kb (128x8) with Unique Serial Number, SOT-23-5",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS32-STUM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "SCL",
+      "GND",
+      "SDA",
+      "VCC",
+      "WP"
+    ],
+    "description": "I2C Serial EEPROM, 32Kb (4096x8) with Unique Serial Number, SOT-23-5",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS16-STUM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "SCL",
+      "GND",
+      "SDA",
+      "VCC",
+      "WP"
+    ],
+    "description": "I2C Serial EEPROM, 16Kb (2048x8) with Unique Serial Number, SOT-23-5",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS04-STUM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "SCL",
+      "GND",
+      "SDA",
+      "VCC",
+      "WP"
+    ],
+    "description": "I2C Serial EEPROM, 4Kb (512x8) with Unique Serial Number, SOT-23-5",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS02-STUM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "SCL",
+      "GND",
+      "SDA",
+      "VCC",
+      "WP"
+    ],
+    "description": "I2C Serial EEPROM, 2Kb (256x8) with Unique Serial Number, SOT-23-5",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS08-STUM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "SCL",
+      "GND",
+      "SDA",
+      "VCC",
+      "WP"
+    ],
+    "description": "I2C Serial EEPROM, 8Kb (1024x8) with Unique Serial Number, SOT-23-5",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS01-XHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 1Kb (128x8) with Unique Serial Number, TSSOP8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS02-XHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 2Kb (256x8) with Unique Serial Number, TSSOP8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS04-MAHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 4Kb (512x8) with Unique Serial Number, UDFN8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS04-SSHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 4Kb (512x8) with Unique Serial Number, SO8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS04-XHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 4Kb (512x8) with Unique Serial Number, TSSOP8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS08-MAHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 8Kb (1024x8) with Unique Serial Number, UDFN8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS08-SSHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 8Kb (1024x8) with Unique Serial Number, SO8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS08-XHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 8Kb (1024x8) with Unique Serial Number, TSSOP8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS16-MAHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 16Kb (2048x8) with Unique Serial Number, UDFN8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS16-SSHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 16Kb (2048x8) with Unique Serial Number, SO8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS16-XHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 16Kb (2048x8) with Unique Serial Number, TSSOP8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS32-SSHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 32Kb (4096x8) with Unique Serial Number, SO8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS32-XHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 32Kb (4096x8) with Unique Serial Number, TSSOP8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS64-SSHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 64Kb (8192x8) with Unique Serial Number, SO8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "AT24CS64-XHM",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "I2C Serial EEPROM, 64Kb (8192x8) with Unique Serial Number, TSSOP8",
+    "keywords": [
+      "I2C",
+      "Serial",
+      "EEPROM",
+      "Nonvolatile",
+      "Memory"
+    ]
+  },
+  {
+    "component": "CAT24M01L",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "NC",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "1 Mb I2C CMOS Serial EEPROM, DIP-8",
+    "keywords": [
+      "EEPROM",
+      "1Mb",
+      "I2C"
+    ]
+  },
+  {
+    "component": "CAT24M01W",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "NC",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "1 Mb I2C CMOS Serial EEPROM, SOIC-8",
+    "keywords": [
+      "EEPROM",
+      "1Mb",
+      "I2C"
+    ]
+  },
+  {
+    "component": "CAT24M01X",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "NC",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "1 Mb I2C CMOS Serial EEPROM, SOIC-8W",
+    "keywords": [
+      "EEPROM",
+      "1Mb",
+      "I2C"
+    ]
+  },
+  {
+    "component": "CAT24M01Y",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "NC",
+      "A1",
+      "A2",
+      "GND",
+      "SDA",
+      "SCL",
+      "WP",
+      "VCC"
+    ],
+    "description": "1 Mb I2C CMOS Serial EEPROM, TSSOP-8",
+    "keywords": [
+      "EEPROM",
+      "1Mb",
+      "I2C"
+    ]
+  },
+  {
+    "component": "M24C02-WDW",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "2Kb (256x8) I2C Serial EEPROM, 2.5-5.5V, TSSOP-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C01-WDW",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "1Kb (128x8) I2C Serial EEPROM, 2.5-5.5V, TSSOP-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C01-RDW",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "1Kb (128x8) I2C Serial EEPROM, 1.8-5.5V, TSSOP-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C01-FDW",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "1Kb (128x8) I2C Serial EEPROM, 1.6-5.5V, TSSOP-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C02-RDW",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "2Kb (256x8) I2C Serial EEPROM, 1.8-5.5V, TSSOP-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C02-FDW",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "2Kb (256x8) I2C Serial EEPROM, 1.6-5.5V, TSSOP-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C02-WMN",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "2Kb (256x8) I2C Serial EEPROM, 2.5-5.5V, SOIC-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C01-WMN",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "1Kb (128x8) I2C Serial EEPROM, 2.5-5.5V, SOIC-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C01-RMN",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "1Kb (128x8) I2C Serial EEPROM, 1.8-5.5V, SOIC-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C01-FMN",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "1Kb (128x8) I2C Serial EEPROM, 1.6-5.5V, SOIC-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C02-RMN",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "2Kb (256x8) I2C Serial EEPROM, 1.8-5.5V, SOIC-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M24C02-FMN",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "E0",
+      "E1",
+      "E2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~WC",
+      "VCC"
+    ],
+    "description": "2Kb (256x8) I2C Serial EEPROM, 1.6-5.5V, SOIC-8",
+    "keywords": [
+      "Nonvolatile",
+      "Non-Volatile",
+      "Memory",
+      "ROM",
+      "ST"
+    ]
+  },
+  {
+    "component": "M95256-WMN6P",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "~S",
+      "Q",
+      "~W",
+      "VSS",
+      "D",
+      "C",
+      "~HOLD",
+      "VCC"
+    ],
+    "description": "SPI EEPROM, 256Kb (32K x 8), No Identification Page, 2.5 to 5.5V, SO8",
+    "keywords": [
+      "SPI",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "TMS4C1050N",
+    "type": "Memory_EEPROM",
+    "pins": [
+      "WE",
+      "Q2",
+      "Q1",
+      "Q0",
+      "SRCLK",
+      "RSTR",
+      "RE/OE",
+      "VCC",
+      "RSTW",
+      "SWCLK",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "GND",
+      "Q3"
+    ],
+    "description": "Field Memory, 262264 x 4 bit, [Obsolete 1992-01]",
+    "keywords": [
+      "Field",
+      "Memory"
+    ]
+  }
+]

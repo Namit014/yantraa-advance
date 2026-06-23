@@ -1,0 +1,22 @@
+[
+  {
+    "component": "VL53L1CXV0FY1",
+    "type": "Sensor_Distance",
+    "pins": [
+      "AVDDVCSEL",
+      "SCL",
+      "AVDD",
+      "GND",
+      "AVSSVCSEL",
+      "XSHUT",
+      "GPIO1",
+      "DNC",
+      "SDA"
+    ],
+    "description": "4m distance ranging ToF sensor",
+    "keywords": [
+      "VL53L1x",
+      "ToF"
+    ]
+  }
+]

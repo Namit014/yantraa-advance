@@ -1,0 +1,907 @@
+[
+  {
+    "component": "AD8561",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "V-",
+      "LATCH",
+      "GND",
+      "Q",
+      "~Q"
+    ],
+    "description": "Ultrafast 7 ns Single Supply Comparator, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "cmp",
+      "complementary",
+      "push-pull"
+    ]
+  },
+  {
+    "component": "ADCMP350",
+    "type": "Comparator",
+    "pins": [
+      "VIN",
+      "GND",
+      "VCC"
+    ],
+    "description": "Single-input comparator, internal 0.6V reference, Active-Low Open-Drain output, KS-4",
+    "keywords": [
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "ADCMP354",
+    "type": "Comparator",
+    "pins": [
+      "VIN",
+      "GND",
+      "VCC"
+    ],
+    "description": "Single-input comparator, internal 0.6V reference, Active-High Open-Drain output, KS-4",
+    "keywords": [
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "ADCMP356",
+    "type": "Comparator",
+    "pins": [
+      "VIN",
+      "GND",
+      "VCC"
+    ],
+    "description": "Single-input comparator, internal 0.6V reference, Active-High Push-Pull output, KS-4",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "LM2901",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LM2903",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "_",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/SOP-8/TSSOP-8/VSSOP-8",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LM393",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "_",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LM311",
+    "type": "Comparator",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V-",
+      "BAL",
+      "STRB",
+      "V+"
+    ],
+    "description": "Voltage Comparator, DIP-8/SOIC-8",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LT1011",
+    "type": "Comparator",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V-",
+      "BAL",
+      "STRB",
+      "V+"
+    ],
+    "description": "Voltage Comparator, DIP-8/SOIC-8",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LM319",
+    "type": "Comparator",
+    "pins": [
+      "NC",
+      "GND",
+      "+",
+      "-",
+      "V+",
+      "V-"
+    ],
+    "description": "High Speed Dual Comparator, DIP-14/SOIC-14",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LM319H",
+    "type": "Comparator",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+",
+      "V-"
+    ],
+    "description": "High Speed Dual Comparator, TO-100-10",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LM339",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Differential Comparators, SOIC-14/TSSOP-14",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LMV339",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad General-Purpose Low-Voltage Comparator, SOIC-14/TSSOP-14",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LM397",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "V-",
+      "+",
+      "V+"
+    ],
+    "description": "Single General-Purpose Voltage Comparator with Open-Collector Output, SOT-23-5",
+    "keywords": [
+      "single",
+      "comparator"
+    ]
+  },
+  {
+    "component": "TL331",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "V-",
+      "+",
+      "V+"
+    ],
+    "description": "Single Differential Comparator with Open-Collector Output, SOT-23-5",
+    "keywords": [
+      "single",
+      "comparator"
+    ]
+  },
+  {
+    "component": "LMH7324",
+    "type": "Comparator",
+    "pins": [
+      "VCCO",
+      "~Q",
+      "VEE",
+      "Q",
+      "+",
+      "-",
+      "VCCI",
+      "VEE/EP"
+    ],
+    "description": "Quad 700 ps High Speed Comparator with RSPECL Outputs, WQFN-32",
+    "keywords": [
+      "cmp",
+      "push-pull",
+      "complementary"
+    ]
+  },
+  {
+    "component": "LMV331",
+    "type": "Comparator",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Single General-Purpose Low-Voltage Comparator, SOT-23-5/SC-70-5",
+    "keywords": [
+      "single",
+      "comparator"
+    ]
+  },
+  {
+    "component": "LMV7275",
+    "type": "Comparator",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Single, 1.8V Low Power, Rail-to-Rail Input, Open Collector Output Comparator, SOT-23-5/SC-70-5",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "LMV393",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual General-Purpose Low-Voltage Comparator, SOIC-8/TSSOP-8/VSSOP-8",
+    "keywords": [
+      "cmp",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "LMV7271",
+    "type": "Comparator",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Single, 1.8V Low Power, Rail-to-Rail Input, Push-Pull Output Comparator, SOT-23-5/SC-70-5",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "LMV7272",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual, 1.8V Low Power, Rail-to-Rail Input, Push-Pull Output Comparator, DSBGA-8",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "LT1016",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "V-",
+      "LATCH",
+      "GND",
+      "Q",
+      "~Q"
+    ],
+    "description": "Single UltraFast Precision 10ns Comparator, DIP-8/SOIC-8",
+    "keywords": [
+      "cmp",
+      "push-pull",
+      "complementary",
+      "latch"
+    ]
+  },
+  {
+    "component": "LT1116",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "V-",
+      "LATCH",
+      "GND",
+      "Q",
+      "~Q"
+    ],
+    "description": "Single 12ns, Single Supply Ground-Sensing Comparator, DIP-8/SOIC-8",
+    "keywords": [
+      "cmp",
+      "push-pull",
+      "complementary",
+      "latch"
+    ]
+  },
+  {
+    "component": "LT1711xMS8",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "V-",
+      "LATCH",
+      "GND",
+      "Q",
+      "~Q"
+    ],
+    "description": "Single ultrafast 4.5 ns rail-to-rail comparator, MSOP-8",
+    "keywords": [
+      "cmp",
+      "latch",
+      "push-pull",
+      "complementary"
+    ]
+  },
+  {
+    "component": "LTC6752xMS8-2",
+    "type": "Comparator",
+    "pins": [
+      "VCC",
+      "+",
+      "-",
+      "~SHDN",
+      "~LE",
+      "VEE",
+      "VDD"
+    ],
+    "description": "Single 280Mhz 2.9ns Comparator, Rail-to-Rail Inputs, CMOS Output, MSOP-8",
+    "keywords": [
+      "single",
+      "comparator",
+      "high",
+      "speed",
+      "cmos"
+    ]
+  },
+  {
+    "component": "LTC6752xS5",
+    "type": "Comparator",
+    "pins": [
+      "VEE",
+      "+",
+      "-",
+      "VCC"
+    ],
+    "description": "Single 280Mhz 2.9ns Comparator, Rail-to-Rail Inputs, CMOS Output, TSOT-23-5",
+    "keywords": [
+      "single",
+      "comparator",
+      "high",
+      "speed",
+      "cmos"
+    ]
+  },
+  {
+    "component": "LTC6752xSC6-1",
+    "type": "Comparator",
+    "pins": [
+      "VEE",
+      "+",
+      "-",
+      "~LE",
+      "VCC"
+    ],
+    "description": "Single 280Mhz 2.9ns Comparator, Rail-to-Rail Inputs, CMOS Output, SC-70",
+    "keywords": [
+      "single",
+      "comparator",
+      "high",
+      "speed",
+      "cmos"
+    ]
+  },
+  {
+    "component": "LTC6752xSC6-4",
+    "type": "Comparator",
+    "pins": [
+      "VEE",
+      "+",
+      "-",
+      "VDD",
+      "VCC"
+    ],
+    "description": "Single 280Mhz 2.9ns Comparator, Rail-to-Rail Inputs, CMOS Output, SC-70",
+    "keywords": [
+      "single",
+      "comparator",
+      "high",
+      "speed",
+      "cmos"
+    ]
+  },
+  {
+    "component": "LTC6752xUD-3",
+    "type": "Comparator",
+    "pins": [
+      "VDD",
+      "~Q",
+      "NC",
+      "Q",
+      "VEE",
+      "VCC",
+      "+",
+      "-",
+      "~SHDN",
+      "~LE"
+    ],
+    "description": "Single 280Mhz 2.9ns Comparator, Rail-to-Rail Inputs, CMOS Output, QFN-12",
+    "keywords": [
+      "single",
+      "comparator",
+      "high",
+      "speed",
+      "cmos"
+    ]
+  },
+  {
+    "component": "LTC6754xSC6",
+    "type": "Comparator",
+    "pins": [
+      "Q",
+      "VEE",
+      "+",
+      "-",
+      "VCC",
+      "~Q"
+    ],
+    "description": "Single High Speed Rail-to-Rail Input Comparator with LVDS Compatible Outputs, SC-70-6",
+    "keywords": [
+      "cmp",
+      "r2r",
+      "rtr",
+      "push-pull",
+      "complementary"
+    ]
+  },
+  {
+    "component": "LTC6754xUD",
+    "type": "Comparator",
+    "pins": [
+      "VCCO",
+      "~Q",
+      "NC",
+      "Q",
+      "VEE",
+      "VCCI",
+      "+",
+      "-",
+      "~SHDN",
+      "~LE"
+    ],
+    "description": "Single High Speed Rail-to-Rail Input Comparator with LVDS Compatible Outputs, QFN-12",
+    "keywords": [
+      "cmp",
+      "r2r",
+      "rtr",
+      "push-pull",
+      "complementary"
+    ]
+  },
+  {
+    "component": "MAX941xPA",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "~SHDN",
+      "~LATCH",
+      "V-",
+      "NC"
+    ],
+    "description": "High-Speed, Low-Power, 3V/5V, Rail-to-Rail, Single-Supply Comparator, PDIP-8",
+    "keywords": [
+      "single",
+      "comparator"
+    ]
+  },
+  {
+    "component": "MAX941xSA",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "~SHDN",
+      "~LATCH",
+      "V-",
+      "NC"
+    ],
+    "description": "High-Speed, Low-Power, 3V/5V, Rail-to-Rail, Single-Supply Comparator, SOIC-8",
+    "keywords": [
+      "single",
+      "comparator"
+    ]
+  },
+  {
+    "component": "MAX941xUA",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "~SHDN",
+      "~LATCH",
+      "V-",
+      "NC"
+    ],
+    "description": "High-Speed, Low-Power, 3V/5V, Rail-to-Rail, Single-Supply Comparator, MSOP-8",
+    "keywords": [
+      "single",
+      "comparator"
+    ]
+  },
+  {
+    "component": "MCP6561-OT",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V Low-Power Push-Pull Output Comparator, SOT-23-5",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "TLV7031DBV",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single, 1.6V-6.5V, 315nA Quiescent, Push-Pull Output, Comparator, SOT-23-5/SC-70",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "LMV7219M5",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single Low-Power High-Speed Push-Pull Output Comparator, SOT-23-5",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "MCP6561R",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V Low-Power Push-Pull Output Comparator, SOT-23-5",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "MCP6561U",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V Low-Power Push-Pull Output Comparator, SOT-23-5",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "MCP6561x-LT",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V Low-Power Push-Pull Output Comparator, SC-70-5",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "LMV7219M7",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single Low-Power High-Speed Push-Pull Output Comparator, SC-70-5",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "MCP6562",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "_",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 1.8V Low-Power Push-Pull Output Comparator, SOIC-8/MSOP-8",
+    "keywords": [
+      "cmp"
+    ]
+  },
+  {
+    "component": "MCP6566",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V Low-Power Open-Drain Output Comparator, SOT-23-5/SC-70",
+    "keywords": [
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "TLV7041DBV",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single, 1.6V-6.5V, 315nA Quiescent, Open-Drain Output, Comparator, SOT-23-5/SC-70",
+    "keywords": [
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "MCP6566R",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V Low-Power Open-Drain Output Comparator, SOT-23-5",
+    "keywords": [
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "MCP6566U",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V Low-Power Open-Drain Output Comparator, SOT-23-5",
+    "keywords": [
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "MCP6567",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 1.8V Low-Power Open-Drain Output Comparator, SOIC-8/MSOP-8",
+    "keywords": [
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "MCP6569",
+    "type": "Comparator",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad 1.8V Low-Power Open-Drain Output Comparator, SOIC-14/TSSOP-14",
+    "keywords": [
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "MCP65R41",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "Vref",
+      "V+"
+    ],
+    "description": "3 \u03bcA Comparator with Integrated Reference Voltage, SOT-23-6",
+    "keywords": [
+      "cmp",
+      "reference"
+    ]
+  },
+  {
+    "component": "MCP65R46",
+    "type": "Comparator",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "Vref",
+      "V+"
+    ],
+    "description": "3 \u03bcA Comparator with Integrated Reference Voltage, SOT-23-6",
+    "keywords": [
+      "cmp",
+      "reference",
+      "open",
+      "collector",
+      "drain"
+    ]
+  },
+  {
+    "component": "MIC845H",
+    "type": "Comparator",
+    "pins": [
+      "NIC",
+      "GND",
+      "+",
+      "V+"
+    ],
+    "description": "Micro-Power Comparator / Battery Monitor, Active-High Push-Pull Output, SC-70-5",
+    "keywords": [
+      "single",
+      "cmp"
+    ]
+  },
+  {
+    "component": "MIC845L",
+    "type": "Comparator",
+    "pins": [
+      "NIC",
+      "GND",
+      "+",
+      "V+"
+    ],
+    "description": "Micro-Power Comparator / Battery Monitor, Active-Low Push-Pull Output, SC-70-5",
+    "keywords": [
+      "single",
+      "cmp"
+    ]
+  },
+  {
+    "component": "MIC845N",
+    "type": "Comparator",
+    "pins": [
+      "NIC",
+      "GND",
+      "+",
+      "V+"
+    ],
+    "description": "Micro-Power Comparator / Battery Monitor, Active-High Open-Drain Output, SC-70-5",
+    "keywords": [
+      "single",
+      "cmp",
+      "collector"
+    ]
+  },
+  {
+    "component": "TL3116",
+    "type": "Comparator",
+    "pins": [
+      "V+",
+      "+",
+      "-",
+      "V-",
+      "LATCH",
+      "GND",
+      "Q",
+      "~Q"
+    ],
+    "description": "Single Ultra-Fast Low-Power Precision Comparators, SOIC-8/TSSOP-8",
+    "keywords": [
+      "cmp",
+      "push-pull",
+      "complementary"
+    ]
+  }
+]

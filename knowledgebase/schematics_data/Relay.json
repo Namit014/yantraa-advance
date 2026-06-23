@@ -1,0 +1,2918 @@
+[
+  {
+    "component": "ADW11",
+    "type": "Relay",
+    "pins": [],
+    "description": "Panasonic, 8A/16A, Small Polarized Latching Power Relays, Single coil, 1 Form A",
+    "keywords": [
+      "SPST",
+      "1P1T"
+    ]
+  },
+  {
+    "component": "AZ850-x",
+    "type": "Relay",
+    "pins": [],
+    "description": "American Zettler, Microminiature Polarised Dual Pole Relay",
+    "keywords": [
+      "Miniature",
+      "Polarised",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "AZ850P1-x",
+    "type": "Relay",
+    "pins": [],
+    "description": "American Zettler, Microminiature Polarised Dual Pole Relay Bistable",
+    "keywords": [
+      "Miniature",
+      "Polarised",
+      "Relay",
+      "Dual",
+      "Pole",
+      "Bistable"
+    ]
+  },
+  {
+    "component": "AZ850P2-x",
+    "type": "Relay",
+    "pins": [],
+    "description": "American Zettler, Microminiature Polarised Dual Pole Relay Bistable",
+    "keywords": [
+      "Miniature",
+      "Polarised",
+      "Relay",
+      "Dual",
+      "Pole",
+      "Bistable"
+    ]
+  },
+  {
+    "component": "DIPxx-1Axx-11x",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder DIP reed relay, SPST, Closing Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "DIPxx-1Axx-12x",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder DIP reed relay, SPST, Closing Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "DIPxx-1Axx-12xD",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder DIP reed relay, SPST, Closing Contact, including diode",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "DIPxx-1Axx-13x",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder DIP reed relay, SPST, Closing Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "DIPxx-1Cxx-51x",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder DIP reed relay, SPDT",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "DIPxx-2Axx-21x",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder DIP reed relay, DPST, Closing Contacts",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "DPST"
+    ]
+  },
+  {
+    "component": "EC2-3NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), non-latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-4.5NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), non-latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-5NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), non-latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-12NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), non-latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-24NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), non-latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-3SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), single coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-4.5SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), single coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-5SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), single coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-12SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), single coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-24SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), single coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-3TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), double coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-4.5TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), double coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-5TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), double coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-12TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), double coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EC2-24TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EC2 Series, DPDT (2 Form C), double coil latching, through hole, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3NKX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, high breakdown voltage, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5NKX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, high breakdown voltage, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12NKX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, high breakdown voltage, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24NU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3NUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5NUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5NUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12NUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24NUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3NUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5NUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5NUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12NUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24NUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), non-latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "non",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24SNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3SNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5SNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5SNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12SNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24SNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3SNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5SNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5SNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12SNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24SNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), single coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "single",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24TNU",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3TNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5TNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5TNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12TNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24TNUH",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, small footprint SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-3TNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 3V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-4.5TNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 4.5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-5TNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 5V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-12TNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 12V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "EE2-24TNUX",
+    "type": "Relay",
+    "pins": [],
+    "description": "General purpose signal relay, Kemet EE2 Series, DPDT (2 Form C), double coil latching, high solder joint reliability SMD, 60W/125VA, 220VDC/250VAC, 2A, 24V DC coil",
+    "keywords": [
+      "signal",
+      "relay",
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "DPDT",
+      "DC",
+      "coil",
+      "double",
+      "dual",
+      "coil",
+      "latching"
+    ]
+  },
+  {
+    "component": "FINDER-30.22",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 30.52, Dual Pole Relay, Subminiature 5mm Pitch, 2A",
+    "keywords": [
+      "Dual",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "FINDER-32.21-x000",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 32.21-x000, Single Pole Relay, 6A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "FINDER-32.21-x300",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 32.21-x300, Single Pole Relay SPST-NO, 6A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPST-NO"
+    ]
+  },
+  {
+    "component": "FINDER-36.11-4301",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 36.11-4301, Single Pole Relay SPST-NO Sugar Cube, 10A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPST-NO",
+      "Sugar",
+      "Cube"
+    ]
+  },
+  {
+    "component": "RM50-xx21",
+    "type": "Relay",
+    "pins": [],
+    "description": "RELPOL, Single Pole Relay SPST-NO, 6A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPST-NO"
+    ]
+  },
+  {
+    "component": "FINDER-34.51",
+    "type": "Relay",
+    "pins": [],
+    "description": "Ultra-slim 1 Pole - 6A SPDT relay",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "FINDER-34.51.7xxx.x019",
+    "type": "Relay",
+    "pins": [],
+    "description": "Ultra-slim 1 Pole - 6A SPDT relay",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "FINDER-36.11",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 36.11, SPDT relay, 10A",
+    "keywords": [
+      "spdt",
+      "relay"
+    ]
+  },
+  {
+    "component": "FINDER-40.11",
+    "type": "Relay",
+    "pins": [],
+    "description": "PCB SPDT relay, 10A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT",
+      "Finder"
+    ]
+  },
+  {
+    "component": "FINDER-40.11-2016",
+    "type": "Relay",
+    "pins": [],
+    "description": "PCB SPDT relay, 16A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT",
+      "Finder"
+    ]
+  },
+  {
+    "component": "FINDER-40.31",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 40.31, Single Pole Relay, 3.5mm Pitch, 10A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "FINDER-40.41",
+    "type": "Relay",
+    "pins": [],
+    "description": "PCB SPDT relay, 10A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT",
+      "Finder"
+    ]
+  },
+  {
+    "component": "FINDER-40.51",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 40.51, Single Pole Relay, 5mm Pitch, 10A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "FINDER-40.52",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 40.52, Dual Pole Relay, 5mm Pitch, 10A",
+    "keywords": [
+      "Dual",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "FINDER-41.52",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 41.52, Dual Pole Relay, 5mm Pitch, 8A",
+    "keywords": [
+      "Dual",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "FINDER-44.52",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 44.52, Dual Pole Relay, 5mm Pitch, 6A",
+    "keywords": [
+      "Dual",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "FINDER-44.62",
+    "type": "Relay",
+    "pins": [],
+    "description": "FINDER 44.62, Dual Pole Relay, 5mm Pitch, 10A",
+    "keywords": [
+      "Dual",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "RSM822",
+    "type": "Relay",
+    "pins": [],
+    "description": "RELPOL Dual Pole Relay, 5mm Pitch, 2A",
+    "keywords": [
+      "Dual",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "RM84",
+    "type": "Relay",
+    "pins": [],
+    "description": "RELPOL Dual Pole Relay, 5mm Pitch, 8A",
+    "keywords": [
+      "Dual",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "FRT5",
+    "type": "Relay",
+    "pins": [],
+    "description": "FORWARD INDUSTRIAL, Miniature Dual Pole Relay, DIP-like package",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "FRT5_separated",
+    "type": "Relay",
+    "pins": [],
+    "description": "FORWARD INDUSTRIAL, Miniature Dual Pole Relay, DIP-like package, separate subsymbols",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "Fujitsu_FTR-F1A",
+    "type": "Relay",
+    "pins": [],
+    "description": "Fujitsu Low Profile Power Relay",
+    "keywords": [
+      "double",
+      "pole",
+      "single",
+      "throw",
+      "relay"
+    ]
+  },
+  {
+    "component": "Fujitsu_FTR-F1C",
+    "type": "Relay",
+    "pins": [],
+    "description": "Fujitsu Low Profile Power Relay",
+    "keywords": [
+      "double",
+      "pole",
+      "double",
+      "throw",
+      "relay"
+    ]
+  },
+  {
+    "component": "G2RL-2-DC5",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, 5V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-DC12",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, 12V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-DC24",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, 24V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-DC48",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, 48V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-ASI-DC5",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, AgSnIn (large inrush current) contacts, 5V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-ASI-DC12",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, AgSnIn (large inrush current) contacts, 12V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-ASI-DC24",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, AgSnIn (large inrush current) contacts, 24V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-ASI-DC48",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, AgSnIn (large inrush current) contacts, 48V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-24-DC5",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, sealed, 5V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-24-DC12",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, sealed, 12V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-24-DC24",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, sealed, 24V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-24-DC48",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, sealed, 48V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-HA-DC5",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, IEC/EN60335-1, 5V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-HA-DC12",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, IEC/EN60335-1, 12V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G2RL-2-HA-DC24",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Omron G2RL series, IEC/EN60335-1, 24V coil",
+    "keywords": [
+      "Omron",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "G5LE-1",
+    "type": "Relay",
+    "pins": [],
+    "description": "Omron G5LE relay, Miniature Single Pole, SPDT, 10A",
+    "keywords": [
+      "Miniature",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "G5Q-1",
+    "type": "Relay",
+    "pins": [],
+    "description": "Omron G5G relay, Miniature Single Pole, SPDT, 10A",
+    "keywords": [
+      "Miniature",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "G5Q-1A",
+    "type": "Relay",
+    "pins": [],
+    "description": "Omron G5Q relay, Miniature Single Pole, SPST-NO, 10A",
+    "keywords": [
+      "Miniature",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "G5V-1",
+    "type": "Relay",
+    "pins": [],
+    "description": "Ultra-miniature, Highly Sensitive SPDT Relay for Signal Circuits",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "G5V-2",
+    "type": "Relay",
+    "pins": [],
+    "description": "Relay Miniature Omron DPDT",
+    "keywords": [
+      "Miniature",
+      "Relay",
+      "Dual",
+      "Pole",
+      "DPDT",
+      "Omron"
+    ]
+  },
+  {
+    "component": "G5V-2_Split",
+    "type": "Relay",
+    "pins": [],
+    "description": "Relay Miniature Omron DPDT",
+    "keywords": [
+      "Miniature",
+      "Relay",
+      "Dual",
+      "Pole",
+      "DPDT",
+      "Omron"
+    ]
+  },
+  {
+    "component": "G6E",
+    "type": "Relay",
+    "pins": [],
+    "description": "Omron Subminiature Sensitive SPDT Signal Switching Relay, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "G6EU",
+    "type": "Relay",
+    "pins": [],
+    "description": "Omron G6E relay, Subminiature, Sensitive SPDT Signal Switching Relay, Single-winding latching",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "G6H-2",
+    "type": "Relay",
+    "pins": [
+      "NC"
+    ],
+    "description": "Omron Ultracompact, Ultrasensitive DPDT Relay, Single-side Stable",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "G6HU-2",
+    "type": "Relay",
+    "pins": [
+      "NC"
+    ],
+    "description": "Omron Ultracompact, Ultrasensitive DPDT Relay, Single-winding Latching",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "G6K-2",
+    "type": "Relay",
+    "pins": [],
+    "description": "Miniature 2-pole relay, Single-side Stable",
+    "keywords": [
+      "Miniature",
+      "Relay",
+      "Dual",
+      "Pole",
+      "DPDT",
+      "Omron"
+    ]
+  },
+  {
+    "component": "G6KU-2",
+    "type": "Relay",
+    "pins": [],
+    "description": "Miniature 2-pole relay, Single-winding Latching",
+    "keywords": [
+      "Miniature",
+      "Relay",
+      "Dual",
+      "Pole",
+      "DPDT",
+      "Omron"
+    ]
+  },
+  {
+    "component": "G6S-2",
+    "type": "Relay",
+    "pins": [],
+    "description": "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-side Stable",
+    "keywords": [
+      "Miniature",
+      "Relay",
+      "Dual",
+      "Pole",
+      "DPDT",
+      "Omron"
+    ]
+  },
+  {
+    "component": "G6SK-2",
+    "type": "Relay",
+    "pins": [],
+    "description": "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Double-winding Latching",
+    "keywords": [
+      "Miniature",
+      "Relay",
+      "Dual",
+      "Pole",
+      "DPDT",
+      "Omron"
+    ]
+  },
+  {
+    "component": "G6SU-2",
+    "type": "Relay",
+    "pins": [],
+    "description": "Compact, Industry-Standard 2-pole relay, designed to switch 2A Signal Loads, Single-winding Latching",
+    "keywords": [
+      "Miniature",
+      "Relay",
+      "Dual",
+      "Pole",
+      "DPDT",
+      "Omron"
+    ]
+  },
+  {
+    "component": "HF3-01",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 75ohm, 3Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-02",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 75ohm, 4.5Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-03",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 75ohm, 5Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-04",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 75ohm, 6Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-05",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 75ohm, 9Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-06",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 75ohm, 12Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-07",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 75ohm, 24Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-51",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 50ohm, 3Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-52",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 50ohm, 4.5Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-53",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 50ohm, 5Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-54",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 50ohm, 6Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-55",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 50ohm, 9Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-56",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 50ohm, 12Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "HF3-57",
+    "type": "Relay",
+    "pins": [
+      "GND"
+    ],
+    "description": "AXICOM HF3 relay, 3GHz, SPDT RF Switching Relay, 50ohm, 24Vdc, Single-Side Stable",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "IM00",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC, THT package",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM01",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM02",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM03",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM04",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM05",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM06",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM07",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM08",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monostable"
+    ]
+  },
+  {
+    "component": "IM11",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM12",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM13",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM16",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM17",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM21",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, high sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM22",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, high sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM23",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, high sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM26",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, high sensitive version, monostable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "monastable",
+      "sensitive"
+    ]
+  },
+  {
+    "component": "IM40",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "IM41",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "IM42",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "IM43",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "IM44",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "IM45",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "IM46",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "IM47",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "IM48",
+    "type": "Relay",
+    "pins": [],
+    "description": "IM Relay, standard version, bistable, switching current 2/5A, power 60W/62.5VA, voltage 220VDC/250VAC",
+    "keywords": [
+      "relay",
+      "bistable"
+    ]
+  },
+  {
+    "component": "JW2",
+    "type": "Relay",
+    "pins": [],
+    "description": "General Purpose Relay DPDT (2 Form C) Through Hole, Panasonic JW series",
+    "keywords": [
+      "Panasonic",
+      "Relay",
+      "Dual",
+      "Pole"
+    ]
+  },
+  {
+    "component": "MSxx-1Axx-75",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder MS reed relay, SPST, Closing Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "MSxx-1Bxx-75",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder MS reed relay, SPST, Opening Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "RAYEX-L90",
+    "type": "Relay",
+    "pins": [],
+    "description": "Power relay, SPDT, 30A",
+    "keywords": [
+      "30A",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "RAYEX-L90A",
+    "type": "Relay",
+    "pins": [],
+    "description": "Power relay, NO, SPST, 30A",
+    "keywords": [
+      "30A",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "RAYEX-L90AS",
+    "type": "Relay",
+    "pins": [],
+    "description": "Power relay, Without Common Terminal between coil terminals, NO, SPST, 30A",
+    "keywords": [
+      "30A",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "RAYEX-L90B",
+    "type": "Relay",
+    "pins": [],
+    "description": "Power relay, NC, SPST, 30A",
+    "keywords": [
+      "30A",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "RAYEX-L90BS",
+    "type": "Relay",
+    "pins": [],
+    "description": "Power relay, Without Common Terminal between coil terminals, NC, SPST, 30A",
+    "keywords": [
+      "30A",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "RAYEX-L90S",
+    "type": "Relay",
+    "pins": [],
+    "description": "Power relay, Without Common Terminal between coil terminals, SPDT, 30A",
+    "keywords": [
+      "30A",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "RT314A03",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT1 relay, bistable single pole dual throw, single DC coil, 3V",
+    "keywords": [
+      "TE",
+      "SPDT",
+      "1P2T",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RT314A05",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT1 relay, bistable single pole dual throw, single DC coil, 5V",
+    "keywords": [
+      "TE",
+      "SPDT",
+      "1P2T",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RT314A06",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT1 relay, bistablesingle pole dual throw, single DC coil, 6V",
+    "keywords": [
+      "TE",
+      "SPDT",
+      "1P2T",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RT314A12",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT1 relay, bistable single pole dual throw, single DC coil, 12V",
+    "keywords": [
+      "TE",
+      "SPDT",
+      "1P2T",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RT314A24",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT1 relay, bistable single pole dual throw, single DC coil, 24V, IEC 60335-1",
+    "keywords": [
+      "TE",
+      "SPDT",
+      "1P2T",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RT42xAxx",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT2 relay, bistable dual pole dual throw, single DC coil",
+    "keywords": [
+      "TE",
+      "DPDT",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RTE2xAxx",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT2 relay, bistable dual pole dual throw, single DC coil",
+    "keywords": [
+      "TE",
+      "DPDT",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RT42xFxx",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT2 relay, bistable dual pole dual throw, dual DC coils",
+    "keywords": [
+      "TE",
+      "DPDT",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RTE2xFxx",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT2 relay, bistable dual pole dual throw, dual DC coils",
+    "keywords": [
+      "TE",
+      "DPDT",
+      "CO",
+      "bistable",
+      "DC"
+    ]
+  },
+  {
+    "component": "RT42xxxx",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT2 relay, monostable dual pole dual throw, DC or AC coil",
+    "keywords": [
+      "TE",
+      "DPDT",
+      "CO",
+      "monostable"
+    ]
+  },
+  {
+    "component": "RTE2xxxx",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT2 relay, monostable dual pole dual throw, DC or AC coil",
+    "keywords": [
+      "TE",
+      "DPDT",
+      "CO",
+      "monostable"
+    ]
+  },
+  {
+    "component": "RT44xxxx",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT2 relay, monostable dual pole normally open, DC or AC coil",
+    "keywords": [
+      "TE",
+      "DPST",
+      "NO",
+      "monostable"
+    ]
+  },
+  {
+    "component": "RTE4xxxx",
+    "type": "Relay",
+    "pins": [],
+    "description": "Schrack RT2 relay, monostable dual pole normally open, DC or AC coil",
+    "keywords": [
+      "TE",
+      "DPST",
+      "NO",
+      "monostable"
+    ]
+  },
+  {
+    "component": "SANYOU_SRD_Form_A",
+    "type": "Relay",
+    "pins": [],
+    "description": "Sanyo SRD relay, Single Pole Miniature Power Relay, Closing Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "SANYOU_SRD_Form_B",
+    "type": "Relay",
+    "pins": [],
+    "description": "Sanyo SRD relay, Single Pole Miniature Power Relay, Opening Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "SANYOU_SRD_Form_C",
+    "type": "Relay",
+    "pins": [],
+    "description": "Sanyo SRD relay, Single Pole Miniature Power Relay,",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "SILxx-1Axx-71x",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder SIL reed relay, SPST, Closing Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "SILxx-1Bxx-71x",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder SIL reed relay, SPST, Opening Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "SILxx-1Cxx-51x",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder SIL reed relay, SPDT",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "TE_PCH-1xxx2M",
+    "type": "Relay",
+    "pins": [],
+    "description": "TE PCH relay, Miniature Single Pole, SPST-NO",
+    "keywords": [
+      "Miniature",
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "TIANBO-HJR-4102-L",
+    "type": "Relay",
+    "pins": [],
+    "description": "TIANBO HJR-4102-L, Single Pole Relay, 5mm Pitch, 3A",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Relay"
+    ]
+  },
+  {
+    "component": "UMS05-1A80-75D",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder UMS reed relay, SPST, Closing Contact, with diode",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "UMS05-1A80-75L",
+    "type": "Relay",
+    "pins": [],
+    "description": "Standex Meder UMS reed relay, SPST, Closing Contact",
+    "keywords": [
+      "Single",
+      "Pole",
+      "Reed",
+      "Relay",
+      "SPST"
+    ]
+  },
+  {
+    "component": "Y14x-1C-xxDS",
+    "type": "Relay",
+    "pins": [],
+    "description": "Hsin Da Y14-series relay, Single Pole Dual Throw",
+    "keywords": [
+      "Relay",
+      "SPDT"
+    ]
+  }
+]
