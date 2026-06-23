@@ -28,12 +28,12 @@ def match_hardware(component_name: str, component_role: str, hw_db: dict):
     
     # Try direct match
     for key, hw in hw_db.items():
-        if key in norm_name or norm_name in key:
+        if key in norm_name:
             return key, hw
             
     # Try role match
     for key, hw in hw_db.items():
-        if key in norm_role or norm_role in key:
+        if key in norm_role:
             return key, hw
             
     # Heuristics based on common parts
@@ -131,6 +131,18 @@ async def generate_schematics(req: SchematicsRequest):
                 })
                 node_id_counter += 1
 
+        # Ensure at least one sensor always exists
+        if not any(c["type"] == "sensor" for c in components_to_route):
+            if "ultrasonic sensor" in hw_db:
+                components_to_route.append({
+                    "node_id": f"comp_{node_id_counter}",
+                    "name": hw_db["ultrasonic sensor"].get("label", "HC-SR04 Ultrasonic Sensor"),
+                    "type": "sensor",
+                    "ports": hw_db["ultrasonic sensor"]["ports"],
+                    "hw_key": "ultrasonic sensor"
+                })
+                node_id_counter += 1
+
         # Add default power source if none exists
         if not any(c["type"] == "power" for c in components_to_route):
             if "battery" in hw_db:
@@ -145,7 +157,6 @@ async def generate_schematics(req: SchematicsRequest):
                 
         # Insert Fuse if we have motor drivers and power
         has_power = any(c["type"] == "power" for c in components_to_route)
-        # Prevent multiple fuses if the prompt generated some already
         has_fuse = any(c["type"] == "protection" for c in components_to_route)
         if has_power and "fuse" in hw_db and not has_fuse:
             components_to_route.append({
@@ -156,6 +167,26 @@ async def generate_schematics(req: SchematicsRequest):
                 "hw_key": "fuse"
             })
             node_id_counter += 1
+
+        # Clean up duplicates of unique parts to prevent isolated unrouted nodes
+        cleaned_components = []
+        seen_mcu = False
+        seen_battery = False
+        seen_fuse = False
+        
+        for c in components_to_route:
+            if c["type"] == "microcontroller":
+                if seen_mcu: continue
+                seen_mcu = True
+            if c["type"] == "power":
+                if seen_battery: continue
+                seen_battery = True
+            if c["type"] == "protection":
+                if seen_fuse: continue
+                seen_fuse = True
+            cleaned_components.append(c)
+            
+        components_to_route = cleaned_components
 
         nodes = []
         edges = []
