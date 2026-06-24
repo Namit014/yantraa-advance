@@ -11,9 +11,11 @@ import {
     useEdgesState,
     Handle,
     Position,
+    useReactFlow,
+    Panel,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { Loader2, Download, ChevronDown } from "lucide-react";
+import { Loader2, Download, ChevronDown, ZoomIn, ZoomOut, Maximize } from "lucide-react";
 import dagre from "dagre";
 import { toPng, toSvg } from 'html-to-image';
 import jsPDF from 'jspdf';
@@ -128,6 +130,28 @@ const getLayoutedElements = (nodes: any[], edges: any[], direction = 'LR') => {
     });
 
     return { nodes: layoutedNodes, edges };
+};
+
+const CustomControls = () => {
+    const { zoomIn, zoomOut, fitView } = useReactFlow();
+    
+    return (
+        <Panel position="top-left" className="flex items-center gap-1 bg-neutral-800/90 backdrop-blur-sm border border-neutral-700 p-1 rounded-lg shadow-lg m-4">
+            <button onClick={() => zoomIn({ duration: 300 })} className="px-3 py-2 hover:bg-neutral-700 rounded-md text-neutral-300 hover:text-white transition-colors flex items-center gap-2">
+                <ZoomIn className="w-4 h-4" />
+                <span className="text-sm font-medium">Zoom In</span>
+            </button>
+            <button onClick={() => zoomOut({ duration: 300 })} className="px-3 py-2 hover:bg-neutral-700 rounded-md text-neutral-300 hover:text-white transition-colors flex items-center gap-2">
+                <ZoomOut className="w-4 h-4" />
+                <span className="text-sm font-medium">Zoom Out</span>
+            </button>
+            <div className="w-[1px] h-5 bg-neutral-600 mx-1" />
+            <button onClick={() => fitView({ duration: 800, padding: 0.1 })} className="px-3 py-2 hover:bg-neutral-700 rounded-md text-neutral-300 hover:text-white transition-colors flex items-center gap-2">
+                <Maximize className="w-4 h-4" />
+                <span className="text-sm font-medium">Fit to Screen</span>
+            </button>
+        </Panel>
+    );
 };
 
 export function SchematicsWorkspace({ designData }: { designData?: any }) {
@@ -318,7 +342,7 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
                 className="bg-neutral-900"
             >
                 <Background color="#333" gap={16} />
-                <Controls className="bg-neutral-800 border-neutral-700 fill-white" />
+                <CustomControls />
             </ReactFlow>
 
             {/* Export Menu Overlay */}

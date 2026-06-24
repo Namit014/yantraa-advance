@@ -408,6 +408,15 @@
         {"id": "pos", "label": "+", "type": "power_in"},
         {"id": "neg", "label": "-", "type": "ground"}
       ]
+    },
+    "protection diode": {
+      "label": "1N5408 Protection Diode",
+      "type": "protection",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "anode", "label": "Anode", "type": "power_in"},
+        {"id": "cathode", "label": "Cathode", "type": "power_out"}
+      ]
     }
   }
 }

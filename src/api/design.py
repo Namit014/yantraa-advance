@@ -271,7 +271,10 @@ ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
 13. **Controller Architecture**: If multiple controllers are used, explicitly show UART/I2C/SPI connections, their purpose, and Master/slave relationship. Remove redundant controllers if they don't serve a clear purpose.
 14. **Validation & Completion**: Verify every component connection and ensure no floating, incomplete, or ambiguous connections. Validate that the design can realistically be built without electrical conflicts. Follow real engineering best practices. Apply these rules to all future robot schematics regardless of robot type.
 15. **Validation Report**: Use the `validation` array to output a validation report listing every improvement made (e.g., "Added reverse polarity protection") and assumptions used (e.g., "Assumed 24V for primary joint motors").
-16. **Professional Engineering Documentation Quality**: Every component must have complete power, ground, and signal connections. Every signal path must be identifiable. Every voltage rail must be labeled. Every driver, regulator, sensor, and actuator must show realistic real-world wiring suitable for PCB design, debugging, and robot assembly. Target 9.5+/10 electrical accuracy.
+16. **Professional Engineering Documentation Quality**: Every component must have complete power, ground, and signal connections. Every signal path must be identifiable. Every voltage rail must be labeled. Every driver, regulator, sensor, and actuator must show realistic real-world wiring suitable for PCB design, debugging, and robot assembly. Target 9.5-10/10 electrical accuracy.
+17. **Advanced Power Protection**: You MUST include a standard Protection Diode (e.g., 1N5408) for reverse-polarity protection in series with the main battery positive line, placed immediately after the Master Power Switch and before the Fuse. 
+18. **Strict MCU Power Sourcing**: If a 5V Buck Converter is present, route the +5V output directly to the Arduino's 5V pin, NOT the VIN pin. If no 5V buck converter exists, power the Arduino via VIN using the 7-9V/12V source.
+19. **Explicit Signal Documentation**: Explicitly specify the actual hardware pin label (e.g., D2, D3, D5) on the MCU for all signal connections. Do not rely on generic wiring.
 
 OUTPUT FORMAT:
 {
