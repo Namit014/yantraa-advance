@@ -469,6 +469,52 @@
         {"id": "data", "label": "DATA (RS-485/TTL)", "type": "digital_in_out"},
         {"id": "shaft", "label": "Shaft", "type": "mechanical_out"}
       ]
+    },
+    "odri master board": {
+      "label": "ODRI Master Board",
+      "type": "microcontroller",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "5v", "label": "5V IN", "type": "power_in", "voltage": 5.0},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "eth", "label": "Ethernet", "type": "digital_in_out"},
+        {"id": "spi_mosi", "label": "SPI MOSI", "type": "spi_mosi"},
+        {"id": "spi_miso", "label": "SPI MISO", "type": "spi_miso"},
+        {"id": "spi_sck", "label": "SPI SCK", "type": "spi_sck"},
+        {"id": "spi_cs1", "label": "SPI CS 1", "type": "spi_cs"},
+        {"id": "spi_cs2", "label": "SPI CS 2", "type": "spi_cs"},
+        {"id": "spi_cs3", "label": "SPI CS 3", "type": "spi_cs"},
+        {"id": "spi_cs4", "label": "SPI CS 4", "type": "spi_cs"}
+      ]
+    },
+    "blmc micro driver": {
+      "label": "BLMC Micro Driver",
+      "type": "motor_driver",
+      "operating_voltage": [12.0, 24.0, 48.0],
+      "ports": [
+        {"id": "vin", "label": "Power IN", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "spi_mosi", "label": "SPI MOSI", "type": "spi_mosi"},
+        {"id": "spi_miso", "label": "SPI MISO", "type": "spi_miso"},
+        {"id": "spi_sck", "label": "SPI SCK", "type": "spi_sck"},
+        {"id": "spi_cs", "label": "SPI CS", "type": "spi_cs"},
+        {"id": "phase_a", "label": "Phase A", "type": "motor_phase"},
+        {"id": "phase_b", "label": "Phase B", "type": "motor_phase"},
+        {"id": "phase_c", "label": "Phase C", "type": "motor_phase"}
+      ]
+    },
+    "odri actuator module": {
+      "label": "ODRI Actuator Module",
+      "type": "motor",
+      "operating_voltage": [24.0, 48.0],
+      "ports": [
+        {"id": "phase_a", "label": "Phase A", "type": "motor_phase"},
+        {"id": "phase_b", "label": "Phase B", "type": "motor_phase"},
+        {"id": "phase_c", "label": "Phase C", "type": "motor_phase"},
+        {"id": "encoder_a", "label": "Encoder A", "type": "digital_out"},
+        {"id": "encoder_b", "label": "Encoder B", "type": "digital_out"},
+        {"id": "shaft", "label": "Shaft (Belt Driven)", "type": "mechanical_out"}
+      ]
     }
   }
 }

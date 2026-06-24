@@ -60,6 +60,12 @@ def match_hardware(component_name: str, component_role: str, hw_db: dict):
         return "battery", hw_db.get("battery")
     if "beaglebone" in norm_name or "sbc" in norm_name or "jetson" in norm_name or "pi" in norm_name:
         return "beaglebone black", hw_db.get("beaglebone black")
+    if "master board" in norm_name or "odri master" in norm_name:
+        return "odri master board", hw_db.get("odri master board")
+    if "micro driver" in norm_name or "blmc" in norm_name or "microdriver" in norm_name:
+        return "blmc micro driver", hw_db.get("blmc micro driver")
+    if "actuator module" in norm_name or "odri actuator" in norm_name:
+        return "odri actuator module", hw_db.get("odri actuator module")
     if "stm32" in norm_name or "opencr" in norm_name or "real-time" in norm_role:
         return "stm32f7", hw_db.get("stm32f7")
     if "microcontroller" in norm_name or "brain" in norm_role or "board" in norm_name or "a 2432" in norm_name or "flight" in norm_name:
@@ -236,7 +242,7 @@ async def generate_schematics(req: SchematicsRequest):
             if not mcu: return None
             
             # Special case for I2C and SPI, they are buses so ports can be shared
-            if port_type in ["i2c_data", "i2c_clock"]:
+            if port_type in ["i2c_data", "i2c_clock", "spi_mosi", "spi_miso", "spi_sck"]:
                 for p in mcu["ports"]:
                     if p["type"] == port_type:
                         used_mcu_ports.add(p["id"])
@@ -358,6 +364,24 @@ async def generate_schematics(req: SchematicsRequest):
                     if mcu_sda and mcu_scl:
                         add_edge(mcu["node_id"], mcu_sda, c["node_id"], c_sda, "i2c_data")
                         add_edge(mcu["node_id"], mcu_scl, c["node_id"], c_scl, "i2c_clock")
+                        
+                # SPI Routing
+                c_mosi = next((p["id"] for p in c["ports"] if p["type"] == "spi_mosi"), None)
+                c_miso = next((p["id"] for p in c["ports"] if p["type"] == "spi_miso"), None)
+                c_sck = next((p["id"] for p in c["ports"] if p["type"] == "spi_sck"), None)
+                c_cs = next((p["id"] for p in c["ports"] if p["type"] == "spi_cs"), None)
+                
+                if c_mosi and c_miso and c_sck and c_cs:
+                    mcu_mosi = get_available_mcu_port("spi_mosi", fallback_allowed=False) or get_available_mcu_port("digital_out")
+                    mcu_miso = get_available_mcu_port("spi_miso", fallback_allowed=False) or get_available_mcu_port("digital_in")
+                    mcu_sck = get_available_mcu_port("spi_sck", fallback_allowed=False) or get_available_mcu_port("digital_out")
+                    mcu_cs = get_available_mcu_port("spi_cs", fallback_allowed=False) or get_available_mcu_port("digital_out")
+                    
+                    if mcu_mosi and mcu_miso and mcu_sck and mcu_cs:
+                        add_edge(mcu["node_id"], mcu_mosi, c["node_id"], c_mosi, "spi_mosi")
+                        add_edge(mcu["node_id"], mcu_miso, c["node_id"], c_miso, "spi_miso")
+                        add_edge(mcu["node_id"], mcu_sck, c["node_id"], c_sck, "spi_sck")
+                        add_edge(mcu["node_id"], mcu_cs, c["node_id"], c_cs, "spi_cs")
                         
                 # PWM Routing
                 for p in c["ports"]:
