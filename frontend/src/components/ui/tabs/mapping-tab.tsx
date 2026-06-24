@@ -2,7 +2,7 @@
 
 import {
     Search, X, SlidersHorizontal, Plus, Crosshair,
-    LayoutGrid, Maximize2, Trash2, RefreshCw, Network, PanelLeft
+    LayoutGrid, Maximize2, Trash2, RefreshCw, Network, PanelLeft, PanelRight
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
@@ -728,6 +728,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
     const [activeView, setActiveView] = useState<"canvas">("canvas");
     const [isLibraryOpen, setIsLibraryOpen] = useState(true);
+    const [isInspectorOpen, setIsInspectorOpen] = useState(true);
     
     useEffect(() => {
         console.log(`[MappingTab] Successfully mounted/loaded with activeView: ${activeView}`);
@@ -1178,13 +1179,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
                 {/* 2. DYNAMIC MAIN VIEW (Middle Column) */}
                 <div className="flex-1 h-full bg-[#050505] relative border-r border-neutral-800/50 flex flex-col">
-                    {/* FLOATING ACTION BUTTONS */}
-                    <div className="absolute top-4 right-4 z-50 flex items-center gap-2">
-                        {isLoading && <div className="text-xs text-blue-400 animate-pulse mr-2 bg-[#0B0E14]/80 px-2 py-1 rounded">Updating...</div>}
-                        <button onClick={handleAutoLayout} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-purple-400 bg-[#0B0E14] hover:bg-purple-900/40 rounded border border-purple-900/50 transition-colors shadow-md"><Network size={12} /> Auto Layout</button>
-                        <button onClick={handleRefresh} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-sky-400 bg-[#0B0E14] hover:bg-sky-900/40 rounded border border-sky-900/50 transition-colors shadow-md"><RefreshCw size={12} /> Refresh</button>
-                        <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-[#0B0E14] hover:bg-red-900/40 rounded border border-red-900/50 transition-colors shadow-md"><Trash2 size={12} /> Clear</button>
-                    </div>
                     {activeView === "bom" ? (
                         <div className="flex-1 overflow-y-auto p-8 bg-[#050505]">
                             <div className="max-w-5xl mx-auto pb-10">
@@ -1339,7 +1333,10 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                     edges={rfEdges}
                                     onNodesChange={onNodesChange}
                                     onConnect={onConnect}
-                                    onNodeClick={(_: any, node: any) => setSelectedId(node.id)}
+                                    onNodeClick={(_: any, node: any) => {
+                                        setSelectedId(node.id);
+                                        setIsInspectorOpen(true);
+                                    }}
                                     nodeTypes={nodeTypes}
                                     fitView
                                     onlyRenderVisibleElements={true}
@@ -1353,9 +1350,18 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                     )}
                 </div>
 
+                {/* FLOATING RIGHT TOGGLE BUTTON */}
+                <button 
+                    onClick={() => setIsInspectorOpen(!isInspectorOpen)}
+                    className={`absolute top-[22px] right-4 z-50 p-1.5 rounded transition-colors ${isInspectorOpen ? 'bg-[#1a2333] text-sky-400' : 'bg-[#131823] border border-neutral-800 text-neutral-400 hover:text-white shadow-lg'}`}
+                    title="Toggle Inspector"
+                >
+                    <PanelRight size={16} />
+                </button>
+
                 {/* 3. INSPECTOR (Right Column) */}
-                <div className="w-[340px] h-full bg-[#0B0E14] flex flex-col shrink-0 z-20">
-                    <div className="flex items-center justify-between p-4 border-b border-neutral-800/50 bg-[#0f1219]">
+                <div className={`h-full bg-[#0B0E14] flex flex-col shrink-0 z-20 transition-all duration-300 ease-in-out ${isInspectorOpen ? 'w-[340px] opacity-100' : 'w-0 opacity-0 border-none overflow-hidden'}`}>
+                    <div className="flex items-center justify-between p-4 pr-12 border-b border-neutral-800/50 bg-[#0f1219]">
                         <h2 className="text-xs font-bold text-white tracking-widest uppercase">Inspector</h2>
                     </div>
                     
