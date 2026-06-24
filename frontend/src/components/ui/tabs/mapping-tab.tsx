@@ -8,7 +8,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
-const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/api/ask`;
+const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/ask`;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -1495,7 +1495,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                     edges={rfEdges}
                                     onNodesChange={onNodesChange}
                                     onConnect={onConnect}
-                                    onNodeClick={(_, node) => setSelectedId(node.id)}
+                                    onNodeClick={(_: any, node: any) => setSelectedId(node.id)}
                                     nodeTypes={nodeTypes}
                                     fitView
                                     onlyRenderVisibleElements={true}

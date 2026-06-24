@@ -61,6 +61,42 @@ export const WIRE_COLORS: Record<WireType, string> = {
   safety: "#FFD700",
 };
 
+const toNodeId = (name: string, existingIds: Set<string>): string => {
+  let base = name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_|_$/g, '') || 'component'
+
+  if (!existingIds.has(base)) {
+    existingIds.add(base)
+    return base
+  }
+
+  // Collision — append a suffix derived from the original name
+  const suffix = name
+    .split('')
+    .reduce((acc, c) => (acc * 31 + c.charCodeAt(0)) & 0xffff, 0)
+    .toString(36)
+
+  const unique = `${base}_${suffix}`
+  if (!existingIds.has(unique)) {
+    existingIds.add(unique)
+    return unique
+  }
+
+  // If the base + suffix also collides, append a counter suffix until unique
+  let counter = 1
+  let candidate = `${unique}_${counter}`
+  while (existingIds.has(candidate)) {
+    counter++
+    candidate = `${unique}_${counter}`
+  }
+  existingIds.add(candidate)
+  return candidate
+}
+
+const normalizeNodeId = (name: string): string => toNodeId(name, new Set());
+
 // ─── API payload types ─────────────────────────────────────────────────────────
 
 interface GenerateComponent {

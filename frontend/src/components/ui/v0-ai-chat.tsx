@@ -159,7 +159,7 @@ export function VercelV0Chat() {
         setIsLoading(true);
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
             const response = await fetch(`${apiUrl}/api/design`, {
                 method: "POST",
                 headers: {
