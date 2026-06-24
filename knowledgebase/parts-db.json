@@ -1,512 +1,2397 @@
 [
-  {
-    "id": "a4988",
-    "name": "A4988 Stepper Driver",
-    "category": "stepper_driver",
-    "current_draw_mA": 10,
-    "voltage_rails": [
-      { "rail": "VMOT", "min_V": 8, "max_V": 35 },
-      { "rail": "VDD",  "min_V": 3, "max_V": 5.5 }
-    ],
-    "pins": [
-      { "name": "VDD",    "type": "power",      "rail": "VDD",  "side": "top",   "order": 1 },
-      { "name": "GND",    "type": "ground",     "rail": "GND",  "side": "top",   "order": 2 },
-      { "name": "VMOT",   "type": "power",      "rail": "VMOT", "side": "top",   "order": 3 },
-      { "name": "STEP",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 1 },
-      { "name": "DIR",    "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 2 },
-      { "name": "ENABLE", "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 3 },
-      { "name": "MS1",    "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 4 },
-      { "name": "MS2",    "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 5 },
-      { "name": "MS3",    "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 6 },
-      { "name": "RESET",  "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 7 },
-      { "name": "SLEEP",  "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 8 },
-      { "name": "1A",     "type": "motor_out",                  "side": "right", "order": 1 },
-      { "name": "1B",     "type": "motor_out",                  "side": "right", "order": 2 },
-      { "name": "2A",     "type": "motor_out",                  "side": "right", "order": 3 },
-      { "name": "2B",     "type": "motor_out",                  "side": "right", "order": 4 }
-    ],
-    "support_components": [
-      { "type": "capacitor", "value": "100µF",  "placement": "VMOT-GND", "mandatory": true },
-      { "type": "capacitor", "value": "0.1µF",  "placement": "VDD-GND",  "mandatory": true }
-    ],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "RESET and SLEEP must be tied high for normal operation"
-  },
-  {
-    "id": "drv8825",
-    "name": "DRV8825 Stepper Driver",
-    "category": "stepper_driver",
-    "current_draw_mA": 10,
-    "voltage_rails": [
-      { "rail": "VMOT", "min_V": 8.2, "max_V": 45 },
-      { "rail": "VDD",  "min_V": 2.5, "max_V": 5.25 }
-    ],
-    "pins": [
-      { "name": "VDD",    "type": "power",      "rail": "VDD",  "side": "top",   "order": 1 },
-      { "name": "GND",    "type": "ground",     "rail": "GND",  "side": "top",   "order": 2 },
-      { "name": "VMOT",   "type": "power",      "rail": "VMOT", "side": "top",   "order": 3 },
-      { "name": "STEP",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 1 },
-      { "name": "DIR",    "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 2 },
-      { "name": "ENABLE", "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 3 },
-      { "name": "M0",     "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 4 },
-      { "name": "M1",     "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 5 },
-      { "name": "M2",     "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 6 },
-      { "name": "RESET",  "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 7 },
-      { "name": "SLEEP",  "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 8 },
-      { "name": "FAULT",  "type": "digital_out","logic_V": 5,   "side": "left",  "order": 9 },
-      { "name": "1A",     "type": "motor_out",                  "side": "right", "order": 1 },
-      { "name": "1B",     "type": "motor_out",                  "side": "right", "order": 2 },
-      { "name": "2A",     "type": "motor_out",                  "side": "right", "order": 3 },
-      { "name": "2B",     "type": "motor_out",                  "side": "right", "order": 4 }
-    ],
-    "support_components": [
-      { "type": "capacitor", "value": "100µF",  "placement": "VMOT-GND", "mandatory": true },
-      { "type": "capacitor", "value": "0.1µF",  "placement": "VDD-GND",  "mandatory": true }
-    ],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "RESET and SLEEP must be tied high for normal operation"
-  },
-  {
-    "id": "l298n",
-    "name": "L298N Dual Motor Driver",
-    "category": "dc_driver",
-    "current_draw_mA": 20,
-    "voltage_rails": [
-      { "rail": "12V", "min_V": 5, "max_V": 35 },
-      { "rail": "5V",  "min_V": 4.5, "max_V": 5.5 }
-    ],
-    "pins": [
-      { "name": "12V",    "type": "power",      "rail": "12V", "side": "top",   "order": 1 },
-      { "name": "5V",     "type": "power",      "rail": "5V",  "side": "top",   "order": 2 },
-      { "name": "GND",    "type": "ground",     "rail": "GND", "side": "top",   "order": 3 },
-      { "name": "IN1",    "type": "digital_in", "logic_V": 5,  "side": "left",  "order": 1 },
-      { "name": "IN2",    "type": "digital_in", "logic_V": 5,  "side": "left",  "order": 2 },
-      { "name": "ENA",    "type": "digital_in", "logic_V": 5,  "side": "left",  "order": 3 },
-      { "name": "IN3",    "type": "digital_in", "logic_V": 5,  "side": "left",  "order": 4 },
-      { "name": "IN4",    "type": "digital_in", "logic_V": 5,  "side": "left",  "order": 5 },
-      { "name": "ENB",    "type": "digital_in", "logic_V": 5,  "side": "left",  "order": 6 },
-      { "name": "OUT1",   "type": "motor_out",                 "side": "right", "order": 1 },
-      { "name": "OUT2",   "type": "motor_out",                 "side": "right", "order": 2 },
-      { "name": "OUT3",   "type": "motor_out",                 "side": "right", "order": 3 },
-      { "name": "OUT4",   "type": "motor_out",                 "side": "right", "order": 4 }
-    ],
-    "support_components": [],
-    "pwm_pins": ["ENA", "ENB"],
-    "interrupt_pins": [],
-    "notes": "ENA and ENB should be driven with PWM for speed control"
-  },
-  {
-    "id": "arduino_mega",
-    "name": "Arduino Mega 2560",
-    "category": "microcontroller",
-    "current_draw_mA": 70,
-    "voltage_rails": [
-      { "rail": "VIN", "min_V": 7, "max_V": 12 },
-      { "rail": "5V",  "min_V": 4.5, "max_V": 5.5 }
-    ],
-    "pins": [
-      { "name": "5V",   "type": "power", "rail": "5V", "side": "top", "order": 1 },
-      { "name": "GND",  "type": "ground", "rail": "GND", "side": "top", "order": 2 },
-      { "name": "VIN",  "type": "power", "rail": "VIN", "side": "bottom", "order": 1 },
-      { "name": "A0",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 2 },
-      { "name": "A1",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 3 },
-      { "name": "A2",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 4 },
-      { "name": "D2",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 1 },
-      { "name": "D3",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 2 },
-      { "name": "D4",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 3 },
-      { "name": "D5",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 4 },
-      { "name": "D6",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 5 },
-      { "name": "D7",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 6 },
-      { "name": "D8",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 7 },
-      { "name": "D9",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 8 },
-      { "name": "D10",  "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 9 },
-      { "name": "D11",  "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 10 },
-      { "name": "D12",  "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 11 },
-      { "name": "D13",  "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 12 },
-      { "name": "D20",  "type": "digital_io", "logic_V": 5, "pwm_capable": false, "interrupt_capable": true, "side": "left", "order": 1 },
-      { "name": "D21",  "type": "digital_io", "logic_V": 5, "pwm_capable": false, "interrupt_capable": true, "side": "left", "order": 2 },
-      { "name": "TX0",  "type": "digital_io", "logic_V": 5, "side": "left", "order": 3 },
-      { "name": "RX0",  "type": "digital_io", "logic_V": 5, "side": "left", "order": 4 },
-      { "name": "SCL",  "type": "digital_io", "logic_V": 5, "side": "left", "order": 5 },
-      { "name": "SDA",  "type": "digital_io", "logic_V": 5, "side": "left", "order": 6 }
-    ],
-    "support_components": [],
-    "pwm_pins": ["D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D10", "D11", "D12", "D13"],
-    "interrupt_pins": ["D2", "D3", "D20", "D21"],
-    "notes": "D20 is SDA, D21 is SCL"
-  },
-  {
-    "id": "arduino_uno",
-    "name": "Arduino Uno R3",
-    "category": "microcontroller",
-    "current_draw_mA": 45,
-    "voltage_rails": [
-      { "rail": "VIN", "min_V": 7, "max_V": 12 },
-      { "rail": "5V",  "min_V": 4.5, "max_V": 5.5 }
-    ],
-    "pins": [
-      { "name": "5V",   "type": "power", "rail": "5V", "side": "top", "order": 1 },
-      { "name": "GND",  "type": "ground", "rail": "GND", "side": "top", "order": 2 },
-      { "name": "VIN",  "type": "power", "rail": "VIN", "side": "bottom", "order": 1 },
-      { "name": "A0",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 2 },
-      { "name": "A1",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 3 },
-      { "name": "A2",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 4 },
-      { "name": "A3",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 5 },
-      { "name": "A4",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 6 },
-      { "name": "A5",   "type": "analog_in", "logic_V": 5, "side": "bottom", "order": 7 },
-      { "name": "D2",   "type": "digital_io", "logic_V": 5, "pwm_capable": false, "interrupt_capable": true, "side": "right", "order": 1 },
-      { "name": "D3",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 2 },
-      { "name": "D4",   "type": "digital_io", "logic_V": 5, "pwm_capable": false, "interrupt_capable": false, "side": "right", "order": 3 },
-      { "name": "D5",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 4 },
-      { "name": "D6",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 5 },
-      { "name": "D7",   "type": "digital_io", "logic_V": 5, "pwm_capable": false, "interrupt_capable": false, "side": "right", "order": 6 },
-      { "name": "D8",   "type": "digital_io", "logic_V": 5, "pwm_capable": false, "interrupt_capable": false, "side": "right", "order": 7 },
-      { "name": "D9",   "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 8 },
-      { "name": "D10",  "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 9 },
-      { "name": "D11",  "type": "digital_io", "logic_V": 5, "pwm_capable": true, "interrupt_capable": false, "side": "right", "order": 10 },
-      { "name": "D12",  "type": "digital_io", "logic_V": 5, "pwm_capable": false, "interrupt_capable": false, "side": "right", "order": 11 },
-      { "name": "D13",  "type": "digital_io", "logic_V": 5, "pwm_capable": false, "interrupt_capable": false, "side": "right", "order": 12 },
-      { "name": "TX",   "type": "digital_io", "logic_V": 5, "side": "left", "order": 1 },
-      { "name": "RX",   "type": "digital_io", "logic_V": 5, "side": "left", "order": 2 }
-    ],
-    "support_components": [],
-    "pwm_pins": ["D3", "D5", "D6", "D9", "D10", "D11"],
-    "interrupt_pins": ["D2", "D3"],
-    "notes": "A4 is SDA, A5 is SCL"
-  },
-  {
-    "id": "esp32",
-    "name": "ESP32 DevKit V1",
-    "category": "microcontroller",
-    "current_draw_mA": 80,
-    "voltage_rails": [
-      { "rail": "VIN", "min_V": 5, "max_V": 12 },
-      { "rail": "3.3V",  "min_V": 3.0, "max_V": 3.6 }
-    ],
-    "pins": [
-      { "name": "3.3V", "type": "power", "rail": "3.3V", "side": "top", "order": 1 },
-      { "name": "GND",  "type": "ground", "rail": "GND", "side": "top", "order": 2 },
-      { "name": "VIN",  "type": "power", "rail": "VIN", "side": "bottom", "order": 1 },
-      { "name": "EN",   "type": "digital_in", "logic_V": 3.3, "side": "left", "order": 1 },
-      { "name": "VP",   "type": "analog_in", "logic_V": 3.3, "side": "left", "order": 2 },
-      { "name": "VN",   "type": "analog_in", "logic_V": 3.3, "side": "left", "order": 3 },
-      { "name": "D34",  "type": "analog_in", "logic_V": 3.3, "side": "left", "order": 4 },
-      { "name": "D35",  "type": "analog_in", "logic_V": 3.3, "side": "left", "order": 5 },
-      { "name": "D32",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "left", "order": 6 },
-      { "name": "D33",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "left", "order": 7 },
-      { "name": "D25",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "left", "order": 8 },
-      { "name": "D26",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "left", "order": 9 },
-      { "name": "D27",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "left", "order": 10 },
-      { "name": "D14",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "left", "order": 11 },
-      { "name": "D12",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "left", "order": 12 },
-      { "name": "D13",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "left", "order": 13 },
-      { "name": "D23",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 1 },
-      { "name": "D22",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 2 },
-      { "name": "TX0",  "type": "digital_io", "logic_V": 3.3, "side": "right", "order": 3 },
-      { "name": "RX0",  "type": "digital_io", "logic_V": 3.3, "side": "right", "order": 4 },
-      { "name": "D21",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 5 },
-      { "name": "D19",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 6 },
-      { "name": "D18",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 7 },
-      { "name": "D5",   "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 8 },
-      { "name": "TX2",  "type": "digital_io", "logic_V": 3.3, "side": "right", "order": 9 },
-      { "name": "RX2",  "type": "digital_io", "logic_V": 3.3, "side": "right", "order": 10 },
-      { "name": "D4",   "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 11 },
-      { "name": "D2",   "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 12 },
-      { "name": "D15",  "type": "digital_io", "logic_V": 3.3, "pwm_capable": true, "interrupt_capable": true, "side": "right", "order": 13 }
-    ],
-    "support_components": [
-      { "type": "capacitor", "value": "10µF",  "placement": "3.3V-GND", "mandatory": true },
-      { "type": "capacitor", "value": "0.1µF", "placement": "3.3V-GND", "mandatory": true },
-      { "type": "resistor", "value": "10kΩ", "placement": "EN-3.3V", "mandatory": true }
-    ],
-    "pwm_pins": ["D32", "D33", "D25", "D26", "D27", "D14", "D12", "D13", "D23", "D22", "D21", "D19", "D18", "D5", "D4", "D2", "D15"],
-    "interrupt_pins": ["D32", "D33", "D25", "D26", "D27", "D14", "D12", "D13", "D23", "D22", "D21", "D19", "D18", "D5", "D4", "D2", "D15"],
-    "notes": "3.3V Logic. D21 is SDA, D22 is SCL by default."
-  },
-  {
-    "id": "limit_switch",
-    "name": "Limit Switch (Microswitch)",
-    "category": "sensor",
-    "current_draw_mA": 1,
-    "voltage_rails": [],
-    "pins": [
-      { "name": "C",    "type": "digital_in", "side": "left", "order": 1 },
-      { "name": "NO",   "type": "digital_out","side": "right", "order": 1 },
-      { "name": "NC",   "type": "digital_out","side": "right", "order": 2 }
-    ],
-    "support_components": [
-      { "type": "resistor", "value": "10kΩ", "placement": "NO-GND", "mandatory": false }
-    ],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "Can use internal MCU pull-up"
-  },
-  {
-    "id": "hcsr04",
-    "name": "HC-SR04 Ultrasonic Sensor",
-    "category": "sensor",
-    "current_draw_mA": 15,
-    "voltage_rails": [
-      { "rail": "VCC", "min_V": 4.5, "max_V": 5.5 }
-    ],
-    "pins": [
-      { "name": "VCC",  "type": "power",      "rail": "VCC", "side": "top", "order": 1 },
-      { "name": "GND",  "type": "ground",     "rail": "GND", "side": "top", "order": 2 },
-      { "name": "Trig", "type": "digital_in", "logic_V": 5, "side": "left", "order": 1 },
-      { "name": "Echo", "type": "digital_out","logic_V": 5, "side": "right", "order": 1 }
-    ],
-    "support_components": [],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "Requires 5V. Use voltage divider on Echo if connecting to 3.3V MCU."
-  },
-  {
-    "id": "mpu6050",
-    "name": "MPU6050 IMU",
-    "category": "sensor",
-    "current_draw_mA": 4,
-    "voltage_rails": [
-      { "rail": "VCC", "min_V": 3.0, "max_V": 5.0 }
-    ],
-    "pins": [
-      { "name": "VCC",  "type": "power",      "rail": "VCC", "side": "top", "order": 1 },
-      { "name": "GND",  "type": "ground",     "rail": "GND", "side": "top", "order": 2 },
-      { "name": "SCL",  "type": "digital_in", "logic_V": 3.3, "side": "left", "order": 1 },
-      { "name": "SDA",  "type": "digital_io", "logic_V": 3.3, "side": "left", "order": 2 },
-      { "name": "XDA",  "type": "digital_io", "logic_V": 3.3, "side": "left", "order": 3 },
-      { "name": "XCL",  "type": "digital_out","logic_V": 3.3, "side": "left", "order": 4 },
-      { "name": "AD0",  "type": "digital_in", "logic_V": 3.3, "side": "right", "order": 1 },
-      { "name": "INT",  "type": "digital_out","logic_V": 3.3, "side": "right", "order": 2 }
-    ],
-    "support_components": [],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "I2C interface. AD0 sets address (low=0x68, high=0x69)."
-  },
-  {
-    "id": "servo_motor",
-    "name": "Hobby Servo (e.g. MG996R)",
-    "category": "motor",
-    "current_draw_mA": 500,
-    "voltage_rails": [
-      { "rail": "VCC", "min_V": 4.8, "max_V": 7.2 }
-    ],
-    "pins": [
-      { "name": "VCC",    "type": "power",      "rail": "VCC", "side": "top", "order": 1 },
-      { "name": "GND",    "type": "ground",     "rail": "GND", "side": "top", "order": 2 },
-      { "name": "Signal", "type": "digital_in", "logic_V": 5, "side": "left", "order": 1 }
-    ],
-    "support_components": [],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "Requires PWM signal."
-  },
-  {
-    "id": "bldc_esc",
-    "name": "BLDC ESC",
-    "category": "motor_driver",
-    "current_draw_mA": 20000,
-    "voltage_rails": [
-      { "rail": "VBAT", "min_V": 7.4, "max_V": 22.2 }
-    ],
-    "pins": [
-      { "name": "VBAT+",  "type": "power",      "rail": "VBAT", "side": "left", "order": 1 },
-      { "name": "VBAT-",  "type": "ground",     "rail": "GND", "side": "left", "order": 2 },
-      { "name": "Signal", "type": "digital_in", "logic_V": 5, "side": "left", "order": 3 },
-      { "name": "GND",    "type": "ground",     "rail": "GND", "side": "left", "order": 4 },
-      { "name": "PhaseA", "type": "motor_out",                 "side": "right", "order": 1 },
-      { "name": "PhaseB", "type": "motor_out",                 "side": "right", "order": 2 },
-      { "name": "PhaseC", "type": "motor_out",                 "side": "right", "order": 3 }
-    ],
-    "support_components": [],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "Signal requires PWM/DShot."
-  },
-  {
-    "id": "buck_converter",
-    "name": "DC-DC Buck Converter (LM2596)",
-    "category": "power",
-    "current_draw_mA": 10,
-    "voltage_rails": [
-      { "rail": "VIN", "min_V": 4, "max_V": 40 }
-    ],
-    "pins": [
-      { "name": "IN+",  "type": "power",  "rail": "VIN", "side": "left", "order": 1 },
-      { "name": "IN-",  "type": "ground", "rail": "GND", "side": "left", "order": 2 },
-      { "name": "OUT+", "type": "power",  "rail": "VOUT","side": "right", "order": 1 },
-      { "name": "OUT-", "type": "ground", "rail": "GND", "side": "right", "order": 2 }
-    ],
-    "support_components": [],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "Adjustable output voltage."
-  },
-  {
-    "id": "psu_24v",
-    "name": "24V Power Supply",
-    "category": "power",
-    "current_draw_mA": 0,
-    "voltage_rails": [],
-    "pins": [
-      { "name": "L",    "type": "power",  "side": "left", "order": 1 },
-      { "name": "N",    "type": "power",  "side": "left", "order": 2 },
-      { "name": "PE",   "type": "ground", "side": "left", "order": 3 },
-      { "name": "V+",   "type": "power",  "rail": "24V", "side": "right", "order": 1 },
-      { "name": "V-",   "type": "ground", "rail": "GND", "side": "right", "order": 2 }
-    ],
-    "support_components": [],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "AC to DC 24V."
-  },
-  {
-    "id": "tb6612fng",
-    "name": "TB6612FNG Dual Motor Driver",
-    "category": "dc_driver",
-    "current_draw_mA": 15,
-    "voltage_rails": [
-      { "rail": "VMOT", "min_V": 2.5, "max_V": 13.5 },
-      { "rail": "VCC",  "min_V": 2.7, "max_V": 5.5 }
-    ],
-    "pins": [
-      { "name": "VMOT",   "type": "power",      "rail": "VMOT", "side": "top",   "order": 1 },
-      { "name": "VCC",    "type": "power",      "rail": "VCC",  "side": "top",   "order": 2 },
-      { "name": "GND",    "type": "ground",     "rail": "GND",  "side": "top",   "order": 3 },
-      { "name": "PWMA",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 1 },
-      { "name": "AIN1",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 2 },
-      { "name": "AIN2",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 3 },
-      { "name": "STBY",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 4 },
-      { "name": "BIN1",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 5 },
-      { "name": "BIN2",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 6 },
-      { "name": "PWMB",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 7 },
-      { "name": "AO1",    "type": "motor_out",                  "side": "right", "order": 1 },
-      { "name": "AO2",    "type": "motor_out",                  "side": "right", "order": 2 },
-      { "name": "BO1",    "type": "motor_out",                  "side": "right", "order": 3 },
-      { "name": "BO2",    "type": "motor_out",                  "side": "right", "order": 4 }
-    ],
-    "support_components": [],
-    "pwm_pins": ["PWMA", "PWMB"],
-    "interrupt_pins": [],
-    "notes": "STBY must be high for motors to run."
-  },
-  {
-    "id": "pca9685",
-    "name": "PCA9685 16-Channel PWM",
-    "category": "driver",
-    "current_draw_mA": 10,
-    "voltage_rails": [
-      { "rail": "VCC", "min_V": 3.3, "max_V": 5.0 },
-      { "rail": "V+",  "min_V": 0, "max_V": 6.0 }
-    ],
-    "pins": [
-      { "name": "VCC", "type": "power",      "rail": "VCC", "side": "top", "order": 1 },
-      { "name": "V+",  "type": "power",      "rail": "V+",  "side": "top", "order": 2 },
-      { "name": "GND", "type": "ground",     "rail": "GND", "side": "top", "order": 3 },
-      { "name": "SDA", "type": "digital_io", "logic_V": 5,  "side": "left", "order": 1 },
-      { "name": "SCL", "type": "digital_in", "logic_V": 5,  "side": "left", "order": 2 },
-      { "name": "OE",  "type": "digital_in", "logic_V": 5,  "side": "left", "order": 3 },
-      { "name": "PWM0","type": "digital_out","logic_V": 5,  "side": "right", "order": 1 },
-      { "name": "PWM1","type": "digital_out","logic_V": 5,  "side": "right", "order": 2 },
-      { "name": "PWM2","type": "digital_out","logic_V": 5,  "side": "right", "order": 3 },
-      { "name": "PWM3","type": "digital_out","logic_V": 5,  "side": "right", "order": 4 },
-      { "name": "PWM4","type": "digital_out","logic_V": 5,  "side": "right", "order": 5 },
-      { "name": "PWM5","type": "digital_out","logic_V": 5,  "side": "right", "order": 6 },
-      { "name": "PWM6","type": "digital_out","logic_V": 5,  "side": "right", "order": 7 },
-      { "name": "PWM7","type": "digital_out","logic_V": 5,  "side": "right", "order": 8 },
-      { "name": "PWM8","type": "digital_out","logic_V": 5,  "side": "right", "order": 9 },
-      { "name": "PWM9","type": "digital_out","logic_V": 5,  "side": "right", "order": 10 },
-      { "name": "PWM10","type": "digital_out","logic_V": 5, "side": "right", "order": 11 },
-      { "name": "PWM11","type": "digital_out","logic_V": 5, "side": "right", "order": 12 },
-      { "name": "PWM12","type": "digital_out","logic_V": 5, "side": "right", "order": 13 },
-      { "name": "PWM13","type": "digital_out","logic_V": 5, "side": "right", "order": 14 },
-      { "name": "PWM14","type": "digital_out","logic_V": 5, "side": "right", "order": 15 },
-      { "name": "PWM15","type": "digital_out","logic_V": 5, "side": "right", "order": 16 }
-    ],
-    "support_components": [],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "I2C controlled. V+ is for servo power."
-  },
-  {
-    "id": "hc05",
-    "name": "HC-05 Bluetooth Module",
-    "category": "module",
-    "current_draw_mA": 30,
-    "voltage_rails": [
-      { "rail": "VCC", "min_V": 3.6, "max_V": 6.0 }
-    ],
-    "pins": [
-      { "name": "VCC",   "type": "power",      "rail": "VCC", "side": "top", "order": 1 },
-      { "name": "GND",   "type": "ground",     "rail": "GND", "side": "top", "order": 2 },
-      { "name": "TXD",   "type": "digital_out","logic_V": 3.3,"side": "right", "order": 1 },
-      { "name": "RXD",   "type": "digital_in", "logic_V": 3.3,"side": "left", "order": 1 },
-      { "name": "STATE", "type": "digital_out","logic_V": 3.3,"side": "right", "order": 2 },
-      { "name": "EN",    "type": "digital_in", "logic_V": 3.3,"side": "left", "order": 2 }
-    ],
-    "support_components": [],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "RXD requires voltage divider if connected to 5V MCU."
-  },
-  {
-    "id": "nrf24l01",
-    "name": "NRF24L01+ Transceiver",
-    "category": "module",
-    "current_draw_mA": 15,
-    "voltage_rails": [
-      { "rail": "VCC", "min_V": 1.9, "max_V": 3.6 }
-    ],
-    "pins": [
-      { "name": "VCC",  "type": "power",      "rail": "VCC", "side": "top", "order": 1 },
-      { "name": "GND",  "type": "ground",     "rail": "GND", "side": "top", "order": 2 },
-      { "name": "CE",   "type": "digital_in", "logic_V": 5,  "side": "left", "order": 1 },
-      { "name": "CSN",  "type": "digital_in", "logic_V": 5,  "side": "left", "order": 2 },
-      { "name": "SCK",  "type": "digital_in", "logic_V": 5,  "side": "left", "order": 3 },
-      { "name": "MOSI", "type": "digital_in", "logic_V": 5,  "side": "left", "order": 4 },
-      { "name": "MISO", "type": "digital_out","logic_V": 5,  "side": "right", "order": 1 },
-      { "name": "IRQ",  "type": "digital_out","logic_V": 5,  "side": "right", "order": 2 }
-    ],
-    "support_components": [
-      { "type": "capacitor", "value": "10µF", "placement": "VCC-GND", "mandatory": true }
-    ],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "SPI interface. 5V tolerant inputs."
-  },
-  {
-    "id": "tmc2209",
-    "name": "TMC2209 Stepper Driver",
-    "category": "stepper_driver",
-    "current_draw_mA": 15,
-    "voltage_rails": [
-      { "rail": "VMOT", "min_V": 4.75, "max_V": 29 },
-      { "rail": "VDD",  "min_V": 3, "max_V": 5.5 }
-    ],
-    "pins": [
-      { "name": "VDD",    "type": "power",      "rail": "VDD",  "side": "top",   "order": 1 },
-      { "name": "GND",    "type": "ground",     "rail": "GND",  "side": "top",   "order": 2 },
-      { "name": "VMOT",   "type": "power",      "rail": "VMOT", "side": "top",   "order": 3 },
-      { "name": "STEP",   "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 1 },
-      { "name": "DIR",    "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 2 },
-      { "name": "EN",     "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 3 },
-      { "name": "RX",     "type": "digital_in", "logic_V": 5,   "side": "left",  "order": 4 },
-      { "name": "TX",     "type": "digital_out","logic_V": 5,   "side": "right", "order": 1 },
-      { "name": "DIAG",   "type": "digital_out","logic_V": 5,   "side": "right", "order": 2 },
-      { "name": "INDEX",  "type": "digital_out","logic_V": 5,   "side": "right", "order": 3 },
-      { "name": "1A",     "type": "motor_out",                  "side": "right", "order": 4 },
-      { "name": "1B",     "type": "motor_out",                  "side": "right", "order": 5 },
-      { "name": "2A",     "type": "motor_out",                  "side": "right", "order": 6 },
-      { "name": "2B",     "type": "motor_out",                  "side": "right", "order": 7 }
-    ],
-    "support_components": [
-      { "type": "capacitor", "value": "100µF",  "placement": "VMOT-GND", "mandatory": true },
-      { "type": "capacitor", "value": "0.1µF",  "placement": "VDD-GND",  "mandatory": true }
-    ],
-    "pwm_pins": [],
-    "interrupt_pins": [],
-    "notes": "UART config possible on RX/TX."
-  }
+    {
+        "id": "a4988",
+        "name": "A4988 Stepper Driver",
+        "category": "stepper_driver",
+        "current_draw_mA": 10,
+        "voltage_rails": [
+            {
+                "rail": "VMOT",
+                "min_V": 8,
+                "max_V": 35
+            },
+            {
+                "rail": "VDD",
+                "min_V": 3,
+                "max_V": 5.5
+            }
+        ],
+        "pins": [
+            {
+                "name": "VDD",
+                "type": "power",
+                "rail": "VDD",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "VMOT",
+                "type": "power",
+                "rail": "VMOT",
+                "side": "top",
+                "order": 3,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "STEP",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "DIR",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "ENABLE",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "MS1",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "MS2",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 5,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "MS3",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 6,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "RESET",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 7,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "SLEEP",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 8,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "1A",
+                "type": "motor_out",
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "1B",
+                "type": "motor_out",
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "2A",
+                "type": "motor_out",
+                "side": "right",
+                "order": 3,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "2B",
+                "type": "motor_out",
+                "side": "right",
+                "order": 4,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [
+            {
+                "type": "capacitor",
+                "value": "100\u00b5F",
+                "placement": "VMOT-GND",
+                "mandatory": true
+            },
+            {
+                "type": "capacitor",
+                "value": "0.1\u00b5F",
+                "placement": "VDD-GND",
+                "mandatory": true
+            }
+        ],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "RESET and SLEEP must be tied high for normal operation",
+        "electrical_constraints": [
+            {
+                "rule": "must_connect",
+                "pin": "RESET",
+                "target_rail": "VDD",
+                "severity": "error",
+                "message": "RESET must be tied HIGH (to VDD) for normal operation"
+            },
+            {
+                "rule": "must_connect",
+                "pin": "SLEEP",
+                "target_rail": "VDD",
+                "severity": "error",
+                "message": "SLEEP must be tied HIGH (to VDD) for normal operation"
+            }
+        ]
+    },
+    {
+        "id": "drv8825",
+        "name": "DRV8825 Stepper Driver",
+        "category": "stepper_driver",
+        "current_draw_mA": 10,
+        "voltage_rails": [
+            {
+                "rail": "VMOT",
+                "min_V": 8.2,
+                "max_V": 45
+            },
+            {
+                "rail": "VDD",
+                "min_V": 2.5,
+                "max_V": 5.25
+            }
+        ],
+        "pins": [
+            {
+                "name": "VDD",
+                "type": "power",
+                "rail": "VDD",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "VMOT",
+                "type": "power",
+                "rail": "VMOT",
+                "side": "top",
+                "order": 3,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "STEP",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "DIR",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "ENABLE",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "M0",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "M1",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 5,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "M2",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 6,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "RESET",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 7,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "SLEEP",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 8,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "FAULT",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "left",
+                "order": 9,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "1A",
+                "type": "motor_out",
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "1B",
+                "type": "motor_out",
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "2A",
+                "type": "motor_out",
+                "side": "right",
+                "order": 3,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "2B",
+                "type": "motor_out",
+                "side": "right",
+                "order": 4,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [
+            {
+                "type": "capacitor",
+                "value": "100\u00b5F",
+                "placement": "VMOT-GND",
+                "mandatory": true
+            },
+            {
+                "type": "capacitor",
+                "value": "0.1\u00b5F",
+                "placement": "VDD-GND",
+                "mandatory": true
+            }
+        ],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "RESET and SLEEP must be tied high for normal operation",
+        "electrical_constraints": [
+            {
+                "rule": "must_connect",
+                "pin": "RESET",
+                "target_rail": "VDD",
+                "severity": "error",
+                "message": "RESET must be tied HIGH (to VDD) for normal operation"
+            },
+            {
+                "rule": "must_connect",
+                "pin": "SLEEP",
+                "target_rail": "VDD",
+                "severity": "error",
+                "message": "SLEEP must be tied HIGH (to VDD) for normal operation"
+            }
+        ]
+    },
+    {
+        "id": "l298n",
+        "name": "L298N Dual Motor Driver",
+        "category": "dc_driver",
+        "current_draw_mA": 20,
+        "voltage_rails": [
+            {
+                "rail": "12V",
+                "min_V": 5,
+                "max_V": 35
+            },
+            {
+                "rail": "5V",
+                "min_V": 4.5,
+                "max_V": 5.5
+            }
+        ],
+        "pins": [
+            {
+                "name": "12V",
+                "type": "power",
+                "rail": "12V",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "5V",
+                "type": "power",
+                "rail": "5V",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 3,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "IN1",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "IN2",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "ENA",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "IN3",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "IN4",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 5,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "ENB",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 6,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "OUT1",
+                "type": "motor_out",
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "OUT2",
+                "type": "motor_out",
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "OUT3",
+                "type": "motor_out",
+                "side": "right",
+                "order": 3,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "OUT4",
+                "type": "motor_out",
+                "side": "right",
+                "order": 4,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [
+            "ENA",
+            "ENB"
+        ],
+        "interrupt_pins": [],
+        "notes": "ENA and ENB should be driven with PWM for speed control"
+    },
+    {
+        "id": "arduino_mega",
+        "name": "Arduino Mega 2560",
+        "category": "microcontroller",
+        "current_draw_mA": 70,
+        "voltage_rails": [
+            {
+                "rail": "VIN",
+                "min_V": 7,
+                "max_V": 12
+            },
+            {
+                "rail": "5V",
+                "min_V": 4.5,
+                "max_V": 5.5
+            }
+        ],
+        "pins": [
+            {
+                "name": "5V",
+                "type": "power",
+                "rail": "5V",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "VIN",
+                "type": "power",
+                "rail": "VIN",
+                "side": "bottom",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "A0",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "A1",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "A2",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "D2",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D3",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 2,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D4",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 3,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D5",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 4,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D6",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 5,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D7",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 6,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D8",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 7,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D9",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 8,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D10",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 9,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D11",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 10,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D12",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 11,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D13",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 12,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D20",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": false,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D21",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": false,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "TX0",
+                "type": "digital_io",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "RX0",
+                "type": "digital_io",
+                "logic_V": 5,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "SCL",
+                "type": "digital_io",
+                "logic_V": 5,
+                "side": "left",
+                "order": 5,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "SDA",
+                "type": "digital_io",
+                "logic_V": 5,
+                "side": "left",
+                "order": 6,
+                "skidl_type": "BIDIR"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6",
+            "D7",
+            "D8",
+            "D9",
+            "D10",
+            "D11",
+            "D12",
+            "D13"
+        ],
+        "interrupt_pins": [
+            "D2",
+            "D3",
+            "D20",
+            "D21"
+        ],
+        "notes": "D20 is SDA, D21 is SCL",
+        "logic_voltage": 5.0
+    },
+    {
+        "id": "arduino_uno",
+        "name": "Arduino Uno R3",
+        "category": "microcontroller",
+        "current_draw_mA": 45,
+        "voltage_rails": [
+            {
+                "rail": "VIN",
+                "min_V": 7,
+                "max_V": 12
+            },
+            {
+                "rail": "5V",
+                "min_V": 4.5,
+                "max_V": 5.5
+            }
+        ],
+        "pins": [
+            {
+                "name": "5V",
+                "type": "power",
+                "rail": "5V",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "VIN",
+                "type": "power",
+                "rail": "VIN",
+                "side": "bottom",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "A0",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "A1",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "A2",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "A3",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 5,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "A4",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 6,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "A5",
+                "type": "analog_in",
+                "logic_V": 5,
+                "side": "bottom",
+                "order": 7,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "D2",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": false,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D3",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 2,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D4",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": false,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 3,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D5",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 4,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D6",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 5,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D7",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": false,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 6,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D8",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": false,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 7,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D9",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 8,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D10",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 9,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D11",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": true,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 10,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D12",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": false,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 11,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D13",
+                "type": "digital_io",
+                "logic_V": 5,
+                "pwm_capable": false,
+                "interrupt_capable": false,
+                "side": "right",
+                "order": 12,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "TX",
+                "type": "digital_io",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "RX",
+                "type": "digital_io",
+                "logic_V": 5,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "BIDIR"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [
+            "D3",
+            "D5",
+            "D6",
+            "D9",
+            "D10",
+            "D11"
+        ],
+        "interrupt_pins": [
+            "D2",
+            "D3"
+        ],
+        "notes": "A4 is SDA, A5 is SCL",
+        "logic_voltage": 5.0
+    },
+    {
+        "id": "esp32",
+        "name": "ESP32 DevKit V1",
+        "category": "microcontroller",
+        "current_draw_mA": 80,
+        "voltage_rails": [
+            {
+                "rail": "VIN",
+                "min_V": 5,
+                "max_V": 12
+            },
+            {
+                "rail": "3.3V",
+                "min_V": 3.0,
+                "max_V": 3.6
+            }
+        ],
+        "pins": [
+            {
+                "name": "3.3V",
+                "type": "power",
+                "rail": "3.3V",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "VIN",
+                "type": "power",
+                "rail": "VIN",
+                "side": "bottom",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "EN",
+                "type": "digital_in",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "VP",
+                "type": "analog_in",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "VN",
+                "type": "analog_in",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "D34",
+                "type": "analog_in",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "D35",
+                "type": "analog_in",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 5,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "D32",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 6,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D33",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 7,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D25",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 8,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D26",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 9,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D27",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 10,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D14",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 11,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D12",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 12,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D13",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "left",
+                "order": 13,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D23",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D22",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 2,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "TX0",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "side": "right",
+                "order": 3,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "RX0",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "side": "right",
+                "order": 4,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D21",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 5,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D19",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 6,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D18",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 7,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D5",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 8,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "TX2",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "side": "right",
+                "order": 9,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "RX2",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "side": "right",
+                "order": 10,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D4",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 11,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D2",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 12,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "D15",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "pwm_capable": true,
+                "interrupt_capable": true,
+                "side": "right",
+                "order": 13,
+                "skidl_type": "BIDIR"
+            }
+        ],
+        "support_components": [
+            {
+                "type": "capacitor",
+                "value": "10\u00b5F",
+                "placement": "3.3V-GND",
+                "mandatory": true
+            },
+            {
+                "type": "capacitor",
+                "value": "0.1\u00b5F",
+                "placement": "3.3V-GND",
+                "mandatory": true
+            },
+            {
+                "type": "resistor",
+                "value": "10k\u03a9",
+                "placement": "EN-3.3V",
+                "mandatory": true
+            }
+        ],
+        "pwm_pins": [
+            "D32",
+            "D33",
+            "D25",
+            "D26",
+            "D27",
+            "D14",
+            "D12",
+            "D13",
+            "D23",
+            "D22",
+            "D21",
+            "D19",
+            "D18",
+            "D5",
+            "D4",
+            "D2",
+            "D15"
+        ],
+        "interrupt_pins": [
+            "D32",
+            "D33",
+            "D25",
+            "D26",
+            "D27",
+            "D14",
+            "D12",
+            "D13",
+            "D23",
+            "D22",
+            "D21",
+            "D19",
+            "D18",
+            "D5",
+            "D4",
+            "D2",
+            "D15"
+        ],
+        "notes": "3.3V Logic. D21 is SDA, D22 is SCL by default.",
+        "logic_voltage": 3.3
+    },
+    {
+        "id": "limit_switch",
+        "name": "Limit Switch (Microswitch)",
+        "category": "sensor",
+        "current_draw_mA": 1,
+        "voltage_rails": [],
+        "pins": [
+            {
+                "name": "C",
+                "type": "digital_in",
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "NO",
+                "type": "digital_out",
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "NC",
+                "type": "digital_out",
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [
+            {
+                "type": "resistor",
+                "value": "10k\u03a9",
+                "placement": "NO-GND",
+                "mandatory": false
+            }
+        ],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "Can use internal MCU pull-up"
+    },
+    {
+        "id": "hcsr04",
+        "name": "HC-SR04 Ultrasonic Sensor",
+        "category": "sensor",
+        "current_draw_mA": 15,
+        "voltage_rails": [
+            {
+                "rail": "VCC",
+                "min_V": 4.5,
+                "max_V": 5.5
+            }
+        ],
+        "pins": [
+            {
+                "name": "VCC",
+                "type": "power",
+                "rail": "VCC",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "Trig",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "Echo",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "Requires 5V. Use voltage divider on Echo if connecting to 3.3V MCU."
+    },
+    {
+        "id": "mpu6050",
+        "name": "MPU6050 IMU",
+        "category": "sensor",
+        "current_draw_mA": 4,
+        "voltage_rails": [
+            {
+                "rail": "VCC",
+                "min_V": 3.0,
+                "max_V": 5.0
+            }
+        ],
+        "pins": [
+            {
+                "name": "VCC",
+                "type": "power",
+                "rail": "VCC",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "SCL",
+                "type": "digital_in",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "SDA",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "XDA",
+                "type": "digital_io",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "XCL",
+                "type": "digital_out",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "AD0",
+                "type": "digital_in",
+                "logic_V": 3.3,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "INT",
+                "type": "digital_out",
+                "logic_V": 3.3,
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "I2C interface. AD0 sets address (low=0x68, high=0x69).",
+        "electrical_constraints": [
+            {
+                "rule": "must_connect",
+                "pin": "AD0",
+                "target_rail": "GND",
+                "severity": "warning",
+                "message": "AD0 should connect to GND or VCC for I2C address selection"
+            }
+        ]
+    },
+    {
+        "id": "servo_motor",
+        "name": "Hobby Servo (e.g. MG996R)",
+        "category": "motor",
+        "current_draw_mA": 500,
+        "voltage_rails": [
+            {
+                "rail": "VCC",
+                "min_V": 4.8,
+                "max_V": 7.2
+            }
+        ],
+        "pins": [
+            {
+                "name": "VCC",
+                "type": "power",
+                "rail": "VCC",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "Signal",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "Requires PWM signal."
+    },
+    {
+        "id": "bldc_esc",
+        "name": "BLDC ESC",
+        "category": "motor_driver",
+        "current_draw_mA": 20000,
+        "voltage_rails": [
+            {
+                "rail": "VBAT",
+                "min_V": 7.4,
+                "max_V": 22.2
+            }
+        ],
+        "pins": [
+            {
+                "name": "VBAT+",
+                "type": "power",
+                "rail": "VBAT",
+                "side": "left",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "VBAT-",
+                "type": "ground",
+                "rail": "GND",
+                "side": "left",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "Signal",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "left",
+                "order": 4,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "PhaseA",
+                "type": "motor_out",
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PhaseB",
+                "type": "motor_out",
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PhaseC",
+                "type": "motor_out",
+                "side": "right",
+                "order": 3,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "Signal requires PWM/DShot."
+    },
+    {
+        "id": "buck_converter",
+        "name": "DC-DC Buck Converter (LM2596)",
+        "category": "power",
+        "current_draw_mA": 10,
+        "voltage_rails": [
+            {
+                "rail": "VIN",
+                "min_V": 4,
+                "max_V": 40
+            }
+        ],
+        "pins": [
+            {
+                "name": "IN+",
+                "type": "power",
+                "rail": "VIN",
+                "side": "left",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "IN-",
+                "type": "ground",
+                "rail": "GND",
+                "side": "left",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "OUT+",
+                "type": "power",
+                "rail": "VOUT",
+                "side": "right",
+                "order": 1,
+                "skidl_type": "PWROUT"
+            },
+            {
+                "name": "OUT-",
+                "type": "ground",
+                "rail": "GND",
+                "side": "right",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "Adjustable output voltage.",
+        "output_rails": [
+            {
+                "rail": "VOUT",
+                "voltage": 5.0,
+                "max_current_mA": 3000,
+                "assumed": true
+            }
+        ]
+    },
+    {
+        "id": "psu_24v",
+        "name": "24V Power Supply",
+        "category": "power",
+        "current_draw_mA": 0,
+        "voltage_rails": [],
+        "pins": [
+            {
+                "name": "L",
+                "type": "power",
+                "side": "left",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "N",
+                "type": "power",
+                "side": "left",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "PE",
+                "type": "ground",
+                "side": "left",
+                "order": 3,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "V+",
+                "type": "power",
+                "rail": "24V",
+                "side": "right",
+                "order": 1,
+                "skidl_type": "PWROUT"
+            },
+            {
+                "name": "V-",
+                "type": "ground",
+                "rail": "GND",
+                "side": "right",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "AC to DC 24V.",
+        "output_rails": [
+            {
+                "rail": "24V",
+                "voltage": 24.0,
+                "max_current_mA": 10000
+            }
+        ]
+    },
+    {
+        "id": "tb6612fng",
+        "name": "TB6612FNG Dual Motor Driver",
+        "category": "dc_driver",
+        "current_draw_mA": 15,
+        "voltage_rails": [
+            {
+                "rail": "VMOT",
+                "min_V": 2.5,
+                "max_V": 13.5
+            },
+            {
+                "rail": "VCC",
+                "min_V": 2.7,
+                "max_V": 5.5
+            }
+        ],
+        "pins": [
+            {
+                "name": "VMOT",
+                "type": "power",
+                "rail": "VMOT",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "VCC",
+                "type": "power",
+                "rail": "VCC",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 3,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "PWMA",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "AIN1",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "AIN2",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "STBY",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "BIN1",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 5,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "BIN2",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 6,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "PWMB",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 7,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "AO1",
+                "type": "motor_out",
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "AO2",
+                "type": "motor_out",
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "BO1",
+                "type": "motor_out",
+                "side": "right",
+                "order": 3,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "BO2",
+                "type": "motor_out",
+                "side": "right",
+                "order": 4,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [
+            "PWMA",
+            "PWMB"
+        ],
+        "interrupt_pins": [],
+        "notes": "STBY must be high for motors to run.",
+        "electrical_constraints": [
+            {
+                "rule": "must_connect",
+                "pin": "STBY",
+                "target_rail": "VCC",
+                "severity": "warning",
+                "message": "STBY must connect to VCC or MCU GPIO for normal operation"
+            }
+        ]
+    },
+    {
+        "id": "pca9685",
+        "name": "PCA9685 16-Channel PWM",
+        "category": "driver",
+        "current_draw_mA": 10,
+        "voltage_rails": [
+            {
+                "rail": "VCC",
+                "min_V": 3.3,
+                "max_V": 5.0
+            },
+            {
+                "rail": "V+",
+                "min_V": 0,
+                "max_V": 6.0
+            }
+        ],
+        "pins": [
+            {
+                "name": "VCC",
+                "type": "power",
+                "rail": "VCC",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "V+",
+                "type": "power",
+                "rail": "V+",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 3,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "SDA",
+                "type": "digital_io",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "BIDIR"
+            },
+            {
+                "name": "SCL",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "OE",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "PWM0",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM1",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM2",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 3,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM3",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 4,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM4",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 5,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM5",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 6,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM6",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 7,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM7",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 8,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM8",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 9,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM9",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 10,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM10",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 11,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM11",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 12,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM12",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 13,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM13",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 14,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM14",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 15,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "PWM15",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 16,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "I2C controlled. V+ is for servo power."
+    },
+    {
+        "id": "hc05",
+        "name": "HC-05 Bluetooth Module",
+        "category": "module",
+        "current_draw_mA": 30,
+        "voltage_rails": [
+            {
+                "rail": "VCC",
+                "min_V": 3.6,
+                "max_V": 6.0
+            }
+        ],
+        "pins": [
+            {
+                "name": "VCC",
+                "type": "power",
+                "rail": "VCC",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "TXD",
+                "type": "digital_out",
+                "logic_V": 3.3,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "RXD",
+                "type": "digital_in",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "STATE",
+                "type": "digital_out",
+                "logic_V": 3.3,
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "EN",
+                "type": "digital_in",
+                "logic_V": 3.3,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            }
+        ],
+        "support_components": [],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "RXD requires voltage divider if connected to 5V MCU."
+    },
+    {
+        "id": "nrf24l01",
+        "name": "NRF24L01+ Transceiver",
+        "category": "module",
+        "current_draw_mA": 15,
+        "voltage_rails": [
+            {
+                "rail": "VCC",
+                "min_V": 1.9,
+                "max_V": 3.6
+            }
+        ],
+        "pins": [
+            {
+                "name": "VCC",
+                "type": "power",
+                "rail": "VCC",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "CE",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "CSN",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "SCK",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "MOSI",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "MISO",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "IRQ",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [
+            {
+                "type": "capacitor",
+                "value": "10\u00b5F",
+                "placement": "VCC-GND",
+                "mandatory": true
+            }
+        ],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "SPI interface. 5V tolerant inputs."
+    },
+    {
+        "id": "tmc2209",
+        "name": "TMC2209 Stepper Driver",
+        "category": "stepper_driver",
+        "current_draw_mA": 15,
+        "voltage_rails": [
+            {
+                "rail": "VMOT",
+                "min_V": 4.75,
+                "max_V": 29
+            },
+            {
+                "rail": "VDD",
+                "min_V": 3,
+                "max_V": 5.5
+            }
+        ],
+        "pins": [
+            {
+                "name": "VDD",
+                "type": "power",
+                "rail": "VDD",
+                "side": "top",
+                "order": 1,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "GND",
+                "type": "ground",
+                "rail": "GND",
+                "side": "top",
+                "order": 2,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "VMOT",
+                "type": "power",
+                "rail": "VMOT",
+                "side": "top",
+                "order": 3,
+                "skidl_type": "PWRIN"
+            },
+            {
+                "name": "STEP",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 1,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "DIR",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 2,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "EN",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 3,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "RX",
+                "type": "digital_in",
+                "logic_V": 5,
+                "side": "left",
+                "order": 4,
+                "skidl_type": "INPUT"
+            },
+            {
+                "name": "TX",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 1,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "DIAG",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 2,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "INDEX",
+                "type": "digital_out",
+                "logic_V": 5,
+                "side": "right",
+                "order": 3,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "1A",
+                "type": "motor_out",
+                "side": "right",
+                "order": 4,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "1B",
+                "type": "motor_out",
+                "side": "right",
+                "order": 5,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "2A",
+                "type": "motor_out",
+                "side": "right",
+                "order": 6,
+                "skidl_type": "OUTPUT"
+            },
+            {
+                "name": "2B",
+                "type": "motor_out",
+                "side": "right",
+                "order": 7,
+                "skidl_type": "OUTPUT"
+            }
+        ],
+        "support_components": [
+            {
+                "type": "capacitor",
+                "value": "100\u00b5F",
+                "placement": "VMOT-GND",
+                "mandatory": true
+            },
+            {
+                "type": "capacitor",
+                "value": "0.1\u00b5F",
+                "placement": "VDD-GND",
+                "mandatory": true
+            }
+        ],
+        "pwm_pins": [],
+        "interrupt_pins": [],
+        "notes": "UART config possible on RX/TX.",
+        "electrical_constraints": [
+            {
+                "rule": "must_connect",
+                "pin": "EN",
+                "target_rail": "GND",
+                "severity": "warning",
+                "message": "EN is active-low, should connect to GND or MCU GPIO"
+            }
+        ]
+    }
 ]

@@ -1,0 +1,10 @@
+ERC WARNING: No drivers for net GND.
+ERC WARNING: Insufficient drive current on net GND for pin POWER-IN pin 1/GND of MCU/U1.
+ERC WARNING: Insufficient drive current on net GND for pin POWER-IN pin 1/GND of SENSOR/U2.
+ERC INFO: 3 warnings found while running ERC.
+ERC INFO: 0 errors found while running ERC.
+
+ERC ERROR: Pin conflict on net SHORTED, OUTPUT pin 1/OUT of DRV2/U2 <==> OUTPUT pin 1/OUT of DRV1/U1 (OUTPUT connected to OUTPUT)
+ERC INFO: 0 warnings found while running ERC.
+ERC INFO: 1 errors found while running ERC.
+
