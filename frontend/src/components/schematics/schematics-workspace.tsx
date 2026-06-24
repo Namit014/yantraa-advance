@@ -154,7 +154,7 @@ const CustomControls = () => {
     );
 };
 
-export function SchematicsWorkspace({ designData }: { designData?: any }) {
+export function SchematicsWorkspace({ designData, currentQuery }: { designData?: any, currentQuery?: string }) {
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -195,6 +195,10 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
             const graphWidth = maxX - minX;
             const graphHeight = maxY - minY;
             
+            const baseName = currentQuery 
+                ? currentQuery.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'robot_schematic'
+                : 'robot_schematic';
+            
             // Adjust these parameters for high quality
             const options = {
                 backgroundColor: '#171717',
@@ -210,13 +214,13 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
             if (format === "png") {
                 const dataUrl = await toPng(viewportNode, { ...options, pixelRatio: 2 });
                 const link = document.createElement('a');
-                link.download = 'robot_schematic.png';
+                link.download = `${baseName}.png`;
                 link.href = dataUrl;
                 link.click();
             } else if (format === "svg") {
                 const dataUrl = await toSvg(viewportNode, options);
                 const link = document.createElement('a');
-                link.download = 'robot_schematic.svg';
+                link.download = `${baseName}.svg`;
                 link.href = dataUrl;
                 link.click();
             } else if (format === "pdf") {
@@ -227,7 +231,7 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
                     format: [graphWidth, graphHeight]
                 });
                 pdf.addImage(dataUrl, 'PNG', 0, 0, graphWidth, graphHeight);
-                pdf.save('robot_schematic.pdf');
+                pdf.save(`${baseName}.pdf`);
             }
         } catch (error) {
             console.error("Failed to export diagram:", error);
