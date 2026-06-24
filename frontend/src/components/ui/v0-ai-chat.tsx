@@ -12,7 +12,9 @@ import {
 import { MappingTab } from "./tabs/mapping-tab";
 import { ConnectionTab } from "./tabs/connection-tab";
 import { CADTab } from "./tabs/cad-tab";
+import { SchematicsTab } from "./tabs/schematics-tab";
 import { useConnectionStore } from "@/components/connection/useConnectionStore";
+
 
 interface UseAutoResizeTextareaProps {
     minHeight: number;
@@ -125,7 +127,7 @@ export function VercelV0Chat() {
     const [value, setValue] = useState("");
     const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad'>('mapping');
+    const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad' | 'schematics'>('mapping');
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
     const [robotDesign, setRobotDesign] = useState<any | null>(null);
@@ -378,6 +380,7 @@ export function VercelV0Chat() {
                                 }
                                 setActiveTab('cad');
                             }} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
+                            <button onClick={() => setActiveTab('schematics')} className={cn("transition-colors", activeTab === 'schematics' ? "text-white" : "hover:text-white")}>Schematics</button>
                         </div>
                     </div>
 
@@ -385,6 +388,7 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
+                        {activeTab === 'schematics' && <SchematicsTab />}
                         {activeTab === 'cad' && (() => {
                             let urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
                             
