@@ -246,6 +246,11 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
                 
                 return {
                     ...e,
+                    label: e.data?.label || "",
+                    labelStyle: { fill: "#ffffff", fontWeight: 700, fontSize: 10 },
+                    labelBgStyle: { fill: "#1f2937", stroke: "#374151" },
+                    labelBgPadding: [4, 2],
+                    labelBgBorderRadius: 4,
                     style: { stroke, strokeWidth: 4, strokeDasharray },
                 };
             });

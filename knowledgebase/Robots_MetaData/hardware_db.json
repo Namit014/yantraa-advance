@@ -381,6 +381,33 @@
       "ports": [
         {"id": "fluid", "label": "Fluid Tube", "type": "mechanical_in"}
       ]
+    },
+    "power switch": {
+      "label": "Master Power Switch",
+      "type": "protection",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "in", "label": "IN", "type": "power_in"},
+        {"id": "out", "label": "OUT", "type": "power_out"}
+      ]
+    },
+    "100uf capacitor": {
+      "label": "100µF Electrolytic Capacitor",
+      "type": "passive",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "pos", "label": "+", "type": "power_in"},
+        {"id": "neg", "label": "-", "type": "ground"}
+      ]
+    },
+    "0.1uf capacitor": {
+      "label": "0.1µF Ceramic Bypass Cap",
+      "type": "passive",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "pos", "label": "+", "type": "power_in"},
+        {"id": "neg", "label": "-", "type": "ground"}
+      ]
     }
   }
 }

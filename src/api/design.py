@@ -271,6 +271,7 @@ ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
 13. **Controller Architecture**: If multiple controllers are used, explicitly show UART/I2C/SPI connections, their purpose, and Master/slave relationship. Remove redundant controllers if they don't serve a clear purpose.
 14. **Validation & Completion**: Verify every component connection and ensure no floating, incomplete, or ambiguous connections. Validate that the design can realistically be built without electrical conflicts. Follow real engineering best practices. Apply these rules to all future robot schematics regardless of robot type.
 15. **Validation Report**: Use the `validation` array to output a validation report listing every improvement made (e.g., "Added reverse polarity protection") and assumptions used (e.g., "Assumed 24V for primary joint motors").
+16. **Professional Engineering Documentation Quality**: Every component must have complete power, ground, and signal connections. Every signal path must be identifiable. Every voltage rail must be labeled. Every driver, regulator, sensor, and actuator must show realistic real-world wiring suitable for PCB design, debugging, and robot assembly. Target 9.5+/10 electrical accuracy.
 
 OUTPUT FORMAT:
 {
