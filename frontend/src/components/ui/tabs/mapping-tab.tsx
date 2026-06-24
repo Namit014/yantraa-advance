@@ -2,7 +2,7 @@
 
 import {
     Search, X, SlidersHorizontal, Plus, Crosshair,
-    LayoutGrid, Maximize2, Trash2, RefreshCw, Network
+    LayoutGrid, Maximize2, Trash2, RefreshCw, Network, PanelLeft
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
@@ -727,6 +727,7 @@ const CustomComponentNode = ({ data }: any) => {
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
     const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
     const [activeView, setActiveView] = useState<"canvas">("canvas");
+    const [isLibraryOpen, setIsLibraryOpen] = useState(true);
     
     useEffect(() => {
         console.log(`[MappingTab] Successfully mounted/loaded with activeView: ${activeView}`);
@@ -1112,7 +1113,14 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
             
             {/* TOP TOOLBAR: View Toggle */}
             <div className="h-12 border-b border-neutral-800/50 flex items-center justify-between px-6 bg-[#0B0E14] shrink-0 z-30">
-                <div className="flex gap-1">
+                <div className="flex gap-2 items-center">
+                    <button 
+                        onClick={() => setIsLibraryOpen(!isLibraryOpen)}
+                        className={`p-1.5 rounded transition-colors ${isLibraryOpen ? 'bg-[#1a2333] text-sky-400' : 'text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50'}`}
+                        title="Toggle Component Library"
+                    >
+                        <PanelLeft size={16} />
+                    </button>
                     <div className="px-4 py-1.5 rounded text-xs font-bold bg-[#1a2333] text-sky-400 shadow border border-neutral-800/50">
                         Canvas Wiring View
                     </div>
@@ -1127,7 +1135,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
             <div className="flex-1 flex overflow-hidden relative">
                 {/* 1. COMPONENT LIBRARY (Left Column) */}
-                <div className="w-[320px] h-full bg-[#0B0E14] border-r border-neutral-800/50 flex flex-col shrink-0 z-20">
+                <div className={`h-full bg-[#0B0E14] border-r border-neutral-800/50 flex flex-col shrink-0 z-20 transition-all duration-300 ease-in-out ${isLibraryOpen ? 'w-[320px] opacity-100' : 'w-0 opacity-0 border-none overflow-hidden'}`}>
                     <div className="flex items-center justify-between p-4 pb-2 mt-2">
                         <h2 className="text-xs font-bold text-white tracking-widest uppercase">Component Library</h2>
                     </div>
