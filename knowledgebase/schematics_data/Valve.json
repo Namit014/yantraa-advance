@@ -1,0 +1,425 @@
+[
+  {
+    "component": "CK6418",
+    "type": "Valve",
+    "pins": [
+      "F+,G3",
+      "P",
+      "G2",
+      "G1"
+    ],
+    "description": "Subminiature Pentode",
+    "keywords": [
+      "subminiature",
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "CK548DX",
+    "type": "Valve",
+    "pins": [
+      "F+,G3",
+      "P",
+      "G2",
+      "G1"
+    ],
+    "description": "Subminiature Pentode",
+    "keywords": [
+      "subminiature",
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "JAN6418",
+    "type": "Valve",
+    "pins": [
+      "F+,G3",
+      "P",
+      "G2",
+      "G1"
+    ],
+    "description": "Subminiature Pentode",
+    "keywords": [
+      "subminiature",
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "NOS-6418",
+    "type": "Valve",
+    "pins": [
+      "F+,G3",
+      "P",
+      "G2",
+      "G1"
+    ],
+    "description": "Subminiature Pentode",
+    "keywords": [
+      "subminiature",
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EABC80",
+    "type": "Valve",
+    "pins": [
+      "A2",
+      "K",
+      "A1",
+      "A3",
+      "G",
+      "F1",
+      "F2"
+    ],
+    "description": "triple diode triode",
+    "keywords": [
+      "diode",
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "6AK8",
+    "type": "Valve",
+    "pins": [
+      "A2",
+      "K",
+      "A1",
+      "A3",
+      "G",
+      "F1",
+      "F2"
+    ],
+    "description": "triple diode triode",
+    "keywords": [
+      "diode",
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "9AK8",
+    "type": "Valve",
+    "pins": [
+      "A2",
+      "K",
+      "A1",
+      "A3",
+      "G",
+      "F1",
+      "F2"
+    ],
+    "description": "triple diode triode",
+    "keywords": [
+      "diode",
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "PABC80",
+    "type": "Valve",
+    "pins": [
+      "A2",
+      "K",
+      "A1",
+      "A3",
+      "G",
+      "F1",
+      "F2"
+    ],
+    "description": "triple diode triode",
+    "keywords": [
+      "diode",
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "UABC80",
+    "type": "Valve",
+    "pins": [
+      "A2",
+      "K",
+      "A1",
+      "A3",
+      "G",
+      "F1",
+      "F2"
+    ],
+    "description": "triple diode triode",
+    "keywords": [
+      "diode",
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EC92",
+    "type": "Valve",
+    "pins": [
+      "A",
+      "G",
+      "K",
+      "F1",
+      "F2"
+    ],
+    "description": "single triode",
+    "keywords": [
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "ECC81",
+    "type": "Valve",
+    "pins": [
+      "A",
+      "G",
+      "K",
+      "F1",
+      "F2"
+    ],
+    "description": "double triode",
+    "keywords": [
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "ECC83",
+    "type": "Valve",
+    "pins": [
+      "A",
+      "G",
+      "K",
+      "F1",
+      "F2"
+    ],
+    "description": "double triode",
+    "keywords": [
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "ECC88",
+    "type": "Valve",
+    "pins": [
+      "A",
+      "G",
+      "K",
+      "F1",
+      "F2"
+    ],
+    "description": "double triode, low-noise",
+    "keywords": [
+      "triode",
+      "valve"
+    ]
+  },
+  {
+    "component": "ECH81",
+    "type": "Valve",
+    "pins": [
+      "K",
+      "A",
+      "G",
+      "G2_G4",
+      "G1",
+      "G3",
+      "K_G5",
+      "F1",
+      "F2"
+    ],
+    "description": "triode heptode",
+    "keywords": [
+      "triode",
+      "heptode",
+      "valve"
+    ]
+  },
+  {
+    "component": "ECL82",
+    "type": "Valve",
+    "pins": [
+      "G",
+      "K",
+      "A",
+      "K_G3",
+      "G1",
+      "G2",
+      "F1",
+      "F2"
+    ],
+    "description": "triode pentode",
+    "keywords": [
+      "triode",
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "ECL86",
+    "type": "Valve",
+    "pins": [
+      "G",
+      "K",
+      "A",
+      "G2",
+      "K_G3",
+      "G1",
+      "F1",
+      "F2"
+    ],
+    "description": "triode pentode",
+    "keywords": [
+      "triode",
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EF80",
+    "type": "Valve",
+    "pins": [
+      "G1",
+      "F1",
+      "S",
+      "A",
+      "G2",
+      "G3",
+      "F2"
+    ],
+    "description": "pentode",
+    "keywords": [
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EF85",
+    "type": "Valve",
+    "pins": [
+      "G1",
+      "F1",
+      "S",
+      "A",
+      "G2",
+      "G3",
+      "F2"
+    ],
+    "description": "pentode",
+    "keywords": [
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EF83",
+    "type": "Valve",
+    "pins": [
+      "G2",
+      "K",
+      "A",
+      "S",
+      "G3",
+      "G1",
+      "F1",
+      "F2"
+    ],
+    "description": "pentode",
+    "keywords": [
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EF86",
+    "type": "Valve",
+    "pins": [
+      "G2",
+      "K",
+      "A",
+      "S",
+      "G3",
+      "G1",
+      "F1",
+      "F2"
+    ],
+    "description": "pentode",
+    "keywords": [
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EL34",
+    "type": "Valve",
+    "pins": [
+      "G3",
+      "A",
+      "G2",
+      "G1",
+      "F1",
+      "F2"
+    ],
+    "description": "pentode, 25W",
+    "keywords": [
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EL84",
+    "type": "Valve",
+    "pins": [
+      "G1",
+      "K_G3",
+      "A",
+      "G2",
+      "F1",
+      "F2"
+    ],
+    "description": "pentode, 12W",
+    "keywords": [
+      "pentode",
+      "valve"
+    ]
+  },
+  {
+    "component": "EM84",
+    "type": "Valve",
+    "pins": [
+      "K",
+      "L",
+      "ST",
+      "G",
+      "A",
+      "F1",
+      "F2"
+    ],
+    "description": "indicator tube \"magic eye\"",
+    "keywords": [
+      "indicator",
+      "tube",
+      "valve",
+      "magic",
+      "eye"
+    ]
+  },
+  {
+    "component": "STABI",
+    "type": "Valve",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "",
+    "keywords": []
+  }
+]

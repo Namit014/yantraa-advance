@@ -19,6 +19,13 @@ palletizing_robot_cad.STEP
 scara_robot_cad.stp
 welding_cad.stp
 
+# CAD Files (Store in AWS S3 instead)
+*.step
+*.stp
+*.stl
+*.3mf
+*.obj
+
 # Yantraa temp and config ignores
 .env.local
 *.bak
@@ -26,4 +33,4 @@ debug_*.txt
 api_response.json
 .temp_*/
 scratch/
-.scraped_url_cache.json
+.scraped_url_cache.json

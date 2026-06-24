@@ -1,0 +1,2247 @@
+[
+  {
+    "component": "IR4301",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VAA",
+      "VN",
+      "VS",
+      "VP",
+      "VB",
+      "CSH",
+      "COM",
+      "GND",
+      "IN+",
+      "IN-",
+      "COMP",
+      "CSD",
+      "VSS",
+      "VCC"
+    ],
+    "description": "PowIRaudio Integrated Analog Input Class D Audio Amplifier, 160W/4ohm, 80V, PQFN-22",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "IR4311",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VAA",
+      "VN",
+      "VS",
+      "VP",
+      "VB",
+      "CSH",
+      "COM",
+      "GND",
+      "IN+",
+      "IN-",
+      "COMP",
+      "CSD",
+      "VSS",
+      "VCC"
+    ],
+    "description": "PowIRaudio Integrated Analog Input Class D Audio Amplifier, 90W/4ohm, 60V, PQFN-22",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "IR4321",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VAA",
+      "VN",
+      "VS",
+      "VP",
+      "VB",
+      "CSH",
+      "COM",
+      "GND",
+      "IN+",
+      "IN-",
+      "COMP",
+      "CSD",
+      "VSS",
+      "VCC"
+    ],
+    "description": "PowIRaudio Integrated Analog Input Class D Audio Amplifier, 35W/4ohm, 40V, PQFN-22",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "IR4302",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "CLIP",
+      "COMP1",
+      "CSD",
+      "FAULT",
+      "NC",
+      "VCC",
+      "COM",
+      "CSH1",
+      "VB1",
+      "VS1",
+      "VP1",
+      "VN1",
+      "GND",
+      "VSS",
+      "VAA",
+      "IN+1",
+      "IN-1",
+      "COMP2",
+      "VN2",
+      "VS2",
+      "VP2",
+      "VB2",
+      "CSH2",
+      "IN-2",
+      "IN+2"
+    ],
+    "description": "PowIRaudio 2 Channel Integrated Analog Input Class D Audio Amplifier, 130W/4ohm, 80V, PQFN-44",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "IR4312",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "CLIP",
+      "COMP1",
+      "CSD",
+      "FAULT",
+      "NC",
+      "VCC",
+      "COM",
+      "CSH1",
+      "VB1",
+      "VS1",
+      "VP1",
+      "VN1",
+      "GND",
+      "VSS",
+      "VAA",
+      "IN+1",
+      "IN-1",
+      "COMP2",
+      "VN2",
+      "VS2",
+      "VP2",
+      "VB2",
+      "CSH2",
+      "IN-2",
+      "IN+2"
+    ],
+    "description": "PowIRaudio 2 Channel Integrated Analog Input Class D Audio Amplifier, 100W/4ohm, 60V, PQFN-44",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "IR4322",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "CLIP",
+      "COMP1",
+      "CSD",
+      "FAULT",
+      "NC",
+      "VCC",
+      "COM",
+      "CSH1",
+      "VB1",
+      "VS1",
+      "VP1",
+      "VN1",
+      "GND",
+      "VSS",
+      "VAA",
+      "IN+1",
+      "IN-1",
+      "COMP2",
+      "VN2",
+      "VS2",
+      "VP2",
+      "VB2",
+      "CSH2",
+      "IN-2",
+      "IN+2"
+    ],
+    "description": "PowIRaudio 2 Channel Integrated Analog Input Class D Audio Amplifier, 35W/4ohm, 40V, PQFN-44",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "IRS2052M",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "NC",
+      "VS1",
+      "HO1",
+      "VB1",
+      "CSH1",
+      "LO1",
+      "COM",
+      "OTP",
+      "VCC",
+      "DT",
+      "OCSET",
+      "VREF",
+      "GND",
+      "VSS",
+      "VAA",
+      "IN1",
+      "COMP1",
+      "CLIP1",
+      "CSD",
+      "VCC2",
+      "OTW",
+      "LO2",
+      "CSH2",
+      "VB2",
+      "HO2",
+      "VS2",
+      "FAULT",
+      "CLIP2",
+      "COMP2",
+      "CKO",
+      "IN2",
+      "X1B",
+      "X1A",
+      "X2B",
+      "X2A",
+      "XSL"
+    ],
+    "description": "2 CH Digital Audio Amplifier, PWM Modulator, +/-100V, 0.5/0.6A, MLPQ-48",
+    "keywords": [
+      "Gate",
+      "Driver",
+      "Class",
+      "D",
+      "2ch"
+    ]
+  },
+  {
+    "component": "IRS2092",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VAA",
+      "COM",
+      "LO",
+      "VCC",
+      "VS",
+      "HO",
+      "VB",
+      "CSH",
+      "GND",
+      "IN-",
+      "COMP",
+      "CSD",
+      "VSS",
+      "VREF",
+      "OCSET",
+      "DT"
+    ],
+    "description": "Protected Digital Audio Amplifier, PWM Modulator, +/-100V, 1.0/1.2A, PDIP-16",
+    "keywords": [
+      "Gate",
+      "Driver",
+      "Class",
+      "D"
+    ]
+  },
+  {
+    "component": "IRS2092S",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VAA",
+      "COM",
+      "LO",
+      "VCC",
+      "VS",
+      "HO",
+      "VB",
+      "CSH",
+      "GND",
+      "IN-",
+      "COMP",
+      "CSD",
+      "VSS",
+      "VREF",
+      "OCSET",
+      "DT"
+    ],
+    "description": "Protected Digital Audio Amplifier, PWM Modulator, +/-100V, 1.0/1.2A, SOIC-16",
+    "keywords": [
+      "Gate",
+      "Driver",
+      "Class",
+      "D"
+    ]
+  },
+  {
+    "component": "IRS2093M",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "DS",
+      "VS1",
+      "HO1",
+      "VB1",
+      "CSH1",
+      "LO1",
+      "NC",
+      "COM",
+      "VCC",
+      "DT",
+      "OCSET",
+      "VREF",
+      "GND",
+      "VSS",
+      "VAA",
+      "IN1",
+      "COMP1",
+      "CSD",
+      "VS2",
+      "LO2",
+      "VCC2",
+      "IN2",
+      "COMP2",
+      "CSH2",
+      "VB2",
+      "HO2",
+      "LO3",
+      "CSH3",
+      "VB3",
+      "HO3",
+      "VS3",
+      "COMP3",
+      "IN3",
+      "LO4",
+      "VS4",
+      "HO4",
+      "VB4",
+      "CSH4",
+      "COMP4",
+      "IN4"
+    ],
+    "description": "4 CH Digital Audio Amplifier, PWM Modulator, +/-100V, 0.5/0.6A, MLPQ-48",
+    "keywords": [
+      "Gate",
+      "Driver",
+      "Class",
+      "D",
+      "4ch"
+    ]
+  },
+  {
+    "component": "IRS20957S",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VDD",
+      "LO",
+      "VCC",
+      "NC",
+      "VS",
+      "HO",
+      "VB",
+      "CSH",
+      "CSD",
+      "IN",
+      "VSS",
+      "VREF",
+      "OCSET",
+      "DT",
+      "COM"
+    ],
+    "description": "Protected Digital Audio Driver, +/-100V, 1.0/1.2A, SOIC-16",
+    "keywords": [
+      "Gate",
+      "Driver",
+      "Class",
+      "D"
+    ]
+  },
+  {
+    "component": "IRS20965S",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VDD",
+      "LO",
+      "VCC",
+      "STP",
+      "VS",
+      "HO",
+      "VB",
+      "CSH",
+      "CSD",
+      "OC",
+      "HIN",
+      "LIN",
+      "VSS",
+      "VREF",
+      "OCSET",
+      "COM"
+    ],
+    "description": "Class D Audio Driver, +/-100V, 2.0/2.0A, SOIC-16",
+    "keywords": [
+      "Gate",
+      "Driver",
+      "Class",
+      "D"
+    ]
+  },
+  {
+    "component": "IRS2452AM",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "COMP1",
+      "CSD",
+      "BTL",
+      "CSH1",
+      "VB1",
+      "HO1",
+      "VS1",
+      "CSL1",
+      "LO1",
+      "NC",
+      "COM",
+      "VCC",
+      "OTP",
+      "DT",
+      "A/B",
+      "VSS",
+      "VAA",
+      "GND",
+      "IN+1",
+      "IN-1",
+      "COMP2",
+      "IN-2",
+      "LO2",
+      "CSL2",
+      "VS2",
+      "HO2",
+      "VB2",
+      "IN+2",
+      "CSH2",
+      "CLK"
+    ],
+    "description": "Class D Audio IC, PWM Modulator, +/-200V, 0.5/0.6A, MLPQ-32",
+    "keywords": [
+      "Gate",
+      "Driver",
+      "Class",
+      "D",
+      "2ch"
+    ]
+  },
+  {
+    "component": "IS31AP4991-GRLS2",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "GND",
+      "BYP",
+      "~SDB",
+      "V+"
+    ],
+    "description": "1.2W, 2.7-5.5V, Audio Power Amplifier, Active-Low Standby, SOP-8",
+    "keywords": [
+      "ultra",
+      "low",
+      "consumption",
+      "distortion"
+    ]
+  },
+  {
+    "component": "IS31AP4991-SLS2",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "~SDB",
+      "BYP",
+      "+",
+      "-",
+      "V+",
+      "GND"
+    ],
+    "description": "1.2W, 2.7-5.5V, Audio Power Amplifier, Active-Low Standby, MSOP-8",
+    "keywords": [
+      "ultra",
+      "low",
+      "consumption",
+      "distortion"
+    ]
+  },
+  {
+    "component": "LM1875",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "20W Audio Power Amplifier, TO-220-5",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LM1876",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "V+",
+      "V-",
+      "GND",
+      "MUTE",
+      "-",
+      "+",
+      "STBY"
+    ],
+    "description": "Overture Audio Power Amplifier Series Dual 20W Audio Power Amplifier with Mute and Standby Modes, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "LM1877",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "BIAS",
+      "+",
+      "-",
+      "GND",
+      "V+"
+    ],
+    "description": "Dual Audio Power Amplifier, PDIP-14/SOIC-14",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "LM2876",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "V+",
+      "+",
+      "NC",
+      "V-",
+      "GND",
+      "MUTE",
+      "-"
+    ],
+    "description": "Overture Audio Power Amplifier Series High-Performance 40W Audio Power Amplifier w/Mute, TO-220-11",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "LM380N",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "BYPASS",
+      "GND",
+      "NC",
+      "VS",
+      "+",
+      "-"
+    ],
+    "description": "2.5W Audio Power Amplifier, PDIP-14",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LM380N-8",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "NC",
+      "+",
+      "-",
+      "GND",
+      "VS",
+      "BYPASS"
+    ],
+    "description": "2.5W Audio Power Amplifier, PDIP-8",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LM384",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "BYPASS",
+      "GND",
+      "NC",
+      "VS",
+      "+",
+      "-"
+    ],
+    "description": "5W Audio Power Amplifier, PDIP-14",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LM386",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "GAIN",
+      "-",
+      "+",
+      "GND",
+      "V+",
+      "BYPASS"
+    ],
+    "description": "Low Voltage Audio Power Amplifier, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "single",
+      "Power",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM3886",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "V+",
+      "+",
+      "NC",
+      "V-",
+      "GND",
+      "MUTE",
+      "-"
+    ],
+    "description": "Overture Audio Power Amplifier Series High-Performance 68W Audio Power Amplifier w/Mute, TO-220-11",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LM4752TS",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "BIAS",
+      "+",
+      "V+",
+      "GND"
+    ],
+    "description": "Stereo 11W Audio Power Amplifier, TO-263-7",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "LM4755TS",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "MUTE",
+      "BIAS",
+      "+",
+      "NC",
+      "V+",
+      "GND"
+    ],
+    "description": "Stereo 11W Audio Power Amplifier with Mute, TO-263-9",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "LM4766",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "V+",
+      "V-",
+      "GND",
+      "MUTE",
+      "-",
+      "+",
+      "NC"
+    ],
+    "description": "Overture Audio Power Amplifier Series Dual 40W Audio Power Amplifier with Mute, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "LM4810",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VOUT1",
+      "VIN1",
+      "BYPASS",
+      "GND",
+      "SHDN",
+      "VIN2",
+      "VOUT2",
+      "VDD"
+    ],
+    "description": "Boomer Dual 105mW Headphone Amplifier with Active-High Shutdown Mode, VSSOP-8",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "headphone"
+    ]
+  },
+  {
+    "component": "LM4811",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VOUT1",
+      "VDD",
+      "VIN1",
+      "BYPASS",
+      "CLOCK",
+      "GND",
+      "UP/DN",
+      "SHDN",
+      "VIN2",
+      "VOUT2"
+    ],
+    "description": "Boomer Dual 105mW Headphone Amplifier with Digital Volume Control and Shutdown Mode, VSSOP-10",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "headphone",
+      "2ch"
+    ]
+  },
+  {
+    "component": "LM4950TA",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VINA",
+      "~SHDN",
+      "BYP",
+      "VINB",
+      "GND",
+      "VDD"
+    ],
+    "description": "Boomer Audio Power Amplifier Series 7.5W Mono-BTL or 3.1W Stereo Audio Power Amplifier, TO-220-9",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LM4950TS",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VINA",
+      "~SHDN",
+      "BYP",
+      "VINB",
+      "GND",
+      "VDD"
+    ],
+    "description": "Boomer Audio Power Amplifier Series 7.5W Mono-BTL or 3.1W Stereo Audio Power Amplifier, TO-263-9",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LM4990ITL",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "-",
+      "+",
+      "GND",
+      "V+",
+      "BYP",
+      "~SHDN"
+    ],
+    "description": "Boomer 2 Watt Audio Power Amplifier with Selectable Shutdown Logic Level, DSBGA-9",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "LM4990LD",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "SHDN",
+      "BYP",
+      "SD",
+      "+",
+      "-",
+      "NC",
+      "V+",
+      "GND"
+    ],
+    "description": "Boomer 2 Watt Audio Power Amplifier with Selectable Shutdown Logic Level, WSON-10",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "LM4990MH",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "~SHDN",
+      "BYP",
+      "SD",
+      "+",
+      "-",
+      "NC",
+      "V+",
+      "GND"
+    ],
+    "description": "Boomer 2 Watt Audio Power Amplifier with Selectable Shutdown Logic Level, MSOP-10",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "LM4990MM",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "~SHDN",
+      "BYP",
+      "+",
+      "-",
+      "V+",
+      "GND"
+    ],
+    "description": "Boomer 2 Watt Audio Power Amplifier with Selectable Shutdown Logic Level, VSSOP-8",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "LME49600",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "BW",
+      "IN",
+      "V-",
+      "V+"
+    ],
+    "description": "High-Performance, High-Fidelity, High-Current Headphone Buffer, 250mA, TO-263",
+    "keywords": [
+      "audio",
+      "buffer",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MA12040",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PVSS",
+      "OUT0B",
+      "CF0BN",
+      "~CLIP",
+      "~ERROR",
+      "AVDD",
+      "CMSE",
+      "AVSS",
+      "CREF",
+      "IN0A",
+      "IN0B",
+      "IN1A",
+      "IN1B",
+      "DVSS",
+      "SCL",
+      "AD0",
+      "AD1",
+      "CF0AN",
+      "SDA",
+      "CLKM/S",
+      "CLKIO",
+      "~ENABLE",
+      "~MUTE",
+      "CF1BN",
+      "OUT1B",
+      "OUT0A",
+      "CF1BP",
+      "PVDD",
+      "CF1AP",
+      "OUT1A",
+      "CF1AN",
+      "NC",
+      "MSEL1",
+      "MSEL0",
+      "CGD1N",
+      "CGD1P",
+      "VGDC",
+      "DVDD",
+      "CDC",
+      "CFDCP",
+      "CFDCN",
+      "CF0AP",
+      "CGD0P",
+      "CGD0N",
+      "CFGDP",
+      "CFGDN",
+      "CF0BP"
+    ],
+    "description": "Filterless and High-Efficiency +4V to +18V Audio Amplifier with Analog Input, QFN-64",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MA12070",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PVSS",
+      "OUT0B",
+      "CF0BN",
+      "~CLIP",
+      "~ERROR",
+      "AVDD",
+      "CMSE",
+      "AVSS",
+      "CREF",
+      "IN0A",
+      "IN0B",
+      "IN1A",
+      "IN1B",
+      "DVSS",
+      "SCL",
+      "AD0",
+      "AD1",
+      "CF0AN",
+      "SDA",
+      "CLKM/S",
+      "CLKIO",
+      "~ENABLE",
+      "~MUTE",
+      "CF1BN",
+      "OUT1B",
+      "OUT0A",
+      "CF1BP",
+      "PVDD",
+      "CF1AP",
+      "OUT1A",
+      "CF1AN",
+      "NC",
+      "MSEL1",
+      "MSEL0",
+      "CGD1N",
+      "CGD1P",
+      "VGDC",
+      "DVDD",
+      "CDC",
+      "CFDCP",
+      "CFDCN",
+      "CF0AP",
+      "CGD0P",
+      "CGD0N",
+      "CFGDP",
+      "CFGDN",
+      "CF0BP"
+    ],
+    "description": "Filterless and High-Efficiency +4V to +26V Audio Amplifier with Analog Input, QFN-64",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MA12040P",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PVSS",
+      "OUT0B",
+      "CF0BN",
+      "~CLIP",
+      "~ERROR",
+      "AVDD",
+      "CMSE",
+      "AVSS",
+      "CREF",
+      "SCLK",
+      "WS",
+      "SD0",
+      "SD1",
+      "DVSS",
+      "SCL",
+      "AD0",
+      "AD1",
+      "CF0AN",
+      "SDA",
+      "CLKM/S",
+      "CLK",
+      "~ENABLE",
+      "~MUTE",
+      "CF1BN",
+      "OUT1B",
+      "OUT0A",
+      "CF1BP",
+      "PVDD",
+      "CF1AP",
+      "OUT1A",
+      "CF1AN",
+      "NC",
+      "MSEL1",
+      "MSEL0",
+      "CGD1N",
+      "CGD1P",
+      "VGDC",
+      "DVDD",
+      "CDC",
+      "CFDCP",
+      "CFDCN",
+      "CF0AP",
+      "CGD0P",
+      "CGD0N",
+      "CFGDP",
+      "CFGDN",
+      "CF0BP"
+    ],
+    "description": "Filterless and High-Efficiency +4V to +18V Audio Amplifier with I2S Digital Input, QFN-64",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MA12070P",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PVSS",
+      "OUT0B",
+      "CF0BN",
+      "~CLIP",
+      "~ERROR",
+      "AVDD",
+      "CMSE",
+      "AVSS",
+      "CREF",
+      "SCLK",
+      "WS",
+      "SD0",
+      "SD1",
+      "DVSS",
+      "SCL",
+      "AD0",
+      "AD1",
+      "CF0AN",
+      "SDA",
+      "CLKM/S",
+      "CLK",
+      "~ENABLE",
+      "~MUTE",
+      "CF1BN",
+      "OUT1B",
+      "OUT0A",
+      "CF1BP",
+      "PVDD",
+      "CF1AP",
+      "OUT1A",
+      "CF1AN",
+      "NC",
+      "MSEL1",
+      "MSEL0",
+      "CGD1N",
+      "CGD1P",
+      "VGDC",
+      "DVDD",
+      "CDC",
+      "CFDCP",
+      "CFDCN",
+      "CF0AP",
+      "CGD0P",
+      "CGD0N",
+      "CFGDP",
+      "CFGDN",
+      "CF0BP"
+    ],
+    "description": "Filterless and High-Efficiency +4V to +26V Audio Amplifier with I2S Digital Input, QFN-64",
+    "keywords": [
+      "integrated",
+      "class",
+      "d",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX9715ETE+",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PGND",
+      "OUTR-",
+      "OUTR+",
+      "BIAS",
+      "VDD",
+      "INR",
+      "INL",
+      "PAD",
+      "OUTL+",
+      "OUTL-",
+      "PVDD",
+      "NC",
+      "GAIN",
+      "GND",
+      "~SHDN"
+    ],
+    "description": "2.8W, Low-EMI, Stereo, Filterless Class D Audio Amplifier, TQFN-16",
+    "keywords": [
+      "Class-D",
+      "Stereo"
+    ]
+  },
+  {
+    "component": "MAX9814",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "CT",
+      "GAIN",
+      "GND",
+      "BIAS",
+      "MICBIAS",
+      "TH",
+      "~SHDN",
+      "CG",
+      "VDD",
+      "MICOUT",
+      "MICIN",
+      "A/R"
+    ],
+    "description": "Microphone Amplifier with AGC and Low-Noise Microphone Bias, TDFN-14",
+    "keywords": [
+      "audio",
+      "microphone",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "OPA1622",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "EN",
+      "V-",
+      "V+",
+      "GND"
+    ],
+    "description": "High-Fidelity, Bipolar-Input, Audio Operational Amplifier, VSON-10",
+    "keywords": [
+      "dual",
+      "opamp",
+      "audio"
+    ]
+  },
+  {
+    "component": "PAM8301",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "OUT-",
+      "GND",
+      "IN",
+      "~SD",
+      "VDD",
+      "OUT+"
+    ],
+    "description": "Filterless Class-D Mono Audio Amplifier, 1.5W, TSOT-26",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "PAM8302AAD",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "~SD",
+      "NC",
+      "IN+",
+      "IN-",
+      "OUT+",
+      "VDD",
+      "GND",
+      "OUT-"
+    ],
+    "description": "2.5W Filterless Class-D Mono Audio Amplifier, SOIC-8",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "PAM8302AAS",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "~SD",
+      "NC",
+      "IN+",
+      "IN-",
+      "OUT+",
+      "VDD",
+      "GND",
+      "OUT-"
+    ],
+    "description": "2.5W Filterless Class-D Mono Audio Amplifier, MSOP-8",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "PAM8302AAY",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "~SD",
+      "NC",
+      "IN+",
+      "IN-",
+      "OUT+",
+      "VDD",
+      "GND",
+      "OUT-"
+    ],
+    "description": "2.5W Filterless Class-D Mono Audio Amplifier, DFN-8",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "PAM8403D",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "LOUT+",
+      "INR",
+      "GND",
+      "~SHDN",
+      "PVDD",
+      "ROUT-",
+      "PGND",
+      "ROUT+",
+      "LOUT-",
+      "~MUTE",
+      "VDD",
+      "INL",
+      "VREF",
+      "NC"
+    ],
+    "description": "3W Filterless Class-D Stereo Audio Amplifier, SOP-16",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "class",
+      "d"
+    ]
+  },
+  {
+    "component": "SSM2017P",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "RG1",
+      "-",
+      "+",
+      "V-",
+      "REF",
+      "V+",
+      "RG2"
+    ],
+    "description": "Self-Contained Audio Preamplifier, DIP-8",
+    "keywords": [
+      "audio",
+      "preamplifier"
+    ]
+  },
+  {
+    "component": "SSM2018",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "COMP3",
+      "+I1-G",
+      "V-",
+      "VC",
+      "MODE",
+      "GND",
+      "VG",
+      "BAL",
+      "V1-G",
+      "V+",
+      "-IG",
+      "-I1-G",
+      "COMP1",
+      "+IN",
+      "-IN",
+      "COMP2"
+    ],
+    "description": "Trimless Voltage Controlled Amplifier, DIP-16",
+    "keywords": [
+      "audio",
+      "VCA"
+    ]
+  },
+  {
+    "component": "SSM2120",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "IREF",
+      "V-",
+      "V+",
+      "GND",
+      "+",
+      "CFT",
+      "-",
+      "IN",
+      "THRESH",
+      "LOGAV",
+      "CONOUT",
+      "RECIN"
+    ],
+    "description": "Dynamic Range Pprocessor/Dual VCA, DIP-22",
+    "keywords": [
+      "audio",
+      "VCA"
+    ]
+  },
+  {
+    "component": "SSM2122",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "GND",
+      "V+",
+      "IREF",
+      "V-",
+      "+",
+      "CFT",
+      "-",
+      "IN"
+    ],
+    "description": "Dynamic Range Pprocessor/Dual VCA, DIP-16",
+    "keywords": [
+      "audio",
+      "VCA"
+    ]
+  },
+  {
+    "component": "SSM2165",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "GND",
+      "VCAIN",
+      "BUFOUT",
+      "IN+",
+      "AVG",
+      "COMP",
+      "VOUT",
+      "V+"
+    ],
+    "description": "Microphone Preamplifier with Variable Compression and Noise Gating, DIP-8/SOIC-8",
+    "keywords": [
+      "audio",
+      "microphone",
+      "preamplifier"
+    ]
+  },
+  {
+    "component": "SSM2167",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "GND",
+      "V+",
+      "VCAIN",
+      "~SD",
+      "BUFOUT",
+      "IN+",
+      "AVG",
+      "GATE",
+      "COMP",
+      "VOUT"
+    ],
+    "description": "Low Voltage Microphone Preamplifier with Variable Compression and Noise Gating, MSOP-10",
+    "keywords": [
+      "audio",
+      "microphone",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "SSM2211CP",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "SHUTDOWN",
+      "BYPASS",
+      "IN+",
+      "IN-",
+      "VoutA",
+      "V+",
+      "V-",
+      "VoutB"
+    ],
+    "description": "1.5W BTL or 250mW SE 4MHz-bandwidth high performance amplifier, LFCSP-8",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "SSM2211S",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "SHUTDOWN",
+      "BYPASS",
+      "IN+",
+      "IN-",
+      "VoutA",
+      "V+",
+      "V-",
+      "VoutB"
+    ],
+    "description": "1.5W BTL or 250mW SE 4MHz-bandwidth high performance amplifier, SOIC-8",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "STK433_Sanyo",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "2-Channel 5 Wmin Audio Frequency Power Amplifier, 4010, SIP-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "STK435_Sanyo",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "2-Channel 7 Wmin Audio Frequency Power Amplifier, 4010, SIP-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "STK436_Sanyo",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "2-Channel 10 Wmin Audio Frequency Power Amplifier, 4010, SIP-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "STK437_Sanyo",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "2-Channel 12 Wmin Audio Frequency Power Amplifier, 4010, SIP-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "STK439_Sanyo",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "2-Channel 16 Wmin Audio Frequency Power Amplifier, 4010, SIP-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "STK441_Sanyo",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "2-Channel 24 Wmin Audio Frequency Power Amplifier, 4010, SIP-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "STK443_Sanyo",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "2-Channel 28 Wmin Audio Frequency Power Amplifier, 4010, SIP-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "Si8241BB",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PWM",
+      "VOB",
+      "VDDB",
+      "NC",
+      "GNDA",
+      "VOA",
+      "VDDA",
+      "VDDI",
+      "GNDI",
+      "DISABLE",
+      "DT",
+      "GNDB"
+    ],
+    "description": "Class D Audio Driver With Precision Dead-Time Generator, 8V UVLO, +/-750V, +0.5/-0.5A, SOIC-16",
+    "keywords": [
+      "class",
+      "d",
+      "gate",
+      "driver"
+    ]
+  },
+  {
+    "component": "Si8241CB",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PWM",
+      "VOB",
+      "VDDB",
+      "NC",
+      "GNDA",
+      "VOA",
+      "VDDA",
+      "VDDI",
+      "GNDI",
+      "DISABLE",
+      "DT",
+      "GNDB"
+    ],
+    "description": "Class D Audio Driver With Precision Dead-Time Generator, 10V UVLO, +/-750V, +0.5/-0.5A, SOIC-16",
+    "keywords": [
+      "class",
+      "d",
+      "gate",
+      "driver"
+    ]
+  },
+  {
+    "component": "Si8244BB",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PWM",
+      "VOB",
+      "VDDB",
+      "NC",
+      "GNDA",
+      "VOA",
+      "VDDA",
+      "VDDI",
+      "GNDI",
+      "DISABLE",
+      "DT",
+      "GNDB"
+    ],
+    "description": "Class D Audio Driver With Precision Dead-Time Generator, 8V UVLO, +/-750V, +4/-4A, SOIC-16",
+    "keywords": [
+      "class",
+      "d",
+      "gate",
+      "driver"
+    ]
+  },
+  {
+    "component": "Si8244CB",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "PWM",
+      "VOB",
+      "VDDB",
+      "NC",
+      "GNDA",
+      "VOA",
+      "VDDA",
+      "VDDI",
+      "GNDI",
+      "DISABLE",
+      "DT",
+      "GNDB"
+    ],
+    "description": "Class D Audio Driver With Precision Dead-Time Generator, 10V UVLO, +/-750V, +4/-4A, SOIC-16",
+    "keywords": [
+      "class",
+      "d",
+      "gate",
+      "driver"
+    ]
+  },
+  {
+    "component": "TAS5825MRHB",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "BST_A+",
+      "GPIO1",
+      "GPIO2",
+      "LRCLK",
+      "SCLK",
+      "SDIN",
+      "SDA",
+      "SCL",
+      "~PDN",
+      "GVDD",
+      "AVDD",
+      "OUT_A+",
+      "AGND",
+      "PVDD",
+      "OUT_B+",
+      "BST_B+",
+      "PGND",
+      "OUT_B-",
+      "BST_B-",
+      "BST_A-",
+      "OUT_A-",
+      "EP",
+      "DGND",
+      "DVDD",
+      "VR_DIG",
+      "ADR",
+      "GPIO0"
+    ],
+    "description": "38-W Stereo, Inductor-Less, Digital Input, Closed-Loop Class-D Audio Amplifier with 192-kHz Extended Audio Processing, VQFN-32",
+    "keywords": [
+      "Class-D",
+      "Stereo"
+    ]
+  },
+  {
+    "component": "TDA1308",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "-",
+      "+",
+      "VSS",
+      "V+"
+    ],
+    "description": "Class-AB Stereo Headphone Driver, SOIC-8/TSSOP-8",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA2003",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "GND",
+      "V+"
+    ],
+    "description": "10W Car Radio Audio Amplifier, TO-220-5",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA2005",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "BOOT",
+      "-",
+      "SVRR",
+      "GND",
+      "V+"
+    ],
+    "description": "20W Bridge/Stereo Amplifier for Car Radio, TO-220-11",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA2030",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "-Vs",
+      "+Vs"
+    ],
+    "description": "14W Hi-Fi Audio Amplifier, TO-220-5",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA2050",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "+",
+      "-",
+      "-Vs",
+      "+Vs"
+    ],
+    "description": "32W Hi-Fi Audio Amplifier, TO-220-5",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA7052A",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "VP",
+      "+",
+      "GND",
+      "V",
+      "NC"
+    ],
+    "description": "1W BTL mono audio amplifier with DC volume control, DIP-8/SOIC-8",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA7264",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "MUTE",
+      "GND",
+      "IN",
+      "V+",
+      "V-"
+    ],
+    "description": "25W + 25W stereo amplifier with mute and standby, TO-220-8",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7265",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "-",
+      "+",
+      "MUTE",
+      "GND",
+      "V-",
+      "V+"
+    ],
+    "description": "25W +25W Stereo Amplifier with Mute & St-by, TO-220-11",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7265B",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "-",
+      "+",
+      "MUTE",
+      "GND",
+      "V-",
+      "V+"
+    ],
+    "description": "30W + 30W Stereo Amplifier with Mute and Standby, TO-220-11",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7269A",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "-",
+      "+",
+      "MUTE",
+      "GND",
+      "V-",
+      "V+"
+    ],
+    "description": "14W+14W Stereo Amplifier with Mute & St-by, TO-220-11",
+    "keywords": [
+      "audio",
+      "amplfier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7292",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "-",
+      "+",
+      "MUTE",
+      "GND",
+      "V-",
+      "V+"
+    ],
+    "description": "40W + 40W stereo amplifier with mute and standby, TO-220-11",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7266",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "NC",
+      "+",
+      "MUTE",
+      "STBY",
+      "V+",
+      "PG",
+      "SG"
+    ],
+    "description": "7+7W Dual Bridge Amplifier, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7297",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "NC",
+      "+",
+      "MUTE",
+      "STBY",
+      "V+",
+      "PG",
+      "SG"
+    ],
+    "description": "15+15W Dual Bridge Amplifier, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7266D",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "NC",
+      "+",
+      "MUTE",
+      "STBY",
+      "PG",
+      "SG",
+      "V+"
+    ],
+    "description": "5W+5W Dual Bridge Amplifier, PowerSO-20",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7266M",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "NC",
+      "V+",
+      "+",
+      "MUTE",
+      "STBY",
+      "PG",
+      "SG"
+    ],
+    "description": "7W Mono Bridge Amplifier, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA7266P",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "MUTE",
+      "STBY",
+      "NC",
+      "+",
+      "PG",
+      "SG",
+      "V+"
+    ],
+    "description": "3W+3W Dual Bridge Amplifier, PowerSSO-24",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TDA7293",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "SGND",
+      "MUTE",
+      "NC",
+      "+Vs",
+      "-Vs",
+      "-",
+      "+",
+      "SIG_GND",
+      "BOOT",
+      "STBY"
+    ],
+    "description": "120-volt, 100-watt, DMOS Audio Amplifier with Mute and Standby, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA7294",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "SGND",
+      "MUTE",
+      "NC",
+      "+Vs",
+      "-Vs",
+      "-",
+      "+",
+      "SIG_GND",
+      "BOOT",
+      "STBY"
+    ],
+    "description": "100V - 100W DMOS Audio Amplifier with Mute/St-by, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA7295",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "SGND",
+      "MUTE",
+      "NC",
+      "+Vs",
+      "-Vs",
+      "-",
+      "+",
+      "SIG_GND",
+      "BOOT",
+      "STBY"
+    ],
+    "description": "80V - 80W DMOS Audio Amplifier with Mute/St-by, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA7296",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "SGND",
+      "MUTE",
+      "NC",
+      "+Vs",
+      "-Vs",
+      "-",
+      "+",
+      "SIG_GND",
+      "BOOT",
+      "STBY"
+    ],
+    "description": "70V - 60W DMOS Audio Amplifier with Mute/St-by, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TDA7496",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "MUTE",
+      "V",
+      "O",
+      "+",
+      "NC",
+      "STBY",
+      "SVR",
+      "PG",
+      "V+",
+      "SG"
+    ],
+    "description": "5W+5W Amplifier with DC Volume Control, TO-220-15",
+    "keywords": [
+      "audio",
+      "amplifier",
+      "2ch"
+    ]
+  },
+  {
+    "component": "TFA9879HN",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "SDA",
+      "OUTA",
+      "GNDP",
+      "STABA",
+      "NC",
+      "TEST2",
+      "ADSEL1",
+      "SDI2",
+      "SCK2",
+      "LRCK2",
+      "SCL",
+      "SDI1",
+      "SCK1",
+      "LRCK1",
+      "VDD",
+      "GNDD",
+      "EP",
+      "TEST1",
+      "ADSEL2",
+      "TEST3",
+      "VDDP",
+      "OUTB"
+    ],
+    "description": "Mono BTL class-D audio amplifier for portable applications with digital input, HVQFN-24",
+    "keywords": [
+      "Audio",
+      "Amplifier",
+      "Class",
+      "D",
+      "NXP",
+      "Semiconductors"
+    ]
+  },
+  {
+    "component": "THAT2180",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "V-",
+      "GND",
+      "V+",
+      "-",
+      "E+",
+      "E-",
+      "SYM"
+    ],
+    "description": "Blackmer Pre-Trimmed IC Voltage Controlled Amplifiers, SIP-8",
+    "keywords": [
+      "audio",
+      "vca"
+    ]
+  },
+  {
+    "component": "THAT2181",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "V-",
+      "GND",
+      "V+",
+      "-",
+      "E+",
+      "E-",
+      "SYM"
+    ],
+    "description": "Blackmer Trimmable IC Voltage Controlled Amplifiers, SIP-8/SOIC-8",
+    "keywords": [
+      "audio",
+      "vca"
+    ]
+  },
+  {
+    "component": "TPA3251",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "GVDD_AB",
+      "OSC_IOP",
+      "DVDD",
+      "GND",
+      "AVDD",
+      "C_START",
+      "VDD",
+      "VBG",
+      "OUT_B",
+      "PVDD_AB",
+      "OUT_A",
+      "BST_B",
+      "BST_A",
+      "INPUT_A",
+      "INPUT_B",
+      "OC_ADJ",
+      "FREQ_ADJ",
+      "OSC_IOM",
+      "INPUT_C",
+      "INPUT_D",
+      "~RESET",
+      "~FAULT",
+      "~CLIP_OTW",
+      "GVDD_CD",
+      "BST_D",
+      "BST_C",
+      "OUT_D",
+      "PVDD_CD",
+      "M1",
+      "OUT_C",
+      "M2"
+    ],
+    "description": "175-W Stereo, 350-W Mono PurePath Ultra-HD Analog-Input Class-D Amplifier, HTSSOP-44",
+    "keywords": [
+      "stereo",
+      "class",
+      "d",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TPA6132A2RTE",
+    "type": "Amplifier_Audio",
+    "pins": [
+      "INL-",
+      "PGND",
+      "CPP",
+      "HPVDD",
+      "EN",
+      "VDD",
+      "SGND",
+      "OUTL",
+      "EP",
+      "INL+",
+      "INR+",
+      "INR-",
+      "OUTR",
+      "G0",
+      "G1",
+      "HPVSS",
+      "CPN"
+    ],
+    "description": "25mW, Stereo, DirectPath Audio Amplifier, WQFN-16",
+    "keywords": [
+      "DirectPath",
+      "audio",
+      "amplifier",
+      "Stereo"
+    ]
+  }
+]

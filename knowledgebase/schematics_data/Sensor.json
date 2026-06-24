@@ -1,0 +1,344 @@
+[
+  {
+    "component": "ADE7758",
+    "type": "Sensor",
+    "pins": [
+      "APCF",
+      "ICN",
+      "AGND",
+      "REFIN/OUT",
+      "VN",
+      "VCP",
+      "VBP",
+      "VAP",
+      "VARCF",
+      "~IRQ",
+      "CLKIN",
+      "DGND",
+      "CLKOUT",
+      "~CS",
+      "DIN",
+      "SCLK",
+      "DOUT",
+      "DVDD",
+      "AVDD",
+      "IAP",
+      "IAN",
+      "IBP",
+      "IBN",
+      "ICP"
+    ],
+    "description": "Poly Phase Multifunction Energy Metering, SO-24",
+    "keywords": [
+      "Energy",
+      "Metering"
+    ]
+  },
+  {
+    "component": "ADE7763xRS",
+    "type": "Sensor",
+    "pins": [
+      "~RESET",
+      "DGND",
+      "CF",
+      "ZX",
+      "~SAG",
+      "~IRQ",
+      "CLKIN",
+      "CLKOUT",
+      "~CS",
+      "SCLK",
+      "DOUT",
+      "DVDD",
+      "DIN",
+      "AVDD",
+      "V1P",
+      "V1N",
+      "V2N",
+      "V2P",
+      "AGND",
+      "REFIN/OUT"
+    ],
+    "description": "Single-Phase Active and Apparent Energy Metering, SSOP-20",
+    "keywords": [
+      "Energy",
+      "Metering"
+    ]
+  },
+  {
+    "component": "ADE7953xCP",
+    "type": "Sensor",
+    "pins": [
+      "ZX",
+      "IBN",
+      "VN",
+      "VP",
+      "REF",
+      "PULL_LOW",
+      "VINTA",
+      "AGND",
+      "VDD",
+      "CLKIN",
+      "CLKOUT",
+      "~RESET",
+      "~REVP",
+      "ZX_I",
+      "~IRQ",
+      "CF1",
+      "CF2",
+      "SCLK",
+      "MISO/SDA/TX",
+      "MOSI/SCL/RX",
+      "~CS",
+      "EP",
+      "VINTD",
+      "DGND",
+      "IAP",
+      "IAN",
+      "PULL_HIGH",
+      "IBP"
+    ],
+    "description": "Single Phase Multifunction Energy Metering with Neutral Current Measurement, LFCSP-28",
+    "keywords": [
+      "Energy",
+      "Metering"
+    ]
+  },
+  {
+    "component": "AS3935",
+    "type": "Sensor",
+    "pins": [
+      "ACG",
+      "IRQ",
+      "SCL",
+      "MISO",
+      "MOSI/SDA",
+      "AD0",
+      "AD1",
+      "GNDPAD",
+      "IN-",
+      "IN+",
+      "GND",
+      "Vdd",
+      "VReg",
+      "EN",
+      "CS",
+      "SI"
+    ],
+    "description": "Programmable fully integrated Lightning Sensor IC",
+    "keywords": [
+      "lightning",
+      "sensor"
+    ]
+  },
+  {
+    "component": "BL0937",
+    "type": "Sensor",
+    "pins": [
+      "VDD",
+      "IP",
+      "IN",
+      "VP",
+      "GND",
+      "CF",
+      "CF1",
+      "SEL"
+    ],
+    "description": "Single Phase Energy Meter IC with Integrated Oscillator, SOP-8",
+    "keywords": [
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "BME280",
+    "type": "Sensor",
+    "pins": [
+      "GND",
+      "CSB",
+      "SDI",
+      "SCK",
+      "SDO",
+      "VDDIO",
+      "VDD"
+    ],
+    "description": "3-in-1 sensor, humidity, pressure, temperature, I2C and SPI interface, 1.71-3.6V, LGA-8",
+    "keywords": [
+      "Bosch",
+      "pressure",
+      "humidity",
+      "temperature",
+      "environment",
+      "environmental",
+      "measurement",
+      "digital"
+    ]
+  },
+  {
+    "component": "BME680",
+    "type": "Sensor",
+    "pins": [
+      "GND",
+      "CSB",
+      "SDI",
+      "SCK",
+      "SDO",
+      "VDDIO",
+      "VDD"
+    ],
+    "description": "4-in-1 sensor, gas, humidity, pressure, temperature, I2C and SPI interface, 1.71-3.6V, LGA-8",
+    "keywords": [
+      "Bosch",
+      "gas",
+      "pressure",
+      "humidity",
+      "temperature",
+      "environment",
+      "environmental",
+      "measurement",
+      "digital"
+    ]
+  },
+  {
+    "component": "DHT11",
+    "type": "Sensor",
+    "pins": [
+      "VCC",
+      "IO",
+      "NC",
+      "GND"
+    ],
+    "description": "Temperature and humidity module",
+    "keywords": [
+      "Digital",
+      "temperature",
+      "humidity",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CHT11",
+    "type": "Sensor",
+    "pins": [
+      "VCC",
+      "IO",
+      "NC",
+      "GND"
+    ],
+    "description": "Temperature and humidity module",
+    "keywords": [
+      "Digital",
+      "temperature",
+      "humidity",
+      "sensor"
+    ]
+  },
+  {
+    "component": "INA260",
+    "type": "Sensor",
+    "pins": [
+      "IN+",
+      "VS",
+      "GND",
+      "VBUS",
+      "NC",
+      "IN-",
+      "A1",
+      "A0",
+      "ALERT",
+      "SDA",
+      "SCL"
+    ],
+    "description": "Current/power/voltage monitor with Integrated 2m\u03a9 Shunt Resistor, 2.7V - 5.5V, I2C, TSSOP-16",
+    "keywords": [
+      "Current/power/voltage",
+      "monitor"
+    ]
+  },
+  {
+    "component": "LTC2990",
+    "type": "Sensor",
+    "pins": [
+      "V1",
+      "VCC",
+      "V2",
+      "V3",
+      "V4",
+      "GND",
+      "SDA",
+      "SCL",
+      "ADR0",
+      "ADR1"
+    ],
+    "description": "Temperature Voltage and Current Monitor, I2C Interface, MSOP-10",
+    "keywords": [
+      "Temperature",
+      "Voltage",
+      "Current",
+      "Monitor",
+      "I2C",
+      "AFE"
+    ]
+  },
+  {
+    "component": "MAX30102",
+    "type": "Sensor",
+    "pins": [
+      "NC",
+      "VLED+",
+      "VDD",
+      "GND",
+      "~INT",
+      "SCL",
+      "SDA",
+      "PGND",
+      "R_DRV",
+      "IR_DRV"
+    ],
+    "description": "Heart Rate Sensor, 14-OLGA",
+    "keywords": [
+      "Heart",
+      "Rate"
+    ]
+  },
+  {
+    "component": "Nuclear-Radiation_Detector",
+    "type": "Sensor",
+    "pins": [
+      "1",
+      "2"
+    ],
+    "description": "Generic radiation detector",
+    "keywords": [
+      "nuclear",
+      "ionising",
+      "radiation",
+      "sensor",
+      "geiger",
+      "mueller",
+      "muller",
+      "tube",
+      "neutron",
+      "counter",
+      "ionization",
+      "chamber"
+    ]
+  },
+  {
+    "component": "SHT1x",
+    "type": "Sensor",
+    "pins": [
+      "GND",
+      "DATA",
+      "SCK",
+      "VDD"
+    ],
+    "description": "Temperature and humidity module",
+    "keywords": [
+      "digital",
+      "temperature",
+      "humidity",
+      "sensor"
+    ]
+  }
+]

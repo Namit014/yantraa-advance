@@ -1,0 +1,836 @@
+[
+  {
+    "component": "A1101ELHL",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Hall effect switch, unipolar, Bop=100G, Brp=45G, -40C to +85C, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1101LLHL",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Hall effect switch, unipolar, Bop=100G, Brp=45G, -40C to +125C, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1102ELHL",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Hall effect switch, unipolar, Bop=180G, Brp=125G, -40C to +85C, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1102LLHL",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Hall effect switch, unipolar, Bop=180G, Brp=125G, -40C to +125C, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1103ELHL",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Hall effect switch, unipolar, Bop=280G, Brp=225G, -40C to +85C, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1103LLHL",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Hall effect switch, unipolar, Bop=280G, Brp=225G, -40C to +125C, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1104LLHL",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Hall effect switch, unipolar, Bop=240G, Brp=200G, -40C to +125C, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1106LLHL",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Hall effect switch, unipolar, Bop=340G, Brp=240G, -40C to +125C, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1301KLHLT-T",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Linear Hall Effect Sensor, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1302ELHLT-T",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Linear Hall Effect Sensor, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1302KLHLT-T",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Linear Hall Effect Sensor, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A3214ELHLT-T",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND"
+    ],
+    "description": "Linear Hall Effect Sensor, SOT-23W",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1301KUA-T",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT"
+    ],
+    "description": "Linear Hall Effect Sensor, SIP 3pin",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1301EUA-T",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT"
+    ],
+    "description": "Linear Hall Effect Sensor, SIP 3pin",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "A1302KUA-T",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT"
+    ],
+    "description": "Linear Hall Effect Sensor, SIP 3pin",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "AH1806-P",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VDD",
+      "GND",
+      "OUTPUT"
+    ],
+    "description": "High Sensitivity Micropower Omnipolar Hall-Effect Switch, SIP-3",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "AH1806-W",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VDD",
+      "GND",
+      "OUTPUT"
+    ],
+    "description": "High Sensitivity Micropower Omnipolar Hall-Effect Switch, SC-59",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "AH1806-Z",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "NC",
+      "GND",
+      "VDD",
+      "OUTPUT"
+    ],
+    "description": "High Sensitivity Micropower Omnipolar Hall-Effect Switch, SOT-553",
+    "keywords": [
+      "hall",
+      "switch"
+    ]
+  },
+  {
+    "component": "AK7452",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "U",
+      "NC",
+      "TESTE",
+      "VSS",
+      "ERROR",
+      "Z",
+      "B",
+      "A",
+      "V",
+      "W",
+      "MISO",
+      "MOSI",
+      "SCLK",
+      "~CSN",
+      "VDD"
+    ],
+    "description": "Magnetic rotary angle sensor, 14-bit, SPI interface, ABZ, UVW, TSSOP-16",
+    "keywords": [
+      "sensor",
+      "magnetic",
+      "hall",
+      "position",
+      "rotation",
+      "spi"
+    ]
+  },
+  {
+    "component": "AS5045B",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "MagINCn",
+      "CLK",
+      "CSn",
+      "PWM",
+      "NC",
+      "VDD3V3",
+      "VDD5V",
+      "MagDECn",
+      "A",
+      "B",
+      "I",
+      "VSS",
+      "PDIO",
+      "DO"
+    ],
+    "description": "Magnetic Position Sensor, 12-bit, PWM Output, ABI Output, SPI Interface, SSOP-16",
+    "keywords": [
+      "Magnetic",
+      "Hall",
+      "Encoder"
+    ]
+  },
+  {
+    "component": "AS5047D",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "~CS",
+      "U",
+      "VDD",
+      "VDD3V3",
+      "GND",
+      "I/PWM",
+      "CLK",
+      "MISO",
+      "MOSI",
+      "TST",
+      "B",
+      "A",
+      "W/PWM",
+      "V"
+    ],
+    "description": "On-Axis Magnetic Position Sensor, 14-bit, PWM Output, ABI Output, UVW Output, SPI Interface, TSSOP-14",
+    "keywords": [
+      "Magnetic",
+      "Hall",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "AS5048A",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "~CSn",
+      "TEST",
+      "VDD5V",
+      "VDD3V",
+      "GND",
+      "PWM",
+      "CLK",
+      "MISO",
+      "MOSI"
+    ],
+    "description": "Magnetic position sensor, 14-bit, PWM output, SPI Interface, TSSOP-14",
+    "keywords": [
+      "sensor",
+      "magnetic",
+      "hall",
+      "position",
+      "rotation",
+      "spi"
+    ]
+  },
+  {
+    "component": "AS5048B",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "SDA",
+      "TEST",
+      "VDD5V",
+      "VDD3V",
+      "GND",
+      "PWM",
+      "SCL",
+      "A2",
+      "A1"
+    ],
+    "description": "Magnetic position sensor, 14-bit, PWM output, I2C Interface, TSSOP-14",
+    "keywords": [
+      "sensor",
+      "magnetic",
+      "hall",
+      "position",
+      "rotation",
+      "i2c"
+    ]
+  },
+  {
+    "component": "AS5055A",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "MOSI",
+      "~EN_INT",
+      "VDDp",
+      "VDD",
+      "VSS",
+      "WM",
+      "~INT",
+      "NC",
+      "MISO",
+      "SCK",
+      "~SS",
+      "TEST"
+    ],
+    "description": "Magnetic position sensor, 12-bit, SPI interface, QFN-16",
+    "keywords": [
+      "sensor",
+      "magnetic",
+      "hall",
+      "position",
+      "rotation",
+      "spi"
+    ]
+  },
+  {
+    "component": "AS5050A",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "MOSI",
+      "~EN_INT",
+      "VDDp",
+      "VDD",
+      "VSS",
+      "WM",
+      "~INT",
+      "NC",
+      "MISO",
+      "SCK",
+      "~SS",
+      "TEST"
+    ],
+    "description": "Magnetic position sensor, 10-bit, SPI interface, QFN-16",
+    "keywords": [
+      "sensor",
+      "magnetic",
+      "hall",
+      "position",
+      "rotation",
+      "spi"
+    ]
+  },
+  {
+    "component": "BMM150",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "PS",
+      "SCK",
+      "CSB",
+      "VDDIO",
+      "SDI",
+      "SDO",
+      "GND",
+      "INT",
+      "DRDY",
+      "VDD"
+    ],
+    "description": "Geomagnetic Sensor, WLCSP-12",
+    "keywords": [
+      "BOSH",
+      "Geomagnetic",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "DRV5055A1xDBZxQ1",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "OUT",
+      "GND"
+    ],
+    "description": "100 mV/mT,\u00b121-mT, 20-kHz, 3.3/5V, SOT-23",
+    "keywords": [
+      "Automotive",
+      "Ratiometric",
+      "Linear",
+      "Hall",
+      "Effect",
+      "Sensor",
+      "AEC-Q100"
+    ]
+  },
+  {
+    "component": "DRV5055A2xDBZxQ1",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "OUT",
+      "GND"
+    ],
+    "description": "50 mV/mT,\u00b142-mT, 20-kHz, 3.3/5V, SOT-23",
+    "keywords": [
+      "Automotive",
+      "Ratiometric",
+      "Linear",
+      "Hall",
+      "Effect",
+      "Sensor",
+      "AEC-Q100"
+    ]
+  },
+  {
+    "component": "DRV5055A3xDBZxQ1",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "OUT",
+      "GND"
+    ],
+    "description": "25 mV/mT,\u00b185-mT, 20-kHz, 3.3/5V, SOT-23",
+    "keywords": [
+      "Automotive",
+      "Ratiometric",
+      "Linear",
+      "Hall",
+      "Effect",
+      "Sensor",
+      "AEC-Q100"
+    ]
+  },
+  {
+    "component": "DRV5055A4xDBZxQ1",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "OUT",
+      "GND"
+    ],
+    "description": "12.5 mV/mT,\u00b1169-mT, 20-kHz, 3.3/5V, SOT-23",
+    "keywords": [
+      "Automotive",
+      "Ratiometric",
+      "Linear",
+      "Hall",
+      "Effect",
+      "Sensor",
+      "AEC-Q100"
+    ]
+  },
+  {
+    "component": "DRV5033AJxDBZ",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "OUT",
+      "GND"
+    ],
+    "description": "\u00b16.9 / \u00b13.5 mT, 20-kHz, 2-38V, SOT-23",
+    "keywords": [
+      "Digital",
+      "Omnipolar",
+      "Switch",
+      "Hall",
+      "Effect",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "DRV5033FAxDBZ",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "OUT",
+      "GND"
+    ],
+    "description": "\u00b13.5 / \u00b12 mT, 20-kHz, 2-38V, SOT-23",
+    "keywords": [
+      "Digital",
+      "Omnipolar",
+      "Switch",
+      "Hall",
+      "Effect",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "DRV5055A1xLPGxQ1",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "OUT"
+    ],
+    "description": "100 mV/mT,\u00b121-mT, 20-kHz, 3.3/5V, TO-92",
+    "keywords": [
+      "Automotive",
+      "Ratiometric",
+      "Linear",
+      "Hall",
+      "Effect",
+      "Sensor",
+      "AEC-Q100"
+    ]
+  },
+  {
+    "component": "DRV5055A2xLPGxQ1",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "OUT"
+    ],
+    "description": "50 mV/mT,\u00b142-mT, 20-kHz, 3.3/5V, TO-92",
+    "keywords": [
+      "Automotive",
+      "Ratiometric",
+      "Linear",
+      "Hall",
+      "Effect",
+      "Sensor",
+      "AEC-Q100"
+    ]
+  },
+  {
+    "component": "DRV5055A3xLPGxQ1",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "OUT"
+    ],
+    "description": "25 mV/mT,\u00b185-mT, 20-kHz, 3.3/5V, TO-92",
+    "keywords": [
+      "Automotive",
+      "Ratiometric",
+      "Linear",
+      "Hall",
+      "Effect",
+      "Sensor",
+      "AEC-Q100"
+    ]
+  },
+  {
+    "component": "DRV5055A4xLPGxQ1",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "OUT"
+    ],
+    "description": "12.5mV/mT,\u00b1169-mT, 20-kHz, 3.3/5V, TO-92",
+    "keywords": [
+      "Automotive",
+      "Ratiometric",
+      "Linear",
+      "Hall",
+      "Effect",
+      "Sensor",
+      "AEC-Q100"
+    ]
+  },
+  {
+    "component": "DRV5033AJxLPG",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "OUT"
+    ],
+    "description": "\u00b16.9 / \u00b13.5 mT, 20-kHz, 2-38V, TO-92",
+    "keywords": [
+      "Digital",
+      "Omnipolar",
+      "Switch",
+      "Hall",
+      "Effect",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "DRV5033FAxLPG",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "GND",
+      "OUT"
+    ],
+    "description": "\u00b13.5 / \u00b12 mT, 20-kHz, 2-38V, TO-92",
+    "keywords": [
+      "Digital",
+      "Omnipolar",
+      "Switch",
+      "Hall",
+      "Effect",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "IST8310",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "SCL",
+      "C1",
+      "VSS",
+      "NC",
+      "DVDD",
+      "~RST",
+      "DRDY",
+      "SDA",
+      "AVDD",
+      "CAD0",
+      "CAD1",
+      "VPP"
+    ],
+    "description": "3D Magnetometer, I2C Interface, LGA-16",
+    "keywords": [
+      "magnet",
+      "field",
+      "sensor",
+      "compass"
+    ]
+  },
+  {
+    "component": "IST8308",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "SCL",
+      "C1",
+      "VSS",
+      "NC",
+      "DVDD",
+      "~RST",
+      "DRDY",
+      "SDA",
+      "AVDD",
+      "CAD0",
+      "CAD1",
+      "VPP"
+    ],
+    "description": "3D Magnetometer, High Sensitivity, I2C Interface, LGA-16",
+    "keywords": [
+      "magnet",
+      "field",
+      "sensor",
+      "compass"
+    ]
+  },
+  {
+    "component": "MA730",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "SSD",
+      "TEST",
+      "MGL",
+      "SCLK",
+      "VDD",
+      "NC",
+      "SSCK",
+      "MGH",
+      "PAD",
+      "A",
+      "Z",
+      "MOSI",
+      "~CS",
+      "B",
+      "MISO",
+      "GND",
+      "PWM"
+    ],
+    "description": "Magnetic rotary angle sensor, 14-bit, SPI interface, ABZ, PWM, QFN-16",
+    "keywords": [
+      "sensor",
+      "magnetic",
+      "hall",
+      "position",
+      "rotation",
+      "spi"
+    ]
+  },
+  {
+    "component": "MMC5883MA",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "SCL",
+      "CAP",
+      "GND",
+      "NC",
+      "VDDIO",
+      "INT",
+      "SDA",
+      "VDD"
+    ],
+    "description": "3-axis Magnetic Sensor, I2C Interface, LGA-16",
+    "keywords": [
+      "I2C",
+      "magnetic",
+      "3-axis",
+      "sensor"
+    ]
+  },
+  {
+    "component": "SM351LT",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "OUTPUT",
+      "GND"
+    ],
+    "description": "Hall Effect Switch, SOT-23",
+    "keywords": [
+      "Hall",
+      "Effect",
+      "Switch",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "SM353LT",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "VCC",
+      "OUTPUT",
+      "GND"
+    ],
+    "description": "Hall Effect Switch, SOT-23",
+    "keywords": [
+      "Hall",
+      "Effect",
+      "Switch",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "TLV493D",
+    "type": "Sensor_Magnetic",
+    "pins": [
+      "SCL/INT",
+      "GND",
+      "VDD",
+      "SDA/ADDR"
+    ],
+    "description": "Low power 3D magnetic sensor, I2C interface, SOT-23-6",
+    "keywords": [
+      "magnetic",
+      "field",
+      "i2c"
+    ]
+  }
+]

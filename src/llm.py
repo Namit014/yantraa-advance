@@ -1,77 +1,52 @@
 import os
 import requests
-import json
 from dotenv import load_dotenv
 
 load_dotenv()
 
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/owl-alpha")
 
-DEFAULT_MODEL = "openrouter/owl-alpha"
+DEFAULT_MODEL = OPENROUTER_MODEL
 
-def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=DEFAULT_MODEL):
-    """
-<<<<<<< HEAD
-    Unified function to call Yantra AI. Uses OpenRouter exclusively.
-    """
-    api_key = os.environ.get("OPENROUTER_API_KEY")
-    if not api_key:
+def call_llm(messages: list, temperature: float = 0.7, response_format: str = "text", model: str = None) -> str:
+    if not OPENROUTER_API_KEY:
         raise Exception("API key is not set. Please set OPENROUTER_API_KEY in .env")
+        
+    target_model = model or OPENROUTER_MODEL
+    payload = {
+        "model": target_model,
+        "messages": messages,
+        "temperature": temperature,
+    }
+    if response_format == "json_object":
+        payload["response_format"] = {"type": "json_object"}
 
-    url = "https://openrouter.ai/api/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
-=======
-    Unified function to call Yantra AI via OpenRouter API.
-    Supports both standard text output and structured JSON extraction.
-    """
-    url = "https://openrouter.ai/api/v1/chat/completions"
-    
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
         "HTTP-Referer": "http://localhost:3000",
         "X-Title": "Yantra AI"
->>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
     }
-    
-    payload = {
-        "model": model,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": prompt}
-        ]
-    }
-<<<<<<< HEAD
-=======
 
-    # Some models strictly enforce JSON if requested
-    if response_format == "json_object":
-        payload["response_format"] = {"type": "json_object"}
->>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
-    
-    if response_format == "json_object":
-        payload["response_format"] = {"type": "json_object"}
-        
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=120)
+        response = requests.post(
+            OPENROUTER_API_URL,
+            headers=headers,
+            json=payload,
+            timeout=120,
+        )
         response.raise_for_status()
         data = response.json()
         if "choices" in data and len(data["choices"]) > 0:
             return data["choices"][0]["message"]["content"].strip()
         else:
-<<<<<<< HEAD
-            raise Exception("No choices found in OpenRouter API output.")
-=======
             raise Exception("No response candidates found in OpenRouter API output.")
->>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
     except Exception as e:
         print(f"Error calling Yantra AI (OpenRouter): {e}")
         if 'response' in locals():
             print(f"Response: {response.text}")
-<<<<<<< HEAD
-=======
             try:
                 err_data = response.json()
                 if "error" in err_data:
@@ -84,8 +59,18 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
                     raise inner_e
                 pass
             raise Exception(f"OpenRouter API Error: {response.status_code} {response.reason} - {response.text[:100]}")
->>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
         raise Exception(f"Error calling AI: {str(e)}")
+
+def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=None):
+    """
+    Unified function to call Yantra AI via OpenRouter API.
+    Supports both standard text output and structured JSON extraction.
+    """
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": prompt}
+    ]
+    return call_llm(messages, response_format=response_format, model=model)
 
 
 if __name__ == "__main__":

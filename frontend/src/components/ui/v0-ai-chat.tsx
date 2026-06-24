@@ -158,7 +158,7 @@ export function VercelV0Chat() {
         setIsLoading(true);
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
             const response = await fetch(`${apiUrl}/api/design`, {
                 method: "POST",
                 headers: {
@@ -366,45 +366,33 @@ export function VercelV0Chat() {
             {messages.length > 0 && (
                 <div className="flex-1 relative bg-[#0a0a0a] animate-in fade-in duration-500">
                     {/* Top Nav */}
-                    <div className="absolute top-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
-                        <div className="flex items-center gap-6 px-6 py-3 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-full shadow-2xl">
-                            <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
-                                <button onClick={() => setActiveTab('mapping')} className={cn("transition-colors", activeTab === 'mapping' ? "text-white" : "hover:text-white")}>Mapping</button>
-                                <button onClick={() => setActiveTab('connection')} className={cn("transition-colors", activeTab === 'connection' ? "text-white" : "hover:text-white")}>Connection</button>
-                                <button onClick={() => {
-                                    if (cadPrompt.available) {
-                                        setAcceptedCadUrls(cadPrompt.urls);
-                                        setCadPrompt({ available: false, urls: [] });
-                                    }
-                                    setActiveTab('cad');
-                                }} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
-                            </div>
+                    <div className="absolute top-6 left-1/2 -translate-x-1/2 z-10 flex items-center gap-6 px-6 py-3 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-full shadow-2xl">
+                        <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
+                            <button onClick={() => setActiveTab('mapping')} className={cn("transition-colors", activeTab === 'mapping' ? "text-white" : "hover:text-white")}>Mapping</button>
+                            <button onClick={() => setActiveTab('connection')} className={cn("transition-colors", activeTab === 'connection' ? "text-white" : "hover:text-white")}>Connection</button>
+                            <button onClick={() => {
+                                if (cadPrompt.available) {
+                                    setAcceptedCadUrls(cadPrompt.urls);
+                                    setCadPrompt({ available: false, urls: [] });
+                                }
+                                setActiveTab('cad');
+                            }} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
                         </div>
-                        {activeTab === 'connection' && (
-                            <div className="text-[10px] text-blue-400 font-mono bg-blue-950/40 border border-blue-900/50 px-3 py-1 rounded-full animate-in fade-in slide-in-from-top-2">
-                                Wiring components placed from the Mapping view
-                            </div>
-                        )}
-                        {activeTab === 'cad' && (
-                            <div className="text-[10px] text-purple-400 font-mono bg-purple-950/40 border border-purple-900/50 px-3 py-1 rounded-full animate-in fade-in slide-in-from-top-2">
-                                3D Assembly generated from Mapping components
-                            </div>
-                        )}
                     </div>
 
                     {/* Tab Content */}
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
-                        {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} isChatLoading={isLoading} />}
+                        {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'cad' && (() => {
                             const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
                             const cadUrl = urls[0] || 'default-cad';
                             return (
-                                <CADTab
+                                <CADTab 
                                     key={cadUrl}
-                                    currentQuery={latestUserQuery}
-                                    cadUrls={urls}
-                                    designData={robotDesign}
+                                    currentQuery={latestUserQuery} 
+                                    cadUrls={urls} 
+                                    designData={robotDesign} 
                                     onGeneratedCad={(newUrl) => {
                                         setAcceptedCadUrls(prev => [...prev, newUrl]);
                                         if (robotDesign) {

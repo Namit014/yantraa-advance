@@ -1,0 +1,32 @@
+Source URL: https://anydesk.com.cn/en/professional-use
+Scraped: 2026-06-19T14:44:08.925812
+============================================================
+
+# AnyDesk Professional Remote Desktop Software
+
+## Professional Usage Definition
+
+AnyDesk defines professional usage as any use or connection from, to within a professional environment or network.
+
+## Typical Professional Use Cases
+
+- **Remote Support** – Providing IT support for customers and clients, including Help Desk and Mobile Support.
+- **Remote Work** – Working from home, on the go, or in a hybrid setup.
+- **Remote Access** – Managing multiple devices, maintaining and monitoring computers, or controlling high-performance machines in a business environment across all platforms.
+
+## Personal Use
+
+AnyDesk offers free remote desktop software for personal use, including all basic features. Personal users can help friends and family with technical issues or collaborate on projects from any location.
+
+## Licensing
+
+- Professional users are required to purchase a license.
+- Existing license holders need to link their license to their client.
+- Personal users who are wrongly classified as professional can fill out a form to get whitelisted.
+
+## Company Information
+
+- Trusted by over 200,000 customers.
+- Sales contact: +86 18964674225
+- Users can sign up for news, tips, and updates.
+- Sales support tickets can be created through their system.

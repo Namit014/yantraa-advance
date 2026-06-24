@@ -8,7 +8,7 @@ _src_dir = os.path.dirname(os.path.abspath(__file__))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
-from vectordb import _client
+from vectordb import get_qdrant_client
 from qdrant_client.models import Distance, VectorParams
 from embedder import Embedder, EMBEDDING_DIMENSION
 
@@ -60,17 +60,18 @@ def optimize_for_web_search(query: str) -> str:
 def _run_async(coro):
     import asyncio
     try:
-        loop = asyncio.get_running_loop()
+        loop = asyncio.get_event_loop()
     except RuntimeError:
-        loop = None
-
-    if loop and loop.is_running():
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+    
+    if loop.is_running():
         from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor() as executor:
             future = executor.submit(asyncio.run, coro)
             return future.result()
     else:
-        return asyncio.run(coro)
+        return loop.run_until_complete(coro)
 
 
 class Retriever:
@@ -79,7 +80,7 @@ class Retriever:
 
         self.embedder = Embedder()
 
-        self.client = _client
+        self.client = get_qdrant_client()
 
         # Explicitly close the Qdrant client on exit to avoid
         # "sys.meta_path is None" warning during Python shutdown

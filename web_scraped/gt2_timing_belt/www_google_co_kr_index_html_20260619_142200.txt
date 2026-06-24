@@ -1,0 +1,5 @@
+Source URL: https://www.google.co.kr/index.html
+Scraped: 2026-06-19T14:22:00.951590
+============================================================
+
+Google Gmail is a free email service provided by Google. It offers features such as email storage, the ability to send and receive emails, spam filtering, and integration with other Google services. Gmail is accessible via web browsers and mobile applications.

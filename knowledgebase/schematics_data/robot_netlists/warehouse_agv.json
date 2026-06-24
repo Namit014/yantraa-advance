@@ -1,0 +1,118 @@
+{
+  "project": "warehouse_agv",
+  "robot_type": "AGV",
+  "components": [
+    {
+      "ref": "U1",
+      "part": "PLC",
+      "category": "controller"
+    },
+    {
+      "ref": "DRV1",
+      "part": "ODrive",
+      "category": "driver"
+    },
+    {
+      "ref": "M1",
+      "part": "BLDC Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "M2",
+      "part": "BLDC Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "LIDAR1",
+      "part": "LiDAR",
+      "category": "sensor"
+    },
+    {
+      "ref": "ESTOP1",
+      "part": "Emergency Stops",
+      "category": "power"
+    },
+    {
+      "ref": "PDB1",
+      "part": "Power Distribution Boards",
+      "category": "power"
+    }
+  ],
+  "nets": [
+    {
+      "name": "CAN_H",
+      "connections": [
+        "U1.CAN_H",
+        "DRV1.CAN_H"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "CAN_L",
+      "connections": [
+        "U1.CAN_L",
+        "DRV1.CAN_L"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "MOT_0",
+      "connections": [
+        "DRV1.M0",
+        "M1.PHASES"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "MOT_1",
+      "connections": [
+        "DRV1.M1",
+        "M2.PHASES"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "LIDAR_TX",
+      "connections": [
+        "LIDAR1.TX",
+        "U1.UART_RX"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "LIDAR_RX",
+      "connections": [
+        "LIDAR1.RX",
+        "U1.UART_TX"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "ESTOP_LINE",
+      "connections": [
+        "ESTOP1.NC",
+        "PDB1.EN",
+        "U1.SAFETY"
+      ],
+      "inferred": true
+    }
+  ],
+  "functional_blocks": [
+    {
+      "name": "Traction_System",
+      "components": [
+        "DRV1",
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "name": "Safety_Nav",
+      "components": [
+        "LIDAR1",
+        "ESTOP1",
+        "PDB1"
+      ]
+    }
+  ]
+}

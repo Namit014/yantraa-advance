@@ -1,0 +1,62 @@
+[
+  {
+    "component": "MAX1968xUI",
+    "type": "Driver_TEC",
+    "pins": [
+      "VDD",
+      "LX2",
+      "PVDD2",
+      "FREQ",
+      "ITEC",
+      "OS2",
+      "OS1",
+      "CS",
+      "~SHDN",
+      "PVDD1",
+      "LX1",
+      "GND",
+      "PGND",
+      "COMP",
+      "MAXIN",
+      "MAXIP",
+      "MAXV",
+      "CTLI",
+      "REF"
+    ],
+    "description": "Power Driver for Peltier TEC Modules, +-3A, HTSSOP-28",
+    "keywords": [
+      "thermoelectric",
+      "cooler"
+    ]
+  },
+  {
+    "component": "MAX1969xUI",
+    "type": "Driver_TEC",
+    "pins": [
+      "VDD",
+      "LX2",
+      "PVDD2",
+      "FREQ",
+      "ITEC",
+      "OS2",
+      "OS1",
+      "CS",
+      "~SHDN",
+      "PVDD1",
+      "LX1",
+      "GND",
+      "PGND",
+      "COMP",
+      "MAXIN",
+      "MAXIP",
+      "MAXV",
+      "CTLI",
+      "REF"
+    ],
+    "description": "Power Driver for Peltier TEC Modules, 6A, HTSSOP-28",
+    "keywords": [
+      "thermoelectric",
+      "cooler"
+    ]
+  }
+]

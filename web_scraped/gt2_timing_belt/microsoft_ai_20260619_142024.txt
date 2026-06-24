@@ -1,0 +1,15 @@
+Source URL: https://microsoft.ai/
+Scraped: 2026-06-19T14:20:24.648404
+============================================================
+
+Microsoft AI (MAI) has launched seven new foundational models:
+
+- **MAI-Thinking-1**: A mid-weight reasoning model built for complex problems, delivering competitive reasoning performance and top SWE-Bench Pro results.
+- **MAI-Code-1-Flash**: A lightweight, agentic model integrated into GitHub Copilot and VS Code to help engineering teams write better code faster.
+- **MAI-Image-2.5**: Generates high-quality images from text or photo prompts, achieving best-in-class Arena ELO scores at a lower price.
+- **MAI-Transcribe-1.5**: Converts noisy audio into precise, domain-specific transcripts, with leading accuracy on FLEURS and Artificial Analysis benchmarks.
+- **MAI-Voice-2**: Produces expressive, low-latency speech suitable for long-form generation.
+
+MAI's mission is "Humanist Superintelligence"—building advanced AI systems that remain controllable, aligned, and in service of humanity. Core values include Kindness, Trust, Quality, Simplicity, Safety & Security, and rigorous Evaluation.
+
+The team operates globally with offices in Mountain View, Redmond, New York, London, and Zurich, and is led by CEO Mustafa Suleyman.

@@ -1,0 +1,156 @@
+{
+  "project": "cnc_cartesian",
+  "robot_type": "Cartesian Robot",
+  "components": [
+    {
+      "ref": "U1",
+      "part": "Arduino",
+      "category": "controller"
+    },
+    {
+      "ref": "DRVX",
+      "part": "A4988",
+      "category": "driver"
+    },
+    {
+      "ref": "DRVY",
+      "part": "A4988",
+      "category": "driver"
+    },
+    {
+      "ref": "DRVZ",
+      "part": "A4988",
+      "category": "driver"
+    },
+    {
+      "ref": "MX",
+      "part": "Stepper Motor",
+      "category": "motor"
+    },
+    {
+      "ref": "MY",
+      "part": "Stepper Motor",
+      "category": "motor"
+    },
+    {
+      "ref": "MZ",
+      "part": "Stepper Motor",
+      "category": "motor"
+    },
+    {
+      "ref": "LIMX",
+      "part": "Limit Switches",
+      "category": "sensor"
+    },
+    {
+      "ref": "LIMY",
+      "part": "Limit Switches",
+      "category": "sensor"
+    },
+    {
+      "ref": "LIMZ",
+      "part": "Limit Switches",
+      "category": "sensor"
+    }
+  ],
+  "nets": [
+    {
+      "name": "STEP_X",
+      "connections": [
+        "U1.D2",
+        "DRVX.STEP"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_X",
+      "connections": [
+        "U1.D5",
+        "DRVX.DIR"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "STEP_Y",
+      "connections": [
+        "U1.D3",
+        "DRVY.STEP"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_Y",
+      "connections": [
+        "U1.D6",
+        "DRVY.DIR"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "STEP_Z",
+      "connections": [
+        "U1.D4",
+        "DRVZ.STEP"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_Z",
+      "connections": [
+        "U1.D7",
+        "DRVZ.DIR"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "LIM_X_SIG",
+      "connections": [
+        "LIMX.NO",
+        "U1.D9"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "LIM_Y_SIG",
+      "connections": [
+        "LIMY.NO",
+        "U1.D10"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "LIM_Z_SIG",
+      "connections": [
+        "LIMZ.NO",
+        "U1.D11"
+      ],
+      "inferred": true
+    }
+  ],
+  "functional_blocks": [
+    {
+      "name": "X_Axis",
+      "components": [
+        "DRVX",
+        "MX",
+        "LIMX"
+      ]
+    },
+    {
+      "name": "Y_Axis",
+      "components": [
+        "DRVY",
+        "MY",
+        "LIMY"
+      ]
+    },
+    {
+      "name": "Z_Axis",
+      "components": [
+        "DRVZ",
+        "MZ",
+        "LIMZ"
+      ]
+    }
+  ]
+}

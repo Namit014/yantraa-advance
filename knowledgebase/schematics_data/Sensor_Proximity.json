@@ -1,0 +1,557 @@
+[
+  {
+    "component": "BPR-205",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "K",
+      "A",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, Darlington photo transistor, SMD-package with PCB-cutout",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "CNY70",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K",
+      "C",
+      "E"
+    ],
+    "description": "Reflective Optical Sensor with Transistor Output",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "ITR1201SR10AR",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Miniature Reflective Optical Object Sensor, SMD-4",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto",
+      "reflex",
+      "coupler"
+    ]
+  },
+  {
+    "component": "ITR8307-L24-TR8",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Miniature Reflective Optical Object Sensor, SMD-4",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto",
+      "reflex",
+      "coupler"
+    ]
+  },
+  {
+    "component": "ITR8307-S17-TR8",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Miniature Reflective Optical Object Sensor, SMD-4",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto",
+      "reflex",
+      "coupler"
+    ]
+  },
+  {
+    "component": "ITR8307",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "K",
+      "A",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, SMD-package with PCB-cutout",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "BPR-105",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "K",
+      "A",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, SMD-package with PCB-cutout",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "ITR8307-F43",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "K",
+      "A",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, DIP-like THT-package",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "BPR-105F",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "K",
+      "A",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, DIP-like THT-package",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "KRC011",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "LDC1312",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "SCL",
+      "IN0B",
+      "IN1A",
+      "IN1B",
+      "GND",
+      "SDA",
+      "CLKIN",
+      "ADDR",
+      "INTB",
+      "SD",
+      "VDD",
+      "IN0A"
+    ],
+    "description": "Inductance to digital converter, 2-channel 12-bit, WSON-12",
+    "keywords": [
+      "inductance",
+      "sensor"
+    ]
+  },
+  {
+    "component": "LDC1612",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "SCL",
+      "IN0B",
+      "IN1A",
+      "IN1B",
+      "GND",
+      "SDA",
+      "CLKIN",
+      "ADDR",
+      "INTB",
+      "SD",
+      "VDD",
+      "IN0A"
+    ],
+    "description": "Inductance to digital converter, 2-channel 28-bit, WSON-12",
+    "keywords": [
+      "inductance",
+      "sensor"
+    ]
+  },
+  {
+    "component": "LDC1314",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "SCL",
+      "IN0B",
+      "IN1A",
+      "IN1B",
+      "IN2A",
+      "IN2B",
+      "IN3A",
+      "IN3B",
+      "GND",
+      "SDA",
+      "CLKIN",
+      "ADDR",
+      "INTB",
+      "SD",
+      "VDD",
+      "IN0A"
+    ],
+    "description": "Inductance to digital converter, 4-channel 12-bit, WQFN-16",
+    "keywords": [
+      "inductance",
+      "sensor"
+    ]
+  },
+  {
+    "component": "LDC1614",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "SCL",
+      "IN0B",
+      "IN1A",
+      "IN1B",
+      "IN2A",
+      "IN2B",
+      "IN3A",
+      "IN3B",
+      "GND",
+      "SDA",
+      "CLKIN",
+      "ADDR",
+      "INTB",
+      "SD",
+      "VDD",
+      "IN0A"
+    ],
+    "description": "Inductance to digital converter, 4-channel 28-bit, WQFN-16",
+    "keywords": [
+      "inductance",
+      "sensor"
+    ]
+  },
+  {
+    "component": "LG206D",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND",
+      "A",
+      "K"
+    ],
+    "description": "Photointerrupter infrared LED with photo IC, non-inverting output, -0.5V to 17V VDD, -20 to +85 degree Celsius, LG206D",
+    "keywords": [
+      "Photointerrupter",
+      "infrared",
+      "LED",
+      "with",
+      "photo",
+      "IC",
+      "non-inverting",
+      "output",
+      "-0.5V",
+      "to",
+      "17V",
+      "VDD",
+      "-20",
+      "to",
+      "+85",
+      "degree",
+      "Celsius",
+      "LG206D"
+    ]
+  },
+  {
+    "component": "LG206L",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "GND",
+      "A",
+      "K"
+    ],
+    "description": "Photointerrupter infrared LED with photo IC, inverting output, -0.5V to 17V VDD, -20 to +85 degree Celsius, LG206X",
+    "keywords": [
+      "Photointerrupter",
+      "infrared",
+      "LED",
+      "with",
+      "photo",
+      "IC",
+      "inverting",
+      "output",
+      "-0.5V",
+      "to",
+      "17V",
+      "VDD",
+      "-20",
+      "to",
+      "+85",
+      "degree",
+      "Celsius",
+      "LG206X"
+    ]
+  },
+  {
+    "component": "QRE1113",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Miniature Reflective Optical Object Sensor, DIP-like THT-package",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto",
+      "reflex",
+      "coupler"
+    ]
+  },
+  {
+    "component": "QRE1113GR",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Miniature Reflective Optical Object Sensor, SMD-4",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto",
+      "reflex",
+      "coupler"
+    ]
+  },
+  {
+    "component": "SFH900",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K",
+      "C"
+    ],
+    "description": "Miniature Light Reflection Switches",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "SFH9206",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "NC",
+      "E",
+      "C",
+      "K"
+    ],
+    "description": "Reflective Opto Interrupter/Coupler, SMD-6",
+    "keywords": [
+      "Reflective",
+      "Opto",
+      "Interrupter",
+      "Coupler"
+    ]
+  },
+  {
+    "component": "SFH9201",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "NC",
+      "E",
+      "C",
+      "K"
+    ],
+    "description": "Reflective Opto Interrupter/Coupler, SMD-6",
+    "keywords": [
+      "Reflective",
+      "Opto",
+      "Interrupter",
+      "Coupler"
+    ]
+  },
+  {
+    "component": "SFH9202",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "NC",
+      "E",
+      "C",
+      "K"
+    ],
+    "description": "Reflective Opto Interrupter/Coupler, SMD-6",
+    "keywords": [
+      "Reflective",
+      "Opto",
+      "Interrupter",
+      "Coupler"
+    ]
+  },
+  {
+    "component": "SG-105",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, SMD-package with PCB-cutout",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "SG-107",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, SMD-package with PCB-cutout",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "SG-105F",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, DIP-lie THT-package",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "SG-107F",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "A",
+      "K",
+      "C",
+      "E"
+    ],
+    "description": "Subminiature Reflective Optical Sensor, DIP-lie THT-package",
+    "keywords": [
+      "Reflective",
+      "Optical",
+      "Sensor",
+      "Opto"
+    ]
+  },
+  {
+    "component": "TSSP58P38",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSSP58038",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Detector for Mid Range Proximity Sensor",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver",
+      "proximity",
+      "sensor"
+    ]
+  },
+  {
+    "component": "TSSP58038SS1XB",
+    "type": "Sensor_Proximity",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Module for Light Barrier Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver",
+      "light",
+      "barrier"
+    ]
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "component": "FX614",
+    "type": "Interface_Telecom",
+    "pins": [
+      "XTALN",
+      "RXEQ",
+      "TXD",
+      "CLK",
+      "RXD",
+      "DET",
+      "~RDYN~",
+      "VDD",
+      "XTAL/CLK",
+      "M0",
+      "M1",
+      "RXIN",
+      "RXFB",
+      "TXOP",
+      "VSS",
+      "VBIAS"
+    ],
+    "description": "Bell 202 Compatible Modem, DIP-16/SO-16",
+    "keywords": [
+      "Bell",
+      "Modem"
+    ]
+  },
+  {
+    "component": "HT9170D",
+    "type": "Interface_Telecom",
+    "pins": [
+      "VP",
+      "OE",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "DV",
+      "EST",
+      "RT/GT",
+      "VDD",
+      "VN",
+      "GS",
+      "VREF",
+      "INH",
+      "PWDN",
+      "X1",
+      "X2",
+      "VSS"
+    ],
+    "description": "DTMF receiver with 4 bit output, SOIC-18",
+    "keywords": [
+      "DTMF",
+      "Receiver"
+    ]
+  },
+  {
+    "component": "Si3210",
+    "type": "Interface_Telecom",
+    "pins": [
+      "~CS",
+      "VDDA1",
+      "IREF",
+      "CAPP",
+      "QGND",
+      "CAPM",
+      "STIPDC",
+      "SRINGDC",
+      "STIPE",
+      "SVBAT",
+      "SRINGE",
+      "~INT",
+      "STIPAC",
+      "SRINGAC",
+      "IGMN",
+      "GNDA",
+      "IGMP",
+      "IRINGN",
+      "IRINGP",
+      "VDDA2",
+      "ITIPP",
+      "ITIPN",
+      "PCLK",
+      "VDDD",
+      "GNDD",
+      "TEST",
+      "DCFF",
+      "DCDRV",
+      "SDITHRU",
+      "SDO",
+      "SDI",
+      "SCLK",
+      "DRX",
+      "DTX",
+      "FSYNC",
+      "~RESET",
+      "SDCH",
+      "SDCL"
+    ],
+    "description": "ProSLIC Programmable cmos slic/codec with ringing/battery voltage generation",
+    "keywords": [
+      "ProSLIC",
+      "slic"
+    ]
+  }
+]

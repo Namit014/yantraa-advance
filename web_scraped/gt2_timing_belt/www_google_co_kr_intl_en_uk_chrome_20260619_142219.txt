@@ -1,0 +1,32 @@
+Source URL: https://www.google.co.kr/intl/en_uk/chrome/
+Scraped: 2026-06-19T14:22:19.972056
+============================================================
+
+Google Chrome is a web browser developed by Google, emphasizing speed, security, and personalization. It receives automatic updates every four weeks to ensure users have access to the latest features and security improvements.
+
+**Performance Features:**
+- **Energy Saver and Memory Saver:** Built-in tools to optimize browser performance and resource usage.
+- **Tab Management:** Users can group, label, and color-code tabs for better organization and efficiency.
+- **Cross-Platform Compatibility:** Designed to work seamlessly across different devices and operating systems.
+
+**Security and Privacy:**
+- **Google Password Manager:** Integrated tool to save, manage, and generate strong passwords.
+- **Enhanced Safe Browsing:** Warns users about malware and phishing threats; offers additional protection when enabled.
+- **Safety Check:** One-click tool to assess security status, including passwords, extensions, and settings.
+- **Privacy Guide:** Step-by-step walkthrough to help users control their privacy settings.
+
+**Personalization and Sync:**
+- Customizable with themes, dark mode, and other personal options.
+- Syncs bookmarks, passwords, and settings across devices when signed in.
+- Autofill feature saves time by automatically entering addresses, passwords, and other details.
+
+**Additional Features:**
+- **Chrome Web Store:** Offers extensions for shopping, entertainment, productivity, and more.
+- **Google AI Integration:** Powers features like Search and Google Translate.
+- **Google Search Bar:** Built-in omnibox for instant answers, weather, calculations, and web searches.
+- **Google Workspace Offline Access:** Allows use of Gmail, Docs, Slides, Sheets, Translate, and Drive without an internet connection.
+
+**Installation and Compatibility:**
+- Available for Windows and Mac operating systems (subject to minimum system requirements).
+- Can be set as the default browser on Windows, Mac, iPhone, iPad, and Android.
+- Mobile versions are available for phones and tablets, with sign-in for a consistent experience across devices.

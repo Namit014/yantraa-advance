@@ -1,0 +1,31 @@
+[
+  {
+    "component": "NHS3100",
+    "type": "MCU_NXP_NTAG",
+    "pins": [
+      "P0/WAKEUP",
+      "reserved",
+      "P4/SCL",
+      "P5/SDA",
+      "P7/CT16B_M1",
+      "P3/CT16B_M0",
+      "P10/SWCLK",
+      "P11/SWDIO",
+      "VSS",
+      "LB",
+      "P1/CLKOUT",
+      "LA",
+      "P2/SSEL",
+      "P6/SCLK",
+      "P8/MISO",
+      "P9/MOSI",
+      "VDDBAT",
+      "~RESET"
+    ],
+    "description": "Temperature logger, VQFN-24",
+    "keywords": [
+      "NFC",
+      "Cortex-M0"
+    ]
+  }
+]

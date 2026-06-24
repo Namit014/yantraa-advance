@@ -1,0 +1,323 @@
+[
+  {
+    "component": "DS7820",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "INPUT",
+      "TERMINATION",
+      "STROBE",
+      "RESPONSE_TIME",
+      "OUTPUT",
+      "GND",
+      "VCC"
+    ],
+    "description": "Dual line receiver, VDD +5V, DIP-14",
+    "keywords": [
+      "Dual",
+      "line",
+      "receiver"
+    ]
+  },
+  {
+    "component": "DS7830",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "A_1",
+      "A_2",
+      "A_3",
+      "A_4",
+      "A_AND_OUTPUT",
+      "A_NAND_OUTPUT",
+      "GND",
+      "B_NAND_OUTPUT",
+      "B_AND_OUTPUT",
+      "B_4",
+      "B_3",
+      "B_2",
+      "B_1",
+      "VCC"
+    ],
+    "description": "Dual differential line driver and dual four-input NAND or dual four-input AND function, VDD +5V, DIP-14",
+    "keywords": [
+      "Dual",
+      "differential",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "DS8830",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "A_1",
+      "A_2",
+      "A_3",
+      "A_4",
+      "A_AND_OUTPUT",
+      "A_NAND_OUTPUT",
+      "GND",
+      "B_NAND_OUTPUT",
+      "B_AND_OUTPUT",
+      "B_4",
+      "B_3",
+      "B_2",
+      "B_1",
+      "VCC"
+    ],
+    "description": "Dual differential line driver and dual four-input NAND or dual four-input AND function, VDD +5V, DIP-14",
+    "keywords": [
+      "Dual",
+      "differential",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "DS89C21",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "~DO",
+      "DO",
+      "~RI",
+      "RI"
+    ],
+    "description": "Differential CMOS Line Driver and Receiver Pair, SOIC-8",
+    "keywords": [
+      "rs422",
+      "tranciever"
+    ]
+  },
+  {
+    "component": "EL7242C",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "GND",
+      "V+",
+      "IN1",
+      "IN",
+      "OUT"
+    ],
+    "description": "Translateur TTL->VMOS. Double driver VMOS",
+    "keywords": [
+      "Translateur",
+      "TTL->VMOS.",
+      "Double",
+      "driver",
+      "VMOS"
+    ]
+  },
+  {
+    "component": "MC3486N",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "E-",
+      "E+",
+      "OUT",
+      "ENABLE",
+      "GND",
+      "VCC"
+    ],
+    "description": "Quadruple differential line receiver, SOIC-16",
+    "keywords": [
+      "Quadruple",
+      "differential",
+      "line",
+      "receiver"
+    ]
+  },
+  {
+    "component": "MC3487DX",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "INPUT",
+      "OUT+",
+      "OUT-",
+      "ENABLE",
+      "GND",
+      "VCC"
+    ],
+    "description": "Four independent differential line drivers, SOIC-16",
+    "keywords": [
+      "Four",
+      "independent",
+      "differential",
+      "line",
+      "drivers"
+    ]
+  },
+  {
+    "component": "MC3487N",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "INPUT",
+      "OUT+",
+      "OUT-",
+      "ENABLE",
+      "GND",
+      "VCC"
+    ],
+    "description": "Four independent differential line drivers, DIP-16",
+    "keywords": [
+      "Four",
+      "independent",
+      "differential",
+      "line",
+      "drivers"
+    ]
+  },
+  {
+    "component": "UA9637",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "OUT",
+      "GND",
+      "IN-",
+      "IN+"
+    ],
+    "description": "Dual differential line receiver, DIP-8",
+    "keywords": [
+      "Dual",
+      "differential",
+      "line",
+      "receiver"
+    ]
+  },
+  {
+    "component": "UA9638CD",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "IN",
+      "GND",
+      "OUTA",
+      "OUTB"
+    ],
+    "description": "Dual high-speed differential line driver, SOIC-8",
+    "keywords": [
+      "Dual",
+      "high-speed",
+      "differential",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "UA9638CDE4",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "IN",
+      "GND",
+      "OUTA",
+      "OUTB"
+    ],
+    "description": "Dual high-speed differential line driver, SOIC-8",
+    "keywords": [
+      "Dual",
+      "high-speed",
+      "differential",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "UA9638CDG4",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "IN",
+      "GND",
+      "OUTA",
+      "OUTB"
+    ],
+    "description": "Dual high-speed differential line driver, SOIC-8",
+    "keywords": [
+      "Dual",
+      "high-speed",
+      "differential",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "UA9638CDR",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "IN",
+      "GND",
+      "OUTA",
+      "OUTB"
+    ],
+    "description": "Dual high-speed differential line driver, SOIC-8",
+    "keywords": [
+      "Dual",
+      "high-speed",
+      "differential",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "UA9638CDRG4",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "IN",
+      "GND",
+      "OUTA",
+      "OUTB"
+    ],
+    "description": "Dual high-speed differential line driver, SOIC-8",
+    "keywords": [
+      "Dual",
+      "high-speed",
+      "differential",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "UA9638CP",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "IN",
+      "GND",
+      "OUTA",
+      "OUTB"
+    ],
+    "description": "Dual high-speed differential line driver, DIP-8",
+    "keywords": [
+      "Dual",
+      "high-speed",
+      "differential",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "UA9638CPE4",
+    "type": "Interface_LineDriver",
+    "pins": [
+      "VCC",
+      "IN",
+      "GND",
+      "OUTA",
+      "OUTB"
+    ],
+    "description": "Dual high-speed differential line driver, DIP-8",
+    "keywords": [
+      "Dual",
+      "high-speed",
+      "differential",
+      "line",
+      "driver"
+    ]
+  }
+]

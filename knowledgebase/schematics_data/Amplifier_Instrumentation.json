@@ -1,0 +1,672 @@
+[
+  {
+    "component": "AD620",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Cost, Low Power, Instrumentation Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "Instrumentation",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD623",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Rail-to-Rail, Low Cost Instrumentation Amplifier, DIP-8/SOIC-8/MSOP-8",
+    "keywords": [
+      "single",
+      "instumentation",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD623AN",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, DIP-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "dip-8"
+    ]
+  },
+  {
+    "component": "AD623BN",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, DIP-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "dip-8"
+    ]
+  },
+  {
+    "component": "AD623ANZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, RoHS, DIP-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "dip-8"
+    ]
+  },
+  {
+    "component": "AD623BNZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, RoHS, DIP-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "dip-8"
+    ]
+  },
+  {
+    "component": "AD623AR",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, SOIC-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD623ARZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, RoHS, SOIC-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD623BR",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, SOIC-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD623BRZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, RoHS, SOIC-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD623ARM",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, MSOP-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "msop-8"
+    ]
+  },
+  {
+    "component": "AD623ARMZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Supply, Rail to Rail, Instumentation Amplifier, RoHS, MSOP-8",
+    "keywords": [
+      "ad623",
+      "instumentation",
+      "amplifier",
+      "msop-8"
+    ]
+  },
+  {
+    "component": "AD8230",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "V-",
+      "V+",
+      "Vr1",
+      "+",
+      "-",
+      "Vr2",
+      "Rg"
+    ],
+    "description": "16V Rail-to-Rail, Zero-Drift, Precision Instrumentation Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "instrumentation",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD8236",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single 40 \u03bcA Micropower Instrumentation Amplifier with Zero Crossover Distortion, MSOP-8",
+    "keywords": [
+      "single",
+      "instumentation",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD8421",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Low Power Instrumentation Amplifier, SOIC-8/MSOP-8",
+    "keywords": [
+      "single",
+      "instumentation",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD8422",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single High Performance, Low Power, Rail-to-Rail Precision Instrumentation Amplifier, SOIC-8/MSOP-8",
+    "keywords": [
+      "single",
+      "instumentation",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD8429",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Single Low Noise Instrumentation Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "instumentation",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "AD8422ARMZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Power, Rail to Rail, Instumentation Amplifier, MSOP-8",
+    "keywords": [
+      "ad8422",
+      "instumentation",
+      "amplifier",
+      "msop-8"
+    ]
+  },
+  {
+    "component": "AD8422BRMZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Power, Rail to Rail, Instumentation Amplifier, MSOP-8",
+    "keywords": [
+      "ad8422",
+      "instumentation",
+      "amplifier",
+      "msop-8"
+    ]
+  },
+  {
+    "component": "AD8421ARMZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Power,  Instumentation Amplifier, MSOP-8",
+    "keywords": [
+      "ad8421",
+      "instumentation",
+      "amplifier",
+      "msop-8"
+    ]
+  },
+  {
+    "component": "AD8421BRMZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Power, Instumentation Amplifier, MSOP-8",
+    "keywords": [
+      "ad8421",
+      "instumentation",
+      "amplifier",
+      "msop-8"
+    ]
+  },
+  {
+    "component": "AD8236ARMZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Micropower Instumentation Amplifier with Zero Crossover Distortion, MSOP-8",
+    "keywords": [
+      "ad8236",
+      "instumentation",
+      "amplifier",
+      "msop-8"
+    ]
+  },
+  {
+    "component": "AD8422ARZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Power, Rail to Rail, Instumentation Amplifier, SOIC-8",
+    "keywords": [
+      "ad8422",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD8422BRZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Power, Rail to Rail, Instumentation Amplifier, SOIC-8",
+    "keywords": [
+      "ad8422",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD8421ARZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Power, Instumentation Amplifier, SOIC-8",
+    "keywords": [
+      "ad8421",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD8421BRZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Power, Instumentation Amplifier, SOIC-8",
+    "keywords": [
+      "ad8421",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD8429ARZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Noise, Instumentation Amplifier, SOIC-8",
+    "keywords": [
+      "ad8429",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "AD8429BRZ",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "-",
+      "Rg",
+      "+",
+      "Vs-",
+      "Ref",
+      "Vs+"
+    ],
+    "description": "Low Noise, Instumentation Amplifier, SOIC-8",
+    "keywords": [
+      "ad8429",
+      "instumentation",
+      "amplifier",
+      "soic-8"
+    ]
+  },
+  {
+    "component": "INA128",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "V-",
+      "Ref",
+      "V+"
+    ],
+    "description": "Precision, Low Power Instrumentation Amplifier G = 1 + 50kOhm/Rg, DIP-8/SOIC-8",
+    "keywords": [
+      "instrumentation",
+      "opamp"
+    ]
+  },
+  {
+    "component": "INA129",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "V-",
+      "Ref",
+      "V+"
+    ],
+    "description": "Precision, Low Power Instrumentation Amplifier G = 1 + 49.4kOhm/Rg, DIP-8/SOIC-8",
+    "keywords": [
+      "instrumentation",
+      "opamp"
+    ]
+  },
+  {
+    "component": "INA326",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "R1",
+      "-",
+      "+",
+      "V-",
+      "R2",
+      "V+"
+    ],
+    "description": "Precision, Rail-to-Rail I/O Instrumentation Amplifier, MSOP-8 package",
+    "keywords": [
+      "instrumentation",
+      "opamp"
+    ]
+  },
+  {
+    "component": "INA327",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "R1",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "EN",
+      "R2"
+    ],
+    "description": "Precision, Rail-to-Rail I/O Instrumentation Amplifier, MSOP-10 package",
+    "keywords": [
+      "instrumentation",
+      "opamp"
+    ]
+  },
+  {
+    "component": "INA333xxDGK",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "V-",
+      "Ref",
+      "V+"
+    ],
+    "description": "Zero Drift, Micropower Instrumentation Amplifier G = 1 + 100kOhm/Rg, VSSOP-8",
+    "keywords": [
+      "instrumentation",
+      "opamp",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "INA333xxDRG",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "Rg",
+      "-",
+      "+",
+      "V-",
+      "Ref",
+      "V+",
+      "EP"
+    ],
+    "description": "Zero Drift, Micropower Instrumentation Amplifier G = 1 + 100kOhm/Rg, WSON-8",
+    "keywords": [
+      "instrumentation",
+      "opamp",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LTC1100xN8",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "GND",
+      "CMRR",
+      "-",
+      "V-",
+      "V+",
+      "+",
+      "COMP"
+    ],
+    "description": "Single Precision, Zero-Drift Instrumentation Amplifier, Gain = 100, DIP-8",
+    "keywords": [
+      "single",
+      "instrumentation",
+      "amp"
+    ]
+  },
+  {
+    "component": "LTC1100xSW",
+    "type": "Amplifier_Instrumentation",
+    "pins": [
+      "NC",
+      "V+",
+      "+",
+      "COMP",
+      "GND",
+      "CMRR",
+      "-",
+      "V-"
+    ],
+    "description": "Single Precision, Zero-Drift Instrumentation Amplifier, Gain = 10/100, SOIC-16W",
+    "keywords": [
+      "single",
+      "instrumentation",
+      "amp"
+    ]
+  }
+]

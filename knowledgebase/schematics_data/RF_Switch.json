@@ -1,0 +1,531 @@
+[
+  {
+    "component": "ADG901BCPZ",
+    "type": "RF_Switch",
+    "pins": [
+      "VDD",
+      "CTRL",
+      "GND",
+      "RF1",
+      "RF2"
+    ],
+    "description": "SPST DC-4.5GHz absorbative switch, 40dB isolation at 1GHz, LFCSP-8",
+    "keywords": [
+      "RF",
+      "SPST",
+      "switch",
+      "CMOS",
+      "LVTTL"
+    ]
+  },
+  {
+    "component": "ADG901BRMZ",
+    "type": "RF_Switch",
+    "pins": [
+      "VDD",
+      "CTRL",
+      "GND",
+      "RF1",
+      "RF2"
+    ],
+    "description": "SPST DC-4.5GHz absorbative switch, 40dB isolation at 1GHz, MSOP-8",
+    "keywords": [
+      "RF",
+      "SPST",
+      "switch",
+      "CMOS",
+      "LVTTL"
+    ]
+  },
+  {
+    "component": "ADG902BRMZ",
+    "type": "RF_Switch",
+    "pins": [
+      "VDD",
+      "CTRL",
+      "GND",
+      "RF1",
+      "RF2"
+    ],
+    "description": "SPST DC-4.5GHz reflective switch, 40dB isolation at 1GHz, MSOP-8",
+    "keywords": [
+      "RF",
+      "SPST",
+      "switch",
+      "CMOS",
+      "LVTTL"
+    ]
+  },
+  {
+    "component": "ADG918BCPZ",
+    "type": "RF_Switch",
+    "pins": [
+      "VDD",
+      "CTRL",
+      "GND",
+      "RFC",
+      "RF2",
+      "RF1"
+    ],
+    "description": "SPDT DC-4GHz absorbative switch, 43dB isolation at 1GHz, LFCSP-8",
+    "keywords": [
+      "RF",
+      "Mux",
+      "SPDT",
+      "switch",
+      "CMOS",
+      "LVTTL"
+    ]
+  },
+  {
+    "component": "ADG918BRM",
+    "type": "RF_Switch",
+    "pins": [
+      "VDD",
+      "CTRL",
+      "GND",
+      "RFC",
+      "RF2",
+      "RF1"
+    ],
+    "description": "SPDT DC-4GHz absorbative switch, 43dB isolation at 1GHz, MSOP-8",
+    "keywords": [
+      "RF",
+      "Mux",
+      "SPDT",
+      "switch",
+      "CMOS",
+      "LVTTL"
+    ]
+  },
+  {
+    "component": "ADG919BCPZ",
+    "type": "RF_Switch",
+    "pins": [
+      "VDD",
+      "CTRL",
+      "GND",
+      "RFC",
+      "RF2",
+      "RF1"
+    ],
+    "description": "SPDT DC-4GHz reflective switch, 43dB isolation at 1GHz, LFCSP-8",
+    "keywords": [
+      "RF",
+      "Mux",
+      "SPDT",
+      "switch",
+      "CMOS",
+      "LVTTL"
+    ]
+  },
+  {
+    "component": "ADG919BRMZ",
+    "type": "RF_Switch",
+    "pins": [
+      "VDD",
+      "CTRL",
+      "GND",
+      "RFC",
+      "RF2",
+      "RF1"
+    ],
+    "description": "SPDT DC-4GHz reflective switch, 43dB isolation at 1GHz, MSOP-8",
+    "keywords": [
+      "RF",
+      "Mux",
+      "SPDT",
+      "switch",
+      "CMOS",
+      "LVTTL"
+    ]
+  },
+  {
+    "component": "AS179-92LF",
+    "type": "RF_Switch",
+    "pins": [
+      "J3",
+      "GND",
+      "J2",
+      "V1",
+      "J1",
+      "V2"
+    ],
+    "description": "20 MHz to 4.0 GHz GaAs SPDT Switch, SC-70",
+    "keywords": [
+      "rf",
+      "spdt",
+      "switch"
+    ]
+  },
+  {
+    "component": "HMC7992",
+    "type": "RF_Switch",
+    "pins": [
+      "RF4",
+      "GND",
+      "RF1",
+      "RFC",
+      "RF3",
+      "VDD",
+      "B",
+      "A",
+      "RF2"
+    ],
+    "description": "SP4T 100MHz-6GHz absorptive switch, 50 Ohm, LFCSP-16",
+    "keywords": [
+      "rf",
+      "switch",
+      "sp4t",
+      "absorptive"
+    ]
+  },
+  {
+    "component": "HMC849A",
+    "type": "RF_Switch",
+    "pins": [
+      "VDD",
+      "GND",
+      "RF2",
+      "VCTL",
+      "RFC",
+      "EN",
+      "RF1"
+    ],
+    "description": "High Isolation SPDT Non-Reflective Switch, DC-6GHz, Matched to 50 Ohm, LFCSP-16",
+    "keywords": [
+      "RF",
+      "SPDT",
+      "switch"
+    ]
+  },
+  {
+    "component": "KSW-2-46",
+    "type": "RF_Switch",
+    "pins": [
+      "CONTROL2",
+      "RF_IN",
+      "CONTROL1",
+      "GND",
+      "RF_OUT1",
+      "RF_OUT2"
+    ],
+    "description": "SPDT DC-4.6GHz reflective switch, 50 Ohm, XX112",
+    "keywords": [
+      "RF",
+      "SPDT",
+      "switch"
+    ]
+  },
+  {
+    "component": "KSWA-2-46",
+    "type": "RF_Switch",
+    "pins": [
+      "CONTROL2",
+      "RF_IN",
+      "CONTROL1",
+      "GND",
+      "RF_OUT1",
+      "RF_OUT2"
+    ],
+    "description": "SPDT DC-4.6GHz absorbative switch, 50 Ohm, XX112",
+    "keywords": [
+      "RF",
+      "SPDT",
+      "switch"
+    ]
+  },
+  {
+    "component": "KSWHA-1-20",
+    "type": "RF_Switch",
+    "pins": [
+      "RF_IN",
+      "CONTROL1",
+      "CONTROL2",
+      "GND",
+      "RF_OUT"
+    ],
+    "description": "SPST DC-2.0GHz absorbative switch, 50 Ohm, XX112",
+    "keywords": [
+      "RF",
+      "SPST",
+      "switch"
+    ]
+  },
+  {
+    "component": "MASWSS0136",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-3GHz, 0.4/27dB loss/isolation, SOT-363",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASWSS0115",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-3GHz, 0.3/22dB loss/isolation, SOT-363",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASWSS0143",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-3GHz, 0.4/16dB loss/isolation, IP 58dB@1GHz, SOT-363",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASWSS0166",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-3GHz, 0.3/12dB loss/isolation, SOT-363",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASW-007221",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-3GHz, 0.56/12dB loss/isolation, SOT-363",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASWSS0192",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-3GHz, 0.33/13.5dB loss/isolation, SOT-363",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASWSS0151",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-3GHz, 0.65/21dB loss/isolation, SOT-363",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASWSS0176",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-3GHz, 0.35/21dB loss/isolation, SOT-363",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASWSS0178",
+    "type": "RF_Switch",
+    "pins": [
+      "CTL1",
+      "CTL2",
+      "RFC",
+      "GND",
+      "RF2",
+      "RF1"
+    ],
+    "description": "SPDT High Isolation Terminated Switch, 0.01-3.0 GHz, MSOP-8",
+    "keywords": [
+      "RF",
+      "switch",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MASWSS0179",
+    "type": "RF_Switch",
+    "pins": [
+      "RF1",
+      "GND",
+      "RF2",
+      "V2",
+      "RFC",
+      "V1"
+    ],
+    "description": "Macom GaAs RF SPDT switch, DC-2GHz, 0.6/22dB loss/isolation, SOT-26 (SOT-23-6)",
+    "keywords": [
+      "RF",
+      "SWITCH",
+      "SPDT"
+    ]
+  },
+  {
+    "component": "MSW-2-20",
+    "type": "RF_Switch",
+    "pins": [
+      "RF_IN",
+      "GND",
+      "RF_OUT2",
+      "CONTROL2",
+      "CONTROL1",
+      "RF_OUT1"
+    ],
+    "description": "SPDT DC-2.0GHz reflective switch, 50 Ohm, SOP-8",
+    "keywords": [
+      "RF",
+      "SPDT",
+      "switch"
+    ]
+  },
+  {
+    "component": "MSW2-50",
+    "type": "RF_Switch",
+    "pins": [
+      "CONTROL1",
+      "GND",
+      "RF_OUT1",
+      "NC",
+      "CONTROL2",
+      "RF_OUT2",
+      "RF_IN"
+    ],
+    "description": "SPDT DC-5.0GHz reflective switch, 50 Ohm, QFN-12",
+    "keywords": [
+      "RF",
+      "SPDT",
+      "switch"
+    ]
+  },
+  {
+    "component": "MSWA-2-20",
+    "type": "RF_Switch",
+    "pins": [
+      "CONTROL2",
+      "RF_IN",
+      "CONTROL1",
+      "GND",
+      "RF_OUT2",
+      "RF_OUT1"
+    ],
+    "description": "SPDT DC-2.0GHz absorbative switch, 50 Ohm, SOP-8",
+    "keywords": [
+      "RF",
+      "SPDT",
+      "switch"
+    ]
+  },
+  {
+    "component": "MSWA2-50",
+    "type": "RF_Switch",
+    "pins": [
+      "CONTROL1",
+      "GND",
+      "RF_OUT1",
+      "NC",
+      "CONTROL2",
+      "RF_OUT2",
+      "RF_IN"
+    ],
+    "description": "SPDT DC-5.0GHz absorbative switch, 50 Ohm, QFN-12",
+    "keywords": [
+      "RF",
+      "SPDT",
+      "switch"
+    ]
+  },
+  {
+    "component": "SKY13575-639LF",
+    "type": "RF_Switch",
+    "pins": [
+      "GND",
+      "VDD",
+      "RF2",
+      "RF1",
+      "RFC",
+      "RF4",
+      "RF3",
+      "VC1",
+      "VC2"
+    ],
+    "description": "SP4T 100MHz-6GHz absorptive switch, 50 Ohm, QFN-14",
+    "keywords": [
+      "rf",
+      "switch",
+      "sp4t",
+      "absorptive"
+    ]
+  }
+]

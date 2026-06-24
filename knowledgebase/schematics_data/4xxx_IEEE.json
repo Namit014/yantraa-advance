@@ -1,0 +1,1744 @@
+[
+  {
+    "component": "4001",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4002",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4006",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "DA",
+      "Q3B",
+      "Q4C",
+      "Q3A",
+      "~CP",
+      "DC",
+      "DB",
+      "DD",
+      "Q3D",
+      "Q4D"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4008",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "A3",
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "Cout",
+      "B3",
+      "Vdd",
+      "B2",
+      "A2",
+      "B1",
+      "A1",
+      "B0",
+      "A0",
+      "Vss",
+      "Cin"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4009",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vcc",
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4010",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vcc",
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40104",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "EN",
+      "S1",
+      "CK",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "Vdd",
+      "SRin",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "SLin",
+      "Vss",
+      "S0"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40106",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4584",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4011",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40110",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Qa",
+      "C",
+      "B",
+      "Qe",
+      "Qd",
+      "Qc",
+      "Qb",
+      "Vdd",
+      "Qg",
+      "Qf",
+      "~TE",
+      "CLR",
+      "LE",
+      "CKd",
+      "Vss",
+      "CKu"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4012",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4013",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "Q",
+      "~Q",
+      "Cp",
+      "R",
+      "D",
+      "S"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4014",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "P7",
+      "CP",
+      "DS",
+      "Q6",
+      "P4",
+      "P5",
+      "P6",
+      "Vdd",
+      "Q5",
+      "Q7",
+      "P3",
+      "P2",
+      "P1",
+      "P0",
+      "Vss",
+      "PL"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4015",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "Q4",
+      "Q3",
+      "Q2",
+      "Q1",
+      "MR",
+      "D",
+      "CP"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4016",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "I/O",
+      "ON",
+      "O/I"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4066",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "I/O",
+      "ON",
+      "O/I"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4017",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "VSS",
+      "Q5",
+      "Q4",
+      "Q9",
+      "Co",
+      "~CP1",
+      "CP0",
+      "MR",
+      "Q1",
+      "Q0",
+      "Q2",
+      "Q6",
+      "Q7",
+      "Q3",
+      "Q8"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40174",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "~R",
+      "Vdd",
+      "Vss",
+      "Ck"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40175",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "~R",
+      "Vdd",
+      "Vss",
+      "Ck"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4018",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "D",
+      "PL",
+      "~Q3",
+      "P4",
+      "~Q4",
+      "CP",
+      "MR",
+      "VDD",
+      "P0",
+      "P1",
+      "~Q1",
+      "~Q0",
+      "~Q2",
+      "P2",
+      "VSS",
+      "P3"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4019",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "B3",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3",
+      "SB",
+      "A3",
+      "A2",
+      "B2",
+      "A1",
+      "B1",
+      "A0",
+      "B0",
+      "SA"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40192",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "P1",
+      "P2",
+      "LOAD",
+      "CO",
+      "BO",
+      "MR",
+      "P0",
+      "VDD",
+      "Q1",
+      "Q0",
+      "DOWN",
+      "UP",
+      "Q2",
+      "Q3",
+      "VSS",
+      "P3"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40193",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "P1",
+      "P2",
+      "LOAD",
+      "CO",
+      "BO",
+      "MR",
+      "P0",
+      "VDD",
+      "Q1",
+      "Q0",
+      "DOWN",
+      "UP",
+      "Q2",
+      "Q3",
+      "VSS",
+      "P3"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40194",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "MR",
+      "S1",
+      "CK",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "DSr",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "DSl",
+      "S0"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4020",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "VSS",
+      "Q11",
+      "~CLK",
+      "MR",
+      "Q8",
+      "Q7",
+      "Q9",
+      "Q10",
+      "Q12",
+      "Q13",
+      "Q5",
+      "Q4",
+      "Q6",
+      "Q3",
+      "Q0"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4021",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "P7",
+      "CP",
+      "DS",
+      "Q6",
+      "P4",
+      "P5",
+      "P6",
+      "Q5",
+      "Q7",
+      "P3",
+      "P2",
+      "P1",
+      "P0",
+      "PL"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4022",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "VSS",
+      "Q1",
+      "Q7",
+      "Q4",
+      "Co",
+      "~CP1",
+      "CP0",
+      "MR",
+      "Q0",
+      "Q2",
+      "Q5",
+      "Q6",
+      "Q3"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4023",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4024",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "VSS",
+      "~CLK",
+      "Q1",
+      "Q0",
+      "MR",
+      "Q6",
+      "Q5",
+      "Q4",
+      "Q3",
+      "Q2"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40240",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "~EN",
+      "Vss",
+      "Vdd"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40244",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "~EN",
+      "Vss",
+      "Vdd"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40245",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Dir",
+      "Vss",
+      "~G",
+      "Vdd"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4025",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4027",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "Q",
+      "~Q",
+      "CK",
+      "R",
+      "K",
+      "J",
+      "S"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4028",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "VSS",
+      "S4",
+      "A",
+      "D",
+      "C",
+      "B",
+      "S1",
+      "S3",
+      "S2",
+      "S0",
+      "S7",
+      "S9",
+      "S5",
+      "S6",
+      "S8"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4029",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "PL",
+      "U/D",
+      "Q1",
+      "P1",
+      "P2",
+      "Q2",
+      "CK",
+      "VDD",
+      "Q3",
+      "P3",
+      "P0",
+      "~CE",
+      "Q0",
+      "~TC",
+      "VSS",
+      "B/D"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4030",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40373",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "~EN",
+      "Vss",
+      "ST",
+      "Vdd"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40374",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "~E",
+      "Vss",
+      "Ck",
+      "Vdd"
+    ],
+    "description": "8-bit D-flip-flop with 3-State outputs",
+    "keywords": [
+      "CMOS",
+      "BUFFER",
+      "3State"
+    ]
+  },
+  {
+    "component": "4040",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "VSS",
+      "Q13",
+      "CLK",
+      "MR",
+      "Q10",
+      "Q9",
+      "Q11",
+      "Q12",
+      "Q7",
+      "Q6",
+      "Q8",
+      "Q5",
+      "Q4",
+      "Q3",
+      "Q0"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4041",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4042",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "E0",
+      "E1",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4043",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "EN",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4044",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "EN",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4046",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "VSS",
+      "PCP",
+      "SFout",
+      "R1",
+      "R2",
+      "PC2",
+      "SigIn",
+      "ZOUT",
+      "PC1",
+      "RefIn",
+      "FOUT",
+      "Inh",
+      "C1",
+      "C2",
+      "VCOin"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4048",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "J",
+      "Ka",
+      "D",
+      "C",
+      "B",
+      "A",
+      "Ex",
+      "Vdd",
+      "EN",
+      "H",
+      "G",
+      "F",
+      "E",
+      "Kb",
+      "Vss",
+      "Kc"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4049",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4050",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4051",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "X4",
+      "B",
+      "A",
+      "X3",
+      "X0",
+      "X1",
+      "X2",
+      "X6",
+      "X",
+      "X7",
+      "X5",
+      "~E",
+      "VEE",
+      "C"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4052",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "Y0",
+      "A0",
+      "X3",
+      "X0",
+      "X",
+      "X1",
+      "X2",
+      "Y2",
+      "Y",
+      "Y3",
+      "Y1",
+      "~E",
+      "VEE",
+      "A1"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4053",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "VDD",
+      "VSS",
+      "Y1",
+      "B",
+      "A",
+      "X0",
+      "X1",
+      "X",
+      "Y",
+      "Y0",
+      "Z0",
+      "Z",
+      "~E",
+      "VEE",
+      "C"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4067",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Z",
+      "A0",
+      "A1",
+      "Vss",
+      "A3",
+      "A2",
+      "Q12",
+      "~E",
+      "A15",
+      "A14",
+      "A13",
+      "A7",
+      "A11",
+      "A10",
+      "A9",
+      "A8",
+      "Vdd",
+      "A5",
+      "A4"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4068",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "K",
+      "F",
+      "G",
+      "H",
+      "J",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "description": "CMOS 8-input NAND/AND Gate",
+    "keywords": [
+      "cmos",
+      "nand",
+      "and",
+      "8-input"
+    ]
+  },
+  {
+    "component": "4069",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4070",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4071",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4072",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4073",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4075",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4077",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4078",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4081",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4082",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4093",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4095",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "K2",
+      "K1",
+      "CK",
+      "S",
+      "Vdd",
+      "R",
+      "J1",
+      "J2",
+      "J3",
+      "~Q",
+      "Vss",
+      "Q",
+      "K3"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4096",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "K2",
+      "K1",
+      "CK",
+      "S",
+      "Vdd",
+      "R",
+      "J1",
+      "J2",
+      "~J3",
+      "~Q",
+      "Vss",
+      "Q",
+      "~K3"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4099",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Q7",
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Vdd",
+      "R",
+      "D",
+      "WR",
+      "A0",
+      "A1",
+      "A2",
+      "Vss",
+      "Q0"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4104",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vddo",
+      "EN",
+      "Vddi",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4160",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VDD",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CEP",
+      "VSS",
+      "PE"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40160",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VDD",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CEP",
+      "VSS",
+      "PE"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4161",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VDD",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CEP",
+      "VSS",
+      "PE"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40161",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VDD",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CEP",
+      "VSS",
+      "PE"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4162",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VDD",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CEP",
+      "VSS",
+      "PE"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40162",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VDD",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CEP",
+      "VSS",
+      "PE"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4163",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VDD",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CEP",
+      "VSS",
+      "PE"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "40163",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VDD",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CEP",
+      "VSS",
+      "PE"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4174",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "~R",
+      "Vdd",
+      "Vss",
+      "Ck"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4175",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "R",
+      "Vdd",
+      "Vss",
+      "Ck"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4502",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "A3",
+      "A4",
+      "~Y5",
+      "~V1",
+      "A5",
+      "~Y6",
+      "A6",
+      "~Y3",
+      "A1",
+      "~EN",
+      "~Y1",
+      "A2",
+      "~Y2",
+      "~Y4"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4504",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vcc",
+      "EN",
+      "Vdd",
+      "Vss"
+    ],
+    "description": "4504 Hex Voltage-level Shifter",
+    "keywords": [
+      "cmos",
+      "level",
+      "converter"
+    ]
+  },
+  {
+    "component": "4507",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4508",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vss",
+      "Vdd",
+      "MR",
+      "D3",
+      "Q3",
+      "ST",
+      "D0",
+      "Q0",
+      "D1",
+      "~EN",
+      "Q1",
+      "D2",
+      "Q2"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4510",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "PE",
+      "U/D",
+      "Q2",
+      "A2",
+      "A3",
+      "Q3",
+      "CLK",
+      "Vdd",
+      "Q4",
+      "A4",
+      "A1",
+      "~Cin",
+      "Q1",
+      "~Cout",
+      "Vss",
+      "RST"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4511",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "DB",
+      "Qd",
+      "Qc",
+      "Qb",
+      "Qa",
+      "Qg",
+      "Qf",
+      "Vdd",
+      "DC",
+      "~LT",
+      "~BI",
+      "~EL",
+      "DD",
+      "DA",
+      "Vss",
+      "Qe"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4512",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "I0",
+      "~E",
+      "S0",
+      "S1",
+      "S2",
+      "Q",
+      "~EN",
+      "Vdd",
+      "I1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "Vss",
+      "I7"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4514",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "EL",
+      "Q2",
+      "Q0",
+      "Vss",
+      "Q13",
+      "Q12",
+      "Q15",
+      "Q14",
+      "Q9",
+      "Q8",
+      "Q11",
+      "A0",
+      "Q10",
+      "A2",
+      "A3",
+      "~EN",
+      "Vdd",
+      "A1",
+      "Q7",
+      "Q6",
+      "Q5",
+      "Q4",
+      "Q3",
+      "Q1"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4515",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "EL",
+      "~Q2",
+      "~Q0",
+      "Vss",
+      "~Q13",
+      "~Q12",
+      "~Q15",
+      "~Q14",
+      "~Q9",
+      "~Q8",
+      "~Q11",
+      "A0",
+      "~Q10",
+      "A2",
+      "A3",
+      "~EN",
+      "Vdd",
+      "A1",
+      "~Q7",
+      "~Q6",
+      "~Q5",
+      "~Q4",
+      "~Q3",
+      "~Q1"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4518",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "CP0",
+      "~CP1",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3",
+      "MR"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4520",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "CP0",
+      "~CP1",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3",
+      "MR"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4529",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "STX",
+      "W",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "STY",
+      "VDD",
+      "X0",
+      "X1",
+      "X2",
+      "X3",
+      "A",
+      "B",
+      "VSS",
+      "Z"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4530",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "Y"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4538",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "CX",
+      "VDD",
+      "Rx",
+      "~R",
+      "B",
+      "~A",
+      "Q",
+      "~Q",
+      "VSS"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4528",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "CX",
+      "VDD",
+      "Rx",
+      "~R",
+      "B",
+      "~A",
+      "Q",
+      "~Q",
+      "VSS"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4539",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "S0",
+      "Vdd",
+      "S1",
+      "Vss",
+      "~EN",
+      "I3",
+      "I2",
+      "I1",
+      "I0",
+      "Q"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4543",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "LD",
+      "Qb",
+      "Qc",
+      "Qd",
+      "Qe",
+      "Qg",
+      "Qf",
+      "Vdd",
+      "DC",
+      "DB",
+      "DD",
+      "DA",
+      "PH",
+      "BI",
+      "Vss",
+      "Qa"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4555",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "~EN",
+      "A0",
+      "A1",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4556",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "~EN",
+      "A0",
+      "A1",
+      "~Q0",
+      "~Q1",
+      "~Q2",
+      "~Q3"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "4585",
+    "type": "4xxx_IEEE",
+    "pins": [
+      "Vdd",
+      "Vss",
+      "B2",
+      "A0",
+      "B0",
+      "Qa<b",
+      "Qa>b",
+      "B3",
+      "A3",
+      "A2",
+      "Qa=b",
+      "Ia>b",
+      "Ia<b",
+      "Ia=b",
+      "A1",
+      "B1"
+    ],
+    "description": "",
+    "keywords": []
+  }
+]

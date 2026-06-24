@@ -29,23 +29,40 @@ class DesignResponse(BaseModel):
     cad_available: bool = False
     cad_url: Optional[str] = None
     cad_urls: List[str] = []
+    extracted_components: List[str] = []
     chat_reply: Optional[str] = None
     assembly_transforms: List[Dict[str, Any]] = []
     assembly_mode: str = "side_by_side"
 
-def _strip_markdown_json(text: str) -> str:
-    """Remove ```json``` fences and find the JSON object/array."""
-    cleaned = re.sub(r"```json\s*", "", text, flags=re.IGNORECASE)
-    cleaned = re.sub(r"```\s*", "", cleaned)
-    start = cleaned.find("{")
-    end = cleaned.rfind("}")
-    if start != -1 and end != -1:
-        return cleaned[start : end + 1]
-    arr_start = cleaned.find("[")
-    arr_end = cleaned.rfind("]")
-    if arr_start != -1 and arr_end != -1:
-        return cleaned[arr_start : arr_end + 1]
-    return cleaned.strip()
+def extract_json(text: str) -> dict:
+    """Extract and parse JSON object from LLM response text."""
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group(1))
+        except json.JSONDecodeError:
+            pass
+    match = re.search(r'\{.*\}', text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group(0))
+        except json.JSONDecodeError:
+            pass
+    return {}
+
+FULL_ASSEMBLY_KEYWORDS = ["full_system", "full-system", "assembly", "complete", "system"]
+
+def pick_primary_cad(matched_files: list[str]) -> list[str]:
+    # Prefer a full assembly file if one exists
+    for f in matched_files:
+        if any(kw in f.lower() for kw in FULL_ASSEMBLY_KEYWORDS):
+            return [f]
+    # Otherwise return only the first match
+    return matched_files[:1] if matched_files else []
 
 def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
     bom_map = {}
@@ -144,8 +161,7 @@ OUTPUT FORMAT:
     
     try:
         raw_router = _safe_llm_call(router_prompt, router_system, response_format="json_object")
-        cleaned_router = _strip_markdown_json(raw_router)
-        router_data = json.loads(cleaned_router)
+        router_data = extract_json(raw_router)
         
         is_design_query = router_data.get("is_design_query", True)
         conversational_reply = router_data.get("response", "")
@@ -311,40 +327,13 @@ OUTPUT FORMAT:
     if rag_results:
         user_prompt += f"COMPONENT SPECS & DATA SHEETS:\n{rag_results}\n"
 
-<<<<<<< HEAD
     print("[api/design] Invoking LLM...")
     try:
         res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
-        json_str = _strip_markdown_json(res_text)
-        data = json.loads(json_str)
+        data = extract_json(res_text)
     except Exception as e:
         print(f"[api/design] Error parsing LLM JSON: {e}")
         data = {}
-=======
-    synthesis_prompt = f"""{component_graph_text}RETRIEVED COMPONENTS:
-{rag_results}
-
-USER REQUEST:
-{query}"""
-
-    synthesis_data = {}
-    try:
-        raw_synthesis = _safe_llm_call(synthesis_prompt, synthesis_system, response_format="json_object")
-        cleaned_synthesis = _strip_markdown_json(raw_synthesis)
-        synthesis_data = json.loads(cleaned_synthesis)
-    except Exception as e:
-        print(f"[api/design] Phase 3 Synthesis parsing failed: {e}")
-        with open("debug_synthesis.txt", "w", encoding="utf-8") as debug_file:
-            debug_file.write(raw_synthesis)
-        print(f"[api/design] RAW LLM OUTPUT WAS:\n{raw_synthesis[:1000]}...\n---")
-        synthesis_data = {
-            "subsystems": [{"name": "Pre-assembled System", "components": [{"id": "sys_1", "name": "Monolithic Robot System", "role": "Full assembly", "voltage": "N/A", "interface": "Standard"}]}],
-            "connections": [],
-            "bom": [{"id": "sys_1", "name": "Full Robot Assembly", "qty": 1}],
-            "missing": [],
-            "validation": [{"type": "warning", "message": "Standard BOM generated due to complex custom assembly. Reference CAD model for full physical details."}]
-        }
->>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
 
     connections = data.get("connections", [])
     normalized_connections = []
@@ -483,18 +472,6 @@ USER REQUEST:
         except Exception:
             pass
 
-<<<<<<< HEAD
-    frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
-    
-    valid_cad_urls = []
-    for f in matched_cads:
-        if os.path.exists(os.path.join(frontend_public_cad, f)):
-            valid_cad_urls.append(f"/cad/{f}")
-        else:
-            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
-
-    cad_urls = valid_cad_urls
-=======
     # Universal CAD Scraper Fallback
     if not matched_cads:
         print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
@@ -503,10 +480,15 @@ USER REQUEST:
         if scraped_filename:
             matched_cads.add(scraped_filename)
 
-    cad_available = len(matched_cads) > 0
-    # Use direct static URL since Next.js hosts the CAD files in public/cad/
-    cad_urls = [f"/cad/{f}" for f in matched_cads]
->>>>>>> c765f6acfd98d8b4d8aefa54b2c9d8f736657b27
+    primary_cads = pick_primary_cad(list(matched_cads))
+    
+    frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
+    cad_urls = []
+    for f in primary_cads:
+        if os.path.exists(os.path.join(frontend_public_cad, f)):
+            cad_urls.append(f"/cad/{f}")
+        else:
+            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
     
@@ -535,6 +517,33 @@ USER REQUEST:
             cad_urls = [t["cad_url"] for t in assembly_transforms]
             cad_available = True
             cad_url = cad_urls[0] if cad_urls else None
+    
+    # Analyze matched CADs
+    extracted_components = set()
+    try:
+        from step_analyzer import analyze_step_file
+        import glob
+        cad_base_dir = os.path.join(_src_dir, "..", "knowledgebase")
+        meta_dir = os.path.join(cad_base_dir, "CAD_Metadata")
+        os.makedirs(meta_dir, exist_ok=True)
+        
+        for f in matched_cads:
+            search_pattern = os.path.join(cad_base_dir, "**", f)
+            found_files = glob.glob(search_pattern, recursive=True)
+            if found_files:
+                target_file = found_files[0]
+                meta_res = analyze_step_file(target_file)
+                if "components" in meta_res:
+                    extracted_components.update(meta_res["components"])
+                    
+                # Save metadata
+                meta_filename = f.replace(".STEP", "").replace(".step", "") + "_metadata.json"
+                meta_path = os.path.join(meta_dir, meta_filename)
+                with open(meta_path, "w", encoding="utf-8") as mf:
+                    json.dump(meta_res, mf, indent=2)
+                    
+    except Exception as e:
+        print(f"[api/design] CAD metadata extraction failed: {e}")
     
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")
     print(f"[api/design] Assembly mode: {assembly_mode}, CADs: {len(cad_urls)}")

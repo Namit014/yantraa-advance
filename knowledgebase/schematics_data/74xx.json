@@ -1,0 +1,5831 @@
+[
+  {
+    "component": "74469",
+    "type": "74xx",
+    "pins": [
+      "CLK",
+      "D7",
+      "UD",
+      "GND",
+      "OE",
+      "CBO",
+      "Q7",
+      "Q6",
+      "Q5",
+      "Q4",
+      "Q3",
+      "LD",
+      "Q2",
+      "Q1",
+      "Q0",
+      "CBI",
+      "VCC",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6"
+    ],
+    "description": "8-bit synchronous up/down counter, parallel load and hold capability (obsolete)",
+    "keywords": [
+      "counter"
+    ]
+  },
+  {
+    "component": "74CBTLV16212",
+    "type": "74xx",
+    "pins": [
+      "4A2",
+      "5A1",
+      "5A2",
+      "6A1",
+      "6A2",
+      "7A1",
+      "7A2",
+      "VCC",
+      "8A1",
+      "GND",
+      "1A1",
+      "8A2",
+      "9A1",
+      "9A2",
+      "10A1",
+      "10A2",
+      "11A1",
+      "11A2",
+      "12A1",
+      "12A2",
+      "12B2",
+      "1A2",
+      "12B1",
+      "11B2",
+      "11B1",
+      "10B2",
+      "10B1",
+      "9B2",
+      "9B1",
+      "8B2",
+      "8B1",
+      "2A1",
+      "7B2",
+      "7B1",
+      "6B2",
+      "6B1",
+      "5B2",
+      "5B1",
+      "4B2",
+      "4B1",
+      "3B2",
+      "2A2",
+      "3B1",
+      "2B2",
+      "2B1",
+      "1B2",
+      "1B1",
+      "S2",
+      "S1",
+      "3A1",
+      "3A2",
+      "4A1",
+      "S0"
+    ],
+    "description": "Low-voltage 24-bit FET Bus-exchange switch",
+    "keywords": [
+      "bus"
+    ]
+  },
+  {
+    "component": "74CBTLV3257",
+    "type": "74xx",
+    "pins": [
+      "S",
+      "~OE",
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 1:2 FET Multiplexer/Demultiplexer, Low-Voltage",
+    "keywords": [
+      "mux",
+      "demux",
+      "low-voltage"
+    ]
+  },
+  {
+    "component": "74CBTLV3861",
+    "type": "74xx",
+    "pins": [
+      "A9",
+      "A10",
+      "GND",
+      "B10",
+      "B9",
+      "B8",
+      "B7",
+      "B6",
+      "B5",
+      "B4",
+      "A1",
+      "B3",
+      "B2",
+      "B1",
+      "OE",
+      "VCC",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8"
+    ],
+    "description": "Low-voltage 10-bit FET Bus switch",
+    "keywords": [
+      "bus"
+    ]
+  },
+  {
+    "component": "74HC137",
+    "type": "74xx",
+    "pins": [
+      "A0",
+      "~Y5",
+      "~Y4",
+      "~Y3",
+      "~Y2",
+      "~Y1",
+      "~Y0",
+      "VCC",
+      "A1",
+      "A2",
+      "~LE",
+      "~E1",
+      "E2",
+      "~Y7",
+      "GND",
+      "~Y6"
+    ],
+    "description": "3-to-8 line decoder/multiplexer with address latches, DIP-16/SOIC-16/SSOP-16",
+    "keywords": [
+      "demux"
+    ]
+  },
+  {
+    "component": "74HCT137",
+    "type": "74xx",
+    "pins": [
+      "A0",
+      "~Y5",
+      "~Y4",
+      "~Y3",
+      "~Y2",
+      "~Y1",
+      "~Y0",
+      "VCC",
+      "A1",
+      "A2",
+      "~LE",
+      "~E1",
+      "E2",
+      "~Y7",
+      "GND",
+      "~Y6"
+    ],
+    "description": "3-to-8 line decoder/multiplexer with address latches, DIP-16/SOIC-16/SSOP-16",
+    "keywords": [
+      "demux"
+    ]
+  },
+  {
+    "component": "74HC14",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex inverter schmitt trigger",
+    "keywords": [
+      "HCMOS",
+      "not",
+      "inverter"
+    ]
+  },
+  {
+    "component": "74LS14",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex inverter schmitt trigger",
+    "keywords": [
+      "TTL",
+      "not",
+      "inverter"
+    ]
+  },
+  {
+    "component": "74HC164",
+    "type": "74xx",
+    "pins": [
+      "DSA",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "VCC",
+      "DSB",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3",
+      "GND",
+      "CP",
+      "~MR"
+    ],
+    "description": "8-bit serial-in parallel-out shift register",
+    "keywords": [
+      "8-bit",
+      "shift",
+      "register"
+    ]
+  },
+  {
+    "component": "74HCT164",
+    "type": "74xx",
+    "pins": [
+      "DSA",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "VCC",
+      "DSB",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3",
+      "GND",
+      "CP",
+      "~MR"
+    ],
+    "description": "8-bit serial-in parallel-out shift register",
+    "keywords": [
+      "8-bit",
+      "shift",
+      "register"
+    ]
+  },
+  {
+    "component": "74HC237",
+    "type": "74xx",
+    "pins": [
+      "A0",
+      "Y5",
+      "Y4",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "VCC",
+      "A1",
+      "A2",
+      "~LE",
+      "~E1",
+      "E2",
+      "Y7",
+      "GND",
+      "Y6"
+    ],
+    "description": "3-to-8 line decoder/multiplexer with address latches, DIP-16/SOIC-16/SSOP-16",
+    "keywords": [
+      "demux"
+    ]
+  },
+  {
+    "component": "74HCT237",
+    "type": "74xx",
+    "pins": [
+      "A0",
+      "Y5",
+      "Y4",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "VCC",
+      "A1",
+      "A2",
+      "~LE",
+      "~E1",
+      "E2",
+      "Y7",
+      "GND",
+      "Y6"
+    ],
+    "description": "3-to-8 line decoder/multiplexer with address latches, DIP-16/SOIC-16/SSOP-16",
+    "keywords": [
+      "demux"
+    ]
+  },
+  {
+    "component": "74HC240",
+    "type": "74xx",
+    "pins": [
+      "1OE",
+      "GND",
+      "2A3",
+      "1Y3",
+      "2A2",
+      "1Y2",
+      "2A1",
+      "1Y1",
+      "2A0",
+      "1Y0",
+      "2OE",
+      "1A0",
+      "VCC",
+      "2Y0",
+      "1A1",
+      "2Y1",
+      "1A2",
+      "2Y2",
+      "1A3",
+      "2Y3"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state Inverting",
+    "keywords": [
+      "HCMOS",
+      "BUFFER",
+      "3State",
+      "inv"
+    ]
+  },
+  {
+    "component": "74HCT240",
+    "type": "74xx",
+    "pins": [
+      "1OE",
+      "GND",
+      "2A3",
+      "1Y3",
+      "2A2",
+      "1Y2",
+      "2A1",
+      "1Y1",
+      "2A0",
+      "1Y0",
+      "2OE",
+      "1A0",
+      "VCC",
+      "2Y0",
+      "1A1",
+      "2Y1",
+      "1A2",
+      "2Y2",
+      "1A3",
+      "2Y3"
+    ],
+    "description": "8-bit buffer; 3-state; inverting",
+    "keywords": [
+      "HCTMOS",
+      "BUFFER",
+      "3State",
+      "inv"
+    ]
+  },
+  {
+    "component": "74AHC240",
+    "type": "74xx",
+    "pins": [
+      "1OE",
+      "GND",
+      "2A3",
+      "1Y3",
+      "2A2",
+      "1Y2",
+      "2A1",
+      "1Y1",
+      "2A0",
+      "1Y0",
+      "2OE",
+      "1A0",
+      "VCC",
+      "2Y0",
+      "1A1",
+      "2Y1",
+      "1A2",
+      "2Y2",
+      "1A3",
+      "2Y3"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state Inverting",
+    "keywords": [
+      "AHCMOS",
+      "BUFFER",
+      "3State",
+      "inv"
+    ]
+  },
+  {
+    "component": "74AHCT240",
+    "type": "74xx",
+    "pins": [
+      "1OE",
+      "GND",
+      "2A3",
+      "1Y3",
+      "2A2",
+      "1Y2",
+      "2A1",
+      "1Y1",
+      "2A0",
+      "1Y0",
+      "2OE",
+      "1A0",
+      "VCC",
+      "2Y0",
+      "1A1",
+      "2Y1",
+      "1A2",
+      "2Y2",
+      "1A3",
+      "2Y3"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state Inverting",
+    "keywords": [
+      "AHCTMOS",
+      "BUFFER",
+      "3State",
+      "inv"
+    ]
+  },
+  {
+    "component": "74HC244",
+    "type": "74xx",
+    "pins": [
+      "1OE",
+      "GND",
+      "2A3",
+      "1Y3",
+      "2A2",
+      "1Y2",
+      "2A1",
+      "1Y1",
+      "2A0",
+      "1Y0",
+      "2OE",
+      "1A0",
+      "VCC",
+      "2Y0",
+      "1A1",
+      "2Y1",
+      "1A2",
+      "2Y2",
+      "1A3",
+      "2Y3"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state",
+    "keywords": [
+      "HCMOS",
+      "BUFFER",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HCT244",
+    "type": "74xx",
+    "pins": [
+      "1OE",
+      "GND",
+      "2A3",
+      "1Y3",
+      "2A2",
+      "1Y2",
+      "2A1",
+      "1Y1",
+      "2A0",
+      "1Y0",
+      "2OE",
+      "1A0",
+      "VCC",
+      "2Y0",
+      "1A1",
+      "2Y1",
+      "1A2",
+      "2Y2",
+      "1A3",
+      "2Y3"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state",
+    "keywords": [
+      "HCTMOS",
+      "BUFFER",
+      "3State"
+    ]
+  },
+  {
+    "component": "74AHC244",
+    "type": "74xx",
+    "pins": [
+      "1OE",
+      "GND",
+      "2A3",
+      "1Y3",
+      "2A2",
+      "1Y2",
+      "2A1",
+      "1Y1",
+      "2A0",
+      "1Y0",
+      "2OE",
+      "1A0",
+      "VCC",
+      "2Y0",
+      "1A1",
+      "2Y1",
+      "1A2",
+      "2Y2",
+      "1A3",
+      "2Y3"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state",
+    "keywords": [
+      "AHCMOS",
+      "BUFFER",
+      "3State"
+    ]
+  },
+  {
+    "component": "74AHCT244",
+    "type": "74xx",
+    "pins": [
+      "1OE",
+      "GND",
+      "2A3",
+      "1Y3",
+      "2A2",
+      "1Y2",
+      "2A1",
+      "1Y1",
+      "2A0",
+      "1Y0",
+      "2OE",
+      "1A0",
+      "VCC",
+      "2Y0",
+      "1A1",
+      "2Y1",
+      "1A2",
+      "2Y2",
+      "1A3",
+      "2Y3"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state",
+    "keywords": [
+      "AHCTMOS",
+      "BUFFER",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HC4024",
+    "type": "74xx",
+    "pins": [
+      "~CP",
+      "Q1",
+      "Q0",
+      "VCC",
+      "MR",
+      "Q6",
+      "Q5",
+      "Q4",
+      "Q3",
+      "GND",
+      "Q2"
+    ],
+    "description": "7-stage binary ripple counter, SOIC-14",
+    "keywords": [
+      "binary",
+      "counter"
+    ]
+  },
+  {
+    "component": "74HC4051",
+    "type": "74xx",
+    "pins": [
+      "A4",
+      "S1",
+      "S0",
+      "A3",
+      "A0",
+      "A1",
+      "A2",
+      "VCC",
+      "A6",
+      "A",
+      "A7",
+      "A5",
+      "~E",
+      "VEE",
+      "GND",
+      "S2"
+    ],
+    "description": "8-channel analog multiplexer/demultiplexer, DIP-16/SOIC-16/TSSOP-16",
+    "keywords": [
+      "HCMOS",
+      "Multiplexer",
+      "Demultiplexer",
+      "Analog"
+    ]
+  },
+  {
+    "component": "74HCT4051",
+    "type": "74xx",
+    "pins": [
+      "A4",
+      "S1",
+      "S0",
+      "A3",
+      "A0",
+      "A1",
+      "A2",
+      "VCC",
+      "A6",
+      "A",
+      "A7",
+      "A5",
+      "~E",
+      "VEE",
+      "GND",
+      "S2"
+    ],
+    "description": "8-channel analog multiplexer/demultiplexer, DIP-16/SOIC-16/TSSOP-16",
+    "keywords": [
+      "TTL",
+      "Multiplexer",
+      "Demultiplexer",
+      "Analog"
+    ]
+  },
+  {
+    "component": "74HC590",
+    "type": "74xx",
+    "pins": [
+      "Q1",
+      "~MRC",
+      "CPC",
+      "~CE",
+      "CPR",
+      "~OE",
+      "Q0",
+      "VCC",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "GND",
+      "~RCO"
+    ],
+    "description": "8-bit Binary Counter with Output Register 3-State Outputs, SOIC-16/TSSOP-16",
+    "keywords": [
+      "HCMOS",
+      "Counter",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS590",
+    "type": "74xx",
+    "pins": [
+      "Q1",
+      "~MRC",
+      "CPC",
+      "~CE",
+      "CPR",
+      "~OE",
+      "Q0",
+      "VCC",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "GND",
+      "~RCO"
+    ],
+    "description": "8-bit Binary Counter with Output Register 3-State Outputs, DIP-16/SOIC-16/SOIC-16W",
+    "keywords": [
+      "TTL",
+      "Counter",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HC590A",
+    "type": "74xx",
+    "pins": [
+      "Q1",
+      "~MRC",
+      "CPC",
+      "~CE",
+      "CPR",
+      "~OE",
+      "Q0",
+      "VCC",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "GND",
+      "~RCO"
+    ],
+    "description": "8-bit Binary Counter with Output Register 3-State Outputs, DIP-16/SOIC-16/SOIC-16W",
+    "keywords": [
+      "HCMOS",
+      "Counter",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HC595",
+    "type": "74xx",
+    "pins": [
+      "QB",
+      "~SRCLR",
+      "SRCLK",
+      "RCLK",
+      "~OE",
+      "SER",
+      "QA",
+      "VCC",
+      "QC",
+      "QD",
+      "QE",
+      "QF",
+      "QG",
+      "QH",
+      "GND",
+      "QH'"
+    ],
+    "description": "8-bit serial in/out Shift Register 3-State Outputs",
+    "keywords": [
+      "HCMOS",
+      "SR",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS595",
+    "type": "74xx",
+    "pins": [
+      "QB",
+      "~SRCLR",
+      "SRCLK",
+      "RCLK",
+      "~OE",
+      "SER",
+      "QA",
+      "VCC",
+      "QC",
+      "QD",
+      "QE",
+      "QF",
+      "QG",
+      "QH",
+      "GND",
+      "QH'"
+    ],
+    "description": "8-bit serial in/out Shift Register 3-State Outputs",
+    "keywords": [
+      "TTL",
+      "SR",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HCT595",
+    "type": "74xx",
+    "pins": [
+      "QB",
+      "~SRCLR",
+      "SRCLK",
+      "RCLK",
+      "~OE",
+      "SER",
+      "QA",
+      "VCC",
+      "QC",
+      "QD",
+      "QE",
+      "QF",
+      "QG",
+      "QH",
+      "GND",
+      "QH'"
+    ],
+    "description": "8-bit serial in/out Shift Register 3-State Outputs",
+    "keywords": [
+      "HCTMOS",
+      "SR",
+      "3State"
+    ]
+  },
+  {
+    "component": "74AHC595",
+    "type": "74xx",
+    "pins": [
+      "QB",
+      "~SRCLR",
+      "SRCLK",
+      "RCLK",
+      "~OE",
+      "SER",
+      "QA",
+      "VCC",
+      "QC",
+      "QD",
+      "QE",
+      "QF",
+      "QG",
+      "QH",
+      "GND",
+      "QH'"
+    ],
+    "description": "8-bit serial in/out Shift Register 3-State Outputs",
+    "keywords": [
+      "AHCMOS",
+      "SR",
+      "3State"
+    ]
+  },
+  {
+    "component": "74AHCT595",
+    "type": "74xx",
+    "pins": [
+      "QB",
+      "~SRCLR",
+      "SRCLK",
+      "RCLK",
+      "~OE",
+      "SER",
+      "QA",
+      "VCC",
+      "QC",
+      "QD",
+      "QE",
+      "QF",
+      "QG",
+      "QH",
+      "GND",
+      "QH'"
+    ],
+    "description": "8-bit serial in/out Shift Register 3-State Outputs",
+    "keywords": [
+      "AHCTMOS",
+      "SR",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HC596",
+    "type": "74xx",
+    "pins": [
+      "QB",
+      "~SRCLR",
+      "SRCLK",
+      "RCLK",
+      "~OE",
+      "SER",
+      "QA",
+      "VCC",
+      "QC",
+      "QD",
+      "QE",
+      "QF",
+      "QG",
+      "QH",
+      "GND",
+      "QH'"
+    ],
+    "description": "8-bit serial in/out Shift Register Open Collector Outputs",
+    "keywords": [
+      "HCMOS",
+      "SR",
+      "OpenCollector"
+    ]
+  },
+  {
+    "component": "74LS596",
+    "type": "74xx",
+    "pins": [
+      "QB",
+      "~SRCLR",
+      "SRCLK",
+      "RCLK",
+      "~OE",
+      "SER",
+      "QA",
+      "VCC",
+      "QC",
+      "QD",
+      "QE",
+      "QF",
+      "QG",
+      "QH",
+      "GND",
+      "QH'"
+    ],
+    "description": "8-bit serial in/out Shift Register Open Collector outputs",
+    "keywords": [
+      "HCMOS",
+      "SR",
+      "OpenCollector"
+    ]
+  },
+  {
+    "component": "74HCT596",
+    "type": "74xx",
+    "pins": [
+      "QB",
+      "~SRCLR",
+      "SRCLK",
+      "RCLK",
+      "~OE",
+      "SER",
+      "QA",
+      "VCC",
+      "QC",
+      "QD",
+      "QE",
+      "QF",
+      "QG",
+      "QH",
+      "GND",
+      "QH'"
+    ],
+    "description": "8-bit serial in/out Shift Register Open Collector Outputs",
+    "keywords": [
+      "HCTMOS",
+      "SR",
+      "OpenCollector"
+    ]
+  },
+  {
+    "component": "74HC7014",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex non-inverting buffer with precision Schmitt Trigger inputs, SOIC-14",
+    "keywords": [
+      "Hex",
+      "non-inverting",
+      "Schmitt",
+      "buffer"
+    ]
+  },
+  {
+    "component": "74LCX07",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "CMOS hex buffer (open drain) with 5V tolerant inputs",
+    "keywords": [
+      "CMOS",
+      "hex",
+      "buffer"
+    ]
+  },
+  {
+    "component": "SN74LS07",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex Buffers and Drivers With Open Collector High Voltage Outputs",
+    "keywords": [
+      "TTL",
+      "hex",
+      "buffer",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS07",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex Buffers and Drivers With Open Collector High Voltage Outputs",
+    "keywords": [
+      "TTL",
+      "hex",
+      "buffer",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "SN74LS07N",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex Buffers and Drivers With Open Collector High Voltage Outputs",
+    "keywords": [
+      "TTL",
+      "hex",
+      "buffer",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS00",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NAND gate",
+    "keywords": [
+      "TTL",
+      "nand",
+      "2-input"
+    ]
+  },
+  {
+    "component": "74LS37",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NAND buffer",
+    "keywords": [
+      "TTL",
+      "nand",
+      "2-input",
+      "buffer"
+    ]
+  },
+  {
+    "component": "7400",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NAND gate",
+    "keywords": [
+      "TTL",
+      "nand",
+      "2-input"
+    ]
+  },
+  {
+    "component": "74HCT00",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NAND gate",
+    "keywords": [
+      "HCTMOS",
+      "nand",
+      "2-input"
+    ]
+  },
+  {
+    "component": "74HC00",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NAND gate",
+    "keywords": [
+      "HCMOS",
+      "nand",
+      "2-input"
+    ]
+  },
+  {
+    "component": "74LS01",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NAND gate, open collector outputs NRND",
+    "keywords": [
+      "TTL",
+      "nand",
+      "2-input",
+      "open",
+      "collector"
+    ]
+  },
+  {
+    "component": "74LS02",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NOR gate",
+    "keywords": [
+      "TTL",
+      "Nor2"
+    ]
+  },
+  {
+    "component": "74HC02",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NOR gate",
+    "keywords": [
+      "HCMOS",
+      "Nor2"
+    ]
+  },
+  {
+    "component": "74HCT02",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NOR gate",
+    "keywords": [
+      "HCTMOS",
+      "Nor2"
+    ]
+  },
+  {
+    "component": "7402",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NOR gate",
+    "keywords": [
+      "TTL",
+      "Nor2"
+    ]
+  },
+  {
+    "component": "74LS28",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "quad 2-input NOR buffer NRND",
+    "keywords": [
+      "TTL",
+      "Nor2",
+      "Buffer"
+    ]
+  },
+  {
+    "component": "74LS03",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input NAND open collector",
+    "keywords": [
+      "TTL",
+      "Nand2",
+      "OpenColl"
+    ]
+  },
+  {
+    "component": "74LS04",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex Inverter",
+    "keywords": [
+      "TTL",
+      "not",
+      "inv"
+    ]
+  },
+  {
+    "component": "74HC04",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex Inverter",
+    "keywords": [
+      "HCMOS",
+      "not",
+      "inv"
+    ]
+  },
+  {
+    "component": "74HCT04",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex Inverter",
+    "keywords": [
+      "HCTMOS",
+      "not",
+      "inv"
+    ]
+  },
+  {
+    "component": "74AHC04",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex Inverter",
+    "keywords": [
+      "AHCMOS",
+      "not",
+      "inv"
+    ]
+  },
+  {
+    "component": "74AHCT04",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Hex Inverter",
+    "keywords": [
+      "AHCTMOS",
+      "not",
+      "inv"
+    ]
+  },
+  {
+    "component": "74LS05",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Inverter Open Collect",
+    "keywords": [
+      "TTL",
+      "not",
+      "inv",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS06",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Inverter Open Collect",
+    "keywords": [
+      "TTL",
+      "not",
+      "inv",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS06N",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Inverter Open Collect",
+    "keywords": [
+      "TTL",
+      "not",
+      "inv",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS08",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad And2",
+    "keywords": [
+      "TTL",
+      "and2"
+    ]
+  },
+  {
+    "component": "74LS09",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input AND Open Collect",
+    "keywords": [
+      "TTL",
+      "and2",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS10",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Triple 3-input NAND",
+    "keywords": [
+      "TTL",
+      "Nand3"
+    ]
+  },
+  {
+    "component": "74LS107",
+    "type": "74xx",
+    "pins": [
+      "J",
+      "C",
+      "~R",
+      "~Q",
+      "Q",
+      "K",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual JK Flip-Flop, reset",
+    "keywords": [
+      "TTL",
+      "JK"
+    ]
+  },
+  {
+    "component": "74LS109",
+    "type": "74xx",
+    "pins": [
+      "~R",
+      "J",
+      "~K",
+      "C",
+      "~S",
+      "Q",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual JK Flip-Flop, Set & Reset",
+    "keywords": [
+      "TTL",
+      "JK"
+    ]
+  },
+  {
+    "component": "74LS11",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Triple 3-input AND",
+    "keywords": [
+      "TTL",
+      "And3"
+    ]
+  },
+  {
+    "component": "74LS112",
+    "type": "74xx",
+    "pins": [
+      "C",
+      "~R",
+      "K",
+      "J",
+      "~S",
+      "Q",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "dual JK Flip-Flop, Set & Reset",
+    "keywords": [
+      "TTL",
+      "JK"
+    ]
+  },
+  {
+    "component": "74LS113",
+    "type": "74xx",
+    "pins": [
+      "C",
+      "K",
+      "J",
+      "~S",
+      "Q",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "dual JK flip-flop, Set",
+    "keywords": [
+      "TTL",
+      "JK"
+    ]
+  },
+  {
+    "component": "74LS114",
+    "type": "74xx",
+    "pins": [
+      "~R",
+      "C",
+      "K",
+      "J",
+      "~S",
+      "Q",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual JK flip-flop, common Clock & Reset, Set",
+    "keywords": [
+      "TTL",
+      "JK"
+    ]
+  },
+  {
+    "component": "74LS12",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Triple 3-input NAND Open Collector",
+    "keywords": [
+      "TTL",
+      "Nand3",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS121",
+    "type": "74xx",
+    "pins": [
+      "~Q",
+      "Cext",
+      "R/Cext",
+      "VCC",
+      "A1",
+      "A2",
+      "B",
+      "Q",
+      "GND",
+      "Rint"
+    ],
+    "description": "monostable multivibrator with Schmitt-trigger inputs",
+    "keywords": [
+      "monostable"
+    ]
+  },
+  {
+    "component": "74LS122",
+    "type": "74xx",
+    "pins": [
+      "A1",
+      "Cext",
+      "R/Cext",
+      "VCC",
+      "A2",
+      "B1",
+      "B2",
+      "Clr",
+      "~Q",
+      "GND",
+      "Q",
+      "Rint"
+    ],
+    "description": "Retriggerable Monostable",
+    "keywords": [
+      "TTL",
+      "monostable"
+    ]
+  },
+  {
+    "component": "74LS123",
+    "type": "74xx",
+    "pins": [
+      "A",
+      "Q",
+      "Cext",
+      "RCext",
+      "B",
+      "Clr",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual retriggerable Monostable",
+    "keywords": [
+      "TTL",
+      "monostable"
+    ]
+  },
+  {
+    "component": "74AHCT123",
+    "type": "74xx",
+    "pins": [
+      "A",
+      "Q",
+      "Cext",
+      "RCext",
+      "B",
+      "Clr",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual retriggerable monostable multivibrator",
+    "keywords": [
+      "TTL",
+      "monostable",
+      "multivibrator"
+    ]
+  },
+  {
+    "component": "74HCT123",
+    "type": "74xx",
+    "pins": [
+      "A",
+      "Q",
+      "Cext",
+      "RCext",
+      "B",
+      "Clr",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual retriggerable monostable multivibrator",
+    "keywords": [
+      "TTL",
+      "monostable",
+      "multivibrator"
+    ]
+  },
+  {
+    "component": "74HC123",
+    "type": "74xx",
+    "pins": [
+      "A",
+      "Q",
+      "Cext",
+      "RCext",
+      "B",
+      "Clr",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual retriggerable monostable multivibrator",
+    "keywords": [
+      "TTL",
+      "monostable",
+      "multivibrator"
+    ]
+  },
+  {
+    "component": "74LS125",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad buffer 3-State outputs",
+    "keywords": [
+      "TTL",
+      "buffer",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LVC125",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad buffer 3-State outputs",
+    "keywords": [
+      "TTL",
+      "buffer",
+      "3State"
+    ]
+  },
+  {
+    "component": "SN74LV4T125",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Single Supply Logic Level Translator Quad Buffer with 3-State Outputs",
+    "keywords": [
+      "3State",
+      "CMOS",
+      "shifter",
+      "translator"
+    ]
+  },
+  {
+    "component": "74LS126",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad buffer 3-State outputs",
+    "keywords": [
+      "TTL",
+      "Buffer",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS13",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual 4-input NAND Schmitt trigger",
+    "keywords": [
+      "TTL",
+      "Nand4"
+    ]
+  },
+  {
+    "component": "74LS132",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input NAND Schmitt trigger",
+    "keywords": [
+      "TTL",
+      "Nand2"
+    ]
+  },
+  {
+    "component": "74LS133",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "NAND 13-input",
+    "keywords": [
+      "TTL",
+      "Nand13"
+    ]
+  },
+  {
+    "component": "74LS136",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input XOR Open Collector",
+    "keywords": [
+      "TTL",
+      "XOR2",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS137",
+    "type": "74xx",
+    "pins": [
+      "A0",
+      "Y5",
+      "Y4",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "VCC",
+      "A1",
+      "A2",
+      "~GL",
+      "~G2",
+      "G1",
+      "Y7",
+      "GND",
+      "Y6"
+    ],
+    "description": "Decoder 3 to 8, address latches",
+    "keywords": [
+      "TTL",
+      "DECOD8",
+      "DECOD"
+    ]
+  },
+  {
+    "component": "74LS138",
+    "type": "74xx",
+    "pins": [
+      "A0",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "O0",
+      "VCC",
+      "A1",
+      "A2",
+      "E1",
+      "E2",
+      "E3",
+      "O7",
+      "GND",
+      "O6"
+    ],
+    "description": "Decoder 3 to 8 active low outputs",
+    "keywords": [
+      "TTL",
+      "DECOD",
+      "DECOD8"
+    ]
+  },
+  {
+    "component": "74LS139",
+    "type": "74xx",
+    "pins": [
+      "E",
+      "A0",
+      "A1",
+      "O0",
+      "O1",
+      "O2",
+      "O3",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual Decoder 1 of 4, Active low outputs",
+    "keywords": [
+      "TTL",
+      "DECOD4"
+    ]
+  },
+  {
+    "component": "74LS145",
+    "type": "74xx",
+    "pins": [
+      "Q0",
+      "Q8",
+      "Q9",
+      "P3",
+      "P2",
+      "P1",
+      "P0",
+      "VCC",
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "GND",
+      "Q7"
+    ],
+    "description": "Decoder 1 to 10, Open Collector",
+    "keywords": [
+      "TTL",
+      "DECOD10",
+      "OpenColl"
+    ]
+  },
+  {
+    "component": "74LS147",
+    "type": "74xx",
+    "pins": [
+      "E4",
+      "E9",
+      "E1",
+      "E2",
+      "E3",
+      "S3",
+      "VCC",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "S2",
+      "S1",
+      "GND",
+      "S0"
+    ],
+    "description": "Priority Encoder, 10 to 4",
+    "keywords": [
+      "TTL",
+      "ENCOD"
+    ]
+  },
+  {
+    "component": "74LS148",
+    "type": "74xx",
+    "pins": [
+      "I4",
+      "IO",
+      "I1",
+      "I2",
+      "I3",
+      "GS",
+      "EO",
+      "VCC",
+      "I5",
+      "I6",
+      "I7",
+      "EI",
+      "S2",
+      "S1",
+      "GND",
+      "S0"
+    ],
+    "description": "Priority Encoder 3 to 8 cascadable",
+    "keywords": [
+      "TTL",
+      "ENCOD"
+    ]
+  },
+  {
+    "component": "74LS15",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Triple 3-input AND",
+    "keywords": [
+      "TTL",
+      "And3"
+    ]
+  },
+  {
+    "component": "74LS151",
+    "type": "74xx",
+    "pins": [
+      "I3",
+      "S1",
+      "S0",
+      "I7",
+      "I6",
+      "I5",
+      "I4",
+      "VCC",
+      "I2",
+      "I1",
+      "I0",
+      "Z",
+      "~Z",
+      "~E",
+      "GND",
+      "S2"
+    ],
+    "description": "Multiplexer 8 to 1",
+    "keywords": [
+      "TTL",
+      "MUX8"
+    ]
+  },
+  {
+    "component": "74LS153",
+    "type": "74xx",
+    "pins": [
+      "Ea",
+      "I0b",
+      "I1b",
+      "I2b",
+      "I3b",
+      "S0",
+      "Eb",
+      "VCC",
+      "S1",
+      "I3a",
+      "I2a",
+      "I1a",
+      "I0a",
+      "Za",
+      "GND",
+      "Zb"
+    ],
+    "description": "Dual Multiplexer 4 to 1",
+    "keywords": [
+      "TTL",
+      "Mux4"
+    ]
+  },
+  {
+    "component": "74LS154",
+    "type": "74xx",
+    "pins": [
+      "S0",
+      "S9",
+      "S10",
+      "GND",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "E0",
+      "E1",
+      "S1",
+      "A3",
+      "A2",
+      "A1",
+      "A0",
+      "VCC",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "description": "Decoder 4 to 16",
+    "keywords": [
+      "TTL",
+      "DECOD16",
+      "DECOD"
+    ]
+  },
+  {
+    "component": "74LS155",
+    "type": "74xx",
+    "pins": [
+      "Ea1",
+      "Q1b",
+      "Q2b",
+      "Q3b",
+      "A0",
+      "Eb1",
+      "Eb2",
+      "VCC",
+      "Ea2",
+      "A1",
+      "Q3a",
+      "Q2a",
+      "Q1a",
+      "Q0a",
+      "GND",
+      "Q0b"
+    ],
+    "description": "Dual 2 to 4 lines Decoder/Demultiplexer",
+    "keywords": [
+      "TTL",
+      "DECOD8",
+      "DECOD4",
+      "DEMUX4",
+      "DEMUX8",
+      "DEMUX",
+      "DECOD"
+    ]
+  },
+  {
+    "component": "74LS156",
+    "type": "74xx",
+    "pins": [
+      "Ea1",
+      "Q1b",
+      "Q2b",
+      "Q3b",
+      "A0",
+      "Eb1",
+      "Eb2",
+      "VCC",
+      "Ea2",
+      "A1",
+      "Q3a",
+      "Q2a",
+      "Q1a",
+      "Q0a",
+      "GND",
+      "Q0b"
+    ],
+    "description": "Dual 2 to 4 lines Decoder/Demultiplexer, Open Collector",
+    "keywords": [
+      "TTL",
+      "DECOD8",
+      "DECOD4",
+      "DEMUX4",
+      "DEMUX8",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS157",
+    "type": "74xx",
+    "pins": [
+      "S",
+      "I1c",
+      "I0c",
+      "Zd",
+      "I1d",
+      "I0d",
+      "E",
+      "VCC",
+      "I0a",
+      "I1a",
+      "Za",
+      "I0b",
+      "I1b",
+      "Zb",
+      "GND",
+      "Zc"
+    ],
+    "description": "Quad 2 to 1 line Multiplexer",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX2"
+    ]
+  },
+  {
+    "component": "74LS158",
+    "type": "74xx",
+    "pins": [
+      "S",
+      "I1d",
+      "I0d",
+      "Zc",
+      "I1c",
+      "I0c",
+      "E",
+      "VCC",
+      "I0a",
+      "I1a",
+      "Za",
+      "I0b",
+      "I1b",
+      "Zb",
+      "GND",
+      "Zd"
+    ],
+    "description": "Quad 2 to 1 multiplexer",
+    "keywords": [
+      "TTL",
+      "Mux",
+      "MUX2"
+    ]
+  },
+  {
+    "component": "74LS161",
+    "type": "74xx",
+    "pins": [
+      "~MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VCC",
+      "CP",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "CEP",
+      "GND",
+      "~PE"
+    ],
+    "description": "Synchronous 4-bit programmable binary Counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS160",
+    "type": "74xx",
+    "pins": [
+      "~MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VCC",
+      "CP",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "CEP",
+      "GND",
+      "~PE"
+    ],
+    "description": "Synchronous 4-bit programmable decimal Counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS162",
+    "type": "74xx",
+    "pins": [
+      "~MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VCC",
+      "CP",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "CEP",
+      "GND",
+      "~PE"
+    ],
+    "description": "Synchronous 4-bit programmable decimal Counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS163",
+    "type": "74xx",
+    "pins": [
+      "~MR",
+      "CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "TC",
+      "VCC",
+      "CP",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "CEP",
+      "GND",
+      "~PE"
+    ],
+    "description": "Synchronous 4-bit programmable binary Counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS165",
+    "type": "74xx",
+    "pins": [
+      "~PL",
+      "DS",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "~CE",
+      "VCC",
+      "CP",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "~Q7",
+      "GND",
+      "Q7"
+    ],
+    "description": "Shift Register 8-bit, parallel load",
+    "keywords": [
+      "TTL",
+      "SR",
+      "SR8"
+    ]
+  },
+  {
+    "component": "74HC165",
+    "type": "74xx",
+    "pins": [
+      "~PL",
+      "DS",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "~CE",
+      "VCC",
+      "CP",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "~Q7",
+      "GND",
+      "Q7"
+    ],
+    "description": "Shift Register, 8-bit, Parallel Load",
+    "keywords": [
+      "8",
+      "bit",
+      "shift",
+      "register",
+      "parallel",
+      "load",
+      "cmos"
+    ]
+  },
+  {
+    "component": "74LS166",
+    "type": "74xx",
+    "pins": [
+      "Ds",
+      "E",
+      "F",
+      "G",
+      "Qh",
+      "H",
+      "PE",
+      "VCC",
+      "A",
+      "B",
+      "C",
+      "D",
+      "CE",
+      "Clk",
+      "GND",
+      "Clr"
+    ],
+    "description": "Shift Register 8-bit, parallel load",
+    "keywords": [
+      "TTL",
+      "SR",
+      "SR8"
+    ]
+  },
+  {
+    "component": "74LS168",
+    "type": "74xx",
+    "pins": [
+      "U/~D",
+      "~CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "~TC",
+      "VCC",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "~CEP",
+      "GND",
+      "~PE"
+    ],
+    "description": "Synchronous 4-bit Up/Down Decimal counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS169",
+    "type": "74xx",
+    "pins": [
+      "U/~D",
+      "~CET",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "~TC",
+      "VCC",
+      "CP",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "~CEP",
+      "GND",
+      "~PE"
+    ],
+    "description": "Synchronous 4-bit Up/Down binary counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS170",
+    "type": "74xx",
+    "pins": [
+      "D2",
+      "Q1",
+      "~Er",
+      "~Ew",
+      "Wb",
+      "Wa",
+      "D1",
+      "VCC",
+      "D3",
+      "D4",
+      "Rb",
+      "Ra",
+      "Q4",
+      "Q3",
+      "GND",
+      "Q2"
+    ],
+    "description": "4 x 4 Register Files Open Collector",
+    "keywords": [
+      "TTL",
+      "Register",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS670",
+    "type": "74xx",
+    "pins": [
+      "D2",
+      "Q1",
+      "~Er",
+      "~Ew",
+      "Wb",
+      "Wa",
+      "D1",
+      "VCC",
+      "D3",
+      "D4",
+      "Rb",
+      "Ra",
+      "Q4",
+      "Q3",
+      "GND",
+      "Q2"
+    ],
+    "description": "4 x 4 Register Files 3-State Outputs",
+    "keywords": [
+      "TTL",
+      "Register",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS173",
+    "type": "74xx",
+    "pins": [
+      "Oe1",
+      "E2",
+      "D3",
+      "D2",
+      "D1",
+      "D0",
+      "Mr",
+      "VCC",
+      "Oe2",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3",
+      "Cp",
+      "GND",
+      "E1"
+    ],
+    "description": "4-bit D-type Register, 3 state out",
+    "keywords": [
+      "TTL",
+      "REG",
+      "REG4",
+      "3State",
+      "DFF"
+    ]
+  },
+  {
+    "component": "74LS174",
+    "type": "74xx",
+    "pins": [
+      "~Mr",
+      "Q3",
+      "D3",
+      "Q4",
+      "D4",
+      "D5",
+      "Q5",
+      "VCC",
+      "Q0",
+      "D0",
+      "D1",
+      "Q1",
+      "D2",
+      "Q2",
+      "GND",
+      "Cp"
+    ],
+    "description": "Hex D-type Flip-Flop, reset",
+    "keywords": [
+      "TTL",
+      "REG",
+      "REG6",
+      "DFF"
+    ]
+  },
+  {
+    "component": "74LS175",
+    "type": "74xx",
+    "pins": [
+      "~Mr",
+      "Q2",
+      "~Q2",
+      "D2",
+      "D3",
+      "~Q3",
+      "Q3",
+      "VCC",
+      "Q0",
+      "~Q0",
+      "D0",
+      "D1",
+      "~Q1",
+      "Q1",
+      "GND",
+      "Cp"
+    ],
+    "description": "4-bit D Flip-Flop, reset",
+    "keywords": [
+      "TTL",
+      "REG",
+      "REG4",
+      "DFF"
+    ]
+  },
+  {
+    "component": "74LS181",
+    "type": "74xx",
+    "pins": [
+      "B0",
+      "F1",
+      "F2",
+      "GND",
+      "F3",
+      "A=B",
+      "X",
+      "Cn+4",
+      "Y",
+      "B3",
+      "A3",
+      "A0",
+      "B2",
+      "A2",
+      "B1",
+      "A1",
+      "VCC",
+      "S3",
+      "S2",
+      "S1",
+      "S0",
+      "Cn",
+      "M",
+      "F0"
+    ],
+    "description": "Arithmetic logic unit",
+    "keywords": [
+      "TTL",
+      "ALU",
+      "ARITH"
+    ]
+  },
+  {
+    "component": "74LS182",
+    "type": "74xx",
+    "pins": [
+      "G1",
+      "G",
+      "Cn+y",
+      "Cn+x",
+      "Cn",
+      "G2",
+      "P2",
+      "VCC",
+      "P1",
+      "G0",
+      "P0",
+      "G3",
+      "P3",
+      "P",
+      "GND",
+      "Cn+z"
+    ],
+    "description": "Carry generator",
+    "keywords": [
+      "TTL",
+      "ALU",
+      "ARITH"
+    ]
+  },
+  {
+    "component": "74LS190",
+    "type": "74xx",
+    "pins": [
+      "P1",
+      "P2",
+      "Pl",
+      "Tc",
+      "Rc",
+      "Cp",
+      "P0",
+      "VCC",
+      "Q1",
+      "Q0",
+      "Ce",
+      "D/U",
+      "Q2",
+      "Q3",
+      "GND",
+      "P3"
+    ],
+    "description": "4-bit Synchronous Up/Down BCD Counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS191",
+    "type": "74xx",
+    "pins": [
+      "P1",
+      "P2",
+      "Pl",
+      "Tc",
+      "Rc",
+      "Cp",
+      "P0",
+      "VCC",
+      "Q1",
+      "Q0",
+      "Ce",
+      "D/U",
+      "Q2",
+      "Q3",
+      "GND",
+      "P3"
+    ],
+    "description": "4-bit Synchronous Up/Down binary Counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS192",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "C",
+      "~LOAD",
+      "~CO",
+      "~BO",
+      "CLR",
+      "A",
+      "VCC",
+      "QB",
+      "QA",
+      "DOWN",
+      "UP",
+      "QC",
+      "QD",
+      "GND",
+      "D"
+    ],
+    "description": "Synchronous 4-bit Up/Down (2 clk) counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS193",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "C",
+      "~LOAD",
+      "~CO",
+      "~BO",
+      "CLR",
+      "A",
+      "VCC",
+      "QB",
+      "QA",
+      "DOWN",
+      "UP",
+      "QC",
+      "QD",
+      "GND",
+      "D"
+    ],
+    "description": "Synchronous 4-bit Up/Down (2 clk) counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS194",
+    "type": "74xx",
+    "pins": [
+      "Mr",
+      "S1",
+      "Cp",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "VCC",
+      "Dsr",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "Dsl",
+      "GND",
+      "S0"
+    ],
+    "description": "Shift Register 4-bit Bidirectional",
+    "keywords": [
+      "TTL",
+      "RS",
+      "SR4"
+    ]
+  },
+  {
+    "component": "74LS195",
+    "type": "74xx",
+    "pins": [
+      "~MR",
+      "CP",
+      "~Q3",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "VCC",
+      "J",
+      "~K",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "GND",
+      "~PE"
+    ],
+    "description": "Shift Register 4-bit, parallel",
+    "keywords": [
+      "TTL",
+      "SR",
+      "SR4"
+    ]
+  },
+  {
+    "component": "74LS196",
+    "type": "74xx",
+    "pins": [
+      "Pl",
+      "P1",
+      "P3",
+      "Q3",
+      "Mr",
+      "VCC",
+      "Q2",
+      "P2",
+      "P0",
+      "Q0",
+      "Cp1",
+      "GND",
+      "Cp0",
+      "Q1"
+    ],
+    "description": "4 (3+1)-bit presettable BCD counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS197",
+    "type": "74xx",
+    "pins": [
+      "Pl",
+      "P1",
+      "P3",
+      "Q3",
+      "Mr",
+      "VCC",
+      "Q2",
+      "P2",
+      "P0",
+      "Q0",
+      "Cp1",
+      "GND",
+      "Cp0",
+      "Q1"
+    ],
+    "description": "4 (3+1)-bit presettable binary counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS20",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual 4-input NAND",
+    "keywords": [
+      "TTL",
+      "Nand4"
+    ]
+  },
+  {
+    "component": "74LS22",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual 4-input NAND Open Collector",
+    "keywords": [
+      "TTL",
+      "Nand4",
+      "OpenColl"
+    ]
+  },
+  {
+    "component": "74LS40",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual 4-input NAND",
+    "keywords": [
+      "TTL",
+      "Nand4"
+    ]
+  },
+  {
+    "component": "74LS21",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual 4-input AND",
+    "keywords": [
+      "TTL",
+      "And4"
+    ]
+  },
+  {
+    "component": "74LS221",
+    "type": "74xx",
+    "pins": [
+      "~A",
+      "Q",
+      "Cext",
+      "RCext",
+      "B",
+      "~CLR",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual Monostable",
+    "keywords": [
+      "TTL",
+      "Monostable"
+    ]
+  },
+  {
+    "component": "74LS240",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "GND",
+      "I0b",
+      "O3a",
+      "I1b",
+      "O2a",
+      "I2b",
+      "O1a",
+      "I3b",
+      "O0a",
+      "OEb",
+      "I0a",
+      "VCC",
+      "O3b",
+      "I1a",
+      "O2b",
+      "I2a",
+      "O1b",
+      "I3a",
+      "O0b"
+    ],
+    "description": "Octal Buffer and Line Driver With 3-State Output, active-low enables, inverting outputs",
+    "keywords": [
+      "7400",
+      "logic",
+      "ttl",
+      "low",
+      "power",
+      "schottky"
+    ]
+  },
+  {
+    "component": "74LS240_Split",
+    "type": "74xx",
+    "pins": [
+      "GND",
+      "VCC"
+    ],
+    "description": "Octal Buffer and Line Driver With 3-State Output, active-low enables, inverting outputs, split symbol",
+    "keywords": [
+      "7400",
+      "logic",
+      "ttl",
+      "low",
+      "power",
+      "schottky"
+    ]
+  },
+  {
+    "component": "74LS241",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "GND",
+      "I0b",
+      "O3a",
+      "I1b",
+      "O2a",
+      "I2b",
+      "O1a",
+      "I3b",
+      "O0a",
+      "OEb",
+      "I0a",
+      "VCC",
+      "O3b",
+      "I1a",
+      "O2b",
+      "I2a",
+      "O1b",
+      "I3a",
+      "O0b"
+    ],
+    "description": "Octal Buffer and Line Driver With 3-State Output, complementary enables, non-inverting outputs",
+    "keywords": [
+      "7400",
+      "logic",
+      "ttl",
+      "low",
+      "power",
+      "schottky"
+    ]
+  },
+  {
+    "component": "74LS241_Split",
+    "type": "74xx",
+    "pins": [
+      "GND",
+      "VCC"
+    ],
+    "description": "Octal Buffer and Line Driver With 3-State Output, complementary enables, non-inverting outputs, split symbol",
+    "keywords": [
+      "7400",
+      "logic",
+      "ttl",
+      "low",
+      "power",
+      "schottky"
+    ]
+  },
+  {
+    "component": "74LS242",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "B1",
+      "B0",
+      "OEb",
+      "VCC",
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "GND",
+      "B3",
+      "B2"
+    ],
+    "description": "quad bus transceiver, inverting 3-state outputs",
+    "keywords": [
+      "bus",
+      "3state"
+    ]
+  },
+  {
+    "component": "74LS243",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "B1",
+      "B0",
+      "OEb",
+      "VCC",
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "GND",
+      "B3",
+      "B2"
+    ],
+    "description": "4-bit Bus Tranceiver",
+    "keywords": [
+      "TTL",
+      "Buffer",
+      "3State",
+      "BUS",
+      "BIDI"
+    ]
+  },
+  {
+    "component": "74LS244",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "GND",
+      "I0b",
+      "O3a",
+      "I1b",
+      "O2a",
+      "I2b",
+      "O1a",
+      "I3b",
+      "O0a",
+      "OEb",
+      "I0a",
+      "VCC",
+      "O3b",
+      "I1a",
+      "O2b",
+      "I2a",
+      "O1b",
+      "I3a",
+      "O0b"
+    ],
+    "description": "Octal Buffer and Line Driver With 3-State Output, active-low enables, non-inverting outputs",
+    "keywords": [
+      "7400",
+      "logic",
+      "ttl",
+      "low",
+      "power",
+      "schottky"
+    ]
+  },
+  {
+    "component": "74LS244_Split",
+    "type": "74xx",
+    "pins": [
+      "GND",
+      "VCC"
+    ],
+    "description": "Octal Buffer and Line Driver With 3-State Output, active-low enables, non-inverting outputs, split symbol",
+    "keywords": [
+      "7400",
+      "logic",
+      "ttl",
+      "low",
+      "power",
+      "schottky"
+    ]
+  },
+  {
+    "component": "74LS245",
+    "type": "74xx",
+    "pins": [
+      "A->B",
+      "GND",
+      "B7",
+      "B6",
+      "B5",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "B0",
+      "CE",
+      "A0",
+      "VCC",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7"
+    ],
+    "description": "Octal BUS Transceivers, 3-State outputs",
+    "keywords": [
+      "TTL",
+      "BUS",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HC245",
+    "type": "74xx",
+    "pins": [
+      "A->B",
+      "GND",
+      "B7",
+      "B6",
+      "B5",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "B0",
+      "CE",
+      "A0",
+      "VCC",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7"
+    ],
+    "description": "Octal BUS Transceivers, 3-State outputs",
+    "keywords": [
+      "HCMOS",
+      "BUS",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS247",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "d",
+      "c",
+      "b",
+      "a",
+      "g",
+      "f",
+      "VCC",
+      "C",
+      "Lt",
+      "Rbo",
+      "Rbi",
+      "D",
+      "A",
+      "GND",
+      "e"
+    ],
+    "description": "BCD to 7 segments Decoder Open Collector active Low",
+    "keywords": [
+      "TTL",
+      "DECOD"
+    ]
+  },
+  {
+    "component": "74LS246",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "d",
+      "c",
+      "b",
+      "a",
+      "g",
+      "f",
+      "VCC",
+      "C",
+      "Lt",
+      "Rbo",
+      "Rbi",
+      "D",
+      "A",
+      "GND",
+      "e"
+    ],
+    "description": "BCD to 7-segment Decoder Open Collector active Low",
+    "keywords": [
+      "TTL",
+      "DECOD"
+    ]
+  },
+  {
+    "component": "74LS248",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "d",
+      "c",
+      "b",
+      "a",
+      "g",
+      "f",
+      "VCC",
+      "C",
+      "~LT",
+      "~BI~/~RBO",
+      "~RBI",
+      "D",
+      "A",
+      "GND",
+      "e"
+    ],
+    "description": "BCD to 7-segment Decoder, Active High",
+    "keywords": [
+      "TTL",
+      "DECOD"
+    ]
+  },
+  {
+    "component": "74LS249",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "d",
+      "c",
+      "b",
+      "a",
+      "g",
+      "f",
+      "VCC",
+      "C",
+      "~LT",
+      "~BI~/~RBO",
+      "~RBI",
+      "D",
+      "A",
+      "GND",
+      "e"
+    ],
+    "description": "BCD to 7-segment Decoder, Open collector, Active High",
+    "keywords": [
+      "TTL",
+      "DECOD",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS251",
+    "type": "74xx",
+    "pins": [
+      "I3",
+      "S1",
+      "S0",
+      "I7",
+      "I6",
+      "I5",
+      "I4",
+      "VCC",
+      "I2",
+      "I1",
+      "I0",
+      "Y",
+      "~Y",
+      "~OE",
+      "GND",
+      "S2"
+    ],
+    "description": "Multiplexer 8 to 1, 3-state Outputs",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX8",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS253",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "I0b",
+      "I1b",
+      "I2b",
+      "I3b",
+      "A0",
+      "OEb",
+      "VCC",
+      "A1",
+      "I3a",
+      "I2a",
+      "I1a",
+      "I0a",
+      "Za",
+      "GND",
+      "Zb"
+    ],
+    "description": "Dual Multiplexer 4 to 1, 3-State Outputs",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX4",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS256",
+    "type": "74xx",
+    "pins": [
+      "Ea1",
+      "Q1b",
+      "Q2b",
+      "Q3b",
+      "A0",
+      "Eb1",
+      "Eb2",
+      "VCC",
+      "Ea2",
+      "A1",
+      "Q3a",
+      "Q2a",
+      "Q1a",
+      "Q0a",
+      "GND",
+      "Q0b"
+    ],
+    "description": "dual 4-bit addressable latch",
+    "keywords": [
+      "latch"
+    ]
+  },
+  {
+    "component": "74LS257",
+    "type": "74xx",
+    "pins": [
+      "S",
+      "I1d",
+      "I0d",
+      "Zc",
+      "I1c",
+      "I0c",
+      "OE",
+      "VCC",
+      "I0a",
+      "I1a",
+      "Za",
+      "I0b",
+      "I1b",
+      "Zb",
+      "GND",
+      "Zd"
+    ],
+    "description": "Quad 2 to 1 Multiplexer",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX2"
+    ]
+  },
+  {
+    "component": "74LS258",
+    "type": "74xx",
+    "pins": [
+      "S",
+      "I1d",
+      "I0d",
+      "Zc",
+      "I1c",
+      "I0c",
+      "OE",
+      "VCC",
+      "I0a",
+      "I1a",
+      "Za",
+      "I0b",
+      "I1b",
+      "Zb",
+      "GND",
+      "Zd"
+    ],
+    "description": "Quad 2 to 1 Multiplexer, inverting",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX2"
+    ]
+  },
+  {
+    "component": "74LS259",
+    "type": "74xx",
+    "pins": [
+      "A0",
+      "Q5",
+      "Q6",
+      "Q7",
+      "D",
+      "E",
+      "Clr",
+      "VCC",
+      "A1",
+      "A2",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3",
+      "GND",
+      "Q4"
+    ],
+    "description": "8-bit addressable latch",
+    "keywords": [
+      "TTL",
+      "REG",
+      "DFF"
+    ]
+  },
+  {
+    "component": "74LS26",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input NAND Open collector",
+    "keywords": [
+      "TTL",
+      "Nand2",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS38",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad Buffer 2-input NAND Open collector",
+    "keywords": [
+      "TTL",
+      "Nand2",
+      "OpenCol",
+      "Buffer"
+    ]
+  },
+  {
+    "component": "74LS27",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Triple 3-input NOR",
+    "keywords": [
+      "TTL",
+      "Nor3"
+    ]
+  },
+  {
+    "component": "74LS273",
+    "type": "74xx",
+    "pins": [
+      "~Mr",
+      "GND",
+      "Cp",
+      "Q4",
+      "D4",
+      "D5",
+      "Q5",
+      "Q6",
+      "D6",
+      "D7",
+      "Q7",
+      "Q0",
+      "VCC",
+      "D0",
+      "D1",
+      "Q1",
+      "Q2",
+      "D2",
+      "D3",
+      "Q3"
+    ],
+    "description": "8-bit D Flip-Flop, reset",
+    "keywords": [
+      "TTL",
+      "DFF",
+      "DFF8"
+    ]
+  },
+  {
+    "component": "74HC273",
+    "type": "74xx",
+    "pins": [
+      "~Mr",
+      "GND",
+      "Cp",
+      "Q4",
+      "D4",
+      "D5",
+      "Q5",
+      "Q6",
+      "D6",
+      "D7",
+      "Q7",
+      "Q0",
+      "VCC",
+      "D0",
+      "D1",
+      "Q1",
+      "Q2",
+      "D2",
+      "D3",
+      "Q3"
+    ],
+    "description": "8-bit D Flip-Flop, reset",
+    "keywords": [
+      "HCMOS",
+      "DFF",
+      "DFF8"
+    ]
+  },
+  {
+    "component": "74HCT273",
+    "type": "74xx",
+    "pins": [
+      "~Mr",
+      "GND",
+      "Cp",
+      "Q4",
+      "D4",
+      "D5",
+      "Q5",
+      "Q6",
+      "D6",
+      "D7",
+      "Q7",
+      "Q0",
+      "VCC",
+      "D0",
+      "D1",
+      "Q1",
+      "Q2",
+      "D2",
+      "D3",
+      "Q3"
+    ],
+    "description": "8-bit D Flip-Flop, reset",
+    "keywords": [
+      "HCTMOS",
+      "DFF",
+      "DFF8"
+    ]
+  },
+  {
+    "component": "74AHC273",
+    "type": "74xx",
+    "pins": [
+      "~Mr",
+      "GND",
+      "Cp",
+      "Q4",
+      "D4",
+      "D5",
+      "Q5",
+      "Q6",
+      "D6",
+      "D7",
+      "Q7",
+      "Q0",
+      "VCC",
+      "D0",
+      "D1",
+      "Q1",
+      "Q2",
+      "D2",
+      "D3",
+      "Q3"
+    ],
+    "description": "8-bit D Flip-Flop, reset",
+    "keywords": [
+      "AHCMOS",
+      "DFF",
+      "DFF8"
+    ]
+  },
+  {
+    "component": "74AHCT273",
+    "type": "74xx",
+    "pins": [
+      "~Mr",
+      "GND",
+      "Cp",
+      "Q4",
+      "D4",
+      "D5",
+      "Q5",
+      "Q6",
+      "D6",
+      "D7",
+      "Q7",
+      "Q0",
+      "VCC",
+      "D0",
+      "D1",
+      "Q1",
+      "Q2",
+      "D2",
+      "D3",
+      "Q3"
+    ],
+    "description": "8-bit D Flip-Flop, reset",
+    "keywords": [
+      "AHCTMOS",
+      "DFF",
+      "DFF8"
+    ]
+  },
+  {
+    "component": "74LS280",
+    "type": "74xx",
+    "pins": [
+      "G",
+      "C",
+      "D",
+      "E",
+      "F",
+      "VCC",
+      "H",
+      "I",
+      "Even",
+      "Odd",
+      "GND",
+      "A",
+      "B",
+      "NC"
+    ],
+    "description": "Parity Generator/Checker",
+    "keywords": [
+      "TTL",
+      "ALU",
+      "Arith"
+    ]
+  },
+  {
+    "component": "74LS283",
+    "type": "74xx",
+    "pins": [
+      "S2",
+      "S4",
+      "B4",
+      "A4",
+      "S3",
+      "A3",
+      "B3",
+      "VCC",
+      "B2",
+      "A2",
+      "S1",
+      "A1",
+      "B1",
+      "C0",
+      "GND",
+      "C4"
+    ],
+    "description": "4-bit full Adder",
+    "keywords": [
+      "TTL",
+      "ADD",
+      "Arith",
+      "ALU"
+    ]
+  },
+  {
+    "component": "74LS290",
+    "type": "74xx",
+    "pins": [
+      "Ms1",
+      "Cp0",
+      "Cp1",
+      "Mr1",
+      "Mr2",
+      "VCC",
+      "Ms2",
+      "Q2",
+      "Q1",
+      "GND",
+      "Q3",
+      "Q0"
+    ],
+    "description": "4-bit BCD counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS293",
+    "type": "74xx",
+    "pins": [
+      "Ms1",
+      "Cp0",
+      "Cp1",
+      "Mr1",
+      "Mr2",
+      "VCC",
+      "Ms2",
+      "Q2",
+      "Q1",
+      "GND",
+      "Q3",
+      "Q0"
+    ],
+    "description": "4-bit binary counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS295",
+    "type": "74xx",
+    "pins": [
+      "Ds",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "VCC",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "Pe",
+      "GND",
+      "OE",
+      "Cp"
+    ],
+    "description": "4-bit bidirectional register, 3-state outputs",
+    "keywords": [
+      "register"
+    ]
+  },
+  {
+    "component": "74LS298",
+    "type": "74xx",
+    "pins": [
+      "I1b",
+      "S",
+      "Cp",
+      "Qd",
+      "Qc",
+      "Qb",
+      "Qa",
+      "VCC",
+      "I1a",
+      "I0a",
+      "I0b",
+      "I1c",
+      "I1d",
+      "I0d",
+      "GND",
+      "I0c"
+    ],
+    "description": "Quad 2 to 1 multiplexer with storage",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX2"
+    ]
+  },
+  {
+    "component": "74LS299",
+    "type": "74xx",
+    "pins": [
+      "S0",
+      "GND",
+      "Ds0",
+      "Cp",
+      "IO1",
+      "IO3",
+      "IO5",
+      "IO7",
+      "Q7",
+      "Ds7",
+      "S1",
+      "OE1",
+      "VCC",
+      "OE2",
+      "IO6",
+      "IO4",
+      "IO2",
+      "IO0",
+      "Q0",
+      "Mr"
+    ],
+    "description": "8-bit Universal shift/storage Register",
+    "keywords": [
+      "TTL",
+      "REG",
+      "SR",
+      "SR8"
+    ]
+  },
+  {
+    "component": "74LS30",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "8-input NAND",
+    "keywords": [
+      "TTL",
+      "Nand8"
+    ]
+  },
+  {
+    "component": "74LS32",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input OR",
+    "keywords": [
+      "TTL",
+      "Or2"
+    ]
+  },
+  {
+    "component": "74LS322",
+    "type": "74xx",
+    "pins": [
+      "G",
+      "GND",
+      "Clk",
+      "Qh",
+      "H/Qh",
+      "F/Qf",
+      "D/Qd",
+      "B/Qb",
+      "D1",
+      "SE",
+      "DS",
+      "S/P",
+      "VCC",
+      "D0",
+      "A/Qa",
+      "C/Qc",
+      "E/Qe",
+      "G/Qg",
+      "OE",
+      "Clr"
+    ],
+    "description": "8-bit shift register, sign extend, 3-state outputs",
+    "keywords": [
+      "register"
+    ]
+  },
+  {
+    "component": "74LS323",
+    "type": "74xx",
+    "pins": [
+      "S0",
+      "GND",
+      "DS0",
+      "Cp",
+      "IO1",
+      "IO3",
+      "IO5",
+      "IO7",
+      "Q7",
+      "DS7",
+      "S1",
+      "OE1",
+      "VCC",
+      "OE2",
+      "IO6",
+      "IO4",
+      "IO2",
+      "IO0",
+      "Q0",
+      "SR"
+    ],
+    "description": "8-bit Universal Shift/Storage Register",
+    "keywords": [
+      "TTL",
+      "REG",
+      "SR",
+      "SR8"
+    ]
+  },
+  {
+    "component": "74LS33",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input NOR, Open collector",
+    "keywords": [
+      "TTL",
+      "Nor2",
+      "OpenColl"
+    ]
+  },
+  {
+    "component": "74LS348",
+    "type": "74xx",
+    "pins": [
+      "4",
+      "0",
+      "1",
+      "2",
+      "3",
+      "GS",
+      "E0",
+      "VCC",
+      "5",
+      "6",
+      "7",
+      "EI",
+      "A2",
+      "A1",
+      "GND",
+      "A0"
+    ],
+    "description": "8 to 3 lines Priority Encoder",
+    "keywords": [
+      "TTL",
+      "ENCOD",
+      "Arith"
+    ]
+  },
+  {
+    "component": "74LS352",
+    "type": "74xx",
+    "pins": [
+      "Ea",
+      "I0b",
+      "I1b",
+      "I2b",
+      "I3b",
+      "S0",
+      "Eb",
+      "VCC",
+      "S1",
+      "I3a",
+      "I2a",
+      "I1a",
+      "I0a",
+      "Za",
+      "GND",
+      "Zb"
+    ],
+    "description": "Dual 4 to 1 line Multiplexer",
+    "keywords": [
+      "TTL",
+      "Mux",
+      "MUX4"
+    ]
+  },
+  {
+    "component": "74LS353",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "I0b",
+      "I1b",
+      "I2b",
+      "I3b",
+      "A0",
+      "OEb",
+      "VCC",
+      "A1",
+      "I3a",
+      "I2a",
+      "I1a",
+      "I0a",
+      "Za",
+      "GND",
+      "Zb"
+    ],
+    "description": "Dual 4 to 1 line Multiplexer, inverter",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX2"
+    ]
+  },
+  {
+    "component": "74LS365",
+    "type": "74xx",
+    "pins": [
+      "E1",
+      "I4",
+      "O5",
+      "I5",
+      "O6",
+      "I6",
+      "E2",
+      "VCC",
+      "I1",
+      "O1",
+      "I2",
+      "O2",
+      "I3",
+      "O3",
+      "GND",
+      "O4"
+    ],
+    "description": "Hex Bus Driver, 3-State Outputs",
+    "keywords": [
+      "TTL",
+      "Buffer",
+      "BUS",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS366",
+    "type": "74xx",
+    "pins": [
+      "E1",
+      "I4",
+      "O5",
+      "I5",
+      "O6",
+      "I6",
+      "E2",
+      "VCC",
+      "I1",
+      "O1",
+      "I2",
+      "O2",
+      "I3",
+      "O3",
+      "GND",
+      "O4"
+    ],
+    "description": "Hex Bus Driver inverter, 3-state outputs",
+    "keywords": [
+      "TTL",
+      "Buffer",
+      "BUS",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS367",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "I4",
+      "O5b",
+      "I5",
+      "O6b",
+      "I6",
+      "OEb",
+      "VCC",
+      "I1",
+      "O1a",
+      "I2",
+      "O2a",
+      "I3",
+      "O3a",
+      "GND",
+      "O4a"
+    ],
+    "description": "Hex Bus Driver 3-state outputs",
+    "keywords": [
+      "TTL",
+      "Buffer",
+      "BUS",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS368",
+    "type": "74xx",
+    "pins": [
+      "OEa",
+      "I4",
+      "O5b",
+      "I5",
+      "O6b",
+      "I6",
+      "OEb",
+      "VCC",
+      "I1",
+      "O1a",
+      "I2",
+      "O2a",
+      "I3",
+      "O3a",
+      "GND",
+      "O4a"
+    ],
+    "description": "Hex Bus Driver inverter, 3-state outputs",
+    "keywords": [
+      "TTL",
+      "Buffer",
+      "BUS",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS373",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "LE",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Latch, 3-state outputs",
+    "keywords": [
+      "TTL",
+      "REG",
+      "DFF",
+      "DFF8",
+      "LATCH"
+    ]
+  },
+  {
+    "component": "74HC373",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "LE",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Latch, 3-state outputs",
+    "keywords": [
+      "HCMOS",
+      "REG",
+      "DFF",
+      "DFF8",
+      "LATCH"
+    ]
+  },
+  {
+    "component": "74AHC373",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "LE",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Latch, 3-state outputs",
+    "keywords": [
+      "AHCMOS",
+      "REG",
+      "DFF",
+      "DFF8",
+      "LATCH"
+    ]
+  },
+  {
+    "component": "74AHCT373",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "LE",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Latch, 3-state outputs",
+    "keywords": [
+      "AHCTMOS",
+      "REG",
+      "DFF",
+      "DFF8",
+      "LATCH"
+    ]
+  },
+  {
+    "component": "74HCT373",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "LE",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Latch, 3-state outputs",
+    "keywords": [
+      "HCTMOS",
+      "REG",
+      "DFF",
+      "DFF8",
+      "LATCH"
+    ]
+  },
+  {
+    "component": "74LS374",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "Cp",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Register, 3-state outputs",
+    "keywords": [
+      "TTL",
+      "DFF",
+      "DFF8",
+      "REG",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HC374",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "Cp",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Register, 3-state outputs",
+    "keywords": [
+      "HCMOS",
+      "DFF",
+      "DFF8",
+      "REG",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HCT374",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "Cp",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Register, 3-state outputs",
+    "keywords": [
+      "HCTMOS",
+      "DFF",
+      "DFF8",
+      "REG",
+      "3State"
+    ]
+  },
+  {
+    "component": "74AHC374",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "Cp",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Register, 3-state outputs",
+    "keywords": [
+      "AHCMOS",
+      "DFF",
+      "DFF8",
+      "REG",
+      "3State"
+    ]
+  },
+  {
+    "component": "74AHCT374",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "Cp",
+      "O4",
+      "D4",
+      "D5",
+      "O5",
+      "O6",
+      "D6",
+      "D7",
+      "O7",
+      "O0",
+      "VCC",
+      "D0",
+      "D1",
+      "O1",
+      "O2",
+      "D2",
+      "D3",
+      "O3"
+    ],
+    "description": "8-bit Register, 3-state outputs",
+    "keywords": [
+      "AHCTMOS",
+      "DFF",
+      "DFF8",
+      "REG",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS375",
+    "type": "74xx",
+    "pins": [
+      "D0",
+      "~Q2",
+      "Q2",
+      "E23",
+      "Q3",
+      "~Q3",
+      "D3",
+      "VCC",
+      "~Q0",
+      "Q0",
+      "E01",
+      "Q1",
+      "~Q1",
+      "D1",
+      "GND",
+      "D2"
+    ],
+    "description": "4-bit Latch",
+    "keywords": [
+      "TTL",
+      "DFF",
+      "DFF4",
+      "Latch"
+    ]
+  },
+  {
+    "component": "74LS377",
+    "type": "74xx",
+    "pins": [
+      "~E",
+      "GND",
+      "CP",
+      "Q4",
+      "D4",
+      "D5",
+      "Q5",
+      "Q6",
+      "D6",
+      "D7",
+      "Q7",
+      "Q0",
+      "VCC",
+      "D0",
+      "D1",
+      "Q1",
+      "Q2",
+      "D2",
+      "D3",
+      "Q3"
+    ],
+    "description": "8-bit Register",
+    "keywords": [
+      "TTL",
+      "REG",
+      "DFF",
+      "DFF8"
+    ]
+  },
+  {
+    "component": "74LS378",
+    "type": "74xx",
+    "pins": [
+      "~E",
+      "Q3",
+      "D3",
+      "Q4",
+      "D4",
+      "D5",
+      "Q5",
+      "VCC",
+      "Q0",
+      "D0",
+      "D1",
+      "Q1",
+      "D2",
+      "Q2",
+      "GND",
+      "C"
+    ],
+    "description": "6-bit Register",
+    "keywords": [
+      "TTL",
+      "REG",
+      "DFF",
+      "DFF6"
+    ]
+  },
+  {
+    "component": "74LS379",
+    "type": "74xx",
+    "pins": [
+      "~E",
+      "Q2",
+      "~Q2",
+      "D2",
+      "D3",
+      "~Q3",
+      "Q3",
+      "VCC",
+      "Q0",
+      "~Q0",
+      "D0",
+      "D1",
+      "~Q1",
+      "Q1",
+      "GND",
+      "CP"
+    ],
+    "description": "4-bit Register",
+    "keywords": [
+      "TTL",
+      "REG",
+      "DFF",
+      "DFF4"
+    ]
+  },
+  {
+    "component": "74LS385",
+    "type": "74xx",
+    "pins": [
+      "Clk",
+      "GND",
+      "Clr",
+      "3S",
+      "3S/A",
+      "3B",
+      "3A",
+      "4A",
+      "4B",
+      "4S/A",
+      "4S",
+      "1S",
+      "VCC",
+      "1S/A",
+      "1B",
+      "1A",
+      "2A",
+      "2B",
+      "2S/A",
+      "2S"
+    ],
+    "description": "Quad serial Adder",
+    "keywords": [
+      "TTL",
+      "ADD",
+      "Arith",
+      "ALU"
+    ]
+  },
+  {
+    "component": "74LS386",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input XOR",
+    "keywords": [
+      "TTL",
+      "XOR2"
+    ]
+  },
+  {
+    "component": "74LS390",
+    "type": "74xx",
+    "pins": [
+      "~CP0",
+      "MR",
+      "Q0",
+      "~CP1",
+      "Q1",
+      "Q2",
+      "Q3",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual BCD 4-bit counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS393",
+    "type": "74xx",
+    "pins": [
+      "CP",
+      "MR",
+      "Q0",
+      "Q1",
+      "Q2",
+      "Q3",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual BCD 4-bit counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS395",
+    "type": "74xx",
+    "pins": [
+      "~MR",
+      "~CP",
+      "Q'3",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "VCC",
+      "Ds",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "LD/~SH",
+      "GND",
+      "~OE"
+    ],
+    "description": "4-bit universal shift register, 3-state outputs",
+    "keywords": [
+      "TTL",
+      "SR",
+      "SR4",
+      "REG",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS398",
+    "type": "74xx",
+    "pins": [
+      "S",
+      "GND",
+      "CP",
+      "Qc",
+      "~Qc",
+      "I0c",
+      "I1c",
+      "I1d",
+      "I0d",
+      "~Qd",
+      "Qd",
+      "Qa",
+      "VCC",
+      "~Qa",
+      "I0a",
+      "I1a",
+      "I1b",
+      "I0b",
+      "~Qb",
+      "Qb"
+    ],
+    "description": "Quad 2 to 1 line Multiplexer, 3-state outputs",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX2",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS399",
+    "type": "74xx",
+    "pins": [
+      "S",
+      "Qc",
+      "I0c",
+      "I1c",
+      "I1d",
+      "I0d",
+      "Qd",
+      "VCC",
+      "Qa",
+      "I0a",
+      "I1a",
+      "I1b",
+      "I0b",
+      "Qb",
+      "GND",
+      "CP"
+    ],
+    "description": "Quad 2 to 1 line multiplexer with storage",
+    "keywords": [
+      "TTL",
+      "MUX",
+      "MUX2"
+    ]
+  },
+  {
+    "component": "74LS42",
+    "type": "74xx",
+    "pins": [
+      "0",
+      "8",
+      "9",
+      "A3",
+      "A2",
+      "A1",
+      "A0",
+      "VCC",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "GND",
+      "7"
+    ],
+    "description": "4 to 10 line Decoder",
+    "keywords": [
+      "TTL",
+      "DECOD",
+      "DECOD10"
+    ]
+  },
+  {
+    "component": "74LS47",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "d",
+      "c",
+      "b",
+      "a",
+      "g",
+      "f",
+      "VCC",
+      "C",
+      "LT",
+      "BI",
+      "RBI",
+      "D",
+      "A",
+      "GND",
+      "e"
+    ],
+    "description": "BCD to 7-segment Driver, Open Collector, 30V outputs",
+    "keywords": [
+      "TTL",
+      "DECOD",
+      "DECOD7",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS46",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "d",
+      "c",
+      "b",
+      "a",
+      "g",
+      "f",
+      "VCC",
+      "C",
+      "LT",
+      "BI",
+      "RBI",
+      "D",
+      "A",
+      "GND",
+      "e"
+    ],
+    "description": "BCD to 7-segment Driver, Open Collector, 15V outputs",
+    "keywords": [
+      "TTL",
+      "DECOD",
+      "DECOD7",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS48",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "d",
+      "c",
+      "b",
+      "a",
+      "g",
+      "f",
+      "VCC",
+      "C",
+      "LT",
+      "BI",
+      "RBI",
+      "D",
+      "A",
+      "GND",
+      "e"
+    ],
+    "description": "BCD to 7-segment Decoder/driver, Active High outputs",
+    "keywords": [
+      "TTL",
+      "DECOD",
+      "DECOD7"
+    ]
+  },
+  {
+    "component": "74LS49",
+    "type": "74xx",
+    "pins": [
+      "B",
+      "b",
+      "a",
+      "g",
+      "f",
+      "VCC",
+      "C",
+      "~BI",
+      "D",
+      "A",
+      "e",
+      "GND",
+      "d",
+      "c"
+    ],
+    "description": "BCD to 7-segment decoder/driver, Open collector",
+    "keywords": [
+      "TTL",
+      "DECOD",
+      "DECOD7",
+      "OpenCol"
+    ]
+  },
+  {
+    "component": "74LS51",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual 3- and 2-input AND-NOR ( S = /(AB[C] + DE[F]) )",
+    "keywords": [
+      "TTL",
+      "ANDNOR"
+    ]
+  },
+  {
+    "component": "74LS54",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "And-Nor (S = /(AB + CD + EF + GH) )",
+    "keywords": [
+      "TTL",
+      "ANDNOR"
+    ]
+  },
+  {
+    "component": "74LS540",
+    "type": "74xx",
+    "pins": [
+      "G1",
+      "GND",
+      "Y7",
+      "Y6",
+      "Y5",
+      "Y4",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "G2",
+      "A0",
+      "VCC",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7"
+    ],
+    "description": "8-bit Buffer/Line driver Inverter, 3-state outputs",
+    "keywords": [
+      "BUFFER",
+      "BUS",
+      "TTL",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS541",
+    "type": "74xx",
+    "pins": [
+      "G1",
+      "GND",
+      "Y7",
+      "Y6",
+      "Y5",
+      "Y4",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "G2",
+      "A0",
+      "VCC",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state outputs",
+    "keywords": [
+      "TTL",
+      "BUFFER",
+      "3State",
+      "BUS"
+    ]
+  },
+  {
+    "component": "74HCT541",
+    "type": "74xx",
+    "pins": [
+      "G1",
+      "GND",
+      "Y7",
+      "Y6",
+      "Y5",
+      "Y4",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "G2",
+      "A0",
+      "VCC",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7"
+    ],
+    "description": "8-bit Buffer/Line Driver 3-state outputs",
+    "keywords": [
+      "TTL",
+      "BUFFER",
+      "3State",
+      "BUS"
+    ]
+  },
+  {
+    "component": "74LS55",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "AND-NOR ( S = / (ABCD + EFGH) )",
+    "keywords": [
+      "TTL",
+      "ANDNOR"
+    ]
+  },
+  {
+    "component": "74LS573",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "Load",
+      "Q7",
+      "Q6",
+      "Q5",
+      "Q4",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "D0",
+      "VCC",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7"
+    ],
+    "description": "8-bit Latch 3-state outputs",
+    "keywords": [
+      "TTL",
+      "DFF",
+      "DFF8",
+      "LATCH",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS574",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "Cp",
+      "Q7",
+      "Q6",
+      "Q5",
+      "Q4",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "D0",
+      "VCC",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7"
+    ],
+    "description": "8-bit Register, 3-state outputs",
+    "keywords": [
+      "TTL",
+      "REG",
+      "DFF",
+      "DFF8",
+      "3State"
+    ]
+  },
+  {
+    "component": "74HCT574",
+    "type": "74xx",
+    "pins": [
+      "OE",
+      "GND",
+      "Cp",
+      "Q7",
+      "Q6",
+      "Q5",
+      "Q4",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "D0",
+      "VCC",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7"
+    ],
+    "description": "8-bit Register, 3-state outputs",
+    "keywords": [
+      "TTL",
+      "REG",
+      "DFF",
+      "DFF8",
+      "3State"
+    ]
+  },
+  {
+    "component": "74LS629",
+    "type": "74xx",
+    "pins": [
+      "OSC",
+      "FC",
+      "RNG",
+      "CX1",
+      "CX2",
+      "EN",
+      "Y",
+      "VCC",
+      "GND"
+    ],
+    "description": "dual voltage-controlled oscillator, enable control, range control",
+    "keywords": [
+      "VCO"
+    ]
+  },
+  {
+    "component": "74LS688",
+    "type": "74xx",
+    "pins": [
+      "G",
+      "GND",
+      "P4",
+      "R4",
+      "P5",
+      "R5",
+      "P6",
+      "R6",
+      "P7",
+      "R7",
+      "P=R",
+      "P0",
+      "VCC",
+      "R0",
+      "P1",
+      "R1",
+      "P2",
+      "R2",
+      "P3",
+      "R3"
+    ],
+    "description": "8-bit magnitude comparator",
+    "keywords": [
+      "TTL",
+      "DECOD",
+      "Arith"
+    ]
+  },
+  {
+    "component": "74HC688",
+    "type": "74xx",
+    "pins": [
+      "G",
+      "GND",
+      "P4",
+      "R4",
+      "P5",
+      "R5",
+      "P6",
+      "R6",
+      "P7",
+      "R7",
+      "P=R",
+      "P0",
+      "VCC",
+      "R0",
+      "P1",
+      "R1",
+      "P2",
+      "R2",
+      "P3",
+      "R3"
+    ],
+    "description": "8-bit magnitude comparator",
+    "keywords": [
+      "HCMOS",
+      "DECOD",
+      "Arith"
+    ]
+  },
+  {
+    "component": "74HCT688",
+    "type": "74xx",
+    "pins": [
+      "G",
+      "GND",
+      "P4",
+      "R4",
+      "P5",
+      "R5",
+      "P6",
+      "R6",
+      "P7",
+      "R7",
+      "P=R",
+      "P0",
+      "VCC",
+      "R0",
+      "P1",
+      "R1",
+      "P2",
+      "R2",
+      "P3",
+      "R3"
+    ],
+    "description": "8-bit magnitude comparator",
+    "keywords": [
+      "HCTMOS",
+      "DECOD",
+      "Arith"
+    ]
+  },
+  {
+    "component": "74LS73",
+    "type": "74xx",
+    "pins": [
+      "K",
+      "C",
+      "~R",
+      "J",
+      "~Q",
+      "Q",
+      "GND",
+      "VCC"
+    ],
+    "description": "Dual JK Flip-Flop, reset",
+    "keywords": [
+      "TTL",
+      "JK",
+      "JKFF"
+    ]
+  },
+  {
+    "component": "74LS74",
+    "type": "74xx",
+    "pins": [
+      "~R",
+      "D",
+      "C",
+      "~S",
+      "Q",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual D Flip-flop, Set & Reset",
+    "keywords": [
+      "TTL",
+      "DFF"
+    ]
+  },
+  {
+    "component": "74HC74",
+    "type": "74xx",
+    "pins": [
+      "~R",
+      "D",
+      "C",
+      "~S",
+      "Q",
+      "~Q",
+      "VCC",
+      "GND"
+    ],
+    "description": "Dual D Flip-flop, Set & Reset",
+    "keywords": [
+      "TTL",
+      "DFF"
+    ]
+  },
+  {
+    "component": "74LS75",
+    "type": "74xx",
+    "pins": [
+      "~Q0",
+      "Q2",
+      "~Q2",
+      "GND",
+      "E01",
+      "~Q1",
+      "Q1",
+      "Q0",
+      "D0",
+      "D1",
+      "E23",
+      "VCC",
+      "D2",
+      "D3",
+      "~Q3",
+      "Q3"
+    ],
+    "description": "4-bit Latch",
+    "keywords": [
+      "TTL",
+      "DFF",
+      "Latch"
+    ]
+  },
+  {
+    "component": "74LS76",
+    "type": "74xx",
+    "pins": [
+      "C",
+      "~Q",
+      "Q",
+      "K",
+      "~S",
+      "~R",
+      "J",
+      "GND",
+      "VCC"
+    ],
+    "description": "Dual JK Flip-flop, Set & Reset",
+    "keywords": [
+      "TTL",
+      "JK",
+      "JKFF"
+    ]
+  },
+  {
+    "component": "74LS77",
+    "type": "74xx",
+    "pins": [
+      "D0",
+      "GND",
+      "E01",
+      "Q1",
+      "Q0",
+      "D1",
+      "E23",
+      "VCC",
+      "D2",
+      "D3",
+      "Q3",
+      "Q2"
+    ],
+    "description": "4-bit Latch",
+    "keywords": [
+      "TTL",
+      "DFF",
+      "Latch"
+    ]
+  },
+  {
+    "component": "74LS78",
+    "type": "74xx",
+    "pins": [
+      "C",
+      "~Q",
+      "Q",
+      "K",
+      "~S",
+      "J",
+      "~R",
+      "GND",
+      "VCC"
+    ],
+    "description": "Dual JK Flip-flop, Set, Common clock & reset",
+    "keywords": [
+      "TTL",
+      "JK",
+      "JKFF"
+    ]
+  },
+  {
+    "component": "74LS83",
+    "type": "74xx",
+    "pins": [
+      "A4",
+      "A1",
+      "B1",
+      "GND",
+      "C0",
+      "C4",
+      "S4",
+      "B4",
+      "S3",
+      "A3",
+      "B3",
+      "VCC",
+      "S2",
+      "B2",
+      "A2",
+      "S1"
+    ],
+    "description": "4-bit Full Adder",
+    "keywords": [
+      "TTL",
+      "ADD",
+      "ARITH",
+      "ALU"
+    ]
+  },
+  {
+    "component": "74LS85",
+    "type": "74xx",
+    "pins": [
+      "B3",
+      "A0",
+      "B1",
+      "A1",
+      "A2",
+      "B2",
+      "A3",
+      "VCC",
+      "Ia<b",
+      "Ia=b",
+      "Ia>b",
+      "Oa>b",
+      "Oa=b",
+      "Oa<b",
+      "GND",
+      "B0"
+    ],
+    "description": "4-bit Comparator",
+    "keywords": [
+      "TTL",
+      "COMP",
+      "ARITH"
+    ]
+  },
+  {
+    "component": "74LS86",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input XOR",
+    "keywords": [
+      "TTL",
+      "XOR2"
+    ]
+  },
+  {
+    "component": "74HC86",
+    "type": "74xx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-input XOR",
+    "keywords": [
+      "TTL",
+      "XOR2"
+    ]
+  },
+  {
+    "component": "74LS90",
+    "type": "74xx",
+    "pins": [
+      "CP1..3",
+      "GND",
+      "Q3",
+      "Q0",
+      "CP0",
+      "R0(1)",
+      "R0(2)",
+      "VCC",
+      "R9(1)",
+      "R9(2)",
+      "Q2",
+      "Q1"
+    ],
+    "description": "BCD Counter ( div 2 & div 5 )",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS91",
+    "type": "74xx",
+    "pins": [
+      "GND",
+      "B",
+      "A",
+      "Qh",
+      "~Qh",
+      "VCC",
+      "CLK"
+    ],
+    "description": "8-bit Serial Register",
+    "keywords": [
+      "TTL",
+      "SR",
+      "SR8"
+    ]
+  },
+  {
+    "component": "74LS92",
+    "type": "74xx",
+    "pins": [
+      "CP1..3",
+      "GND",
+      "Q1",
+      "Q0",
+      "CP0",
+      "VCC",
+      "R0(1)",
+      "R0(2)",
+      "Q3",
+      "Q2"
+    ],
+    "description": "Divide by 12 counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS93",
+    "type": "74xx",
+    "pins": [
+      "CP1..3",
+      "GND",
+      "Q3",
+      "Q0",
+      "CP0",
+      "R0(1)",
+      "R0(2)",
+      "VCC",
+      "Q2",
+      "Q1"
+    ],
+    "description": "Divide by 2 & 8 counter",
+    "keywords": [
+      "TTL",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "74LS95",
+    "type": "74xx",
+    "pins": [
+      "Ds",
+      "Q3",
+      "Q2",
+      "Q1",
+      "Q0",
+      "VCC",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "Mode",
+      "GND",
+      "Cp2.Lshift",
+      "Cp1.Rshift"
+    ],
+    "description": "Shift Register 5-bit (in/out)",
+    "keywords": [
+      "TTL",
+      "SR",
+      "SR4"
+    ]
+  },
+  {
+    "component": "74LV14",
+    "type": "74xx",
+    "pins": [
+      "3.3V",
+      "GND"
+    ],
+    "description": "Hex Inverter",
+    "keywords": [
+      "TTL",
+      "not",
+      "inv"
+    ]
+  },
+  {
+    "component": "74LV8154",
+    "type": "74xx",
+    "pins": [
+      "CKLA",
+      "GND",
+      "~CCLR",
+      "Y7",
+      "Y6",
+      "Y5",
+      "Y4",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "CLKB",
+      "VCC",
+      "~GAL",
+      "~GAU",
+      "~GBL",
+      "~GBU",
+      "RCLK",
+      "~RCOA",
+      "~CLKBEN"
+    ],
+    "description": "Dual 16-bit binary counter",
+    "keywords": [
+      "counter",
+      "binary"
+    ]
+  },
+  {
+    "component": "74VHC9164FT",
+    "type": "74xx",
+    "pins": [
+      "P/S_CONT",
+      "Q/D5",
+      "Q/D6",
+      "Q/D7",
+      "Q/D8",
+      "Q8'",
+      "Q8C",
+      "VCC",
+      "~CLR_LOAD",
+      "SI",
+      "CK",
+      "Q/D1",
+      "Q/D2",
+      "Q/D3",
+      "GND",
+      "Q/D4"
+    ],
+    "description": "8-bit Universal Shift Register, 2V to 5.5V, TSSOP-16",
+    "keywords": [
+      "shift",
+      "register",
+      "universal",
+      "serial",
+      "parallel"
+    ]
+  },
+  {
+    "component": "CD74HC4067M",
+    "type": "74xx",
+    "pins": [
+      "COM",
+      "S0",
+      "S1",
+      "GND",
+      "S3",
+      "S2",
+      "~E",
+      "I15",
+      "I14",
+      "I13",
+      "I12",
+      "I7",
+      "I11",
+      "I10",
+      "I9",
+      "I8",
+      "VCC",
+      "I6",
+      "I5",
+      "I4",
+      "I3",
+      "I2",
+      "I1",
+      "I0"
+    ],
+    "description": "High-Speed CMOS Logic 16-Channel Analog Multiplexer/Demultiplexer, SOIC-24",
+    "keywords": [
+      "multiplexer",
+      "demultiplexer",
+      "mux",
+      "demux"
+    ]
+  },
+  {
+    "component": "CD74HC4067SM",
+    "type": "74xx",
+    "pins": [
+      "COM",
+      "S0",
+      "S1",
+      "GND",
+      "S3",
+      "S2",
+      "~E",
+      "I15",
+      "I14",
+      "I13",
+      "I12",
+      "I7",
+      "I11",
+      "I10",
+      "I9",
+      "I8",
+      "VCC",
+      "I6",
+      "I5",
+      "I4",
+      "I3",
+      "I2",
+      "I1",
+      "I0"
+    ],
+    "description": "High-Speed CMOS Logic 16-Channel Analog Multiplexer/Demultiplexer, SSOP-24",
+    "keywords": [
+      "multiplexer",
+      "demultiplexer",
+      "mux",
+      "demux"
+    ]
+  },
+  {
+    "component": "MM74C923",
+    "type": "74xx",
+    "pins": [
+      "Y1",
+      "GND",
+      "X2",
+      "X1",
+      "DA",
+      "XOE",
+      "E",
+      "D",
+      "C",
+      "B",
+      "A",
+      "Y2",
+      "VCC",
+      "Y3",
+      "Y4",
+      "Y5",
+      "OSC",
+      "KBM",
+      "X4",
+      "X3"
+    ],
+    "description": "20-key encoder",
+    "keywords": [
+      "encoder"
+    ]
+  },
+  {
+    "component": "SN74AVC16827DGGR",
+    "type": "74xx",
+    "pins": [
+      "1OE1",
+      "1Y7",
+      "GND",
+      "1Y8",
+      "1Y9",
+      "1Y10",
+      "2Y1",
+      "2Y2",
+      "2Y3",
+      "2Y4",
+      "1Y1",
+      "2Y5",
+      "2Y6",
+      "VCC",
+      "2Y7",
+      "2Y8",
+      "2Y9",
+      "2Y10",
+      "2OE1",
+      "2OE2",
+      "1Y2",
+      "2A10",
+      "2A9",
+      "2A8",
+      "2A7",
+      "2A6",
+      "2A5",
+      "2A4",
+      "2A3",
+      "2A2",
+      "2A1",
+      "1A10",
+      "1A9",
+      "1A8",
+      "1A7",
+      "1A6",
+      "1A5",
+      "1Y3",
+      "1A4",
+      "1A3",
+      "1A2",
+      "1A1",
+      "1OE2",
+      "1Y4",
+      "1Y5",
+      "1Y6"
+    ],
+    "description": "20-Bit Buffer/Driver With 3-State Outputs",
+    "keywords": [
+      "Buffer",
+      "Driver",
+      "3-State"
+    ]
+  }
+]
