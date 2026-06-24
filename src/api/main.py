@@ -74,6 +74,13 @@ app.include_router(design_router)
 print("[Yantra API] Registered /api/design")
 
 try:
+    from schematic import router as schematic_router
+    app.include_router(schematic_router)
+    print("[Yantra API] Registered /api/schematic")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load schematic router: {_e}")
+
+try:
     from generate import router as generate_router
     app.include_router(generate_router)
     print("[Yantra API] Registered /api/generate-cad")

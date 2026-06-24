@@ -1,0 +1,79 @@
+[
+  {
+    "id": "cnc_3axis",
+    "name": "CNC / Plotter / 3-axis Gantry",
+    "keywords": ["cnc", "gantry", "plotter", "3-axis", "3 axis"],
+    "power": "psu_24v",
+    "mcu": "arduino_mega",
+    "actuators": [
+      { "type": "stepper_driver", "default_part": "a4988", "count_default": 3, "count_max": 5 }
+    ],
+    "sensors": [
+      { "type": "limit_switch", "per_actuator": true, "count_default": 3 }
+    ],
+    "comms": ["usb_serial"],
+    "notes": "Standard GRBL/Marlin 3-axis template"
+  },
+  {
+    "id": "diff_drive_rover",
+    "name": "Differential Drive Rover",
+    "keywords": ["rover", "differential drive", "diff drive", "car", "robot car"],
+    "power": "buck_converter",
+    "mcu": "esp32",
+    "actuators": [
+      { "type": "dc_driver", "default_part": "l298n", "count_default": 1 }
+    ],
+    "sensors": [
+      { "type": "distance", "default_part": "hcsr04", "count_default": 1 },
+      { "type": "imu", "default_part": "mpu6050", "count_default": 1 }
+    ],
+    "comms": ["wifi", "bluetooth"],
+    "notes": "Classic 2WD/4WD rover setup"
+  },
+  {
+    "id": "dof_arm_6",
+    "name": "6-DOF Robot Arm",
+    "keywords": ["6-dof", "6 dof", "robot arm", "robotic arm", "manipulator"],
+    "power": "buck_converter",
+    "mcu": "arduino_uno",
+    "actuators": [
+      { "type": "servo_driver", "default_part": "pca9685", "count_default": 1 },
+      { "type": "servo", "default_part": "servo_motor", "count_default": 6 }
+    ],
+    "sensors": [
+      { "type": "limit_switch", "count_default": 1 }
+    ],
+    "comms": ["usb_serial"],
+    "notes": "Standard multi-servo arm"
+  },
+  {
+    "id": "quadcopter",
+    "name": "Quadcopter / Drone",
+    "keywords": ["quadcopter", "drone", "uav", "flight controller"],
+    "power": "buck_converter",
+    "mcu": "esp32",
+    "actuators": [
+      { "type": "motor_driver", "default_part": "bldc_esc", "count_default": 4 }
+    ],
+    "sensors": [
+      { "type": "imu", "default_part": "mpu6050", "count_default": 1 }
+    ],
+    "comms": ["nrf24l01"],
+    "notes": "Standard 4-rotor drone"
+  },
+  {
+    "id": "line_follower",
+    "name": "Line Follower",
+    "keywords": ["line follower", "line tracking"],
+    "power": "buck_converter",
+    "mcu": "arduino_uno",
+    "actuators": [
+      { "type": "dc_driver", "default_part": "tb6612fng", "count_default": 1 }
+    ],
+    "sensors": [
+      { "type": "ir_array", "count_default": 3 }
+    ],
+    "comms": [],
+    "notes": "Classic line tracking robot"
+  }
+]
