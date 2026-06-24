@@ -726,7 +726,7 @@ const CustomComponentNode = ({ data }: any) => {
 
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
     const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
-    const [activeView, setActiveView] = useState<"matrix" | "canvas" | "bom">("matrix");
+    const [activeView, setActiveView] = useState<"canvas">("canvas");
     
     useEffect(() => {
         console.log(`[MappingTab] Successfully mounted/loaded with activeView: ${activeView}`);
@@ -1112,31 +1112,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
             
             {/* TOP TOOLBAR: View Toggle */}
             <div className="h-12 border-b border-neutral-800/50 flex items-center justify-between px-6 bg-[#0B0E14] shrink-0 z-30">
-                <div className="flex gap-1 bg-[#131823] p-1 rounded-lg border border-neutral-800/50">
-                    <button 
-                        onClick={() => setActiveView("matrix")}
-                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'matrix' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
-                    >
-                        Matrix View
-                    </button>
-                    <button 
-                        onClick={() => setActiveView("canvas")}
-                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'canvas' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
-                    >
+                <div className="flex gap-1">
+                    <div className="px-4 py-1.5 rounded text-xs font-bold bg-[#1a2333] text-sky-400 shadow border border-neutral-800/50">
                         Canvas Wiring View
-                    </button>
-                    <button 
-                        onClick={() => setActiveView("bom")}
-                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'bom' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
-                    >
-                        BOM View
-                    </button>
+                    </div>
                 </div>
                 <div className="flex items-center gap-2">
                     {isLoading && <div className="text-xs text-blue-400 animate-pulse mr-4">Updating from AI...</div>}
-                    {activeView === 'bom' && (
-                        <button onClick={handleExportBOM} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-900/20 hover:bg-emerald-900/40 rounded border border-emerald-900/50 transition-colors">Export CSV</button>
-                    )}
                     <button onClick={handleAutoLayout} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-purple-400 bg-purple-900/20 hover:bg-purple-900/40 rounded border border-purple-900/50 transition-colors"><Network size={12} /> Auto Layout</button>
                     <button onClick={handleRefresh} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-sky-400 bg-sky-900/20 hover:bg-sky-900/40 rounded border border-sky-900/50 transition-colors"><RefreshCw size={12} /> Refresh</button>
                     <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-red-900/20 hover:bg-red-900/40 rounded border border-red-900/50 transition-colors"><Trash2 size={12} /> Clear</button>
