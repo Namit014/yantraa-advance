@@ -335,13 +335,6 @@ export function VercelV0Chat() {
                             <div className="flex items-center gap-2">
                                 <button
                                     type="button"
-                                    className="px-2 py-1.5 rounded-lg text-sm text-zinc-400 transition-colors border border-dashed border-zinc-700 hover:border-zinc-600 hover:bg-zinc-800 flex items-center justify-between gap-1"
-                                >
-                                    <PlusIcon className="w-4 h-4" />
-                                    Project
-                                </button>
-                                <button
-                                    type="button"
                                     onClick={handleSubmit}
                                     disabled={isLoading || !value.trim()}
                                     className={cn(

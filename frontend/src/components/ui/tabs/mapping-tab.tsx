@@ -2,7 +2,7 @@
 
 import {
     Search, X, SlidersHorizontal, Plus, Crosshair,
-    LayoutGrid, Maximize2, Trash2, RefreshCw, Network
+    LayoutGrid, Maximize2, Trash2, RefreshCw, Network, PanelLeft, PanelRight
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
@@ -726,7 +726,9 @@ const CustomComponentNode = ({ data }: any) => {
 
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
     const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
-    const [activeView, setActiveView] = useState<"matrix" | "canvas" | "bom">("matrix");
+    const [activeView, setActiveView] = useState<"canvas">("canvas");
+    const [isLibraryOpen, setIsLibraryOpen] = useState(true);
+    const [isInspectorOpen, setIsInspectorOpen] = useState(true);
     
     useEffect(() => {
         console.log(`[MappingTab] Successfully mounted/loaded with activeView: ${activeView}`);
@@ -1252,43 +1254,21 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
             
-            {/* TOP TOOLBAR: View Toggle */}
-            <div className="h-12 border-b border-neutral-800/50 flex items-center justify-between px-6 bg-[#0B0E14] shrink-0 z-30">
-                <div className="flex gap-1 bg-[#131823] p-1 rounded-lg border border-neutral-800/50">
-                    <button 
-                        onClick={() => setActiveView("matrix")}
-                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'matrix' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
-                    >
-                        Matrix View
-                    </button>
-                    <button 
-                        onClick={() => setActiveView("canvas")}
-                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'canvas' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
-                    >
-                        Canvas Wiring View
-                    </button>
-                    <button 
-                        onClick={() => setActiveView("bom")}
-                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'bom' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
-                    >
-                        BOM View
-                    </button>
-                </div>
-                <div className="flex items-center gap-2">
-                    {isLoading && <div className="text-xs text-blue-400 animate-pulse mr-4">Updating from AI...</div>}
-                    {activeView === 'bom' && (
-                        <button onClick={handleExportBOM} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-900/20 hover:bg-emerald-900/40 rounded border border-emerald-900/50 transition-colors">Export CSV</button>
-                    )}
-                    <button onClick={handleAutoLayout} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-purple-400 bg-purple-900/20 hover:bg-purple-900/40 rounded border border-purple-900/50 transition-colors"><Network size={12} /> Auto Layout</button>
-                    <button onClick={handleRefresh} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-sky-400 bg-sky-900/20 hover:bg-sky-900/40 rounded border border-sky-900/50 transition-colors"><RefreshCw size={12} /> Refresh</button>
-                    <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-red-900/20 hover:bg-red-900/40 rounded border border-red-900/50 transition-colors"><Trash2 size={12} /> Clear</button>
-                </div>
-            </div>
+
 
             <div className="flex-1 flex overflow-hidden relative">
+                {/* FLOATING TOGGLE BUTTON */}
+                <button 
+                    onClick={() => setIsLibraryOpen(!isLibraryOpen)}
+                    className={`absolute top-[26px] left-4 z-50 p-1.5 rounded transition-colors ${isLibraryOpen ? 'bg-[#1a2333] text-sky-400' : 'bg-[#131823] border border-neutral-800 text-neutral-400 hover:text-white shadow-lg'}`}
+                    title="Toggle Component Library"
+                >
+                    <PanelLeft size={16} />
+                </button>
+
                 {/* 1. COMPONENT LIBRARY (Left Column) */}
-                <div className="w-[320px] h-full bg-[#0B0E14] border-r border-neutral-800/50 flex flex-col shrink-0 z-20">
-                    <div className="flex items-center justify-between p-4 pb-2 mt-2">
+                <div className={`h-full bg-[#0B0E14] border-r border-neutral-800/50 flex flex-col shrink-0 z-20 transition-all duration-300 ease-in-out ${isLibraryOpen ? 'w-[320px] opacity-100' : 'w-0 opacity-0 border-none overflow-hidden'}`}>
+                    <div className="flex items-center justify-between p-4 pl-12 pb-2 mt-2">
                         <h2 className="text-xs font-bold text-white tracking-widest uppercase">Component Library</h2>
                     </div>
                     <div className="px-4 py-3 flex gap-2">
@@ -1489,29 +1469,65 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                     .custom-edge-hover.selected .edge-label-bg {
                                         opacity: 1;
                                     }
+                                    .react-flow__controls {
+                                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+                                        border: 1px solid #333 !important;
+                                        background-color: #0B0E14 !important;
+                                        border-radius: 6px !important;
+                                        overflow: hidden !important;
+                                    }
+                                    .react-flow__controls-button {
+                                        background-color: #0B0E14 !important;
+                                        border-bottom: 1px solid #333 !important;
+                                        color: #fff !important;
+                                    }
+                                    .react-flow__controls-button:last-child {
+                                        border-bottom: none !important;
+                                    }
+                                    .react-flow__controls-button:hover {
+                                        background-color: #1a2333 !important;
+                                    }
+                                    .react-flow__controls-button svg {
+                                        fill: #ccc !important;
+                                    }
+                                    .react-flow__controls-button:hover svg {
+                                        fill: #fff !important;
+                                    }
                                 `}</style>
                                 <ReactFlow
                                     nodes={rfNodes}
                                     edges={rfEdges}
                                     onNodesChange={onNodesChange}
                                     onConnect={onConnect}
-                                    onNodeClick={(_: any, node: any) => setSelectedId(node.id)}
+                                    onNodeClick={(_: any, node: any) => {
+                                        setSelectedId(node.id);
+                                        setIsInspectorOpen(true);
+                                    }}
                                     nodeTypes={nodeTypes}
                                     fitView
                                     onlyRenderVisibleElements={true}
                                     proOptions={{ hideAttribution: true }}
                                 >
                                     <Background color="#222" gap={16} />
-                                    <Controls style={{ backgroundColor: '#13161c', border: '1px solid #333' }} />
+                                    <Controls />
                                 </ReactFlow>
                             </div>
                         </div>
                     )}
                 </div>
 
+                {/* FLOATING RIGHT TOGGLE BUTTON */}
+                <button 
+                    onClick={() => setIsInspectorOpen(!isInspectorOpen)}
+                    className={`absolute top-[22px] right-4 z-50 p-1.5 rounded transition-colors ${isInspectorOpen ? 'bg-[#1a2333] text-sky-400' : 'bg-[#131823] border border-neutral-800 text-neutral-400 hover:text-white shadow-lg'}`}
+                    title="Toggle Inspector"
+                >
+                    <PanelRight size={16} />
+                </button>
+
                 {/* 3. INSPECTOR (Right Column) */}
-                <div className="w-[340px] h-full bg-[#0B0E14] flex flex-col shrink-0 z-20">
-                    <div className="flex items-center justify-between p-4 border-b border-neutral-800/50 bg-[#0f1219]">
+                <div className={`h-full bg-[#0B0E14] flex flex-col shrink-0 z-20 transition-all duration-300 ease-in-out ${isInspectorOpen ? 'w-[340px] opacity-100' : 'w-0 opacity-0 border-none overflow-hidden'}`}>
+                    <div className="flex items-center justify-between p-4 pr-12 border-b border-neutral-800/50 bg-[#0f1219]">
                         <h2 className="text-xs font-bold text-white tracking-widest uppercase">Inspector</h2>
                     </div>
                     
