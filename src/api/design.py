@@ -476,13 +476,10 @@ OUTPUT FORMAT:
         except Exception:
             pass
 
-    # Universal CAD Scraper Fallback
+    # Universal CAD Scraper Fallback has been removed.
+    # The system now relies entirely on Background Synchronization (S3 + Qdrant)
     if not matched_cads:
-        print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
-        from scraper.cad_scraper import scrape_missing_component
-        scraped_filename = await scrape_missing_component(query)
-        if scraped_filename:
-            matched_cads.add(scraped_filename)
+        print(f"[api/design] No CAD matched locally in the Background Sync cache for '{query}'.")
 
     primary_cads = pick_primary_cad(list(matched_cads))
     
