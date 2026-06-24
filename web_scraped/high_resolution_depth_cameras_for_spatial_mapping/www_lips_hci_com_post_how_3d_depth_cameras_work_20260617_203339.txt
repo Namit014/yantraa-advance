@@ -1,0 +1,35 @@
+Source URL: https://www.lips-hci.com/post/how-3d-depth-cameras-work
+Scraped: 2026-06-17T20:33:39.667461
+============================================================
+
+A **3D depth camera** captures not just color or brightness, but a **depth map** where each pixel represents distance to the camera.[2][12] The main ways it does this are **stereo vision**, **structured light**, and **time-of-flight (ToF)**, which all estimate depth using different physical principles.[3][4][13]
+
+**How depth is measured**
+- **Triangulation**: stereo vision and structured light infer depth from geometric shift between viewpoints or from deformation of a projected pattern.[3][4][13]
+- **Time-of-flight**: ToF measures how long light takes to leave the camera, hit an object, and return; distance is derived from that travel time.[2][3][4]
+
+**Stereo vision**
+- Uses two cameras separated by a fixed **baseline** to capture slightly offset views of the same scene.[3][7][13]
+- The offset between matching points is called **disparity**; closer objects produce higher disparity, farther objects lower disparity.[3][5][13]
+- The method is most effective when the scene has enough texture for correspondence matching.[3][5]
+
+**Passive vs. active stereo**
+- **Passive stereo** depends on ambient light and scene texture, so it works well in bright environments but can fail in low light or on textureless surfaces.[3][5]
+- **Active stereo** adds an IR projector to create artificial texture, improving performance in low light and on bland surfaces.[3][5]
+
+**Structured light**
+- Projects a **known pattern** onto the scene and analyzes how the pattern deforms on surfaces to compute depth via triangulation.[3][4][9]
+- It is especially strong at **close to medium range** with high accuracy and resolution.[2]
+- It can struggle on **specular or mirror-like surfaces**, in **shadows**, and in **strong sunlight** when the projected pattern is washed out.[3][5]
+
+**Time-of-flight (ToF)**
+- Uses modulated infrared illumination and measures either the direct return time or the phase shift of the reflected light.[3][5][7]
+- **Direct ToF (dToF)** measures photon travel time more directly and can be very accurate at longer ranges.[5]
+- **Indirect ToF (iToF)** is more common in depth cameras and computes distance from phase differences.[5]
+- ToF works in darkness and has low processing overhead because depth is produced directly by the sensor.[5]
+
+**Why depth cameras matter**
+- They enable machines to understand **scene geometry**, **object distance**, and **spatial relationships** in real time.[1][8][12]
+- Common applications include **robot navigation**, **grasping/pick-and-place**, **AR/VR**, **gesture recognition**, and **3D reconstruction**.[1][7][10][12]
+
+If you want, I can also turn this into a **clean technical article outline** or a **comparison table of Stereo vs Structured Light vs ToF**.

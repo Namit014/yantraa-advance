@@ -1,0 +1,16 @@
+Source URL: https://www.firgelliauto.com/es/blogs/tutorials/adding-external-limit-switches-to-your-linear-actuator
+Scraped: 2026-06-18T12:33:11.700451
+============================================================
+
+Adding external limit switches to a linear actuator lets you **stop travel at custom positions** instead of only at the actuator’s built-in end-of-stroke limits.[1][2] Firgelli’s guidance says the switches are wired into the control circuit so they interrupt power when triggered, and a diode is used so the actuator can still move in the opposite direction after a limit is reached.[1][3][5]
+
+- **Internal vs. external limits:** Internal limit switches are factory-set and stop the actuator only at full extension or retraction, while external switches are user-installed and can be positioned anywhere along the stroke.[1][2]
+- **Why use them:** Common reasons include reducing travel below full stroke, adding redundant safety protection, synchronizing multiple actuators, or creating custom stopping points for a mechanism.[2]
+- **How they work:** The actuator’s moving part physically contacts the switch at the desired stop point, opening the circuit and stopping motion.[1][3][10]
+- **Wiring concept:** Firgelli states the switch is connected in series with the motor/control circuit, typically on the ground cable, and diodes across the switch terminals allow reverse movement after activation.[1][3][5]
+- **Switch type:** One source explains that normally closed (**NC**) switches are commonly used because a broken wire or failed switch opens the circuit and stops the actuator, which is a fail-safe behavior.[2]
+- **Placement:** The switch must be mounted so the moving shaft, collar, bracket, or a tab attached to the moving part physically hits the actuator button at the exact limit you want.[3]
+- **Reversing direction:** To add a second external limit switch for retraction, Firgelli says to install it the same way but reverse the lever direction.[1]
+- **Protection rating:** The article notes that environmental conditions matter, and switches used in dusty or wet environments should have appropriate IP protection; it specifically mentions IP67 as suitable for temporary water exposure.[*source text provided in prompt, not search result*]
+
+If you want, I can turn this into a **step-by-step wiring guide** or a **parts list** for a 12V or 24V actuator.

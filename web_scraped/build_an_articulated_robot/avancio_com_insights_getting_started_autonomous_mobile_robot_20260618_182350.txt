@@ -1,0 +1,88 @@
+Source URL: https://avancio.com/insights/getting-started-autonomous-mobile-robot-diy-guide-for-small-businesses
+Scraped: 2026-06-18T18:23:50.790186
+============================================================
+
+# Getting Started: Autonomous Mobile Robot DIY Guide for Small Businesses
+
+**Author:** Oleksii Reznichenko
+**Date:** 11.09.2025
+
+## Introduction
+
+Small and Medium Enterprises (SMEs) across various sectors can benefit from Autonomous Mobile Robots (AMRs). In warehouses and distribution centers, AMRs automate goods movement and order fulfillment, optimizing logistics with a goods-to-person approach. Manufacturing plants enhance production workflow through efficient material transport. Small family farms and greenhouses utilize AMRs for moving crops, feed, and equipment.
+
+One of the most famous early adoption stories is Kiva Robotics, founded in 2003 and acquired by Amazon in 2012 for nearly 800 million USD, pioneering the goods-to-person concept.
+
+This series provides a step-by-step guide for building your own AMR using open-source designs and accessible manufacturing methods, featuring detailed drawings, 3D models, Bill of Materials (BOM), hardware architecture, navigation software, and user interface packages.
+
+## Key Features and Capabilities
+
+| Characteristic | Value |
+|---|---|
+| Navigation type | LiDAR/SLAM |
+| Robot platform drive type (kinematics) | Differential drive |
+| Total weight of the conditional robot model | ~60 kg (~132 lb) |
+| LiDAR view | 120° |
+| Linear velocity without load | ~1500–2000 mm/s (~59–79 in/s) |
+| Linear velocity with full load (120 kg+) | ~1200–1500 mm/s (~47–59 in/s) |
+| Positioning accuracy SLAM (indoor) | +/- 50 mm (±2 in) |
+| Platform dimensions | 600 x 800 mm (24 x 31.5 in) |
+| Supply voltage, nominal | 24/48 V |
+| Battery capacity (LiFePo, Li-Ion) | ~48–56 Ah |
+| Battery life, not less than | 6 hours |
+| Communication channel | Wi-Fi (2.4/5 GHz) |
+| Load capacity | Up to 120 kg (265 lbs) |
+| Operating temperature | -10°C to +50°C (14°F to 122°F) |
+
+## Design and Manufacturing Approach
+
+The design is optimized for manufacturability, requiring only basic technologies:
+
+- Laser cutting
+- Bending
+- Turning works (optionally)
+- 3D printing (optionally)
+- Assembly
+
+Using mostly 2 mm thick metal sheets, the design is robust yet simple to produce, allowing one person to build the robot in one day if all parts are already produced.
+
+The top of the robot features a mounting place for installing and connecting various external modules, such as:
+
+- Conveyor
+- Tote pulling hook
+- Elevator
+- Tilting mechanism
+- Other custom modules
+
+A mounting platform and holes for wire routing and connector installation are provided in the upper part of the robot.
+
+**Note on Sheet Metal Parts:** Parts are designed for the following coefficients and radii: K=0.47: sheet 0.8 mm – R=1.2; sheet 1.2 mm – R=1.5; sheet 2.0 mm – R=2.4.
+
+After bending, parts can be painted. After painting, riveting nuts are installed. It is allowed to install riveting nuts before painting, provided that the threaded part of the nuts is protected from coating. Screws installed without lock washers should be fixed with a thread lock (e.g., Loxeal 55-03).
+
+## Fabrication Process
+
+The metal frame (chassis) consists of **13 unique types of parts**, totaling **20 individual components** (including symmetrical and repeating ones).
+
+The number in the circle on the assembly diagram represents both the part number and the assembly step in the sequential assembly process.
+
+## Detailed Steps for Assembling the Drive Wheels
+
+**Parts required:** Parts 1, 2, 3, 4, 5, BLDC motors, bearing housing sets, shafts, wheels, C-clip locking washers, fasteners.
+
+**Steps:**
+
+1. Screw one of the bearing housing sets onto part 1.
+2. Screw the BLDC motor onto part 2.
+3. Insert the shaft with a key through the two bearing housing sets and the wheel into the assembly (without fixing the second bearing housing set yet).
+4. Secure the shaft by fixing it with a retaining C-clip washer (locking washer).
+5. Use the BLDC motor attached to part 2 and ins—
+
+## Downloadable Resources
+
+- Production drawings, 3D models, STEP, and DXF files
+- Specification sheet, including all parts and assemblies, sensors, and fasteners, with links to components
+
+## Reference Projects
+
+Other projects worth researching for experience include: SEER, SlamTec, Roboteq, Ubiquity Robotics, and Bosch Rexroth Rokit.

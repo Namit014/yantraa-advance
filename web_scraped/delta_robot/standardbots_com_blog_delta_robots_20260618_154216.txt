@@ -1,0 +1,57 @@
+Source URL: https://standardbots.com/blog/delta-robots
+Scraped: 2026-06-18T15:42:16.105696
+============================================================
+
+**Delta Robot Overview**
+
+A delta robot is a high‑speed, high‑precision robot characterized by a triangular base and three lightweight arms that extend downward and converge at a central end‑effector (gripper or tool). The arms are connected to the base and to the end‑effector by ball joints, allowing free rotation and coordinated movement. Because the motors remain stationary and only the arms move, the robot achieves very low inertia, rapid acceleration, and deceleration.
+
+**How a Delta Robot Works**
+- Three arms are driven by motors mounted on a fixed base.  
+- Each arm links to the end‑effector via a ball joint, maintaining orientation throughout motion.  
+- Parallelogram linkages keep the arms level, preserving the end‑effector’s orientation.  
+- Precise positioning of each arm controls the location of the end‑effector within a dome‑shaped workspace directly beneath the base.
+
+**What Delta Robots Do Best**
+- **Pick‑and‑place** of small items at extremely high speed.  - **High‑precision assembly** of tiny components for electronics, medical devices, and other sensitive products.  
+- **Dispensing** of adhesives, sealants, or other materials with exact volume and placement.  
+- **Palletizing** of boxes, bags, or other objects directly from a production line.  
+- **Visual inspection** when equipped with cameras and sensors for defect detection and labeling.  
+
+**Key Technical Specifications**
+- **Speed:** Some models can achieve up to **300 pick‑and‑place cycles per minute**.  
+- **Accuracy/Repeatability:** Can reach **≤ 0.1 mm** accuracy when properly calibrated.  
+- **Payload Capacity:** Despite a compact footprint, many delta robots handle **payloads of up to 60 kg or more**.  
+- **Form factor:** Small footprint; triangular base and vertical arms require minimal floor space and can fold when idle.  
+- **Maintenance:** Few moving parts (three arms + end‑effector), low wear, limited lubrication, long service life.  
+- **Workspace:** Dome‑shaped area directly under the base; range of motion is primarily vertical and limited laterally.
+
+**Unique Benefits**
+- **Blazing speed and agility** – rapid pick, place, and dispense actions.  - **Compact design** – efficient use of floor space.  
+- **High precision** – rigid kinematic chain enables micron‑level repeatability.  
+- **Low maintenance** – simple mechanical structure reduces wear.  
+- **High payload‑to‑size ratio** – relatively high lifting capability for their compact size.
+
+**Comparison with Other Robot Types**
+
+| Robot Type | Primary Strength | Typical Applications | Limitations |
+|------------|------------------|----------------------|-------------|
+| **Delta** | Lightning‑fast, high precision within a confined vertical space | Pick‑and‑place, high‑speed dispensing, assembly of small parts, palletizing, visual inspection | Limited lateral reach; workspace confined to area directly below the base |
+| **Cartesian** | Simple linear motion, high repeatability | Simple transport, palletizing, dispensing where precision > speed | Slower, limited range of motion, larger footprint for extensive travel |
+| **SCARA** | Good speed and precision for assembly tasks | Assembly operations requiring flexibility within a defined area | More complex kinematics, potentially higher cost |
+| **Articulated** | Greatest flexibility, can reach around obstacles | Welding, painting, complex assembly, tasks needing wide range of motion | Slower, higher cost, more maintenance, less precise for very high‑speed tasks |
+
+**Cost & Pricing Overview**
+- Generally **moderately priced**, often less expensive than articulated arms but more than basic Cartesian systems.  
+- Pricing tier is commonly denoted as “$$” (mid‑range) in comparative matrices.  
+
+**Typical Industrial Applications**
+- High‑volume **packaging** lines.  
+- **Palletizing** of food, consumer goods, and pharmaceuticals.  
+- **Dispensing** of adhesives/sealants on electronics, glass, and automotive components.  
+- **Precision assembly** of medical devices, microelectronics, and other miniature parts.  
+- **Quality inspection** with integrated vision systems for defect detection and labeling.  
+
+---  
+
+*All information above is derived directly from the provided source text, presenting only the extracted technical data, specifications, and descriptive facts.*

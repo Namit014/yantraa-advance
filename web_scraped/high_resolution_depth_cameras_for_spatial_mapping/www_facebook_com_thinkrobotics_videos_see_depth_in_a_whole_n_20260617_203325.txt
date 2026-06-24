@@ -1,0 +1,5 @@
+Source URL: https://www.facebook.com/thinkrobotics/videos/see-depth-in-a-whole-new-waythe-orbbec-astra-2-is-a-structured-light-3d-camera-d/1661431018329040/
+Scraped: 2026-06-17T20:33:25.349137
+============================================================
+
+The Orbbec Astra 2 is a structured light 3D camera for depth sensing, providing high-resolution depth data and full HD RGB output. It features a sensing range suitable for real-world environments, an integrated IMU, and multi-camera synchronization. The camera offers reliable point cloud, IR, and RGB data for real-time perception and is designed for applications in robotics, AI vision, and spatial mapping.

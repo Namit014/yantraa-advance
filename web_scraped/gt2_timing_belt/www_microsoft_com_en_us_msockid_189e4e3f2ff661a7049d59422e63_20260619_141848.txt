@@ -1,0 +1,52 @@
+Source URL: https://www.microsoft.com/en-us?msockid=189e4e3f2ff661a7049d59422e63601d
+Scraped: 2026-06-19T14:18:48.132368
+============================================================
+
+# Microsoft – AI, Cloud, Productivity, Computing, Gaming & Apps
+
+## Surface Lineup
+
+### New Surface Laptop
+- Available in 13, 13.8, and 15-inch sizes
+- Supercharged productivity with all-day battery life
+
+### New Surface Pro
+- Laptop-grade power with tablet flexibility
+- Available in 12 and 13-inch sizes
+
+## Microsoft 365
+- Includes cloud storage, advanced security, and Microsoft Copilot across favorite apps in one plan
+- College bundle offer: Buy a select PC and receive 1 year of Microsoft 365 Premium, XBOX Game Pass Ultimate, and a design-your-own XBOX Wireless Controller — valued at over $500
+
+## XBOX
+- **XBOX Game Pass Ultimate**: Play new titles on day one; hundreds of high-quality games on console, PC, or cloud
+- **XBOX Wireless Controller**: Designed for comfort and control
+- **PC Game Pass** available
+
+## Surface for Business
+- Powered by Intel® Core™ Ultra Series 3 processors
+- Fast performance for demanding apps, all-day battery life, and built-in security
+
+## Microsoft Copilot
+- Available for organizations and personal use
+- Integrated into Microsoft 365 for business to save time and focus on high-priority tasks
+
+## Azure
+- Platform for designing, fueling, and operationalizing systems that learn and adapt
+
+## Visual Studio 2026
+- IDE for professional developers
+
+## AI Initiatives
+- **90-day AI fluency guide**: A real-world guide to becoming more AI-confident in your career
+- **AI in medicine**: Transforming diagnosis of rare conditions and improving patient experience
+- **Children International**: Using Microsoft Copilot to reduce administrative work and focus on ending cycles of poverty
+- **Imagine Cup 2026 and Red Bull Basement**: Global Microsoft-supported tech competitions preparing students for an AI future
+
+## Other Offerings
+- **Certified Refurbished** devices available
+- **Trade-in for cash** program
+- **VR & mixed reality** accessories
+- **Microsoft Rewards**
+- **Flexible Payments** through Microsoft Store
+- **Microsoft in education**: Devices, Teams for Education, Microsoft 365 Education, deals for students and parents, educator training

@@ -1,0 +1,31 @@
+Source URL: https://en.m.wikipedia.org/wiki/Servomechanism
+Scraped: 2026-06-18T12:48:00.281732
+============================================================
+
+Servomechanism - Technical Specifications and Facts:
+
+**Definition**: A servomechanism (or servo) is a control system managing the position and time derivatives (e.g., velocity) of a mechanical system. It employs closed-loop control with error-sensing negative feedback to minimize steady-state error and enhance dynamic response. The term "servo" derives from the Latin "servus" (slave) and applies to systems where feedback corrects mechanical position, speed, or measurable variables.
+
+**Components**:  
+- **Feedback Mechanisms**: Encoders (digital) or potentiometers (analog) measure position. Encoders also provide speed feedback, enabling precise control via PID controllers.  
+- **Actuation**: Typically uses servomotors (electric, hydraulic, or pneumatic). Industrial servomotors may include brush-type DC motors, planetary gearsets, and optical encoders.  
+- **Control**: H-bridge controllers drive motors to reduce error signals. Pulse-width modulation (PWM) signals are used in RC servos to command position.
+
+**Types**:  
+- **Industrial Servomotors**: High-precision components using rotary encoders and PID controllers.  
+- **RC Servos**: Low-cost, use free-running motors and potentiometers. Stepper motors are distinct (open-loop, no feedback) and used in medium-precision applications.  
+
+**Applications**:  
+- Position Control: Globe control valves, automotive power windows (non-servo without feedback), cruise control (closed-loop servo).  
+- Speed Control: Steam engine governors, constant-speed aircraft propellers, gas turbine fuel controls.  
+- Others: Fire-control systems, satellite-tracking antennas, fly-by-wire aircraft, autofocus cameras, hard disk drives (sub-micrometer accuracy), and robotics.  
+
+**History**:  
+- Early Uses: Ship steering systems (1866, SS Great Eastern), James Watt's steam engine governor (mechanical feedback).  
+- Innovations: Telemotor (1872, Andrew Betts Brown) simplified remote mechanisms. Ragonnet (1909) air/steam-powered servo amplifier.  
+- Electrical Development: Elisha Gray's Telautograph (1888). WWII-era electrical fire-control systems with amplidyne amplifiers. UNISERVO tape drive for UNIVAC I used vacuum tube amplifiers.  
+
+**Key Notes**:  
+- Position-controlled servos often include built-in encoders or feedback mechanisms.  
+- Servomotors differ from stepper motors due to closed-loop feedback.  
+- Temperature affects potentiometers, whereas encoders offer greater stability.

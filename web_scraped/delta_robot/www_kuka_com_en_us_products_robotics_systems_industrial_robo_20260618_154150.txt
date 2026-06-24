@@ -1,0 +1,47 @@
+Source URL: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/kr-delta-roboter
+Scraped: 2026-06-18T15:41:50.071591
+============================================================
+
+**KR DELTARobot Technical Specifications**  
+
+1. **High-Speed Performance**  
+   - Cycle time: Up to 0.32 seconds (minimum cycle time below 0.32 sec).  
+   - Designed for high-speed pick-and-place, assembly, and packaging tasks.  
+
+2. **Load Capacity**  
+   - Available models:  
+     - **KR 3 D1200**: Up to 6 kg load.  
+     - **KR 3 D1200 HM (Hygienic Machine)**: Up to 6 kg load.  
+     - **KR 15 D1200-2**: Up to 15 kg load.  
+     - **KR 15 D1600-2**: Up to 15 kg load.  
+
+3. **Reach and Dimensions**  
+   - Maximum reach: 250 mm to 455 mm (varies by model).  
+   - Working range: 350 mm vertical range.  
+   - Compact footprint: ∅ 350 mm.  
+
+4. **Hygienic and Safety Features**  
+   - Materials: Stainless steel (corrosion-resistant) or carbon fiber.  
+   - Protection classes: IP 67 (standard) and IP 69K (for HM version).  
+   - Lubrication: NSF H1 (food-safe) in hygienic variants, self-lubricating ball joints, encapsulated gears requiring no re-greasing.  
+   - Certifications: LFGB (Germany), FDA (US) for food-safe applications; cleanable via high-pressure wash (up to 100 kPa).  
+
+5. **Controller and Software Integration**  
+   - Controller: KR C5 micro (low space, low energy, high safety).  
+   - Software: KUKA.PickControl (conveyor tracking), KUKA.ConveyorTech (robotic-coordinated automation).  
+
+6. **Operational Specifications**  
+   - Point repeatability and angular repeatability: High precision.  
+   - Operating temperature: 0°C to 45°C.  
+   - Mounting positions: Ceiling-compatible.  
+
+7. **Design Features**  
+   - Flexible flange for rapid gripper attachment.  
+   - Corrosion resistance (acid, lye, hot water unaffected in stainless steel models).  
+   - Clean Room ISO 14644 class 4 compliance for axis 4.  
+
+8. **Applications**  
+   - Ideal for food, pharmaceuticals, electronics, and high-hygiene environments.  
+   - Supports primary, secondary, and tertiary packaging processes.  
+
+This data reflects the core technical attributes of KR DELTA robots as described in the source text.

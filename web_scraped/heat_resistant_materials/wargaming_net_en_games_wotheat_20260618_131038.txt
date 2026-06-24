@@ -1,0 +1,21 @@
+Source URL: https://wargaming.net/en/games/wotheat
+Scraped: 2026-06-18T13:10:38.695852
+============================================================
+
+**System Requirements for World of Tanks: HEAT**
+
+**Minimal:**
+*   **Processor (CPU):** Intel® Core™ i5-4670K or AMD Ryzen™ 3 2200G
+*   **Memory (RAM):** 8 GB RAM
+*   **Video Card:** NVIDIA GeForce® GTX 1050, AMD Radeon™ RX 560, or Intel® Arc™ A310
+*   **DirectX Version:** 12
+*   **Operating System:** Windows® 10 64 Bit (latest update)
+*   **Internet Connection:** Broadband
+
+**Recommended:**
+*   **Processor (CPU):** Intel® Core™ i7-8700K (6 cores 12 threads)
+*   **Memory (RAM):** 16 GB RAM
+*   **Video Card:** NVIDIA GeForce RTX 2060, AMD Radeon™ RX 5600XT, or Intel® Arc™ A750
+*   **DirectX Version:** 12
+*   **Operating System:** Windows® 10 64 Bit (latest update)
+*   **Internet Connection:** Broadband
