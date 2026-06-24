@@ -1111,32 +1111,21 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
             
-            {/* TOP TOOLBAR: View Toggle */}
-            <div className="h-12 border-b border-neutral-800/50 flex items-center justify-between px-6 bg-[#0B0E14] shrink-0 z-30">
-                <div className="flex gap-2 items-center">
-                    <button 
-                        onClick={() => setIsLibraryOpen(!isLibraryOpen)}
-                        className={`p-1.5 rounded transition-colors ${isLibraryOpen ? 'bg-[#1a2333] text-sky-400' : 'text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50'}`}
-                        title="Toggle Component Library"
-                    >
-                        <PanelLeft size={16} />
-                    </button>
-                    <div className="px-4 py-1.5 rounded text-xs font-bold bg-[#1a2333] text-sky-400 shadow border border-neutral-800/50">
-                        Canvas Wiring View
-                    </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    {isLoading && <div className="text-xs text-blue-400 animate-pulse mr-4">Updating from AI...</div>}
-                    <button onClick={handleAutoLayout} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-purple-400 bg-purple-900/20 hover:bg-purple-900/40 rounded border border-purple-900/50 transition-colors"><Network size={12} /> Auto Layout</button>
-                    <button onClick={handleRefresh} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-sky-400 bg-sky-900/20 hover:bg-sky-900/40 rounded border border-sky-900/50 transition-colors"><RefreshCw size={12} /> Refresh</button>
-                    <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-red-900/20 hover:bg-red-900/40 rounded border border-red-900/50 transition-colors"><Trash2 size={12} /> Clear</button>
-                </div>
-            </div>
+
 
             <div className="flex-1 flex overflow-hidden relative">
+                {/* FLOATING TOGGLE BUTTON */}
+                <button 
+                    onClick={() => setIsLibraryOpen(!isLibraryOpen)}
+                    className={`absolute top-[22px] left-4 z-50 p-1.5 rounded transition-colors ${isLibraryOpen ? 'bg-[#1a2333] text-sky-400' : 'bg-[#131823] border border-neutral-800 text-neutral-400 hover:text-white shadow-lg'}`}
+                    title="Toggle Component Library"
+                >
+                    <PanelLeft size={16} />
+                </button>
+
                 {/* 1. COMPONENT LIBRARY (Left Column) */}
                 <div className={`h-full bg-[#0B0E14] border-r border-neutral-800/50 flex flex-col shrink-0 z-20 transition-all duration-300 ease-in-out ${isLibraryOpen ? 'w-[320px] opacity-100' : 'w-0 opacity-0 border-none overflow-hidden'}`}>
-                    <div className="flex items-center justify-between p-4 pb-2 mt-2">
+                    <div className="flex items-center justify-between p-4 pl-12 pb-2 mt-2">
                         <h2 className="text-xs font-bold text-white tracking-widest uppercase">Component Library</h2>
                     </div>
                     <div className="px-4 py-3 flex gap-2">
@@ -1189,6 +1178,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
                 {/* 2. DYNAMIC MAIN VIEW (Middle Column) */}
                 <div className="flex-1 h-full bg-[#050505] relative border-r border-neutral-800/50 flex flex-col">
+                    {/* FLOATING ACTION BUTTONS */}
+                    <div className="absolute top-4 right-4 z-50 flex items-center gap-2">
+                        {isLoading && <div className="text-xs text-blue-400 animate-pulse mr-2 bg-[#0B0E14]/80 px-2 py-1 rounded">Updating...</div>}
+                        <button onClick={handleAutoLayout} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-purple-400 bg-[#0B0E14] hover:bg-purple-900/40 rounded border border-purple-900/50 transition-colors shadow-md"><Network size={12} /> Auto Layout</button>
+                        <button onClick={handleRefresh} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-sky-400 bg-[#0B0E14] hover:bg-sky-900/40 rounded border border-sky-900/50 transition-colors shadow-md"><RefreshCw size={12} /> Refresh</button>
+                        <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-[#0B0E14] hover:bg-red-900/40 rounded border border-red-900/50 transition-colors shadow-md"><Trash2 size={12} /> Clear</button>
+                    </div>
                     {activeView === "bom" ? (
                         <div className="flex-1 overflow-y-auto p-8 bg-[#050505]">
                             <div className="max-w-5xl mx-auto pb-10">
