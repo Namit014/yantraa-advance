@@ -16,7 +16,8 @@ export function ComponentSidebar({ onAddComponent }: ComponentSidebarProps) {
   useEffect(() => {
     // Fetch SparkFun components
     const q = searchQuery.trim();
-    fetch(`/api/sparkfun/components${q ? `?q=${encodeURIComponent(q)}` : ""}`)
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    fetch(`${apiUrl}/api/sparkfun/components${q ? `?q=${encodeURIComponent(q)}` : ""}`)
       .then(res => res.json())
       .then(data => setSparkfunComponents(data))
       .catch(err => console.error("Failed to fetch SparkFun components:", err));
