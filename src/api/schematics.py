@@ -42,18 +42,32 @@ def match_hardware(component_name: str, component_role: str, hw_db: dict):
             return key, hw
             
     # Heuristics based on common parts
-    if "motor driver" in norm_name or "motor driver" in norm_role or "esc" in norm_name:
+    if "esc" in norm_name or "brushless" in norm_name:
+        return "bldc esc", hw_db.get("bldc esc")
+    if "motor driver" in norm_name or "motor driver" in norm_role:
         return "l298n", hw_db.get("l298n")
+    if "dynamixel" in norm_name or "smart servo" in norm_name:
+        return "dynamixel servo", hw_db.get("dynamixel servo")
     if "motor" in norm_name or "motor" in norm_role or "actuator" in norm_name or "pump" in norm_name or "a 2475" in norm_name or "a 2438" in norm_name:
         return "dc motor", hw_db.get("dc motor")
     if "servo" in norm_name or "gripper" in norm_name or "a 2055" in norm_name:
         return "servo", hw_db.get("servo")
     if "sensor" in norm_name or "sensor" in norm_role or "camera" in norm_name or "encoder" in norm_name:
         return "ultrasonic sensor", hw_db.get("ultrasonic sensor")
+    if "pdb" in norm_name or "power distribution" in norm_name:
+        return "power distribution board", hw_db.get("power distribution board")
     if "power" in norm_name or "power" in norm_role or "battery" in norm_name or "supply" in norm_name or "a 2525" in norm_name:
         return "battery", hw_db.get("battery")
-    if "microcontroller" in norm_name or "brain" in norm_role or "board" in norm_name or "pi" in norm_name or "a 2432" in norm_name or "flight" in norm_name:
+    if "beaglebone" in norm_name or "sbc" in norm_name or "jetson" in norm_name or "pi" in norm_name:
+        return "beaglebone black", hw_db.get("beaglebone black")
+    if "stm32" in norm_name or "opencr" in norm_name or "real-time" in norm_role:
+        return "stm32f7", hw_db.get("stm32f7")
+    if "microcontroller" in norm_name or "brain" in norm_role or "board" in norm_name or "a 2432" in norm_name or "flight" in norm_name:
         return "arduino uno", hw_db.get("arduino uno")
+    if "can bus" in norm_name or "can transceiver" in norm_name:
+        return "can transceiver", hw_db.get("can transceiver")
+    if "rs485" in norm_name or "rs-485" in norm_name:
+        return "rs485 transceiver", hw_db.get("rs485 transceiver")
     if "switch" in norm_name or "button" in norm_name or "relay" in norm_name:
         return "limit switch", hw_db.get("limit switch")
     if "wheel" in norm_name or "tire" in norm_name:

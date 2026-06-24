@@ -370,6 +370,105 @@
       "ports": [
         {"id": "fluid", "label": "Fluid Tube", "type": "mechanical_in"}
       ]
+    },
+    "beaglebone black": {
+      "label": "BeagleBone Black SBC",
+      "type": "microcontroller",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "5v", "label": "5V IN", "type": "power_in", "voltage": 5.0},
+        {"id": "3v3", "label": "3.3V OUT", "type": "power_out", "voltage": 3.3},
+        {"id": "gnd1", "label": "GND", "type": "ground"},
+        {"id": "eth", "label": "Ethernet", "type": "digital_in_out"},
+        {"id": "usb", "label": "USB Host", "type": "digital_in_out"},
+        {"id": "uart0_tx", "label": "UART0 TX", "type": "digital_out"},
+        {"id": "uart0_rx", "label": "UART0 RX", "type": "digital_in"},
+        {"id": "i2c2_sda", "label": "I2C2 SDA", "type": "i2c_data"},
+        {"id": "i2c2_scl", "label": "I2C2 SCL", "type": "i2c_clock"}
+      ]
+    },
+    "stm32f7": {
+      "label": "STM32F7 Real-Time MCU",
+      "type": "microcontroller",
+      "operating_voltage": [3.3],
+      "ports": [
+        {"id": "5v", "label": "5V IN", "type": "power_in", "voltage": 5.0},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "can_tx", "label": "CAN TX", "type": "digital_out"},
+        {"id": "can_rx", "label": "CAN RX", "type": "digital_in"},
+        {"id": "usart_tx", "label": "USART TX", "type": "digital_out"},
+        {"id": "usart_rx", "label": "USART RX", "type": "digital_in"},
+        {"id": "spi_mosi", "label": "SPI MOSI", "type": "digital_out"},
+        {"id": "spi_miso", "label": "SPI MISO", "type": "digital_in"},
+        {"id": "spi_sck", "label": "SPI SCK", "type": "digital_out"},
+        {"id": "pwm1", "label": "PWM OUT 1", "type": "pwm_out"},
+        {"id": "pwm2", "label": "PWM OUT 2", "type": "pwm_out"}
+      ]
+    },
+    "power distribution board": {
+      "label": "High-Current PDB",
+      "type": "power",
+      "operating_voltage": [12.0, 24.0, 48.0],
+      "ports": [
+        {"id": "batt_in", "label": "Battery IN", "type": "power_in"},
+        {"id": "gnd_in", "label": "GND IN", "type": "ground"},
+        {"id": "motor_pwr1", "label": "Motor VCC 1", "type": "power_out"},
+        {"id": "motor_pwr2", "label": "Motor VCC 2", "type": "power_out"},
+        {"id": "motor_gnd", "label": "Motor GND", "type": "ground"},
+        {"id": "5v_reg", "label": "5V Logic OUT", "type": "power_out", "voltage": 5.0},
+        {"id": "3v3_reg", "label": "3.3V Logic OUT", "type": "power_out", "voltage": 3.3}
+      ]
+    },
+    "can transceiver": {
+      "label": "CAN Bus Transceiver",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "tx", "label": "TX", "type": "digital_in"},
+        {"id": "rx", "label": "RX", "type": "digital_out"},
+        {"id": "can_h", "label": "CAN_H", "type": "digital_in_out"},
+        {"id": "can_l", "label": "CAN_L", "type": "digital_in_out"}
+      ]
+    },
+    "rs485 transceiver": {
+      "label": "RS-485 Transceiver",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "ro", "label": "RO (RX)", "type": "digital_out"},
+        {"id": "di", "label": "DI (TX)", "type": "digital_in"},
+        {"id": "de_re", "label": "DE/RE", "type": "digital_in"},
+        {"id": "a", "label": "A", "type": "digital_in_out"},
+        {"id": "b", "label": "B", "type": "digital_in_out"}
+      ]
+    },
+    "bldc esc": {
+      "label": "Brushless ESC",
+      "type": "motor_driver",
+      "operating_voltage": [12.0, 24.0, 48.0],
+      "ports": [
+        {"id": "vin", "label": "Power IN", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "pwm_in", "label": "PWM / DShot IN", "type": "pwm_in"},
+        {"id": "phase_a", "label": "Phase A", "type": "motor_phase"},
+        {"id": "phase_b", "label": "Phase B", "type": "motor_phase"},
+        {"id": "phase_c", "label": "Phase C", "type": "motor_phase"}
+      ]
+    },
+    "dynamixel servo": {
+      "label": "Dynamixel Smart Servo",
+      "type": "motor",
+      "operating_voltage": [12.0],
+      "ports": [
+        {"id": "vin", "label": "VDD", "type": "power_in", "voltage": 12.0},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "data", "label": "DATA (RS-485/TTL)", "type": "digital_in_out"},
+        {"id": "shaft", "label": "Shaft", "type": "mechanical_out"}
+      ]
     }
   }
 }
