@@ -29,7 +29,8 @@ logger = logging.getLogger(__name__)
 SEARCH_KEYWORDS = [
     "robotic arm", "quadruped", "hexapod", "drone frame", "rover chassis", 
     "humanoid", "AGV", "scara robot", "delta robot", "bipedal robot",
-    "mobile base", "robot gripper", "robotic hand", "welding robot", "AMR"
+    "mobile base", "robot gripper", "robotic hand", "welding robot", "AMR",
+    "snake robot", "soft robot", "underwater ROV", "exoskeleton", "space rover"
 ]
 
 async def run_daily_cad_sync():
@@ -73,12 +74,19 @@ async def run_daily_cad_sync():
                     # Determine a logical name from filename or metadata
                     clean_name = filename.lower().replace(".step", "").replace(".stp", "").replace("_", " ")
                     
-                    known_cads[clean_name] = filename
+                    if clean_name not in known_cads:
+                        known_cads[clean_name] = []
+                    if len(known_cads[clean_name]) < 4 and filename not in known_cads[clean_name]:
+                        known_cads[clean_name].append(filename)
                     
                     # Extract subcomponents for broader matching
                     for comp in meta_res.get("components", []):
                         if isinstance(comp, str) and len(comp) > 3:
-                            known_cads[comp.lower()] = filename
+                            comp_key = comp.lower()
+                            if comp_key not in known_cads:
+                                known_cads[comp_key] = []
+                            if len(known_cads[comp_key]) < 4 and filename not in known_cads[comp_key]:
+                                known_cads[comp_key].append(filename)
                             
                     _save_cad_registry(known_cads)
                     newly_added += 1
