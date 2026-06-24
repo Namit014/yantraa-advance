@@ -1,7 +1,7 @@
 {
     "6dof_articulated_arm": {
         "description": "6-DOF Articulated Robot Arm",
-        "keywords": ["articulated", "6-axis", "6 axis", "6-dof", "pick and place", "pick things", "painting", "paint", "welding", "weld", "robotic arm", "robot arm", "cobot", "grab", "manipulation", "assembly line", "spray"],
+        "keywords": ["articulated", "6-axis", "6 axis", "6-dof", "pick and place", "cobot", "manipulation", "assembly line"],
         "graph": [
             {"id": "base", "part": "A-2228-01_T-Slot_Right_Angle_Adapter", "role": "base_mount"},
             {"id": "j1", "part": "A-2475-08", "role": "shoulder_yaw", "parent": "base", "port": "top_face"},

@@ -262,9 +262,13 @@ You must construct the robot by selecting individual components, organizing them
 
 CRITICAL RULES:
 - If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
+- Select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list.
+- If a required component is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them so the robot is complete and functional!
 - If the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone), you should generate standard generic custom components (e.g., `quadcopter_frame`, `brushless_motor`).
 - Any custom component you generate MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
 - If you use custom components or define an assembly, you MUST include 'assembly_graph' in your JSON output detailing the parent-child relationships and connection ports.
+- ONLY include ELECTRICAL components (motors, motor drivers, sensors, microcontrollers, power supplies) in the components list. DO NOT include structural or mechanical parts like brackets, chassis, plates, or screws in the components list. EXCEPTIONS: If the user requests a wheeled robot, you MUST explicitly include 'Wheel' in the components list for each wheel. If the user requests a painting robot, you MUST explicitly include 'Paint Spray Nozzle' in the components list.
+- Give all components proper, real-world industry names (e.g., "L298N Motor Driver", "HC-SR04 Ultrasonic Sensor", "NEMA 17 Stepper Motor"). Do not use generic names like "Motor" or "Sensor".
 - Output ONLY valid JSON in the exact structure requested.
 
 ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
