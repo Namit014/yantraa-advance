@@ -1118,7 +1118,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                 {/* FLOATING TOGGLE BUTTON */}
                 <button 
                     onClick={() => setIsLibraryOpen(!isLibraryOpen)}
-                    className={`absolute top-[22px] left-4 z-50 p-1.5 rounded transition-colors ${isLibraryOpen ? 'bg-[#1a2333] text-sky-400' : 'bg-[#131823] border border-neutral-800 text-neutral-400 hover:text-white shadow-lg'}`}
+                    className={`absolute top-[26px] left-4 z-50 p-1.5 rounded transition-colors ${isLibraryOpen ? 'bg-[#1a2333] text-sky-400' : 'bg-[#131823] border border-neutral-800 text-neutral-400 hover:text-white shadow-lg'}`}
                     title="Toggle Component Library"
                 >
                     <PanelLeft size={16} />
@@ -1327,6 +1327,30 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                     .custom-edge-hover.selected .edge-label-bg {
                                         opacity: 1;
                                     }
+                                    .react-flow__controls {
+                                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+                                        border: 1px solid #333 !important;
+                                        background-color: #0B0E14 !important;
+                                        border-radius: 6px !important;
+                                        overflow: hidden !important;
+                                    }
+                                    .react-flow__controls-button {
+                                        background-color: #0B0E14 !important;
+                                        border-bottom: 1px solid #333 !important;
+                                        color: #fff !important;
+                                    }
+                                    .react-flow__controls-button:last-child {
+                                        border-bottom: none !important;
+                                    }
+                                    .react-flow__controls-button:hover {
+                                        background-color: #1a2333 !important;
+                                    }
+                                    .react-flow__controls-button svg {
+                                        fill: #ccc !important;
+                                    }
+                                    .react-flow__controls-button:hover svg {
+                                        fill: #fff !important;
+                                    }
                                 `}</style>
                                 <ReactFlow
                                     nodes={rfNodes}
@@ -1343,7 +1367,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                     proOptions={{ hideAttribution: true }}
                                 >
                                     <Background color="#222" gap={16} />
-                                    <Controls style={{ backgroundColor: '#13161c', border: '1px solid #333' }} />
+                                    <Controls />
                                 </ReactFlow>
                             </div>
                         </div>
