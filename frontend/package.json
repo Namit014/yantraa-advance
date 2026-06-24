@@ -6,7 +6,11 @@
     "predev": "npx kill-port 3000 8000 || exit 0",
     "dev": "concurrently \"npm run fastapi-dev\" \"npm run next-dev\"",
     "next-dev": "next dev",
+<<<<<<< HEAD
     "fastapi-dev": "..\\.venv\\Scripts\\python ../src/api/main.py",
+=======
+    "fastapi-dev": "py -3.11 ../src/api/main.py",
+>>>>>>> 14d6e59fb9ff28f87c99c970d7f784e11654e358
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
