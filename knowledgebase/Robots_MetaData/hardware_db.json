@@ -515,6 +515,74 @@
         {"id": "encoder_b", "label": "Encoder B", "type": "digital_out"},
         {"id": "shaft", "label": "Shaft (Belt Driven)", "type": "mechanical_out"}
       ]
+    },
+    "odrive pro": {
+      "label": "ODrive Pro",
+      "type": "motor_driver",
+      "operating_voltage": [24.0, 48.0, 56.0],
+      "ports": [
+        {"id": "vin", "label": "DC Power IN", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "can_h", "label": "CAN High", "type": "can_h"},
+        {"id": "can_l", "label": "CAN Low", "type": "can_l"},
+        {"id": "usb", "label": "USB Type-C", "type": "digital_in_out"},
+        {"id": "phase_a0", "label": "M0 Phase A", "type": "motor_phase"},
+        {"id": "phase_b0", "label": "M0 Phase B", "type": "motor_phase"},
+        {"id": "phase_c0", "label": "M0 Phase C", "type": "motor_phase"},
+        {"id": "phase_a1", "label": "M1 Phase A", "type": "motor_phase"},
+        {"id": "phase_b1", "label": "M1 Phase B", "type": "motor_phase"},
+        {"id": "phase_c1", "label": "M1 Phase C", "type": "motor_phase"},
+        {"id": "enc0_a", "label": "M0 Enc A", "type": "digital_in"},
+        {"id": "enc0_b", "label": "M0 Enc B", "type": "digital_in"},
+        {"id": "enc1_a", "label": "M1 Enc A", "type": "digital_in"},
+        {"id": "enc1_b", "label": "M1 Enc B", "type": "digital_in"}
+      ]
+    },
+    "vesc 6": {
+      "label": "VESC 6",
+      "type": "motor_driver",
+      "operating_voltage": [12.0, 24.0, 48.0, 60.0],
+      "ports": [
+        {"id": "vin", "label": "DC Power IN", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "can_h", "label": "CAN High", "type": "can_h"},
+        {"id": "can_l", "label": "CAN Low", "type": "can_l"},
+        {"id": "uart_rx", "label": "UART RX", "type": "digital_in"},
+        {"id": "uart_tx", "label": "UART TX", "type": "digital_out"},
+        {"id": "ppm_in", "label": "PPM IN", "type": "pwm_in"},
+        {"id": "phase_a", "label": "Phase A", "type": "motor_phase"},
+        {"id": "phase_b", "label": "Phase B", "type": "motor_phase"},
+        {"id": "phase_c", "label": "Phase C", "type": "motor_phase"}
+      ]
+    },
+    "moteus controller": {
+      "label": "Moteus Controller",
+      "type": "motor_driver",
+      "operating_voltage": [24.0, 44.0],
+      "ports": [
+        {"id": "vin", "label": "DC Power IN", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "can_h", "label": "CAN-FD High", "type": "can_h"},
+        {"id": "can_l", "label": "CAN-FD Low", "type": "can_l"},
+        {"id": "phase_a", "label": "Phase A", "type": "motor_phase"},
+        {"id": "phase_b", "label": "Phase B", "type": "motor_phase"},
+        {"id": "phase_c", "label": "Phase C", "type": "motor_phase"}
+      ]
+    },
+    "simplefoc shield": {
+      "label": "SimpleFOC Shield",
+      "type": "motor_driver",
+      "operating_voltage": [12.0, 24.0],
+      "ports": [
+        {"id": "vin", "label": "DC Power IN", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "pwm_a", "label": "PWM A IN", "type": "pwm_in"},
+        {"id": "pwm_b", "label": "PWM B IN", "type": "pwm_in"},
+        {"id": "pwm_c", "label": "PWM C IN", "type": "pwm_in"},
+        {"id": "phase_a", "label": "Phase A", "type": "motor_phase"},
+        {"id": "phase_b", "label": "Phase B", "type": "motor_phase"},
+        {"id": "phase_c", "label": "Phase C", "type": "motor_phase"}
+      ]
     }
   }
 }

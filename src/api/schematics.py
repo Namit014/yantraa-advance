@@ -60,6 +60,14 @@ def match_hardware(component_name: str, component_role: str, hw_db: dict):
         return "battery", hw_db.get("battery")
     if "beaglebone" in norm_name or "sbc" in norm_name or "jetson" in norm_name or "pi" in norm_name:
         return "beaglebone black", hw_db.get("beaglebone black")
+    if "odrive" in norm_name or "cnc controller" in norm_role:
+        return "odrive pro", hw_db.get("odrive pro")
+    if "vesc" in norm_name or "rover esc" in norm_role:
+        return "vesc 6", hw_db.get("vesc 6")
+    if "moteus" in norm_name or "quadruped driver" in norm_role:
+        return "moteus controller", hw_db.get("moteus controller")
+    if "simplefoc" in norm_name or "foc shield" in norm_name:
+        return "simplefoc shield", hw_db.get("simplefoc shield")
     if "master board" in norm_name or "odri master" in norm_name:
         return "odri master board", hw_db.get("odri master board")
     if "micro driver" in norm_name or "blmc" in norm_name or "microdriver" in norm_name:
@@ -241,8 +249,8 @@ async def generate_schematics(req: SchematicsRequest):
         def get_available_mcu_port(port_type: str, fallback_allowed: bool = True):
             if not mcu: return None
             
-            # Special case for I2C and SPI, they are buses so ports can be shared
-            if port_type in ["i2c_data", "i2c_clock", "spi_mosi", "spi_miso", "spi_sck"]:
+            # Special case for I2C, SPI and CAN, they are buses so ports can be shared
+            if port_type in ["i2c_data", "i2c_clock", "spi_mosi", "spi_miso", "spi_sck", "can_h", "can_l"]:
                 for p in mcu["ports"]:
                     if p["type"] == port_type:
                         used_mcu_ports.add(p["id"])
@@ -341,6 +349,15 @@ async def generate_schematics(req: SchematicsRequest):
                     for i in range(4):
                         add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_phases[i], "motor_phase")
                     motor_idx += 1
+                elif "bldc" in motor["hw_key"] or "actuator module" in motor["hw_key"] or len([p for p in motor["ports"] if p["type"] == "motor_phase"]) == 3:
+                    m_phases = [p["id"] for p in motor["ports"] if p["type"] == "motor_phase"]
+                    if len(m_phases) >= 3 and len(phase_ports) >= 3:
+                        add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_phases[0], "motor_phase")
+                        add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_phases[1], "motor_phase")
+                        add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_phases[2], "motor_phase")
+                        motor_idx += 1
+                    else:
+                        break
                 elif motor["hw_key"] == "dc motor":
                     m_ins = [p["id"] for p in motor["ports"] if p["type"] in ["power_in", "ground"]]
                     if len(m_ins) >= 2:
@@ -382,6 +399,16 @@ async def generate_schematics(req: SchematicsRequest):
                         add_edge(mcu["node_id"], mcu_miso, c["node_id"], c_miso, "spi_miso")
                         add_edge(mcu["node_id"], mcu_sck, c["node_id"], c_sck, "spi_sck")
                         add_edge(mcu["node_id"], mcu_cs, c["node_id"], c_cs, "spi_cs")
+                        
+                # CAN Routing
+                c_can_h = next((p["id"] for p in c["ports"] if p["type"] == "can_h"), None)
+                c_can_l = next((p["id"] for p in c["ports"] if p["type"] == "can_l"), None)
+                if c_can_h and c_can_l:
+                    mcu_can_h = get_available_mcu_port("can_h")
+                    mcu_can_l = get_available_mcu_port("can_l")
+                    if mcu_can_h and mcu_can_l:
+                        add_edge(mcu["node_id"], mcu_can_h, c["node_id"], c_can_h, "can_h")
+                        add_edge(mcu["node_id"], mcu_can_l, c["node_id"], c_can_l, "can_l")
                         
                 # PWM Routing
                 for p in c["ports"]:
