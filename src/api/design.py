@@ -255,7 +255,7 @@ CRITICAL RULES:
 
 ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
 1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot (this causes EMI). Instead, use a Trunk-and-Branch topology: Route a thick "Main Power Trunk" to a "Local Distribution Hub" or "Local Busbar" near each joint, and branch off to local drivers.
-2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node" or "Common Ground Bus".
+2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node" or "Common Ground Bus". Avoid ground loops.
 3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power. Generate an "E-Stop Button" connected to a "Safety Relay" or "Contactor". The Safety Relay MUST sit between the PSU and the Motor Drivers on the 24V/48V lines. Do NOT route E-Stop solely to the MCU.
 4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring. Use differential signals (RS-422) for noise immunity. Encoders MUST route back to the Controller or local Joint Controller.
 5. **Power Supply Sizing & Fusing**: Size power supplies for PEAK stall current (2-3x nominal). Every individual branch from the PSU to a Driver MUST pass through a dedicated "Fuse" or "Circuit Breaker".
@@ -265,6 +265,12 @@ ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
 9. **Strict Connectivity**: 
    - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
    - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array. DO NOT use the `name` field for connections. Do not invent IDs that do not exist in the components array.
+10. **Actuator & Driver Rule**: Add ALL required motor drivers between controllers and motors. Motors must NEVER be connected directly to the battery. For every actuator, clearly show driver connection, power source, and feedback sensor connection.
+11. **Complete Power Architecture**: Show Battery, Main Power Switch, Fuse protection, Reverse polarity protection, Current protection, Voltage regulators (12V, 5V, 3.3V), Power distribution rails, and Common ground connections. Ensure voltage compatibility: 12V devices receive 12V, 5V receive 5V, 3.3V receive 3.3V. Add level shifters wherever required.
+12. **Complete Sensor Suite**: Include all sensors properly connected with exact names and interfaces (IMU, Ultrasonic sensor, Encoders, Limit switches, Status LEDs, plus any robot-specific sensors).
+13. **Controller Architecture**: If multiple controllers are used, explicitly show UART/I2C/SPI connections, their purpose, and Master/slave relationship. Remove redundant controllers if they don't serve a clear purpose.
+14. **Validation & Completion**: Verify every component connection and ensure no floating, incomplete, or ambiguous connections. Validate that the design can realistically be built without electrical conflicts. Follow real engineering best practices. Apply these rules to all future robot schematics regardless of robot type.
+15. **Validation Report**: Use the `validation` array to output a validation report listing every improvement made (e.g., "Added reverse polarity protection") and assumptions used (e.g., "Assumed 24V for primary joint motors").
 
 OUTPUT FORMAT:
 {

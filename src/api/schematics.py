@@ -60,6 +60,8 @@ def match_hardware(component_name: str, component_role: str, hw_db: dict):
         return "wheel", hw_db.get("wheel")
     if "nozzle" in norm_name or "spray" in norm_name or "extruder" in norm_name:
         return "nozzle", hw_db.get("nozzle")
+    if "regulator" in norm_name or "buck" in norm_name or "converter" in norm_name or "step down" in norm_name:
+        return "buck converter", hw_db.get("buck converter")
         
     return None, None
 
@@ -152,6 +154,40 @@ async def generate_schematics(req: SchematicsRequest):
             })
             node_id_counter += 1
 
+        # Insert Motor Driver if we have motors but no drivers
+        has_dc_motors = any(c["type"] == "motor" and c["hw_key"] != "servo" for c in components_to_route)
+        has_driver = any(c["type"] == "motor_driver" for c in components_to_route)
+        if has_dc_motors and "l298n" in hw_db and not has_driver:
+            components_to_route.append({
+                "node_id": f"comp_{node_id_counter}",
+                "name": hw_db["l298n"].get("label", "L298N Motor Driver"),
+                "type": "motor_driver",
+                "ports": hw_db["l298n"]["ports"],
+                "hw_key": "l298n"
+            })
+            node_id_counter += 1
+
+        # Insert Buck Converter if we have high power and a microcontroller
+        has_mcu = any(c["type"] == "microcontroller" for c in components_to_route)
+        has_regulator = any(c["type"] == "regulator" for c in components_to_route)
+        if has_power and has_mcu and "buck converter" in hw_db and not has_regulator:
+            components_to_route.append({
+                "node_id": f"comp_{node_id_counter}",
+                "name": hw_db["buck converter"].get("label", "LM2596 5V Buck Converter"),
+                "type": "regulator",
+                "ports": hw_db["buck converter"]["ports"],
+                "hw_key": "buck converter"
+            })
+            node_id_counter += 1
+
+        # Motor Grouping: if 4 motors, name them Left/Right
+        dc_motors_list = [c for c in components_to_route if c["type"] == "motor" and c["hw_key"] != "servo"]
+        if len(dc_motors_list) == 4:
+            dc_motors_list[0]["name"] = "Front Left Motor"
+            dc_motors_list[1]["name"] = "Back Left Motor"
+            dc_motors_list[2]["name"] = "Front Right Motor"
+            dc_motors_list[3]["name"] = "Back Right Motor"
+
         # Clean up duplicates of unique parts to prevent isolated unrouted nodes
         cleaned_components = []
         seen_mcu = False
@@ -209,6 +245,9 @@ async def generate_schematics(req: SchematicsRequest):
         fuses = [c for c in components_to_route if c["type"] == "protection"]
         primary_fuse = fuses[0] if fuses else None
         
+        regulators = [c for c in components_to_route if c["type"] == "regulator"]
+        buck = regulators[0] if regulators else None
+        
         mcus = [c for c in components_to_route if c["type"] == "microcontroller"]
         mcu = mcus[0] if mcus else None
         
@@ -220,122 +259,148 @@ async def generate_schematics(req: SchematicsRequest):
         
         def get_available_mcu_port(port_type: str, fallback_allowed: bool = True):
             if not mcu: return None
-            
-            # Special case for I2C and SPI, they are buses so ports can be shared
             if port_type in ["i2c_data", "i2c_clock"]:
                 for p in mcu["ports"]:
                     if p["type"] == port_type:
                         used_mcu_ports.add(p["id"])
                         return p["id"]
-                        
-            # Try to find exactly matching unused port
             for p in mcu["ports"]:
                 if p["type"] == port_type and p["id"] not in used_mcu_ports:
                     used_mcu_ports.add(p["id"])
                     return p["id"]
-                    
             if not fallback_allowed:
                 return None
-                
-            # Fallback 1: Use any general digital/analog pin for digital needs
             if port_type in ["digital_out", "digital_in", "digital_in_out", "pwm_out"]:
                 for p in mcu["ports"]:
                     if p["type"] in ["pwm_out", "digital_in_out", "digital_in", "digital_out", "analog_in"] and p["id"] not in used_mcu_ports:
                         used_mcu_ports.add(p["id"])
                         return p["id"]
-                        
-            # Fallback 2: Share an existing pin (better to share than float)
             for p in mcu["ports"]:
                 if p["type"] in ["pwm_out", "digital_in_out", "digital_in", "digital_out", "analog_in"]:
                     return p["id"]
-                    
-            # Fallback 3: Return the very first port (safeguard)
             return mcu["ports"][0]["id"] if mcu["ports"] else "generic_pin"
 
-        # Route Power & Common Ground
-        p_vcc = None
-        p_gnd = None
-        if primary_power:
-            p_vcc = next((p["id"] for p in primary_power["ports"] if p["type"] == "power_out"), None)
-            p_gnd = next((p["id"] for p in primary_power["ports"] if p["type"] == "ground"), None)
-            
-            fuse_out_port = None
-            if primary_fuse and p_vcc:
-                fuse_in = next((p["id"] for p in primary_fuse["ports"] if p["type"] == "power_in"), None)
-                fuse_out_port = next((p["id"] for p in primary_fuse["ports"] if p["type"] == "power_out"), None)
-                if fuse_in:
-                    add_edge(primary_power["node_id"], p_vcc, primary_fuse["node_id"], fuse_in, "power")
-            
-            high_power_source = primary_fuse["node_id"] if primary_fuse else primary_power["node_id"]
-            high_power_port = fuse_out_port if primary_fuse else p_vcc
-            
-            # Distribute power and ground
-            for c in components_to_route:
-                if c["type"] in ["power", "protection"]: continue
-                
-                # Ground to everything
-                for p in c["ports"]:
-                    if p["type"] == "ground" and p_gnd:
-                        add_edge(primary_power["node_id"], p_gnd, c["node_id"], p["id"], "ground")
-                
-                # High Power to MCU and Motor Drivers
-                if c["type"] in ["microcontroller", "motor_driver"]:
-                    c_vin = next((p["id"] for p in c["ports"] if p["type"] == "power_in" and p.get("voltage", 12.0) > 5.0), None)
-                    if not c_vin:
-                        c_vin = next((p["id"] for p in c["ports"] if p["type"] == "power_in"), None)
-                    
-                    if c_vin and high_power_port:
-                        add_edge(high_power_source, high_power_port, c["node_id"], c_vin, "power")
+        p_vcc = next((p["id"] for p in primary_power["ports"] if p["type"] == "power_out"), None) if primary_power else None
+        p_gnd = next((p["id"] for p in primary_power["ports"] if p["type"] == "ground"), None) if primary_power else None
 
-        # Distribute MCU Logic Power to Sensors and Drivers (VCC)
-        if mcu:
+        # 1. Battery to Fuse
+        high_power_source = primary_power["node_id"] if primary_power else None
+        high_power_port = p_vcc
+        if primary_power and primary_fuse and p_vcc:
+            fuse_in = next((p["id"] for p in primary_fuse["ports"] if p["type"] == "power_in"), None)
+            fuse_out = next((p["id"] for p in primary_fuse["ports"] if p["type"] == "power_out"), None)
+            if fuse_in and fuse_out:
+                add_edge(primary_power["node_id"], p_vcc, primary_fuse["node_id"], fuse_in, "power")
+                high_power_source = primary_fuse["node_id"]
+                high_power_port = fuse_out
+
+        # 2. High Power to Buck Converter & Motor Drivers
+        if high_power_source and high_power_port:
+            if buck:
+                buck_vin = next((p["id"] for p in buck["ports"] if p["type"] == "power_in"), None)
+                if buck_vin:
+                    add_edge(high_power_source, high_power_port, buck["node_id"], buck_vin, "power")
+            
+            for driver in drivers:
+                driver_vin = next((p["id"] for p in driver["ports"] if p["type"] == "power_in" and p.get("voltage", 12.0) > 5.0), None)
+                if not driver_vin:
+                    driver_vin = next((p["id"] for p in driver["ports"] if p["type"] == "power_in"), None)
+                if driver_vin:
+                    add_edge(high_power_source, high_power_port, driver["node_id"], driver_vin, "power")
+
+        # 3. 5V Logic Power
+        logic_5v_source = None
+        logic_5v_port = None
+        if buck:
+            buck_vout = next((p["id"] for p in buck["ports"] if p["type"] == "power_out"), None)
+            if buck_vout:
+                logic_5v_source = buck["node_id"]
+                logic_5v_port = buck_vout
+        elif mcu:
             mcu_5v = next((p["id"] for p in mcu["ports"] if p["type"] == "power_out" and p.get("voltage", 5.0) == 5.0), None)
-            if not mcu_5v: # Fallback to 3.3V if no 5V
+            if not mcu_5v:
                 mcu_5v = next((p["id"] for p in mcu["ports"] if p["type"] == "power_out"), None)
-                
-            for c in components_to_route:
-                if c["type"] in ["sensor", "motor_driver", "motor", "generic_module"]:
-                    # Motors handled separately, but some logic might need power
-                    if c["type"] == "motor" and c["hw_key"] != "servo": continue
-                    
+            if mcu_5v:
+                logic_5v_source = mcu["node_id"]
+                logic_5v_port = mcu_5v
+
+        # Distribute Logic Power
+        for c in components_to_route:
+            if c["type"] in ["power", "protection", "regulator"]: continue
+            if c["type"] == "motor" and c["hw_key"] != "servo": continue
+            if c["type"] == "microcontroller" and logic_5v_source != mcu["node_id"]:
+                c_vcc = next((p["id"] for p in c["ports"] if p["type"] == "power_in"), None)
+                if c_vcc and logic_5v_source:
+                    add_edge(logic_5v_source, logic_5v_port, c["node_id"], c_vcc, "power")
+            elif c["type"] in ["sensor", "motor_driver", "generic_module", "motor"]:
+                if c["type"] == "motor_driver":
+                    c_vcc = next((p["id"] for p in c["ports"] if p["type"] == "power_in" and p.get("voltage", 5.0) <= 5.0), None)
+                else:
                     c_vcc = next((p["id"] for p in c["ports"] if p["type"] == "power_in" and p.get("voltage", 5.0) == 5.0), None)
                     if not c_vcc:
-                        c_vcc = next((p["id"] for p in c["ports"] if p["type"] == "power_in" and p.get("voltage", 3.3) == 3.3), None)
-                    if not c_vcc:
                         c_vcc = next((p["id"] for p in c["ports"] if p["type"] == "power_in"), None)
-                        
-                    # If it has a logic VCC and we have an MCU power out
-                    if c_vcc and mcu_5v:
-                        add_edge(mcu["node_id"], mcu_5v, c["node_id"], c_vcc, "power")
+                
+                if c_vcc and logic_5v_source:
+                    add_edge(logic_5v_source, logic_5v_port, c["node_id"], c_vcc, "power")
+
+        # 4. Common Ground
+        if primary_power and p_gnd:
+            for c in components_to_route:
+                if c["type"] == "power": continue
+                for p in c["ports"]:
+                    if p["type"] == "ground":
+                        add_edge(primary_power["node_id"], p_gnd, c["node_id"], p["id"], "ground")
 
         # Route Drivers to Motors
-        motor_idx = 0
+        dc_motors = [c for c in components_to_route if c["type"] == "motor" and c["hw_key"] not in ["servo", "stepper motor"]]
+        stepper_motors = [c for c in components_to_route if c["type"] == "motor" and c["hw_key"] == "stepper motor"]
+        
         for driver in drivers:
-            # How many motors can this driver drive?
             phase_ports = [p["id"] for p in driver["ports"] if p["type"] == "motor_phase"]
             
-            while motor_idx < len(motors) and len(phase_ports) >= 2:
-                motor = motors[motor_idx]
-                if motor["hw_key"] == "stepper motor" and len(phase_ports) >= 4:
-                    m_phases = [p["id"] for p in motor["ports"] if p["type"] == "motor_phase"]
-                    for i in range(4):
-                        add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_phases[i], "motor_phase")
-                    motor_idx += 1
-                elif motor["hw_key"] == "dc motor":
-                    m_ins = [p["id"] for p in motor["ports"] if p["type"] in ["power_in", "ground"]]
-                    if len(m_ins) >= 2:
-                        add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_ins[0], "motor_phase")
-                        add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_ins[1], "motor_phase")
-                    motor_idx += 1
+            if stepper_motors and len(phase_ports) >= 4:
+                motor = stepper_motors.pop(0)
+                m_phases = [p["id"] for p in motor["ports"] if p["type"] == "motor_phase"]
+                for i in range(4):
+                    add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_phases[i], "motor_phase")
+            elif dc_motors and len(phase_ports) >= 2:
+                if len(dc_motors) == 4 and len(drivers) == 1:
+                    out1, out2 = phase_ports[0], phase_ports[1]
+                    out3 = phase_ports[2] if len(phase_ports) > 2 else phase_ports[0]
+                    out4 = phase_ports[3] if len(phase_ports) > 3 else phase_ports[1]
+                    
+                    for i in [0, 1]:
+                        m_ins = [p["id"] for p in dc_motors[i]["ports"] if p["type"] in ["power_in", "ground"]]
+                        if len(m_ins) >= 2:
+                            add_edge(driver["node_id"], out1, dc_motors[i]["node_id"], m_ins[0], "motor_phase")
+                            add_edge(driver["node_id"], out2, dc_motors[i]["node_id"], m_ins[1], "motor_phase")
+                            
+                    for i in [2, 3]:
+                        m_ins = [p["id"] for p in dc_motors[i]["ports"] if p["type"] in ["power_in", "ground"]]
+                        if len(m_ins) >= 2:
+                            add_edge(driver["node_id"], out3, dc_motors[i]["node_id"], m_ins[0], "motor_phase")
+                            add_edge(driver["node_id"], out4, dc_motors[i]["node_id"], m_ins[1], "motor_phase")
+                    dc_motors = []
                 else:
-                    break
+                    while dc_motors and len(phase_ports) >= 2:
+                        motor = dc_motors.pop(0)
+                        m_ins = [p["id"] for p in motor["ports"] if p["type"] in ["power_in", "ground"]]
+                        if len(m_ins) >= 2:
+                            add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_ins[0], "motor_phase")
+                            add_edge(driver["node_id"], phase_ports.pop(0), motor["node_id"], m_ins[1], "motor_phase")
 
         # Route MCU Logic to Drivers and Sensors
         if mcu:
+            for driver in drivers:
+                for p in driver["ports"]:
+                    if p["type"] in ["pwm_in", "digital_in"]:
+                        mcu_port = get_available_mcu_port("pwm_out") if "pwm" in p["type"] else get_available_mcu_port("digital_in_out")
+                        if mcu_port:
+                            add_edge(mcu["node_id"], mcu_port, driver["node_id"], p["id"], "digital")
+                            
             for c in components_to_route:
-                if c["node_id"] == mcu["node_id"] or c["type"] in ["power", "protection", "motor"]: continue
+                if c["node_id"] == mcu["node_id"] or c["type"] in ["power", "protection", "regulator", "motor", "motor_driver"]: continue
                 
-                # I2C Routing
                 c_sda = next((p["id"] for p in c["ports"] if p["type"] == "i2c_data"), None)
                 c_scl = next((p["id"] for p in c["ports"] if p["type"] == "i2c_clock"), None)
                 if c_sda and c_scl:
@@ -345,35 +410,31 @@ async def generate_schematics(req: SchematicsRequest):
                         add_edge(mcu["node_id"], mcu_sda, c["node_id"], c_sda, "i2c_data")
                         add_edge(mcu["node_id"], mcu_scl, c["node_id"], c_scl, "i2c_clock")
                         
-                # PWM Routing
                 for p in c["ports"]:
                     if p["type"] == "pwm_in":
                         mcu_pwm = get_available_mcu_port("pwm_out")
                         if mcu_pwm:
                             add_edge(mcu["node_id"], mcu_pwm, c["node_id"], p["id"], "pwm_out")
 
-                # Analog Routing
                 for p in c["ports"]:
                     if p["type"] in ["analog_out", "analog_in"]:
                         mcu_analog = get_available_mcu_port("analog_in")
                         if mcu_analog:
                             add_edge(mcu["node_id"], mcu_analog, c["node_id"], p["id"], "analog")
 
-                # Digital Routing
                 for p in c["ports"]:
                     if p["type"] in ["digital_in", "digital_out", "digital_in_out"]:
                         mcu_digi = get_available_mcu_port("digital_in_out")
                         if mcu_digi:
                             add_edge(mcu["node_id"], mcu_digi, c["node_id"], p["id"], "digital")
 
-        # Route servo motors directly to MCU (power is handled above)
+        # Route servo motors directly to MCU
         if mcu:
-            for motor in motors:
-                if motor["hw_key"] == "servo":
-                    sig = next((p["id"] for p in motor["ports"] if p["type"] == "pwm_in"), None)
-                    mcu_pwm = get_available_mcu_port("pwm_out")
-                    if sig and mcu_pwm:
-                        add_edge(mcu["node_id"], mcu_pwm, motor["node_id"], sig, "pwm_out")
+            for motor in [c for c in components_to_route if c["type"] == "motor" and c["hw_key"] == "servo"]:
+                sig = next((p["id"] for p in motor["ports"] if p["type"] == "pwm_in"), None)
+                mcu_pwm = get_available_mcu_port("pwm_out")
+                if sig and mcu_pwm:
+                    add_edge(mcu["node_id"], mcu_pwm, motor["node_id"], sig, "pwm_out")
 
         # Route mechanicals from Motors to Wheels/Nozzles
         mechanicals = [c for c in components_to_route if c["type"] == "mechanical"]

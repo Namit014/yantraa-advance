@@ -355,6 +355,17 @@
         {"id": "out", "label": "OUT", "type": "power_out"}
       ]
     },
+    "buck converter": {
+      "label": "LM2596 5V Buck Converter",
+      "type": "regulator",
+      "operating_voltage": [12.0],
+      "ports": [
+        {"id": "vin", "label": "IN+ (12V)", "type": "power_in", "voltage": 12.0},
+        {"id": "gnd_in", "label": "IN- (GND)", "type": "ground"},
+        {"id": "vout", "label": "OUT+ (5V)", "type": "power_out", "voltage": 5.0},
+        {"id": "gnd_out", "label": "OUT- (GND)", "type": "ground"}
+      ]
+    },
     "wheel": {
       "label": "Rubber Wheel 65mm",
       "type": "mechanical",
