@@ -477,7 +477,7 @@ interface ConnectionStore {
   deleteEdge: (id: string) => void;
   addEdge: (edge: CircuitEdge) => void;
 
-  generate: (components: GenerateComponent[], prompt: string) => Promise<void>;
+  generate: (components: GenerateComponent[], prompt: string, subsystems?: any) => Promise<void>;
   loadDesignData: (designData: any) => void;
 }
 

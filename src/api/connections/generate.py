@@ -67,12 +67,13 @@ def _rag_search(query: str, top_k: int = 5) -> str:
     """Query Qdrant singleton for pinout context for a given component name."""
     try:
         from embedder import Embedder
-        from vectordb import _client
+        from vectordb import get_qdrant_client
 
         embedder = Embedder()
         vec = embedder.embed_text(query)
 
-        results = _client.query_points(
+        client = get_qdrant_client()
+        results = client.query_points(
             collection_name="yantra_knowledgebase",
             query=vec,
             limit=top_k,
@@ -82,6 +83,39 @@ def _rag_search(query: str, top_k: int = 5) -> str:
     except Exception as exc:
         # If RAG fails (empty DB, import error), return empty string gracefully
         print(f"[connections/generate] RAG search failed for '{query}': {exc}")
+        return ""
+
+
+async def _web_fallback_pinout_search(query: str) -> str:
+    """Fallback to search the internet for component pinouts if local database is empty."""
+    try:
+        from scraper.search import search_web
+        from scraper.pipeline import rank_urls, is_garbage_text, _url_cache, _save_url_cache
+        from scraper.scraper import fetch_clean_text
+        
+        print(f"[connections/generate] Triggering web fallback for: {query}")
+        urls = search_web(query, max_results=5)
+        if not urls:
+            return ""
+        
+        ranked_urls = rank_urls(urls)[:3]
+        texts = []
+        
+        for url in ranked_urls:
+            if url in _url_cache:
+                continue
+            text = await fetch_clean_text(url)
+            if text and not is_garbage_text(text):
+                texts.append(f"Source: {url}\n" + text)
+                _url_cache.add(url)
+                _save_url_cache(_url_cache)
+            if len(texts) >= 2:
+                break
+                
+        # Return truncated context
+        return "\n\n---\n\n".join(texts)[:4000]
+    except Exception as e:
+        print(f"[connections/generate] Web fallback error: {e}")
         return ""
 
 
@@ -152,6 +186,13 @@ async def generate_connections(request: GenerateRequest):
             else:
                 # Fallback to RAG
                 ctx = _rag_search(f"{comp.name} pinout datasheet connections")
+                
+                if len(ctx) < 150: # If RAG context is empty or too short
+                    print(f"[connections/generate] RAG insufficient for {comp.name}, scraping web...")
+                    web_ctx = await _web_fallback_pinout_search(f"{comp.name} pinout wiring specifications")
+                    if web_ctx:
+                        ctx = web_ctx + "\n" + ctx
+                        
                 if ctx:
                     rag_contexts.append(f"## {comp.name}\n{ctx}")
     else:
@@ -264,6 +305,7 @@ Return ONLY this JSON structure (no markdown fences):
 }}
 
 IMPORTANT:
+- STRICT ACCURACY: Use EXACT pin names, voltage levels, and interfaces provided in the GROUNDING CONTEXT. DO NOT hallucinate or guess generic pin names if the true pinout is provided.
 - Select ONLY the necessary components from the list above, or invent new ones if needed, to build the requested circuit. Do NOT include all components.
 - Ports must match the physical pinout of the component.
 - Include VCC, GND ports on every node.

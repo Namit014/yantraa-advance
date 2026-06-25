@@ -1,9 +1,12 @@
 import re
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 import io
 import base64
-import pandas as pd
+import logging
 
+import pandas as pd
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+logger = logging.getLogger(__name__)
 
 
 class Chunker:
@@ -74,22 +77,25 @@ def create_metadata(file_info):
 
     return metadata
 
-def parse_step_components(file_path):
+def parse_step_components(content: str) -> list:
     """
-    Parse a STEP (.stp/.step) file and extract components
-    by reading PRODUCT and SHAPE_DEFINITION entities.
-    No external library needed — pure text parsing.
+    Parse a STEP (.stp/.step) file and extract named components.
+
+    Args:
+        content: The full text content of the STEP file as a Python string.
+                 The caller is responsible for fetching the bytes (from S3 or
+                 local disk) and decoding them before calling this function.
+
+    Returns:
+        List of dicts with keys: entity_id, name, description.
     """
     components = []
 
-    with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-        content = f.read()
-
-    # Extract all PRODUCT entities — each is a named component
-    # PRODUCT('name','description','',(#ref))
+    # Extract all PRODUCT entities — each represents a named CAD component.
+    # PRODUCT entity format: PRODUCT('name','description','',(#ref))
     product_pattern = re.compile(
         r"#(\d+)\s*=\s*PRODUCT\s*\(\s*'([^']*)'\s*,\s*'([^']*)'\s*,",
-        re.IGNORECASE
+        re.IGNORECASE,
     )
 
     for match in product_pattern.finditer(content):
@@ -109,19 +115,31 @@ def parse_step_components(file_path):
     return components
 
 
-def chunk_cad_by_component(file_info):
+def chunk_cad_by_component(file_info: dict) -> list:
     """
     Component-based chunking for STEP/STP files.
     Returns one chunk per named PRODUCT component.
+
+    When file_info["source"] == "s3" the function fetches the file content
+    in-memory via loader.read_step_content(); otherwise it falls back to
+    opening the local file_path on disk (backward-compat for local runs).
     """
-    file_path  = file_info["file_path"]
     robot_name = file_info["robot_name"]
     file_name  = file_info["file_name"]
 
-    components = parse_step_components(file_path)
+    # ── Fetch STEP content ─────────────────────────────────────────────────
+    if file_info.get("source") == "s3":
+        # Import here to avoid a circular import at module level
+        from loader import read_step_content  # noqa: PLC0415
+        content = read_step_content(file_info)
+    else:
+        # Legacy local-file path (kept for backward compatibility)
+        with open(file_info["file_path"], "r", encoding="utf-8", errors="ignore") as fh:
+            content = fh.read()
+
+    components = parse_step_components(content)
 
     chunks = []
-
     for idx, comp in enumerate(components):
         # Build a human-readable text representation of the component
         text = (
@@ -131,19 +149,18 @@ def chunk_cad_by_component(file_info):
             f"Entity ID: #{comp['entity_id']}\n"
             f"Source File: {file_name}"
         )
-
         chunks.append({
             "chunk_id": idx,
             "text":     text,
             "metadata": {
-                "robot":        robot_name,
-                "source_file":  file_name,
-                "file_type":    ".step",
-                "category":     "CAD",
-                "component":    comp["name"],
-                "entity_id":    comp["entity_id"],
-                "chunk_type":   "cad_component"
-            }
+                "robot":       robot_name,
+                "source_file": file_name,
+                "file_type":   ".step",
+                "category":    "CAD",
+                "component":   comp["name"],
+                "entity_id":   comp["entity_id"],
+                "chunk_type":  "cad_component",
+            },
         })
 
     return chunks
@@ -188,17 +205,32 @@ if __name__ == "__main__":
         print(chunk)
 
 
-def chunk_excel_by_row(file_info):
-    file_path  = file_info["file_path"]
+def chunk_excel_by_row(file_info: dict) -> list:
+    """
+    Row-based chunking for Excel (.xlsx) files.
+
+    When file_info["source"] == "s3", the spreadsheet is fetched in-memory
+    via loader.read_excel_bytes() and passed directly to pandas — no temp
+    files are created.  For local files the original file_path is used.
+    """
     robot_name = file_info["robot_name"]
     file_name  = file_info["file_name"]
 
-    df = pd.read_excel(file_path)
+    # ── Fetch Excel content ────────────────────────────────────────────────
+    if file_info.get("source") == "s3":
+        from loader import read_excel_bytes  # noqa: PLC0415
+        excel_source = read_excel_bytes(file_info)   # io.BytesIO
+    else:
+        excel_source = file_info["file_path"]        # local path string
+
+    df = pd.read_excel(excel_source)
 
     chunks = []
     for idx, row in df.iterrows():
-        # Build text representation of the row
-        row_text = "\n".join([f"{col}: {val}" for col, val in row.items() if pd.notna(val)])
+        # Build a readable text representation of each row
+        row_text = "\n".join(
+            f"{col}: {val}" for col, val in row.items() if pd.notna(val)
+        )
         text = (
             f"Robot: {robot_name}\n"
             f"Source File: {file_name}\n"
@@ -207,12 +239,12 @@ def chunk_excel_by_row(file_info):
 
         metadata = create_metadata(file_info)
         metadata["chunk_type"] = "excel_row"
-        metadata["row_index"] = idx
+        metadata["row_index"]  = idx
 
         chunks.append({
             "chunk_id": idx,
-            "text": text,
-            "metadata": metadata
+            "text":     text,
+            "metadata": metadata,
         })
 
     return chunks

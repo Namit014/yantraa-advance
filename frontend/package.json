@@ -15,6 +15,7 @@
     "@base-ui/react": "^1.5.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
+    "@reactflow/core": "^11.11.4",
     "@types/dagre": "^0.7.54",
     "@xyflow/react": "^12.11.0",
     "class-variance-authority": "^0.7.1",

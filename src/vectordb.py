@@ -60,7 +60,7 @@ class VectorDB:
     def __init__(
         self,
         collection_name="yantra_knowledgebase",
-        vector_size=1024,
+        vector_size=2048,
         client=None
     ):
 
