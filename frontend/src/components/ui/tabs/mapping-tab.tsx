@@ -1258,9 +1258,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
             
-<<<<<<< HEAD
-
-=======
             {/* TOP TOOLBAR: View Toggle */}
             <div className="h-12 border-b border-neutral-800/50 flex items-center justify-between px-6 bg-[#0B0E14] shrink-0 z-30">
                 <div className="flex gap-1 bg-[#131823] p-1 rounded-lg border border-neutral-800/50">
@@ -1293,7 +1290,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                     <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-red-900/20 hover:bg-red-900/40 rounded border border-red-900/50 transition-colors"><Trash2 size={12} /> Clear</button>
                 </div>
             </div>
->>>>>>> 50b01e10b1e936a2da9fda6ea8e6f9e0673f6533
 
             <div className="flex-1 flex overflow-hidden relative">
                 {/* FLOATING TOGGLE BUTTON */}

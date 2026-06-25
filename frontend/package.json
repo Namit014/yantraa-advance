@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "predev": "npx kill-port 3000 8000 || exit 0",
-    "dev": "concurrently \"npm run fastapi-dev\" \"npm run next-dev\"",
-    "next-dev": "next dev",
+    "dev": "npm run next-dev",
+    "next-dev": "cross-env NODE_OPTIONS='--max-old-space-size=1024' next dev --turbo",
     "fastapi-dev": "..\\.venv\\Scripts\\python ../src/api/main.py",
     "build": "next build",
     "start": "next start",
@@ -42,6 +42,7 @@
     "@types/react-dom": "^19",
     "@types/three": "^0.184.1",
     "concurrently": "^10.0.3",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4",
