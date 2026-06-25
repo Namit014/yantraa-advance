@@ -834,20 +834,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
             };
         });
     }, [connections]);
-
-
-    const onConnect = useCallback((params: RFConnection) => {
-        if (!params.source || !params.target) return;
-        const newConn = {
-            id: `conn-rf-${Date.now()}`,
-            fromId: params.source,
-            toId: params.target,
-            label: "wire",
-            isUserEdited: true,
-        };
-        setConnections(prev => [...prev, newConn]);
-    }, []);
-
     const doFetch = useCallback(async (q: string) => {
         setIsLoading(true);
         let fetchedRaw: RawComponent[] = [];
@@ -932,6 +918,162 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         
         setIsLoading(false);
     }, [aiResponse, rawComponents, nodes, designData]);
+    // ── useEffect: load shared designData when present ─────────────────────────
+    useEffect(() => {
+        if (!designData) return;
+        
+        const comps: RawComponent[] = [];
+        const rawNodes: Omit<ComponentNode, "x" | "y">[] = [];
+        
+        if (designData.subsystems) {
+            designData.subsystems.forEach((sub: any) => {
+                const compList = sub.components || [];
+                if (compList.length === 0) {
+                    const category = "electronic";
+                    const description = "No components mapped for this subsystem.";
+                    const placeholderId = `placeholder-${sub.name.replace(/\s+/g, "_")}`;
+                    
+                    comps.push({
+                        name: `[Subsystem: ${sub.name}]`,
+                        category,
+                        description,
+                        connects_to: []
+                    });
+                    
+                    rawNodes.push({
+                        id: placeholderId,
+                        label: `No components mapped for ${sub.name}`,
+                        category,
+                        description,
+                        width: NODE_W,
+                        height: NODE_H
+                    });
+                } else {
+                    compList.forEach((comp: any) => {
+                        const category = inferCategory(comp.name + " " + (comp.role || ""));
+                        const description = `${comp.role || ""}. Voltage: ${comp.voltage || "N/A"}, Interface: ${comp.interface || "N/A"}`;
+                        
+                        comps.push({
+                            name: comp.name,
+                            category,
+                            description,
+                            connects_to: []
+                        });
+                        
+                        rawNodes.push({
+                            id: comp.id || `node-${comp.name.replace(/\s+/g, "_")}`,
+                            label: comp.name,
+                            category,
+                            description,
+                            width: NODE_W,
+                            height: NODE_H
+                        });
+                    });
+                }
+            });
+        }
+        
+        const laidNodes = applyLayout(rawNodes);
+        
+        const mappedConns: Connection[] = [];
+        if (designData.connections) {
+            designData.connections.forEach((conn: any, i: number) => {
+                const fromId = conn.from;
+                const toId = conn.to;
+                const fromExists = laidNodes.some(n => n.id === fromId);
+                const toExists = laidNodes.some(n => n.id === toId);
+                
+                if (fromExists && toExists) {
+                    mappedConns.push({
+                        id: `conn-design-${i}-${Date.now()}`,
+                        fromId,
+                        toId,
+                        label: conn.protocol || conn.relation || "connects",
+                        isUserEdited: false
+                    });
+                }
+            });
+        }
+        
+        setRawComponents(comps);
+        setNodes(laidNodes);
+        setConnections(mappedConns);
+        setSelectedId(null);
+        setIsLoading(false);
+    }, [designData]);
+
+    // ── useEffect: re-fetch when query changes ─────────────────────────────────
+    useEffect(() => {
+        if (designData || !currentQuery) return;
+        doFetch(currentQuery);
+    }, [currentQuery, doFetch, designData]);
+
+    // ── useEffect: fallback parse from aiResponse text when no query ───────────
+    useEffect(() => {
+        if (designData || !aiResponse || currentQuery) return;
+        const raw = fallbackExtract(aiResponse);
+        if (raw.length === 0) return;
+        setRawComponents(raw);
+        const laid = applyLayout(
+            raw.map((r, i) => ({
+                id: `node-ai-${i}-${Date.now()}`,
+                label: r.name,
+                category: r.category,
+                description: r.description,
+                width: NODE_W,
+                height: NODE_H,
+            }))
+        );
+        setNodes(laid);
+        setConnections(generateConnections(laid, raw));
+    }, [aiResponse, currentQuery, designData]);
+
+    const bomItems = useMemo(() => {
+        const rawBom = designData?.bom || designData?.bill_of_materials;
+        if (rawBom && rawBom.length > 0) {
+            return rawBom.map((item: any) => ({
+                name: item.name || "N/A",
+                qty: item.qty ?? item.quantity ?? "1",
+                category: item.category ?? "N/A"
+            }));
+        }
+        // Fallback: derive minimal BOM from designData.subsystems
+        if (designData?.subsystems) {
+            const derived: any[] = [];
+            designData.subsystems.forEach((sub: any) => {
+                if (sub.components) {
+                    sub.components.forEach((comp: any) => {
+                        derived.push({
+                            name: comp.name || "N/A",
+                            qty: comp.qty ?? comp.quantity ?? "1",
+                            category: sub.name || "N/A"
+                        });
+                    });
+                }
+            });
+            return derived;
+        }
+        return [];
+    }, [designData]);
+
+    const validationList = useMemo(() => {
+        return designData?.validation || [];
+    }, [designData]);
+
+
+
+    const onConnect = useCallback((params: RFConnection) => {
+        if (!params.source || !params.target) return;
+        const newConn = {
+            id: `conn-rf-${Date.now()}`,
+            fromId: params.source,
+            toId: params.target,
+            label: "wire",
+            isUserEdited: true,
+        };
+        setConnections(prev => [...prev, newConn]);
+    }, []);
+
 
     // ONE-TIME DEDUP PASS (Runs on hot-reload to clean up dirty session data)
     useEffect(() => {
@@ -1112,7 +1254,42 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
             
+<<<<<<< HEAD
 
+=======
+            {/* TOP TOOLBAR: View Toggle */}
+            <div className="h-12 border-b border-neutral-800/50 flex items-center justify-between px-6 bg-[#0B0E14] shrink-0 z-30">
+                <div className="flex gap-1 bg-[#131823] p-1 rounded-lg border border-neutral-800/50">
+                    <button 
+                        onClick={() => setActiveView("matrix")}
+                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'matrix' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
+                    >
+                        Matrix View
+                    </button>
+                    <button 
+                        onClick={() => setActiveView("canvas")}
+                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'canvas' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
+                    >
+                        Canvas Wiring View
+                    </button>
+                    <button 
+                        onClick={() => setActiveView("bom")}
+                        className={`px-4 py-1.5 rounded text-xs font-bold transition-all ${activeView === 'bom' ? 'bg-[#1a2333] text-sky-400 shadow' : 'text-neutral-500 hover:text-neutral-300'}`}
+                    >
+                        BOM View
+                    </button>
+                </div>
+                <div className="flex items-center gap-2">
+                    {isLoading && <div className="text-xs text-blue-400 animate-pulse mr-4">Updating from AI...</div>}
+                    {activeView === 'bom' && (
+                        <button onClick={handleExportBOM} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-900/20 hover:bg-emerald-900/40 rounded border border-emerald-900/50 transition-colors">Export CSV</button>
+                    )}
+                    <button onClick={handleAutoLayout} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-purple-400 bg-purple-900/20 hover:bg-purple-900/40 rounded border border-purple-900/50 transition-colors"><Network size={12} /> Auto Layout</button>
+                    <button onClick={handleRefresh} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-sky-400 bg-sky-900/20 hover:bg-sky-900/40 rounded border border-sky-900/50 transition-colors"><RefreshCw size={12} /> Refresh</button>
+                    <button onClick={handleClear} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-red-400 bg-red-900/20 hover:bg-red-900/40 rounded border border-red-900/50 transition-colors"><Trash2 size={12} /> Clear</button>
+                </div>
+            </div>
+>>>>>>> 50b01e10b1e936a2da9fda6ea8e6f9e0673f6533
 
             <div className="flex-1 flex overflow-hidden relative">
                 {/* FLOATING TOGGLE BUTTON */}

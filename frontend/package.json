@@ -6,7 +6,11 @@
     "predev": "npx kill-port 3000 8000 || exit 0",
     "dev": "concurrently \"npm run fastapi-dev\" \"npm run next-dev\"",
     "next-dev": "next dev",
+<<<<<<< HEAD
     "fastapi-dev": "..\\.venv\\Scripts\\python ../src/api/main.py",
+=======
+    "fastapi-dev": "py -3.11 ../src/api/main.py",
+>>>>>>> 50b01e10b1e936a2da9fda6ea8e6f9e0673f6533
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -20,6 +24,8 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dagre": "^0.8.5",
+    "html-to-image": "^1.11.13",
+    "jspdf": "^4.2.1",
     "lucide-react": "^1.17.0",
     "next": "16.2.7",
     "occt-import-js": "^0.0.23",

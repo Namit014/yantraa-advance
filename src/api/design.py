@@ -261,6 +261,7 @@ OUTPUT FORMAT:
 You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
 
 CRITICAL RULES:
+<<<<<<< HEAD
 - If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
 - If the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone), you should generate standard generic custom components (e.g., `quadcopter_frame`, `brushless_motor`).
 - Any custom component you generate MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
@@ -279,6 +280,36 @@ ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
 9. **Strict Connectivity**: 
    - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
    - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
+=======
+- Select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list.
+- If a required component is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them so the robot is complete and functional!
+- ONLY include ELECTRICAL components (motors, motor drivers, sensors, microcontrollers, power supplies) in the components list. DO NOT include structural or mechanical parts like brackets, chassis, plates, or screws in the components list. EXCEPTIONS: If the user requests a wheeled robot, you MUST explicitly include 'Wheel' in the components list for each wheel. If the user requests a painting robot, you MUST explicitly include 'Paint Spray Nozzle' in the components list.
+- Give all components proper, real-world industry names (e.g., "L298N Motor Driver", "HC-SR04 Ultrasonic Sensor", "NEMA 17 Stepper Motor"). Do not use generic names like "Motor" or "Sensor".
+- Output ONLY valid JSON in the exact structure requested.
+
+ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
+1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot (this causes EMI). Instead, use a Trunk-and-Branch topology: Route a thick "Main Power Trunk" to a "Local Distribution Hub" or "Local Busbar" near each joint, and branch off to local drivers.
+2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node" or "Common Ground Bus". Avoid ground loops.
+3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power. Generate an "E-Stop Button" connected to a "Safety Relay" or "Contactor". The Safety Relay MUST sit between the PSU and the Motor Drivers on the 24V/48V lines. Do NOT route E-Stop solely to the MCU.
+4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring. Use differential signals (RS-422) for noise immunity. Encoders MUST route back to the Controller or local Joint Controller.
+5. **Power Supply Sizing & Fusing**: Size power supplies for PEAK stall current (2-3x nominal). Every individual branch from the PSU to a Driver MUST pass through a dedicated "Fuse" or "Circuit Breaker".
+6. **Communication Architecture (Daisy-Chain)**: For complex robots, do NOT wire the MCU directly to every driver with a massive harness. You MUST enforce a Fieldbus Architecture (CAN Bus or EtherCAT). CRITICAL: Wire the Fieldbus in a Daisy-Chain topology (`Main MCU` -> `Joint 1 Controller` -> `Joint 2 Controller` -> `Joint 3 Controller`) to minimize long signal wires.
+7. **Power Isolation**: Strictly separate Logic and Motor power. 24V/48V feeds motor drivers directly. 24V MUST feed a dedicated "DC-DC Buck Converter" which provides isolated 5V/3.3V logic power to the MCU and sensors.
+8. **Dynamic Joint Naming**: You MUST explicitly name motors/actuators with their kinematic role based on the requested robot type (e.g., "J1 Base Rotation Motor", "J2 Arm Motor").
+9. **Strict Connectivity**: 
+   - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
+   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array. DO NOT use the `name` field for connections. Do not invent IDs that do not exist in the components array.
+10. **Actuator & Driver Rule**: Add ALL required motor drivers between controllers and motors. Motors must NEVER be connected directly to the battery. For every actuator, clearly show driver connection, power source, and feedback sensor connection.
+11. **Complete Power Architecture**: Show Battery, Main Power Switch, Fuse protection, Reverse polarity protection, Current protection, Voltage regulators (12V, 5V, 3.3V), Power distribution rails, and Common ground connections. Ensure voltage compatibility: 12V devices receive 12V, 5V receive 5V, 3.3V receive 3.3V. Add level shifters wherever required.
+12. **Complete Sensor Suite**: Include all sensors properly connected with exact names and interfaces (IMU, Ultrasonic sensor, Encoders, Limit switches, Status LEDs, plus any robot-specific sensors).
+13. **Controller Architecture**: If multiple controllers are used, explicitly show UART/I2C/SPI connections, their purpose, and Master/slave relationship. Remove redundant controllers if they don't serve a clear purpose.
+14. **Validation & Completion**: Verify every component connection and ensure no floating, incomplete, or ambiguous connections. Validate that the design can realistically be built without electrical conflicts. Follow real engineering best practices. Apply these rules to all future robot schematics regardless of robot type.
+15. **Validation Report**: Use the `validation` array to output a validation report listing every improvement made (e.g., "Added reverse polarity protection") and assumptions used (e.g., "Assumed 24V for primary joint motors").
+16. **Professional Engineering Documentation Quality**: Every component must have complete power, ground, and signal connections. Every signal path must be identifiable. Every voltage rail must be labeled. Every driver, regulator, sensor, and actuator must show realistic real-world wiring suitable for PCB design, debugging, and robot assembly. Target 9.5-10/10 electrical accuracy.
+17. **Advanced Power Protection**: You MUST include a standard Protection Diode (e.g., 1N5408) for reverse-polarity protection in series with the main battery positive line, placed immediately after the Master Power Switch and before the Fuse. 
+18. **Strict MCU Power Sourcing**: If a 5V Buck Converter is present, route the +5V output directly to the Arduino's 5V pin, NOT the VIN pin. If no 5V buck converter exists, power the Arduino via VIN using the 7-9V/12V source.
+19. **Explicit Signal Documentation**: Explicitly specify the actual hardware pin label (e.g., D2, D3, D5) on the MCU for all signal connections. Do not rely on generic wiring.
+>>>>>>> 50b01e10b1e936a2da9fda6ea8e6f9e0673f6533
 
 OUTPUT FORMAT:
 {
