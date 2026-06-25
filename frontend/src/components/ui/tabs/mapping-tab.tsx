@@ -2,10 +2,12 @@
 
 import {
     Search, X, SlidersHorizontal, Plus, Crosshair,
-    LayoutGrid, Maximize2, Trash2, RefreshCw, Network, PanelLeft, PanelRight
+    LayoutGrid, Maximize2, Trash2, RefreshCw, Network, PanelLeft, PanelRight, Download, FileImage, FileText
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import dagre from "dagre";
+import { toPng } from 'html-to-image';
+import { jsPDF } from 'jspdf';
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
@@ -1034,6 +1036,35 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         setConnections(prev => [...prev, newConn]);
     }, []);
 
+    const handleExportPNG = useCallback(() => {
+        const flowEl = document.querySelector('.react-flow') as HTMLElement;
+        if (!flowEl) return;
+        toPng(flowEl, { pixelRatio: 3, backgroundColor: '#0B0E14' })
+            .then((dataUrl) => {
+                const a = document.createElement('a');
+                a.setAttribute('download', 'yantraa-mapping.png');
+                a.setAttribute('href', dataUrl);
+                a.click();
+            })
+            .catch((err) => console.error('Failed to export PNG', err));
+    }, []);
+
+    const handleExportPDF = useCallback(() => {
+        const flowEl = document.querySelector('.react-flow') as HTMLElement;
+        if (!flowEl) return;
+        toPng(flowEl, { pixelRatio: 3, backgroundColor: '#0B0E14' })
+            .then((dataUrl) => {
+                const pdf = new jsPDF({
+                    orientation: 'landscape',
+                    unit: 'px',
+                    format: [flowEl.clientWidth, flowEl.clientHeight]
+                });
+                pdf.addImage(dataUrl, 'PNG', 0, 0, flowEl.clientWidth, flowEl.clientHeight);
+                pdf.save('yantraa-mapping.pdf');
+            })
+            .catch((err) => console.error('Failed to export PDF', err));
+    }, []);
+
 
     // ONE-TIME DEDUP PASS (Runs on hot-reload to clean up dirty session data)
     useEffect(() => {
@@ -1307,6 +1338,14 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                     proOptions={{ hideAttribution: true }}
                                 >
                                     <Background color="#222" gap={16} />
+                                    <Panel position="top-right" className="flex gap-2 mr-10 mt-2">
+                                        <button onClick={handleExportPNG} className="flex items-center gap-2 px-3 py-1.5 bg-[#131823] border border-neutral-800 text-neutral-400 hover:text-white hover:border-neutral-700 rounded text-xs transition-colors shadow-lg" title="Export as High-Res PNG">
+                                            <FileImage size={14} /> PNG
+                                        </button>
+                                        <button onClick={handleExportPDF} className="flex items-center gap-2 px-3 py-1.5 bg-[#131823] border border-neutral-800 text-neutral-400 hover:text-white hover:border-neutral-700 rounded text-xs transition-colors shadow-lg" title="Export as High-Res PDF">
+                                            <FileText size={14} /> PDF
+                                        </button>
+                                    </Panel>
                                     <Controls />
                                 </ReactFlow>
                             </div>
