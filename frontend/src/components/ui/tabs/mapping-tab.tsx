@@ -22,11 +22,33 @@ type ComponentCategory =
     | "power"
     | "electronic";
 
+interface ComponentSpec {
+    operating_voltage_v?: number | null;
+    max_current_a?: number | null;
+    torque_kg_cm?: number | null;
+    communication_protocol?: string | null;
+    operating_frequency_hz?: number | null;
+}
+
+interface ComponentConnection {
+    to: string;
+    type: string;
+}
+
 interface RawComponent {
     name: string;
+    brand?: string;
+    model_number?: string | null;
     category: ComponentCategory;
+    subcategory?: string;
+    specs?: ComponentSpec;
+    role_in_system?: string;
     description: string;
-    connects_to: string[];
+    connects_to: string[]; // fallback string list
+    connections?: ComponentConnection[];
+    safety_notes?: string | null;
+    confidence?: string;
+    confidence_reason?: string | null;
     quantity?: number;
     partNumber?: string;
 }
@@ -42,6 +64,10 @@ interface ComponentNode {
     height?: number;
     quantity?: number;
     partNumber?: string;
+    brand?: string;
+    specs?: ComponentSpec;
+    safety_notes?: string | null;
+    confidence?: string;
 }
 
 interface Connection {
@@ -153,8 +179,9 @@ function parseRAGJson(text: string): RawComponent[] | null {
                 name = name.replace(/30-[cC]ell/, "3-Cell");
             }
             
-            let inferredCategory = VALID_CATEGORIES.includes(item.category as ComponentCategory)
-                ? (item.category as ComponentCategory)
+            let catStr = String(item.category || "").toLowerCase();
+            let inferredCategory = VALID_CATEGORIES.includes(catStr as ComponentCategory)
+                ? (catStr as ComponentCategory)
                 : inferCategory(name);
 
             // Force override AI mistakes on categorization
@@ -162,15 +189,31 @@ function parseRAGJson(text: string): RawComponent[] | null {
             if (/servo|motor|actuator/i.test(name)) inferredCategory = "actuator";
             if (/shield|driver|arduino|raspberry/i.test(name)) inferredCategory = "controller";
             
+            let connections: ComponentConnection[] = Array.isArray(item.connections) 
+                ? item.connections.map((c: any) => ({ to: String(c.to), type: String(c.type) })) 
+                : [];
+
+            let connects_to = connections.map(c => c.to);
+            if (connects_to.length === 0 && Array.isArray(item.connects_to)) {
+                connects_to = item.connects_to.map(String);
+            }
+
             return {
                 name,
+                brand: item.brand ? String(item.brand) : undefined,
+                model_number: item.model_number ? String(item.model_number) : null,
                 category: inferredCategory,
-                description: String(item.description ?? ""),
+                subcategory: item.subcategory ? String(item.subcategory) : undefined,
+                specs: item.specs as ComponentSpec | undefined,
+                role_in_system: item.role_in_system ? String(item.role_in_system) : undefined,
+                description: item.role_in_system ? String(item.role_in_system) : String(item.description ?? ""),
+                connections,
+                connects_to,
+                safety_notes: item.safety_notes ? String(item.safety_notes) : null,
+                confidence: item.confidence ? String(item.confidence) : undefined,
+                confidence_reason: item.confidence_reason ? String(item.confidence_reason) : null,
                 quantity: Number(item.quantity) || 1,
-                partNumber: item.partNumber ? String(item.partNumber) : undefined,
-                connects_to: Array.isArray(item.connects_to)
-                    ? item.connects_to.map(String)
-                    : [],
+                partNumber: item.model_number ? String(item.model_number) : (item.partNumber ? String(item.partNumber) : undefined),
             };
         });
     } catch (e) {
