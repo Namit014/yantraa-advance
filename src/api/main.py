@@ -101,6 +101,13 @@ try:
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load schematics router: {_e}")
 
+try:
+    from circuit_advisor import router as circuit_advisor_router
+    app.include_router(circuit_advisor_router)
+    print("[Yantra API] Registered /api/schematics/advisor")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load circuit advisor router: {_e}")
+
 # Define Pydantic models for JSON request/response validation
 class QueryRequest(BaseModel):
     query: str

@@ -17,6 +17,8 @@ import { Loader2, Download, ChevronDown } from "lucide-react";
 import dagre from "dagre";
 import { toPng, toSvg } from 'html-to-image';
 import jsPDF from 'jspdf';
+import AdvisorEdge from "./advisor-edge";
+import { CircuitAdvisorDrawer } from "./circuit-advisor-drawer";
 
 // --- Custom Schematic Node ---
 const SchematicNode = ({ data }: { data: any }) => {
@@ -92,6 +94,10 @@ const nodeTypes = {
     schematicNode: SchematicNode,
 };
 
+const edgeTypes = {
+    advisorEdge: AdvisorEdge,
+};
+
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
 
@@ -136,6 +142,7 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [exportOpen, setExportOpen] = useState(false);
+    const [selectedElement, setSelectedElement] = useState<any>(null);
 
     const handleExport = async (format: "png" | "svg" | "pdf") => {
         setExportOpen(false);
@@ -246,6 +253,7 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
                 
                 return {
                     ...e,
+                    type: "advisorEdge",
                     style: { stroke, strokeWidth: 4, strokeDasharray },
                 };
             });
@@ -309,6 +317,9 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 nodeTypes={nodeTypes}
+                edgeTypes={edgeTypes}
+                onNodeClick={(e, node) => setSelectedElement(node)}
+                onEdgeClick={(e, edge) => setSelectedElement(edge)}
                 fitView
                 className="bg-neutral-900"
             >
@@ -317,7 +328,7 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
             </ReactFlow>
 
             {/* Export Menu Overlay */}
-            <div className="absolute top-4 right-4 z-50">
+            <div className="absolute top-4 right-4 z-10 flex gap-2">
                 <div className="relative">
                     <button 
                         onClick={() => setExportOpen(!exportOpen)}
@@ -352,6 +363,12 @@ export function SchematicsWorkspace({ designData }: { designData?: any }) {
                     )}
                 </div>
             </div>
+
+            {/* Circuit Advisor Drawer */}
+            <CircuitAdvisorDrawer 
+                selectedElement={selectedElement} 
+                onClose={() => setSelectedElement(null)} 
+            />
         </div>
     );
 }
