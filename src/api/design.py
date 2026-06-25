@@ -482,13 +482,21 @@ OUTPUT FORMAT:
 
     primary_cads = pick_primary_cad(list(matched_cads))
     
+    # In production (AWS), the backend and frontend are separate processes/machines,
+    # so we cannot rely on the local filesystem to check if CAD files exist.
+    # Instead, trust the known_cads mapping — if a filename is mapped, assume it's deployed.
+    # For local dev, we still do a filesystem check as a helpful warning.
     frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
     cad_urls = []
     for f in primary_cads:
-        if os.path.exists(os.path.join(frontend_public_cad, f)):
+        local_path = os.path.join(frontend_public_cad, f)
+        if os.path.exists(local_path):
             cad_urls.append(f"/cad/{f}")
         else:
-            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
+            # In production the local path won't exist — still serve the URL.
+            # The Vercel frontend hosts the CAD files in /public/cad/ independently.
+            print(f"[api/design] Note: CAD file {f} not found locally (expected in production). Serving URL anyway.")
+            cad_urls.append(f"/cad/{f}")
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
     

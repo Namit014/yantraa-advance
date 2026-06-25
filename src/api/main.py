@@ -28,16 +28,6 @@ from contextlib import asynccontextmanager
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Initialize the Retriever
-    # This will load the sentence transformer model and connect to the Qdrant Database
-    retriever = Retriever()
-    app.state.retriever = retriever
-    yield
-
-from contextlib import asynccontextmanager
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
     # Initialize the Retriever on startup
     app.state.retriever = Retriever()
     yield
@@ -52,10 +42,13 @@ app = FastAPI(
 )
 
 # Add CORS middleware
-ALLOWED_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+# Default includes production domain + localhost for development
+_default_origins = "http://localhost:3000,https://labs.yantraa.tech,https://www.labs.yantraa.tech,https://yantraa.tech,https://www.yantraa.tech,https://api.yantraa.tech"
+ALLOWED_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", _default_origins).split(",") if o.strip()]
+print(f"[Yantra API] CORS Allowed Origins: {ALLOWED_ORIGINS}")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS, 
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
