@@ -270,9 +270,13 @@ You must construct the robot by selecting individual components, organizing them
 
 CRITICAL RULES:
 - If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
+- Select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list.
+- If a required component is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them so the robot is complete and functional!
 - If the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone), you should generate standard generic custom components (e.g., `quadcopter_frame`, `brushless_motor`).
 - Any custom component you generate MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
 - If you use custom components or define an assembly, you MUST include 'assembly_graph' in your JSON output detailing the parent-child relationships and connection ports.
+- ONLY include ELECTRICAL components (motors, motor drivers, sensors, microcontrollers, power supplies) in the components list. DO NOT include structural or mechanical parts like brackets, chassis, plates, or screws in the components list. EXCEPTIONS: If the user requests a wheeled robot, you MUST explicitly include 'Wheel' in the components list for each wheel. If the user requests a painting robot, you MUST explicitly include 'Paint Spray Nozzle' in the components list.
+- Give all components proper, real-world industry names (e.g., "L298N Motor Driver", "HC-SR04 Ultrasonic Sensor", "NEMA 17 Stepper Motor"). Do not use generic names like "Motor" or "Sensor".
 - Output ONLY valid JSON in the exact structure requested.
 
 ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
@@ -390,63 +394,19 @@ OUTPUT FORMAT:
     cad_url = None
     assembly_transforms = []
     
-    known_cads = {
-        "autonomous mobile": "autonomous_mobile_robot.stp",
-        "agv": "AVGs_robot_cad.step",
-        "cartesian": "cartesian_robot_cad.stp",
-        "cobot": "Articulated_robot_cad.STEP",
-        "delta": "DeltaRobot2.STEP",
-        "painting": "Painting_Robot.step",
-        "paint": "Painting_Robot.step",
-        "spray": "Painting_Robot.step",
-        "scara": "scara_robot_cad.stp",
-        "welding": "welding_robot.stp",
-        "weld": "welding_robot.stp",
-        "articulated": "Articulated_robot_cad.STEP",
-        "6 axis": "Articulated_robot_cad.STEP",
-        "6-axis": "Articulated_robot_cad.STEP",
-        "6 dof": "Articulated_robot_cad.STEP",
-        "6-dof": "Articulated_robot_cad.STEP",
-        "robotic arm": "Articulated_robot_cad.STEP",
-        "robot arm": "Articulated_robot_cad.STEP",
-        "pick and place": "Articulated_robot_cad.STEP",
-        "pick-and-place": "Articulated_robot_cad.STEP",
-        "pick things": "Articulated_robot_cad.STEP",
-        "grab": "Articulated_robot_cad.STEP",
-        "assembly line": "Articulated_robot_cad.STEP",
-        "manipulation": "Articulated_robot_cad.STEP",
-        "inspection": "inspection_robot_cad.STEP",
-        "humanoid": "Robot_humanoid.step",
-        "machine tending": "machine_tending_robot.stp",
-        "in-pipe": "InPipeInspectionRobot.STEP",
-        "in pipe": "InPipeInspectionRobot.STEP",
-        "pipeline": "InPipeInspectionRobot.STEP",
-        "corrosion": "InPipeInspectionRobot.STEP",
-        "dog": "Full_System_A-2403-02.step",
-        "robotic dog": "Full_System_A-2403-02.step",
-        "quadruped": "Full_System_A-2403-02.step",
-        "four leg": "Full_System_A-2403-02.step",
-        "4 leg": "Full_System_A-2403-02.step",
-    }
-    
-    # Dynamically add HEBI CADs
-    try:
-        if os.path.exists(hebi_path):
-            with open(hebi_path, "r", encoding="utf-8") as f:
-                hebi_data = json.load(f)
-                for comp in hebi_data.get("components", []):
-                    name = comp.get("name", "")
-                    filename = comp.get("filename", "")
-                    if name and filename:
-                        # Add full name e.g. "a-2020-05"
-                        known_cads[name.lower()] = filename
-                        known_cads[name.lower().replace("-", " ")] = filename
-    except Exception as e:
-        print(f"[api/design] Error loading HEBI cads: {e}")
+    from cad_registry import get_known_cads
+    import random
+    known_cads = get_known_cads()
     
     # Extract all text from BOM and subsystems to match against
     matched_cads = set()
     
+    def add_match(cad_val):
+        if isinstance(cad_val, list) and len(cad_val) > 0:
+            matched_cads.add(random.choice(cad_val))
+        elif isinstance(cad_val, str):
+            matched_cads.add(cad_val)
+            
     # Check each BOM item
     if isinstance(bom, list):
         for b in bom:
@@ -458,7 +418,7 @@ OUTPUT FORMAT:
             
             for key, filename in known_cads.items():
                 if key in search_text:
-                    matched_cads.add(filename)
+                    add_match(filename)
                 
     # Also check subsystems as LLMs sometimes put components there but forget them in BOM
     if isinstance(subsystems, list):
@@ -474,14 +434,14 @@ OUTPUT FORMAT:
                 
                 for key, filename in known_cads.items():
                     if key in search_text:
-                        matched_cads.add(filename)
+                        add_match(filename)
                 
     # Fallback to monolithic robots if modular assembly yielded nothing
     if len(matched_cads) == 0:
         query_lower = query.lower()
         for key, filename in known_cads.items():
             if key in query_lower:
-                matched_cads.add(filename)
+                add_match(filename)
             
     # Fallback to checking retrieved search points for robot names
     if not matched_cads:
@@ -494,17 +454,14 @@ OUTPUT FORMAT:
                     r_lower = robot_val.lower()
                     for key, filename in known_cads.items():
                         if key.replace(" ", "_") in r_lower or key in r_lower:
-                            matched_cads.add(filename)
+                            add_match(filename)
         except Exception:
             pass
 
-    # Universal CAD Scraper Fallback
+    # Universal CAD Scraper Fallback has been removed.
+    # The system now relies entirely on Background Synchronization (S3 + Qdrant)
     if not matched_cads:
-        print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
-        from scraper.cad_scraper import scrape_missing_component
-        scraped_filename = await scrape_missing_component(query)
-        if scraped_filename:
-            matched_cads.add(scraped_filename)
+        print(f"[api/design] No CAD matched locally in the Background Sync cache for '{query}'.")
 
     primary_cads = pick_primary_cad(list(matched_cads))
     

@@ -1,3 +1,4 @@
+print("STARTING MAIN.PY")
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import sys
@@ -10,10 +11,7 @@ from dotenv import load_dotenv
 _project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 load_dotenv(os.path.join(_project_root, ".env"))
 
-# Force UTF-8 encoding for standard output/error to avoid charmap crashes on Windows
-if sys.platform == "win32":
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+# Force UTF-8 encoding removed for debugging
 
 
 # Add the parent directory (src) to sys.path to allow importing from local modules
@@ -25,14 +23,28 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from fastapi.middleware.cors import CORSMiddleware
 from retriever import Retriever
 from contextlib import asynccontextmanager
+from apscheduler.schedulers.asyncio import AsyncIOScheduler # type: ignore
+from scheduler.daily_sync import run_daily_cad_sync
 
+<<<<<<< HEAD
+=======
+scheduler = AsyncIOScheduler()
+
+>>>>>>> 8d9a7e6e58cc9539e69c062c1edbf431987c949d
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Initialize the Retriever on startup
     # This will load the sentence transformer model and connect to the Qdrant Database
     app.state.retriever = Retriever()
+    
+    # Start background scheduler for CAD sync
+    scheduler.add_job(run_daily_cad_sync, 'interval', hours=24)
+    scheduler.start()
+    
     yield
-    # Shutdown logic (if any)
+    
+    # Shutdown logic
+    scheduler.shutdown()
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -84,6 +96,13 @@ try:
     print("[Yantra API] Registered /api/export-ros2")
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load ros2_export router: {_e}")
+
+try:
+    from schematics import router as schematics_router
+    app.include_router(schematics_router)
+    print("[Yantra API] Registered /api/schematics/generate")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load schematics router: {_e}")
 
 # Define Pydantic models for JSON request/response validation
 class QueryRequest(BaseModel):
@@ -198,8 +217,21 @@ async def health_check():
     """Simple health check endpoint"""
     return {"status": "ok", "message": "API is running."}
 
+from fastapi import BackgroundTasks
+
+@app.post("/api/sync/trigger")
+async def trigger_cad_sync(background_tasks: BackgroundTasks):
+    """Manually trigger the background CAD synchronization job."""
+    from scheduler.daily_sync import run_daily_cad_sync
+    import asyncio
+    
+    # We use asyncio.create_task to spawn the coroutine in the background
+    asyncio.create_task(run_daily_cad_sync())
+    
+    return {"status": "success", "message": "Background CAD synchronization triggered."}
+
 if __name__ == "__main__":
     import uvicorn
     # Allow running directly using `python src/api/main.py`
-    print("ALL ROUTES BEFORE RUNNING:", [getattr(r, "path", getattr(r, "name", str(r))) for r in app.routes])
+    # print("ALL ROUTES BEFORE RUNNING:", [getattr(r, "path", getattr(r, "name", str(r))) for r in app.routes])
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)

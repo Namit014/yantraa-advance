@@ -218,6 +218,23 @@ function CircuitWireComponent(props: EdgeProps) {
   );
 }
 
+const nodeTypes: NodeTypes = {
+  microcontroller: CircuitNodeComponent as unknown as NodeTypes[string],
+  sensor: CircuitNodeComponent as unknown as NodeTypes[string],
+  motor: CircuitNodeComponent as unknown as NodeTypes[string],
+  power: CircuitNodeComponent as unknown as NodeTypes[string],
+  display: CircuitNodeComponent as unknown as NodeTypes[string],
+  module: CircuitNodeComponent as unknown as NodeTypes[string],
+  driver: CircuitNodeComponent as unknown as NodeTypes[string],
+  safety: CircuitNodeComponent as unknown as NodeTypes[string],
+  other: CircuitNodeComponent as unknown as NodeTypes[string],
+  circuitNode: CircuitNodeComponent as unknown as NodeTypes[string],
+};
+
+const edgeTypes: EdgeTypes = {
+  circuitWire: CircuitWireComponent as unknown as EdgeTypes[string],
+};
+
 // ─── Inner flow (must be child of ReactFlowProvider) ──────────────────────────
 
 function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; designData?: any }) {
@@ -426,15 +443,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
     }
   }, [currentQuery, isGenerating, generate, libraryComponents, setPrompt, designData]);
 
-  const nodeTypes: NodeTypes = useMemo(
-    () => ({ circuitNode: CircuitNodeComponent as unknown as NodeTypes[string] }),
-    []
-  );
 
-  const edgeTypes: EdgeTypes = useMemo(
-    () => ({ circuitWire: CircuitWireComponent as unknown as EdgeTypes[string] }),
-    []
-  );
 
   return (
     <div
