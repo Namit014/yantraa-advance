@@ -8,6 +8,8 @@ import {
     ArrowUpIcon,
     Paperclip,
     PlusIcon,
+    PanelLeftClose,
+    PanelLeft,
 } from "lucide-react";
 import { Orbitron } from 'next/font/google';
 
@@ -126,7 +128,8 @@ const formatAssistantResponse = (data: any) => {
 
 export function VercelV0Chat() {
     const [value, setValue] = useState("");
-    const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
+    const [messages, setMessages] = useState<any[]>([]);
+    const [isChatCollapsed, setIsChatCollapsed] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad' | 'schematics'>('mapping');
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
@@ -213,8 +216,12 @@ export function VercelV0Chat() {
     return (
         <div className={cn("flex w-full h-screen bg-black overflow-hidden transition-all duration-500", messages.length === 0 ? "justify-center" : "justify-start")}>
             {/* Main Chat Container */}
-            <div className={cn("flex flex-col relative transition-all duration-500",
-                messages.length === 0 ? "w-full max-w-4xl p-4 items-center" : "w-[400px] border-r border-neutral-800 bg-neutral-950 shrink-0"
+            <div className={cn("flex flex-col relative transition-all duration-300 ease-in-out",
+                messages.length === 0 
+                    ? "w-full max-w-4xl p-4 items-center" 
+                    : isChatCollapsed 
+                        ? "w-0 border-r-0 overflow-hidden shrink-0 opacity-0" 
+                        : "w-[400px] border-r border-neutral-800 bg-neutral-950 shrink-0 opacity-100"
             )}>
                 {messages.length === 0 ? (
                     <div className="flex-1 flex flex-col items-center justify-center space-y-8 w-full mt-20">
@@ -225,10 +232,18 @@ export function VercelV0Chat() {
                 ) : (
                     <>
                         {/* Top Logo Header */}
-                        <div className="absolute top-0 left-0 w-full p-6 flex items-center z-10 bg-neutral-950/80 backdrop-blur-md">
+                        <div className="absolute top-0 left-0 w-full p-6 flex items-center justify-between z-10 bg-neutral-950/80 backdrop-blur-md">
                             <div className="flex items-center">
                                 <img src="/yantra_logo.jpg" alt="Yantraa AI Logo" className="h-14 object-contain" />
                             </div>
+                            <button
+                                onClick={() => setIsChatCollapsed(true)}
+                                className="p-2 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                title="Collapse Chat"
+                                aria-label="Collapse Chat"
+                            >
+                                <PanelLeftClose className="w-5 h-5" />
+                            </button>
                         </div>
 
                         <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-24 px-4 flex flex-col">
@@ -382,7 +397,18 @@ export function VercelV0Chat() {
 
             {/* Right Side Content (Only visible when messages > 0) */}
             {messages.length > 0 && (
-                <div className="flex-1 relative bg-[#0a0a0a] animate-in fade-in duration-500">
+                <div className="flex-1 relative bg-[#0a0a0a] animate-in fade-in duration-500 overflow-hidden min-w-0">
+                    {/* Expand Chat Button */}
+                    {isChatCollapsed && (
+                        <button
+                            onClick={() => setIsChatCollapsed(false)}
+                            className="absolute top-6 left-6 z-50 p-2 bg-neutral-900 border border-neutral-700 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-lg shadow-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            title="Expand Chat"
+                            aria-label="Expand Chat"
+                        >
+                            <PanelLeft className="w-5 h-5" />
+                        </button>
+                    )}
                     {/* Top Nav */}
                     <div className="absolute top-6 left-1/2 -translate-x-1/2 z-10 flex items-center gap-6 px-6 py-3 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-full shadow-2xl">
                         <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
