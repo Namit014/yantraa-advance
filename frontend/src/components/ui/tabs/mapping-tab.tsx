@@ -1,11 +1,10 @@
 "use client";
 
 import {
-    Search, X, SlidersHorizontal, Plus, Crosshair,
-    LayoutGrid, Maximize2, Trash2, RefreshCw, Network, PanelLeft, PanelRight
+    Search, X, SlidersHorizontal, Plus,
+    LayoutGrid, Trash2, RefreshCw, PanelLeft, PanelRight
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
-import dagre from "dagre";
 
 // ─── RAG endpoint (same as v0-ai-chat.tsx) ────────────────────────────────────
 const RAG_ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/ask`;
@@ -34,10 +33,6 @@ interface ComponentNode {
     label: string;
     category: ComponentCategory;
     description: string;
-    x: number;
-    y: number;
-    width?: number;
-    height?: number;
     quantity?: number;
     partNumber?: string;
 }
@@ -249,75 +244,7 @@ async function fetchComponentsFromRAG(
     return fallbackExtract(aiResponseFallback);
 }
 
-// ─── Layout ───────────────────────────────────────────────────────────────────
 
-const NODE_W = 140 as const;
-const NODE_H = 88 as const;
-const VIRTUAL_W = 1200;
-
-function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Connection[] = []): ComponentNode[] {
-    const dagreGraph = new dagre.graphlib.Graph();
-    dagreGraph.setDefaultEdgeLabel(() => ({}));
-    
-    // Top to Bottom flow
-    dagreGraph.setGraph({ rankdir: 'TB', ranksep: 120, nodesep: 150 });
-
-    const connectedIds = new Set<string>();
-    connections.forEach(c => {
-        connectedIds.add(c.fromId);
-        connectedIds.add(c.toId);
-    });
-
-    // Add nodes to dagre (only connected ones)
-    rawNodes.forEach(n => {
-        if (connectedIds.has(n.id)) {
-            dagreGraph.setNode(n.id, { width: NODE_W, height: NODE_H });
-        }
-    });
-
-    // Enforce hierarchy by forcing edges to go from lower rank to higher rank
-    connections.forEach(e => {
-        const fromNode = rawNodes.find(n => n.id === e.fromId);
-        const toNode = rawNodes.find(n => n.id === e.toId);
-        if (!fromNode || !toNode) return;
-        
-        const r1 = CATEGORY_ORDER.indexOf(fromNode.category);
-        const r2 = CATEGORY_ORDER.indexOf(toNode.category);
-        
-        if (r1 <= r2) {
-            dagreGraph.setEdge(e.fromId, e.toId);
-        } else {
-            // Reverse edge direction for dagre layout calculation so it respects the hierarchy
-            dagreGraph.setEdge(e.toId, e.fromId);
-        }
-    });
-
-    dagre.layout(dagreGraph);
-
-    const result: ComponentNode[] = [];
-    let unconnectedY = 80;
-    
-    rawNodes.forEach(n => {
-        if (connectedIds.has(n.id)) {
-            const nodeWithPosition = dagreGraph.node(n.id);
-            result.push({
-                ...(n as ComponentNode),
-                x: nodeWithPosition.x - NODE_W / 2 + 100, // Shift slightly right
-                y: nodeWithPosition.y - NODE_H / 2 + 80,
-            });
-        } else {
-            // Float disconnected islands far to the right
-            result.push({
-                ...(n as ComponentNode),
-                x: VIRTUAL_W + 100,
-                y: unconnectedY,
-            });
-            unconnectedY += 150;
-        }
-    });
-
-    return result;
-}
 
 // ─── Connection generator ─────────────────────────────────────────────────────
 
@@ -578,9 +505,6 @@ function CategoryIcon({ category, size = 18 }: { category: ComponentCategory; si
     }
 }
 
-
-// ─── Props ────────────────────────────────────────────────────────────────────
-
 interface MappingTabProps {
     aiResponse?: string;
     currentQuery?: string;
@@ -588,178 +512,20 @@ interface MappingTabProps {
     isChatLoading?: boolean;
 }
 
-// ─── React Flow Custom Node ───────────────────────────────────────────────────
-
-import ReactFlow, {
-    Background,
-    Controls,
-    MiniMap,
-    useNodesState,
-    useEdgesState,
-    addEdge,
-    Connection as RFConnection,
-    Edge,
-    Node,
-    MarkerType,
-    Handle,
-    Position,
-    Panel,
-    applyNodeChanges,
-    NodeChange,
-    ReactFlowInstance
-} from 'reactflow';
-import 'reactflow/dist/style.css';
-
-const CustomComponentNode = ({ data }: any) => {
-    const color = CATEGORY_COLOR[data.category as ComponentCategory] || "#ccc";
-    
-    // Generate dynamic mock pins based on component category
-    let pins: string[] = [];
-    switch (data.category) {
-        case "controller":
-            pins = ["5V", "GND", "TX", "RX", "PWM"];
-            break;
-        case "sensor":
-            pins = ["5V", "GND", "SDA", "SCL"];
-            break;
-        case "actuator":
-            pins = ["PWM", "5V", "GND"];
-            break;
-        case "power":
-            pins = ["12V", "5V", "GND"];
-            break;
-        case "electronic":
-            pins = ["VIN", "GND", "SIG"];
-            break;
-        case "mechanical":
-            pins = [];
-            break;
-        default:
-            pins = ["IO", "GND"];
-    }
-
-    return (
-        <div style={{
-            background: "#13161c",
-            border: `1px solid ${color}50`,
-            borderRadius: "8px",
-            padding: "10px",
-            minWidth: "160px",
-            color: "white",
-            fontSize: "12px",
-            boxShadow: "0 4px 6px rgba(0,0,0,0.3)"
-        }}>
-            {/* We map generic target handles on the left so wires can snap anywhere */}
-            <Handle id="left" type="target" position={Position.Left} style={{ background: color, width: 8, height: 8 }} />
-            
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                <div style={{ width: 20, height: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <CategoryIcon category={data.category} size={14} />
-                </div>
-                <strong 
-                    style={{ 
-                        whiteSpace: "nowrap", 
-                        overflow: "hidden", 
-                        textOverflow: "ellipsis", 
-                        maxWidth: "180px", 
-                        display: "block" 
-                    }} 
-                    title={data.label}
-                >
-                    {data.label}
-                </strong>
-            </div>
-            
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: "4px" }}>
-                <div style={{ fontSize: "9px", color: color, textTransform: "uppercase", letterSpacing: "1px" }}>
-                    {data.category}
-                </div>
-                
-                {/* Pins render */}
-                {pins.length > 0 && (
-                    <div style={{ display: "flex", gap: "4px" }}>
-                        {pins.map(pin => (
-                            <div key={pin} style={{
-                                fontSize: "8px",
-                                background: "#1e2430",
-                                color: "#8b949e",
-                                padding: "2px 4px",
-                                borderRadius: "3px",
-                                border: "1px solid #30363d",
-                                fontFamily: "monospace"
-                            }}>
-                                {pin}
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
-            
-            {/* Generic source handles on the right */}
-            <Handle id="right" type="source" position={Position.Right} style={{ background: color, width: 8, height: 8 }} />
-        </div>
-    );
-};
-
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
-    const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
-    const [activeView, setActiveView] = useState<"canvas" | "matrix" | "bom">("canvas");
-    const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
     const [isLibraryOpen, setIsLibraryOpen] = useState(true);
     const [isInspectorOpen, setIsInspectorOpen] = useState(true);
     
     useEffect(() => {
-        console.log(`[MappingTab] Successfully mounted/loaded with activeView: ${activeView}`);
+        console.log("[MappingTab] Successfully mounted/loaded");
     }, []);
 
     const [nodes, setNodes] = useState<ComponentNode[]>([]);
     const [rawComponents, setRawComponents] = useState<RawComponent[]>([]);
     const [connections, setConnections] = useState<Connection[]>([]);
-    const [sidebarTab, setSidebarTab] = useState<"library" | "bom" | "validation">("library");
     const hasSubsystemsError = designData && (!designData.subsystems || designData.subsystems.length === 0);
     const [isLoading, setIsLoading] = useState(false);
     const [selectedId, setSelectedId] = useState<string | null>(null);
-
-    const [rfNodes, setRfNodes] = useState<Node[]>([]);
-    
-    useEffect(() => {
-        setRfNodes(nodes.map((n, i) => ({
-            id: n.id,
-            type: 'customComponent',
-            position: { x: n.x ?? (i * 200 % 800), y: n.y ?? (Math.floor(i * 200 / 800) * 150) },
-            data: { label: n.label, category: n.category, description: n.description },
-            ...(n.width && { width: n.width }),
-            ...(n.height && { height: n.height })
-        })));
-    }, [nodes]);
-
-    const onNodesChange = useCallback((changes: NodeChange[]) => {
-        setRfNodes((nds) => {
-            return applyNodeChanges(changes, nds);
-        });
-        
-        setNodes((nds) => {
-            let updated = [...nds];
-            let changed = false;
-            for (const change of changes) {
-                if (change.type === 'position' && change.position) {
-                    const idx = updated.findIndex(n => n.id === change.id);
-                    if (idx !== -1) {
-                        updated[idx] = { ...updated[idx], x: change.position.x, y: change.position.y };
-                        changed = true;
-                    }
-                }
-                if (change.type === 'dimensions' && change.dimensions) {
-                    const idx = updated.findIndex(n => n.id === change.id);
-                    if (idx !== -1) {
-                        updated[idx] = { ...updated[idx], width: change.dimensions.width, height: change.dimensions.height };
-                        changed = true;
-                    }
-                }
-            }
-            return changed ? updated : nds;
-        });
-    }, []);
 
     const [searchQuery, setSearchQuery] = useState("");
     
@@ -772,59 +538,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     const [inspectorConnLabel, setInspectorConnLabel] = useState("wire");
 
     const lastQueryRef = useRef<string>("");
-    const rfEdges: Edge[] = useMemo(() => {
-        const edgeGroups = new Map<string, Connection[]>();
-        connections.forEach(c => {
-            const key = c.fromId < c.toId ? `${c.fromId}-${c.toId}` : `${c.toId}-${c.fromId}`;
-            if (!edgeGroups.has(key)) edgeGroups.set(key, []);
-            edgeGroups.get(key)!.push(c);
-        });
-
-        return connections.map(c => {
-            const edgeColor = WIRE_COLORS[c.label?.toLowerCase()] || WIRE_COLORS.default;
-            
-            const key = c.fromId < c.toId ? `${c.fromId}-${c.toId}` : `${c.toId}-${c.fromId}`;
-            const group = edgeGroups.get(key)!;
-            const idx = group.indexOf(c);
-            
-            // Cycle through edge types so parallel edges geometrically separate, fixing overlapping labels
-            const types = ['smoothstep', 'default', 'straight', 'step'];
-            let edgeType = types[idx % types.length];
-            
-            // Hardcode specific overrides if they are the ONLY wire, for aesthetics
-            if (group.length === 1) {
-                if (c.label === 'ground') edgeType = 'default';
-                if (c.label === 'power') edgeType = 'smoothstep';
-            }
-
-            return {
-                id: c.id,
-                source: c.fromId,
-                target: c.toId,
-                label: c.label,
-                type: edgeType,
-                animated: false,
-                style: { stroke: edgeColor, strokeWidth: 1.5 },
-                labelStyle: { fill: '#a3a3a3', fontWeight: 600, fontSize: 11, className: 'edge-label-text' },
-                labelBgStyle: { fill: '#13161c', className: 'edge-label-bg' },
-                markerEnd: { type: MarkerType.ArrowClosed, color: edgeColor },
-                className: 'custom-edge-hover'
-            };
-        });
-    }, [connections]);
-
-
-    const onConnect = useCallback((params: RFConnection) => {
-        if (!params.source || !params.target) return;
-        const newConn = {
-            id: `conn-rf-${Date.now()}`,
-            fromId: params.source,
-            toId: params.target,
-            label: "wire",
-            isUserEdited: true,
-        };
-        setConnections(prev => [...prev, newConn]);
-    }, []);
 
     const doFetch = useCallback(async (q: string) => {
         setIsLoading(true);
@@ -895,8 +608,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                     category: newRaw.category,
                     description: newRaw.description,
                     partNumber: newRaw.partNumber,
-                    quantity: newRaw.quantity,
-                    x: 0, y: 0, width: NODE_W, height: NODE_H
+                    quantity: newRaw.quantity
                 };
                 updatedNodes.push(newNode);
             }
@@ -905,17 +617,10 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         
         const newConnections = generateConnections(updatedNodes, updatedRaw);
         setConnections(newConnections);
-        const layoutedNodes = applyLayout(updatedNodes, newConnections);
-        setNodes(layoutedNodes);
+        setNodes(updatedNodes);
         
         setIsLoading(false);
-
-        if (reactFlowInstance) {
-            setTimeout(() => {
-                reactFlowInstance.fitView({ padding: 0.15, duration: 800 });
-            }, 150);
-        }
-    }, [aiResponse, rawComponents, nodes, designData, reactFlowInstance]);
+    }, [aiResponse, rawComponents, nodes, designData]);
 
     // ONE-TIME DEDUP PASS (Runs on hot-reload to clean up dirty session data)
     useEffect(() => {
@@ -993,15 +698,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         if (currentQuery) doFetch(currentQuery);
     }, [currentQuery, doFetch]);
 
-    const handleAutoLayout = useCallback(() => {
-        setNodes(prev => applyLayout(prev, connections));
-        if (reactFlowInstance) {
-            setTimeout(() => {
-                reactFlowInstance.fitView({ padding: 0.15, duration: 800 });
-            }, 150);
-        }
-    }, [connections, reactFlowInstance]);
-
     const handleAddComponent = useCallback(() => {
         if (!newName.trim()) return;
         const nameClean = newName.trim();
@@ -1017,7 +713,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                 category: newCat,
                 description: newDesc.trim(),
                 quantity: 1,
-                x: 0, y: 0, width: NODE_W as any, height: NODE_H as any,
             };
             const newRaw: RawComponent = {
                 name: nameClean,
@@ -1068,61 +763,19 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     const inputsToSelected = connections.filter(c => c.toId === selectedId);
     const outputsFromSelected = connections.filter(c => c.fromId === selectedId);
 
-    const handleExportBOM = useCallback(() => {
-        const rows = [["Category", "Name", "Part Number", "Quantity", "Description", "Connections"]];
-        CATEGORY_ORDER.forEach(cat => {
-            const group = groupedNodes[cat];
-            if (!group || group.length === 0) return;
-            group.forEach(n => {
-                const conns = connections.filter(c => c.fromId === n.id).map(c => {
-                    const t = nodes.find(x => x.id === c.toId);
-                    return t ? t.label : c.toId;
-                }).join(" | ");
-                rows.push([
-                    n.category,
-                    `"${n.label.replace(/"/g, '""')}"`,
-                    `"${(n.partNumber || "").replace(/"/g, '""')}"`,
-                    String(n.quantity || 1),
-                    `"${n.description.replace(/"/g, '""')}"`,
-                    `"${conns.replace(/"/g, '""')}"`
-                ]);
-            });
-        });
-        const csv = rows.map(r => r.join(",")).join("\n");
-        const blob = new Blob([csv], { type: "text/csv" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "robot-bom.csv";
-        a.click();
-        URL.revokeObjectURL(url);
-    }, [nodes, connections, groupedNodes]);
-
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
             {/* Header Sub-bar */}
             <div className="h-14 bg-[#0a0f18]/90 backdrop-blur border-b border-neutral-800/80 px-6 flex items-center justify-between z-10 shrink-0">
                 <div className="flex items-center gap-3">
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[11px] font-black uppercase tracking-widest text-neutral-300">Live Synthesis Canvas</span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#38bdf8] animate-pulse" />
+                    <span className="text-[11px] font-black uppercase tracking-widest text-neutral-300">Component Connection Matrix</span>
                     {currentQuery && (
                         <>
                             <span className="text-neutral-700">|</span>
                             <span className="text-xs text-neutral-500 truncate max-w-[200px]">Prompt: "{currentQuery}"</span>
                         </>
                     )}
-                </div>
-                
-                <div className="flex items-center bg-[#131a26] border border-neutral-800 p-0.5 rounded-lg">
-                    {(['canvas', 'matrix', 'bom'] as const).map(view => (
-                        <button
-                            key={view}
-                            onClick={() => setActiveView(view)}
-                            className={`px-4 py-1.5 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${activeView === view ? 'bg-sky-600 text-white shadow-md shadow-sky-950/50' : 'text-neutral-500 hover:text-neutral-300'}`}
-                        >
-                            {view}
-                        </button>
-                    ))}
                 </div>
                 
                 <div className="flex items-center gap-3">
@@ -1132,9 +785,8 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                             Updating...
                         </div>
                     )}
-                    <button onClick={handleAutoLayout} className="p-2 bg-[#131a26] hover:bg-[#1a2333] border border-neutral-800 hover:border-neutral-700 text-neutral-400 hover:text-white rounded-lg transition-all" title="Auto Layout Graph"><Crosshair size={14} /></button>
                     <button onClick={handleRefresh} className="p-2 bg-[#131a26] hover:bg-[#1a2333] border border-neutral-800 hover:border-neutral-700 text-neutral-400 hover:text-white rounded-lg transition-all" title="Regenerate from prompt"><RefreshCw size={14} /></button>
-                    <button onClick={handleClear} className="p-2 bg-red-950/30 hover:bg-red-900/40 border border-red-900/30 text-red-400 rounded-lg transition-all" title="Reset/Clear Canvas"><Trash2 size={14} /></button>
+                    <button onClick={handleClear} className="p-2 bg-red-950/30 hover:bg-red-900/40 border border-red-900/30 text-red-400 rounded-lg transition-all" title="Reset/Clear Matrix"><Trash2 size={14} /></button>
                 </div>
             </div>
 
@@ -1203,200 +855,65 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
                 {/* 2. DYNAMIC MAIN VIEW (Middle Column) */}
                 <div className="flex-1 h-full bg-[#050505] relative border-r border-neutral-800/50 flex flex-col">
-                    {activeView === "bom" ? (
-                        <div className="flex-1 overflow-y-auto p-8 bg-[#050505]">
-                            <div className="max-w-5xl mx-auto pb-10">
-                                <div className="flex items-center justify-between mb-8">
-                                    <h1 className="text-xl font-bold text-white tracking-widest uppercase">Bill of Materials</h1>
-                                </div>
-                                {CATEGORY_ORDER.map(cat => {
-                                    const group = groupedNodes[cat];
-                                    if (!group || group.length === 0) return null;
-                                    const catColor = CATEGORY_COLOR[cat];
-                                    const totalQty = group.reduce((sum, n) => sum + (n.quantity || 1), 0);
-                                    return (
-                                        <div key={`bom-${cat}`} className="mb-10 bg-[#0f1219] rounded-xl border border-neutral-800/50 overflow-hidden shadow-xl">
-                                            <div className="px-5 py-4 border-b border-neutral-800/50 bg-[#131823] flex items-center justify-between">
-                                                <div className="text-sm font-black uppercase tracking-[0.2em] flex items-center gap-3" style={{ color: catColor }}>
-                                                    <CategoryIcon category={cat} size={16} /> {cat}
-                                                </div>
-                                                <div className="text-xs font-medium text-neutral-400 bg-[#0f1219] px-3 py-1 rounded-full border border-neutral-800/50">
-                                                    {group.length} unique component{group.length !== 1 && 's'}
-                                                </div>
-                                            </div>
-                                            <div className="overflow-x-auto">
-                                                <table className="w-full text-left border-collapse">
-                                                    <thead>
-                                                        <tr className="bg-[#0a0c10] text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-1/4">Component Name</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-32">Part Number</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-24 text-center">Qty</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50">Key Specs</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-1/4">Connections To</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody className="text-xs text-neutral-300">
-                                                        {group.map(node => {
-                                                            const nodeOutputs = connections.filter(c => c.fromId === node.id);
-                                                            return (
-                                                                <tr key={`bom-row-${node.id}`} className="border-b border-neutral-800/30 hover:bg-[#13161c] transition-colors group">
-                                                                    <td className="px-6 py-4 font-bold text-white tracking-wide">{node.label}</td>
-                                                                    <td className="px-6 py-4 text-neutral-500 font-mono text-[10px]">{node.partNumber || "N/A"}</td>
-                                                                    <td className="px-6 py-4 text-center">
-                                                                        <span className="font-black text-sky-400 bg-sky-900/20 px-3 py-1 rounded text-[11px] border border-sky-900/30">
-                                                                            {node.quantity || 1}
-                                                                        </span>
-                                                                    </td>
-                                                                    <td className="px-6 py-4 text-neutral-400 max-w-xs leading-relaxed">{node.description}</td>
-                                                                    <td className="px-6 py-4">
-                                                                        <div className="flex flex-wrap gap-1.5">
-                                                                            {nodeOutputs.length === 0 ? <span className="text-neutral-600 italic text-[11px]">None</span> : nodeOutputs.map(conn => {
-                                                                                const targetNode = nodes.find(n => n.id === conn.toId);
-                                                                                if (!targetNode) return null;
-                                                                                return (
-                                                                                    <span key={`bom-conn-${conn.id}`} className="px-2 py-1 bg-[#1a1f2e] border border-neutral-700/50 rounded text-[10px] text-neutral-300">
-                                                                                        {targetNode.label}
-                                                                                    </span>
-                                                                                );
-                                                                            })}
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            );
-                                                        })}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div className="px-6 py-4 bg-[#0a0c10] border-t border-neutral-800/50 flex justify-between items-center text-xs">
-                                                <span className="font-bold text-neutral-500 uppercase tracking-widest">Total Category Items</span>
-                                                <span className="font-black text-white bg-neutral-800/80 px-3 py-1 rounded border border-neutral-700">{totalQty}</span>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    ) : activeView === "matrix" ? (
-                        <div className="flex-1 overflow-y-auto p-6">
-                            {CATEGORY_ORDER.map(cat => {
-                                const group = groupedNodes[cat];
-                                if (!group || group.length === 0) return null;
-                                const catColor = CATEGORY_COLOR[cat];
-                                return (
-                                    <div key={cat} className="mb-8">
-                                        <div className="text-[10px] font-black uppercase tracking-[0.15em] mb-3 flex items-center gap-2" style={{ color: catColor }}>
-                                            <CategoryIcon category={cat} size={12} /> {cat}
-                                            <div className="flex-1 h-px bg-gradient-to-r from-current to-transparent opacity-20 ml-2" />
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            {group.map(node => {
-                                                const isSelected = selectedId === node.id;
-                                                const nodeOutputs = connections.filter(c => c.fromId === node.id);
-                                                return (
-                                                    <div 
-                                                        key={node.id}
-                                                        onClick={() => setSelectedId(node.id)}
-                                                        className={`flex items-stretch bg-[#0f1219] rounded-xl border transition-all cursor-pointer overflow-hidden ${isSelected ? 'border-sky-500/50 shadow-[0_0_15px_rgba(14,165,233,0.15)] bg-[#131b26]' : 'border-neutral-800/60 hover:border-neutral-700 hover:bg-[#13161c]'}`}
-                                                        style={{ minHeight: '64px' }}
-                                                    >
-                                                        <div className="w-1.5" style={{ background: catColor }} />
-                                                        <div className="flex items-center gap-4 px-4 py-3 w-[300px] shrink-0 border-r border-neutral-800/50">
-                                                            <div style={{ width: 36, height: 36, background: "rgba(255,255,255,0.02)", border: `1px solid ${catColor}30`, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                                                <CategoryIcon category={cat} size={20} />
-                                                            </div>
-                                                            <div className="min-w-0">
-                                                                <div className="text-white text-[13px] font-bold truncate">{node.label}</div>
-                                                                <div className="text-neutral-500 text-[10px] uppercase tracking-wider mt-0.5">Qty: {node.quantity || 1}</div>
-                                                            </div>
+                    <div className="flex-1 overflow-y-auto p-6">
+                        {CATEGORY_ORDER.map(cat => {
+                            const group = groupedNodes[cat];
+                            if (!group || group.length === 0) return null;
+                            const catColor = CATEGORY_COLOR[cat];
+                            return (
+                                <div key={cat} className="mb-8">
+                                    <div className="text-[10px] font-black uppercase tracking-[0.15em] mb-3 flex items-center gap-2" style={{ color: catColor }}>
+                                        <CategoryIcon category={cat} size={12} /> {cat}
+                                        <div className="flex-1 h-px bg-gradient-to-r from-current to-transparent opacity-20 ml-2" />
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        {group.map(node => {
+                                            const isSelected = selectedId === node.id;
+                                            const nodeOutputs = connections.filter(c => c.fromId === node.id);
+                                            return (
+                                                <div 
+                                                    key={node.id}
+                                                    onClick={() => setSelectedId(node.id)}
+                                                    className={`flex items-stretch bg-[#0f1219] rounded-xl border transition-all cursor-pointer overflow-hidden ${isSelected ? 'border-sky-500/50 shadow-[0_0_15px_rgba(14,165,233,0.15)] bg-[#131b26]' : 'border-neutral-800/60 hover:border-neutral-700 hover:bg-[#13161c]'}`}
+                                                    style={{ minHeight: '64px' }}
+                                                >
+                                                    <div className="w-1.5" style={{ background: catColor }} />
+                                                    <div className="flex items-center gap-4 px-4 py-3 w-[300px] shrink-0 border-r border-neutral-800/50">
+                                                        <div style={{ width: 36, height: 36, background: "rgba(255,255,255,0.02)", border: `1px solid ${catColor}30`, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                            <CategoryIcon category={cat} size={20} />
                                                         </div>
-                                                        <div className="flex-1 px-5 py-3 flex items-center flex-wrap gap-2">
-                                                            {nodeOutputs.length === 0 ? (
-                                                                <span className="text-neutral-600 text-xs italic">No outgoing connections</span>
-                                                            ) : (
-                                                                nodeOutputs.map(conn => {
-                                                                    const targetNode = nodes.find(n => n.id === conn.toId);
-                                                                    if (!targetNode) return null;
-                                                                    return (
-                                                                        <div 
-                                                                            key={conn.id} 
-                                                                            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#1a1f2e] border border-neutral-700/50 text-neutral-300 hover:border-sky-500/50 hover:text-sky-300 transition-colors"
-                                                                            onClick={(e) => { e.stopPropagation(); setSelectedId(targetNode.id); }}
-                                                                        >
-                                                                            <span className="text-neutral-500">⮑</span> {targetNode.label}
-                                                                        </div>
-                                                                    );
-                                                                })
-                                                            )}
+                                                        <div className="min-w-0">
+                                                            <div className="text-white text-[13px] font-bold truncate">{node.label}</div>
+                                                            <div className="text-neutral-500 text-[10px] uppercase tracking-wider mt-0.5">Qty: {node.quantity || 1}</div>
                                                         </div>
                                                     </div>
-                                                );
-                                            })}
-                                        </div>
+                                                    <div className="flex-1 px-5 py-3 flex items-center flex-wrap gap-2">
+                                                        {nodeOutputs.length === 0 ? (
+                                                            <span className="text-neutral-600 text-xs italic">No outgoing connections</span>
+                                                        ) : (
+                                                            nodeOutputs.map(conn => {
+                                                                const targetNode = nodes.find(n => n.id === conn.toId);
+                                                                if (!targetNode) return null;
+                                                                return (
+                                                                    <div 
+                                                                        key={conn.id} 
+                                                                        className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#1a1f2e] border border-neutral-700/50 text-neutral-300 hover:border-sky-500/50 hover:text-sky-300 transition-colors"
+                                                                        onClick={(e) => { e.stopPropagation(); setSelectedId(targetNode.id); }}
+                                                                    >
+                                                                        <span className="text-neutral-500">⮑</span> {targetNode.label}
+                                                                    </div>
+                                                                );
+                                                            })
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
                                     </div>
-                                );
-                            })}
-                        </div>
-                    ) : (
-                        <div className="flex-1 w-full h-full relative" style={{ minHeight: 0 }}>
-                            <div style={{ position: 'absolute', inset: 0 }}>
-                                <style>{`
-                                    .custom-edge-hover .edge-label-text, 
-                                    .custom-edge-hover .edge-label-bg {
-                                        opacity: 0;
-                                        transition: opacity 0.2s ease-in-out;
-                                    }
-                                    .custom-edge-hover:hover .edge-label-text, 
-                                    .custom-edge-hover:hover .edge-label-bg,
-                                    .custom-edge-hover.selected .edge-label-text,
-                                    .custom-edge-hover.selected .edge-label-bg {
-                                        opacity: 1;
-                                    }
-                                    .react-flow__controls {
-                                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
-                                        border: 1px solid #333 !important;
-                                        background-color: #0B0E14 !important;
-                                        border-radius: 6px !important;
-                                        overflow: hidden !important;
-                                    }
-                                    .react-flow__controls-button {
-                                        background-color: #0B0E14 !important;
-                                        border-bottom: 1px solid #333 !important;
-                                        color: #fff !important;
-                                    }
-                                    .react-flow__controls-button:last-child {
-                                        border-bottom: none !important;
-                                    }
-                                    .react-flow__controls-button:hover {
-                                        background-color: #1a2333 !important;
-                                    }
-                                    .react-flow__controls-button svg {
-                                        fill: #ccc !important;
-                                    }
-                                    .react-flow__controls-button:hover svg {
-                                        fill: #fff !important;
-                                    }
-                                `}</style>
-                                <ReactFlow
-                                    nodes={rfNodes}
-                                    edges={rfEdges}
-                                    onNodesChange={onNodesChange}
-                                    onConnect={onConnect}
-                                    onNodeClick={(_: any, node: any) => {
-                                        setSelectedId(node.id);
-                                        setIsInspectorOpen(true);
-                                    }}
-                                    nodeTypes={nodeTypes}
-                                    onInit={setReactFlowInstance}
-                                    fitView
-                                    onlyRenderVisibleElements={true}
-                                    proOptions={{ hideAttribution: true }}
-                                >
-                                    <Background color="#222" gap={16} />
-                                    <Controls />
-                                </ReactFlow>
-                            </div>
-                        </div>
-                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 {/* FLOATING RIGHT TOGGLE BUTTON */}
