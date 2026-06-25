@@ -94,6 +94,13 @@ try:
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load ros2_export router: {_e}")
 
+try:
+    from schematics import router as schematics_router
+    app.include_router(schematics_router)
+    print("[Yantra API] Registered /api/schematics/generate")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load schematics router: {_e}")
+
 # Define Pydantic models for JSON request/response validation
 class QueryRequest(BaseModel):
     query: str
