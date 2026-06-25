@@ -125,6 +125,28 @@ def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json
                 "chat_reply": "I apologize, but my upstream AI provider is currently experiencing high traffic or rate limits (Too Many Requests). Please try again in a moment."
             })
 
+_FAKE_PART_PATTERN = re.compile(r'^[A-Z]{1,3}-\d{3,4}-\d{2}[A-Z]?$')
+
+def _flag_hallucinated_components(subsystems: list, bom: list) -> list:
+    """
+    Scans LLM output for likely hallucinated part numbers.
+    Returns a list of validation warning dicts.
+    """
+    warnings = []
+    all_components = []
+    for sub in subsystems:
+        all_components.extend(sub.get("components", []))
+
+    for comp in all_components:
+        name = comp.get("name", "")
+        if _FAKE_PART_PATTERN.match(name.strip()):
+            warnings.append({
+                "type": "warning",
+                "message": f"Component '{name}' looks like a fabricated part number — verify against KB or replace with generic name."
+            })
+    return warnings
+
+
 @router.post("/api/design", response_model=DesignResponse)
 async def generate_robot_design(request: Request, design_request: DesignRequest):
     query = design_request.query.strip()
@@ -235,7 +257,12 @@ OUTPUT FORMAT:
         except Exception as e:
             print(f"[api/design] RAG search failed for '{search_term}': {e}")
             
-    rag_results = "\n\n".join(retrieved_texts) if retrieved_texts else "(No component specifications retrieved from RAG. Use general specifications.)"
+    if retrieved_texts:
+        rag_results = "\n\n".join(retrieved_texts)
+        rag_confidence = "HIGH"
+    else:
+        rag_results = "(RAG returned no matching specifications for this robot type.)"
+        rag_confidence = "LOW"
 
 
     # Load component graph if available
@@ -279,6 +306,14 @@ ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
 9. **Strict Connectivity**: 
    - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
    - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
+
+10. **Anti-Hallucination Rule (CRITICAL)**:
+   - ONLY use component names that appear in the HEBI component list, component_graph, or RAG specs provided.
+   - If a required component type has NO matching entry in any provided context, output it as:
+     {"id": "unknown_<type>", "name": "<Category> (Spec Needed)", "role": "..."}
+     and add it to the 'missing' array.
+   - NEVER generate part numbers in formats like A-XXXX-XX, SM-XXXX, or any alphanumeric code unless it appears verbatim in the provided context.
+   - NEVER use the LM2596 or any hobbyist buck converter for industrial robot power rails. Use "Industrial DC-DC Converter" as the generic name if no spec is available.
 
 OUTPUT FORMAT:
 {
@@ -327,6 +362,16 @@ OUTPUT FORMAT:
     if rag_results:
         user_prompt += f"COMPONENT SPECS & DATA SHEETS:\n{rag_results}\n"
 
+    # Inject confidence-aware constraint
+    if rag_confidence == "LOW":
+        user_prompt += """
+IMPORTANT CONSTRAINT: The RAG knowledge base returned NO matching component specs for this robot type.
+You MUST NOT invent part numbers (e.g. A-XXXX-XX style IDs).
+For any component where you lack a real part number, use a GENERIC CATEGORY NAME instead (e.g. "Servo Drive (J1)", "BLDC Motor (J2)", "Rotary Encoder (J1)").
+Add every such generic component to the 'missing' array so the user knows the KB lacks coverage.
+NEVER output placeholder part numbers that look real but are fabricated.
+"""
+
     print("[api/design] Invoking LLM...")
     try:
         res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
@@ -341,6 +386,10 @@ OUTPUT FORMAT:
     subsystems = data.get("subsystems", [])
     missing = data.get("missing", [])
     validation = data.get("validation", [])
+
+    # Add hallucination warnings
+    hallucination_warnings = _flag_hallucinated_components(subsystems, bom)
+    validation = validation + hallucination_warnings
 
     if isinstance(connections, list):
         for conn in connections:

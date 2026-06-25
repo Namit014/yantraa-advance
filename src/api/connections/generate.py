@@ -189,7 +189,7 @@ async def generate_connections(request: GenerateRequest):
             f"- id={c.id}, name={c.name}, type={c.type}" for c in request.components
         )
     else:
-        component_list = "(No components provided. You MUST determine the necessary components based on the USER PROMPT and RAG PINOUT DATA. Invent logical IDs and names for them, and include them in the nodes array.)"
+        component_list = "(No components provided. Based on the USER PROMPT and RAG PINOUT DATA, include only components you can identify from context. Use generic category names like 'Servo Drive', 'BLDC Motor', 'Encoder' — never fabricate part numbers. Any component you cannot ground in the provided context must have its id prefixed with 'unknown_'.)"
 
     system_prompt = (
         "You are an expert hardware engineer and circuit diagram generator. "
@@ -264,7 +264,7 @@ Return ONLY this JSON structure (no markdown fences):
 }}
 
 IMPORTANT:
-- Select ONLY the necessary components from the list above, or invent new ones if needed, to build the requested circuit. Do NOT include all components.
+- Select ONLY components from the list above. If a required component type is missing from the list, add it with a GENERIC NAME (e.g. "Motor Driver", "Encoder") and prefix its id with "unknown_". NEVER fabricate specific part numbers.
 - Ports must match the physical pinout of the component.
 - Include VCC, GND ports on every node.
 - Wire colors MUST follow the convention above.
