@@ -605,7 +605,8 @@ import ReactFlow, {
     Position,
     Panel,
     applyNodeChanges,
-    NodeChange
+    NodeChange,
+    ReactFlowInstance
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -703,6 +704,7 @@ const CustomComponentNode = ({ data }: any) => {
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
     const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
     const [activeView, setActiveView] = useState<"canvas" | "matrix" | "bom">("canvas");
+    const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
     const [isLibraryOpen, setIsLibraryOpen] = useState(true);
     const [isInspectorOpen, setIsInspectorOpen] = useState(true);
     
@@ -907,7 +909,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         setNodes(layoutedNodes);
         
         setIsLoading(false);
-    }, [aiResponse, rawComponents, nodes, designData]);
+
+        if (reactFlowInstance) {
+            setTimeout(() => {
+                reactFlowInstance.fitView({ padding: 0.15, duration: 800 });
+            }, 150);
+        }
+    }, [aiResponse, rawComponents, nodes, designData, reactFlowInstance]);
 
     // ONE-TIME DEDUP PASS (Runs on hot-reload to clean up dirty session data)
     useEffect(() => {
@@ -987,7 +995,12 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
     const handleAutoLayout = useCallback(() => {
         setNodes(prev => applyLayout(prev, connections));
-    }, [connections]);
+        if (reactFlowInstance) {
+            setTimeout(() => {
+                reactFlowInstance.fitView({ padding: 0.15, duration: 800 });
+            }, 150);
+        }
+    }, [connections, reactFlowInstance]);
 
     const handleAddComponent = useCallback(() => {
         if (!newName.trim()) return;
@@ -1373,6 +1386,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                         setIsInspectorOpen(true);
                                     }}
                                     nodeTypes={nodeTypes}
+                                    onInit={setReactFlowInstance}
                                     fitView
                                     onlyRenderVisibleElements={true}
                                     proOptions={{ hideAttribution: true }}
