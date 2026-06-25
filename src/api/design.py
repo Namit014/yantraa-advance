@@ -87,7 +87,7 @@ def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
             }
     return list(bom_map.values())
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "gemini-2.5-flash") -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "google/gemini-2.0-flash-exp:free") -> str:
     try:
         res = invoke_yantra_ai(
             prompt=prompt,

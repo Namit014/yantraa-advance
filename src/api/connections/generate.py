@@ -32,7 +32,7 @@ if _src_dir not in sys.path:
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Use a fast, reliable model for Yantra AI.
-CONNECTIONS_MODEL = os.environ.get("OPENROUTER_MODEL", "openrouter/owl-alpha")
+CONNECTIONS_MODEL = os.environ.get("OPENROUTER_MODEL", "google/gemini-2.0-flash-exp:free")
 
 # ── Pydantic models ────────────────────────────────────────────────────────────
 

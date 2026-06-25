@@ -9,6 +9,9 @@ import {
     Paperclip,
     PlusIcon,
 } from "lucide-react";
+import { Orbitron } from 'next/font/google';
+
+// We will keep the import for now just in case, but won't use it for the logo.
 import { MappingTab } from "./tabs/mapping-tab";
 import { ConnectionTab } from "./tabs/connection-tab";
 import { CADTab } from "./tabs/cad-tab";
@@ -214,12 +217,20 @@ export function VercelV0Chat() {
             )}>
                 {messages.length === 0 ? (
                     <div className="flex-1 flex flex-col items-center justify-center space-y-8 w-full mt-20">
-                        <h1 className="text-4xl font-bold text-white text-center">
-                            Yantra AI
-                        </h1>
+                        <div className="flex items-center justify-center mb-4">
+                            <img src="/yantra_logo.jpg" alt="Yantraa AI Logo" className="h-16 object-contain" />
+                        </div>
                     </div>
                 ) : (
-                    <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-8 px-4 flex flex-col">
+                    <>
+                        {/* Top Logo Header */}
+                        <div className="absolute top-0 left-0 w-full p-6 flex items-center z-10 bg-neutral-950/80 backdrop-blur-md">
+                            <div className="flex items-center">
+                                <img src="/yantra_logo.jpg" alt="Yantraa AI Logo" className="h-14 object-contain" />
+                            </div>
+                        </div>
+
+                        <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-24 px-4 flex flex-col">
                         {messages.map((msg, idx) => (
                             <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
                                 <div className={cn(
@@ -230,8 +241,14 @@ export function VercelV0Chat() {
                                 )}>
                                     {msg.role === 'assistant' && (
                                         <div className="flex items-center gap-2 mb-2">
-                                            <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold">
-                                                Y
+                                            <div className="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800 p-1.5 shrink-0">
+                                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                                                    <path d="M 5 20 L 95 20 L 50 90 Z" fill="white" />
+                                                    <path d="M 50 45 L 50 95" stroke="#171717" strokeWidth="8" />
+                                                    <path d="M 50 45 L 0 15" stroke="#171717" strokeWidth="8" />
+                                                    <path d="M 50 45 L 100 15" stroke="#171717" strokeWidth="8" />
+                                                    <polygon points="40,35 60,35 65,45 60,55 40,55 35,45" fill="#171717" />
+                                                </svg>
                                             </div>
                                             <span className="font-semibold text-sm text-neutral-400">Yantra AI</span>
                                         </div>
@@ -245,8 +262,14 @@ export function VercelV0Chat() {
                         {isLoading && (
                             <div className="flex w-full justify-start">
                                 <div className="bg-transparent text-neutral-200 rounded-2xl px-5 py-4 flex items-center gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold animate-pulse">
-                                        Y
+                                    <div className="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800 p-1.5 shrink-0 animate-pulse">
+                                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                                            <path d="M 5 20 L 95 20 L 50 90 Z" fill="white" />
+                                            <path d="M 50 45 L 50 95" stroke="#171717" strokeWidth="8" />
+                                            <path d="M 50 45 L 0 15" stroke="#171717" strokeWidth="8" />
+                                            <path d="M 50 45 L 100 15" stroke="#171717" strokeWidth="8" />
+                                            <polygon points="40,35 60,35 65,45 60,55 40,55 35,45" fill="#171717" />
+                                        </svg>
                                     </div>
                                     <div className="flex gap-1 items-center">
                                         <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
@@ -259,6 +282,7 @@ export function VercelV0Chat() {
 
                         <div ref={messagesEndRef} />
                     </div>
+                    </>
                 )}
 
                 {/* Input Area */}
@@ -332,13 +356,6 @@ export function VercelV0Chat() {
                                 </button>
                             </div>
                             <div className="flex items-center gap-2">
-                                <button
-                                    type="button"
-                                    className="px-2 py-1.5 rounded-lg text-sm text-zinc-400 transition-colors border border-dashed border-zinc-700 hover:border-zinc-600 hover:bg-zinc-800 flex items-center justify-between gap-1"
-                                >
-                                    <PlusIcon className="w-4 h-4" />
-                                    Project
-                                </button>
                                 <button
                                     type="button"
                                     onClick={handleSubmit}

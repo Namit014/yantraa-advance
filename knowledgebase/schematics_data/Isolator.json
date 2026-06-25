@@ -1,0 +1,6238 @@
+[
+  {
+    "component": "4N25",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler Base Connected, Vce 30V, CTR 20%, Viso 2500V, DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "4N26",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler Base Connected, Vce 30V, CTR 20%, Viso 1500V, DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "TIL111",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler, Phototransistor NPN, DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "4N27",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler Base Connected, Vce 30V, CTR 10%, Viso 2500V, DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "4N28",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler Base Connected, Vce 30V, CTR 10%, Viso 2500V, DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "4N35",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "Optocoupler, Phototransistor Output, with Base Connection, Vce 70V, CTR 100%, Viso 5000V, DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "4N36",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "Optocoupler, Phototransistor Output, with Base Connection, Vce 70V, CTR 100%, Viso 5000V, DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "4N37",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "Optocoupler, Phototransistor Output, with Base Connection, Vce 70V, CTR 100%, Viso 5000V, DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "6N135",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "High Speed Optocoupler, TTL Compatible, CTR 18%, DIP8",
+    "keywords": [
+      "High",
+      "Speed",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "6N136",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "High Speed Optocoupler, TTL Compatible, CTR 24%, DIP8",
+    "keywords": [
+      "High",
+      "Speed",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "6N135S",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "High Speed Optocoupler, TTL Compatible, CTR 18%, SMDIP8",
+    "keywords": [
+      "High",
+      "Speed",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "6N136S",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "High Speed Optocoupler, TTL Compatible, CTR 18%, SMDIP8",
+    "keywords": [
+      "High",
+      "Speed",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "6N138",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "C1",
+      "C2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Low Input Current high Gain Split Darlington Optocouplers, -0.5V to 7V VDD, DIP-8",
+    "keywords": [
+      "darlington",
+      "optocoupler"
+    ]
+  },
+  {
+    "component": "6N139",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "C1",
+      "C2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Low Input Current high Gain Split Darlington Optocouplers, -0.5V to 18V VDD, DIP-8",
+    "keywords": [
+      "darlington",
+      "optocoupler"
+    ]
+  },
+  {
+    "component": "ADN4651",
+    "type": "Isolator",
+    "pins": [
+      "VDD2",
+      "VDD1",
+      "VIN1",
+      "GND1",
+      "GND2",
+      "DIN2-",
+      "DIN2+",
+      "DOUT1-",
+      "DOUT1+",
+      "VIN2",
+      "DIN1+",
+      "DIN1-",
+      "DOUT2+",
+      "DOUT2-"
+    ],
+    "description": "Dual-Channel LVDS Isolators, 5 kV RMS/3.75 kV RMS, 600 Mbps, SSOP-20",
+    "keywords": [
+      "LVDS",
+      "Isolator"
+    ]
+  },
+  {
+    "component": "ADN4652",
+    "type": "Isolator",
+    "pins": [
+      "VDD2",
+      "VDD1",
+      "VIN1",
+      "GND1",
+      "GND2",
+      "DOUT2-",
+      "DOUT2+",
+      "DIN1-",
+      "DIN1+",
+      "VIN2",
+      "DOUT1+",
+      "DOUT1-",
+      "DIN2+",
+      "DIN2-"
+    ],
+    "description": "Dual-Channel LVDS Isolators, 5 kV RMS/3.75 kV RMS, 600 Mbps, SSOP-20",
+    "keywords": [
+      "LVDS",
+      "Isolator"
+    ]
+  },
+  {
+    "component": "ADuM1200AR",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-channel digital isolator, Bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "Dual-channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ADuM1200BR",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 10Mbps 50ns, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "ADuM1200CR",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 25Mbps 45ns, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ADuM1200WS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 1Mbps 150ns, Highest Tem. Grade, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "1Mbps"
+    ]
+  },
+  {
+    "component": "ADuM1200WT",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 10Mbps 50ns, Highest Tem. Grade, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "ADuM1200WU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 25Mbps 45ns, Highest Tem. Grade, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "\u03c0120U30",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-channel digital isolator, 3V/5V level translation, Safe LOW, SOIC-8",
+    "keywords": [
+      "Dual-channel",
+      "digital",
+      "isolator",
+      "pi120U30"
+    ]
+  },
+  {
+    "component": "\u03c0120U31",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-channel digital isolator, 3V/5V level translation, Safe HIGH, SOIC-8",
+    "keywords": [
+      "Dual-channel",
+      "digital",
+      "isolator",
+      "pi120U31"
+    ]
+  },
+  {
+    "component": "ADuM1201AR",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VOA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VIA",
+      "VDD2"
+    ],
+    "description": "Dual-channel digital isolator, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "Dual-channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ADuM1201BR",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VOA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VIA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 10Mbps 50ns, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "ADuM1201CR",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VOA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VIA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 25Mbps 45ns, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ADuM1201WS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VOA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VIA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 1Mbps 150ns, Highest Temp. Grade, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "1Mbps"
+    ]
+  },
+  {
+    "component": "ADuM1201WT",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VOA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VIA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 10Mbps 50ns, Hihgest Temp. Grade, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "ADuM1201WU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VOA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VIA",
+      "VDD2"
+    ],
+    "description": "Dual-Channel Digital Isolator, 25Mbps 45ns, Highest Temp. Grade, bidirectional communication, 3V/5V level translation, SOIC-8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ADuM120N",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VOA",
+      "VDD2"
+    ],
+    "description": "Dual-channel digital isolator,1.8 to 5V, 150Mbs, 3kV",
+    "keywords": [
+      "Dual-channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ADuM121N",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VOA",
+      "VIB",
+      "GND1",
+      "GND2",
+      "VOB",
+      "VIA",
+      "VDD2"
+    ],
+    "description": "Dual-channel digital isolator,1.8 to 5V, 150Mbs, 3kV",
+    "keywords": [
+      "Dual-channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ADuM1400xRW",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VE2",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "NC"
+    ],
+    "description": "Quad Channel Digital Isolator, 10Mbps, SOIC-16",
+    "keywords": [
+      "Digital",
+      "Isolator"
+    ]
+  },
+  {
+    "component": "ADuM1401xRW",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VE2",
+      "VID",
+      "VOC",
+      "VOB",
+      "VOA",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VOD",
+      "VE1"
+    ],
+    "description": "Quad Channel Digital Isolator, 10Mbps, SOIC-16",
+    "keywords": [
+      "Digital",
+      "Isolator"
+    ]
+  },
+  {
+    "component": "ADuM1402xRW",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VE2",
+      "VID",
+      "VIC",
+      "VOB",
+      "VOA",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "VIA",
+      "VIB",
+      "VOC",
+      "VOD",
+      "VE1"
+    ],
+    "description": "Quad Channel Digital Isolator, 10Mbps, SOIC-16",
+    "keywords": [
+      "Digital",
+      "Isolator"
+    ]
+  },
+  {
+    "component": "ADuM1410",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "CTRL2",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "DISABLE"
+    ],
+    "description": "Quad Channel Digital Isolator,10Mbps,SO-16",
+    "keywords": [
+      "Digital",
+      "Isolator"
+    ]
+  },
+  {
+    "component": "ADuM1411",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "CTRL2",
+      "VID",
+      "VOC",
+      "VOB",
+      "VOA",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VOD",
+      "CTRL1"
+    ],
+    "description": "Quad Channel Digital Isolator,10Mbps,SO-16",
+    "keywords": [
+      "Digital",
+      "Isolator"
+    ]
+  },
+  {
+    "component": "ADuM1412",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "CTRL2",
+      "VID",
+      "VIC",
+      "VOB",
+      "VOA",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "VIA",
+      "VIB",
+      "VOC",
+      "VOD",
+      "CTRL1"
+    ],
+    "description": "Quad Channel Digital Isolator,10Mbps,SO-16",
+    "keywords": [
+      "Digital",
+      "Isolator"
+    ]
+  },
+  {
+    "component": "ADuM260N",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VOF",
+      "VOE",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "VIE",
+      "VIF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "5.0 kV RMS, 6-Channel Digital Isolator, 0 reverse channels, SOIC-16",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM261N",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIF",
+      "VOE",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "VIE",
+      "VOF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "5.0 kV RMS, 6-Channel Digital Isolator, 1 reverse channels, SOIC-16",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM262N",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIF",
+      "VIE",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "VOE",
+      "VOF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "5.0 kV RMS, 6-Channel Digital Isolator, 2 reverse channels, SOIC-16",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM263N",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VIF",
+      "VIE",
+      "VID",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VOD",
+      "VOE",
+      "VOF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "5.0 kV RMS, 6-Channel Digital Isolator, 3 reverse channels, SOIC-16",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM5401",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VSEL",
+      "VID",
+      "VOC",
+      "VOB",
+      "VOA",
+      "GNDISO",
+      "VISO",
+      "GND1",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VOD",
+      "RCOUT"
+    ],
+    "description": "Quad-Channel 2.5kV isolator with integrated isoPower dc-dc converter, 3 Input / 1 output, SOIC-16",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM5402",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VSEL",
+      "VID",
+      "VIC",
+      "VOB",
+      "VOA",
+      "GNDISO",
+      "VISO",
+      "GND1",
+      "VIA",
+      "VIB",
+      "VOC",
+      "VOD",
+      "RCOUT"
+    ],
+    "description": "Quad-Channel 2.5kV isolator with integrated isoPower dc-dc converter, 2 Input / 2 output, SOIC-16",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM5403",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VSEL",
+      "VID",
+      "VIC",
+      "VIB",
+      "VOA",
+      "GNDISO",
+      "VISO",
+      "GND1",
+      "VIA",
+      "VOB",
+      "VOC",
+      "VOD",
+      "RCOUT"
+    ],
+    "description": "Quad-Channel 2.5kV isolator with integrated isoPower dc-dc converter, 1 Input / 3 output, SOIC-16",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM5404",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "VSEL",
+      "VID",
+      "VIC",
+      "VIB",
+      "VIA",
+      "GNDISO",
+      "VISO",
+      "GND1",
+      "VOA",
+      "VOB",
+      "VOC",
+      "VOD",
+      "RCOUT"
+    ],
+    "description": "Quad-Channel 2.5kV isolator with integrated isoPower dc-dc converter, 0 Input / 4 output, SOIC-16",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM5410",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "PDIS",
+      "VDDP",
+      "GND1",
+      "GNDISO",
+      "VISO",
+      "VSEL",
+      "NC",
+      "VE2",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID"
+    ],
+    "description": "Quad-Channel 2.5kV isolator with integrated dc-dc converter, 4 Input / 0 output, SSOP-24",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM5411",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "PDIS",
+      "VDDP",
+      "GND1",
+      "GNDISO",
+      "VISO",
+      "VSEL",
+      "NC",
+      "VE2",
+      "VID",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VOD",
+      "VE1"
+    ],
+    "description": "Quad-Channel 2.5kV isolator with integrated dc-dc converter, 3 Input / 1 output, SSOP-24",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM5412",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "PDIS",
+      "VDDP",
+      "GND1",
+      "GNDISO",
+      "VISO",
+      "VSEL",
+      "NC",
+      "VE2",
+      "VID",
+      "VIC",
+      "VOB",
+      "VOA",
+      "VDD2",
+      "VIA",
+      "VIB",
+      "VOC",
+      "VOD",
+      "VE1"
+    ],
+    "description": "Quad-Channel 2.5kV isolator with integrated dc-dc converter, 2 Input / 2 output, SSOP-24",
+    "keywords": [
+      "digital",
+      "isolator",
+      "galvanic",
+      "isopower"
+    ]
+  },
+  {
+    "component": "ADuM7640C",
+    "type": "Isolator",
+    "pins": [
+      "VDD1A",
+      "GND1",
+      "GND2",
+      "VOF",
+      "VOE",
+      "VDD2B",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2A",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "VDD1B",
+      "VIE",
+      "VIF"
+    ],
+    "description": "Low Power Six-Channel 6/0 Digital Isolator, 25Mbps 6ns, Fail-Safe High, QSOP-20",
+    "keywords": [
+      "6-Channels",
+      "Hex",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ADuM7640A",
+    "type": "Isolator",
+    "pins": [
+      "VDD1A",
+      "GND1",
+      "GND2",
+      "VOF",
+      "VOE",
+      "VDD2B",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2A",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "VDD1B",
+      "VIE",
+      "VIF"
+    ],
+    "description": "Low Power Six-Channel 6/0 Digital Isolator, 1Mbps 25ns, Fail-Safe High, QSOP-20",
+    "keywords": [
+      "6-Channels",
+      "Hex",
+      "Digital",
+      "Isolator",
+      "1Mbps"
+    ]
+  },
+  {
+    "component": "ADuM7641C",
+    "type": "Isolator",
+    "pins": [
+      "VDD1A",
+      "GND1",
+      "GND2",
+      "VOF",
+      "VIE",
+      "VDD2B",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2A",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "VDD1B",
+      "VOE",
+      "VIF"
+    ],
+    "description": "Low Power Six-Channel 5/1 Digital Isolator, 25Mbps 6ns, Fail-Safe High, QSOP-20",
+    "keywords": [
+      "6-Channels",
+      "Hex",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ADuM7641A",
+    "type": "Isolator",
+    "pins": [
+      "VDD1A",
+      "GND1",
+      "GND2",
+      "VOF",
+      "VIE",
+      "VDD2B",
+      "VOD",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2A",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VID",
+      "VDD1B",
+      "VOE",
+      "VIF"
+    ],
+    "description": "Low Power Six-Channel 5/1 Digital Isolator, 1Mbps 25ns, Fail-Safe High, QSOP-20",
+    "keywords": [
+      "6-Channels",
+      "Hex",
+      "Digital",
+      "Isolator",
+      "1Mbps"
+    ]
+  },
+  {
+    "component": "ADuM7642C",
+    "type": "Isolator",
+    "pins": [
+      "VDD1A",
+      "GND1",
+      "GND2",
+      "VOF",
+      "VIE",
+      "VDD2B",
+      "VID",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2A",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VOD",
+      "VDD1B",
+      "VOE",
+      "VIF"
+    ],
+    "description": "Low Power Six-Channel 4/2 Digital Isolator, 25Mbps 6ns, Fail-Safe High, QSOP-20",
+    "keywords": [
+      "6-Channels",
+      "Hex",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ADuM7642A",
+    "type": "Isolator",
+    "pins": [
+      "VDD1A",
+      "GND1",
+      "GND2",
+      "VOF",
+      "VIE",
+      "VDD2B",
+      "VID",
+      "VOC",
+      "VOB",
+      "VOA",
+      "VDD2A",
+      "VIA",
+      "VIB",
+      "VIC",
+      "VOD",
+      "VDD1B",
+      "VOE",
+      "VIF"
+    ],
+    "description": "Low Power Six-Channel 4/2 Digital Isolator, 1Mbps 25ns, Fail-Safe High, QSOP-20",
+    "keywords": [
+      "6-Channels",
+      "Hex",
+      "Digital",
+      "Isolator",
+      "1Mbps"
+    ]
+  },
+  {
+    "component": "ADuM7643C",
+    "type": "Isolator",
+    "pins": [
+      "VDD1A",
+      "GND1",
+      "GND2",
+      "VOF",
+      "VIE",
+      "VDD2B",
+      "VID",
+      "VIC",
+      "VOB",
+      "VOA",
+      "VDD2A",
+      "VIA",
+      "VIB",
+      "VOC",
+      "VOD",
+      "VDD1B",
+      "VOE",
+      "VIF"
+    ],
+    "description": "Low Power Six-Channel 3/3 Digital Isolator, 25Mbps 6ns, Fail-Safe High, QSOP-20",
+    "keywords": [
+      "6-Channels",
+      "Hex",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ADuM7643A",
+    "type": "Isolator",
+    "pins": [
+      "VDD1A",
+      "GND1",
+      "GND2",
+      "VOF",
+      "VIE",
+      "VDD2B",
+      "VID",
+      "VIC",
+      "VOB",
+      "VOA",
+      "VDD2A",
+      "VIA",
+      "VIB",
+      "VOC",
+      "VOD",
+      "VDD1B",
+      "VOE",
+      "VIF"
+    ],
+    "description": "Low Power Six-Channel 3/3 Digital Isolator, 1Mbps 25ns, Fail-Safe High, QSOP-20",
+    "keywords": [
+      "6-Channels",
+      "Hex",
+      "Digital",
+      "Isolator",
+      "1Mbps"
+    ]
+  },
+  {
+    "component": "CNY17-1",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler Base Connected, Vce 70V, CTR 40-80%, Viso 5000V (RMS), DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "CNY17-2",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler Base Connected, Vce 70V, CTR 63-125%, Viso 5000V (RMS), DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "CNY17-3",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler Base Connected, Vce 70V, CTR 100-200%, Viso 5000V (RMS), DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "CNY17-4",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "DC Optocoupler Base Connected, Vce 70V, CTR 160-320%, Viso 5000V (RMS), DIP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "EL814",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC NPN Optocoupler, DIP4/SMD4",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "FODM214",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Optocoupler, Vce 80V, CTR 20-400%, SOP-4",
+    "keywords": [
+      "AC",
+      "DC",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "FODM214A",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Optocoupler, Vce 80V, CTR 50-250%, SOP-4",
+    "keywords": [
+      "AC",
+      "DC",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "FODM217A",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 80-160%, SOP-4",
+    "keywords": [
+      "DC",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "FODM217B",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 130-260%, SOP-4",
+    "keywords": [
+      "DC",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "FODM217C",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 200-400%, SOP-4",
+    "keywords": [
+      "DC",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "FODM217D",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 300-600%, SOP-4",
+    "keywords": [
+      "DC",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "H11AA1",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "AC/DC NPN Optocoupler, DIP-6",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "H11L1",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Schmitt Trigger Output Optocoupler, High Speed, DIP-6, 1.6mA turn on threshold",
+    "keywords": [
+      "High",
+      "Speed",
+      "Schmitt",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "H11L2",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Schmitt Trigger Output Optocoupler, High Speed, DIP-6, 10mA turn on threshold",
+    "keywords": [
+      "High",
+      "Speed",
+      "Schmitt",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "H11L3",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Schmitt Trigger Output Optocoupler, High Speed, DIP-6, 5mA turn on threshold",
+    "keywords": [
+      "High",
+      "Speed",
+      "Schmitt",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "HCNW2201",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Opto Coupler, 1kV/us, 50V CMR, Schmitt trigger output, WDIP-8",
+    "keywords": [
+      "opto",
+      "coupler",
+      "schmitt",
+      "output"
+    ]
+  },
+  {
+    "component": "HCNW2211",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Opto Coupler, 10kV/us, 1kV CMR, Schmitt trigger output, WDIP-8",
+    "keywords": [
+      "opto",
+      "coupler",
+      "schmitt",
+      "output"
+    ]
+  },
+  {
+    "component": "HCPL-0201",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Opto Coupler, 1kV/us, 50V CMR, Schmitt trigger output, SOIC-8",
+    "keywords": [
+      "opto",
+      "coupler",
+      "schmitt",
+      "output"
+    ]
+  },
+  {
+    "component": "HCPL-0211",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Opto Coupler, 5kV/us, 300V CMR, Schmitt trigger output, SOIC-8",
+    "keywords": [
+      "opto",
+      "coupler",
+      "schmitt",
+      "output"
+    ]
+  },
+  {
+    "component": "HCPL-061A",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed HCMOS/LSTTL/TTL Compatible Optocoupler with enable, dV/dt 1000/us, VCM 50, -0.5V to 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-061N",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed HCMOS/LSTTL/TTL Compatible Optocoupler with enable, dV/dt 1000/us, VCM 1000, -0.5V to 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-0600",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed LSTTL/TTL Compatible Optocoupler with enable, dV/dt 5000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-0601",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed LSTTL/TTL Compatible Optocoupler with enable, dV/dt 10000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-0611",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed LSTTL/TTL Compatible Optocoupler with enable, dV/dt 15000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "VO0600T",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed CMOS Compatible Optocoupler with enable, dV/dt 1000/us, VCM 10, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "VO0601T",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed CMOS Compatible Optocoupler with enable, dV/dt 5000/us, VCM 50, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "VO0611T",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed CMOS Compatible Optocoupler with enable, dV/dt 15000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-063A",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed HCMOS/LSTTL/TTL Compatible Optocoupler, dV/dt 1000/us, VCM 50, -0.5V to 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-063N",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed HCMOS/LSTTL/TTL Compatible Optocoupler, dV/dt 1000/us, VCM 1000, -0.5V to 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-0630",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed LSTTL/TTL Compatible Optocoupler, dV/dt 5000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-0631",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed LSTTL/TTL Compatible Optocoupler, dV/dt 10000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-0661",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed LSTTL/TTL Compatible Optocoupler, dV/dt 15000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "VO0630T",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed CMOS Compatible Optocoupler, dV/dt 1000/us, VCM 50, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "VO0631T",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed CMOS Compatible Optocoupler, dV/dt 5000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "VO0661T",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed CMOS Compatible Optocoupler, dV/dt 15000/us, VCM 1000, max 7V VCC, SOIC-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-2201",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Opto Coupler, 1kV/us, 50V CMR, Schmitt trigger output, DIP-8",
+    "keywords": [
+      "opto",
+      "coupler",
+      "schmitt",
+      "output"
+    ]
+  },
+  {
+    "component": "HCPL-2211",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Opto Coupler, 5kV/us, 300V CMR, Schmitt trigger output, DIP-8",
+    "keywords": [
+      "opto",
+      "coupler",
+      "schmitt",
+      "output"
+    ]
+  },
+  {
+    "component": "HCPL-2202",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Opto Coupler, 1kV/us, 50V CMR, Schmitt trigger output, DIP-8",
+    "keywords": [
+      "opto",
+      "coupler",
+      "schmitt",
+      "output"
+    ]
+  },
+  {
+    "component": "HCPL-2212",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Opto Coupler, 5kV/us, 300V CMR, Schmitt trigger output, DIP-8",
+    "keywords": [
+      "opto",
+      "coupler",
+      "schmitt",
+      "output"
+    ]
+  },
+  {
+    "component": "HCPL-261A",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed HCMOS/LSTTL/TTL Compatible Optocoupler with enable, dV/dt 1000/us, VCM 50, -0.5V to 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-261N",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed HCMOS/LSTTL/TTL Compatible Optocoupler with enable, dV/dt 1000/us, VCM 1000, -0.5V to 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "6N137",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed LSTTL/TTL Compatible Optocoupler with enable, dV/dt 1000/us, VCM 10, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-2601",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed LSTTL/TTL Compatible Optocoupler with enable, dV/dt 10000/us, VCM 1000, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-2611",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed LSTTL/TTL Compatible Optocoupler with enable, dV/dt 15000/us, VCM 1000, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "VO2601",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed CMOS Compatible Optocoupler with enable, dV/dt 5000/us, VCM 50, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "VO2611",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "EN",
+      "VCC"
+    ],
+    "description": "Single High Speed CMOS Compatible Optocoupler with enable, dV/dt 15000/us, VCM 1000, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates",
+      "enable"
+    ]
+  },
+  {
+    "component": "HCPL-263A",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed HCMOS/LSTTL/TTL Compatible Optocoupler, dV/dt 1000/us, VCM 50, -0.5V to 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-263N",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed HCMOS/LSTTL/TTL Compatible Optocoupler, dV/dt 1000/us, VCM 1000, -0.5V to 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-2630",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed LSTTL/TTL Compatible Optocoupler, dV/dt 5000/us, VCM 1000, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-2631",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed LSTTL/TTL Compatible Optocoupler, dV/dt 10000/us, VCM 1000, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-4661",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed LSTTL/TTL Compatible Optocoupler, dV/dt 15000/us, VCM 1000, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "VO2630",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed CMOS Compatible Optocoupler, dV/dt 1000/us, VCM 10, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "VO2631",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed CMOS Compatible Optocoupler, dV/dt 5000/us, VCM 50, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "VO4661",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed CMOS Compatible Optocoupler, dV/dt 15000/us, VCM 1000, max 7V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "CPC-5002",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual High Speed CMOS Compatible Optocoupler, dV/dt 5000/us, VCM 20, -0.3V to 6.5V VCC, DIP-8",
+    "keywords": [
+      "High",
+      "speed",
+      "optically",
+      "coupled",
+      "gates"
+    ]
+  },
+  {
+    "component": "HCPL-9000",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "IN1",
+      "NC",
+      "GND1",
+      "GND2",
+      "OUT1",
+      "V~OE",
+      "VDD2"
+    ],
+    "description": "High Speed Digital Isolator, CMOS, excellent transient immunity, active-low logic output enable, DIP-8",
+    "keywords": [
+      "digital",
+      "isolator",
+      "high",
+      "speed"
+    ]
+  },
+  {
+    "component": "HCPL2731",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Low Input Current high Gain Split Darlington Optocouplers, DIP-8",
+    "keywords": [
+      "darlington",
+      "optocoupler"
+    ]
+  },
+  {
+    "component": "HCPL2730",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Low Input Current high Gain Split Darlington Optocouplers",
+    "keywords": [
+      "darlington",
+      "optocoupler"
+    ]
+  },
+  {
+    "component": "ILD74",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Dual Optocoupler, NPN Phototransistor Output, TTL compatible, DIP8/SMD8",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Dual",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "ILQ74",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad Optocoupler, NPN Phototransistor Output, TTL compatible, DIP16/SMD16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Dual",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "ISO1211",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN",
+      "OUT",
+      "GND1",
+      "SUB",
+      "FGND",
+      "IN",
+      "SENSE"
+    ],
+    "description": "Isolated, 1 Channel, 24 to 60V Digital Input Receiver, SOIC-8",
+    "keywords": [
+      "isolated",
+      "digital",
+      "input"
+    ]
+  },
+  {
+    "component": "ISO1212",
+    "type": "Isolator",
+    "pins": [
+      "GND1",
+      "IN2",
+      "SENSE2",
+      "SUB2",
+      "SUB1",
+      "FGND1",
+      "IN1",
+      "SENSE1",
+      "VCC1",
+      "EN",
+      "OUT1",
+      "OUT2",
+      "NC",
+      "FGND2"
+    ],
+    "description": "Isolated, 2 Channels, 24 to 60V Digital Inputs Receiver, SSOP-16",
+    "keywords": [
+      "isolated",
+      "digital",
+      "input"
+    ]
+  },
+  {
+    "component": "ISO1540",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "SDA1",
+      "SCL1",
+      "GND1",
+      "GND2",
+      "SCL2",
+      "SDA2",
+      "VCC2"
+    ],
+    "description": "I2C Isolator, 2.5 kVrms, Bidirectional clock and data, SOIC-8",
+    "keywords": [
+      "digital",
+      "isolator",
+      "i2c"
+    ]
+  },
+  {
+    "component": "ISO1541",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "SDA1",
+      "SCL1",
+      "GND1",
+      "GND2",
+      "SCL2",
+      "SDA2",
+      "VCC2"
+    ],
+    "description": "I2C Isolator, 2.5 kVrms, Unidirectional Clock, Bidirectional data, SOIC-8",
+    "keywords": [
+      "digital",
+      "isolator",
+      "i2c"
+    ]
+  },
+  {
+    "component": "ISO7320C",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "INA",
+      "INB",
+      "GND1",
+      "GND2",
+      "OUTB",
+      "OUTA",
+      "VCC2"
+    ],
+    "description": "Low Power Dual-Channel 2/0 Digital Isolator, 25Mbps 33ns, Fail-Safe High, SO8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7320FC",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "INA",
+      "INB",
+      "GND1",
+      "GND2",
+      "OUTB",
+      "OUTA",
+      "VCC2"
+    ],
+    "description": "Low Power Dual-Channel 2/0 Digital Isolator, 25Mbps 33ns, Fail-Safe Low, SO8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7321C",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "OUTA",
+      "INB",
+      "GND1",
+      "GND2",
+      "OUTB",
+      "INA",
+      "VCC2"
+    ],
+    "description": "Low Power Dual-Channel 1/1 Digital Isolator, 25Mbps 33ns, Fail-Safe High, SO8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7321FC",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "OUTA",
+      "INB",
+      "GND1",
+      "GND2",
+      "OUTB",
+      "INA",
+      "VCC2"
+    ],
+    "description": "Low Power Dual-Channel 1/1 Digital Isolator, 25Mbps 33ns, Fail-Safe Low, SO8",
+    "keywords": [
+      "2Ch",
+      "Dual",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7330C",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN",
+      "NC",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "INC"
+    ],
+    "description": "Low Power Quad-Channel 3/0 Digital Isolator, 25Mbps 31ns, Fail-Safe High, SO16",
+    "keywords": [
+      "3Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7330FC",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN",
+      "NC",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "INC"
+    ],
+    "description": "Low Power Quad-Channel 3/0 Digital Isolator, 25Mbps 31ns, Fail-Safe Low, SO16",
+    "keywords": [
+      "3Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7331C",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN2",
+      "NC",
+      "INC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "OUTC",
+      "EN1"
+    ],
+    "description": "Low Power Quad-Channel 2/1 Digital Isolator, 25Mbps 31ns, Fail-Safe High, SO16",
+    "keywords": [
+      "3Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7331FC",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN2",
+      "NC",
+      "INC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "OUTC",
+      "EN1"
+    ],
+    "description": "Low Power Quad-Channel 2/1 Digital Isolator, 25Mbps 31ns, Fail-Safe Low, SO16",
+    "keywords": [
+      "3Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7340C",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "INC",
+      "IND"
+    ],
+    "description": "Low Power Quad-Channel 4/0 Digital Isolator, 25Mbps 31ns, Fail-Safe High, SO16",
+    "keywords": [
+      "4Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7340FC",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "INC",
+      "IND"
+    ],
+    "description": "Low Power Quad-Channel 4/0 Digital Isolator, 25Mbps 31ns, Fail-Safe Low, SO16",
+    "keywords": [
+      "4Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7341C",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN2",
+      "IND",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "INC",
+      "OUTD",
+      "EN1"
+    ],
+    "description": "Low Power Quad-Channel 3/1 Digital Isolator, 25Mbps 31ns, Fail-Safe High, SO16",
+    "keywords": [
+      "4Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7341FC",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN2",
+      "IND",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "INC",
+      "OUTD",
+      "EN1"
+    ],
+    "description": "Low Power Quad-Channel 3/1 Digital Isolator, 25Mbps 31ns, Fail-Safe Low, SO16",
+    "keywords": [
+      "4Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7342C",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN2",
+      "IND",
+      "INC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "OUTC",
+      "OUTD",
+      "EN1"
+    ],
+    "description": "Low Power Quad-Channel 2/2 Digital Isolator, 25Mbps 31ns, Fail-Safe High, SO16",
+    "keywords": [
+      "4Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7342FC",
+    "type": "Isolator",
+    "pins": [
+      "VCC1",
+      "EN2",
+      "IND",
+      "INC",
+      "OUTB",
+      "OUTA",
+      "GND2",
+      "VCC2",
+      "GND1",
+      "INA",
+      "INB",
+      "OUTC",
+      "OUTD",
+      "EN1"
+    ],
+    "description": "Low Power Quad-Channel 2/2 Digital Isolator, 25Mbps 31ns, Fail-Safe Low, SO16",
+    "keywords": [
+      "4Ch",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "25Mbps"
+    ]
+  },
+  {
+    "component": "ISO7760DBQ",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "OUTF",
+      "OUTE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "INE",
+      "INF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default high, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SSOP-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7760FDBQ",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "OUTF",
+      "OUTE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "INE",
+      "INF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default low, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SSOP-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7760DW",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "OUTF",
+      "OUTE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "INE",
+      "INF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default high, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SOIC-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7760FDW",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "OUTF",
+      "OUTE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "INE",
+      "INF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default low, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SOIC-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7761DBQ",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "OUTE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "INE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default high, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SSOP-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7761FDBQ",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "OUTE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "INE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default low, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SSOP-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7761DW",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "OUTE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "INE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default high, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SOIC-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7761FDW",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "OUTE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "INE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default low, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SOIC-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7762DBQ",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "INE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "OUTE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default high, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SSOP-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7762FDBQ",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "INE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "OUTE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default low, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SSOP-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7762DW",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "INE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "OUTE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default high, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SOIC-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7762FDW",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "INE",
+      "OUTD",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "IND",
+      "OUTE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default low, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SOIC-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7763DBQ",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "INE",
+      "IND",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "OUTD",
+      "OUTE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default high, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SSOP-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7763FDBQ",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "INE",
+      "IND",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "OUTD",
+      "OUTE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default low, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SSOP-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7763DW",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "INE",
+      "IND",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "OUTD",
+      "OUTE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default high, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SOIC-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "ISO7763FDW",
+    "type": "Isolator",
+    "pins": [
+      "Vcc1",
+      "INF",
+      "INE",
+      "IND",
+      "OUTC",
+      "OUTB",
+      "OUTA",
+      "Vcc2",
+      "INA",
+      "INB",
+      "INC",
+      "OUTD",
+      "OUTE",
+      "OUTF",
+      "GND1",
+      "GND2"
+    ],
+    "description": "Default low, High-speed, robust EMC, reinforced, six-channel, digital, isolator, SOIC-16",
+    "keywords": [
+      "6",
+      "channel",
+      "digital",
+      "isolator"
+    ]
+  },
+  {
+    "component": "LTV-247",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Quad Optocoupler, Vce 80V, CTR 100-600%, SOP-16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Quad",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-352T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Darlington Optocoupler, Vce 300V, CTR 1000%, SO-4",
+    "keywords": [
+      "NPN",
+      "Darlington",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-354T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Optocoupler, Vce 35V, CTR 20%, SO-4",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-355T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Darlington Optocoupler, Vce 35V, CTR 600%, SO-4",
+    "keywords": [
+      "NPN",
+      "Darlington",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-356T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 50%, SO-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-357T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50%, SO-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-358T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 120V, CTR 50%, SO-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-814",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Optocoupler, Vce 35V, CTR 20%, DIP4",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-817",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50%, DIP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-817M",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50%, DIP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-817S",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50%, SMDIP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-824",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Dual AC/DC Optocoupler, Vce 35V, CTR 20%, DIP8",
+    "keywords": [
+      "Dual",
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-827M",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50%, DIP-8",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-827S",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50%, SMDIP-8",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-844",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad AC/DC Optocoupler, Vce 35V, CTR 20%, DIP16",
+    "keywords": [
+      "Quad",
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-847M",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50%, DIP-16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-847S",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50%, SMDIP-16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "NSL-32",
+    "type": "Isolator",
+    "pins": [
+      "A",
+      "K",
+      "R"
+    ],
+    "description": "Optocoupler, LED Input, Photocell Output",
+    "keywords": [
+      "optocoupler"
+    ]
+  },
+  {
+    "component": "PC3H4",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Optocoupler, Vce 70V, CTR 100-250%, SOP4",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "PC3H4A",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Optocoupler, Vce 70V, CTR 100-250%, SOP4",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "PC817",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, CTR 50-300%, DIP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "EL817",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 35V, DIP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "PC827",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Dual DC Optocoupler, Vce 35V, CTR 50%, DIP-8",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Dual",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-827",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Dual DC Optocoupler, Vce 35V, CTR 50%, DIP-8",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Dual",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "PC837",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Triple Optocoupler, Vce 35V, CTR 50-300%, DIP12",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Triple",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "PC847",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Quad Optocoupler, Vce 35V, CTR 50-300%, DIP16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Quad",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "LTV-847",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad DC Optocoupler, Vce 35V, CTR 50%, DIP-16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Quad",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "PS8802-1",
+    "type": "Isolator",
+    "pins": [
+      "NC",
+      "A",
+      "C",
+      "GND",
+      "VO",
+      "VCC"
+    ],
+    "description": "Single DC Optocoupler Base Connected, Vcc 35V, CTR 15%, Viso 2500V, SSOP-8",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "PS8802-2",
+    "type": "Isolator",
+    "pins": [
+      "A1",
+      "C1",
+      "C2",
+      "A2",
+      "GND",
+      "VO2",
+      "VO1",
+      "VCC"
+    ],
+    "description": "Dual DC Optocoupler Base Connected, Vcc 35V, CTR 15%, Viso 2500V, SSOP-8",
+    "keywords": [
+      "Dual",
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "SFH617A-1X007T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-80, -55 to +110 degree Celcius, UL, BSI, FIMKO, cUL, 8mm clearence SMD PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-80"
+    ]
+  },
+  {
+    "component": "SFH617A-3X007T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-80, -55 to +110 degree Celcius, UL, BSI, FIMKO, cUL, 8mm clearence SMD PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-80"
+    ]
+  },
+  {
+    "component": "SFH617A-2X017T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-125, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, 8mm clearence SMD PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-125"
+    ]
+  },
+  {
+    "component": "SFH617A-3X017T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-200, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, 8mm clearence SMD PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-200"
+    ]
+  },
+  {
+    "component": "SFH617A-2X009T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-125, -55 to +110 degree Celcius, UL, BSI, FIMKO, SMD PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-125"
+    ]
+  },
+  {
+    "component": "SFH617A-2X019T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-125, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, SMD PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-125"
+    ]
+  },
+  {
+    "component": "SFH620A-1",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-125, UL, cUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-125"
+    ]
+  },
+  {
+    "component": "SFH620A-2",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-200 UL, cUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-200"
+    ]
+  },
+  {
+    "component": "SFH620A-3",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-320 UL, cUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-320"
+    ]
+  },
+  {
+    "component": "SFH620A-1X001",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-125 VDE, UL, CUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-125"
+    ]
+  },
+  {
+    "component": "SFH620A-2X001",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-200 VDE, UL, CUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-200"
+    ]
+  },
+  {
+    "component": "SFH620A-3X001",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-320 VDE, UL, CUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-320"
+    ]
+  },
+  {
+    "component": "SFH620A-1X006",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-125, UL, cUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-125"
+    ]
+  },
+  {
+    "component": "SFH620A-2X006",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-200 UL, cUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-200"
+    ]
+  },
+  {
+    "component": "SFH620A-3X006",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-320 UL, cUL, BSI, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-320"
+    ]
+  },
+  {
+    "component": "SFH620A-2X016",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-200 VDE, UL, CUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-200"
+    ]
+  },
+  {
+    "component": "SFH620A-3X016",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-320 VDE, UL, CUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-320"
+    ]
+  },
+  {
+    "component": "SFH620A-2X007T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-200 UL, cUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-200"
+    ]
+  },
+  {
+    "component": "SFH6206-1T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-125, UL, cUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-125"
+    ]
+  },
+  {
+    "component": "SFH6206-2T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-200, UL, cUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-200"
+    ]
+  },
+  {
+    "component": "SFH6206-3T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-320, UL, cUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-320"
+    ]
+  },
+  {
+    "component": "SFH620A-2X017T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-200 VDE, UL, CUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-200"
+    ]
+  },
+  {
+    "component": "SFH6206-2X001T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-200, VDE, UL, CUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-200"
+    ]
+  },
+  {
+    "component": "SFH6206-3X001T",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-320, VDE, UL, CUL, BSI, SMD-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-320"
+    ]
+  },
+  {
+    "component": "Si8640BA-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 1.0kV isolation, Fail-Safe Low, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640BB-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640EB-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe High, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640BB-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640BD-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe Low, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640ED-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe High, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640BD-B-IS2",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe Low, 8mm creepage, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640ED-B-IS2",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe High, 8mm creepage, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640BB-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640EC-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 3.75kV isolation, Fail-Safe High, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8640BC-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "NC"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 3.75kV isolation, Fail-Safe Low, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641BA-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 1.0kV isolation, Fail-Safe Low, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641BB-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641EB-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe High, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641BB-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641BD-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe Low, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641ED-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe High, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641BD-B-IS2",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe Low, 8mm creepage, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641ED-B-IS2",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe High, 8mm creepage, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641BB-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641BC-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 3.75kV isolation, Fail-Safe Low, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8641EC-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 3.75kV isolation, Fail-Safe High, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "3In",
+      "1Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642BA-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 1.0kV isolation, Fail-Safe Low, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642BB-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642EA-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 1.0kV isolation, Fail-Safe High, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642EB-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe High, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642BB-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642BD-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe Low, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642ED-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe High, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642BD-B-IS2",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe Low, 8mm creepage, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642ED-B-IS2",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe High, 8mm creepage, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642BB-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642BC-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 3.75kV isolation, Fail-Safe Low, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8642EC-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "EN2",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "EN1"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 3.75kV isolation, Fail-Safe High, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "2In",
+      "2Out",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8645BA-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "NC",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 1.0kV isolation, Fail-Safe Low, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8645BB-B-IU",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "NC",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, QSOP-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8645BB-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "NC",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8645BD-B-IS",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "NC",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 5.0kV isolation, Fail-Safe Low, SOIC-16W",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8645BB-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "NC",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 2.5kV isolation, Fail-Safe Low, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "Si8645BC-B-IS1",
+    "type": "Isolator",
+    "pins": [
+      "VDD1",
+      "NC",
+      "B4",
+      "B3",
+      "B2",
+      "B1",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "description": "Low-Power Quad-Channel Digital Isolator, 150Mbps, 2.5-5.5V, 3.75kV isolation, Fail-Safe Low, SOIC-16",
+    "keywords": [
+      "4Ch",
+      "4In",
+      "Quad",
+      "Digital",
+      "Isolator",
+      "150Mbps"
+    ]
+  },
+  {
+    "component": "TCMT1100",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 50-600%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1101",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 40-80%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1102",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 63-125%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1103",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 100-200%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1104",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 160-320%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1105",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 50-150%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1106",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 100-300%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1107",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 80-160%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1108",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 130-260%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT1109",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Vce 70V, CTR 200-400%, Viso 3750V (RMS), SOP-4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT4100",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad Optocoupler, Vce 70V, CTR 50-600%, Viso 3750V (RMS), SOP-16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TCMT4106",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad Optocoupler, Vce 70V, CTR 100-300%, Viso 3750V (RMS), SOP-16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "opto"
+    ]
+  },
+  {
+    "component": "TLP127",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Darlington Optocoupler, Vce 300V, CTR 1000%, MFSOP4",
+    "keywords": [
+      "NPN",
+      "Darlington",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP130",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC DC Optocoupler Base Connected, Vce 80V, CTR 50-100%, MFSOP6",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "TLP131",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler Base Connected, Vce 80V, CTR 50-200%, MFSOP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "TLP137",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler Base Connected, Vce 80V, CTR 100-200%, MFSOP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler",
+      "Base",
+      "Connected"
+    ]
+  },
+  {
+    "component": "TLP184",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Optocoupler, Vce 80V, CTR 50-100%, MFSOP6",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP184xSE",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Optocoupler, Vce 80V, CTR 50-100%, MFSOP6",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP185",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 50-100%, MFSOP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP185xSE",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 50-100%, MFSOP6",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP2703",
+    "type": "Isolator",
+    "pins": [
+      "A",
+      "NC",
+      "K",
+      "GND",
+      "Out",
+      "VCC"
+    ],
+    "description": "100 kbps, High-speed GaA&As, high-gain, 4.5 - 18 VCC, 5 kVrms, CTR 900%, SO-6L",
+    "keywords": [
+      "NPN",
+      "Darlington",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP2745",
+    "type": "Isolator",
+    "pins": [
+      "A",
+      "NC",
+      "K",
+      "GND",
+      "VO",
+      "VDD"
+    ],
+    "description": "10-Mbps low-power non inverting photocouple,5 kVrms, 4.5 - 30 Vdd, push-pull output",
+    "keywords": [
+      "Photocouple",
+      "highspeed",
+      "non",
+      "inverting",
+      "push-pull",
+      "output"
+    ]
+  },
+  {
+    "component": "TLP2748",
+    "type": "Isolator",
+    "pins": [
+      "A",
+      "NC",
+      "K",
+      "GND",
+      "VO",
+      "VDD"
+    ],
+    "description": "10-Mbps inverting photocouple,5 kVrms, 4.5 - 30 Vdd, push-pull output, SO-6L",
+    "keywords": [
+      "Photocouple",
+      "highspeed",
+      "inverting",
+      "push-pull",
+      "output"
+    ]
+  },
+  {
+    "component": "TLP2761",
+    "type": "Isolator",
+    "pins": [
+      "A",
+      "NC",
+      "K",
+      "GND",
+      "VO",
+      "VDD"
+    ],
+    "description": "15-Mbps inverting photocouple,5 kVrms, 2.7 - 5.5 Vdd, push-pull output",
+    "keywords": [
+      "Photocouple",
+      "highspeed",
+      "inverting",
+      "push-pull",
+      "output"
+    ]
+  },
+  {
+    "component": "TLP2767",
+    "type": "Isolator",
+    "pins": [
+      "A",
+      "NC",
+      "K",
+      "GND",
+      "VO",
+      "VDD"
+    ],
+    "description": "50-Mbps high speed inverting photocouple,5 kVrms, 2.7 - 5.5 Vdd, push-pull output",
+    "keywords": [
+      "Photocouple",
+      "highspeed",
+      "non",
+      "inverting",
+      "push-pull",
+      "output"
+    ]
+  },
+  {
+    "component": "TLP2768A",
+    "type": "Isolator",
+    "pins": [
+      "A",
+      "NC",
+      "K",
+      "GND",
+      "VO",
+      "VDD"
+    ],
+    "description": "20-Mbps high speed inverting photocouple,5 kVrms, 2.7 - 5.5 Vdd, open collector, SO-6L",
+    "keywords": [
+      "Photocouple",
+      "highspeed",
+      "inverting",
+      "open",
+      "collector",
+      "output"
+    ]
+  },
+  {
+    "component": "TLP2770",
+    "type": "Isolator",
+    "pins": [
+      "A",
+      "NC",
+      "K",
+      "GND",
+      "VO",
+      "VDD"
+    ],
+    "description": "20-Mbps low-power non inverting photocouple,5 kVrms, 2.7 to 5.5 Vdd, push-pull output, SO-6L",
+    "keywords": [
+      "Photocouple",
+      "highspeed",
+      "non",
+      "inverting",
+      "push-pull",
+      "output"
+    ]
+  },
+  {
+    "component": "TLP290",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Phototransistor Optocoupler, Vce 80V, CTR 50-600%, not recommended for new designs, SOP4",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TCMT1600",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Phototransistor Optocoupler, Vce 70V, CTR 80-300%, SOP4",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "ACPL-214-500E",
+    "type": "Isolator",
+    "pins": [],
+    "description": "AC/DC Phototransistor Optocoupler, Vce 80V, CTR 20-400%, SOP-4",
+    "keywords": [
+      "npn",
+      "ac",
+      "dc",
+      "ac-dc",
+      "acdc",
+      "phototransistor",
+      "optocoupler",
+      "optoisolator"
+    ]
+  },
+  {
+    "component": "TLP290-4",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad AC/DC Phototransistor Optocoupler, Vce 80V, CTR 50-600%, SOP16",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Quad",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TCMT4600",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad AC/DC Phototransistor Optocoupler, Vce 70V, CTR 80-300%, SOP16",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Quad",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TCMT4606",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad AC/DC Phototransistor Optocoupler, Vce 70V, CTR 100-300%, SOP16",
+    "keywords": [
+      "NPN",
+      "AC",
+      "DC",
+      "Quad",
+      "Phototransistor",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP291",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 50-100%, SOP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP291-4",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Quad DC Optocoupler, Vce 80V, CTR 50-100%, SOP16",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Quad",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP3021",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "Photo-Triac, Vdrm 400V, Ift 15mA, DIP6",
+    "keywords": [
+      "Photo-Triac",
+      "Opto",
+      "Triac"
+    ]
+  },
+  {
+    "component": "TLP3022",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "Photo-Triac, Vdrm 400V, Ift 10mA, DIP6",
+    "keywords": [
+      "Photo-Triac",
+      "Opto",
+      "Triac"
+    ]
+  },
+  {
+    "component": "TLP3023",
+    "type": "Isolator",
+    "pins": [
+      "NC"
+    ],
+    "description": "Photo-Triac, Vdrm 400V, Ift 5mA, DIP6",
+    "keywords": [
+      "Photo-Triac",
+      "Opto",
+      "Triac"
+    ]
+  },
+  {
+    "component": "TLP627",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Darlington Optocoupler, Vce 300V, CTR 1000%, DIP4",
+    "keywords": [
+      "NPN",
+      "Darlington",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP627-2",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Dual Darlington Optocoupler, Vce 300V, CTR 1000%, DIP8",
+    "keywords": [
+      "NPN",
+      "Dual",
+      "Darlington",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP627-4",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Quad Darlington Optocoupler, Vce 300V, CTR 1000%, DIP16",
+    "keywords": [
+      "NPN",
+      "Quad",
+      "Darlington",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "TLP785",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 50-200%, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "SFH617A-1",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-80, -55 to +110 degree Celcius, UL, BSI, FIMKO, cUL, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-80"
+    ]
+  },
+  {
+    "component": "SFH617A-2",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-125, -55 to +110 degree Celcius, UL, BSI, FIMKO, cUL, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-125"
+    ]
+  },
+  {
+    "component": "SFH617A-3",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-200, -55 to +110 degree Celcius, UL, BSI, FIMKO, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-200"
+    ]
+  },
+  {
+    "component": "SFH617A-4",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 160-320, -55 to +110 degree Celcius, UL, BSI, FIMKO, cUL, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "160-320"
+    ]
+  },
+  {
+    "component": "SFH617A-1X001",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-80, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, cUL, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-80"
+    ]
+  },
+  {
+    "component": "SFH617A-2X001",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-125, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-125"
+    ]
+  },
+  {
+    "component": "SFH617A-3X001",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-200, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-200"
+    ]
+  },
+  {
+    "component": "SFH617A-4X001",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 160-320, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "160-320"
+    ]
+  },
+  {
+    "component": "TLP785F",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 80V, CTR 50-200%, DIP4F",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "SFH617A-1X006",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-80, -55 to +110 degree Celcius, UL, BSI, FIMKO, cUL, wide THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-80"
+    ]
+  },
+  {
+    "component": "SFH617A-2X006",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-125, -55 to +110 degree Celcius, UL, BSI, FIMKO, cUL, wide THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-125"
+    ]
+  },
+  {
+    "component": "SFH617A-3X006",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-200, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, wide THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-200"
+    ]
+  },
+  {
+    "component": "SFH617A-4X006",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 160-320, -55 to +110 degree Celcius, UL, BSI, FIMKO, cUL, wide THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "160-320"
+    ]
+  },
+  {
+    "component": "SFH617A-1X016",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 40-80, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, cUL, wide THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "40-80"
+    ]
+  },
+  {
+    "component": "SFH617A-2X016",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 63-125, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, wide THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "63-125"
+    ]
+  },
+  {
+    "component": "SFH617A-3X016",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 100-200, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, wide THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "100-200"
+    ]
+  },
+  {
+    "component": "SFH617A-4X016",
+    "type": "Isolator",
+    "pins": [],
+    "description": "Optocoupler, Phototransistor Output, 5300 VRMS, VCEO 70V, CTR% 160-320, -55 to +110 degree Celcius, VDE, UL, BSI, FIMKO, wide THT PDIP-4",
+    "keywords": [
+      "Optocoupler",
+      "Phototransistor",
+      "Output",
+      "5300",
+      "VRMS",
+      "VCEO",
+      "70V",
+      "CTR%",
+      "160-320"
+    ]
+  },
+  {
+    "component": "VO615A",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 50-600% @ 5mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-1",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 40-80% @ 10mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-2",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 63-125% @ 10mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-3",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 100-200% @ 10mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-4",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 160-320% @ 10mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-5",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 50-150% @ 5mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-6",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 100-300% @ 5mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-7",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 80-160% @ 5mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-8",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 130-260% @ 5mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VO615A-9",
+    "type": "Isolator",
+    "pins": [],
+    "description": "DC Optocoupler, Vce 70V, CTR 200-400% @ 5mA, Viso 5000Vrms, DIP4",
+    "keywords": [
+      "NPN",
+      "DC",
+      "Optocoupler"
+    ]
+  },
+  {
+    "component": "VTL5C",
+    "type": "Isolator",
+    "pins": [
+      "-",
+      "+"
+    ],
+    "description": "Low Cost Axial Vactrols",
+    "keywords": [
+      "vactrol"
+    ]
+  },
+  {
+    "component": "VTL5Cx2",
+    "type": "Isolator",
+    "pins": [
+      "-",
+      "+"
+    ],
+    "description": "Dual Element Axial Vactrols",
+    "keywords": [
+      "vactrol"
+    ]
+  }
+]

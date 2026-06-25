@@ -1,0 +1,1066 @@
+[
+  {
+    "component": "A1050",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  },
+  {
+    "component": "A1060",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  },
+  {
+    "component": "A9050",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  },
+  {
+    "component": "A9060",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  },
+  {
+    "component": "A9013",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  },
+  {
+    "component": "APDS-9301",
+    "type": "Sensor_Optical",
+    "pins": [
+      "VDD",
+      "GND",
+      "ADR_SEL",
+      "SCL",
+      "SDA",
+      "INT"
+    ],
+    "description": "ambient light sensor, i2c interface, 2.7-3.6V",
+    "keywords": [
+      "ambient",
+      "light",
+      "sensor",
+      "i2c"
+    ]
+  },
+  {
+    "component": "APDS-9306",
+    "type": "Sensor_Optical",
+    "pins": [
+      "GND",
+      "NC",
+      "VDD",
+      "SCL",
+      "SDA",
+      "INT"
+    ],
+    "description": "Ambient Light Sensor, I2C interface, 1.7-3.6V, LGA-8",
+    "keywords": [
+      "opto",
+      "ambient",
+      "light",
+      "sensor"
+    ]
+  },
+  {
+    "component": "APDS-9306-065",
+    "type": "Sensor_Optical",
+    "pins": [
+      "SCL",
+      "SDA",
+      "VDD",
+      "INT",
+      "NC",
+      "GND"
+    ],
+    "description": "Ambient Light Sensor, I2C interface, 1.7-3.6V, DFN-6",
+    "keywords": [
+      "opto",
+      "ambient",
+      "light",
+      "sensor"
+    ]
+  },
+  {
+    "component": "AS7261",
+    "type": "Sensor_Optical",
+    "pins": [
+      "NF",
+      "RX/SCL_S",
+      "TX/SDA_S",
+      "INT",
+      "VDD",
+      "LED_DRV",
+      "GND",
+      "LED_IND",
+      "~RES",
+      "SCK",
+      "MOSI",
+      "MISO",
+      "CSN_EE",
+      "CSN_SD",
+      "I2C_ENB"
+    ],
+    "description": "Spectral Sensing Engine, 6-Channel XYZ Spectral_ID",
+    "keywords": [
+      "6-Channel",
+      "XYZ",
+      "Spectral_ID",
+      "Device",
+      "Electronic",
+      "Shutter",
+      "Smart",
+      "Interface",
+      "i2c",
+      "uart"
+    ]
+  },
+  {
+    "component": "AS7262",
+    "type": "Sensor_Optical",
+    "pins": [
+      "NF",
+      "RX/SCL_S",
+      "TX/SDA_S",
+      "INT",
+      "VDD",
+      "LED_DRV",
+      "GND",
+      "LED_IND",
+      "~RES",
+      "SCK",
+      "MOSI",
+      "MISO",
+      "CSN_EE",
+      "CSN_SD",
+      "I2C_ENB"
+    ],
+    "description": "Spectral Sensing Engine, 6-Channel Visible Spectral_ID",
+    "keywords": [
+      "6-Channel",
+      "Visible",
+      "Spectral_ID",
+      "Device",
+      "Electronic",
+      "Shutter",
+      "Smart",
+      "Interface",
+      "i2c",
+      "uart"
+    ]
+  },
+  {
+    "component": "AS7263",
+    "type": "Sensor_Optical",
+    "pins": [
+      "NF",
+      "RX/SCL_S",
+      "TX/SDA_S",
+      "INT",
+      "VDD",
+      "LED_DRV",
+      "GND",
+      "LED_IND",
+      "~RES",
+      "SCK",
+      "MOSI",
+      "MISO",
+      "CSN_EE",
+      "CSN_SD",
+      "I2C_ENB"
+    ],
+    "description": "Spectral Sensing Engine, 6-Channel NIR Spectral_ID",
+    "keywords": [
+      "6-Channel",
+      "NIR",
+      "Spectral_ID",
+      "Device",
+      "Electronic",
+      "Shutter",
+      "Smart",
+      "Interface",
+      "i2c",
+      "uart"
+    ]
+  },
+  {
+    "component": "AS72651",
+    "type": "Sensor_Optical",
+    "pins": [
+      "~SLV1_RES",
+      "SDA_M",
+      "RX/SCL_S",
+      "TX/SDA_S",
+      "INT",
+      "VDD2",
+      "LED_DRV",
+      "GND",
+      "VDD1",
+      "LED_IND",
+      "NC",
+      "~RES",
+      "~SLV2_RES",
+      "SCK",
+      "MOSI",
+      "MISO",
+      "~CS",
+      "I2C_ENB",
+      "SCL_M"
+    ],
+    "description": "Smart 18-Channel VIS+NIR Spectral_ID Sensor with Electronic Shutter, LGA-20",
+    "keywords": [
+      "Smart",
+      "Spectral",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "BP103",
+    "type": "Sensor_Optical",
+    "pins": [
+      "E",
+      "B",
+      "C"
+    ],
+    "description": "NPN Phototransistor",
+    "keywords": [
+      "npn",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "BPY62",
+    "type": "Sensor_Optical",
+    "pins": [
+      "E",
+      "B",
+      "C"
+    ],
+    "description": "NPN Phototransistor",
+    "keywords": [
+      "NPN",
+      "Phototransistor",
+      "opto"
+    ]
+  },
+  {
+    "component": "BP104-SMD",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode, SMD package",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "BPW34-SMD",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode, SMD package",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "SFH2430",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon Photodiode with V? Characteristic, SMD package",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "SFH2440",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon Photodiode with V? Characteristic, SMD package",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "BPW21",
+    "type": "Sensor_Optical",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Silicon Photodiode for the visible spectral range, TO-5 package",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "BPX61",
+    "type": "Sensor_Optical",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Silicon Photodiode for the visible spectral range",
+    "keywords": [
+      "photodiode",
+      "opto"
+    ]
+  },
+  {
+    "component": "BPW34",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode",
+    "keywords": [
+      "opto",
+      "PIN",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "BP104",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode",
+    "keywords": [
+      "opto",
+      "PIN",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "BPW40",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "Phototransistor NPN",
+    "keywords": [
+      "npn",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "BP103B",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "NPN phototransistor",
+    "keywords": [
+      "NPN",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "BP103BF",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "NPN phototransistor with daylight filter",
+    "keywords": [
+      "IR",
+      "NPN",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "SFH300",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "silicon NPN phototransistor",
+    "keywords": [
+      "NPN",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "BPW82",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode with Daylight Blocking Filter",
+    "keywords": [
+      "opto",
+      "photo",
+      "diode"
+    ]
+  },
+  {
+    "component": "BPX65",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode, TO-18 package",
+    "keywords": [
+      "opto",
+      "PIN",
+      "photo",
+      "diode"
+    ]
+  },
+  {
+    "component": "C12880MA",
+    "type": "Sensor_Optical",
+    "pins": [
+      "VCC",
+      "VIDEO",
+      "GND",
+      "CLK",
+      "CASE",
+      "ST",
+      "TRG",
+      "NC",
+      "EOS"
+    ],
+    "description": "Micro spectrometer 340 to 850nm resolution 15nm",
+    "keywords": [
+      "spectrometer"
+    ]
+  },
+  {
+    "component": "Flir_LEPTON",
+    "type": "Sensor_Optical",
+    "pins": [
+      "GND",
+      "SPI_MOSI",
+      "SPI_MISO",
+      "SPI_CLK",
+      "SPI_CS_L",
+      "VDDIO",
+      "NC",
+      "VDD",
+      "GPIO3",
+      "SCL",
+      "SDA",
+      "PWR_DWN_L",
+      "RESET_L",
+      "MASTER_CLK",
+      "MIPI_CLK_N",
+      "MIPI_CLK_P",
+      "GPIO2",
+      "MIPI_DATA_N",
+      "MIPI_DATA_P",
+      "GPIO1",
+      "GPIO0",
+      "VDDC"
+    ],
+    "description": "LWIR camera 8 to 14um 80x60 pixel",
+    "keywords": [
+      "LWIR",
+      "camera"
+    ]
+  },
+  {
+    "component": "KPS-3227",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "Ambient light photo sensor (NPN phototransistor)",
+    "keywords": [
+      "Kingbright",
+      "npn",
+      "phototransistor",
+      "ambient",
+      "light",
+      "photo",
+      "sensor"
+    ]
+  },
+  {
+    "component": "KPS-5130",
+    "type": "Sensor_Optical",
+    "pins": [
+      "AR",
+      "AG",
+      "AB",
+      "C"
+    ],
+    "description": "RGB Colour Sensor",
+    "keywords": [
+      "opto",
+      "photodiode",
+      "RGB",
+      "colour",
+      "sensor"
+    ]
+  },
+  {
+    "component": "LDR03",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  },
+  {
+    "component": "LDR07",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  },
+  {
+    "component": "LPT80A",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "NPN phototransistor",
+    "keywords": [
+      "NPN",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "LTR-303ALS-01",
+    "type": "Sensor_Optical",
+    "pins": [
+      "VDD",
+      "NC",
+      "GND",
+      "SCL",
+      "INT",
+      "SDA"
+    ],
+    "description": "ambient light sensor, i2c interface, 0.01 to 64k lux, 2.4-3.6V",
+    "keywords": [
+      "ambient",
+      "light",
+      "sensor",
+      "i2c"
+    ]
+  },
+  {
+    "component": "M9960",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  },
+  {
+    "component": "NOA1305",
+    "type": "Sensor_Optical",
+    "pins": [
+      "VSS",
+      "NC",
+      "SCL",
+      "SDA",
+      "INT",
+      "VDD",
+      "EP"
+    ],
+    "description": "Ambient Light Sensor with I2C Interface and Dark Current Compensation",
+    "keywords": [
+      "opto",
+      "ambient",
+      "light",
+      "sensor"
+    ]
+  },
+  {
+    "component": "PMTx08Dyn",
+    "type": "Sensor_Optical",
+    "pins": [
+      "Dynode",
+      "Photocathode",
+      "Anode"
+    ],
+    "description": "8-stage photomultiplier tube",
+    "keywords": [
+      "PMT",
+      "8-stage"
+    ]
+  },
+  {
+    "component": "PMTx08Dyn_Shld",
+    "type": "Sensor_Optical",
+    "pins": [
+      "Dynode",
+      "Electrostatic",
+      "Photocathode",
+      "Magnetic",
+      "Anode"
+    ],
+    "description": "8-stage photomultiplier tube with electrostatic and magnetic shield",
+    "keywords": [
+      "PMT",
+      "8-stage"
+    ]
+  },
+  {
+    "component": "S13360-3025CS",
+    "type": "Sensor_Optical",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Multi-Pixel Photon Counter with 25\u00b5m pixel pitch",
+    "keywords": [
+      "opto",
+      "SiPM",
+      "MPPC",
+      "hamamatsu",
+      "SPAD"
+    ]
+  },
+  {
+    "component": "S13360-3050CS",
+    "type": "Sensor_Optical",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Multi-Pixel Photon Counter with 50\u00b5m pixel pitch",
+    "keywords": [
+      "opto",
+      "SiPM",
+      "MPPC",
+      "hamamatsu",
+      "SPAD"
+    ]
+  },
+  {
+    "component": "S13360-3075CS",
+    "type": "Sensor_Optical",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Multi-Pixel Photon Counter with 75\u00b5m pixel pitch",
+    "keywords": [
+      "opto",
+      "SiPM",
+      "MPPC",
+      "hamamatsu",
+      "SPAD"
+    ]
+  },
+  {
+    "component": "S5971",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "K",
+      "A"
+    ],
+    "description": "Si PIN Photodiode, 0.1 GHz, TO-18-3",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "S5972",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "K",
+      "A"
+    ],
+    "description": "Si PIN Photodiode, 0.5 GHz, TO-18-3",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "S5973",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "K",
+      "A"
+    ],
+    "description": "Si PIN Photodiode, 1 GHz, TO-18-3",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "SFH203",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode",
+    "keywords": [
+      "opto",
+      "PIN",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "SFH203FA",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode with Daylight Blocking Filter",
+    "keywords": [
+      "PIN",
+      "photodiode",
+      "IR"
+    ]
+  },
+  {
+    "component": "SFH205F",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode with Daylight Blocking Filter",
+    "keywords": [
+      "opto",
+      "photo",
+      "diode"
+    ]
+  },
+  {
+    "component": "SFH205FA",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode with Daylight Blocking Filter",
+    "keywords": [
+      "PIN",
+      "Photodiode"
+    ]
+  },
+  {
+    "component": "SFH206K",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode",
+    "keywords": [
+      "opto",
+      "PIN",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "SFH216",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode With Very Short Switching Time, TO-18 package",
+    "keywords": [
+      "opto",
+      "PIN",
+      "photo",
+      "diode"
+    ]
+  },
+  {
+    "component": "SFH225FA",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode with Daylight Blocking Filter",
+    "keywords": [
+      "opto",
+      "PIN",
+      "photodiode",
+      "IR"
+    ]
+  },
+  {
+    "component": "SFH235FA",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode with Daylight Blocking Filter",
+    "keywords": [
+      "opto",
+      "PIN",
+      "photodiode",
+      "IR"
+    ]
+  },
+  {
+    "component": "SFH2400",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Silicon PIN Photodiode, SMD package",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "SFH2701",
+    "type": "Sensor_Optical",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "High Speed PIN Photodiode, SMD package",
+    "keywords": [
+      "opto",
+      "photodiode"
+    ]
+  },
+  {
+    "component": "SFH309",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "Phototransistor NPN",
+    "keywords": [
+      "npn",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "BPW42",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "NPN phototransistor",
+    "keywords": [
+      "NPN",
+      "phototransistor",
+      "opto"
+    ]
+  },
+  {
+    "component": "BPW85",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "Silicon NPN Phototransistor, Ica = 0.8-8mA, T-1",
+    "keywords": [
+      "npn",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "BPW85A",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "Silicon NPN Phototransistor, Ica = 0.8-2.5mA, T-1",
+    "keywords": [
+      "npn",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "BPW85B",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "Silicon NPN Phototransistor, Ica = 1.5-4mA, T-1",
+    "keywords": [
+      "npn",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "BPW85C",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "Silicon NPN Phototransistor, Ica = 3-8mA, T-1",
+    "keywords": [
+      "npn",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "TEPT4400",
+    "type": "Sensor_Optical",
+    "pins": [
+      "C",
+      "E"
+    ],
+    "description": "Ambient Light Sensor, NPN Epitaxial Planar Phototransistor, T-1",
+    "keywords": [
+      "npn",
+      "phototransistor",
+      "ambient",
+      "light",
+      "sensor"
+    ]
+  },
+  {
+    "component": "SFH3201",
+    "type": "Sensor_Optical",
+    "pins": [
+      "E",
+      "C"
+    ],
+    "description": "Silicon NPN phototransistor, SMD-6",
+    "keywords": [
+      "NPN",
+      "phototransistor"
+    ]
+  },
+  {
+    "component": "TSL2550D",
+    "type": "Sensor_Optical",
+    "pins": [
+      "VDD",
+      "NC",
+      "GND",
+      "CLK",
+      "DAT"
+    ],
+    "description": "Ambient Light Sensor with SMbus Interface, SO-8 interface",
+    "keywords": [
+      "opto",
+      "ambient",
+      "light",
+      "sensor"
+    ]
+  },
+  {
+    "component": "TSL2550T",
+    "type": "Sensor_Optical",
+    "pins": [
+      "VDD",
+      "GND",
+      "CLK",
+      "DAT"
+    ],
+    "description": "Ambient Light Sensor with SMbus Interface, T-4 interface SMD",
+    "keywords": [
+      "opto",
+      "ambient",
+      "light",
+      "sensor"
+    ]
+  },
+  {
+    "component": "VT93xx",
+    "type": "Sensor_Optical",
+    "pins": [],
+    "description": "light dependent resistor",
+    "keywords": [
+      "light",
+      "dependent",
+      "photo",
+      "resistor",
+      "LDR"
+    ]
+  }
+]

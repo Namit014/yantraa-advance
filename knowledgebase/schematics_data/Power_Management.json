@@ -1,0 +1,4199 @@
+[
+  {
+    "component": "AAT4610BIGV-1-T1",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "SET",
+      "ON",
+      "IN"
+    ],
+    "description": "Current Limited Load Switch, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "High"
+    ]
+  },
+  {
+    "component": "AAT4610BIGV-T1",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "SET",
+      "~ON",
+      "IN"
+    ],
+    "description": "Current Limited Load Switch, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "Low"
+    ]
+  },
+  {
+    "component": "AAT4616IGV-1-T1",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "SET",
+      "ON",
+      "IN"
+    ],
+    "description": "Adjustable Current Limited Load Switch, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "High"
+    ]
+  },
+  {
+    "component": "AAT4616IGV-T1",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "SET",
+      "~ON",
+      "IN"
+    ],
+    "description": "Adjustable Current Limited Load Switch, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "Low"
+    ]
+  },
+  {
+    "component": "AP2161W",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLG",
+      "~EN",
+      "IN"
+    ],
+    "description": "Current limited power switch, single channel, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "Low"
+    ]
+  },
+  {
+    "component": "AP22814BW5",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLG",
+      "~EN",
+      "IN"
+    ],
+    "description": "Current limited 3A power switch, single channel, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "Low"
+    ]
+  },
+  {
+    "component": "AP22804BW5",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLG",
+      "~EN",
+      "IN"
+    ],
+    "description": "Current limited 2.5A power switch, single channel, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "Low"
+    ]
+  },
+  {
+    "component": "AP2171W",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLG",
+      "EN",
+      "IN"
+    ],
+    "description": "Current limited power switch, single channel, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "High"
+    ]
+  },
+  {
+    "component": "AP22814AW5",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLG",
+      "EN",
+      "IN"
+    ],
+    "description": "Current limited 3A power switch, single channel, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "High"
+    ]
+  },
+  {
+    "component": "AP22804AW5",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLG",
+      "EN",
+      "IN"
+    ],
+    "description": "Current limited 2.5A power switch, single channel, SOT-23-5",
+    "keywords": [
+      "Limit",
+      "USB",
+      "Active",
+      "High"
+    ]
+  },
+  {
+    "component": "AUIPS1041R",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "D",
+      "S"
+    ],
+    "description": "Intelligent Power Low Side Switch, 39V, 4.5A, DPAK-5L",
+    "keywords": [
+      "low",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS2031R",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "D",
+      "S"
+    ],
+    "description": "Intelligent Power Low Side Switch, 68V, 10A, DPAK-5L",
+    "keywords": [
+      "low",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS1042G",
+    "type": "Power_Management",
+    "pins": [
+      "S1",
+      "IN1",
+      "D1",
+      "S2",
+      "IN2",
+      "D2"
+    ],
+    "description": "Dual Channel Intelligent Power Low Side Switch, 39V, 4.5A, SOIC-8",
+    "keywords": [
+      "dual",
+      "low",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS1052G",
+    "type": "Power_Management",
+    "pins": [
+      "S1",
+      "IN1",
+      "D1",
+      "S2",
+      "IN2",
+      "D2"
+    ],
+    "description": "Dual Channel Intelligent Power Low Side Switch, 39V, 2.8A, SOIC-8",
+    "keywords": [
+      "dual",
+      "low",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS2052G",
+    "type": "Power_Management",
+    "pins": [
+      "S1",
+      "IN1",
+      "D1",
+      "S2",
+      "IN2",
+      "D2"
+    ],
+    "description": "Dual Channel Intelligent Power Low Side Switch, 70V, 1.8A, SOIC-8",
+    "keywords": [
+      "dual",
+      "low",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS1051L",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "D",
+      "S"
+    ],
+    "description": "Intelligent Power Low Side Switch, 39V, 2.8A, SOT-223",
+    "keywords": [
+      "low",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS2041L",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "D",
+      "S"
+    ],
+    "description": "Intelligent Power Low Side Switch, 68V, 5A, SOT-223",
+    "keywords": [
+      "low",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS2051L",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "D",
+      "S"
+    ],
+    "description": "Intelligent Power Low Side Switch, 70V, 1.8A, SOT-223",
+    "keywords": [
+      "low",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS6011R",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "Intelligent Power High Side Switch, 39V, 60A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS6031R",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "Intelligent Power High Side Switch, 39V, 16A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7081R",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "Intelligent Power High Side Switch, 70V, 5A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS6041G",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DG",
+      "OUT",
+      "VCC"
+    ],
+    "description": "Intelligent Power High Side Switch, 39V, 7A, SOIC-8",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7091G",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DG",
+      "OUT",
+      "VCC"
+    ],
+    "description": "Intelligent Power High Side Switch, 70V, 5A, SOIC-8",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS6044G",
+    "type": "Power_Management",
+    "pins": [
+      "VCC",
+      "GND1",
+      "OUT1",
+      "IN1",
+      "DG1",
+      "OUT2",
+      "DG2",
+      "IN2",
+      "GND2",
+      "DG3",
+      "OUT3",
+      "GND3",
+      "IN3",
+      "DG4",
+      "IN4",
+      "GND4",
+      "OUT4"
+    ],
+    "description": "Intelligent Power High Side Switch, 39V, 7A, SOIC-28W",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7081S",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "Intelligent Power High Side Switch, 70V, 5A, D2PAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7111S",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "IFB",
+      "VCC",
+      "OUT"
+    ],
+    "description": "Current Sense High Side Switch, 65V, 30A, D2PAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIR3313S",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "IFB",
+      "VCC",
+      "OUT"
+    ],
+    "description": "Programmable Current Sense High Side Switch, 32V, 90A, D2PAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIR3314S",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "IFB",
+      "VCC",
+      "OUT"
+    ],
+    "description": "Programmable Current Sense High Side Switch, 32V, 58A, D2PAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIR3315S",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "IFB",
+      "VCC",
+      "OUT"
+    ],
+    "description": "Programmable Current Sense High Side Switch, 32V, 30A, D2PAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIR3316S",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "IFB",
+      "VCC",
+      "OUT"
+    ],
+    "description": "Low EMI Current Sense High Side Switch, 26V, 90A, D2PAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIR3320S",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "IFB",
+      "VCC",
+      "OUT"
+    ],
+    "description": "Low EMI Current Sense High Side Switch, 26V, 55A, D2PAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7121R",
+    "type": "Power_Management",
+    "pins": [
+      "NC",
+      "IN",
+      "VCC",
+      "IFB",
+      "OUT"
+    ],
+    "description": "Current Sense High Side Switch, 65V, 50A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7125R",
+    "type": "Power_Management",
+    "pins": [
+      "NC",
+      "IN",
+      "VCC",
+      "IFB",
+      "OUT"
+    ],
+    "description": "Current Sense High Side Switch, 65V, 50A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7141R",
+    "type": "Power_Management",
+    "pins": [
+      "NC",
+      "IN",
+      "VCC",
+      "IFB",
+      "OUT"
+    ],
+    "description": "Current Sense High Side Switch, 65V, 20A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7145R",
+    "type": "Power_Management",
+    "pins": [
+      "NC",
+      "IN",
+      "VCC",
+      "IFB",
+      "OUT"
+    ],
+    "description": "Current Sense High Side Switch, 65V, 20A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7142G",
+    "type": "Power_Management",
+    "pins": [
+      "VCC",
+      "OUT1",
+      "IN1",
+      "IFB1",
+      "OUT2",
+      "IN2",
+      "IFB2"
+    ],
+    "description": "Dual Channels Current Sense High Side Switch, 65V, 20A, SOIC-16W",
+    "keywords": [
+      "dual",
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS71451G",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "IFB",
+      "OUT",
+      "VCC"
+    ],
+    "description": "Current Sense High Side Switch, 65V, 4A, SOIC-8",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS7221R",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "GND",
+      "VCC",
+      "Cb",
+      "OUT"
+    ],
+    "description": "PWM Intelligent Power High Side Switch, 75V, 25A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIPS72211R",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "GND",
+      "VCC",
+      "Cb",
+      "OUT"
+    ],
+    "description": "Low EMI PWM Intelligent Power High Side Switch, 75V, 20A, DPAK-5L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "AUIR33402S",
+    "type": "Power_Management",
+    "pins": [
+      "IFB",
+      "IN",
+      "GND",
+      "VCC",
+      "Cb",
+      "OUT"
+    ],
+    "description": "Protected High Side Switch, 18V, 33A, D2PAK-7L",
+    "keywords": [
+      "high",
+      "side",
+      "switch"
+    ]
+  },
+  {
+    "component": "BD48ExxG",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "VDD",
+      "GND"
+    ],
+    "description": "Standard CMOS Voltage Detector IC, Open Drain Output, SSOP5",
+    "keywords": [
+      "voltage",
+      "detector",
+      "open",
+      "drain",
+      "SSOP5"
+    ]
+  },
+  {
+    "component": "BD49ExxG",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "VDD",
+      "GND"
+    ],
+    "description": "Standard CMOS Voltage Detector IC, CMOS Output, SSOP5",
+    "keywords": [
+      "voltage",
+      "detector",
+      "cmos",
+      "SSOP5"
+    ]
+  },
+  {
+    "component": "BD48KxxG",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "VOUT",
+      "VDD"
+    ],
+    "description": "Standard CMOS Voltage Detector IC, Open Drain Output, SSOP3(1pin GND)",
+    "keywords": [
+      "voltage",
+      "detector",
+      "open",
+      "drain",
+      "SSOP3"
+    ]
+  },
+  {
+    "component": "BD49KxxG",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "VOUT",
+      "VDD"
+    ],
+    "description": "Standard CMOS Voltage Detector IC, CMOS Output, SSOP3(1pin GND)",
+    "keywords": [
+      "voltage",
+      "detector",
+      "cmos",
+      "SSOP3"
+    ]
+  },
+  {
+    "component": "BD48LxxG",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "VDD",
+      "GND"
+    ],
+    "description": "Standard CMOS Voltage Detector IC, Open Drain Output, SSOP3(3pin GND)",
+    "keywords": [
+      "voltage",
+      "detector",
+      "open",
+      "drain",
+      "SSOP3"
+    ]
+  },
+  {
+    "component": "BD49LxxG",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "VDD",
+      "GND"
+    ],
+    "description": "Standard CMOS Voltage Detector IC, CMOS Output, SSOP3(3pin GND)",
+    "keywords": [
+      "voltage",
+      "detector",
+      "cmos",
+      "SSOP3"
+    ]
+  },
+  {
+    "component": "BD48xxFVE",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "VDD"
+    ],
+    "description": "Standard CMOS Voltage Detector IC, Open Drain Output, VSOF5",
+    "keywords": [
+      "voltage",
+      "detector",
+      "open",
+      "drain",
+      "VSOF5"
+    ]
+  },
+  {
+    "component": "BD49xxFVE",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "VDD"
+    ],
+    "description": "Standard CMOS Voltage Detector IC, CMOS Output, VSOF5",
+    "keywords": [
+      "voltage",
+      "detector",
+      "cmos",
+      "VSOF5"
+    ]
+  },
+  {
+    "component": "BQ24230RGT",
+    "type": "Power_Management",
+    "pins": [
+      "TS",
+      "OUT",
+      "ILIM",
+      "IN",
+      "TMR",
+      "TD",
+      "ISET",
+      "VSS",
+      "BAT",
+      "CE",
+      "EN2",
+      "EN1",
+      "PGOOD",
+      "CHG"
+    ],
+    "description": "USB-Friendly Lithium-Ion Battery Charger And Power-Path Management IC, VQFN-16",
+    "keywords": [
+      "Lithium-ion",
+      "battery",
+      "charger"
+    ]
+  },
+  {
+    "component": "BTN8982TA",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "INH",
+      "SR",
+      "IS"
+    ],
+    "description": "High Current PN Half Bridge, TO-263-7",
+    "keywords": [
+      "half",
+      "bridge",
+      "for",
+      "motor",
+      "drive",
+      "applications"
+    ]
+  },
+  {
+    "component": "BTS40K2-1EJC",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DEN",
+      "IS",
+      "NC",
+      "OUT",
+      "VS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 200mOhm, 1.5A, 36V, DSO-8",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS5030-1EJA",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DEN",
+      "IS",
+      "NC",
+      "OUT",
+      "VS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 30mOhm, 5A, 28V, DSO-8",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS5045-1EJA",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DEN",
+      "IS",
+      "NC",
+      "OUT",
+      "VS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 45mOhm, 4A, 28V, DSO-8",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS5090-1EJA",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DEN",
+      "IS",
+      "NC",
+      "OUT",
+      "VS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 90mOhm, 3A, 28V, DSO-8",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS5200-1EJA",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DEN",
+      "IS",
+      "NC",
+      "OUT",
+      "VS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 200mOhm, 1.5A, 28V, DSO-8",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS6200-1EJA",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DEN",
+      "IS",
+      "NC",
+      "OUT",
+      "VS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 200mOhm, 1.5A, 36V, DSO-8",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS50010-1TAD",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "IS",
+      "Vbb",
+      "OUT"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 1mOhm, 40A, 18V, TO-263-7",
+    "keywords": [
+      "BTS50010",
+      "PROFET"
+    ]
+  },
+  {
+    "component": "BTS50055-1TMA",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 6mOhm, 70A, 34V, TO220-7",
+    "keywords": [
+      "BTS50055",
+      "PROFET"
+    ]
+  },
+  {
+    "component": "BTS50055-1TMC",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 6mOhm, 17A, 34V, TO220-7",
+    "keywords": [
+      "BTS50055",
+      "PROFET"
+    ]
+  },
+  {
+    "component": "BTS50080-1TMA",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 16mOhm, 9.5A, 38V, TO220-7",
+    "keywords": [
+      "BTS50080",
+      "PROFET"
+    ]
+  },
+  {
+    "component": "BTS50080-1TMC",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 16mOhm, 9.5A, 38V, TO220-7",
+    "keywords": [
+      "BTS50080",
+      "PROFET"
+    ]
+  },
+  {
+    "component": "BTS50085-1TMA",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 9mOhm, 11.1A, 58V, TO220-7",
+    "keywords": [
+      "BTS50085",
+      "PROFET"
+    ]
+  },
+  {
+    "component": "BTS50080-1TEA",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 16mOhm, 10A, 30V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS50080-1TEB",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 16mOhm, 10A, 30V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS5012SDA",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 24mOhm, 6.5A, 20V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS5014SDA",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 28mOhm, 6A, 20V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS5016SDA",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 32mOhm, 5.5A, 20V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS6133D",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 10mOhm, 8A, 38V, TO-252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS6163D",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 20mOhm, 5.5A, 62V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS6142D",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 12mOhm, 7A, 24V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS6143D",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 10mOhm, 8A, 38V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS443P",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "Vbb",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, Single, 16mOhm, 7.6A, 36V, TO252-5",
+    "keywords": [
+      "infineon",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "BTS7004-1EPP",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "OUT",
+      "NC",
+      "VS",
+      "IN",
+      "DEN",
+      "IS"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, One Channel, 12V, 15A, Rds(on) 4.4m\u03a9, PG-TSDSO-14-22",
+    "keywords": [
+      "BTS7004"
+    ]
+  },
+  {
+    "component": "BTS724G",
+    "type": "Power_Management",
+    "pins": [
+      "VBB",
+      "OUT4",
+      "OUT3",
+      "OUT2",
+      "OUT1",
+      "GND1/2",
+      "IN1",
+      "ST1/2",
+      "IN2",
+      "GND3/4",
+      "IN3",
+      "ST3/4",
+      "IN4"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, 4 Channel, 90mOhm, 3.3A, 40V, DSO-20",
+    "keywords": [
+      "High_Side_Switch",
+      "Power"
+    ]
+  },
+  {
+    "component": "BTS716G",
+    "type": "Power_Management",
+    "pins": [
+      "VBB",
+      "OUT4",
+      "OUT3",
+      "OUT2",
+      "OUT1",
+      "GND1/2",
+      "IN1",
+      "ST1/2",
+      "IN2",
+      "GND3/4",
+      "IN3",
+      "ST3/4",
+      "IN4"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, 4 Channel, 140mOhm, 2.6A, 40V, DSO-20",
+    "keywords": [
+      "High_Side_Switch",
+      "Power"
+    ]
+  },
+  {
+    "component": "BTS716GB",
+    "type": "Power_Management",
+    "pins": [
+      "VBB",
+      "OUT4",
+      "OUT3",
+      "OUT2",
+      "OUT1",
+      "GND1/2",
+      "IN1",
+      "ST1/2",
+      "IN2",
+      "GND3/4",
+      "IN3",
+      "ST3/4",
+      "IN4"
+    ],
+    "description": "Smart High-Side Power Switch, PROFET, 4 Channel, 140mOhm, 2.6A, 40V, DSO-20",
+    "keywords": [
+      "High_Side_Switch",
+      "Power"
+    ]
+  },
+  {
+    "component": "CAP002DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 825V, <=500nF, 1.5MOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP003DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 825V, <=750nF, 1.02MOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP004DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 825V, <=1uF, 780kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP005DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 825V, <=1.5uF, 480kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP006DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 825V, <=2uF, 360kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP007DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 825V, <=2.5uF, 300kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP008DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 825V, <=3.5uF, 200kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger",
+      "825V"
+    ]
+  },
+  {
+    "component": "CAP009DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 825V, <=5uF, 150kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP012DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 1000V, <=500nF, 1.5MOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP013DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 1000V, <=750nF, 1.02MOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP014DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 1000V, <=1uF, 780kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP015DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 1000V, <=1.5uF, 480kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP016DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 1000V, <=2uF, 360kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP017DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 1000V, <=2.5uF, 300kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP018DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 1000V, <=3.5uF, 200kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP019DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Automatic Capacitor Discarger, 1000V, <=5uF, 150kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP200DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Zero Loss Automatic Capacitor Discarge IC, 1000V, 100nF-6uF, 7.5M-142kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "CAP300DG",
+    "type": "Power_Management",
+    "pins": [],
+    "description": "CapZero Zero Loss Automatic Capacitor Discarge IC, 1000V, 100nF-6uF, >=54kOhm, SOIC-8",
+    "keywords": [
+      "Automatic",
+      "Capacitor",
+      "Discarger"
+    ]
+  },
+  {
+    "component": "DS1210",
+    "type": "Power_Management",
+    "pins": [
+      "VCCO",
+      "VBAT1",
+      "TOL",
+      "GND",
+      "~CE",
+      "~CEO",
+      "VBAT2",
+      "VCCI"
+    ],
+    "description": "Nonvolatile Controller, PDIP-8",
+    "keywords": [
+      "Nonvolatile",
+      "RAM",
+      "Controller",
+      "Battery",
+      "Power"
+    ]
+  },
+  {
+    "component": "FPF2000",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "FLAGB",
+      "ON",
+      "VIN"
+    ],
+    "description": "Single power-distribution switcher, current limit = 50mA, blanking time = 10 ms, auto-restart time = 80 ms, ON Pin Polarity = HIGH, SOT-353",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "FPF2001",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "FLAGB",
+      "ON",
+      "VIN"
+    ],
+    "description": "Single power-distribution switcher, current limit = 50mA, blanking time = 10 ms, auto-restart time = 80 ms, ON Pin Polarity = LOW, SOT-353",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "FPF2002",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "FLAGB",
+      "ON",
+      "VIN"
+    ],
+    "description": "Single power-distribution switcher, current limit = 50mA, blanking time = 10 ms, w/o auto-restart, ON Pin Polarity = HIGH, SOT-353",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "FPF2003",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "FLAGB",
+      "ON",
+      "VIN"
+    ],
+    "description": "Single power-distribution switcher, current limit = 50mA, blanking time = 0 ms, w/o auto-restart, ON Pin Polarity = HIGH, SOT-353",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "FPF2004",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "FLAGB",
+      "ON",
+      "VIN"
+    ],
+    "description": "Single power-distribution switcher, current limit = 100mA, blanking time = 10 ms, auto-restart time = 80 ms, ON Pin Polarity = HIGH, SOT-353",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "FPF2005",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "FLAGB",
+      "ON",
+      "VIN"
+    ],
+    "description": "Single power-distribution switcher, current limit = 100mA, blanking time = 10 ms, auto-restart time = 80 ms, ON Pin Polarity = LOW, SOT-353",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "FPF2006",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "FLAGB",
+      "ON",
+      "VIN"
+    ],
+    "description": "Single power-distribution switcher, current limit = 100mA, blanking time = 10 ms, w/o auto-restart, ON Pin Polarity = HIGH, SOT-353",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "FPF2007",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "FLAGB",
+      "ON",
+      "VIN"
+    ],
+    "description": "Single power-distribution switcher, current limit = 100mA, blanking time = 0 ms, w/o auto-restart, ON Pin Polarity = HIGH, SOT-353",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "HF81",
+    "type": "Power_Management",
+    "pins": [
+      "NC",
+      "L1",
+      "L2"
+    ],
+    "description": "X capacitor bleeder, SOIC-8",
+    "keywords": [
+      "X",
+      "capacitor",
+      "discharge"
+    ]
+  },
+  {
+    "component": "INA3221",
+    "type": "Power_Management",
+    "pins": [
+      "IN-3",
+      "PV",
+      "IN-1",
+      "IN+1",
+      "TC",
+      "IN-2",
+      "IN+2",
+      "VPU",
+      "EP",
+      "IN+3",
+      "GND",
+      "VS",
+      "A0",
+      "SCL",
+      "SDA",
+      "WARNING",
+      "CRITICAL"
+    ],
+    "description": "Triple-Channel High-Side Shunt and Bus Voltage Monitor with I2C and SMBUS Compatible Interface, QFN-16",
+    "keywords": [
+      "Shunt",
+      "and",
+      "Bus",
+      "voltage",
+      "monitor"
+    ]
+  },
+  {
+    "component": "IPS6011PBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 60A, Intelligent Power Switch High Side, TO-220-5",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6021PBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 32A, Intelligent Power Switch High Side, TO-220-5",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6031PBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 16A, Intelligent Power Switch High Side, TO-220-5",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6041PBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 5A, Intelligent Power Switch High Side, TO-220",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6011RPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 60A, Intelligent Power Switch High Side, D-PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6021RPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 32A, Intelligent Power Switch High Side, D-PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6031RPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 16A, Intelligent Power Switch High Side, D-PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6041RPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 5A, Intelligent Power Switch High Side, DPAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6011SPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 60A, Intelligent Power Switch High Side, D2-PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6021SPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 32A, Intelligent Power Switch High Side, D2-PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6031SPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 16A, Intelligent Power Switch High Side, D2-PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6041SPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "39V, 5A, Intelligent Power Switch High Side, D2PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS6041GPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DG",
+      "OUT",
+      "VCC"
+    ],
+    "description": "39V, 5A, Intelligent Power Switch High Side, SO-8",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS7091GPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "DG",
+      "OUT",
+      "VCC"
+    ],
+    "description": "70V, 5A, Intelligent Power Switch High Side, D2-PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS7091PBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "70V, 5A, Intelligent Power Switch High Side, TO-220-5",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPS7091SPBF",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN",
+      "VCC",
+      "DG",
+      "OUT"
+    ],
+    "description": "70V, 5A, Intelligent Power Switch High Side, D2-PAK 5pin",
+    "keywords": [
+      "Intelligent",
+      "Power",
+      "Switch",
+      "High",
+      "Side",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRS25751L",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "COM",
+      "VTH",
+      "ENN",
+      "VIN"
+    ],
+    "description": "High-Voltage Start-Up IC, 480V, SOT-23-5",
+    "keywords": [
+      "start",
+      "up"
+    ]
+  },
+  {
+    "component": "ITS5215",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "OUT1",
+      "NC",
+      "VBB",
+      "IN1",
+      "ST1",
+      "IN2",
+      "ST2",
+      "OUT2"
+    ],
+    "description": "Smart Dual Channel High Side Powertrain Switch (90mOhm)",
+    "keywords": [
+      "High_Side_Switch",
+      "Power"
+    ]
+  },
+  {
+    "component": "LM5050-1",
+    "type": "Power_Management",
+    "pins": [
+      "VS",
+      "GND",
+      "OFF",
+      "IN",
+      "GATE",
+      "OUT"
+    ],
+    "description": "High side OR-ing FET controller, 5V to 75V operation, TSOT-23-6",
+    "keywords": [
+      "positive",
+      "high-side",
+      "or-ing",
+      "ideal-diode"
+    ]
+  },
+  {
+    "component": "LM5050-2",
+    "type": "Power_Management",
+    "pins": [
+      "~FGD",
+      "GND",
+      "OFF",
+      "IN",
+      "GATE",
+      "OUT"
+    ],
+    "description": "High side OR-ing FET controller, 6V to 75V operation, TSOT-23-6",
+    "keywords": [
+      "positive",
+      "high-side",
+      "or-ing",
+      "ideal-diode"
+    ]
+  },
+  {
+    "component": "LM5051",
+    "type": "Power_Management",
+    "pins": [
+      "Line",
+      "VCC",
+      "OFF",
+      "~FGD",
+      "VSS",
+      "INN",
+      "INP",
+      "GATE"
+    ],
+    "description": "Low side OR-ing FET controller, -6V to -100V operation",
+    "keywords": [
+      "negative",
+      "low-side",
+      "or-ing",
+      "ideal-diode"
+    ]
+  },
+  {
+    "component": "LM5060",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "SENSE",
+      "GATE",
+      "VIN",
+      "OVP",
+      "UVLO",
+      "EN",
+      "TIMER",
+      "~PGD",
+      "OUT"
+    ],
+    "description": "High side protection controller, +5.5V to +65V operation, VSSOP-10 package",
+    "keywords": [
+      "high-voltage",
+      "mosfet-driver",
+      "hot-swap"
+    ]
+  },
+  {
+    "component": "LM74700",
+    "type": "Power_Management",
+    "pins": [
+      "VCAP",
+      "GND",
+      "EN",
+      "CATHODE",
+      "GATE",
+      "ANODE"
+    ],
+    "description": "Low Iq reverse battery protection ideal diode controller, SOT-23-6",
+    "keywords": [
+      "ideal-diode",
+      "or-ing"
+    ]
+  },
+  {
+    "component": "LMG3410",
+    "type": "Power_Management",
+    "pins": [
+      "LDO5V",
+      "VNEG",
+      "VDD",
+      "BBSW",
+      "~LPM",
+      "RDRV",
+      "IN",
+      "~FAULT"
+    ],
+    "description": "600-V 12-A Integrated GaN Power Stage, RWH0032A",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "LMG5200",
+    "type": "Power_Management",
+    "pins": [
+      "HB",
+      "HS",
+      "HI",
+      "LI",
+      "VCC",
+      "AGND"
+    ],
+    "description": "80-V, 10-A GaN Half-Bridge Power Stage, MOF0009A",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "LT1641-1",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "ON",
+      "FB",
+      "PWRGD",
+      "TIMER",
+      "GATE",
+      "Sense",
+      "Vcc"
+    ],
+    "description": "High voltage hot swap controller, +9V to +80V operation, with latching feature",
+    "keywords": [
+      "high-voltage",
+      "hot-swap"
+    ]
+  },
+  {
+    "component": "LT1641-2",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "ON",
+      "FB",
+      "PWRGD",
+      "TIMER",
+      "GATE",
+      "Sense",
+      "Vcc"
+    ],
+    "description": "High voltage hot swap controller, +9V to +80V operation, with auto-retry feature",
+    "keywords": [
+      "high-voltage",
+      "hot-swap"
+    ]
+  },
+  {
+    "component": "MIC2587-1",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "ON",
+      "FB",
+      "PWRGD",
+      "TIMER",
+      "GATE",
+      "Sense",
+      "Vcc"
+    ],
+    "description": "Positive high voltage hot swap controller +10V to +80V with latched operation",
+    "keywords": [
+      "power",
+      "switch",
+      "FET",
+      "driver"
+    ]
+  },
+  {
+    "component": "MIC2587R-1",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "ON",
+      "FB",
+      "PWRGD",
+      "TIMER",
+      "GATE",
+      "Sense",
+      "Vcc"
+    ],
+    "description": "Positive high voltage hot swap controller +10V to +80V with auto-retry operation",
+    "keywords": [
+      "power",
+      "switch",
+      "FET",
+      "driver"
+    ]
+  },
+  {
+    "component": "LT4230xDD",
+    "type": "Power_Management",
+    "pins": [
+      "IN2",
+      "TG2",
+      "BG2",
+      "BG1",
+      "OUTN",
+      "OUTP",
+      "TG1",
+      "IN1"
+    ],
+    "description": "Ideal Diode Bridge Controller, DC to 60Hz, DFN-8",
+    "keywords": [
+      "diode",
+      "bridge",
+      "replacement"
+    ]
+  },
+  {
+    "component": "LT4320xDD-1",
+    "type": "Power_Management",
+    "pins": [
+      "IN2",
+      "TG2",
+      "BG2",
+      "BG1",
+      "OUTN",
+      "OUTP",
+      "TG1",
+      "IN1"
+    ],
+    "description": "Ideal Diode Bridge Controller, DC to 600Hz, DFN-8",
+    "keywords": [
+      "diode",
+      "bridge",
+      "replacement"
+    ]
+  },
+  {
+    "component": "LT4231xUF",
+    "type": "Power_Management",
+    "pins": [
+      "TG36",
+      "~EN",
+      "EN",
+      "OUTP",
+      "BG36",
+      "BG12",
+      "IN12",
+      "TG12",
+      "OUTN",
+      "IN36",
+      "IN45",
+      "TG45",
+      "TG78",
+      "IN78",
+      "BG78",
+      "BG45"
+    ],
+    "description": "PoE Ideal Diode Bridge Controller, QFN-16",
+    "keywords": [
+      "LTPoE++",
+      "dual",
+      "diode",
+      "bridge",
+      "replacement"
+    ]
+  },
+  {
+    "component": "LTC4242xUHF",
+    "type": "Power_Management",
+    "pins": [
+      "AUXON1",
+      "3V_SENSE2",
+      "3V_GATE2",
+      "3V_OUT2",
+      "AUXON2",
+      "ON2",
+      "FON2",
+      "~EN2",
+      "~FAULT2",
+      "~AUXFAULT2",
+      "~PGOOD2",
+      "3V_OUT1",
+      "~AUXPGOOD2",
+      "12V_IN2",
+      "12V_SENSE2",
+      "12V_GATE2",
+      "12V_OUT2",
+      "AUXOUT2",
+      "GND",
+      "AUXOUT1",
+      "12V_OUT1",
+      "12V_GATE1",
+      "3V_GATE1",
+      "12V_SENSE1",
+      "12V_IN1",
+      "~AUXPGOOD1",
+      "~PGOOD1",
+      "~AUXFAULT1",
+      "~FAULT1",
+      "~EN1",
+      "FON1",
+      "ON1",
+      "EP",
+      "3V_SENSE1",
+      "3V_IN1",
+      "AUXIN1",
+      "VCC",
+      "AUXIN2",
+      "3V_IN2"
+    ],
+    "description": "Hot-Swap Power Controller, QFN-38",
+    "keywords": [
+      "Dual-Slot",
+      "PCIe"
+    ]
+  },
+  {
+    "component": "LTC4357DCB",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "IN",
+      "GATE",
+      "GND",
+      "NC",
+      "Vdd",
+      "PAD"
+    ],
+    "description": "Ideal diode controller, 9-80V operation, DFN-6 package",
+    "keywords": [
+      "ideal-diode",
+      "or-ing"
+    ]
+  },
+  {
+    "component": "LTC4357MS8",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "NC",
+      "GATE",
+      "GND",
+      "Vdd",
+      "OUT"
+    ],
+    "description": "Ideal diode controller, 9-80V operation, MSOP-8 package",
+    "keywords": [
+      "ideal-diode",
+      "or-ing"
+    ]
+  },
+  {
+    "component": "LTC4359-DCB",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GATE",
+      "SRC",
+      "IN",
+      "~SHDN",
+      "Vss",
+      "Pad"
+    ],
+    "description": "Ideal diode controller with reverse input protection, DFN-6 package",
+    "keywords": [
+      "ideal-diode",
+      "or-ing",
+      "reverse-protection"
+    ]
+  },
+  {
+    "component": "LTC4359-MS8",
+    "type": "Power_Management",
+    "pins": [
+      "GATE",
+      "SRC",
+      "NC",
+      "IN",
+      "~SHDN",
+      "Vss",
+      "OUT"
+    ],
+    "description": "Ideal diode controller with reverse input protection, MSOP-8 package",
+    "keywords": [
+      "ideal-diode",
+      "or-ing",
+      "reverse-protection"
+    ]
+  },
+  {
+    "component": "LTC4364CDE",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "DGATE",
+      "SOURCE",
+      "GATE",
+      "VCC",
+      "~SHDN",
+      "UV",
+      "OV"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection, -40V to +80V operation, DFN-14 package, 0\u00b0C to +40\u00b0C",
+    "keywords": [
+      "ideal-diode",
+      "or-ing",
+      "reverse-protection",
+      "undervoltage",
+      "overvoltage",
+      "surge-stopper"
+    ]
+  },
+  {
+    "component": "LTC4364IDE",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "DGATE",
+      "SOURCE",
+      "GATE",
+      "VCC",
+      "~SHDN",
+      "UV",
+      "OV"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection -40V to +80V in DFN-14 package, -40\u00b0C to +85\u00b0C",
+    "keywords": [
+      "surge",
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection",
+      "diode",
+      "ORing",
+      "MOSFET",
+      "driver"
+    ]
+  },
+  {
+    "component": "LTC4364HDE",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "DGATE",
+      "SOURCE",
+      "GATE",
+      "VCC",
+      "~SHDN",
+      "UV",
+      "OV"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection -40V to +80V in DFN-14 package, -40\u00b0C to +125\u00b0C",
+    "keywords": [
+      "surge",
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection",
+      "diode",
+      "ORing",
+      "MOSFET",
+      "driver"
+    ]
+  },
+  {
+    "component": "LTC4364CMS",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "UV",
+      "OV",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "NC",
+      "DGATE",
+      "SOURCE",
+      "HGATE",
+      "VCC",
+      "~SHDN"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection, -40V to +80V operation, MSOP-16 package, 0\u00b0C to +40\u00b0C",
+    "keywords": [
+      "ideal-diode",
+      "or-ing",
+      "reverse-protection",
+      "undervoltage",
+      "overvoltage",
+      "surge-stopper"
+    ]
+  },
+  {
+    "component": "LTC4364IMS",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "UV",
+      "OV",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "NC",
+      "DGATE",
+      "SOURCE",
+      "HGATE",
+      "VCC",
+      "~SHDN"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection -40V to +80V in MSOP-16 package, -40\u00b0C to +85\u00b0C",
+    "keywords": [
+      "surge",
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection",
+      "diode",
+      "ORing",
+      "MOSFET",
+      "driver"
+    ]
+  },
+  {
+    "component": "LTC4364HMS",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "UV",
+      "OV",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "NC",
+      "DGATE",
+      "SOURCE",
+      "HGATE",
+      "VCC",
+      "~SHDN"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection -40V to +80V in MSOP-16 package, -40\u00b0C to +125\u00b0C",
+    "keywords": [
+      "surge",
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection",
+      "diode",
+      "ORing",
+      "MOSFET",
+      "driver"
+    ]
+  },
+  {
+    "component": "LTC4364CS",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "UV",
+      "OV",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "NC",
+      "DGATE",
+      "SOURCE",
+      "HGATE",
+      "VCC",
+      "~SHDN"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection -40V to +80V in SOIC-16 package, 0\u00b0C to +40\u00b0C",
+    "keywords": [
+      "ideal-diode",
+      "or-ing",
+      "reverse-protection",
+      "undervoltage",
+      "overvoltage",
+      "surge-stopper"
+    ]
+  },
+  {
+    "component": "LTC4364IS",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "UV",
+      "OV",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "NC",
+      "DGATE",
+      "SOURCE",
+      "HGATE",
+      "VCC",
+      "~SHDN"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection -40V to +80V in SOIC-16 package, -40\u00b0C to +85\u00b0C",
+    "keywords": [
+      "surge",
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection",
+      "diode",
+      "ORing",
+      "MOSFET",
+      "driver"
+    ]
+  },
+  {
+    "component": "LTC4364HS",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "UV",
+      "OV",
+      "GND",
+      "~FLT",
+      "ENOUT",
+      "TMR",
+      "FB",
+      "SENSE",
+      "NC",
+      "DGATE",
+      "SOURCE",
+      "HGATE",
+      "VCC",
+      "~SHDN"
+    ],
+    "description": "Surge stopper with ideal diode, UV and OV protection -40V to +80V in SOIC-16 package, -40\u00b0C to +125\u00b0C",
+    "keywords": [
+      "surge",
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection",
+      "diode",
+      "ORing",
+      "MOSFET",
+      "driver"
+    ]
+  },
+  {
+    "component": "LTC4365DDB",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "OV",
+      "UV",
+      "Vin",
+      "GATE",
+      "Vout",
+      "~FAULT",
+      "~SHDN"
+    ],
+    "description": "Overvoltage, Undervoltage and Reverse Supply Protection Controller, 3x2mm DFN-8 package, 50Hz/60Hz noise rejection",
+    "keywords": [
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection"
+    ]
+  },
+  {
+    "component": "LTC4365DDB-1",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "OV",
+      "UV",
+      "Vin",
+      "GATE",
+      "Vout",
+      "~FAULT",
+      "~SHDN"
+    ],
+    "description": "Overvoltage, Undervoltage and Reverse Supply Protection Controller, 3x2mm DFN-8 package, 1ms fault recovery",
+    "keywords": [
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection"
+    ]
+  },
+  {
+    "component": "LTC4365TS8",
+    "type": "Power_Management",
+    "pins": [
+      "Vin",
+      "UV",
+      "OV",
+      "GND",
+      "~SHDN",
+      "~FAULT",
+      "Vout",
+      "GATE"
+    ],
+    "description": "Overvoltage, Undervoltage and Reverse Supply Protection Controller, TSOT23-8 package, 50Hz/60Hz noise rejection",
+    "keywords": [
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection"
+    ]
+  },
+  {
+    "component": "LTC4365TS8-1",
+    "type": "Power_Management",
+    "pins": [
+      "Vin",
+      "UV",
+      "OV",
+      "GND",
+      "~SHDN",
+      "~FAULT",
+      "Vout",
+      "GATE"
+    ],
+    "description": "Overvoltage, Undervoltage and Reverse Supply Protection Controller, TSOT23-8 package, 1ms fault recovery",
+    "keywords": [
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection"
+    ]
+  },
+  {
+    "component": "LTC4365xTS8",
+    "type": "Power_Management",
+    "pins": [
+      "VIN",
+      "UV",
+      "OV",
+      "GND",
+      "~SHDN",
+      "~FAULT",
+      "VOUT",
+      "GATE"
+    ],
+    "description": "Overvoltage, Undervoltage and Reverse Supply Protection Controller, 50Hz/60Hz noise rejection, TSOT-23-8",
+    "keywords": [
+      "overvoltage",
+      "undervoltage",
+      "reverse-polarity",
+      "protection"
+    ]
+  },
+  {
+    "component": "LTC4370xDE",
+    "type": "Power_Management",
+    "pins": [
+      "~EN2",
+      "OUT1",
+      "CPO1",
+      "GATE1",
+      "VIN1",
+      "VCC",
+      "GND",
+      "~EN1",
+      "EP",
+      "RANGE",
+      "COMP",
+      "VIN2",
+      "GATE2",
+      "CPO2",
+      "OUT2",
+      "FETON2",
+      "FETON1"
+    ],
+    "description": "OR Controller Current Sharing Controller N-Channel 2:1, DFN-16",
+    "keywords": [
+      "ideal-diode",
+      "or-ing",
+      "current",
+      "sharing",
+      "load",
+      "balancing"
+    ]
+  },
+  {
+    "component": "LTC4370xMS",
+    "type": "Power_Management",
+    "pins": [
+      "~EN2",
+      "OUT1",
+      "CPO1",
+      "GATE1",
+      "VIN1",
+      "VCC",
+      "GND",
+      "~EN1",
+      "RANGE",
+      "COMP",
+      "VIN2",
+      "GATE2",
+      "CPO2",
+      "OUT2",
+      "FETON2",
+      "FETON1"
+    ],
+    "description": "OR Controller Current Sharing Controller N-Channel 2:1, MSOP-16",
+    "keywords": [
+      "ideal-diode",
+      "or-ing",
+      "current",
+      "sharing",
+      "load",
+      "balancing"
+    ]
+  },
+  {
+    "component": "LTC4412xS6",
+    "type": "Power_Management",
+    "pins": [
+      "VIN",
+      "GND",
+      "CTL",
+      "STAT",
+      "GATE",
+      "SENSE"
+    ],
+    "description": "Low Loss PowerPath Controller, TSOT-23-6",
+    "keywords": [
+      "ideal-diode",
+      "or-ing"
+    ]
+  },
+  {
+    "component": "LTC4417CGN",
+    "type": "Power_Management",
+    "pins": [
+      "EN",
+      "~VALID1",
+      "~VALID2",
+      "~VALID3",
+      "GND",
+      "CAS",
+      "VOUT",
+      "G3",
+      "VS3",
+      "G2",
+      "VS2",
+      "~SHDN",
+      "G1",
+      "VS1",
+      "V3",
+      "V2",
+      "V1",
+      "HYS",
+      "UV1",
+      "OV1",
+      "UV2",
+      "OV2",
+      "UV3",
+      "OV3"
+    ],
+    "description": "Prioritized PowerPath Controller, Selects Highest Priority Supply from Three Inputs, SSOP",
+    "keywords": [
+      "switch",
+      "power",
+      "FET",
+      "sequence"
+    ]
+  },
+  {
+    "component": "LTC4417IGN",
+    "type": "Power_Management",
+    "pins": [
+      "EN",
+      "~VALID1",
+      "~VALID2",
+      "~VALID3",
+      "GND",
+      "CAS",
+      "VOUT",
+      "G3",
+      "VS3",
+      "G2",
+      "VS2",
+      "~SHDN",
+      "G1",
+      "VS1",
+      "V3",
+      "V2",
+      "V1",
+      "HYS",
+      "UV1",
+      "OV1",
+      "UV2",
+      "OV2",
+      "UV3",
+      "OV3"
+    ],
+    "description": "Prioritized PowerPath Controller, Selects Highest Priority Supply from Three Inputs, \u201340\u00b0C to 85\u00b0C, SSOP",
+    "keywords": [
+      "switch",
+      "power",
+      "FET",
+      "sequence"
+    ]
+  },
+  {
+    "component": "LTC4417HGN",
+    "type": "Power_Management",
+    "pins": [
+      "EN",
+      "~VALID1",
+      "~VALID2",
+      "~VALID3",
+      "GND",
+      "CAS",
+      "VOUT",
+      "G3",
+      "VS3",
+      "G2",
+      "VS2",
+      "~SHDN",
+      "G1",
+      "VS1",
+      "V3",
+      "V2",
+      "V1",
+      "HYS",
+      "UV1",
+      "OV1",
+      "UV2",
+      "OV2",
+      "UV3",
+      "OV3"
+    ],
+    "description": "Prioritized PowerPath Controller, Selects Highest Priority Supply from Three Inputs, \u201340\u00b0C to 125\u00b0C, SSOP",
+    "keywords": [
+      "switch",
+      "power",
+      "FET",
+      "sequence"
+    ]
+  },
+  {
+    "component": "LTC4417CUF",
+    "type": "Power_Management",
+    "pins": [
+      "UV1",
+      "GND",
+      "CAS",
+      "VOUT",
+      "G3",
+      "VS3",
+      "G2",
+      "VS2",
+      "G1",
+      "VS1",
+      "V3",
+      "OV1",
+      "V2",
+      "V1",
+      "EN",
+      "~SHDN",
+      "HYS",
+      "PAD",
+      "UV2",
+      "OV2",
+      "UV3",
+      "OV3",
+      "~VALID1",
+      "~VALID2",
+      "~VALID3"
+    ],
+    "description": "Prioritized PowerPath Controller, Selects Highest Priority Supply from Three Inputs, QFN",
+    "keywords": [
+      "switch",
+      "power",
+      "FET",
+      "sequence"
+    ]
+  },
+  {
+    "component": "LTC4417IUF",
+    "type": "Power_Management",
+    "pins": [
+      "UV1",
+      "GND",
+      "CAS",
+      "VOUT",
+      "G3",
+      "VS3",
+      "G2",
+      "VS2",
+      "G1",
+      "VS1",
+      "V3",
+      "OV1",
+      "V2",
+      "V1",
+      "EN",
+      "~SHDN",
+      "HYS",
+      "PAD",
+      "UV2",
+      "OV2",
+      "UV3",
+      "OV3",
+      "~VALID1",
+      "~VALID2",
+      "~VALID3"
+    ],
+    "description": "Prioritized PowerPath Controller, Selects Highest Priority Supply from Three Inputs, \u201340\u00b0C to 85\u00b0C, QFN",
+    "keywords": [
+      "switch",
+      "power",
+      "FET",
+      "sequence"
+    ]
+  },
+  {
+    "component": "LTC4417HUF",
+    "type": "Power_Management",
+    "pins": [
+      "UV1",
+      "GND",
+      "CAS",
+      "VOUT",
+      "G3",
+      "VS3",
+      "G2",
+      "VS2",
+      "G1",
+      "VS1",
+      "V3",
+      "OV1",
+      "V2",
+      "V1",
+      "EN",
+      "~SHDN",
+      "HYS",
+      "PAD",
+      "UV2",
+      "OV2",
+      "UV3",
+      "OV3",
+      "~VALID1",
+      "~VALID2",
+      "~VALID3"
+    ],
+    "description": "Prioritized PowerPath Controller, Selects Highest Priority Supply from Three Inputs, \u201340\u00b0C to 125\u00b0C, QFN",
+    "keywords": [
+      "switch",
+      "power",
+      "FET",
+      "sequence"
+    ]
+  },
+  {
+    "component": "MAX8586",
+    "type": "Power_Management",
+    "pins": [
+      "SEL",
+      "ISET",
+      "ON",
+      "IN",
+      "OUT",
+      "~FAULT",
+      "GND",
+      "ENRESET"
+    ],
+    "description": "Single 1.2A USB Current Limiting Switch",
+    "keywords": [
+      "1-channel",
+      "USB",
+      "current",
+      "limiting",
+      "power",
+      "switch"
+    ]
+  },
+  {
+    "component": "MIC2025-1YM",
+    "type": "Power_Management",
+    "pins": [
+      "EN",
+      "FLG",
+      "GND",
+      "NC",
+      "OUT",
+      "IN"
+    ],
+    "description": "Single-channel, high side, power distribution switch, 2.7V-5.5V, Active High Output, SOIC-8",
+    "keywords": [
+      "mosfet",
+      "distribution"
+    ]
+  },
+  {
+    "component": "MIC2025-2YM",
+    "type": "Power_Management",
+    "pins": [
+      "EN",
+      "FLG",
+      "GND",
+      "NC",
+      "OUT",
+      "IN"
+    ],
+    "description": "Single-channel, high side, power distribution switch, 2.7V-5.5V, Active Low Output, SOIC-8",
+    "keywords": [
+      "mosfet",
+      "distribution"
+    ]
+  },
+  {
+    "component": "MIC2025-1YMM",
+    "type": "Power_Management",
+    "pins": [
+      "EN",
+      "FLG",
+      "GND",
+      "NC",
+      "OUT",
+      "IN"
+    ],
+    "description": "Single-channel, high side, power distribution switch, 2.7V-5.5V, Active High Output, MSOP-8",
+    "keywords": [
+      "mosfet",
+      "distribution"
+    ]
+  },
+  {
+    "component": "MIC2025-2YMM",
+    "type": "Power_Management",
+    "pins": [
+      "EN",
+      "FLG",
+      "GND",
+      "NC",
+      "OUT",
+      "IN"
+    ],
+    "description": "Single-channel, high side, power distribution switch, 2.7V-5.5V, Active Low Output, MSOP-8",
+    "keywords": [
+      "mosfet",
+      "distribution"
+    ]
+  },
+  {
+    "component": "MIC2026-1BN",
+    "type": "Power_Management",
+    "pins": [
+      "ENA",
+      "FLGA",
+      "FLGB",
+      "ENB",
+      "OUTB",
+      "GND",
+      "IN",
+      "OUTA"
+    ],
+    "description": "Dual-channel, high side, power distribution switch, 2.7V-5.5V, Active High Output, DIP-8",
+    "keywords": [
+      "mosfet",
+      "distribution"
+    ]
+  },
+  {
+    "component": "MIC2026-1BM",
+    "type": "Power_Management",
+    "pins": [
+      "ENA",
+      "FLGA",
+      "FLGB",
+      "ENB",
+      "OUTB",
+      "GND",
+      "IN",
+      "OUTA"
+    ],
+    "description": "Dual-channel, high side, power distribution switch, 2.7V-5.5V, Active High Output, SOIC-8",
+    "keywords": [
+      "mosfet",
+      "distribution"
+    ]
+  },
+  {
+    "component": "MIC2026-2BN",
+    "type": "Power_Management",
+    "pins": [
+      "ENA",
+      "FLGA",
+      "FLGB",
+      "ENB",
+      "OUTB",
+      "GND",
+      "IN",
+      "OUTA"
+    ],
+    "description": "Dual-channel, high side, power distribution switch, 2.7V-5.5V, Active Low Output, DIP-8",
+    "keywords": [
+      "mosfet",
+      "distribution"
+    ]
+  },
+  {
+    "component": "MIC2026-2BM",
+    "type": "Power_Management",
+    "pins": [
+      "ENA",
+      "FLGA",
+      "FLGB",
+      "ENB",
+      "OUTB",
+      "GND",
+      "IN",
+      "OUTA"
+    ],
+    "description": "Dual-channel, high side, power distribution switch, 2.7V-5.5V, Active Low Output, SOIC-8",
+    "keywords": [
+      "mosfet",
+      "distribution"
+    ]
+  },
+  {
+    "component": "NPC45560-H",
+    "type": "Power_Management",
+    "pins": [
+      "VIN",
+      "VOUT",
+      "EN",
+      "VCC",
+      "GND",
+      "SR",
+      "PG",
+      "BLEED"
+    ],
+    "description": "Controlled load switch with low Ron",
+    "keywords": [
+      "load",
+      "switch"
+    ]
+  },
+  {
+    "component": "NPC45560-L",
+    "type": "Power_Management",
+    "pins": [
+      "VIN",
+      "VOUT",
+      "EN",
+      "VCC",
+      "GND",
+      "SR",
+      "PG",
+      "BLEED"
+    ],
+    "description": "Controlled load switch with low Ron",
+    "keywords": [
+      "load",
+      "switch"
+    ]
+  },
+  {
+    "component": "PD70224",
+    "type": "Power_Management",
+    "pins": [
+      "IN2A",
+      "SUPP_SA",
+      "SUPP_SB",
+      "IN1A",
+      "IN1B",
+      "WA_EN",
+      "NC",
+      "IN2B"
+    ],
+    "description": "Ideal Dual Diode Bridge, QFN-40",
+    "keywords": [
+      "dual",
+      "ideal",
+      "diode",
+      "bridge"
+    ]
+  },
+  {
+    "component": "RT9701",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "VIN",
+      "VIN/EN"
+    ],
+    "description": "100 milliohm power distribution switch",
+    "keywords": [
+      "power",
+      "distribution",
+      "switch"
+    ]
+  },
+  {
+    "component": "SN6505ADBV",
+    "type": "Power_Management",
+    "pins": [
+      "D1",
+      "VCC",
+      "D2",
+      "GND",
+      "EN",
+      "CLK"
+    ],
+    "description": "Low Noise, 1A, Transformer Drivers for Isolated Power Supplies, 160 kHz, SOT-23-6",
+    "keywords": [
+      "Transformer",
+      "Drivers"
+    ]
+  },
+  {
+    "component": "SN6505BDBV",
+    "type": "Power_Management",
+    "pins": [
+      "D1",
+      "VCC",
+      "D2",
+      "GND",
+      "EN",
+      "CLK"
+    ],
+    "description": "Low Noise, 1A, Transformer Drivers for Isolated Power Supplies, 420 kHz, SOT-23-6",
+    "keywords": [
+      "Transformer",
+      "Drivers"
+    ]
+  },
+  {
+    "component": "STM6600",
+    "type": "Power_Management",
+    "pins": [
+      "Vcc",
+      "~RST~",
+      "~INT~",
+      "GND",
+      "~SR~",
+      "Vref",
+      "PS_HOLD",
+      "C_SRD",
+      "~PB~",
+      "~VCC~_LO",
+      "~PB~_OUT",
+      "~EN~/EN"
+    ],
+    "description": "Smart push-button on/off controller, power-on lockout, Low Power, 1.6-5.5V, TDFN12",
+    "keywords": [
+      "push-button-controller",
+      "low-power"
+    ]
+  },
+  {
+    "component": "STM6601",
+    "type": "Power_Management",
+    "pins": [
+      "Vcc",
+      "~RST~",
+      "~INT~",
+      "GND",
+      "~SR~",
+      "Vref",
+      "PS_HOLD",
+      "C_SRD",
+      "~PB~",
+      "~VCC~_LO",
+      "~PB~_OUT",
+      "~EN~/EN"
+    ],
+    "description": "Smart push-button on/off controller, power-on lockout, Low Power, 1.6-5.5V, TDFN12",
+    "keywords": [
+      "push-button-controller",
+      "low-power"
+    ]
+  },
+  {
+    "component": "SiP32431DR3",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "ON",
+      "IN",
+      "NC"
+    ],
+    "description": "10 pA, Ultra Low Leakage and Quiescent Current, Load Switch with Reverse Blocking, High Enable, SC-70-6",
+    "keywords": [
+      "Load",
+      "switch"
+    ]
+  },
+  {
+    "component": "SiP32432DR3",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~ON",
+      "IN",
+      "NC"
+    ],
+    "description": "10 pA, Ultra Low Leakage and Quiescent Current, Load Switch with Reverse Blocking, Low Enable, SC-70-6",
+    "keywords": [
+      "Load",
+      "switch"
+    ]
+  },
+  {
+    "component": "TEA1708T",
+    "type": "Power_Management",
+    "pins": [
+      "NC",
+      "TMR2",
+      "TMR1",
+      "HV2",
+      "HV1"
+    ],
+    "description": "GreenChip X capacitor discharge IC, SOIC-8",
+    "keywords": [
+      "X",
+      "capacitor",
+      "discharge"
+    ]
+  },
+  {
+    "component": "TLE8102SG",
+    "type": "Power_Management",
+    "pins": [
+      "IN2",
+      "VDD",
+      "MISO/ST2",
+      "GND",
+      "MOSI",
+      "OUT2",
+      "ISx/ST1/Fault",
+      "SCLK",
+      "IN1",
+      "~CS",
+      "OUT1"
+    ],
+    "description": "Smart Dual Channel Powertrain Switch 2x8A (max 360mOhm)",
+    "keywords": [
+      "Low_Side_Switch",
+      "Power"
+    ]
+  },
+  {
+    "component": "TLE8104E",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN4",
+      "OUT3",
+      "~FAULT",
+      "MISO",
+      "SCLK",
+      "MOSI",
+      "OUT4",
+      "IN3",
+      "IN2",
+      "OUT1",
+      "VS",
+      "~RST",
+      "~CS",
+      "PRG",
+      "OUT2",
+      "IN1"
+    ],
+    "description": "Smart Quad Channel Powertrain Switch 4x3A (In=1A, Ilim=3A, Ron=320mOhm)",
+    "keywords": [
+      "Low_Side_Switch",
+      "Power"
+    ]
+  },
+  {
+    "component": "TPS2041B",
+    "type": "Power_Management",
+    "pins": [
+      "OUT",
+      "GND",
+      "~OC",
+      "~EN",
+      "IN"
+    ],
+    "description": "Single power-distribution switcher",
+    "keywords": [
+      "1-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "TPS2042D",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "IN1",
+      "~EN1",
+      "~EN2",
+      "~OC2",
+      "OUT2",
+      "OUT1",
+      "~OC1"
+    ],
+    "description": "Dual power-distribution switcher",
+    "keywords": [
+      "2-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "TPS2044D",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "~OC2",
+      "OUT2",
+      "OUT1",
+      "~OC1",
+      "IN1",
+      "~EN1",
+      "~EN2",
+      "OUT4",
+      "OUT3",
+      "~OC3",
+      "IN2",
+      "~EN3",
+      "~EN4",
+      "~OC4"
+    ],
+    "description": "Quad power-distribution switcher",
+    "keywords": [
+      "4-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "TPS2054D",
+    "type": "Power_Management",
+    "pins": [
+      "GND",
+      "~OC2",
+      "OUT2",
+      "OUT1",
+      "~OC1",
+      "IN1",
+      "EN1",
+      "EN2",
+      "OUT4",
+      "OUT3",
+      "~OC3",
+      "IN2",
+      "EN3",
+      "EN4",
+      "~OC4"
+    ],
+    "description": "Quad power-distribution switcher",
+    "keywords": [
+      "4-chanel",
+      "power-distribution",
+      "USB"
+    ]
+  },
+  {
+    "component": "TPS22810DRV",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "QOD",
+      "CT",
+      "GND",
+      "EN/UVLO",
+      "VIN"
+    ],
+    "description": "2.7-18V, 79mohms On-Resistance Load Switch With Thermal Protection, WSON-6",
+    "keywords": [
+      "load",
+      "switch",
+      "thermal",
+      "protection"
+    ]
+  },
+  {
+    "component": "TPS22917DBV",
+    "type": "Power_Management",
+    "pins": [
+      "VIN",
+      "GND",
+      "ON",
+      "CT",
+      "QOD",
+      "VOUT"
+    ],
+    "description": "1V to 5.5V, 2A, 80m\u03a9 Ultra-Low Leakage Load Switch, SOT23-6",
+    "keywords": [
+      "high-side",
+      "power",
+      "distribution",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS22929D",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT",
+      "GND",
+      "ON",
+      "VIN"
+    ],
+    "description": "High side, power distribution switch, 1.4V-5.5V, 1.8A, SOT23-6 package",
+    "keywords": [
+      "high-side",
+      "power",
+      "distribution",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS22993",
+    "type": "Power_Management",
+    "pins": [
+      "VOUT2",
+      "ON1",
+      "VOUT4",
+      "VIN4",
+      "GND",
+      "VIN3",
+      "VOUT3",
+      "ADD2",
+      "SCL",
+      "VDD",
+      "SDA",
+      "VIN2",
+      "ADD3",
+      "VBIAS",
+      "VIN1",
+      "VOUT1",
+      "ADD1",
+      "ON4",
+      "ON3",
+      "ON2"
+    ],
+    "description": "Quad Channel Load Switch with GPIO and I2C Control, Bias voltage: 4.5V-17.2V, Input voltage: 1.0V-3.6V, Max 1.2A per channel, WQFN-20",
+    "keywords": [
+      "quad",
+      "channel",
+      "power",
+      "distribution/load",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS2412D",
+    "type": "Power_Management",
+    "pins": [
+      "VDD",
+      "RSET",
+      "GND",
+      "GATE",
+      "C",
+      "A",
+      "BYP"
+    ],
+    "description": "N+1 and ORing Power Rail Controller, SOIC-8",
+    "keywords": [
+      "ideal-diode",
+      "or-ing"
+    ]
+  },
+  {
+    "component": "TPS2412PW",
+    "type": "Power_Management",
+    "pins": [
+      "VDD",
+      "RSET",
+      "GND",
+      "GATE",
+      "C",
+      "A",
+      "BYP"
+    ],
+    "description": "N+1 and ORing Power Rail Controller, TSSOP-8",
+    "keywords": [
+      "ideal-diode",
+      "or-ing"
+    ]
+  },
+  {
+    "component": "TPS2419D",
+    "type": "Power_Management",
+    "pins": [
+      "RSET",
+      "EN",
+      "GND",
+      "GATE",
+      "C",
+      "A",
+      "BYP"
+    ],
+    "description": "N+1 and ORing Power Rail Controller with Enable, SOIC-8",
+    "keywords": [
+      "ideal-diode",
+      "or-ing"
+    ]
+  },
+  {
+    "component": "TPS2419PW",
+    "type": "Power_Management",
+    "pins": [
+      "RSET",
+      "EN",
+      "GND",
+      "GATE",
+      "C",
+      "A",
+      "BYP"
+    ],
+    "description": "N+1 and ORing Power Rail Controller with Enable, TSSOP-8",
+    "keywords": [
+      "ideal-diode",
+      "or-ing"
+    ]
+  },
+  {
+    "component": "TPS2592xx",
+    "type": "Power_Management",
+    "pins": [
+      "dV/dT",
+      "ILIM",
+      "GND",
+      "EN/UVLO",
+      "VIN",
+      "OUT",
+      "NC"
+    ],
+    "description": "5V/12V eFuse Protection Switch (VSON-10)",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS26630RGE",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "ILIM",
+      "MODE",
+      "~SHDN",
+      "IMON",
+      "~FLT",
+      "PGTH",
+      "PGOOD",
+      "OUT",
+      "NC",
+      "GND",
+      "B_GATE",
+      "DRV",
+      "IN_SYS",
+      "UVLO",
+      "OVP",
+      "dVdT"
+    ],
+    "description": "60V, 6A Power Limiting, Surge Protection Industrial eFuse, Adjustable Overvoltage cut-off, Active Current Limiting, VQFN-24",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS26631RGE",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "ILIM",
+      "MODE",
+      "~SHDN",
+      "IMON",
+      "~FLT",
+      "PGTH",
+      "PGOOD",
+      "OUT",
+      "NC",
+      "GND",
+      "B_GATE",
+      "DRV",
+      "IN_SYS",
+      "UVLO",
+      "OVP",
+      "dVdT"
+    ],
+    "description": "60V, 6A Power Limiting, Surge Protection Industrial eFuse, Adjustable Overvoltage cut-off, Active Current Limiting with Pulse current support, VQFN-24",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS26631PWP",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "dVdT",
+      "ILIM",
+      "MODE",
+      "~SHDN",
+      "IMON",
+      "~FLT",
+      "PGTH",
+      "PGOOD",
+      "OUT",
+      "GND",
+      "B_GATE",
+      "DRV",
+      "IN_SYS",
+      "UVLO",
+      "OVP"
+    ],
+    "description": "60V, 6A Power Limiting, Surge Protection Industrial eFuse, Adjustable Overvoltage cut-off, Active Current Limiting with Pulse current support, HTTSOP-20",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS26632RGE",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "ILIM",
+      "MODE",
+      "~SHDN",
+      "IMON",
+      "~FLT",
+      "PGTH",
+      "PGOOD",
+      "OUT",
+      "NC",
+      "GND",
+      "B_GATE",
+      "DRV",
+      "IN_SYS",
+      "UVLO",
+      "PLIM",
+      "dVdT"
+    ],
+    "description": "60V, 6A Power Limiting, Surge Protection Industrial eFuse, 35V fixed Overvoltage clamp, Active Current Limiting, VQFN-24",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS26633RGE",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "ILIM",
+      "MODE",
+      "~SHDN",
+      "IMON",
+      "~FLT",
+      "PGTH",
+      "PGOOD",
+      "OUT",
+      "NC",
+      "GND",
+      "B_GATE",
+      "DRV",
+      "IN_SYS",
+      "UVLO",
+      "PLIM",
+      "dVdT"
+    ],
+    "description": "60V, 6A Power Limiting, Surge Protection Industrial eFuse, 35V fixed Overvoltage clamp, Active Current Limiting with Pulse current support, VQFN-24",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS26635RGE",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "ILIM",
+      "MODE",
+      "~SHDN",
+      "IMON",
+      "~FLT",
+      "PGTH",
+      "PGOOD",
+      "OUT",
+      "NC",
+      "GND",
+      "B_GATE",
+      "DRV",
+      "IN_SYS",
+      "UVLO",
+      "PLIM",
+      "dVdT"
+    ],
+    "description": "60V, 6A Power Limiting, Surge Protection Industrial eFuse, 39V fixed Overvoltage clamp, Active Current Limiting with Pulse current support, VQFN-24",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS26633PWP",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "dVdT",
+      "ILIM",
+      "MODE",
+      "~SHDN",
+      "IMON",
+      "~FLT",
+      "PGTH",
+      "PGOOD",
+      "OUT",
+      "GND",
+      "B_GATE",
+      "DRV",
+      "IN_SYS",
+      "UVLO",
+      "PLIM"
+    ],
+    "description": "60V, 6A Power Limiting, Surge Protection Industrial eFuse, 35V fixed Overvoltage clamp, Active Current Limiting with Pulse current support, HTTSOP-20",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TPS26636PWP",
+    "type": "Power_Management",
+    "pins": [
+      "IN",
+      "dVdT",
+      "ILIM",
+      "MODE",
+      "~SHDN",
+      "IMON",
+      "~FLT",
+      "PGTH",
+      "PGOOD",
+      "OUT",
+      "GND",
+      "B_GATE",
+      "DRV",
+      "IN_SYS",
+      "UVLO",
+      "PLIM"
+    ],
+    "description": "60V, 6A Power Limiting, Surge Protection Industrial eFuse, 35V fixed Overvoltage clamp, Active Current Limiting with Pulse current support, HTTSOP-20",
+    "keywords": [
+      "efuse",
+      "protection",
+      "switch"
+    ]
+  },
+  {
+    "component": "TSM102",
+    "type": "Power_Management",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifier and Dual Comparator and 1% Voltage Reference, SOIC-16",
+    "keywords": [
+      "dual",
+      "opamp",
+      "comparator",
+      "reference"
+    ]
+  },
+  {
+    "component": "TSM102A",
+    "type": "Power_Management",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifier and Dual Comparator and 0.4% Voltage Reference, SOIC-16",
+    "keywords": [
+      "dual",
+      "opamp",
+      "comparator",
+      "reference"
+    ]
+  },
+  {
+    "component": "TSM103W",
+    "type": "Power_Management",
+    "pins": [
+      "V-",
+      "V+",
+      "-",
+      "+"
+    ],
+    "description": "Dual Operational Amplifier and 2.5V 1% Voltage Reference, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "reference"
+    ]
+  },
+  {
+    "component": "TSM103WA",
+    "type": "Power_Management",
+    "pins": [
+      "V-",
+      "V+",
+      "-",
+      "+"
+    ],
+    "description": "Dual Operational Amplifier and 2.5V 0.4% Voltage Reference, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "reference"
+    ]
+  },
+  {
+    "component": "UCC39002D",
+    "type": "Power_Management",
+    "pins": [
+      "CS-",
+      "CS+",
+      "VDD",
+      "GND",
+      "ADJ",
+      "EAO",
+      "LS",
+      "CSO"
+    ],
+    "description": "Advanced 8-Pin Load-Share Controller, SOIC-8",
+    "keywords": [
+      "load",
+      "share",
+      "controller"
+    ]
+  }
+]

@@ -2,11 +2,13 @@ import os
 import requests
 from dotenv import load_dotenv
 
-load_dotenv()
+# Always load .env from the project root, regardless of working directory
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+load_dotenv(os.path.join(_project_root, ".env"))
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/owl-alpha")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemini-2.0-flash-exp:free")
 
 DEFAULT_MODEL = OPENROUTER_MODEL
 

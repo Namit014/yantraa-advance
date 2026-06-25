@@ -1,0 +1,203 @@
+[
+  {
+    "component": "0",
+    "type": "pspice",
+    "pins": [
+      "0"
+    ],
+    "description": "0V reference potential for simulation",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "CAP",
+    "type": "pspice",
+    "pins": [],
+    "description": "Capacitor symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "C",
+    "type": "pspice",
+    "pins": [],
+    "description": "Capacitor symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "DIODE",
+    "type": "pspice",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Diode symbol for simulation only. Pin order incompatible with official kicad footprints",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "INDUCTOR",
+    "type": "pspice",
+    "pins": [
+      "1",
+      "2"
+    ],
+    "description": "Inductor symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "ISOURCE",
+    "type": "pspice",
+    "pins": [
+      "E1",
+      "E2"
+    ],
+    "description": "Current source symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "MNMOS",
+    "type": "pspice",
+    "pins": [
+      "D",
+      "G",
+      "S",
+      "B"
+    ],
+    "description": "N-channel MOSFET symbol for simulation only",
+    "keywords": [
+      "mosfet",
+      "nmos",
+      "simulation"
+    ]
+  },
+  {
+    "component": "MPMOS",
+    "type": "pspice",
+    "pins": [
+      "D",
+      "G",
+      "S",
+      "B"
+    ],
+    "description": "P-channel MOSFET symbol for simulation only",
+    "keywords": [
+      "mosfet",
+      "pmos",
+      "simulation"
+    ]
+  },
+  {
+    "component": "OPAMP",
+    "type": "pspice",
+    "pins": [
+      "+",
+      "-",
+      "V+",
+      "V-"
+    ],
+    "description": "OPAmp symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "QNPN",
+    "type": "pspice",
+    "pins": [
+      "C",
+      "B",
+      "E",
+      "Substrat"
+    ],
+    "description": "Bipolar transistor symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "QPNP",
+    "type": "pspice",
+    "pins": [
+      "C",
+      "B",
+      "E",
+      "Substrat"
+    ],
+    "description": "Bipolar transistor symbol for simulation only",
+    "keywords": [
+      "simulstaion"
+    ]
+  },
+  {
+    "component": "R",
+    "type": "pspice",
+    "pins": [],
+    "description": "Resistor symbol for simulation only",
+    "keywords": [
+      "resistor",
+      "simulation"
+    ]
+  },
+  {
+    "component": "VSOURCE",
+    "type": "pspice",
+    "pins": [
+      "E1",
+      "E2"
+    ],
+    "description": "Voltage source symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "BSOURCE",
+    "type": "pspice",
+    "pins": [
+      "N+",
+      "N-"
+    ],
+    "description": "Arbitrary behavioral voltage or current source",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "ESOURCE",
+    "type": "pspice",
+    "pins": [
+      "N+",
+      "N-",
+      "C+",
+      "C-"
+    ],
+    "description": "Voltage-dependent Voltage source symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  },
+  {
+    "component": "GSOURCE",
+    "type": "pspice",
+    "pins": [
+      "N+",
+      "N-",
+      "C+",
+      "C-"
+    ],
+    "description": "Voltage-dependent Current source symbol for simulation only",
+    "keywords": [
+      "simulation"
+    ]
+  }
+]

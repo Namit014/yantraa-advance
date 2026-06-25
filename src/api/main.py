@@ -28,17 +28,8 @@ from contextlib import asynccontextmanager
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Initialize the Retriever
-    # This will load the sentence transformer model and connect to the Qdrant Database
-    retriever = Retriever()
-    app.state.retriever = retriever
-    yield
-
-from contextlib import asynccontextmanager
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
     # Initialize the Retriever on startup
+    # This will load the sentence transformer model and connect to the Qdrant Database
     app.state.retriever = Retriever()
     yield
     # Shutdown logic (if any)

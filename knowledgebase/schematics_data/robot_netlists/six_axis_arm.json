@@ -1,0 +1,116 @@
+{
+  "project": "six_axis_arm",
+  "robot_type": "Robotic Arm",
+  "components": [
+    {
+      "ref": "U1",
+      "part": "Raspberry Pi",
+      "category": "controller"
+    },
+    {
+      "ref": "U2",
+      "part": "Arduino",
+      "category": "controller"
+    },
+    {
+      "ref": "M1",
+      "part": "Stepper Motor",
+      "category": "motor"
+    },
+    {
+      "ref": "M2",
+      "part": "Stepper Motor",
+      "category": "motor"
+    },
+    {
+      "ref": "DRV1",
+      "part": "A4988",
+      "category": "driver"
+    },
+    {
+      "ref": "DRV2",
+      "part": "A4988",
+      "category": "driver"
+    },
+    {
+      "ref": "ENC1",
+      "part": "Encoders",
+      "category": "sensor"
+    }
+  ],
+  "nets": [
+    {
+      "name": "I2C_COMM",
+      "connections": [
+        "U1.I2C",
+        "U2.I2C"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "STEP_1",
+      "connections": [
+        "U2.D2",
+        "DRV1.STEP"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_1",
+      "connections": [
+        "U2.D3",
+        "DRV1.DIR"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "STEP_2",
+      "connections": [
+        "U2.D4",
+        "DRV2.STEP"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_2",
+      "connections": [
+        "U2.D5",
+        "DRV2.DIR"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "ENC_A",
+      "connections": [
+        "ENC1.A",
+        "U2.D10"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "ENC_B",
+      "connections": [
+        "ENC1.B",
+        "U2.D11"
+      ],
+      "inferred": true
+    }
+  ],
+  "functional_blocks": [
+    {
+      "name": "High_Level_Compute",
+      "components": [
+        "U1"
+      ]
+    },
+    {
+      "name": "Low_Level_Control",
+      "components": [
+        "U2",
+        "DRV1",
+        "DRV2",
+        "ENC1"
+      ]
+    }
+  ]
+}

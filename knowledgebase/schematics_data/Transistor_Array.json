@@ -1,0 +1,583 @@
+[
+  {
+    "component": "A2982",
+    "type": "Transistor_Array",
+    "pins": [
+      "IN1",
+      "NC",
+      "GND",
+      "OUT8",
+      "OUT7",
+      "OUT6",
+      "OUT5",
+      "OUT4",
+      "OUT3",
+      "OUT2",
+      "IN2",
+      "OUT1",
+      "IN3",
+      "IN4",
+      "IN5",
+      "IN6",
+      "IN7",
+      "IN8",
+      "+VS"
+    ],
+    "description": "8-Channel Source Driver, TTL DTL, PMOS or CMOS compatible, 500mA 50V output, SOIC-20W",
+    "keywords": [
+      "relays",
+      "solenoids",
+      "lamps",
+      "steppers",
+      "servos",
+      "LEDs"
+    ]
+  },
+  {
+    "component": "MC1413",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16/DIP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "MC1413B",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, TTL/CMOS-compatible, SOIC16/DIP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "NCV1413B",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "SN75468",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "Higher Voltage, High Current Darlington Transistor Arrays, 5V CMOS/TTL-compatible input, SOIC16/SOIC16W/DIP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "SN75469",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "Higher Voltage, High Current Darlington Transistor Arrays, 6-15V CMOS/PMOS-compatible input, SOIC16/SOIC16W/DIP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "TBD62783A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "GND",
+      "O8",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "I8",
+      "VCC"
+    ],
+    "description": "8-Channel Source Type Transistor Array, TTL and CMOS compatible, 500mA, 50V, DIP-18/SOP-18/SSOP-18/SOIC-18W",
+    "keywords": [
+      "relays",
+      "solenoids",
+      "lamps",
+      "steppers",
+      "servos",
+      "LEDs"
+    ]
+  },
+  {
+    "component": "ULN2003",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16/SOIC16W/DIP16/TSSOP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2003A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16/SOIC16W/DIP16/TSSOP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2002",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16/SOIC16W/DIP16/TSSOP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2002A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16/SOIC16W/DIP16/TSSOP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2004",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16/SOIC16W/DIP16/TSSOP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2004A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16/SOIC16W/DIP16/TSSOP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2803A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "COM",
+      "O8",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "I8",
+      "GND"
+    ],
+    "description": "Darlington Transistor Arrays, SOIC18/DIP18",
+    "keywords": [
+      "Darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2802A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "COM",
+      "O8",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "I8",
+      "GND"
+    ],
+    "description": "Darlington Transistor Arrays, SOIC18/DIP18",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2801A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "COM",
+      "O8",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "I8",
+      "GND"
+    ],
+    "description": "Darlington Transistor Arrays, SOIC18/DIP18",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2804A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "COM",
+      "O8",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "I8",
+      "GND"
+    ],
+    "description": "Darlington Transistor Arrays, SOIC18/DIP18",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULN2805A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "COM",
+      "O8",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "I8",
+      "GND"
+    ],
+    "description": "Darlington Transistor Arrays, SOIC18/DIP18",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULQ2003A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16W/TSSOP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  },
+  {
+    "component": "ULQ2004A",
+    "type": "Transistor_Array",
+    "pins": [
+      "I1",
+      "O7",
+      "O6",
+      "O5",
+      "O4",
+      "O3",
+      "O2",
+      "O1",
+      "I2",
+      "I3",
+      "I4",
+      "I5",
+      "I6",
+      "I7",
+      "GND",
+      "COM"
+    ],
+    "description": "High Voltage, High Current Darlington Transistor Arrays, SOIC16W/TSSOP16",
+    "keywords": [
+      "darlington",
+      "transistor",
+      "array"
+    ]
+  }
+]

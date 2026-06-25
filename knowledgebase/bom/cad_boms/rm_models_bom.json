@@ -1,0 +1,16 @@
+{
+  "project_name": "rm_models",
+  "sub_assemblies": [
+    {
+      "folder": "main_assembly",
+      "assembly_file": "Five-Fingered Dexterous Hand-L.step",
+      "total_unique_parts": 1,
+      "bom": [
+        {
+          "part_name": "\u02b1--",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

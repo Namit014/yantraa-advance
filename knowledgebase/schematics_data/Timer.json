@@ -1,0 +1,1352 @@
+[
+  {
+    "component": "8284",
+    "type": "Timer",
+    "pins": [
+      "CSYNC",
+      "RESET",
+      "~RES",
+      "OSC",
+      "F/~C",
+      "EFI",
+      "~ASYNC",
+      "X2",
+      "X1",
+      "VCC",
+      "PCLK",
+      "~AEN1",
+      "RDY1",
+      "READY",
+      "RDY2",
+      "~AEN2",
+      "CLK",
+      "GND"
+    ],
+    "description": "Clock Generator and Driver for i8086/88 Microcontrollers, PDIP-18",
+    "keywords": [
+      "Clock",
+      "Generator"
+    ]
+  },
+  {
+    "component": "82C54",
+    "type": "Timer",
+    "pins": [
+      "D7",
+      "OUT0",
+      "G0",
+      "GND",
+      "OUT1",
+      "G1",
+      "CLK1",
+      "G2",
+      "OUT2",
+      "CLK2",
+      "A0",
+      "D6",
+      "A1",
+      "~CS",
+      "~RD",
+      "~WR",
+      "VCC",
+      "D5",
+      "D4",
+      "D3",
+      "D2",
+      "D1",
+      "D0",
+      "CLK0"
+    ],
+    "description": "CHMOS Programmable Interval Timer, PDIP-24",
+    "keywords": [
+      "Timer",
+      "Counter"
+    ]
+  },
+  {
+    "component": "8254",
+    "type": "Timer",
+    "pins": [
+      "D7",
+      "OUT0",
+      "G0",
+      "GND",
+      "OUT1",
+      "G1",
+      "CLK1",
+      "G2",
+      "OUT2",
+      "CLK2",
+      "A0",
+      "D6",
+      "A1",
+      "~CS",
+      "~RD",
+      "~WR",
+      "VCC",
+      "D5",
+      "D4",
+      "D3",
+      "D2",
+      "D1",
+      "D0",
+      "CLK0"
+    ],
+    "description": "Programmable Interval Timer, PDIP-24",
+    "keywords": [
+      "Timer",
+      "Counter"
+    ]
+  },
+  {
+    "component": "8253",
+    "type": "Timer",
+    "pins": [
+      "D7",
+      "OUT0",
+      "G0",
+      "GND",
+      "OUT1",
+      "G1",
+      "CLK1",
+      "G2",
+      "OUT2",
+      "CLK2",
+      "A0",
+      "D6",
+      "A1",
+      "~CS",
+      "~RD",
+      "~WR",
+      "VCC",
+      "D5",
+      "D4",
+      "D3",
+      "D2",
+      "D1",
+      "D0",
+      "CLK0"
+    ],
+    "description": "Programmable Interval Timer, PDIP-24",
+    "keywords": [
+      "Timer",
+      "Counter"
+    ]
+  },
+  {
+    "component": "82C54_PLCC",
+    "type": "Timer",
+    "pins": [
+      "NC",
+      "CLK0",
+      "OUT0",
+      "G0",
+      "GND",
+      "OUT1",
+      "G1",
+      "CLK1",
+      "G2",
+      "D7",
+      "OUT2",
+      "CLK2",
+      "A0",
+      "A1",
+      "~CS~",
+      "~RD~",
+      "~WR~",
+      "VCC",
+      "D6",
+      "D5",
+      "D4",
+      "D3",
+      "D2",
+      "D1",
+      "D0"
+    ],
+    "description": "CHMOS Programmable Interval Timer, PLCC-28",
+    "keywords": [
+      "Timer",
+      "Counter"
+    ]
+  },
+  {
+    "component": "AD9513",
+    "type": "Timer",
+    "pins": [
+      "VS",
+      "S7",
+      "S6",
+      "S5",
+      "S4",
+      "S3",
+      "S2",
+      "S1",
+      "OUT2B",
+      "OUT2",
+      "CLK",
+      "OUT1B",
+      "OUT1",
+      "S0",
+      "OUT0B",
+      "OUT0",
+      "CLKB",
+      "GND",
+      "RSET",
+      "SYNCB",
+      "VREF",
+      "S10",
+      "S9",
+      "S8"
+    ],
+    "description": "800 MHz, 3 Outputs, Clock Distribution IC, Divider, Delay Adjust, LFCSP-32",
+    "keywords": [
+      "clock",
+      "distribution",
+      "LVDS",
+      "CMOS"
+    ]
+  },
+  {
+    "component": "AD9514",
+    "type": "Timer",
+    "pins": [
+      "VS",
+      "S7",
+      "S6",
+      "S5",
+      "S4",
+      "S3",
+      "S2",
+      "S1",
+      "OUT2B",
+      "OUT2",
+      "CLK",
+      "OUT1B",
+      "OUT1",
+      "S0",
+      "OUT0B",
+      "OUT0",
+      "CLKB",
+      "GND",
+      "RSET",
+      "SYNCB",
+      "VREF",
+      "S10",
+      "S9",
+      "S8"
+    ],
+    "description": "1.6 GHz, 3 Outputs, Clock Distribution IC, Divider, Delay Adjust, LFCSP-32",
+    "keywords": [
+      "clock",
+      "distribution",
+      "LVPECL",
+      "LVDS",
+      "CMOS"
+    ]
+  },
+  {
+    "component": "AD9515",
+    "type": "Timer",
+    "pins": [
+      "VS",
+      "S7",
+      "S6",
+      "S5",
+      "S4",
+      "S3",
+      "S2",
+      "S1",
+      "OUT1B",
+      "OUT1",
+      "CLK",
+      "OUT0B",
+      "OUT0",
+      "S0",
+      "NC",
+      "CLKB",
+      "GND",
+      "RSET",
+      "SYNCB",
+      "VREF",
+      "S10",
+      "S9",
+      "S8"
+    ],
+    "description": "1.6 GHz, 2 Outputs, Clock Distribution IC, Divider, Delay Adjust, LFCSP-32",
+    "keywords": [
+      "clock",
+      "distribution",
+      "LVPECL",
+      "LVDS",
+      "CMOS"
+    ]
+  },
+  {
+    "component": "ICM7209",
+    "type": "Timer",
+    "pins": [
+      "OSC_OUT",
+      "OSC_IN",
+      "DISABLE",
+      "VDD",
+      "OUT/1",
+      "OUT/8",
+      "VSS"
+    ],
+    "description": "Timebase generator, DIP-8",
+    "keywords": [
+      "Timebase",
+      "generator"
+    ]
+  },
+  {
+    "component": "LM555xMM",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible, VSSOP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "LMC555xMM",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "CMOS Timer, 555 compatible, VSSOP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "TLC555xPS",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Single LinCMOS Timer, 555 compatible, VSSOP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "LM556",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "GND",
+      "DIS",
+      "THR",
+      "CV",
+      "R",
+      "Q",
+      "TR"
+    ],
+    "description": "Dual Timer, DIP-14/SOIC-14",
+    "keywords": [
+      "dual",
+      "timer"
+    ]
+  },
+  {
+    "component": "NA556",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "GND",
+      "DIS",
+      "THR",
+      "CV",
+      "R",
+      "Q",
+      "TR"
+    ],
+    "description": "Dual Precision Timers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "dual",
+      "timer"
+    ]
+  },
+  {
+    "component": "NE556",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "GND",
+      "DIS",
+      "THR",
+      "CV",
+      "R",
+      "Q",
+      "TR"
+    ],
+    "description": "Dual Precision Timers, DIP-14/SOIC-14",
+    "keywords": [
+      "dual",
+      "timer"
+    ]
+  },
+  {
+    "component": "SA556",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "GND",
+      "DIS",
+      "THR",
+      "CV",
+      "R",
+      "Q",
+      "TR"
+    ],
+    "description": "Dual Precision Timers, DIP-14/SOIC-14",
+    "keywords": [
+      "dual",
+      "timer"
+    ]
+  },
+  {
+    "component": "SE556",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "GND",
+      "DIS",
+      "THR",
+      "CV",
+      "R",
+      "Q",
+      "TR"
+    ],
+    "description": "Dual Precision Timers, DIP-14/SOIC-14",
+    "keywords": [
+      "dual",
+      "timer"
+    ]
+  },
+  {
+    "component": "ICM7556",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "GND",
+      "DIS",
+      "THR",
+      "CV",
+      "R",
+      "Q",
+      "TR"
+    ],
+    "description": "Dual CMOS General Purpose Timer, DIP-14/SOIC-14",
+    "keywords": [
+      "dual",
+      "timer",
+      "556"
+    ]
+  },
+  {
+    "component": "LMC555xTP",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "GND",
+      "DIS",
+      "THR",
+      "TR",
+      "CV",
+      "R",
+      "Q"
+    ],
+    "description": "CMOS Timer, DSBGA-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "LTC6902",
+    "type": "Timer",
+    "pins": [
+      "V+",
+      "SET",
+      "DIV",
+      "PH",
+      "OUT1",
+      "OUT2",
+      "OUT3",
+      "OUT4",
+      "GND",
+      "MOD"
+    ],
+    "description": "Multiphase oscillator, spread spectrum frequency modulation, MSOP-10",
+    "keywords": [
+      "clock",
+      "generator",
+      "dual",
+      "triple",
+      "quad",
+      "signal"
+    ]
+  },
+  {
+    "component": "LTC6909",
+    "type": "Timer",
+    "pins": [
+      "V+A",
+      "OUT6",
+      "OUT7",
+      "OUT8",
+      "V+D",
+      "MOD",
+      "PH2",
+      "SET",
+      "GND",
+      "PH0",
+      "PH1",
+      "OUT1",
+      "OUT2",
+      "OUT3",
+      "OUT4",
+      "OUT5"
+    ],
+    "description": "Multiphase oscillator, spread spectrum frequency modulation, MSOP-16",
+    "keywords": [
+      "clock",
+      "generator",
+      "signal"
+    ]
+  },
+  {
+    "component": "LTC6993xS6-1",
+    "type": "Timer",
+    "pins": [
+      "TRIG",
+      "GND",
+      "SET",
+      "DIV",
+      "V+",
+      "OUT"
+    ],
+    "description": "TimerBlox Monostable Pulse Generator (One Shot), Rising-edge input, non-retriggerable, TSOT-23-6",
+    "keywords": [
+      "Timer",
+      "TimerBlox",
+      "monostable",
+      "pulse"
+    ]
+  },
+  {
+    "component": "LTC6993xS6-2",
+    "type": "Timer",
+    "pins": [
+      "TRIG",
+      "GND",
+      "SET",
+      "DIV",
+      "V+",
+      "OUT"
+    ],
+    "description": "TimerBlox Monostable Pulse Generator (One Shot), Rising-edge input, retriggerable, TSOT-23-6",
+    "keywords": [
+      "Timer",
+      "TimerBlox",
+      "monostable",
+      "pulse"
+    ]
+  },
+  {
+    "component": "LTC6993xS6-3",
+    "type": "Timer",
+    "pins": [
+      "TRIG",
+      "GND",
+      "SET",
+      "DIV",
+      "V+",
+      "OUT"
+    ],
+    "description": "TimerBlox Monostable Pulse Generator (One Shot), Falling-edge input, non-retriggerable, TSOT-23-6",
+    "keywords": [
+      "Timer",
+      "TimerBlox",
+      "monostable",
+      "pulse"
+    ]
+  },
+  {
+    "component": "LTC6993xS6-4",
+    "type": "Timer",
+    "pins": [
+      "TRIG",
+      "GND",
+      "SET",
+      "DIV",
+      "V+",
+      "OUT"
+    ],
+    "description": "TimerBlox Monostable Pulse Generator (One Shot), Falling-edge input, retriggerable, TSOT-23-6",
+    "keywords": [
+      "Timer",
+      "TimerBlox",
+      "monostable",
+      "pulse"
+    ]
+  },
+  {
+    "component": "LTC6994xDCB-1",
+    "type": "Timer",
+    "pins": [
+      "V+",
+      "DIV",
+      "SET",
+      "IN",
+      "GND",
+      "OUT"
+    ],
+    "description": "TimerBlox Delay Block, Programmable, Noise Discriminator, Rising or Falling Edge, DFN-6",
+    "keywords": [
+      "TimerBlox",
+      "delay",
+      "block",
+      "noise",
+      "discriminator"
+    ]
+  },
+  {
+    "component": "LTC6994xDCB-2",
+    "type": "Timer",
+    "pins": [
+      "V+",
+      "DIV",
+      "SET",
+      "IN",
+      "GND",
+      "OUT"
+    ],
+    "description": "TimerBlox Debouncer, Programmable, Noise Discriminator, Rising and Falling Edges, DFN-6",
+    "keywords": [
+      "TimerBlox",
+      "debouncer",
+      "noise",
+      "discriminator"
+    ]
+  },
+  {
+    "component": "LTC6994xS6-1",
+    "type": "Timer",
+    "pins": [
+      "IN",
+      "GND",
+      "SET",
+      "DIV",
+      "V+",
+      "OUT"
+    ],
+    "description": "TimerBlox Delay Block, Programmable, Noise Discriminator, Rising or Falling Edge, TSOT-23-6",
+    "keywords": [
+      "TimerBlox",
+      "delay",
+      "block",
+      "noise",
+      "discriminator"
+    ]
+  },
+  {
+    "component": "LTC6994xS6-2",
+    "type": "Timer",
+    "pins": [
+      "IN",
+      "GND",
+      "SET",
+      "DIV",
+      "V+",
+      "OUT"
+    ],
+    "description": "TimerBlox Debouncer, Programmable, Noise Discriminator, Rising and Falling Edges, TSOT-23-6",
+    "keywords": [
+      "TimerBlox",
+      "debouncer",
+      "noise",
+      "discriminator"
+    ]
+  },
+  {
+    "component": "MN3101",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "CP1",
+      "VDD",
+      "CP2",
+      "OX3",
+      "OX2",
+      "OX1",
+      "VGG_OUT"
+    ],
+    "description": "Clock Generator Driver/Driver for MN3000 Series BBD (bucket brigade device), -8V to -16V, DIP-8",
+    "keywords": [
+      "Matsushita",
+      "Panasonic",
+      "BBD",
+      "CMOS"
+    ]
+  },
+  {
+    "component": "MN3102",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "CP1",
+      "VDD",
+      "CP2",
+      "OX3",
+      "OX2",
+      "OX1",
+      "VGG_OUT"
+    ],
+    "description": "Clock Generator Driver/Driver for MN3000 Series BBD (bucket brigade device), 4V to 10V, DIP-8",
+    "keywords": [
+      "Matsushita",
+      "Panasonic",
+      "BBD",
+      "CMOS"
+    ]
+  },
+  {
+    "component": "NE555D",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "LM555xM",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Timer, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "ICM7555xB",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "CMOS General Purpose Timer, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "LMC555xM",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "CMOS Timer, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "MC1455B",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Timer, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "TLC555xD",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Single LinCMOS Timer, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "NA555D",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "SE555D",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "SA555D",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible, SOIC-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "NE555P",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible,  PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "LM555xN",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Timer, 555 compatible, PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "ICM7555xP",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "CMOS General Purpose Timer, 555 compatible, PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "LMC555xN",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "CMOS Timer, 555 compatible, PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "MC1455P",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Timer, 555 compatible, PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "TLC555xP",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Single LinCMOS Timer, 555 compatible, PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "NA555P",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible, PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "SE555P",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible, PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "SA555P",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VCC",
+      "TR",
+      "Q",
+      "R",
+      "CV",
+      "THR",
+      "DIS"
+    ],
+    "description": "Precision Timers, 555 compatible, PDIP-8",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "NE567",
+    "type": "Timer",
+    "pins": [
+      "OFLT_C",
+      "LP_FLT_C",
+      "INPUT",
+      "VCC",
+      "TIM_R",
+      "TIM_RC",
+      "GND",
+      "OUTPUT"
+    ],
+    "description": "Tone Decoder/Phase-Locked Loop, DIP-8/SOIC-8",
+    "keywords": [
+      "tone",
+      "decoder",
+      "PLL"
+    ]
+  },
+  {
+    "component": "SE567",
+    "type": "Timer",
+    "pins": [
+      "OFLT_C",
+      "LP_FLT_C",
+      "INPUT",
+      "VCC",
+      "TIM_R",
+      "TIM_RC",
+      "GND",
+      "OUTPUT"
+    ],
+    "description": "Tone Decoder/Phase-Locked Loop, DIP-8/SOIC-8",
+    "keywords": [
+      "tone",
+      "decoder",
+      "PLL"
+    ]
+  },
+  {
+    "component": "PL611-01-xxxT",
+    "type": "Timer",
+    "pins": [
+      "CLK1",
+      "GND",
+      "XIN,FIN",
+      "XOUT",
+      "CLK2,OE,~PDB~,FSEL",
+      "VDD"
+    ],
+    "description": "Programmable Clock, Dual Programmable Clock Outputs, Up To 200MHz, SOT-23-6",
+    "keywords": [
+      "clock",
+      "generator",
+      "dual",
+      "programmable"
+    ]
+  },
+  {
+    "component": "SY58031U",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "~Q7",
+      "Q7",
+      "~Q6",
+      "Q6",
+      "~Q5",
+      "Q5",
+      "GND",
+      "~Q4",
+      "Q4",
+      "~Q3",
+      "Q3",
+      "~Q2",
+      "Q2",
+      "~Q1",
+      "Q1",
+      "IN",
+      "~Q0",
+      "Q0",
+      "VT",
+      "VREF-AC",
+      "~IN"
+    ],
+    "description": "1:8 CML Fanout Buffer 75fsRMS, QFN-32",
+    "keywords": [
+      "CML",
+      "2.5V/3.3V",
+      "differential",
+      "LVPECL",
+      "LVDS"
+    ]
+  },
+  {
+    "component": "SY58032U",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "~Q7",
+      "Q7",
+      "~Q6",
+      "Q6",
+      "~Q5",
+      "Q5",
+      "GND",
+      "~Q4",
+      "Q4",
+      "~Q3",
+      "Q3",
+      "~Q2",
+      "Q2",
+      "~Q1",
+      "Q1",
+      "IN",
+      "~Q0",
+      "Q0",
+      "VT",
+      "VREF-AC",
+      "~IN"
+    ],
+    "description": "1:8 LVPECL Fanout Buffer 75fsRMS, QFN-32",
+    "keywords": [
+      "2.5V/3.3V",
+      "differential",
+      "LVPECL",
+      "LVDS"
+    ]
+  },
+  {
+    "component": "SY58033U",
+    "type": "Timer",
+    "pins": [
+      "VCC",
+      "~Q7",
+      "Q7",
+      "~Q6",
+      "Q6",
+      "~Q5",
+      "Q5",
+      "GND",
+      "~Q4",
+      "Q4",
+      "~Q3",
+      "Q3",
+      "~Q2",
+      "Q2",
+      "~Q1",
+      "Q1",
+      "IN",
+      "~Q0",
+      "Q0",
+      "VT",
+      "VREF-AC",
+      "~IN"
+    ],
+    "description": "1:8 400mV LVPECL Fanout Buffer 75fsRMS, QFN-32",
+    "keywords": [
+      "2.5V/3.3V",
+      "differential",
+      "LVPECL",
+      "LVDS"
+    ]
+  },
+  {
+    "component": "TLC555xPW",
+    "type": "Timer",
+    "pins": [
+      "GND",
+      "VDD",
+      "THRES",
+      "NC",
+      "DISCH",
+      "TR",
+      "OUT",
+      "RESET",
+      "CONT"
+    ],
+    "description": "Single LinCMOS Timer, TSSOP-14",
+    "keywords": [
+      "single",
+      "timer",
+      "555"
+    ]
+  },
+  {
+    "component": "TPL5010",
+    "type": "Timer",
+    "pins": [
+      "VDD",
+      "GND",
+      "DELAY/M_RST",
+      "DONE",
+      "WAKE",
+      "~RST"
+    ],
+    "description": "Timer, Nano Power, Watchdog, 35 nA, 100 ms to 7200 s, VDD 1.8V to 5.5V, Iout max 1mA",
+    "keywords": [
+      "timer",
+      "watchdog",
+      "nano",
+      "wake",
+      "done"
+    ]
+  },
+  {
+    "component": "TPL5110",
+    "type": "Timer",
+    "pins": [
+      "VDD",
+      "GND",
+      "DELAY/M_DRV",
+      "DONE",
+      "DRV",
+      "EN/ONE_SHOT"
+    ],
+    "description": "Timer, Nano Power, Active-Low, 35 nA, 100 ms to 7200 s, VDD 1.8V to 5.5V, Iout max 1mA, SOT-23-6",
+    "keywords": [
+      "timer",
+      "active-low",
+      "nano",
+      "wake",
+      "done"
+    ]
+  },
+  {
+    "component": "TPL5111",
+    "type": "Timer",
+    "pins": [
+      "VDD",
+      "GND",
+      "DELAY/M_DRV",
+      "DONE",
+      "~DRV",
+      "EN/ONE_SHOT"
+    ],
+    "description": "Timer, Nano Power, Active-High, 35 nA, 100 ms to 7200 s, VDD 1.8V to 5.5V, Iout max 1mA, SOT-23-6",
+    "keywords": [
+      "timer",
+      "active-high",
+      "nano",
+      "wake",
+      "done"
+    ]
+  }
+]

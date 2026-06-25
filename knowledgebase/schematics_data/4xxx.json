@@ -1,0 +1,960 @@
+[
+  {
+    "component": "14529",
+    "type": "4xxx",
+    "pins": [
+      "STX",
+      "W",
+      "Y3",
+      "Y2",
+      "Y1",
+      "Y0",
+      "STY",
+      "VDD",
+      "X0",
+      "X1",
+      "X2",
+      "X3",
+      "A",
+      "B",
+      "VSS",
+      "Z"
+    ],
+    "description": "Dual 4 to 1 Multiplexer",
+    "keywords": [
+      "CMOS",
+      "MUX",
+      "MUX4"
+    ]
+  },
+  {
+    "component": "4001",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Quad Nor 2 inputs",
+    "keywords": [
+      "CMOS",
+      "Nor2"
+    ]
+  },
+  {
+    "component": "4002",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Dual  4 input NOR gate",
+    "keywords": [
+      "CMOS",
+      "Nor4"
+    ]
+  },
+  {
+    "component": "4009",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VCC",
+      "VSS"
+    ],
+    "description": "Hex Buffer Inverter",
+    "keywords": [
+      "CMOS",
+      "INV",
+      "BUFFER",
+      "high",
+      "sink",
+      "VCC",
+      "and",
+      "VDD",
+      "sep.",
+      "VDD>VI>VCC!"
+    ]
+  },
+  {
+    "component": "4010",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VCC",
+      "VSS"
+    ],
+    "description": "Hex Buffer",
+    "keywords": [
+      "CMOS",
+      "BUFFER",
+      "high",
+      "sink",
+      "VCC",
+      "and",
+      "VDD",
+      "sep.",
+      "VDD>VI>VCC!"
+    ]
+  },
+  {
+    "component": "40106",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Hex Schmitt trigger inverter",
+    "keywords": [
+      "CMOS"
+    ]
+  },
+  {
+    "component": "4011",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Quad Nand 2 inputs",
+    "keywords": [
+      "CMOS",
+      "Nand2"
+    ]
+  },
+  {
+    "component": "4012",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Dual 4 inputs Nand",
+    "keywords": [
+      "CMOS",
+      "Nand4"
+    ]
+  },
+  {
+    "component": "4013",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS",
+      "Q",
+      "~Q",
+      "C",
+      "R",
+      "D",
+      "S"
+    ],
+    "description": "Dual D  FlipFlop, Set & reset",
+    "keywords": [
+      "CMOS",
+      "DFF"
+    ]
+  },
+  {
+    "component": "4016",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Quad Analog Switches",
+    "keywords": [
+      "CMOS",
+      "SWITCH"
+    ]
+  },
+  {
+    "component": "4066",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Quad Analog Switches",
+    "keywords": [
+      "CMOS",
+      "SWITCH"
+    ]
+  },
+  {
+    "component": "4017",
+    "type": "4xxx",
+    "pins": [
+      "Q5",
+      "Q4",
+      "Q9",
+      "Cout",
+      "CKEN",
+      "CLK",
+      "Reset",
+      "VDD",
+      "Q1",
+      "Q0",
+      "Q2",
+      "Q6",
+      "Q7",
+      "Q3",
+      "VSS",
+      "Q8"
+    ],
+    "description": "Johnson Counter ( 10 outputs )",
+    "keywords": [
+      "CNT",
+      "CNT10"
+    ]
+  },
+  {
+    "component": "4020",
+    "type": "4xxx",
+    "pins": [
+      "Q11",
+      "CLK",
+      "Reset",
+      "Q8",
+      "Q7",
+      "Q9",
+      "Q10",
+      "VDD",
+      "Q12",
+      "Q13",
+      "Q5",
+      "Q4",
+      "Q6",
+      "Q3",
+      "VSS",
+      "Q0"
+    ],
+    "description": "Binary counter 14 stages (asynchronous)",
+    "keywords": [
+      "CMOS",
+      "CNT",
+      "CNT14"
+    ]
+  },
+  {
+    "component": "4021",
+    "type": "4xxx",
+    "pins": [
+      "D7",
+      "CP",
+      "DS",
+      "Q6",
+      "D4",
+      "D5",
+      "D6",
+      "VDD",
+      "Q5",
+      "Q7",
+      "D3",
+      "D2",
+      "D1",
+      "D0",
+      "VSS",
+      "PL"
+    ],
+    "description": "8-bit static shift register",
+    "keywords": [
+      "shift",
+      "register",
+      "SR",
+      "PISO"
+    ]
+  },
+  {
+    "component": "4022",
+    "type": "4xxx",
+    "pins": [
+      "Q1",
+      "Q7",
+      "Q4",
+      "Cout",
+      "CKEN",
+      "CLK",
+      "Reset",
+      "VDD",
+      "Q0",
+      "Q2",
+      "Q5",
+      "Q6",
+      "Q3",
+      "VSS"
+    ],
+    "description": "Johnson Counter (8 states)",
+    "keywords": [
+      "CMOS",
+      "CNT",
+      "CNT8"
+    ]
+  },
+  {
+    "component": "4023",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Triple Nand 3 inputs",
+    "keywords": [
+      "CMOS",
+      "Nand3"
+    ]
+  },
+  {
+    "component": "4025",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Triple Nor 3 inputs",
+    "keywords": [
+      "CMOS",
+      "Nor3"
+    ]
+  },
+  {
+    "component": "4027",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS",
+      "Q",
+      "~Q",
+      "C",
+      "R",
+      "K",
+      "J",
+      "S"
+    ],
+    "description": "Dual JK FlipFlop, set & reset",
+    "keywords": [
+      "CMOS",
+      "JK",
+      "JKFF"
+    ]
+  },
+  {
+    "component": "4028",
+    "type": "4xxx",
+    "pins": [
+      "S4",
+      "A",
+      "D",
+      "C",
+      "B",
+      "S1",
+      "S3",
+      "VDD",
+      "S2",
+      "S0",
+      "S7",
+      "S9",
+      "S5",
+      "S6",
+      "VSS",
+      "S8"
+    ],
+    "description": "Decoder 4 to 10 lines",
+    "keywords": [
+      "CMOS",
+      "DECOD",
+      "DECOD10"
+    ]
+  },
+  {
+    "component": "4029",
+    "type": "4xxx",
+    "pins": [
+      "PE",
+      "U/D",
+      "Q2",
+      "J2",
+      "J3",
+      "Q3",
+      "CK",
+      "VDD",
+      "Q4",
+      "J4",
+      "J1",
+      "Cin",
+      "Q1",
+      "Cout",
+      "VSS",
+      "B/D"
+    ],
+    "description": "Up/Down Counter",
+    "keywords": [
+      "CMOS",
+      "COUNTER"
+    ]
+  },
+  {
+    "component": "4040",
+    "type": "4xxx",
+    "pins": [
+      "Q11",
+      "CLK",
+      "Reset",
+      "Q8",
+      "Q7",
+      "Q9",
+      "Q10",
+      "VDD",
+      "Q5",
+      "Q4",
+      "Q6",
+      "Q3",
+      "Q2",
+      "Q1",
+      "VSS",
+      "Q0"
+    ],
+    "description": "Binary Counter 12 stages (Asynchronous)",
+    "keywords": [
+      "CMOS",
+      "CNT",
+      "CNT12"
+    ]
+  },
+  {
+    "component": "4046",
+    "type": "4xxx",
+    "pins": [
+      "PCP",
+      "SFout",
+      "R1",
+      "R2",
+      "PC2",
+      "RefIn",
+      "ZOUT",
+      "VDD",
+      "PC1",
+      "SigIn",
+      "FOUT",
+      "Inh",
+      "C1",
+      "C2",
+      "VSS",
+      "VCOin"
+    ],
+    "description": "Phase Comp & VCO",
+    "keywords": [
+      "CMOS",
+      "PLL"
+    ]
+  },
+  {
+    "component": "4047",
+    "type": "4xxx",
+    "pins": [
+      "C",
+      "Q",
+      "~Q",
+      "RETRIGGER",
+      "OSC_OUT",
+      "VDD",
+      "R",
+      "RC_COMMON",
+      "~ASTABLE",
+      "ASTABLE",
+      "-TRIGGER",
+      "VSS",
+      "+TRIGGER",
+      "EXT_RESET"
+    ],
+    "description": "Monostable/Astable Multivibrator",
+    "keywords": [
+      "CMOS",
+      "monostable",
+      "astable",
+      "multivibrator"
+    ]
+  },
+  {
+    "component": "4049",
+    "type": "4xxx",
+    "pins": [
+      "VCC",
+      "VSS"
+    ],
+    "description": "Hex Buffer Inverter",
+    "keywords": [
+      "CMOS",
+      "BUFFER"
+    ]
+  },
+  {
+    "component": "4050",
+    "type": "4xxx",
+    "pins": [
+      "VCC",
+      "VSS"
+    ],
+    "description": "Hex Buffer",
+    "keywords": [
+      "CMOS",
+      "BUFFER"
+    ]
+  },
+  {
+    "component": "4051",
+    "type": "4xxx",
+    "pins": [
+      "X4",
+      "B",
+      "A",
+      "X3",
+      "X0",
+      "X1",
+      "X2",
+      "VDD",
+      "X6",
+      "X",
+      "X7",
+      "X5",
+      "Inh",
+      "VEE",
+      "VSS",
+      "C"
+    ],
+    "description": "Analog Multiplexer 8 to 1 lins",
+    "keywords": [
+      "CMOS",
+      "MUX",
+      "MUX8"
+    ]
+  },
+  {
+    "component": "4052",
+    "type": "4xxx",
+    "pins": [
+      "Y0",
+      "A",
+      "X3",
+      "X0",
+      "X",
+      "X1",
+      "X2",
+      "VDD",
+      "Y2",
+      "Y",
+      "Y3",
+      "Y1",
+      "Inh",
+      "VEE",
+      "VSS",
+      "B"
+    ],
+    "description": "Dual Analog Multiplexer 4 to 1 line",
+    "keywords": [
+      "CMOS",
+      "MUX",
+      "MUX4"
+    ]
+  },
+  {
+    "component": "4053",
+    "type": "4xxx",
+    "pins": [
+      "Y1",
+      "B",
+      "A",
+      "X0",
+      "X1",
+      "X",
+      "Y",
+      "VDD",
+      "Y0",
+      "Z1",
+      "Z",
+      "Z0",
+      "Inh",
+      "VEE",
+      "VSS",
+      "C"
+    ],
+    "description": "Triple analog Multiplexer 2 to 1 line",
+    "keywords": [
+      "CMOS",
+      "MUX",
+      "MUX2"
+    ]
+  },
+  {
+    "component": "4056",
+    "type": "4xxx",
+    "pins": [
+      "STROBE",
+      "b",
+      "c",
+      "d",
+      "e",
+      "g",
+      "f",
+      "VDD",
+      "2^2",
+      "2^1",
+      "2^3",
+      "2^0",
+      "FREQ.IN",
+      "VEE",
+      "VSS",
+      "a"
+    ],
+    "description": "BCD to 7-Segment Decoder/Driver, Strobed-Latch Function",
+    "keywords": [
+      "CMOS",
+      "LCD",
+      "7-segment",
+      "decoder",
+      "driver"
+    ]
+  },
+  {
+    "component": "4069",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Hex inverter",
+    "keywords": [
+      "CMOS",
+      "NOT"
+    ]
+  },
+  {
+    "component": "4070",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Quad Xor 2 inputs",
+    "keywords": [
+      "CMOS",
+      "XOR2"
+    ]
+  },
+  {
+    "component": "4071",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Quad Or 2 inputs",
+    "keywords": [
+      "CMOS",
+      "OR2"
+    ]
+  },
+  {
+    "component": "4072",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Dual 4 input OR gate",
+    "keywords": [
+      "CMOS",
+      "OR4"
+    ]
+  },
+  {
+    "component": "4073",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Triple And 3 inputs",
+    "keywords": [
+      "CMOS",
+      "And3"
+    ]
+  },
+  {
+    "component": "4075",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Triple Or 3 inputs",
+    "keywords": [
+      "CMOS",
+      "Or3"
+    ]
+  },
+  {
+    "component": "4077",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Quad Xnor 2 inputs",
+    "keywords": [
+      "CMOS",
+      "XOR",
+      "XNOR",
+      "XNOR2"
+    ]
+  },
+  {
+    "component": "4081",
+    "type": "4xxx",
+    "pins": [
+      "VDD",
+      "VSS"
+    ],
+    "description": "Quad And 2 inputs",
+    "keywords": [
+      "CMOS",
+      "And2"
+    ]
+  },
+  {
+    "component": "4098",
+    "type": "4xxx",
+    "pins": [
+      "Cx1",
+      "Rx1_Cx1",
+      "~Reset1",
+      "+TR1",
+      "-TR1",
+      "Q1",
+      "~Q1",
+      "Q2",
+      "-TR2",
+      "+TR2",
+      "~Reset2",
+      "Rx2_Cx2",
+      "Cx2",
+      "~Q2",
+      "VDD",
+      "VSS"
+    ],
+    "description": "Dual Monostable Multivibrator",
+    "keywords": [
+      "CMOS",
+      "monostable",
+      "multivibrator"
+    ]
+  },
+  {
+    "component": "4504",
+    "type": "4xxx",
+    "pins": [
+      "VCC",
+      "Dout",
+      "Ein",
+      "Eout",
+      "Select",
+      "Fin",
+      "Fout",
+      "VDD",
+      "Aout",
+      "Ain",
+      "Bout",
+      "Bin",
+      "Cout",
+      "Cin",
+      "VSS",
+      "Din"
+    ],
+    "description": "CMOS Hex Voltage-Level Shifter for TTL-to-CMOS or CMOS-to-CMOS, DIP-16/SOIC-16/TSSOP-16",
+    "keywords": [
+      "Level-shifter"
+    ]
+  },
+  {
+    "component": "4510",
+    "type": "4xxx",
+    "pins": [
+      "PE",
+      "U/D",
+      "Q2",
+      "A2",
+      "A3",
+      "Q3",
+      "CLK",
+      "VDD",
+      "Q4",
+      "A4",
+      "A1",
+      "CI",
+      "Q1",
+      "CO",
+      "VSS",
+      "RST"
+    ],
+    "description": "4 bits programmable counter",
+    "keywords": [
+      "CMOS",
+      "CNT",
+      "CNT4"
+    ]
+  },
+  {
+    "component": "4518",
+    "type": "4xxx",
+    "pins": [
+      "CK",
+      "Enable",
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Reset",
+      "VDD",
+      "VSS"
+    ],
+    "description": "Dual BCD Up-Counter",
+    "keywords": [
+      "CMOS"
+    ]
+  },
+  {
+    "component": "4520",
+    "type": "4xxx",
+    "pins": [
+      "CK",
+      "Enable",
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Reset",
+      "VDD",
+      "VSS"
+    ],
+    "description": "Dual Binary Up-Counter",
+    "keywords": [
+      "CMOS"
+    ]
+  },
+  {
+    "component": "4538",
+    "type": "4xxx",
+    "pins": [
+      "Cx",
+      "RxCx",
+      "R",
+      "Clk+",
+      "Clk-",
+      "Q",
+      "~Q",
+      "VDD",
+      "VSS"
+    ],
+    "description": "Monostable",
+    "keywords": [
+      "CMOS"
+    ]
+  },
+  {
+    "component": "4528",
+    "type": "4xxx",
+    "pins": [
+      "Cx",
+      "RxCx",
+      "R",
+      "Clk+",
+      "Clk-",
+      "Q",
+      "~Q",
+      "VDD",
+      "VSS"
+    ],
+    "description": "Monostable",
+    "keywords": [
+      "CMOS"
+    ]
+  },
+  {
+    "component": "14528",
+    "type": "4xxx",
+    "pins": [
+      "Cx",
+      "RxCx",
+      "R",
+      "Clk+",
+      "Clk-",
+      "Q",
+      "~Q",
+      "VDD",
+      "VSS"
+    ],
+    "description": "Monostable",
+    "keywords": [
+      "CMOS"
+    ]
+  },
+  {
+    "component": "14538",
+    "type": "4xxx",
+    "pins": [
+      "Cx",
+      "RxCx",
+      "R",
+      "Clk+",
+      "Clk-",
+      "Q",
+      "~Q",
+      "VDD",
+      "VSS"
+    ],
+    "description": "Monostable",
+    "keywords": [
+      "CMOS"
+    ]
+  },
+  {
+    "component": "4543",
+    "type": "4xxx",
+    "pins": [
+      "~LE",
+      "Qb",
+      "Qc",
+      "Qd",
+      "Qe",
+      "Qg",
+      "Qf",
+      "VDD",
+      "D2",
+      "D1",
+      "D3",
+      "D0",
+      "PH",
+      "BL",
+      "VSS",
+      "Qa"
+    ],
+    "description": "BCD to 7-segment latch/decoder/driver",
+    "keywords": [
+      "CMOS",
+      "7-segment",
+      "latch",
+      "decoder",
+      "driver"
+    ]
+  },
+  {
+    "component": "HEF4093B",
+    "type": "4xxx",
+    "pins": [
+      "VCC",
+      "GND"
+    ],
+    "description": "Quad 2-Input NAND Schmitt Trigger, SOIC-14",
+    "keywords": [
+      "NAND2"
+    ]
+  }
+]

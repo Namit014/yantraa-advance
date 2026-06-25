@@ -693,7 +693,32 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
               </p>
             </div>
           )}
-
+          <style>{`
+            .react-flow__controls {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+                border: 1px solid #1a2744 !important;
+                background-color: #0B0E14 !important;
+                border-radius: 6px !important;
+                overflow: hidden !important;
+            }
+            .react-flow__controls-button {
+                background-color: #0B0E14 !important;
+                border-bottom: 1px solid #1a2744 !important;
+                color: #fff !important;
+            }
+            .react-flow__controls-button:last-child {
+                border-bottom: none !important;
+            }
+            .react-flow__controls-button:hover {
+                background-color: #1a2333 !important;
+            }
+            .react-flow__controls-button svg {
+                fill: #ccc !important;
+            }
+            .react-flow__controls-button:hover svg {
+                fill: #fff !important;
+            }
+          `}</style>
           <ReactFlow
             nodes={rfNodes}
             edges={rfEdges}
@@ -723,13 +748,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
               size={1.2}
               color="#1a2744"
             />
-            <Controls
-              style={{
-                backgroundColor: "#0d1528",
-                border: "1px solid #1a2744",
-                borderRadius: 8,
-              }}
-            />
+            <Controls />
             <MiniMap
               style={{
                 backgroundColor: "#080d1a",
