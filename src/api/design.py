@@ -261,28 +261,10 @@ OUTPUT FORMAT:
 You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
 
 CRITICAL RULES:
-<<<<<<< HEAD
 - If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
 - If the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone), you should generate standard generic custom components (e.g., `quadcopter_frame`, `brushless_motor`).
 - Any custom component you generate MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
 - If you use custom components or define an assembly, you MUST include 'assembly_graph' in your JSON output detailing the parent-child relationships and connection ports.
-- Output ONLY valid JSON in the exact structure requested.
-
-ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
-1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot. Instead, use a Trunk-and-Branch topology.
-2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node".
-3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power via a Safety Relay or Contactor.
-4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring.
-5. **Power Supply Sizing & Fusing**: Every individual branch from the PSU to a Driver MUST pass through a dedicated Fuse or Circuit Breaker.
-6. **Communication Architecture (Daisy-Chain)**: Wire the Fieldbus in a Daisy-Chain topology to minimize long signal wires.
-7. **Power Isolation**: Strictly separate Logic and Motor power. Use a DC-DC Buck Converter for logic.
-8. **Dynamic Joint Naming**: Explicitly name motors/actuators with their kinematic role (e.g., "J1 Base Rotation Motor").
-9. **Strict Connectivity**: 
-   - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
-   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
-=======
-- Select hardware components from either the AVAILABLE HEBI CAD COMPONENTS list or the RETRIEVED COMPONENTS list.
-- If a required component is not in the retrieved list, you MUST invent standard industrial components and INCLUDE them so the robot is complete and functional!
 - ONLY include ELECTRICAL components (motors, motor drivers, sensors, microcontrollers, power supplies) in the components list. DO NOT include structural or mechanical parts like brackets, chassis, plates, or screws in the components list. EXCEPTIONS: If the user requests a wheeled robot, you MUST explicitly include 'Wheel' in the components list for each wheel. If the user requests a painting robot, you MUST explicitly include 'Paint Spray Nozzle' in the components list.
 - Give all components proper, real-world industry names (e.g., "L298N Motor Driver", "HC-SR04 Ultrasonic Sensor", "NEMA 17 Stepper Motor"). Do not use generic names like "Motor" or "Sensor".
 - Output ONLY valid JSON in the exact structure requested.
@@ -309,7 +291,6 @@ ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
 17. **Advanced Power Protection**: You MUST include a standard Protection Diode (e.g., 1N5408) for reverse-polarity protection in series with the main battery positive line, placed immediately after the Master Power Switch and before the Fuse. 
 18. **Strict MCU Power Sourcing**: If a 5V Buck Converter is present, route the +5V output directly to the Arduino's 5V pin, NOT the VIN pin. If no 5V buck converter exists, power the Arduino via VIN using the 7-9V/12V source.
 19. **Explicit Signal Documentation**: Explicitly specify the actual hardware pin label (e.g., D2, D3, D5) on the MCU for all signal connections. Do not rely on generic wiring.
->>>>>>> 50b01e10b1e936a2da9fda6ea8e6f9e0673f6533
 
 OUTPUT FORMAT:
 {
