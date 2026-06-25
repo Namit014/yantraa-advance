@@ -41,7 +41,10 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         response.raise_for_status()
         data = response.json()
         if "choices" in data and len(data["choices"]) > 0:
-            return data["choices"][0]["message"]["content"].strip()
+            content = data["choices"][0]["message"].get("content")
+            if content is None:
+                raise Exception("API returned empty content (possibly filtered or rate limited).")
+            return content.strip()
         else:
             raise Exception("No response candidates found in OpenRouter API output.")
     except Exception as e:

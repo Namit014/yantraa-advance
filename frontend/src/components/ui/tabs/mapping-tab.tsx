@@ -513,28 +513,8 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
 
 // ─── Seed data ────────────────────────────────────────────────────────────────
 
-const SEED_RAW: RawComponent[] = [
-    { name: "Motion Controller", category: "controller", description: "Main MCU coordinating all subsystems", connects_to: ["Servo Motor A", "Servo Motor B", "IMU Sensor"], quantity: 1 },
-    { name: "Servo Motor A", category: "actuator", description: "Upper arm drive servo, 180° range", connects_to: ["Arm Frame"], quantity: 1 },
-    { name: "Servo Motor B", category: "actuator", description: "Lower arm drive servo, 270° range", connects_to: ["Arm Frame"], quantity: 1 },
-    { name: "IMU Sensor", category: "sensor", description: "6-axis inertial measurement unit", connects_to: [], quantity: 1 },
-    { name: "Arm Frame", category: "mechanical", description: "Aluminium extruded structural frame", connects_to: [], quantity: 1 },
-    { name: "Power Supply", category: "power", description: "24V regulated DC power supply", connects_to: ["Motion Controller", "Servo Motor A", "Servo Motor B"], quantity: 1 },
-];
 
-const SEED_BASE_NODES = SEED_RAW.map((r, i) => ({
-    id: `seed-${i}`,
-    label: r.name,
-    category: r.category,
-    description: r.description,
-    width: NODE_W,
-    height: NODE_H,
-    quantity: r.quantity,
-    partNumber: r.partNumber,
-}));
 
-const SEED_CONNECTIONS = generateConnections(SEED_BASE_NODES as ComponentNode[], SEED_RAW);
-const SEED_NODES: ComponentNode[] = applyLayout(SEED_BASE_NODES as ComponentNode[], SEED_CONNECTIONS);
 
 // ─── Inline SVG icons ─────────────────────────────────────────────────────────
 
@@ -738,9 +718,9 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         console.log(`[MappingTab] Successfully mounted/loaded with activeView: ${activeView}`);
     }, []);
 
-    const [nodes, setNodes] = useState<ComponentNode[]>(SEED_NODES);
-    const [rawComponents, setRawComponents] = useState<RawComponent[]>(SEED_RAW);
-    const [connections, setConnections] = useState<Connection[]>(SEED_CONNECTIONS);
+    const [nodes, setNodes] = useState<ComponentNode[]>([]);
+    const [rawComponents, setRawComponents] = useState<RawComponent[]>([]);
+    const [connections, setConnections] = useState<Connection[]>([]);
     const [sidebarTab, setSidebarTab] = useState<"library" | "bom" | "validation">("library");
     const hasSubsystemsError = designData && (!designData.subsystems || designData.subsystems.length === 0);
     const [isLoading, setIsLoading] = useState(false);
@@ -1009,6 +989,8 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     // ── useEffect: re-fetch when query changes ─────────────────────────────────
     useEffect(() => {
         if (designData || !currentQuery) return;
+        if (lastQueryRef.current === currentQuery) return;
+        lastQueryRef.current = currentQuery;
         doFetch(currentQuery);
     }, [currentQuery, doFetch, designData]);
 
@@ -1032,33 +1014,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         setConnections(generateConnections(laid, raw));
     }, [aiResponse, currentQuery, designData]);
 
-    const bomItems = useMemo(() => {
-        const rawBom = designData?.bom || designData?.bill_of_materials;
-        if (rawBom && rawBom.length > 0) {
-            return rawBom.map((item: any) => ({
-                name: item.name || "N/A",
-                qty: item.qty ?? item.quantity ?? "1",
-                category: item.category ?? "N/A"
-            }));
-        }
-        // Fallback: derive minimal BOM from designData.subsystems
-        if (designData?.subsystems) {
-            const derived: any[] = [];
-            designData.subsystems.forEach((sub: any) => {
-                if (sub.components) {
-                    sub.components.forEach((comp: any) => {
-                        derived.push({
-                            name: comp.name || "N/A",
-                            qty: comp.qty ?? comp.quantity ?? "1",
-                            category: sub.name || "N/A"
-                        });
-                    });
-                }
-            });
-            return derived;
-        }
-        return [];
-    }, [designData]);
+    
 
     const validationList = useMemo(() => {
         return designData?.validation || [];
@@ -1225,35 +1181,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
     const inputsToSelected = connections.filter(c => c.toId === selectedId);
     const outputsFromSelected = connections.filter(c => c.fromId === selectedId);
 
-    const handleExportBOM = useCallback(() => {
-        const rows = [["Category", "Name", "Part Number", "Quantity", "Description", "Connections"]];
-        CATEGORY_ORDER.forEach(cat => {
-            const group = groupedNodes[cat];
-            if (!group || group.length === 0) return;
-            group.forEach(n => {
-                const conns = connections.filter(c => c.fromId === n.id).map(c => {
-                    const t = nodes.find(x => x.id === c.toId);
-                    return t ? t.label : c.toId;
-                }).join(" | ");
-                rows.push([
-                    n.category,
-                    `"${n.label.replace(/"/g, '""')}"`,
-                    `"${(n.partNumber || "").replace(/"/g, '""')}"`,
-                    String(n.quantity || 1),
-                    `"${n.description.replace(/"/g, '""')}"`,
-                    `"${conns.replace(/"/g, '""')}"`
-                ]);
-            });
-        });
-        const csv = rows.map(r => r.join(",")).join("\n");
-        const blob = new Blob([csv], { type: "text/csv" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "robot-bom.csv";
-        a.click();
-        URL.revokeObjectURL(url);
-    }, [nodes, connections, groupedNodes]);
+    
 
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
@@ -1325,141 +1253,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
                 {/* 2. DYNAMIC MAIN VIEW (Middle Column) */}
                 <div className="flex-1 h-full bg-[#050505] relative border-r border-neutral-800/50 flex flex-col">
-                    {activeView === "bom" ? (
-                        <div className="flex-1 overflow-y-auto p-8 bg-[#050505]">
-                            <div className="max-w-5xl mx-auto pb-10">
-                                <div className="flex items-center justify-between mb-8">
-                                    <h1 className="text-xl font-bold text-white tracking-widest uppercase">Bill of Materials</h1>
-                                </div>
-                                {CATEGORY_ORDER.map(cat => {
-                                    const group = groupedNodes[cat];
-                                    if (!group || group.length === 0) return null;
-                                    const catColor = CATEGORY_COLOR[cat];
-                                    const totalQty = group.reduce((sum, n) => sum + (n.quantity || 1), 0);
-                                    return (
-                                        <div key={`bom-${cat}`} className="mb-10 bg-[#0f1219] rounded-xl border border-neutral-800/50 overflow-hidden shadow-xl">
-                                            <div className="px-5 py-4 border-b border-neutral-800/50 bg-[#131823] flex items-center justify-between">
-                                                <div className="text-sm font-black uppercase tracking-[0.2em] flex items-center gap-3" style={{ color: catColor }}>
-                                                    <CategoryIcon category={cat} size={16} /> {cat}
-                                                </div>
-                                                <div className="text-xs font-medium text-neutral-400 bg-[#0f1219] px-3 py-1 rounded-full border border-neutral-800/50">
-                                                    {group.length} unique component{group.length !== 1 && 's'}
-                                                </div>
-                                            </div>
-                                            <div className="overflow-x-auto">
-                                                <table className="w-full text-left border-collapse">
-                                                    <thead>
-                                                        <tr className="bg-[#0a0c10] text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-1/4">Component Name</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-32">Part Number</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-24 text-center">Qty</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50">Key Specs</th>
-                                                            <th className="px-6 py-3 border-b border-neutral-800/50 w-1/4">Connections To</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody className="text-xs text-neutral-300">
-                                                        {group.map(node => {
-                                                            const nodeOutputs = connections.filter(c => c.fromId === node.id);
-                                                            return (
-                                                                <tr key={`bom-row-${node.id}`} className="border-b border-neutral-800/30 hover:bg-[#13161c] transition-colors group">
-                                                                    <td className="px-6 py-4 font-bold text-white tracking-wide">{node.label}</td>
-                                                                    <td className="px-6 py-4 text-neutral-500 font-mono text-[10px]">{node.partNumber || "N/A"}</td>
-                                                                    <td className="px-6 py-4 text-center">
-                                                                        <span className="font-black text-sky-400 bg-sky-900/20 px-3 py-1 rounded text-[11px] border border-sky-900/30">
-                                                                            {node.quantity || 1}
-                                                                        </span>
-                                                                    </td>
-                                                                    <td className="px-6 py-4 text-neutral-400 max-w-xs leading-relaxed">{node.description}</td>
-                                                                    <td className="px-6 py-4">
-                                                                        <div className="flex flex-wrap gap-1.5">
-                                                                            {nodeOutputs.length === 0 ? <span className="text-neutral-600 italic text-[11px]">None</span> : nodeOutputs.map(conn => {
-                                                                                const targetNode = nodes.find(n => n.id === conn.toId);
-                                                                                if (!targetNode) return null;
-                                                                                return (
-                                                                                    <span key={`bom-conn-${conn.id}`} className="px-2 py-1 bg-[#1a1f2e] border border-neutral-700/50 rounded text-[10px] text-neutral-300">
-                                                                                        {targetNode.label}
-                                                                                    </span>
-                                                                                );
-                                                                            })}
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            );
-                                                        })}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div className="px-6 py-4 bg-[#0a0c10] border-t border-neutral-800/50 flex justify-between items-center text-xs">
-                                                <span className="font-bold text-neutral-500 uppercase tracking-widest">Total Category Items</span>
-                                                <span className="font-black text-white bg-neutral-800/80 px-3 py-1 rounded border border-neutral-700">{totalQty}</span>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    ) : activeView === "matrix" ? (
-                        <div className="flex-1 overflow-y-auto p-6">
-                            {CATEGORY_ORDER.map(cat => {
-                                const group = groupedNodes[cat];
-                                if (!group || group.length === 0) return null;
-                                const catColor = CATEGORY_COLOR[cat];
-                                return (
-                                    <div key={cat} className="mb-8">
-                                        <div className="text-[10px] font-black uppercase tracking-[0.15em] mb-3 flex items-center gap-2" style={{ color: catColor }}>
-                                            <CategoryIcon category={cat} size={12} /> {cat}
-                                            <div className="flex-1 h-px bg-gradient-to-r from-current to-transparent opacity-20 ml-2" />
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            {group.map(node => {
-                                                const isSelected = selectedId === node.id;
-                                                const nodeOutputs = connections.filter(c => c.fromId === node.id);
-                                                return (
-                                                    <div 
-                                                        key={node.id}
-                                                        onClick={() => setSelectedId(node.id)}
-                                                        className={`flex items-stretch bg-[#0f1219] rounded-xl border transition-all cursor-pointer overflow-hidden ${isSelected ? 'border-sky-500/50 shadow-[0_0_15px_rgba(14,165,233,0.15)] bg-[#131b26]' : 'border-neutral-800/60 hover:border-neutral-700 hover:bg-[#13161c]'}`}
-                                                        style={{ minHeight: '64px' }}
-                                                    >
-                                                        <div className="w-1.5" style={{ background: catColor }} />
-                                                        <div className="flex items-center gap-4 px-4 py-3 w-[300px] shrink-0 border-r border-neutral-800/50">
-                                                            <div style={{ width: 36, height: 36, background: "rgba(255,255,255,0.02)", border: `1px solid ${catColor}30`, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                                                <CategoryIcon category={cat} size={20} />
-                                                            </div>
-                                                            <div className="min-w-0">
-                                                                <div className="text-white text-[13px] font-bold truncate">{node.label}</div>
-                                                                <div className="text-neutral-500 text-[10px] uppercase tracking-wider mt-0.5">Qty: {node.quantity || 1}</div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="flex-1 px-5 py-3 flex items-center flex-wrap gap-2">
-                                                            {nodeOutputs.length === 0 ? (
-                                                                <span className="text-neutral-600 text-xs italic">No outgoing connections</span>
-                                                            ) : (
-                                                                nodeOutputs.map(conn => {
-                                                                    const targetNode = nodes.find(n => n.id === conn.toId);
-                                                                    if (!targetNode) return null;
-                                                                    return (
-                                                                        <div 
-                                                                            key={conn.id} 
-                                                                            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#1a1f2e] border border-neutral-700/50 text-neutral-300 hover:border-sky-500/50 hover:text-sky-300 transition-colors"
-                                                                            onClick={(e) => { e.stopPropagation(); setSelectedId(targetNode.id); }}
-                                                                        >
-                                                                            <span className="text-neutral-500">⮑</span> {targetNode.label}
-                                                                        </div>
-                                                                    );
-                                                                })
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    ) : (
-                        <div className="flex-1 w-full h-full relative" style={{ minHeight: 0 }}>
+                    <div className="flex-1 w-full h-full relative" style={{ minHeight: 0 }}>
                             <div style={{ position: 'absolute', inset: 0 }}>
                                 <style>{`
                                     .custom-edge-hover .edge-label-text, 
@@ -1517,7 +1311,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                                 </ReactFlow>
                             </div>
                         </div>
-                    )}
                 </div>
 
                 {/* FLOATING RIGHT TOGGLE BUTTON */}
@@ -1655,7 +1448,7 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                             </div>
                             <h3 className="text-sm font-semibold text-neutral-300 mb-2">No Component Selected</h3>
                             <p className="text-xs text-neutral-500 leading-relaxed">
-                                Select a component from the Assembly Matrix to view its details and manage connections.
+                                Select a component from the Canvas to view its details and manage connections.
                             </p>
                         </div>
                     )}
