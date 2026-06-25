@@ -17,8 +17,6 @@ import {
 import "@xyflow/react/dist/style.css";
 import { Loader2, Download, ChevronDown, ZoomIn, ZoomOut, Maximize } from "lucide-react";
 import dagre from "dagre";
-import { toPng, toSvg } from 'html-to-image';
-import jsPDF from 'jspdf';
 
 // --- Custom Schematic Node ---
 const SchematicNode = ({ data }: { data: any }) => {
@@ -212,18 +210,22 @@ export function SchematicsWorkspace({ designData, currentQuery }: { designData?:
             };
 
             if (format === "png") {
+                const { toPng } = await import('html-to-image');
                 const dataUrl = await toPng(viewportNode, { ...options, pixelRatio: 2 });
                 const link = document.createElement('a');
                 link.download = `${baseName}.png`;
                 link.href = dataUrl;
                 link.click();
             } else if (format === "svg") {
+                const { toSvg } = await import('html-to-image');
                 const dataUrl = await toSvg(viewportNode, options);
                 const link = document.createElement('a');
                 link.download = `${baseName}.svg`;
                 link.href = dataUrl;
                 link.click();
             } else if (format === "pdf") {
+                const { toPng } = await import('html-to-image');
+                const { default: jsPDF } = await import('jspdf');
                 const dataUrl = await toPng(viewportNode, { ...options, pixelRatio: 2 });
                 const pdf = new jsPDF({
                     orientation: graphWidth > graphHeight ? 'landscape' : 'portrait',
