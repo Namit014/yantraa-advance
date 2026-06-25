@@ -814,7 +814,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     const handleGenerateCAD = async (partName: string) => {
         setGeneratingParts(prev => ({ ...prev, [partName]: "Initiating..." }));
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
             const filename = `${partName.replace(/[^a-zA-Z0-9_-]/g, "_")}.step`;
 
             setGeneratingParts(prev => ({ ...prev, [partName]: "Generating (Zoo AI)..." }));

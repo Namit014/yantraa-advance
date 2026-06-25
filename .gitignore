@@ -4,10 +4,8 @@ __pycache__/
 .venv/
 .env
 .vscode/
+knowledgebase/
 qdrant_data/
-knowledgebase/openarm/cad/openarm_cad/OpenArm_Cell+OpenArm_2.0.STEP
-knowledgebase/openarm/cad/openarm_cad/OpenEvalCell_defeature.STEP
-AVGs_robot_cad.step
 Articulated_robot_cad.STEP
 Automate_mobile_Robot.step
 DeltaRobot2.STEP

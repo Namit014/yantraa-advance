@@ -229,5 +229,5 @@ async def trigger_cad_sync(background_tasks: BackgroundTasks):
 if __name__ == "__main__":
     import uvicorn
     # Allow running directly using `python src/api/main.py`
-    # print("ALL ROUTES BEFORE RUNNING:", [getattr(r, 'path', r.name) for r in app.routes])
+    # print("ALL ROUTES BEFORE RUNNING:", [getattr(r, "path", getattr(r, "name", str(r))) for r in app.routes])
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)
