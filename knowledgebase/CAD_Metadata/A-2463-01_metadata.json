@@ -1,16 +1,6 @@
 {
-  "metadata": {
-    "filename": "A-2463-01.STEP",
-    "date_created": "2024-12-09T18:36:08",
-    "author": "",
-    "organization": ""
-  },
-  "components": [
-    "A-2463-01",
-    "PM-3061-01",
-    "PM-3139-01",
-    "PM-3140-01"
-  ],
-  "total_components_found": 4,
-  "analyzed_at": "2026-06-23T13:54:26.708148"
+  "metadata": {},
+  "components": [],
+  "total_components_found": 0,
+  "analyzed_at": "2026-06-25T13:55:24.728063"
 }

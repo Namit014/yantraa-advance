@@ -1,13 +1,6 @@
 {
-  "metadata": {
-    "filename": "T5-Export.STEP",
-    "date_created": "2024-01-31T15:47:07",
-    "author": "",
-    "organization": ""
-  },
-  "components": [
-    "T5-Export"
-  ],
-  "total_components_found": 1,
-  "analyzed_at": "2026-06-23T13:54:32.337846"
+  "metadata": {},
+  "components": [],
+  "total_components_found": 0,
+  "analyzed_at": "2026-06-25T13:10:36.443591"
 }

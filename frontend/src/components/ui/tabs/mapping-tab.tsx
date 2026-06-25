@@ -507,30 +507,6 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
 
 
 
-// ─── Seed data ────────────────────────────────────────────────────────────────
-
-const SEED_RAW: RawComponent[] = [
-    { name: "Motion Controller", category: "controller", description: "Main MCU coordinating all subsystems", connects_to: ["Servo Motor A", "Servo Motor B", "IMU Sensor"], quantity: 1 },
-    { name: "Servo Motor A", category: "actuator", description: "Upper arm drive servo, 180° range", connects_to: ["Arm Frame"], quantity: 1 },
-    { name: "Servo Motor B", category: "actuator", description: "Lower arm drive servo, 270° range", connects_to: ["Arm Frame"], quantity: 1 },
-    { name: "IMU Sensor", category: "sensor", description: "6-axis inertial measurement unit", connects_to: [], quantity: 1 },
-    { name: "Arm Frame", category: "mechanical", description: "Aluminium extruded structural frame", connects_to: [], quantity: 1 },
-    { name: "Power Supply", category: "power", description: "24V regulated DC power supply", connects_to: ["Motion Controller", "Servo Motor A", "Servo Motor B"], quantity: 1 },
-];
-
-const SEED_BASE_NODES = SEED_RAW.map((r, i) => ({
-    id: `seed-${i}`,
-    label: r.name,
-    category: r.category,
-    description: r.description,
-    width: NODE_W,
-    height: NODE_H,
-    quantity: r.quantity,
-    partNumber: r.partNumber,
-}));
-
-const SEED_CONNECTIONS = generateConnections(SEED_BASE_NODES as ComponentNode[], SEED_RAW);
-const SEED_NODES: ComponentNode[] = applyLayout(SEED_BASE_NODES as ComponentNode[], SEED_CONNECTIONS);
 
 // ─── Inline SVG icons ─────────────────────────────────────────────────────────
 
@@ -726,7 +702,7 @@ const CustomComponentNode = ({ data }: any) => {
 
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
     const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
-    const [activeView, setActiveView] = useState<"canvas">("canvas");
+    const [activeView, setActiveView] = useState<"canvas" | "matrix" | "bom">("canvas");
     const [isLibraryOpen, setIsLibraryOpen] = useState(true);
     const [isInspectorOpen, setIsInspectorOpen] = useState(true);
     
@@ -734,9 +710,9 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         console.log(`[MappingTab] Successfully mounted/loaded with activeView: ${activeView}`);
     }, []);
 
-    const [nodes, setNodes] = useState<ComponentNode[]>(SEED_NODES);
-    const [rawComponents, setRawComponents] = useState<RawComponent[]>(SEED_RAW);
-    const [connections, setConnections] = useState<Connection[]>(SEED_CONNECTIONS);
+    const [nodes, setNodes] = useState<ComponentNode[]>([]);
+    const [rawComponents, setRawComponents] = useState<RawComponent[]>([]);
+    const [connections, setConnections] = useState<Connection[]>([]);
     const [sidebarTab, setSidebarTab] = useState<"library" | "bom" | "validation">("library");
     const hasSubsystemsError = designData && (!designData.subsystems || designData.subsystems.length === 0);
     const [isLoading, setIsLoading] = useState(false);
@@ -1111,8 +1087,43 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
     return (
         <div className="w-full h-full flex flex-col bg-[#050505] overflow-hidden text-neutral-400 font-sans">
-            
-
+            {/* Header Sub-bar */}
+            <div className="h-14 bg-[#0a0f18]/90 backdrop-blur border-b border-neutral-800/80 px-6 flex items-center justify-between z-10 shrink-0">
+                <div className="flex items-center gap-3">
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[11px] font-black uppercase tracking-widest text-neutral-300">Live Synthesis Canvas</span>
+                    {currentQuery && (
+                        <>
+                            <span className="text-neutral-700">|</span>
+                            <span className="text-xs text-neutral-500 truncate max-w-[200px]">Prompt: "{currentQuery}"</span>
+                        </>
+                    )}
+                </div>
+                
+                <div className="flex items-center bg-[#131a26] border border-neutral-800 p-0.5 rounded-lg">
+                    {(['canvas', 'matrix', 'bom'] as const).map(view => (
+                        <button
+                            key={view}
+                            onClick={() => setActiveView(view)}
+                            className={`px-4 py-1.5 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${activeView === view ? 'bg-sky-600 text-white shadow-md shadow-sky-950/50' : 'text-neutral-500 hover:text-neutral-300'}`}
+                        >
+                            {view}
+                        </button>
+                    ))}
+                </div>
+                
+                <div className="flex items-center gap-3">
+                    {isLoading && (
+                        <div className="flex items-center gap-2 text-[10px] text-sky-400 font-bold uppercase tracking-wider bg-sky-950/20 px-3 py-1.5 rounded-lg border border-sky-900/30">
+                            <RefreshCw size={12} className="animate-spin" />
+                            Updating...
+                        </div>
+                    )}
+                    <button onClick={handleAutoLayout} className="p-2 bg-[#131a26] hover:bg-[#1a2333] border border-neutral-800 hover:border-neutral-700 text-neutral-400 hover:text-white rounded-lg transition-all" title="Auto Layout Graph"><Crosshair size={14} /></button>
+                    <button onClick={handleRefresh} className="p-2 bg-[#131a26] hover:bg-[#1a2333] border border-neutral-800 hover:border-neutral-700 text-neutral-400 hover:text-white rounded-lg transition-all" title="Regenerate from prompt"><RefreshCw size={14} /></button>
+                    <button onClick={handleClear} className="p-2 bg-red-950/30 hover:bg-red-900/40 border border-red-900/30 text-red-400 rounded-lg transition-all" title="Reset/Clear Canvas"><Trash2 size={14} /></button>
+                </div>
+            </div>
 
             <div className="flex-1 flex overflow-hidden relative">
                 {/* FLOATING TOGGLE BUTTON */}
