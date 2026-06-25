@@ -330,6 +330,7 @@ OUTPUT FORMAT:
     print("[api/design] Invoking LLM...")
     try:
         res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
+        print(f"[api/design] RAW LLM SYNTHESIS TEXT:\n{res_text}\n{'='*40}")
         data = extract_json(res_text)
     except Exception as e:
         print(f"[api/design] Error parsing LLM JSON: {e}")
