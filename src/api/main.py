@@ -26,14 +26,8 @@ from contextlib import asynccontextmanager
 from apscheduler.schedulers.asyncio import AsyncIOScheduler # type: ignore
 from scheduler.daily_sync import run_daily_cad_sync
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 8d9a7e6e58cc9539e69c062c1edbf431987c949d
 scheduler = AsyncIOScheduler()
 
->>>>>>> 8d9a7e6e58cc9539e69c062c1edbf431987c949d
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Initialize the Retriever on startup
