@@ -14,9 +14,9 @@ from embedder import Embedder, EMBEDDING_DIMENSION
 
 # ── Thresholds ────────────────────────────────────────────────────────────────
 # Hard floor: if the top result is below this, skip LLM validation and go web.
-SCORE_HARD_FLOOR = 0.50
+SCORE_HARD_FLOOR = 0.35
 # Relevance floor: a chunk must exceed this to count as "relevant"
-SCORE_RELEVANCE_FLOOR = 0.45
+SCORE_RELEVANCE_FLOOR = 0.30
 # Minimum number of relevant chunks required before trusting Qdrant context
 MIN_RELEVANT_CHUNKS = 1
 # ─────────────────────────────────────────────────────────────────────────────
