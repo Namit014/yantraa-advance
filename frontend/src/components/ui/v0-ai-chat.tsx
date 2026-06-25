@@ -12,7 +12,6 @@ import {
 import { MappingTab } from "./tabs/mapping-tab";
 import { ConnectionTab } from "./tabs/connection-tab";
 import { CADTab } from "./tabs/cad-tab";
-import { SchematicsTab } from "./tabs/schematics-tab";
 
 interface UseAutoResizeTextareaProps {
     minHeight: number;
@@ -125,7 +124,7 @@ export function VercelV0Chat() {
     const [value, setValue] = useState("");
     const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad' | 'schematics'>('mapping');
+    const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad'>('mapping');
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
     const [robotDesign, setRobotDesign] = useState<any | null>(null);
@@ -335,6 +334,13 @@ export function VercelV0Chat() {
                             <div className="flex items-center gap-2">
                                 <button
                                     type="button"
+                                    className="px-2 py-1.5 rounded-lg text-sm text-zinc-400 transition-colors border border-dashed border-zinc-700 hover:border-zinc-600 hover:bg-zinc-800 flex items-center justify-between gap-1"
+                                >
+                                    <PlusIcon className="w-4 h-4" />
+                                    Project
+                                </button>
+                                <button
+                                    type="button"
                                     onClick={handleSubmit}
                                     disabled={isLoading || !value.trim()}
                                     className={cn(
@@ -364,7 +370,6 @@ export function VercelV0Chat() {
                         <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
                             <button onClick={() => setActiveTab('mapping')} className={cn("transition-colors", activeTab === 'mapping' ? "text-white" : "hover:text-white")}>Mapping</button>
                             <button onClick={() => setActiveTab('connection')} className={cn("transition-colors", activeTab === 'connection' ? "text-white" : "hover:text-white")}>Connection</button>
-                            <button onClick={() => setActiveTab('schematics')} className={cn("transition-colors", activeTab === 'schematics' ? "text-white" : "hover:text-white")}>Schematics</button>
                             <button onClick={() => {
                                 if (cadPrompt.available) {
                                     setAcceptedCadUrls(cadPrompt.urls);
@@ -379,7 +384,6 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
-                        {activeTab === 'schematics' && <SchematicsTab designData={robotDesign} />}
                         {activeTab === 'cad' && (() => {
                             const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
                             const cadUrl = urls[0] || 'default-cad';

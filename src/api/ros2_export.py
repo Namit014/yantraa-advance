@@ -33,13 +33,7 @@ def generate_urdf(nodes: List[ReactFlowNode], edges: List[ReactFlowEdge]) -> str
     # Identify actuators and sensors for ros2_control
     ros2_control = ET.SubElement(root, "ros2_control", name="YantraHardwareInterface", type="system")
     hardware = ET.SubElement(ros2_control, "hardware")
-    
-    # Check if we have an ODrive in the nodes
-    has_odrive = any("odrive" in str(n.data.get("label", n.id)).lower() for n in nodes)
-    if has_odrive:
-        ET.SubElement(hardware, "plugin").text = "odrive_hardware_interface/ODriveHardwareInterface"
-    else:
-        ET.SubElement(hardware, "plugin").text = "mock_components/GenericSystem"
+    ET.SubElement(hardware, "plugin").text = "mock_components/GenericSystem"
     
     joint_count = 1
     
@@ -92,15 +86,7 @@ def generate_launch_description():
     for node in nodes:
         if node.data.get("type") in ["software", "controller"]:
             node_name = node.data.get("label", node.id).replace(" ", "_").lower()
-            if "odrive" in node_name:
-                launch_code += f"""        Node(
-            package='odrive_ros2_control',
-            executable='odrive_node',
-            name='{node_name}',
-            output='screen'
-        ),\n"""
-            else:
-                launch_code += f"""        Node(
+            launch_code += f"""        Node(
             package='dummy_package',
             executable='dummy_node',
             name='{node_name}',
@@ -124,7 +110,6 @@ def generate_package_xml() -> str:
   <exec_depend>rclcpp</exec_depend>
   <exec_depend>ros2_control</exec_depend>
   <exec_depend>moveit_core</exec_depend>
-  <exec_depend>odrive_ros2_control</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
