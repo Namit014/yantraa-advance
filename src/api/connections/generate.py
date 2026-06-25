@@ -32,7 +32,7 @@ if _src_dir not in sys.path:
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Use a fast, reliable model for Yantra AI.
-CONNECTIONS_MODEL = os.environ.get("OPENROUTER_MODEL", "google/gemini-2.0-flash-exp:free")
+CONNECTIONS_MODEL = os.environ.get("OPENROUTER_MODEL", "openrouter/owl-alpha")
 
 # ── Pydantic models ────────────────────────────────────────────────────────────
 
@@ -141,9 +141,16 @@ def _call_llm(system: str, user: str) -> str:
 
 
 def _strip_markdown_json(text: str) -> str:
-    """Remove ```json``` fences and find the JSON object."""
+    """Remove ```json``` fences, comments, and find the JSON object."""
+    # Remove markdown fences
     cleaned = re.sub(r"```json\s*", "", text, flags=re.IGNORECASE)
     cleaned = re.sub(r"```\s*", "", cleaned)
+    # Remove JS-style single-line comments (// ...)
+    cleaned = re.sub(r"//[^\n]*", "", cleaned)
+    # Remove JS-style block comments (/* ... */)
+    cleaned = re.sub(r"/\*.*?\*/", "", cleaned, flags=re.DOTALL)
+    # Remove trailing commas before ] or } (common LLM mistake)
+    cleaned = re.sub(r",\s*([}\]])", r"\1", cleaned)
     # Find first { ... } block
     start = cleaned.find("{")
     end = cleaned.rfind("}")

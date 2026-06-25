@@ -36,17 +36,25 @@ class DesignResponse(BaseModel):
 
 def extract_json(text: str) -> dict:
     """Extract and parse JSON object from LLM response text."""
+    # Strip JS-style comments and trailing commas before parsing
+    def _clean(s: str) -> str:
+        s = re.sub(r"//[^\n]*", "", s)
+        s = re.sub(r"/\*.*?\*/", "", s, flags=re.DOTALL)
+        s = re.sub(r",\s*([}\]])", r"\1", s)
+        return s
+
+    cleaned = _clean(text)
     try:
-        return json.loads(text)
+        return json.loads(cleaned)
     except json.JSONDecodeError:
         pass
-    match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
+    match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', cleaned, re.DOTALL)
     if match:
         try:
             return json.loads(match.group(1))
         except json.JSONDecodeError:
             pass
-    match = re.search(r'\{.*\}', text, re.DOTALL)
+    match = re.search(r'\{.*\}', cleaned, re.DOTALL)
     if match:
         try:
             return json.loads(match.group(0))
@@ -87,7 +95,7 @@ def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
             }
     return list(bom_map.values())
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "google/gemini-2.0-flash-exp:free") -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "openrouter/owl-alpha") -> str:
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
@@ -339,8 +347,26 @@ OUTPUT FORMAT:
     normalized_connections = []
     bom = data.get("bom", [])
     subsystems = data.get("subsystems", [])
-    missing = data.get("missing", [])
-    validation = data.get("validation", [])
+    raw_missing = data.get("missing", [])
+    raw_validation = data.get("validation", [])
+
+    # Normalize `missing`: LLM sometimes returns ["Component Name"] instead of [{"name": "..."}]
+    missing = []
+    if isinstance(raw_missing, list):
+        for item in raw_missing:
+            if isinstance(item, dict):
+                missing.append(item)
+            elif isinstance(item, str) and item.strip():
+                missing.append({"name": item.strip()})
+
+    # Normalize `validation`: LLM sometimes returns plain strings instead of dicts
+    validation = []
+    if isinstance(raw_validation, list):
+        for item in raw_validation:
+            if isinstance(item, dict):
+                validation.append(item)
+            elif isinstance(item, str) and item.strip():
+                validation.append({"type": "warning", "message": item.strip()})
 
     if isinstance(connections, list):
         for conn in connections:
