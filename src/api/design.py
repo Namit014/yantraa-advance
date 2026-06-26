@@ -136,31 +136,41 @@ async def generate_robot_design(request: Request, design_request: DesignRequest)
     
     # ─── PHASE 0 & 1: Router Agent (Intent + Search Terms) ────────────────────
     print("[api/design] Phase 1: Running Router Agent...")
-    router_system = """You are Yantraa, a friendly robotics design AI.
+    from cad_registry import get_known_cads
+    known_cads_dict = get_known_cads()
+    known_robot_types = list(known_cads_dict.keys())
+    
+    router_system = f"""You are Yantraa, a friendly robotics design AI.
 Analyze the user's input. Determine if it is a request to design a robot, select components, check connections, or perform technical robotics planning.
 If it is conversational or unrelated to designing a specific robot system:
 - Set "is_design_query" to false
 - Write a friendly reply in "response"
 - Leave "search_terms" empty.
+- Set "closest_robot_type" to null
 
 If it is a request to design or build a robot:
 - Set "is_design_query" to true
 - Leave "response" empty
 - Identify hardware components needed and provide them as a list of strings in "search_terms" (e.g. ["Arduino Uno", "L298N Motor Driver", "LiPo Battery"])
+- Match the user's requested robot to the closest available option from this exact list: {known_robot_types}. 
+  If the user's intent strongly matches one of these (e.g. "I want a machine for carrying boxes" -> "agv" or "mobile robot", "I need to weld" -> "welding"), provide that exact string in "closest_robot_type". 
+  If none match, set "closest_robot_type" to null.
 
 Output ONLY valid JSON.
 OUTPUT FORMAT:
-{
+{{
   "is_design_query": true,
   "response": "",
-  "search_terms": ["term1", "term2"]
-}"""
+  "search_terms": ["term1", "term2"],
+  "closest_robot_type": "agv"
+}}"""
 
     router_prompt = f"User Input: {query}"
     
     is_design_query = True
     conversational_reply = ""
     components_to_search = []
+    closest_robot_type = None
     
     try:
         raw_router = _safe_llm_call(router_prompt, router_system, response_format="json_object")
@@ -169,6 +179,8 @@ OUTPUT FORMAT:
         is_design_query = router_data.get("is_design_query", True)
         conversational_reply = router_data.get("response", "")
         components_to_search = router_data.get("search_terms", [])
+        closest_robot_type = router_data.get("closest_robot_type")
+        
         if not isinstance(components_to_search, list):
             components_to_search = [query]
         if not components_to_search and is_design_query:
@@ -177,6 +189,7 @@ OUTPUT FORMAT:
         print(f"[api/design] Phase 1 Router parsing failed: {e}")
         is_design_query = True
         components_to_search = [query]
+        closest_robot_type = None
 
     if not is_design_query:
         print(f"[api/design] Intent is conversational. Reply: '{conversational_reply}'")
@@ -411,8 +424,14 @@ OUTPUT FORMAT:
                     if key in search_text:
                         matched_cads.add(filename)
                 
+    # New Intelligence: Use the closest_robot_type mapped by the LLM Router
+    if not matched_cads and closest_robot_type and closest_robot_type.lower() in known_cads:
+        print(f"[api/design] Router mapped query to semantic alias '{closest_robot_type}'. Matching CAD automatically.")
+        matched_cads.add(known_cads[closest_robot_type.lower()])
+        
     # Fallback to monolithic robots if modular assembly yielded nothing
     if len(matched_cads) == 0:
+
         query_lower = query.lower()
         for key, filename in known_cads.items():
             if key in query_lower:
