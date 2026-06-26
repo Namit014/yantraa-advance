@@ -460,7 +460,7 @@ OUTPUT FORMAT:
     frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
 
     def _build_cad_url(filename: str) -> str:
-        """Build a CAD URL: prefer local /api/cad/ endpoint, fall back to S3."""
+        """Build a CAD URL: prefer local /api/cad/ endpoint, fall back to S3 via index."""
         local_path = os.path.join(frontend_public_cad, filename)
         kb_search = os.path.abspath(os.path.join(_src_dir, "..", "knowledgebase"))
         import glob as _glob
@@ -469,10 +469,8 @@ OUTPUT FORMAT:
             print(f"[api/design] CAD served via local backend: /cad/{filename}")
             return f"/cad/{filename}"
         if S3_BUCKET_URL:
-            s3_url = f"{S3_BUCKET_URL}/cad/{filename}"
-            print(f"[api/design] CAD not found locally, using S3: {s3_url}")
-            return s3_url
-        # Last resort: still return the /cad/ path (frontend may have it in /public/cad/)
+            from cad_registry import get_s3_url
+            return get_s3_url(filename, S3_BUCKET_URL)
         print(f"[api/design] WARNING: CAD file {filename!r} not found locally or in S3. Serving /cad/ path anyway.")
         return f"/cad/{filename}"
 

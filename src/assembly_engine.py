@@ -34,11 +34,13 @@ _templates_path = os.path.join(_KB_DIR, "assembly_templates.json")
 S3_BUCKET_URL = os.getenv("S3_BUCKET_URL", "").rstrip("/")
 
 
-def _cad_url(filename: str) -> str:
+def _cad_url(filename: str, category: str = "") -> str:
     """
     Return the URL to serve a CAD file.
-    - If S3_BUCKET_URL is set and the file doesn't exist locally → use S3.
-    - Otherwise use the local backend /api/cad/<filename> endpoint.
+    Priority:
+    1. Check if file exists locally in knowledgebase/
+    2. If S3_BUCKET_URL is set, use cad_registry.get_s3_url() for the exact S3 path
+    3. Fall back to /cad/<filename> endpoint
     """
     local_kb = os.path.abspath(os.path.join(_SRC_DIR, "..", "knowledgebase"))
     import glob as _glob
@@ -46,10 +48,16 @@ def _cad_url(filename: str) -> str:
     if matches:
         print(f"[AssemblyEngine] CAD file found locally: {matches[0]}")
         return f"/cad/{filename}"
+
     if S3_BUCKET_URL:
-        url = f"{S3_BUCKET_URL}/cad/{filename}"
-        print(f"[AssemblyEngine] CAD file not found locally, using S3: {url}")
-        return url
+        try:
+            from cad_registry import get_s3_url
+            return get_s3_url(filename, S3_BUCKET_URL)
+        except ImportError:
+            url = f"{S3_BUCKET_URL}/knowledgebase/{filename}"
+            print(f"[AssemblyEngine] cad_registry not found, using: {url}")
+            return url
+
     print(f"[AssemblyEngine] WARNING: CAD file {filename!r} not found locally and no S3_BUCKET_URL configured.")
     return f"/cad/{filename}"
 
@@ -292,13 +300,14 @@ def solve_assembly(
         part = node.get("part", "")
         meta = metadata.get(part, {})
         step_file = meta.get("step_file", f"{part}.STEP")
+        category = meta.get("category", "")
 
         t = transforms.get(nid, {"position": [0, 0, 0], "rotation": [0, 0, 0]})
 
         results.append({
             "id": nid,
             "part": part,
-            "cad_url": _cad_url(step_file),
+            "cad_url": _cad_url(step_file, category),
             "position": t["position"],
             "rotation": t["rotation"]
         })
