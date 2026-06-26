@@ -1,0 +1,609 @@
+{
+    "_description": "Assembly mount point metadata for HEBI components. All dimensions in mm. Coordinate system: Y-up.",
+    "components": {
+        "A-2475-08": {
+            "category": "Actuators",
+            "description": "T8 Actuator — high-torque rotary actuator",
+            "step_file": "A-2475-08.STEP",
+            "dimensions": {"diameter": 101, "height": 85},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "input"
+                },
+                "output_flange": {
+                    "position": [0, 85, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.85,
+            "rotation_axis": "Y"
+        },
+        "A-2475-05": {
+            "category": "Actuators",
+            "description": "T5 Actuator — compact rotary actuator",
+            "step_file": "A-2475-05.STEP",
+            "dimensions": {"diameter": 76, "height": 65},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM3_PCD45",
+                    "type": "input"
+                },
+                "output_flange": {
+                    "position": [0, 65, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "6xM3_PCD45",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.48,
+            "rotation_axis": "Y"
+        },
+        "A-2020-05": {
+            "category": "Actuators",
+            "description": "X5 Actuator",
+            "step_file": "A-2020-05.STEP",
+            "dimensions": {"diameter": 62, "height": 50},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "4xM3_PCD38",
+                    "type": "input"
+                },
+                "output_flange": {
+                    "position": [0, 50, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "4xM3_PCD38",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.35,
+            "rotation_axis": "Y"
+        },
+        "A-2020-08": {
+            "category": "Actuators",
+            "description": "X8 Actuator",
+            "step_file": "A-2020-08.STEP",
+            "dimensions": {"diameter": 101, "height": 70},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "input"
+                },
+                "output_flange": {
+                    "position": [0, 70, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.75,
+            "rotation_axis": "Y"
+        },
+        "A-2200-08": {
+            "category": "Actuators",
+            "description": "R8 Actuator — large rotary actuator",
+            "step_file": "A-2200-08.STEP",
+            "dimensions": {"diameter": 120, "height": 95},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "8xM5_PCD80",
+                    "type": "input"
+                },
+                "output_flange": {
+                    "position": [0, 95, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "8xM5_PCD80",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 1.2,
+            "rotation_axis": "Y"
+        },
+        "A-2269-01_R-Series_Double_Shoulder": {
+            "category": "Actuators",
+            "description": "R-Series Double Shoulder — dual-axis shoulder joint",
+            "step_file": "A-2269-01_R-Series_Double_Shoulder.STEP",
+            "dimensions": {"width": 150, "height": 120, "depth": 120},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "8xM5_PCD80",
+                    "type": "input"
+                },
+                "output_flange": {
+                    "position": [0, 120, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 2.1,
+            "rotation_axis": "Y"
+        },
+        "A-2438-02": {
+            "category": "Actuators",
+            "description": "Track Actuator — for treaded/wheeled platforms",
+            "step_file": "A-2438-02.STEP",
+            "dimensions": {"width": 140, "height": 80, "depth": 200},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "4xM5_PCD100",
+                    "type": "input"
+                },
+                "output_shaft": {
+                    "position": [0, 40, 100],
+                    "normal": [0, 0, 1],
+                    "bolt_pattern": "shaft_D10",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 1.8,
+            "rotation_axis": "Z"
+        },
+        "A-2488-25-XX": {
+            "category": "Actuators",
+            "description": "H25 Actuator",
+            "step_file": "A-2488-25-XX.STEP",
+            "dimensions": {"diameter": 90, "height": 75},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM4_PCD55",
+                    "type": "input"
+                },
+                "output_flange": {
+                    "position": [0, 75, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "6xM4_PCD55",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.65,
+            "rotation_axis": "Y"
+        },
+        "A-2221-01_Heavy_Right_Angle_Bracket_Inside": {
+            "category": "Structural_and_Mounts",
+            "description": "Heavy 90° bracket — redirects kinematic chain by 90 degrees",
+            "step_file": "A-2221-01_Heavy_Right_Angle_Bracket_Inside.STEP",
+            "dimensions": {"width": 80, "height": 80, "depth": 60},
+            "mount_points": {
+                "input_face": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "input"
+                },
+                "output_face": {
+                    "position": [0, 40, -40],
+                    "normal": [0, 0, -1],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "output",
+                    "rotation_offset": [-1.5708, 0, 0]
+                }
+            },
+            "mass_kg": 0.25,
+            "rotation_axis": null
+        },
+        "A-2222-01_Heavy_Right_Angle_Bracket_Inside": {
+            "category": "Structural_and_Mounts",
+            "description": "Heavy 90° bracket variant",
+            "step_file": "A-2222-01_Heavy_Right_Angle_Bracket_Inside.STEP",
+            "dimensions": {"width": 80, "height": 80, "depth": 60},
+            "mount_points": {
+                "input_face": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "input"
+                },
+                "output_face": {
+                    "position": [0, 40, -40],
+                    "normal": [0, 0, -1],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "output",
+                    "rotation_offset": [-1.5708, 0, 0]
+                }
+            },
+            "mass_kg": 0.25,
+            "rotation_axis": null
+        },
+        "A-2220-01_Light_Right_Angle_Bracket": {
+            "category": "Structural_and_Mounts",
+            "description": "Light 90° bracket — redirects kinematic chain by 90 degrees",
+            "step_file": "A-2220-01_Light_Right_Angle_Bracket.STEP",
+            "dimensions": {"width": 60, "height": 60, "depth": 45},
+            "mount_points": {
+                "input_face": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM3_PCD45",
+                    "type": "input"
+                },
+                "output_face": {
+                    "position": [0, 30, -30],
+                    "normal": [0, 0, -1],
+                    "bolt_pattern": "6xM3_PCD45",
+                    "type": "output",
+                    "rotation_offset": [-1.5708, 0, 0]
+                }
+            },
+            "mass_kg": 0.12,
+            "rotation_axis": null
+        },
+        "A-2218-01_Output_Tube_Adapter": {
+            "category": "Structural_and_Mounts",
+            "description": "Output tube adapter — connects actuator to structural tube",
+            "step_file": "A-2218-01_Output_Tube_Adapter.STEP",
+            "dimensions": {"diameter": 55, "height": 40},
+            "mount_points": {
+                "input_face": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM3_PCD45",
+                    "type": "input"
+                },
+                "output_tube": {
+                    "position": [0, 40, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "tube_clamp_44mm",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.08,
+            "rotation_axis": null
+        },
+        "A-2219-01_Input_Tube_Adapter": {
+            "category": "Structural_and_Mounts",
+            "description": "Input tube adapter — connects structural tube to actuator input",
+            "step_file": "A-2219-01_Input_Tube_Adapter.STEP",
+            "dimensions": {"diameter": 55, "height": 40},
+            "mount_points": {
+                "input_tube": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "tube_clamp_44mm",
+                    "type": "input"
+                },
+                "output_face": {
+                    "position": [0, 40, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "6xM3_PCD45",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.08,
+            "rotation_axis": null
+        },
+        "A-2096-02_Six_Tube_Adapter": {
+            "category": "Structural_and_Mounts",
+            "description": "Six-tube adapter hub — central mounting hub for multi-arm configs",
+            "step_file": "A-2096-02_Six_Tube_Adapter.STEP",
+            "dimensions": {"diameter": 120, "height": 50},
+            "mount_points": {
+                "center_input": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "input"
+                },
+                "output_1": {
+                    "position": [60, 25, 0],
+                    "normal": [1, 0, 0],
+                    "bolt_pattern": "tube_clamp_44mm",
+                    "type": "output",
+                    "rotation_offset": [0, 0, -1.5708]
+                },
+                "output_2": {
+                    "position": [30, 25, 52],
+                    "normal": [0.5, 0, 0.866],
+                    "bolt_pattern": "tube_clamp_44mm",
+                    "type": "output",
+                    "rotation_offset": [0, -1.0472, -1.5708]
+                },
+                "output_3": {
+                    "position": [-30, 25, 52],
+                    "normal": [-0.5, 0, 0.866],
+                    "bolt_pattern": "tube_clamp_44mm",
+                    "type": "output",
+                    "rotation_offset": [0, -2.0944, -1.5708]
+                }
+            },
+            "mass_kg": 0.35,
+            "rotation_axis": null
+        },
+        "A-2228-01_T-Slot_Right_Angle_Adapter": {
+            "category": "Structural_and_Mounts",
+            "description": "T-Slot adapter — mounts to aluminum extrusion frame",
+            "step_file": "A-2228-01_T-Slot_Right_Angle_Adapter.STEP",
+            "dimensions": {"width": 80, "height": 40, "depth": 80},
+            "mount_points": {
+                "base_mount": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "t_slot_M5",
+                    "type": "input"
+                },
+                "top_face": {
+                    "position": [0, 40, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.15,
+            "rotation_axis": null
+        },
+        "A-2227-01_Wheel_Adapter": {
+            "category": "Structural_and_Mounts",
+            "description": "Wheel adapter — connects actuator to wheel",
+            "step_file": "A-2227-01_Wheel_Adapter.STEP",
+            "dimensions": {"diameter": 50, "height": 25},
+            "mount_points": {
+                "input_face": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM3_PCD45",
+                    "type": "input"
+                },
+                "output_wheel": {
+                    "position": [0, 25, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "wheel_hub",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.05,
+            "rotation_axis": null
+        },
+        "A-2055-01_Gripper_Assembly": {
+            "category": "End_Effectors",
+            "description": "Parallel gripper assembly — end effector",
+            "step_file": "A-2055-01_Gripper_Assembly.STEP",
+            "dimensions": {"width": 100, "height": 80, "depth": 60},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM3_PCD45",
+                    "type": "input"
+                }
+            },
+            "mass_kg": 0.3,
+            "rotation_axis": null
+        },
+        "A-2143-02": {
+            "category": "End_Effectors",
+            "description": "Aluminum Parallel Gripper Add-on v2",
+            "step_file": "A-2143-02.STEP",
+            "dimensions": {"width": 90, "height": 70, "depth": 50},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "input"
+                }
+            },
+            "mass_kg": 0.35,
+            "rotation_axis": null
+        },
+        "A-2292-01": {
+            "category": "End_Effectors",
+            "description": "Gripper Assembly — wire-actuated",
+            "step_file": "A-2292-01.STEP",
+            "dimensions": {"width": 110, "height": 90, "depth": 65},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "6xM4_PCD60",
+                    "type": "input"
+                }
+            },
+            "mass_kg": 0.4,
+            "rotation_axis": null
+        },
+        "A-2433-01_Motor_Driver_RJ45": {
+            "category": "Electronics_and_Power",
+            "description": "Motor Driver with RJ45 interface",
+            "step_file": "A-2433-01_Motor_Driver_RJ45.STEP",
+            "dimensions": {"width": 65, "height": 30, "depth": 45},
+            "mount_points": {
+                "mount_face": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "2xM3_50mm",
+                    "type": "input"
+                }
+            },
+            "mass_kg": 0.08,
+            "rotation_axis": null
+        },
+        "A-2525-01": {
+            "category": "Electronics_and_Power",
+            "description": "Wattman Battery with Cap",
+            "step_file": "A-2525-01.STEP",
+            "dimensions": {"width": 100, "height": 60, "depth": 150},
+            "mount_points": {
+                "mount_face": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "4xM4_90x130",
+                    "type": "input"
+                }
+            },
+            "mass_kg": 1.5,
+            "rotation_axis": null
+        },
+        "A-2432-01": {
+            "category": "Electronics_and_Power",
+            "description": "IO Board",
+            "step_file": "A-2432-01.STEP",
+            "dimensions": {"width": 70, "height": 25, "depth": 50},
+            "mount_points": {
+                "mount_face": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "4xM3_60x40",
+                    "type": "input"
+                }
+            },
+            "mass_kg": 0.06,
+            "rotation_axis": null
+        },
+        "A-2224-01_Mid_Tube_Adapter": {
+            "category": "Structural_and_Mounts",
+            "description": "Mid tube adapter — inline connection between tubes",
+            "step_file": "A-2224-01_Mid_Tube_Adapter.STEP",
+            "dimensions": {"diameter": 55, "height": 50},
+            "mount_points": {
+                "input_tube": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "bolt_pattern": "tube_clamp_44mm",
+                    "type": "input"
+                },
+                "output_tube": {
+                    "position": [0, 50, 0],
+                    "normal": [0, 1, 0],
+                    "bolt_pattern": "tube_clamp_44mm",
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.1,
+            "rotation_axis": null
+        },
+        "quadcopter_frame": {
+            "category": "Structural_and_Mounts",
+            "description": "Quadcopter drone frame / chassis",
+            "step_file": "quadcopter_frame.step",
+            "dimensions": {"width": 250, "height": 15, "depth": 250},
+            "mount_points": {
+                "motor_mount_fr": {
+                    "position": [100, 5, 100],
+                    "normal": [0, 1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "output"
+                },
+                "motor_mount_fl": {
+                    "position": [-100, 5, 100],
+                    "normal": [0, 1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "output"
+                },
+                "motor_mount_br": {
+                    "position": [100, 5, -100],
+                    "normal": [0, 1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "output"
+                },
+                "motor_mount_bl": {
+                    "position": [-100, 5, -100],
+                    "normal": [0, 1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "output"
+                },
+                "top_face": {
+                    "position": [0, 10, 0],
+                    "normal": [0, 1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "output"
+                },
+                "bottom_face": {
+                    "position": [0, -10, 0],
+                    "normal": [0, -1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.15,
+            "rotation_axis": null
+        },
+        "brushless_motor": {
+            "category": "Actuators",
+            "description": "Brushless DC Outrunner motor for drones",
+            "step_file": "brushless_motor.step",
+            "dimensions": {"diameter": 28, "height": 20},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "input"
+                },
+                "shaft": {
+                    "position": [0, 20, 0],
+                    "normal": [0, 1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "output"
+                }
+            },
+            "mass_kg": 0.05,
+            "rotation_axis": "Y"
+        },
+        "propeller": {
+            "category": "Actuators",
+            "description": "Drone propeller",
+            "step_file": "propeller.step",
+            "dimensions": {"diameter": 200, "height": 5},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "input"
+                }
+            },
+            "mass_kg": 0.01,
+            "rotation_axis": "Y"
+        },
+        "flight_controller": {
+            "category": "Electronics_and_Power",
+            "description": "Drone flight controller unit (FCU)",
+            "step_file": "flight_controller.step",
+            "dimensions": {"width": 36, "height": 6, "depth": 36},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, -1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "input"
+                }
+            },
+            "mass_kg": 0.015,
+            "rotation_axis": null
+        },
+        "lipo_battery": {
+            "category": "Electronics_and_Power",
+            "description": "Lithium Polymer Battery Pack",
+            "step_file": "lipo_battery.step",
+            "dimensions": {"width": 100, "height": 35, "depth": 25},
+            "mount_points": {
+                "input_flange": {
+                    "position": [0, 0, 0],
+                    "normal": [0, 1, 0],
+                    "rotation_offset": [0, 0, 0],
+                    "type": "input"
+                }
+            },
+            "mass_kg": 0.2,
+            "rotation_axis": null
+        }
+    }
+}

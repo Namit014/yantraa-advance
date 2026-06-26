@@ -1,4 +1,11 @@
 .history/
+# Allow JSON metadata files in knowledgebase even though the folder is generally ignored
+!knowledgebase/Robots_MetaData/
+!knowledgebase/Robots_MetaData/*.json
+!knowledgebase/bom/
+!knowledgebase/bom/*.json
+!knowledgebase/bom/cad_boms/
+!knowledgebase/bom/cad_boms/*.json
 __pycache__/
 *.pyc
 .venv/

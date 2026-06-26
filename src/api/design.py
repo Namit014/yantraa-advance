@@ -15,6 +15,9 @@ from retriever import Retriever
 from llm import invoke_yantra_ai
 from assembly_engine import match_template, template_to_design_data, solve_assembly, validate_assembly
 
+# S3 base URL from environment — used to build CAD URLs when local files are absent
+S3_BUCKET_URL = os.getenv("S3_BUCKET_URL", "").rstrip("/")
+
 router = APIRouter()
 
 class DesignRequest(BaseModel):
@@ -242,16 +245,24 @@ OUTPUT FORMAT:
     component_graph_text = ""
     cg_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "component_graph.json")
     hebi_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "hebi_components.json")
+    print(f"[api/design] Looking for component_graph at: {os.path.abspath(cg_path)}")
+    print(f"[api/design] Looking for hebi_components at: {os.path.abspath(hebi_path)}")
     try:
         if os.path.exists(cg_path):
             with open(cg_path, "r", encoding="utf-8") as f:
                 cg_data = json.load(f)
                 component_graph_text += "KNOWN COMPONENT GRAPH (from LeRobotDepot):\n" + json.dumps(cg_data) + "\n\n"
+            print(f"[api/design] Loaded component_graph.json ({len(cg_data)} entries).")
+        else:
+            print(f"[api/design] WARNING: component_graph.json NOT FOUND — LLM will use general knowledge only.")
         if os.path.exists(hebi_path):
             with open(hebi_path, "r", encoding="utf-8") as f:
                 hebi_data = json.load(f)
                 minimized_hebi = [{"name": c.get("name"), "category": c.get("category")} for c in hebi_data.get("components", [])]
                 component_graph_text += "AVAILABLE HEBI CAD COMPONENTS:\n" + json.dumps(minimized_hebi) + "\n\n"
+            print(f"[api/design] Loaded hebi_components.json ({len(minimized_hebi)} entries).")
+        else:
+            print(f"[api/design] WARNING: hebi_components.json NOT FOUND — LLM will not have HEBI component list.")
     except Exception as e:
         print(f"[api/design] Could not load component graphs: {e}")
 
@@ -445,27 +456,35 @@ OUTPUT FORMAT:
 
     primary_cads = pick_primary_cad(list(matched_cads))
     
-    # In production (AWS), the backend and frontend are separate processes/machines,
-    # so we cannot rely on the local filesystem to check if CAD files exist.
-    # Instead, trust the known_cads mapping — if a filename is mapped, assume it's deployed.
-    # For local dev, we still do a filesystem check as a helpful warning.
+    # ── CAD URL builder ────────────────────────────────────────────────────
     frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
-    cad_urls = []
-    for f in primary_cads:
-        local_path = os.path.join(frontend_public_cad, f)
-        if os.path.exists(local_path):
-            cad_urls.append(f"/cad/{f}")
-        else:
-            # In production the local path won't exist — still serve the URL.
-            # The Vercel frontend hosts the CAD files in /public/cad/ independently.
-            print(f"[api/design] Note: CAD file {f} not found locally (expected in production). Serving URL anyway.")
-            cad_urls.append(f"/cad/{f}")
+
+    def _build_cad_url(filename: str) -> str:
+        """Build a CAD URL: prefer local /api/cad/ endpoint, fall back to S3."""
+        local_path = os.path.join(frontend_public_cad, filename)
+        kb_search = os.path.abspath(os.path.join(_src_dir, "..", "knowledgebase"))
+        import glob as _glob
+        kb_matches = _glob.glob(os.path.join(kb_search, "**", filename), recursive=True)
+        if kb_matches or os.path.exists(local_path):
+            print(f"[api/design] CAD served via local backend: /cad/{filename}")
+            return f"/cad/{filename}"
+        if S3_BUCKET_URL:
+            s3_url = f"{S3_BUCKET_URL}/cad/{filename}"
+            print(f"[api/design] CAD not found locally, using S3: {s3_url}")
+            return s3_url
+        # Last resort: still return the /cad/ path (frontend may have it in /public/cad/)
+        print(f"[api/design] WARNING: CAD file {filename!r} not found locally or in S3. Serving /cad/ path anyway.")
+        return f"/cad/{filename}"
+
+    cad_urls = [_build_cad_url(f) for f in primary_cads]
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
-    
+
     # ─── PHASE 5: Assembly Engine (Compute Transforms) ────────────────────────
+
     assembly_transforms = []
     assembly_mode = "side_by_side"
+
     
     # Try to build assembly graph from LLM synthesis data
     llm_assembly_graph = data.get("assembly_graph", [])
