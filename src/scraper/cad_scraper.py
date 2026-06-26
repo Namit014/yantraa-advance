@@ -45,7 +45,8 @@ async def generate_cad_via_zoo(component_name: str, dest_dir: str) -> str:
         import kittycad
         from kittycad.client import Client
         import asyncio
-        client = Client(token="api-8aa07608-c02f-4297-b167-7f71f03deeab")
+        zoo_key = os.getenv("ZOO_API_KEY", "api-8aa07608-c02f-4297-b167-7f71f03deeab")
+        client = Client(token=zoo_key)
         ml_api = kittycad.MlAPI(client)
         
         result = ml_api.create_text_to_cad(
