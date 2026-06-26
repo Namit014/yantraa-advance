@@ -117,15 +117,19 @@ def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json
         except Exception as e2:
             print(f"[api/design] Final LLM invocation failed: {e2}")
             import json
+            
+            # Create a clean, user-friendly error message
+            friendly_err = "The AI service is currently busy or rate-limited. Please wait a moment and try your request again."
+            
             return json.dumps({
                 "subsystems": [],
                 "connections": [],
                 "bom": [],
                 "missing": [],
-                "validation": [{"type": "error", "message": f"AI Engine Error: {str(e2)}"}],
+                "validation": [{"type": "error", "message": friendly_err}],
                 "cad_available": False,
                 "cad_urls": [],
-                "chat_reply": "I apologize, but my upstream AI provider is currently experiencing high traffic or rate limits (Too Many Requests). Please try again in a moment."
+                "chat_reply": friendly_err
             })
 
 @router.post("/api/design", response_model=DesignResponse)
