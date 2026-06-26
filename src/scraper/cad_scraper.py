@@ -45,8 +45,14 @@ async def generate_cad_via_zoo(component_name: str, dest_dir: str) -> str:
         import kittycad
         from kittycad.client import Client
         import asyncio
-        zoo_key = os.getenv("ZOO_API_KEY", "api-8aa07608-c02f-4297-b167-7f71f03deeab")
-        client = Client(token=zoo_key)
+        import random
+        
+        zoo_keys_raw = os.getenv("ZOO_API_KEY", "api-8aa07608-c02f-4297-b167-7f71f03deeab")
+        zoo_keys = [k.strip() for k in zoo_keys_raw.split(",") if k.strip()]
+        selected_key = random.choice(zoo_keys)
+        
+        print(f"[Zoo API] Using API Key: {selected_key[:8]}... for generation")
+        client = Client(token=selected_key)
         ml_api = kittycad.MlAPI(client)
         
         result = ml_api.create_text_to_cad(
