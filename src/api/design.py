@@ -365,59 +365,8 @@ OUTPUT FORMAT:
     cad_url = None
     assembly_transforms = []
     
-    known_cads = {
-        "autonomous mobile": "autonomous_mobile_robot.stp",
-        "agv": "AVGs_robot_cad.step",
-        "cartesian": "cartesian_robot_cad.stp",
-        "cobot": "Articulated_robot_cad.STEP",
-        "delta": "DeltaRobot2.STEP",
-        "painting": "Painting_Robot.step",
-        "paint": "Painting_Robot.step",
-        "spray": "Painting_Robot.step",
-        "scara": "scara_robot_cad.stp",
-        "welding": "welding_robot.stp",
-        "weld": "welding_robot.stp",
-        "articulated": "Articulated_robot_cad.STEP",
-        "6 axis": "Articulated_robot_cad.STEP",
-        "6-axis": "Articulated_robot_cad.STEP",
-        "6 dof": "Articulated_robot_cad.STEP",
-        "6-dof": "Articulated_robot_cad.STEP",
-        "robotic arm": "Articulated_robot_cad.STEP",
-        "robot arm": "Articulated_robot_cad.STEP",
-        "pick and place": "Articulated_robot_cad.STEP",
-        "pick-and-place": "Articulated_robot_cad.STEP",
-        "pick things": "Articulated_robot_cad.STEP",
-        "grab": "Articulated_robot_cad.STEP",
-        "assembly line": "Articulated_robot_cad.STEP",
-        "manipulation": "Articulated_robot_cad.STEP",
-        "inspection": "inspection_robot_cad.STEP",
-        "humanoid": "Robot_humanoid.step",
-        "machine tending": "machine_tending_robot.stp",
-        "in-pipe": "InPipeInspectionRobot.STEP",
-        "in pipe": "InPipeInspectionRobot.STEP",
-        "pipeline": "InPipeInspectionRobot.STEP",
-        "corrosion": "InPipeInspectionRobot.STEP",
-        "dog": "Full_System_A-2403-02.step",
-        "robotic dog": "Full_System_A-2403-02.step",
-        "quadruped": "Full_System_A-2403-02.step",
-        "four leg": "Full_System_A-2403-02.step",
-        "4 leg": "Full_System_A-2403-02.step",
-    }
-    
-    # Dynamically add HEBI CADs
-    try:
-        if os.path.exists(hebi_path):
-            with open(hebi_path, "r", encoding="utf-8") as f:
-                hebi_data = json.load(f)
-                for comp in hebi_data.get("components", []):
-                    name = comp.get("name", "")
-                    filename = comp.get("filename", "")
-                    if name and filename:
-                        # Add full name e.g. "a-2020-05"
-                        known_cads[name.lower()] = filename
-                        known_cads[name.lower().replace("-", " ")] = filename
-    except Exception as e:
-        print(f"[api/design] Error loading HEBI cads: {e}")
+    from cad_registry import get_known_cads
+    known_cads = get_known_cads()
     
     # Extract all text from BOM and subsystems to match against
     matched_cads = set()
@@ -476,10 +425,23 @@ OUTPUT FORMAT:
     # Universal CAD Scraper Fallback
     if not matched_cads:
         print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
-        from scraper.cad_scraper import scrape_missing_component
-        scraped_filename = await scrape_missing_component(query)
-        if scraped_filename:
-            matched_cads.add(scraped_filename)
+        try:
+            from scraper.cad_scraper import scrape_missing_component
+            scraped_filename = await scrape_missing_component(query)
+            if scraped_filename:
+                matched_cads.add(scraped_filename)
+        except Exception as e:
+            print(f"[api/design] CAD scraper failed: {e}")
+
+    # LAST OPTION: Try to match any word in the query against known_cads
+    if not matched_cads:
+        print("[api/design] Last option fallback: fuzzy matching words in query to robot cads")
+        query_words = set(query.lower().split())
+        for key, filename in known_cads.items():
+            key_words = set(key.lower().split())
+            if query_words & key_words: # intersection
+                matched_cads.add(filename)
+                break
 
     primary_cads = pick_primary_cad(list(matched_cads))
     
