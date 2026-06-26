@@ -39,6 +39,45 @@ async def _download_file(url: str, dest_path: str) -> bool:
         print(f"[CAD Scraper] Failed to download {url}: {e}")
         return False
 
+async def generate_cad_via_zoo(component_name: str, dest_dir: str) -> str:
+    print(f"[Zoo API] Generating CAD for {component_name} using Zoo Text-to-CAD...")
+    try:
+        import kittycad
+        from kittycad.client import Client
+        import asyncio
+        client = Client(token="api-8aa07608-c02f-4297-b167-7f71f03deeab")
+        ml_api = kittycad.MlAPI(client)
+        
+        result = ml_api.create_text_to_cad(
+            output_format=kittycad.models.FileExportFormat.STEP,
+            body=kittycad.models.TextToCadCreateBody(prompt=f"A highly detailed mechanical industrial part for a {component_name}")
+        )
+        op_id = result.root.id if hasattr(result, 'root') else result.id
+        print(f"[Zoo API] Generation started. Operation ID: {op_id}")
+        
+        for _ in range(30):
+            status = ml_api.get_text_to_cad_part_for_user(id=op_id)
+            s_root = status.root if hasattr(status, 'root') else status
+            if s_root.status == "completed":
+                clean_name = re.sub(r"[^a-z0-9]+", "_", component_name.lower()).strip("_")
+                cad_filename = f"zoo_{clean_name}.step"
+                dest_path = os.path.join(dest_dir, cad_filename)
+                
+                # Get first output
+                for output_name, output_data in s_root.outputs.items():
+                    with open(dest_path, "wb") as f:
+                        f.write(output_data)
+                    print(f"[Zoo API] Generated successfully: {cad_filename}")
+                    return cad_filename
+            elif s_root.status == "failed":
+                print(f"[Zoo API] Failed: {s_root.error}")
+                return None
+            print(f"[Zoo API] Status: {s_root.status}...")
+            await asyncio.sleep(4)
+    except Exception as e:
+        print(f"[Zoo API] Error during generation: {e}")
+    return None
+
 
 async def scrape_missing_component(component_name: str, force_remodel: bool = False):
     print(f"[CAD Scraper] Task started for missing component: {component_name}")
@@ -234,8 +273,18 @@ async def scrape_missing_component(component_name: str, force_remodel: bool = Fa
                 extracted_text = result.markdown
             source_url = first_url
 
+    # Fallback to Zoo.dev AI CAD Generation if still no CAD
+    if not cad_downloaded:
+        zoo_filename = await generate_cad_via_zoo(component_name, CAD_SCRAPED_DIR)
+        if zoo_filename:
+            cad_downloaded = True
+            cad_filename = zoo_filename
+            source_url = "https://zoo.dev"
+            extracted_text = f"AI Generated mechanical component for {component_name} using Zoo Text-to-CAD API."
+            print(f"[CAD Scraper] Successfully generated fallback CAD with Zoo: {zoo_filename}")
+
     if not extracted_text:
-        print(f"[CAD Scraper] No textual metadata could be scraped for {component_name}.")
+        print(f"[CAD Scraper] No textual metadata could be scraped or generated for {component_name}.")
         return cad_filename if cad_downloaded else None
 
     # Use LLM to extract JSON assembly info
