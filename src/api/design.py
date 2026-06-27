@@ -24,6 +24,11 @@ class DesignRequest(BaseModel):
     query: str
 
 class DesignResponse(BaseModel):
+    status: str = "success"
+    stage: str = "complete"
+    error: Optional[str] = None
+    mapping_generated: bool = True
+    graph_health_score: int = 100
     subsystems: List[Dict[str, Any]]
     connections: List[Dict[str, Any]]
     bom: List[Dict[str, Any]]
@@ -91,7 +96,9 @@ def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
             }
     return list(bom_map.values())
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "gemini-2.5-flash") -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = None) -> str:
+    if model is None:
+        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
@@ -373,6 +380,56 @@ OUTPUT FORMAT:
     subsystems = data.get("subsystems", [])
     missing = data.get("missing", [])
     validation = data.get("validation", [])
+    
+    status = "success"
+    stage = "complete"
+    error_msg = None
+    mapping_generated = True
+
+    # Fix #2, #3, #7, #8: Fallback Recovery Engine
+    if not subsystems and not connections:
+        print("[api/design] LLM returned empty data. Triggering Deterministic Fallback Engine...")
+        from mapping.recovery_engine import DeterministicRecoveryEngine
+        fallback_comps = DeterministicRecoveryEngine.extract_components(query)
+        if fallback_comps:
+            subsystems = [{"name": "Core System", "components": fallback_comps}]
+            connections = DeterministicRecoveryEngine.extract_connections(fallback_comps)
+            status = "partial_success"
+            stage = "recovery"
+            error_msg = "LLM failed. Components and connections recovered deterministically."
+        else:
+            status = "failed"
+            stage = "llm_generation"
+            error_msg = "Rate limited or LLM failure. No components recovered."
+            mapping_generated = False
+    elif subsystems and not connections:
+        print("[api/design] LLM returned components but NO connections. Auto-repairing...")
+        from mapping.recovery_engine import DeterministicRecoveryEngine
+        all_comps = []
+        for s in subsystems:
+            all_comps.extend(s.get("components", []))
+        connections = DeterministicRecoveryEngine.extract_connections(all_comps)
+        status = "partial_success"
+        stage = "connection_recovery"
+        error_msg = "Components recovered. Connection extraction failed."
+
+    # Fix #6: Empty Graph Blocker
+    if not subsystems and not connections and status != "failed":
+        status = "failed"
+        stage = "llm_generation"
+        error_msg = "GraphGenerationFailure: Both components and connections are empty."
+        mapping_generated = False
+
+    # Fix #9: Graph Health Validation
+    graph_health_score = 100
+    if not subsystems:
+        graph_health_score -= 50
+    if not connections:
+        graph_health_score -= 40
+    if status == "partial_success":
+        graph_health_score -= 20
+    if graph_health_score < 0:
+        graph_health_score = 0
 
     if isinstance(connections, list):
         for conn in connections:
@@ -562,7 +619,14 @@ OUTPUT FORMAT:
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")
     print(f"[api/design] Assembly mode: {assembly_mode}, CADs: {len(cad_urls)}")
 
+    chat_reply = data.get("chat_reply")
+
     return DesignResponse(
+        status=status,
+        stage=stage,
+        error=error_msg,
+        mapping_generated=mapping_generated,
+        graph_health_score=graph_health_score,
         subsystems=subsystems,
         connections=normalized_connections,
         bom=_consolidate_bom(bom),
@@ -572,5 +636,6 @@ OUTPUT FORMAT:
         cad_url=cad_url,
         cad_urls=cad_urls,
         assembly_transforms=assembly_transforms,
-        assembly_mode=assembly_mode
+        assembly_mode=assembly_mode,
+        chat_reply=chat_reply
     )

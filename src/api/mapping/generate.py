@@ -1,11 +1,13 @@
 import os
 import sys
 import time
-import networkx as nx
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 import re
+import time
+import networkx as nx
+from .pipeline import MappingPipeline
 
 router = APIRouter()
 
@@ -17,6 +19,7 @@ class RawComponent(BaseModel):
     connects_to: List[str] = []
     quantity: int = 1
     partNumber: Optional[str] = None
+    evidence_text: Optional[str] = None  # Added to support new pipeline
 
 class ConnectionOut(BaseModel):
     id: str
@@ -60,6 +63,15 @@ async def build_graph(request: BuildGraphRequest):
     connections: List[ConnectionOut] = []
     seen = set()
     warnings = []
+    
+    # New Pipeline hook (Optional/Phased rollout)
+    if components and any(c.evidence_text for c in components):
+        raw_evidence = "\n".join(c.evidence_text for c in components if c.evidence_text)
+        pipeline = MappingPipeline(raw_evidence)
+        pipeline_results = pipeline.run()
+        if pipeline_results.get("repairs"):
+            warnings.extend(pipeline_results["repairs"])
+
     
     conn_counter = 0
     def add_conn(from_id: str, to_id: str, label: str):

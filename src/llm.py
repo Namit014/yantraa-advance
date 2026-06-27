@@ -113,16 +113,38 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
             raise Exception(f"OpenRouter API Error: {response.status_code} {response.reason} - {response.text[:100]}")
         raise Exception(f"Error calling AI: {str(e)}")
 
+import time
+
 def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=None, temperature=0.7):
     """
     Unified function to call Yantra AI via Google AI Studio or OpenRouter API fallback.
     Supports both standard text output and structured JSON extraction.
+    Includes exponential backoff (2s, 5s, 10s, 20s) for rate limit resiliency.
     """
+    if model is None:
+        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
+        
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": prompt}
     ]
-    return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
+    
+    retries = [2, 5, 10, 20]
+    for attempt, delay in enumerate(retries + [0]):
+        try:
+            return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
+        except Exception as e:
+            err_str = str(e).lower()
+            if delay > 0 and ("rate limit" in err_str or "429" in err_str or "busy" in err_str):
+                print(f"[llm.py] Rate limit hit. Retrying in {delay} seconds... (Attempt {attempt+1}/{len(retries)})")
+                time.sleep(delay)
+            else:
+                if delay > 0:
+                    print(f"[llm.py] Transient error: {e}. Retrying in {delay}s... (Attempt {attempt+1}/{len(retries)})")
+                    time.sleep(delay)
+                else:
+                    print(f"[llm.py] LLM invocation failed after all retries: {e}")
+                    raise
 
 
 if __name__ == "__main__":
