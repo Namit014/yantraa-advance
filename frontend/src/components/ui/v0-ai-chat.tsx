@@ -341,29 +341,32 @@ export function VercelV0Chat() {
                     </div>
                 ) : (
                     <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-8 px-4 flex flex-col">
-                        {messages.map((msg, idx) => (
-                            <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
-                                <div className={cn(
-                                    "max-w-[82%] rounded-2xl px-4 py-3",
-                                    msg.role === 'user'
-                                        ? "bg-[#1E1E1E] border border-[#2A2A2A] text-[#F0F0F0]"
-                                        : "bg-transparent text-[#F0F0F0]"
-                                )}>
-                                    {msg.role === 'assistant' && (
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0]">
-                                                Y
+                        {messages.map((msg, idx) => {
+                            if (msg.role === 'assistant' && !msg.content) return null;
+                            return (
+                                <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
+                                    <div className={cn(
+                                        "max-w-[82%] rounded-2xl px-4 py-3",
+                                        msg.role === 'user'
+                                            ? "bg-[#1E1E1E] border border-[#2A2A2A] text-[#F0F0F0]"
+                                            : "bg-transparent text-[#F0F0F0]"
+                                    )}>
+                                        {msg.role === 'assistant' && (
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0]">
+                                                    Y
+                                                </div>
+                                                <span className="font-medium text-xs text-[#888888]">Yantraa AI</span>
                                             </div>
-                                            <span className="font-medium text-xs text-[#888888]">Yantraa AI</span>
+                                        )}
+                                        <div className="whitespace-pre-wrap leading-relaxed text-[14px] text-[#F0F0F0]">
+                                            {msg.content}
                                         </div>
-                                    )}
-                                    <div className="whitespace-pre-wrap leading-relaxed text-[14px] text-[#F0F0F0]">
-                                        {msg.content}
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                        {isLoading && (
+                            );
+                        })}
+                        {isLoading && (!messages.length || messages[messages.length - 1].role !== 'assistant' || isThinking || !messages[messages.length - 1].content) && (
                             <div className="flex w-full justify-start">
                                 <div className="bg-transparent text-[#F0F0F0] rounded-2xl px-4 py-3 flex flex-col gap-2">
                                     <div className="flex items-center gap-3">
