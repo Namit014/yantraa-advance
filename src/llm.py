@@ -7,7 +7,7 @@ load_dotenv()
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 # Using a much smarter free model that reliably outputs JSON
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemini-2.0-flash-lite-preview-02-05:free")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/owl-alpha")
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 DEFAULT_MODEL = "gemini-2.5-flash"
@@ -55,6 +55,9 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         except Exception as e:
             print(f"Gemini API failed: {e}. Falling back to OpenRouter...")
             target_model = OPENROUTER_MODEL
+    else:
+        # If no Gemini API key or model isn't gemini, force use of OPENROUTER_MODEL
+        target_model = OPENROUTER_MODEL
 
     if not OPENROUTER_API_KEY:
         if not GEMINI_API_KEY:
