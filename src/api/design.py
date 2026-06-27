@@ -323,6 +323,10 @@ OUTPUT FORMAT:
         validation = final_graph.get("validation", [])
         missing = []
         kinematic_chain = final_graph.get("kinematic_chain", [])
+        conflicts = final_graph.get("conflicts", [])
+        failure_modes = final_graph.get("failure_modes", [])
+        state_model = final_graph.get("state_model")
+        report_markdown = final_graph.get("report_markdown")
         
     except Exception as e:
         print(f"[api/design] V3 Mapping Pipeline failed: {e}")
@@ -338,10 +342,16 @@ OUTPUT FORMAT:
         validation = [{"type": "error", "message": error_msg}]
         missing = []
         kinematic_chain = []
+        conflicts = []
+        failure_modes = []
+        state_model = None
+        report_markdown = None
 
     # Check CAD availability based on query
     cad_available = False
     cad_url = None
+    cad_urls = []
+    extracted_components = set()
     assembly_transforms = []
     
     from cad_registry import get_known_cads
@@ -526,7 +536,13 @@ OUTPUT FORMAT:
         cad_available=cad_available,
         cad_url=cad_url,
         cad_urls=cad_urls,
+        extracted_components=list(extracted_components),
         assembly_transforms=assembly_transforms,
         assembly_mode=assembly_mode,
-        chat_reply=chat_reply
+        chat_reply=chat_reply,
+        kinematic_chain=kinematic_chain,
+        conflicts=conflicts,
+        failure_modes=failure_modes,
+        state_model=state_model,
+        report_markdown=report_markdown
     )
