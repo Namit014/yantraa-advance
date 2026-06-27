@@ -124,6 +124,8 @@ export function VercelV0Chat() {
     const [value, setValue] = useState("");
     const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isThinking, setIsThinking] = useState(false);
+    const [statusMessage, setStatusMessage] = useState("");
     const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad'>('mapping');
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
@@ -156,46 +158,130 @@ export function VercelV0Chat() {
         adjustHeight(true);
         setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
         setIsLoading(true);
+        setIsThinking(true);
+        setStatusMessage("Reading your prompt...");
+
+        const statusStages = [
+            "Reading your prompt...",
+            "Mapping subsystems...",
+            "Selecting components...",
+            "Building your BOM..."
+        ];
+        let statusIndex = 0;
+        const intervalId = setInterval(() => {
+            statusIndex = (statusIndex + 1) % statusStages.length;
+            setStatusMessage(statusStages[statusIndex]);
+        }, 1800);
 
         try {
             const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
-            const response = await fetch(`${apiUrl}/api/design`, {
+            // We need to keep track of the complete message history to send to the backend
+            const completeMessages = [...messages, { role: 'user' as const, content: userMessage }];
+            
+            const response = await fetch(`${apiUrl}/api/design/stream`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "ngrok-skip-browser-warning": "true"
                 },
-                body: JSON.stringify({ query: userMessage })
+                body: JSON.stringify({
+                    query: userMessage,
+                    messages: completeMessages
+                })
             });
 
             if (!response.ok) {
-                throw new Error("Failed to fetch response");
+                throw new Error("Failed to start stream");
             }
 
-            const data = await response.json();
-            
-            setRobotDesign(data);
-            
-            if (data.chat_reply) {
-                setMessages(prev => [...prev, { role: 'assistant', content: data.chat_reply }]);
-            } else {
-                const formattedContent = formatAssistantResponse(data);
-                setMessages(prev => [...prev, { role: 'assistant', content: formattedContent }]);
-            }
-            
-            if (data.cad_available && data.cad_urls && data.cad_urls.length > 0) {
-                setCadPrompt({ available: true, urls: data.cad_urls });
-            } else if (data.cad_available && data.cad_url) {
-                setCadPrompt({ available: true, urls: [data.cad_url] });
-            } else {
-                setCadPrompt({ available: false, urls: [] });
+            const reader = response.body!.getReader();
+            const decoder = new TextDecoder();
+            let buffer = "";
+            let botMessage = "";
+            let isFirstToken = true;
+
+            // Append empty message bubble for the assistant's stream response
+            setMessages(prev => [...prev, { role: 'assistant', content: "" }]);
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split("\n\n");
+                buffer = lines.pop() || "";
+
+                for (const line of lines) {
+                    if (!line.trim()) continue;
+                    const cleanLine = line.replace(/^data:\s*/, "").trim();
+                    if (!cleanLine) continue;
+
+                    try {
+                        const eventData = JSON.parse(cleanLine);
+                        if (eventData.type === "token") {
+                            if (isFirstToken) {
+                                isFirstToken = false;
+                                setIsThinking(false);
+                                clearInterval(intervalId);
+                            }
+                            botMessage += eventData.content;
+                            setMessages(prev => {
+                                const updated = [...prev];
+                                updated[updated.length - 1] = { role: 'assistant', content: botMessage };
+                                return updated;
+                            });
+                        } else if (eventData.type === "status") {
+                            setStatusMessage(eventData.content);
+                        } else if (eventData.type === "final_design") {
+                            const design = eventData.design;
+                            setRobotDesign(design);
+
+                            if (design.chat_reply) {
+                                botMessage = design.chat_reply;
+                            } else {
+                                botMessage = formatAssistantResponse(design);
+                            }
+
+                            setMessages(prev => {
+                                const updated = [...prev];
+                                updated[updated.length - 1] = { role: 'assistant', content: botMessage };
+                                return updated;
+                            });
+
+                            if (design.cad_available && design.cad_urls && design.cad_urls.length > 0) {
+                                setCadPrompt({ available: true, urls: design.cad_urls });
+                            } else if (design.cad_available && design.cad_url) {
+                                setCadPrompt({ available: true, urls: [design.cad_url] });
+                            } else {
+                                setCadPrompt({ available: false, urls: [] });
+                            }
+
+                            setIsThinking(false);
+                            clearInterval(intervalId);
+                        }
+                    } catch (err) {
+                        console.log("Error parsing chunk:", err);
+                    }
+                }
             }
 
         } catch (error) {
             console.log("Error asking question:", error instanceof Error ? error.message : String(error));
-            setMessages(prev => [...prev, { role: 'assistant', content: "Sorry, I encountered an error while processing your request." }]);
+            clearInterval(intervalId);
+            setMessages(prev => {
+                const updated = [...prev];
+                // Replace the last assistant message (which might be empty) with error text
+                if (updated.length > 0 && updated[updated.length - 1].role === 'assistant') {
+                    updated[updated.length - 1] = { role: 'assistant', content: "Sorry, I encountered an error while processing your request." };
+                } else {
+                    updated.push({ role: 'assistant', content: "Sorry, I encountered an error while processing your request." });
+                }
+                return updated;
+            });
         } finally {
             setIsLoading(false);
+            setIsThinking(false);
+            clearInterval(intervalId);
         }
     };
 
@@ -213,18 +299,45 @@ export function VercelV0Chat() {
                 messages.length === 0 ? "w-full max-w-4xl p-4 items-center" : "w-[400px] border-r border-[#2A2A2A] bg-[#0A0A0A] shrink-0"
             )}>
                 {messages.length === 0 ? (
-                    <div className="flex-1 flex flex-col items-center justify-center space-y-3 w-full mt-20">
-                        {/* Brand wordmark */}
-                        <div className="mb-2 flex items-center gap-2">
-                            <div className="w-7 h-7 rounded-lg bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-xs font-bold text-[#F0F0F0]">Y</div>
-                            <span className="text-xs font-semibold tracking-widest text-[#555555] uppercase">Yantraa</span>
+                    <div className="flex-1 flex flex-col items-center justify-center space-y-4 w-full mt-20">
+                        {/* pulsing bot avatar brand icon */}
+                        <div className="mb-2 flex flex-col items-center gap-3">
+                            <div className="w-16 h-16 rounded-2xl bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-xl font-bold text-[#F0F0F0] animate-pulse shadow-2xl">
+                                Y
+                            </div>
+                            <span className="text-xs font-semibold tracking-widest text-[#555555] uppercase">Yantraa co-pilot</span>
                         </div>
                         <h1 className="text-3xl font-medium text-[#F0F0F0] text-center leading-tight">
-                            What would you like to build today?
+                            Hey, I'm Yantraa 👋
                         </h1>
-                        <p className="text-sm text-[#555555] text-center max-w-md">
-                            Describe your robot or physical product and let AI design it.
+                        <p className="text-sm text-[#888888] text-center max-w-md">
+                            Tell me what you're building and I'll generate your BOM, wiring diagram, and more.
                         </p>
+                        
+                        <div className="flex flex-wrap gap-2 justify-center mt-6 max-w-lg">
+                            {[
+                                "Design a warehouse AGV",
+                                "Build a line-following robot",
+                                "Inspection drone for pipelines",
+                                "Autonomous delivery robot for campus"
+                            ].map(chip => (
+                                <button
+                                    key={chip}
+                                    onClick={() => {
+                                        setValue(chip);
+                                        setTimeout(() => {
+                                            if (textareaRef.current) {
+                                                textareaRef.current.style.height = 'auto';
+                                                textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
+                                            }
+                                        }, 50);
+                                    }}
+                                    className="px-3 py-2 bg-[#1E1E1E] hover:bg-[#252525] border border-[#2A2A2A] rounded-xl text-xs text-[#888888] hover:text-[#F0F0F0] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md"
+                                >
+                                    {chip}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 ) : (
                     <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-8 px-4 flex flex-col">
@@ -241,7 +354,7 @@ export function VercelV0Chat() {
                                             <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0]">
                                                 Y
                                             </div>
-                                            <span className="font-medium text-xs text-[#888888]">Yantra AI</span>
+                                            <span className="font-medium text-xs text-[#888888]">Yantraa AI</span>
                                         </div>
                                     )}
                                     <div className="whitespace-pre-wrap leading-relaxed text-[14px] text-[#F0F0F0]">
@@ -252,15 +365,22 @@ export function VercelV0Chat() {
                         ))}
                         {isLoading && (
                             <div className="flex w-full justify-start">
-                                <div className="bg-transparent text-[#F0F0F0] rounded-2xl px-4 py-3 flex items-center gap-3">
-                                    <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0] animate-pulse">
-                                        Y
+                                <div className="bg-transparent text-[#F0F0F0] rounded-2xl px-4 py-3 flex flex-col gap-2">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0] animate-pulse">
+                                            Y
+                                        </div>
+                                        <div className="flex gap-1 items-center">
+                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce"></div>
+                                        </div>
                                     </div>
-                                    <div className="flex gap-1 items-center">
-                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce"></div>
-                                    </div>
+                                    {isThinking && (
+                                        <div className="text-xs text-[#888888] font-mono pl-8 animate-pulse">
+                                            {statusMessage}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         )}

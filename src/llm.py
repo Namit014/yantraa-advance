@@ -68,7 +68,7 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         "temperature": temperature,
         # Cap max_tokens to prevent OpenRouter from estimating the max context window (65k) 
         # which exceeds free tier limits.
-        "max_tokens": 1500,
+        "max_tokens": 1000,
     }
     if response_format == "json_object":
         payload["response_format"] = {"type": "json_object"}
@@ -121,6 +121,70 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
         {"role": "user", "content": prompt}
     ]
     return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
+
+import json
+def call_llm_stream(messages: list, temperature: float = 0.7, response_format: str = "text", model: str = None):
+    target_model = model or OPENROUTER_MODEL
+    
+    if not OPENROUTER_API_KEY:
+        if GEMINI_API_KEY:
+            try:
+                res = _call_gemini(messages, temperature, response_format, DEFAULT_MODEL)
+                yield res
+                return
+            except Exception as e:
+                raise Exception(f"Gemini fallback failed: {e}")
+        raise Exception("No API keys available for streaming.")
+        
+    payload = {
+        "model": target_model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": 1000,
+        "stream": True
+    }
+    if response_format == "json_object":
+        payload["response_format"] = {"type": "json_object"}
+
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "http://localhost:3000",
+        "X-Title": "Yantra AI"
+    }
+
+    try:
+        response = requests.post(
+            OPENROUTER_API_URL,
+            headers=headers,
+            json=payload,
+            timeout=120,
+            stream=True
+        )
+        response.raise_for_status()
+        
+        for line in response.iter_lines():
+            if not line:
+                continue
+            line_str = line.decode('utf-8').strip()
+            if line_str.startswith("data: "):
+                data_content = line_str[6:]
+                if data_content == "[DONE]":
+                    break
+                try:
+                    chunk_json = json.loads(data_content)
+                    delta = chunk_json.get("choices", [{}])[0].get("delta", {}).get("content", "")
+                    if delta:
+                        yield delta
+                except Exception:
+                    pass
+    except Exception as e:
+        print(f"Error in streaming LLM call: {e}")
+        yield f"Error in streaming LLM call: {str(e)}"
+
+def invoke_yantra_ai_chat_stream(messages: list, system_prompt: str = "You are Yantra AI, an intelligent robotic system agent.", response_format: str = "text", model: str = None, temperature: float = 0.7):
+    full_messages = [{"role": "system", "content": system_prompt}] + messages
+    return call_llm_stream(full_messages, temperature=temperature, response_format=response_format, model=model)
 
 
 if __name__ == "__main__":

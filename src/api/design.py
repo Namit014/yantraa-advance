@@ -20,8 +20,13 @@ S3_BUCKET_URL = os.getenv("S3_BUCKET_URL", "").rstrip("/")
 
 router = APIRouter()
 
+class Message(BaseModel):
+    role: str
+    content: str
+
 class DesignRequest(BaseModel):
-    query: str
+    query: Optional[str] = None
+    messages: Optional[List[Message]] = None
 
 class DesignResponse(BaseModel):
     subsystems: List[Dict[str, Any]]
@@ -132,17 +137,20 @@ def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json
                 "chat_reply": friendly_err
             })
 
-@router.post("/api/design", response_model=DesignResponse)
-async def generate_robot_design(request: Request, design_request: DesignRequest):
-    query = design_request.query.strip()
-    if not query:
-        raise HTTPException(status_code=400, detail="Query cannot be empty.")
-    
+async def run_synthesis_pipeline(request: Request, query: str, messages_list: Optional[List[Dict[str, str]]] = None) -> DesignResponse:
     # ─── PHASE 0 & 1: Router Agent (Intent + Search Terms) ────────────────────
     print("[api/design] Phase 1: Running Router Agent...")
     from cad_registry import get_known_cads
     known_cads_dict = get_known_cads()
     known_robot_types = list(known_cads_dict.keys())
+    
+    history_str = ""
+    if messages_list:
+        history_str = "CONVERSATION HISTORY:\n"
+        for m in messages_list:
+            role_name = "User" if m.get("role") == "user" else "Assistant"
+            history_str += f"{role_name}: {m.get('content')}\n"
+        history_str += "\n"
     
     router_system = f"""You are Yantraa, a friendly robotics design AI.
 Analyze the user's input. Determine if it is a request to design a robot, select components, check connections, or perform technical robotics planning.
@@ -170,6 +178,8 @@ OUTPUT FORMAT:
 }}"""
 
     router_prompt = f"User Input: {query}"
+    if history_str:
+        router_prompt = f"{history_str}User Input: {query}"
     
     is_design_query = True
     conversational_reply = ""
@@ -285,7 +295,7 @@ OUTPUT FORMAT:
 
     # ─── PHASE 3: Synthesis Agent (Mapping + Connection + Validation) ────────
     print("[api/design] Phase 3: Running Synthesis Agent...")
-    synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to assemble a complete, industrial-grade robot according to the USER REQUEST.
+    synthesis_system = """You are Yantraa, a friendly, concise, and technically sharp master robotics design AI. Your job is to assemble a complete, industrial-grade robot according to the USER REQUEST.
 You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
 
 CRITICAL RULES:
@@ -309,47 +319,50 @@ ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
    - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
 
 OUTPUT FORMAT:
-{
+{{
   "subsystems": [
-    {
+    {{
       "name": "subsystem name",
       "components": [
-        {
+        {{
           "id": "unique_id",
           "name": "exact component name",
           "role": "what it does",
           "voltage": "operating voltage",
           "interface": "communication protocol"
-        }
+        }}
       ]
-    }
+    }}
   ],
   "connections": [
-    {
+    {{
       "from": "component_id",
       "from_port": "exact_pin_name",
       "to": "component_id",
       "to_port": "exact_pin_name",
       "wire_type": "power | ground | signal | data | pwm | can",
       "relation": "powered_by | controlled_by | drives | communicates_with"
-    }
+    }}
   ],
   "bom": [
-    {"id": "id", "name": "exact name", "qty": 1}
+    {{"id": "id", "name": "exact name", "qty": 1}}
   ],
   "missing": [
-    {"name": "component name"}
+    {{"name": "component name"}}
   ],
   "validation": [
-    {"type": "error | warning", "message": "validation check"}
+    {{"type": "error | warning", "message": "validation check"}}
   ],
   "assembly_graph": [
-    {"parent": "parent_id", "child": "child_id", "parent_port": "port_name", "child_port": "port_name"}
-  ]
-}"""
+    {{"parent": "parent_id", "child": "child_id", "parent_port": "port_name", "child_port": "port_name"}}
+  ],
+  "chat_reply": "A brief warm conversational line acknowledging the design and describing what you built."
+}}"""
 
     # Build user prompt
     user_prompt = f"USER REQUEST: {query}\n\n"
+    if history_str:
+        user_prompt = f"{history_str}USER REQUEST: {query}\n\n"
     if component_graph_text:
         user_prompt += f"{component_graph_text}\n"
     if rag_results:
@@ -370,6 +383,7 @@ OUTPUT FORMAT:
     subsystems = data.get("subsystems", [])
     missing = data.get("missing", [])
     validation = data.get("validation", [])
+    chat_reply = data.get("chat_reply")
 
     if isinstance(connections, list):
         for conn in connections:
@@ -569,5 +583,125 @@ OUTPUT FORMAT:
         cad_url=cad_url,
         cad_urls=cad_urls,
         assembly_transforms=assembly_transforms,
-        assembly_mode=assembly_mode
+        assembly_mode=assembly_mode,
+        chat_reply=chat_reply
     )
+
+@router.post("/api/design", response_model=DesignResponse)
+async def generate_robot_design(request: Request, design_request: DesignRequest):
+    query = ""
+    if design_request.query:
+        query = design_request.query.strip()
+    elif design_request.messages:
+        query = design_request.messages[-1].content.strip()
+        
+    if not query:
+        raise HTTPException(status_code=400, detail="Query or messages content cannot be empty.")
+    
+    dict_messages = []
+    if design_request.messages:
+        dict_messages = [{"role": m.role, "content": m.content} for m in design_request.messages]
+        
+    return await run_synthesis_pipeline(request, query, dict_messages)
+
+from fastapi.responses import StreamingResponse
+import asyncio
+
+@router.post("/api/design/stream")
+async def generate_robot_design_stream(request: Request, design_request: DesignRequest):
+    messages = design_request.messages or []
+    assistant_count = sum(1 for m in messages if m.role == "assistant")
+    
+    query = ""
+    if design_request.query:
+        query = design_request.query.strip()
+    elif messages:
+        query = messages[-1].content.strip()
+        
+    async def event_generator():
+        if assistant_count < 3:
+            if assistant_count == 0:
+                CLARIFYING_SYSTEM_PROMPT = """You are Yantraa, a friendly, concise, and technically sharp AI robotics co-pilot.
+Acknowledge the user's robot idea warmly in ONE short line.
+Then ask exactly ONE clarifying question about the PAYLOAD or SCALE of the robot (e.g., payload capacity, physical size, or torque needs).
+Do NOT ask other questions. Do NOT generate any design or components yet.
+Keep it brief and conversational."""
+            elif assistant_count == 1:
+                CLARIFYING_SYSTEM_PROMPT = """You are Yantraa, a friendly, concise, and technically sharp AI robotics co-pilot.
+Acknowledge the user's answer briefly.
+Then ask exactly ONE clarifying question about the ENVIRONMENT the robot will operate in (e.g., indoor/outdoor, terrain, ramps, flat surface).
+Do NOT ask other questions. Do NOT generate any design or components yet.
+Keep it brief and conversational."""
+            else:
+                CLARIFYING_SYSTEM_PROMPT = """You are Yantraa, a friendly, concise, and technically sharp AI robotics co-pilot.
+Acknowledge the user's answer briefly.
+Then ask exactly ONE clarifying question about the KEY CAPABILITY or NAVIGATION of the robot (e.g., navigation choice like LiDAR SLAM, camera, or actuation type).
+Do NOT ask other questions. Do NOT generate any design or components yet.
+Keep it brief and conversational."""
+            
+            dict_messages = [{"role": m.role, "content": m.content} for m in messages]
+            if not dict_messages and query:
+                dict_messages = [{"role": "user", "content": query}]
+                
+            try:
+                from llm import invoke_yantra_ai_chat_stream
+                token_gen = invoke_yantra_ai_chat_stream(
+                    messages=dict_messages,
+                    system_prompt=CLARIFYING_SYSTEM_PROMPT,
+                    temperature=0.7
+                )
+                for token in token_gen:
+                    yield f"data: {json.dumps({'type': 'token', 'content': token})}\n\n"
+            except Exception as e:
+                yield f"data: {json.dumps({'type': 'token', 'content': f'Error: {str(e)}'})}\n\n"
+        else:
+            try:
+                yield f"data: {json.dumps({'type': 'status', 'content': 'Reading your prompt...' })}\n\n"
+                await asyncio.sleep(0.6)
+                
+                yield f"data: {json.dumps({'type': 'status', 'content': 'Mapping subsystems...' })}\n\n"
+                await asyncio.sleep(0.6)
+                
+                yield f"data: {json.dumps({'type': 'status', 'content': 'Selecting components...' })}\n\n"
+                await asyncio.sleep(0.6)
+                
+                yield f"data: {json.dumps({'type': 'status', 'content': 'Building your BOM...' })}\n\n"
+                
+                dict_messages = [{"role": m.role, "content": m.content} for m in messages]
+                
+                # Execute pipeline
+                res_data = await run_synthesis_pipeline(request, query, dict_messages)
+                
+                # Convert the DesignResponse model to dict
+                res_dict = {
+                    "subsystems": res_data.subsystems,
+                    "connections": res_data.connections,
+                    "bom": res_data.bom,
+                    "missing": res_data.missing,
+                    "validation": res_data.validation,
+                    "cad_available": res_data.cad_available,
+                    "cad_url": res_data.cad_url,
+                    "cad_urls": res_data.cad_urls,
+                    "extracted_components": res_data.extracted_components,
+                    "chat_reply": res_data.chat_reply,
+                    "assembly_transforms": res_data.assembly_transforms,
+                    "assembly_mode": res_data.assembly_mode
+                }
+                
+                yield f"data: {json.dumps({'type': 'final_design', 'design': res_dict })}\n\n"
+            except Exception as e:
+                yield f"data: {json.dumps({'type': 'status', 'content': f'Error: {str(e)}' })}\n\n"
+                err_dict = {
+                    'type': 'final_design',
+                    'design': {
+                        'subsystems': [],
+                        'connections': [],
+                        'bom': [],
+                        'missing': [], 
+                        'validation': [{'type': 'error', 'message': f'Generation failed: {str(e)}'}],
+                        'chat_reply': f'Sorry, I encountered an error during generation: {str(e)}'
+                    }
+                }
+                yield f"data: {json.dumps(err_dict)}\n\n"
+
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
