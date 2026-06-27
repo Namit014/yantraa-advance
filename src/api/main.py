@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 # Always load .env from the project root, regardless of working directory
 _project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-load_dotenv(os.path.join(_project_root, ".env"))
+load_dotenv(os.path.join(_project_root, ".env"), override=True)
 
 # Force UTF-8 encoding for standard output/error to avoid charmap crashes on Windows
 if sys.platform == "win32":
