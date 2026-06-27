@@ -15,7 +15,6 @@ import { Orbitron } from 'next/font/google';
 import { MappingTab } from "./tabs/mapping-tab";
 import { ConnectionTab } from "./tabs/connection-tab";
 import { CADTab } from "./tabs/cad-tab";
-import { SchematicsTab } from "./tabs/schematics-tab";
 
 interface UseAutoResizeTextareaProps {
     minHeight: number;
@@ -75,7 +74,7 @@ function useAutoResizeTextarea({
 
 const formatAssistantResponse = (data: any) => {
     let text = `### 🤖 Yantraa Robot Design\n\n`;
-    
+
     if (data.subsystems && data.subsystems.length > 0) {
         text += `#### Subsystems & Components\n`;
         data.subsystems.forEach((sub: any) => {
@@ -84,18 +83,18 @@ const formatAssistantResponse = (data: any) => {
                 const rolePart = comp.role ? ` (${comp.role})` : "";
                 const voltPart = comp.voltage ? `Voltage: ${comp.voltage}` : "";
                 const interfacePart = comp.interface ? `Interface: ${comp.interface}` : "";
-                
+
                 let specs = "";
                 if (voltPart && interfacePart) specs = ` — *${voltPart}, ${interfacePart}*`;
                 else if (voltPart) specs = ` — *${voltPart}*`;
                 else if (interfacePart) specs = ` — *${interfacePart}*`;
-                
+
                 text += `- **${comp.name}**${rolePart}${specs}\n`;
             });
             text += `\n`;
         });
     }
-    
+
     if (data.bom && data.bom.length > 0) {
         text += `#### Bill of Materials (BOM)\n`;
         data.bom.forEach((item: any) => {
@@ -103,7 +102,7 @@ const formatAssistantResponse = (data: any) => {
         });
         text += `\n`;
     }
-    
+
     if (data.missing && data.missing.length > 0) {
         text += `⚠️ **Missing Components (Not in local knowledgebase):**\n`;
         data.missing.forEach((item: any) => {
@@ -111,7 +110,7 @@ const formatAssistantResponse = (data: any) => {
         });
         text += `\n`;
     }
-    
+
     if (data.validation && data.validation.length > 0) {
         text += `🔍 **Validation Checks:**\n`;
         data.validation.forEach((val: any) => {
@@ -120,7 +119,7 @@ const formatAssistantResponse = (data: any) => {
         });
         text += `\n`;
     }
-    
+
     return text;
 };
 
@@ -128,7 +127,7 @@ export function VercelV0Chat() {
     const [value, setValue] = useState("");
     const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad' | 'schematics'>('mapping');
+    const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad'>('mapping');
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
     const [robotDesign, setRobotDesign] = useState<any | null>(null);
@@ -177,16 +176,16 @@ export function VercelV0Chat() {
             }
 
             const data = await response.json();
-            
+
             setRobotDesign(data);
-            
+
             if (data.chat_reply) {
                 setMessages(prev => [...prev, { role: 'assistant', content: data.chat_reply }]);
             } else {
                 const formattedContent = formatAssistantResponse(data);
                 setMessages(prev => [...prev, { role: 'assistant', content: formattedContent }]);
             }
-            
+
             if (data.cad_available && data.cad_urls && data.cad_urls.length > 0) {
                 setCadPrompt({ available: true, urls: data.cad_urls });
             } else if (data.cad_available && data.cad_url) {
@@ -232,57 +231,57 @@ export function VercelV0Chat() {
                         </div>
 
                         <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-24 px-4 flex flex-col">
-                        {messages.map((msg, idx) => (
-                            <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
-                                <div className={cn(
-                                    "max-w-[80%] rounded-2xl px-5 py-4",
-                                    msg.role === 'user'
-                                        ? "bg-neutral-800 text-white"
-                                        : "bg-transparent text-neutral-200"
-                                )}>
-                                    {msg.role === 'assistant' && (
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <div className="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800 p-1.5 shrink-0">
-                                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                                                    <path d="M 5 20 L 95 20 L 50 90 Z" fill="white" />
-                                                    <path d="M 50 45 L 50 95" stroke="#171717" strokeWidth="8" />
-                                                    <path d="M 50 45 L 0 15" stroke="#171717" strokeWidth="8" />
-                                                    <path d="M 50 45 L 100 15" stroke="#171717" strokeWidth="8" />
-                                                    <polygon points="40,35 60,35 65,45 60,55 40,55 35,45" fill="#171717" />
-                                                </svg>
+                            {messages.map((msg, idx) => (
+                                <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
+                                    <div className={cn(
+                                        "max-w-[80%] rounded-2xl px-5 py-4",
+                                        msg.role === 'user'
+                                            ? "bg-neutral-800 text-white"
+                                            : "bg-transparent text-neutral-200"
+                                    )}>
+                                        {msg.role === 'assistant' && (
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <div className="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800 p-1.5 shrink-0">
+                                                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                                                        <path d="M 5 20 L 95 20 L 50 90 Z" fill="white" />
+                                                        <path d="M 50 45 L 50 95" stroke="#171717" strokeWidth="8" />
+                                                        <path d="M 50 45 L 0 15" stroke="#171717" strokeWidth="8" />
+                                                        <path d="M 50 45 L 100 15" stroke="#171717" strokeWidth="8" />
+                                                        <polygon points="40,35 60,35 65,45 60,55 40,55 35,45" fill="#171717" />
+                                                    </svg>
+                                                </div>
+                                                <span className="font-semibold text-sm text-neutral-400">Yantra AI</span>
                                             </div>
-                                            <span className="font-semibold text-sm text-neutral-400">Yantra AI</span>
+                                        )}
+                                        <div className="whitespace-pre-wrap leading-relaxed text-[15px]">
+                                            {msg.content}
                                         </div>
-                                    )}
-                                    <div className="whitespace-pre-wrap leading-relaxed text-[15px]">
-                                        {msg.content}
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                        {isLoading && (
-                            <div className="flex w-full justify-start">
-                                <div className="bg-transparent text-neutral-200 rounded-2xl px-5 py-4 flex items-center gap-3">
-                                    <div className="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800 p-1.5 shrink-0 animate-pulse">
-                                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                                            <path d="M 5 20 L 95 20 L 50 90 Z" fill="white" />
-                                            <path d="M 50 45 L 50 95" stroke="#171717" strokeWidth="8" />
-                                            <path d="M 50 45 L 0 15" stroke="#171717" strokeWidth="8" />
-                                            <path d="M 50 45 L 100 15" stroke="#171717" strokeWidth="8" />
-                                            <polygon points="40,35 60,35 65,45 60,55 40,55 35,45" fill="#171717" />
-                                        </svg>
-                                    </div>
-                                    <div className="flex gap-1 items-center">
-                                        <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                                        <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                                        <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></div>
+                            ))}
+                            {isLoading && (
+                                <div className="flex w-full justify-start">
+                                    <div className="bg-transparent text-neutral-200 rounded-2xl px-5 py-4 flex items-center gap-3">
+                                        <div className="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800 p-1.5 shrink-0 animate-pulse">
+                                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                                                <path d="M 5 20 L 95 20 L 50 90 Z" fill="white" />
+                                                <path d="M 50 45 L 50 95" stroke="#171717" strokeWidth="8" />
+                                                <path d="M 50 45 L 0 15" stroke="#171717" strokeWidth="8" />
+                                                <path d="M 50 45 L 100 15" stroke="#171717" strokeWidth="8" />
+                                                <polygon points="40,35 60,35 65,45 60,55 40,55 35,45" fill="#171717" />
+                                            </svg>
+                                        </div>
+                                        <div className="flex gap-1 items-center">
+                                            <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                                            <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                                            <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
 
-                        <div ref={messagesEndRef} />
-                    </div>
+                            <div ref={messagesEndRef} />
+                        </div>
                     </>
                 )}
 
@@ -295,12 +294,12 @@ export function VercelV0Chat() {
                     {cadPrompt.available && (
                         <div className="mb-4 bg-blue-900/40 border border-blue-500/50 rounded-xl p-4 flex flex-col gap-3 shadow-xl animate-in slide-in-from-bottom-2">
                             <p className="text-blue-100 text-sm font-medium">
-                                {cadPrompt.urls.length > 1 
-                                    ? `A highly detailed 3D CAD assembly with ${cadPrompt.urls.length} parts is available in our knowledge base. Do you want to view it?` 
+                                {cadPrompt.urls.length > 1
+                                    ? `A highly detailed 3D CAD assembly with ${cadPrompt.urls.length} parts is available in our knowledge base. Do you want to view it?`
                                     : "A highly detailed 3D CAD model for this robot is available in our knowledge base. Do you want to view it?"}
                             </p>
                             <div className="flex gap-2">
-                                <button 
+                                <button
                                     onClick={() => {
                                         setAcceptedCadUrls(cadPrompt.urls);
                                         setActiveTab('cad');
@@ -309,7 +308,7 @@ export function VercelV0Chat() {
                                     className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded-lg text-sm transition-colors font-medium">
                                     Yes, View CAD
                                 </button>
-                                <button 
+                                <button
                                     onClick={() => setCadPrompt({ available: false, urls: [] })}
                                     className="bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-1.5 rounded-lg text-sm transition-colors font-medium">
                                     No
@@ -359,6 +358,13 @@ export function VercelV0Chat() {
                             <div className="flex items-center gap-2">
                                 <button
                                     type="button"
+                                    className="px-2 py-1.5 rounded-lg text-sm text-zinc-400 transition-colors border border-dashed border-zinc-700 hover:border-zinc-600 hover:bg-zinc-800 flex items-center justify-between gap-1"
+                                >
+                                    <PlusIcon className="w-4 h-4" />
+                                    Project
+                                </button>
+                                <button
+                                    type="button"
                                     onClick={handleSubmit}
                                     disabled={isLoading || !value.trim()}
                                     className={cn(
@@ -388,7 +394,6 @@ export function VercelV0Chat() {
                         <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
                             <button onClick={() => setActiveTab('mapping')} className={cn("transition-colors", activeTab === 'mapping' ? "text-white" : "hover:text-white")}>Mapping</button>
                             <button onClick={() => setActiveTab('connection')} className={cn("transition-colors", activeTab === 'connection' ? "text-white" : "hover:text-white")}>Connection</button>
-                            <button onClick={() => setActiveTab('schematics')} className={cn("transition-colors", activeTab === 'schematics' ? "text-white" : "hover:text-white")}>Schematics</button>
                             <button onClick={() => {
                                 if (cadPrompt.available) {
                                     setAcceptedCadUrls(cadPrompt.urls);
@@ -403,16 +408,15 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-20 pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
-                        {activeTab === 'schematics' && <SchematicsTab currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'cad' && (() => {
                             const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
                             const cadUrl = urls[0] || 'default-cad';
                             return (
-                                <CADTab 
+                                <CADTab
                                     key={cadUrl}
-                                    currentQuery={latestUserQuery} 
-                                    cadUrls={urls} 
-                                    designData={robotDesign} 
+                                    currentQuery={latestUserQuery}
+                                    cadUrls={urls}
+                                    designData={robotDesign}
                                     onGeneratedCad={(newUrl) => {
                                         setAcceptedCadUrls(prev => [...prev, newUrl]);
                                         if (robotDesign) {

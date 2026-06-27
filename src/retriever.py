@@ -319,24 +319,16 @@ class Retriever:
         if source_type == "web":
             context_note = "\n\n[Note: This context was retrieved from the web, not the internal knowledgebase.]"
 
-        if "Return ONLY a JSON array" in query:
-            final_prompt = (
-                f"Context from Knowledge Base:\n{context_block}{context_note}\n\n"
-                f"User Request: {query}\n\n"
-                f"You MUST return valid JSON. Do not include any explanations, markdown, or text outside of the JSON array."
-            )
-        else:
-            final_prompt = (
-                f"Context from Knowledge Base:\n{context_block}{context_note}\n\n"
-                f"User Query: {query}\n\n"
-                f"You are an expert robotics and manufacturing AI engineer. "
-                f"Answer the query in extreme detail. "
-                f"If the user is asking how to build, create, or design something, provide a highly detailed, "
-                f"step-by-step 'from scratch' guide. Use the provided context as your foundation, but "
-                f"you are fully encouraged to use your own expert knowledge to expand on the topic, fill in any missing gaps, "
-                f"and provide a complete, robust tutorial. "
-                f"CRITICAL HARDWARE DIRECTIVE: If the user is building a high-performance robotic arm, quadruped, or asks about BLDC motors/controllers, YOU MUST explicitly recommend an ODrive motor controller (ODrive S1, Pro, or Micro) and include it in your Bill of Materials."
-            )
+        final_prompt = (
+            f"Context from Knowledge Base:\n{context_block}{context_note}\n\n"
+            f"User Query: {query}\n\n"
+            f"You are an expert robotics and manufacturing AI engineer. "
+            f"Answer the query in extreme detail. "
+            f"If the user is asking how to build, create, or design something, provide a highly detailed, "
+            f"step-by-step 'from scratch' guide. Use the provided context as your foundation, but "
+            f"you are fully encouraged to use your own expert knowledge to expand on the topic, fill in any missing gaps, "
+            f"and provide a complete, robust tutorial."
+        )
         final_answer = invoke_yantra_ai(final_prompt)
 
         # ── Step 6: CAD Availability Check ─────────────────────────────────

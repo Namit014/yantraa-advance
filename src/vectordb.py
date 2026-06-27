@@ -1,3 +1,4 @@
+import os
 import uuid
 import hashlib
 from qdrant_client import QdrantClient
@@ -7,7 +8,10 @@ from qdrant_client.models import (
     PointStruct
 )
 
-QDRANT_DATA_PATH = "./qdrant_data"
+# Allow configuring Qdrant storage path via env var (important for production/AWS deployments)
+# Default: ./qdrant_data (relative, works for local dev)
+# On AWS set: QDRANT_DATA_PATH=/home/ubuntu/yantraa-advance/qdrant_data
+QDRANT_DATA_PATH = os.getenv("QDRANT_DATA_PATH", "./qdrant_data")
 _client_instance = None
 
 def get_qdrant_client():
@@ -16,11 +20,10 @@ def get_qdrant_client():
         try:
             _client_instance = QdrantClient(path=QDRANT_DATA_PATH)
         except Exception as e:
-            if "already accessed by another instance" in str(e) or "Permission denied" in str(e):
-                print(f"[Yantra AI] WARNING: Qdrant Database is locked by another process. Falling back to in-memory Qdrant instance.")
-                _client_instance = QdrantClient(":memory:")
-            else:
-                raise e
+            if "already accessed by another instance" in str(e):
+                print(f"[Yantra AI] WARNING: Qdrant Database is locked by another process. Returning existing instance or running without Qdrant.")
+                raise RuntimeError("Storage folder is locked. Please ensure only one backend instance is running.") from e
+            raise e
     return _client_instance
 
 def compute_content_hash(text: str) -> str:

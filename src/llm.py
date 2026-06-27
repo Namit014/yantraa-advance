@@ -6,20 +6,69 @@ load_dotenv()
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/owl-alpha")
+# Using a much smarter free model that reliably outputs JSON
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemini-2.0-flash-lite-preview-02-05:free")
 
-DEFAULT_MODEL = OPENROUTER_MODEL
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+DEFAULT_MODEL = "gemini-2.5-flash"
+
+def _call_gemini(messages: list, temperature: float = 0.7, response_format: str = "text", model: str = "gemini-2.5-flash") -> str:
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
+    
+    system_instruction = None
+    contents = []
+    for msg in messages:
+        if msg["role"] == "system":
+            system_instruction = {"parts": [{"text": msg["content"]}]}
+        else:
+            role = "user" if msg["role"] == "user" else "model"
+            contents.append({"role": role, "parts": [{"text": msg["content"]}]})
+            
+    payload = {
+        "contents": contents,
+        "generationConfig": {
+            "temperature": temperature,
+            "maxOutputTokens": 4000
+        }
+    }
+    if system_instruction:
+        payload["systemInstruction"] = system_instruction
+        
+    if response_format == "json_object":
+        payload["generationConfig"]["responseMimeType"] = "application/json"
+        
+    headers = {"Content-Type": "application/json"}
+    response = requests.post(url, headers=headers, json=payload, timeout=120)
+    response.raise_for_status()
+    data = response.json()
+    try:
+        return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+    except (KeyError, IndexError):
+        raise Exception(f"Unexpected response from Gemini API: {data}")
 
 def call_llm(messages: list, temperature: float = 0.7, response_format: str = "text", model: str = None) -> str:
+    target_model = model or DEFAULT_MODEL
+    
+    if GEMINI_API_KEY and "gemini" in target_model.lower():
+        try:
+            return _call_gemini(messages, temperature, response_format, target_model)
+        except Exception as e:
+            print(f"Gemini API failed: {e}. Falling back to OpenRouter...")
+            target_model = OPENROUTER_MODEL
+
     if not OPENROUTER_API_KEY:
-        raise Exception("API key is not set. Please set OPENROUTER_API_KEY in .env")
+        if not GEMINI_API_KEY:
+            raise Exception("No API keys available (GEMINI_API_KEY or OPENROUTER_API_KEY).")
+        else:
+            raise Exception("Gemini failed and no OPENROUTER_API_KEY fallback is available.")
         
-    target_model = model or OPENROUTER_MODEL
     payload = {
         "model": target_model,
         "messages": messages,
         "temperature": temperature,
-        "max_tokens": 1000,
+        # Cap max_tokens to prevent OpenRouter from estimating the max context window (65k) 
+        # which exceeds free tier limits.
+        "max_tokens": 1500,
     }
     if response_format == "json_object":
         payload["response_format"] = {"type": "json_object"}
@@ -41,10 +90,7 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         response.raise_for_status()
         data = response.json()
         if "choices" in data and len(data["choices"]) > 0:
-            content = data["choices"][0]["message"].get("content")
-            if content is None:
-                raise Exception("API returned empty content (possibly filtered or rate limited).")
-            return content.strip()
+            return data["choices"][0]["message"]["content"].strip()
         else:
             raise Exception("No response candidates found in OpenRouter API output.")
     except Exception as e:
@@ -65,20 +111,20 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
             raise Exception(f"OpenRouter API Error: {response.status_code} {response.reason} - {response.text[:100]}")
         raise Exception(f"Error calling AI: {str(e)}")
 
-def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=None):
+def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=None, temperature=0.7):
     """
-    Unified function to call Yantra AI via OpenRouter API.
+    Unified function to call Yantra AI via Google AI Studio or OpenRouter API fallback.
     Supports both standard text output and structured JSON extraction.
     """
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": prompt}
     ]
-    return call_llm(messages, response_format=response_format, model=model)
+    return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
 
 
 if __name__ == "__main__":
     # Quick test
-    print("Testing Yantra AI (OpenRouter)...")
+    print("Testing Yantra AI...")
     result = invoke_yantra_ai("What is 2+2? Reply with just the number.")
     print(f"Yantra AI says: {result}")

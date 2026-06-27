@@ -1,6 +1,7 @@
 qdrant-client
 langchain-text-splitters
-python-docx
+boto3
+boto3-stubs
 pypdf
 numpy
 pandas
