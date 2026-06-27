@@ -120,24 +120,23 @@ async def _web_fallback_pinout_search(query: str) -> str:
 
 
 def _call_llm(system: str, user: str) -> str:
-    """Call OpenRouter and return raw content string."""
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000",
-        "X-Title": "Yantra Connections",
-    }
-    payload = {
-        "model": CONNECTIONS_MODEL,
-        "messages": [
-            {"role": "system", "content": system},
-            {"role": "user", "content": user},
-        ],
-        "temperature": 0.3,
-    }
-    resp = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=60)
-    resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"].strip()
+    """Call LLM unified from src/llm.py"""
+    try:
+        from llm import invoke_yantra_ai
+    except ImportError:
+        try:
+            from src.llm import invoke_yantra_ai
+        except ImportError:
+            import sys
+            sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+            from src.llm import invoke_yantra_ai
+            
+    return invoke_yantra_ai(
+        prompt=user, 
+        system_prompt=system, 
+        response_format="text", 
+        temperature=0.3
+    )
 
 
 def _strip_markdown_json(text: str) -> str:

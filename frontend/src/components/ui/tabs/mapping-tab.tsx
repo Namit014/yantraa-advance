@@ -513,14 +513,7 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
 
 // ─── Seed data ────────────────────────────────────────────────────────────────
 
-const SEED_RAW: RawComponent[] = [
-    { name: "Motion Controller", category: "controller", description: "Main MCU coordinating all subsystems", connects_to: ["Servo Motor A", "Servo Motor B", "IMU Sensor"], quantity: 1 },
-    { name: "Servo Motor A", category: "actuator", description: "Upper arm drive servo, 180° range", connects_to: ["Arm Frame"], quantity: 1 },
-    { name: "Servo Motor B", category: "actuator", description: "Lower arm drive servo, 270° range", connects_to: ["Arm Frame"], quantity: 1 },
-    { name: "IMU Sensor", category: "sensor", description: "6-axis inertial measurement unit", connects_to: [], quantity: 1 },
-    { name: "Arm Frame", category: "mechanical", description: "Aluminium extruded structural frame", connects_to: [], quantity: 1 },
-    { name: "Power Supply", category: "power", description: "24V regulated DC power supply", connects_to: ["Motion Controller", "Servo Motor A", "Servo Motor B"], quantity: 1 },
-];
+const SEED_RAW: RawComponent[] = [];
 
 const SEED_BASE_NODES = SEED_RAW.map((r, i) => ({
     id: `seed-${i}`,

@@ -15,6 +15,9 @@ from retriever import Retriever
 from llm import invoke_yantra_ai
 from assembly_engine import match_template, template_to_design_data, solve_assembly, validate_assembly
 
+# S3 base URL from environment — used to build CAD URLs when local files are absent
+S3_BUCKET_URL = os.getenv("S3_BUCKET_URL", "").rstrip("/")
+
 router = APIRouter()
 
 class DesignRequest(BaseModel):
@@ -114,15 +117,19 @@ def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json
         except Exception as e2:
             print(f"[api/design] Final LLM invocation failed: {e2}")
             import json
+            
+            # Create a clean, user-friendly error message
+            friendly_err = "The AI service is currently busy or rate-limited. Please wait a moment and try your request again."
+            
             return json.dumps({
                 "subsystems": [],
                 "connections": [],
                 "bom": [],
                 "missing": [],
-                "validation": [{"type": "error", "message": f"AI Engine Error: {str(e2)}"}],
+                "validation": [{"type": "error", "message": friendly_err}],
                 "cad_available": False,
                 "cad_urls": [],
-                "chat_reply": "I apologize, but my upstream AI provider is currently experiencing high traffic or rate limits (Too Many Requests). Please try again in a moment."
+                "chat_reply": friendly_err
             })
 
 @router.post("/api/design", response_model=DesignResponse)
@@ -133,31 +140,41 @@ async def generate_robot_design(request: Request, design_request: DesignRequest)
     
     # ─── PHASE 0 & 1: Router Agent (Intent + Search Terms) ────────────────────
     print("[api/design] Phase 1: Running Router Agent...")
-    router_system = """You are Yantraa, a friendly robotics design AI.
+    from cad_registry import get_known_cads
+    known_cads_dict = get_known_cads()
+    known_robot_types = list(known_cads_dict.keys())
+    
+    router_system = f"""You are Yantraa, a friendly robotics design AI.
 Analyze the user's input. Determine if it is a request to design a robot, select components, check connections, or perform technical robotics planning.
 If it is conversational or unrelated to designing a specific robot system:
 - Set "is_design_query" to false
 - Write a friendly reply in "response"
 - Leave "search_terms" empty.
+- Set "closest_robot_type" to null
 
 If it is a request to design or build a robot:
 - Set "is_design_query" to true
 - Leave "response" empty
 - Identify hardware components needed and provide them as a list of strings in "search_terms" (e.g. ["Arduino Uno", "L298N Motor Driver", "LiPo Battery"])
+- Match the user's requested robot to the closest available option from this exact list: {known_robot_types}. 
+  If the user's intent strongly matches one of these (e.g. "I want a machine for carrying boxes" -> "agv" or "mobile robot", "I need to weld" -> "welding"), provide that exact string in "closest_robot_type". 
+  If none match, set "closest_robot_type" to null.
 
 Output ONLY valid JSON.
 OUTPUT FORMAT:
-{
+{{
   "is_design_query": true,
   "response": "",
-  "search_terms": ["term1", "term2"]
-}"""
+  "search_terms": ["term1", "term2"],
+  "closest_robot_type": "agv"
+}}"""
 
     router_prompt = f"User Input: {query}"
     
     is_design_query = True
     conversational_reply = ""
     components_to_search = []
+    closest_robot_type = None
     
     try:
         raw_router = _safe_llm_call(router_prompt, router_system, response_format="json_object")
@@ -166,6 +183,8 @@ OUTPUT FORMAT:
         is_design_query = router_data.get("is_design_query", True)
         conversational_reply = router_data.get("response", "")
         components_to_search = router_data.get("search_terms", [])
+        closest_robot_type = router_data.get("closest_robot_type")
+        
         if not isinstance(components_to_search, list):
             components_to_search = [query]
         if not components_to_search and is_design_query:
@@ -174,6 +193,7 @@ OUTPUT FORMAT:
         print(f"[api/design] Phase 1 Router parsing failed: {e}")
         is_design_query = True
         components_to_search = [query]
+        closest_robot_type = None
 
     if not is_design_query:
         print(f"[api/design] Intent is conversational. Reply: '{conversational_reply}'")
@@ -242,16 +262,24 @@ OUTPUT FORMAT:
     component_graph_text = ""
     cg_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "component_graph.json")
     hebi_path = os.path.join(_src_dir, "..", "knowledgebase", "Robots_MetaData", "hebi_components.json")
+    print(f"[api/design] Looking for component_graph at: {os.path.abspath(cg_path)}")
+    print(f"[api/design] Looking for hebi_components at: {os.path.abspath(hebi_path)}")
     try:
         if os.path.exists(cg_path):
             with open(cg_path, "r", encoding="utf-8") as f:
                 cg_data = json.load(f)
                 component_graph_text += "KNOWN COMPONENT GRAPH (from LeRobotDepot):\n" + json.dumps(cg_data) + "\n\n"
+            print(f"[api/design] Loaded component_graph.json ({len(cg_data)} entries).")
+        else:
+            print(f"[api/design] WARNING: component_graph.json NOT FOUND — LLM will use general knowledge only.")
         if os.path.exists(hebi_path):
             with open(hebi_path, "r", encoding="utf-8") as f:
                 hebi_data = json.load(f)
                 minimized_hebi = [{"name": c.get("name"), "category": c.get("category")} for c in hebi_data.get("components", [])]
                 component_graph_text += "AVAILABLE HEBI CAD COMPONENTS:\n" + json.dumps(minimized_hebi) + "\n\n"
+            print(f"[api/design] Loaded hebi_components.json ({len(minimized_hebi)} entries).")
+        else:
+            print(f"[api/design] WARNING: hebi_components.json NOT FOUND — LLM will not have HEBI component list.")
     except Exception as e:
         print(f"[api/design] Could not load component graphs: {e}")
 
@@ -330,6 +358,7 @@ OUTPUT FORMAT:
     print("[api/design] Invoking LLM...")
     try:
         res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
+        print(f"[api/design] RAW LLM SYNTHESIS TEXT:\n{res_text}\n{'='*40}")
         data = extract_json(res_text)
     except Exception as e:
         print(f"[api/design] Error parsing LLM JSON: {e}")
@@ -364,59 +393,8 @@ OUTPUT FORMAT:
     cad_url = None
     assembly_transforms = []
     
-    known_cads = {
-        "autonomous mobile": "autonomous_mobile_robot.stp",
-        "agv": "AVGs_robot_cad.step",
-        "cartesian": "cartesian_robot_cad.stp",
-        "cobot": "Articulated_robot_cad.STEP",
-        "delta": "DeltaRobot2.STEP",
-        "painting": "Painting_Robot.step",
-        "paint": "Painting_Robot.step",
-        "spray": "Painting_Robot.step",
-        "scara": "scara_robot_cad.stp",
-        "welding": "welding_robot.stp",
-        "weld": "welding_robot.stp",
-        "articulated": "Articulated_robot_cad.STEP",
-        "6 axis": "Articulated_robot_cad.STEP",
-        "6-axis": "Articulated_robot_cad.STEP",
-        "6 dof": "Articulated_robot_cad.STEP",
-        "6-dof": "Articulated_robot_cad.STEP",
-        "robotic arm": "Articulated_robot_cad.STEP",
-        "robot arm": "Articulated_robot_cad.STEP",
-        "pick and place": "Articulated_robot_cad.STEP",
-        "pick-and-place": "Articulated_robot_cad.STEP",
-        "pick things": "Articulated_robot_cad.STEP",
-        "grab": "Articulated_robot_cad.STEP",
-        "assembly line": "Articulated_robot_cad.STEP",
-        "manipulation": "Articulated_robot_cad.STEP",
-        "inspection": "inspection_robot_cad.STEP",
-        "humanoid": "Robot_humanoid.step",
-        "machine tending": "machine_tending_robot.stp",
-        "in-pipe": "InPipeInspectionRobot.STEP",
-        "in pipe": "InPipeInspectionRobot.STEP",
-        "pipeline": "InPipeInspectionRobot.STEP",
-        "corrosion": "InPipeInspectionRobot.STEP",
-        "dog": "Full_System_A-2403-02.step",
-        "robotic dog": "Full_System_A-2403-02.step",
-        "quadruped": "Full_System_A-2403-02.step",
-        "four leg": "Full_System_A-2403-02.step",
-        "4 leg": "Full_System_A-2403-02.step",
-    }
-    
-    # Dynamically add HEBI CADs
-    try:
-        if os.path.exists(hebi_path):
-            with open(hebi_path, "r", encoding="utf-8") as f:
-                hebi_data = json.load(f)
-                for comp in hebi_data.get("components", []):
-                    name = comp.get("name", "")
-                    filename = comp.get("filename", "")
-                    if name and filename:
-                        # Add full name e.g. "a-2020-05"
-                        known_cads[name.lower()] = filename
-                        known_cads[name.lower().replace("-", " ")] = filename
-    except Exception as e:
-        print(f"[api/design] Error loading HEBI cads: {e}")
+    from cad_registry import get_known_cads
+    known_cads = get_known_cads()
     
     # Extract all text from BOM and subsystems to match against
     matched_cads = set()
@@ -450,8 +428,14 @@ OUTPUT FORMAT:
                     if key in search_text:
                         matched_cads.add(filename)
                 
+    # New Intelligence: Use the closest_robot_type mapped by the LLM Router
+    if not matched_cads and closest_robot_type and closest_robot_type.lower() in known_cads:
+        print(f"[api/design] Router mapped query to semantic alias '{closest_robot_type}'. Matching CAD automatically.")
+        matched_cads.add(known_cads[closest_robot_type.lower()])
+        
     # Fallback to monolithic robots if modular assembly yielded nothing
     if len(matched_cads) == 0:
+
         query_lower = query.lower()
         for key, filename in known_cads.items():
             if key in query_lower:
@@ -475,26 +459,53 @@ OUTPUT FORMAT:
     # Universal CAD Scraper Fallback
     if not matched_cads:
         print(f"[api/design] No CAD matched locally. Triggering fallback scraper for '{query}'...")
-        from scraper.cad_scraper import scrape_missing_component
-        scraped_filename = await scrape_missing_component(query)
-        if scraped_filename:
-            matched_cads.add(scraped_filename)
+        try:
+            from scraper.cad_scraper import scrape_missing_component
+            scraped_filename = await scrape_missing_component(query)
+            if scraped_filename:
+                matched_cads.add(scraped_filename)
+        except Exception as e:
+            print(f"[api/design] CAD scraper failed: {e}")
+
+    # LAST OPTION: Try to match any word in the query against known_cads
+    if not matched_cads:
+        print("[api/design] Last option fallback: fuzzy matching words in query to robot cads")
+        query_words = set(query.lower().split())
+        for key, filename in known_cads.items():
+            key_words = set(key.lower().split())
+            if query_words & key_words: # intersection
+                matched_cads.add(filename)
+                break
 
     primary_cads = pick_primary_cad(list(matched_cads))
     
+    # ── CAD URL builder ────────────────────────────────────────────────────
     frontend_public_cad = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "public", "cad"))
-    cad_urls = []
-    for f in primary_cads:
-        if os.path.exists(os.path.join(frontend_public_cad, f)):
-            cad_urls.append(f"/cad/{f}")
-        else:
-            print(f"[api/design] Warning: CAD file {f} mapped but not found in {frontend_public_cad}")
+
+    def _build_cad_url(filename: str) -> str:
+        """Build a CAD URL: prefer local /api/cad/ endpoint, fall back to S3 via index."""
+        local_path = os.path.join(frontend_public_cad, filename)
+        kb_search = os.path.abspath(os.path.join(_src_dir, "..", "knowledgebase"))
+        import glob as _glob
+        kb_matches = _glob.glob(os.path.join(kb_search, "**", filename), recursive=True)
+        if kb_matches or os.path.exists(local_path):
+            print(f"[api/design] CAD served via local backend: /cad/{filename}")
+            return f"/cad/{filename}"
+        if S3_BUCKET_URL:
+            from cad_registry import get_s3_url
+            return get_s3_url(filename, S3_BUCKET_URL)
+        print(f"[api/design] WARNING: CAD file {filename!r} not found locally or in S3. Serving /cad/ path anyway.")
+        return f"/cad/{filename}"
+
+    cad_urls = [_build_cad_url(f) for f in primary_cads]
     cad_url = cad_urls[0] if cad_urls else None
     cad_available = len(cad_urls) > 0
-    
+
     # ─── PHASE 5: Assembly Engine (Compute Transforms) ────────────────────────
+
     assembly_transforms = []
     assembly_mode = "side_by_side"
+
     
     # Try to build assembly graph from LLM synthesis data
     llm_assembly_graph = data.get("assembly_graph", [])

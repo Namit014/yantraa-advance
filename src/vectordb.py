@@ -1,3 +1,4 @@
+import os
 import uuid
 import hashlib
 from qdrant_client import QdrantClient
@@ -7,7 +8,10 @@ from qdrant_client.models import (
     PointStruct
 )
 
-QDRANT_DATA_PATH = "./qdrant_data"
+# Allow configuring Qdrant storage path via env var (important for production/AWS deployments)
+# Default: ./qdrant_data (relative, works for local dev)
+# On AWS set: QDRANT_DATA_PATH=/home/ubuntu/yantraa-advance/qdrant_data
+QDRANT_DATA_PATH = os.getenv("QDRANT_DATA_PATH", "./qdrant_data")
 _client_instance = None
 
 def get_qdrant_client():
