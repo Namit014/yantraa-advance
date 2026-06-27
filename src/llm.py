@@ -114,6 +114,8 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         raise Exception(f"Error calling AI: {str(e)}")
 
 def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=None, temperature=0.7):
+    if model is None:
+        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
     """
     Unified function to call Yantra AI via Google AI Studio or OpenRouter API fallback.
     Supports both standard text output and structured JSON extraction.

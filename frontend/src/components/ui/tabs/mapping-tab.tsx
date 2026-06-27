@@ -984,12 +984,12 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
             lastDesignRef.current = designData;
             lastQueryRef.current = currentQuery; // Sync query ref to prevent fallback trigger
             doFetch(currentQuery || "design");
-        } else if (currentQuery && currentQuery !== lastQueryRef.current && !designData) {
+        } else if (currentQuery && currentQuery !== lastQueryRef.current && !designData && !isChatLoading) {
             // Fallback for standalone query execution
             lastQueryRef.current = currentQuery;
             doFetch(currentQuery);
         }
-    }, [designData, currentQuery, doFetch]);
+    }, [designData, currentQuery, doFetch, isChatLoading]);
 
     const handleClear = useCallback(() => {
         if (!window.confirm("Are you sure you want to clear all mapped components?")) return;
@@ -1196,7 +1196,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
                 {/* 2. DYNAMIC MAIN VIEW (Middle Column) */}
                 <div className="flex-1 h-full bg-[#050505] relative border-r border-neutral-800/50 flex flex-col">
-                    {activeView === "bom" ? (
+                    {isLoading ? (
+                        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+                            <div className="w-16 h-16 border-4 border-sky-500/20 border-t-sky-500 rounded-full animate-spin mb-6"></div>
+                            <h2 className="text-xl font-bold text-white tracking-widest uppercase mb-2">Generating Component Mapping</h2>
+                            <p className="text-neutral-500 text-sm max-w-md">Our AI is analyzing your prompt to generate the optimal mechanical and electronic components, and routing the wiring connections. Please wait...</p>
+                        </div>
+                    ) : activeView === "bom" ? (
                         <div className="flex-1 overflow-y-auto p-8 bg-[#050505]">
                             <div className="max-w-5xl mx-auto pb-10">
                                 <div className="flex items-center justify-between mb-8">

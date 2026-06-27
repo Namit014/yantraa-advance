@@ -91,7 +91,9 @@ def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
             }
     return list(bom_map.values())
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "gemini-2.5-flash") -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = None) -> str:
+    if model is None:
+        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
     try:
         res = invoke_yantra_ai(
             prompt=prompt,
