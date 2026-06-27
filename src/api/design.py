@@ -7,6 +7,8 @@ from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
 
 # Ensure src/ is on sys.path
+print(f"[DEBUG] Using model: {os.getenv('OPENROUTER_MODEL')}")
+
 _src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
@@ -95,7 +97,9 @@ def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
             }
     return list(bom_map.values())
 
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = "gemini-2.5-flash") -> str:
+def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: Optional[str] = None) -> str:
+    if model is None:
+        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
     try:
         res = invoke_yantra_ai(
             prompt=prompt,

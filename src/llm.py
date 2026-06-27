@@ -116,6 +116,8 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
     Unified function to call Yantra AI via Google AI Studio or OpenRouter API fallback.
     Supports both standard text output and structured JSON extraction.
     """
+    if model is None:
+        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": prompt}
@@ -183,6 +185,8 @@ def call_llm_stream(messages: list, temperature: float = 0.7, response_format: s
         yield f"Error in streaming LLM call: {str(e)}"
 
 def invoke_yantra_ai_chat_stream(messages: list, system_prompt: str = "You are Yantra AI, an intelligent robotic system agent.", response_format: str = "text", model: str = None, temperature: float = 0.7):
+    if model is None:
+        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
     full_messages = [{"role": "system", "content": system_prompt}] + messages
     return call_llm_stream(full_messages, temperature=temperature, response_format=response_format, model=model)
 
