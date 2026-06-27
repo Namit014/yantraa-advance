@@ -822,7 +822,8 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
             const response = await fetch(`${apiUrl}/api/generate-cad`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "ngrok-skip-browser-warning": "true"
                 },
                 body: JSON.stringify({
                     prompt: partName,
@@ -981,7 +982,12 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     const fetchUrl = firstUrl.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL
                         ? `${process.env.NEXT_PUBLIC_API_URL}${firstUrl}`
                         : firstUrl;
-                    const headRes = await fetch(fetchUrl, { method: 'HEAD' });
+                    const headRes = await fetch(fetchUrl, {
+                        method: 'HEAD',
+                        headers: {
+                            "ngrok-skip-browser-warning": "true"
+                        }
+                    });
                     const size = parseInt(headRes.headers.get('content-length') || '0');
                     if (size > 15 * 1024 * 1024) {
                         setWarning('CAD file is large (>15MB) — loading may take a moment');
@@ -1007,7 +1013,11 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL
                             ? `${process.env.NEXT_PUBLIC_API_URL}${url}`
                             : url;
-                        const res = await fetch(fetchUrl);
+                        const res = await fetch(fetchUrl, {
+                            headers: {
+                                "ngrok-skip-browser-warning": "true"
+                            }
+                        });
                         if (!res.ok) {
                             console.warn(`[CAD] Skipping unavailable file: ${url} (${res.status})`);
                             return;

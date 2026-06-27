@@ -155,7 +155,6 @@ async def run_synthesis_pipeline(request: Request, query: str, messages_list: Op
             role_name = "User" if m.get("role") == "user" else "Assistant"
             history_str += f"{role_name}: {m.get('content')}\n"
         history_str += "\n"
-    
     router_system = f"""You are Yantraa, a friendly robotics design AI.
 Analyze the user's input. Determine if it is a request to design a robot, select components, check connections, or perform technical robotics planning.
 If it is conversational or unrelated to designing a specific robot system:

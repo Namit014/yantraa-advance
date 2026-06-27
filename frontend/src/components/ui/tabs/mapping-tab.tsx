@@ -220,6 +220,7 @@ async function fetchComponentsFromRAG(
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "ngrok-skip-browser-warning": "true"
             },
             body: JSON.stringify({ query: prompt1 }),
         });
@@ -239,6 +240,7 @@ async function fetchComponentsFromRAG(
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "ngrok-skip-browser-warning": "true"
             },
             body: JSON.stringify({ query: prompt2 }),
         });

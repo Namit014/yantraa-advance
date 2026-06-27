@@ -68,7 +68,7 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         "temperature": temperature,
         # Cap max_tokens to prevent OpenRouter from estimating the max context window (65k) 
         # which exceeds free tier limits.
-        "max_tokens": 1000,
+        "max_tokens": 1500,
     }
     if response_format == "json_object":
         payload["response_format"] = {"type": "json_object"}
@@ -123,6 +123,7 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
         {"role": "user", "content": prompt}
     ]
     return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
+
 
 import json
 def call_llm_stream(messages: list, temperature: float = 0.7, response_format: str = "text", model: str = None):
