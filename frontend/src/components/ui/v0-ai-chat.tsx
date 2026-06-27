@@ -127,7 +127,19 @@ export function VercelV0Chat() {
     const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad'>('mapping');
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
+
     const [robotDesign, setRobotDesign] = useState<any | null>(null);
+
+    // --- Clarification State ---
+    const [clarification, setClarification] = useState<{
+        active: boolean;
+        scores: any;
+        faqs: any[];
+        originalPrompt: string;
+        round: number;
+    } | null>(null);
+    const [faqAnswers, setFaqAnswers] = useState<Record<string, string>>({});
+
 
     // Derive latest AI response and last user query to feed into MappingTab
     const latestAIResponse = [...messages].reverse().find(m => m.role === 'assistant')?.content ?? "";
@@ -148,17 +160,66 @@ export function VercelV0Chat() {
         scrollToBottom();
     }, [messages, isLoading]);
 
-    const handleSubmit = async () => {
-        if (!value.trim() || isLoading) return;
+    const handleSubmit = async (isClarificationSubmit = false) => {
+        if (!value.trim() && !isClarificationSubmit) return;
+        if (isLoading) return;
 
-        const userMessage = value.trim();
-        setValue("");
-        adjustHeight(true);
-        setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+        let queryToSend = value.trim();
+        
+        if (isClarificationSubmit && clarification) {
+            // Build the augmented prompt
+            let augmented = clarification.originalPrompt + "\n\nClarifications provided by user:\n";
+            clarification.faqs.forEach(faq => {
+                if (faqAnswers[faq.id]) {
+                    augmented += `- ${faq.question} ${faqAnswers[faq.id]}\n`;
+                }
+            });
+            queryToSend = augmented;
+            setMessages(prev => [...prev, { role: 'user', content: "Submitted clarifications." }]);
+        } else {
+            setValue("");
+            adjustHeight(true);
+            setMessages(prev => [...prev, { role: 'user', content: queryToSend }]);
+        }
+        
         setIsLoading(true);
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            
+            // 1. Route / Score
+            const routeRes = await fetch(`${apiUrl}/api/chat/route`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "ngrok-skip-browser-warning": "true" },
+                body: JSON.stringify({ prompt: queryToSend })
+            });
+            
+            if (!routeRes.ok) throw new Error("Failed to score prompt");
+            const routeData = await routeRes.json();
+            
+            if (routeData.action === "route_to_clarification" && (!clarification || clarification.round < 3)) {
+                // Show clarification UI
+                setClarification({
+                    active: true,
+                    scores: routeData.scores,
+                    faqs: routeData.faqs,
+                    originalPrompt: isClarificationSubmit && clarification ? clarification.originalPrompt : queryToSend,
+                    round: (clarification?.round || 0) + 1
+                });
+                
+                let scoreText = `Quality Score: ${routeData.scores.overall}/5. `;
+                scoreText += "I need a bit more context to generate a robust design.\n";
+                setMessages(prev => [...prev, { role: 'assistant', content: scoreText }]);
+                setIsLoading(false);
+                return;
+            }
+            
+            // Clear clarification state if we proceed to AI
+            setClarification(null);
+            
+            // 2. Call actual AI if score is good or rounds exceeded
+            setMessages(prev => [...prev, { role: 'assistant', content: "Prompt accepted. Generating design..." }]);
+            
             const response = await fetch(`${apiUrl}/api/design`, {
                 method: "POST",
                 headers: {
@@ -258,6 +319,46 @@ export function VercelV0Chat() {
                         )}
 
                         <div ref={messagesEndRef} />
+                    </div>
+                )}
+                
+                {/* Clarification UI */}
+                {clarification && clarification.active && (
+                    <div className="w-full px-4 mb-4 z-20">
+                        <div className="bg-neutral-900 border border-yellow-600/50 rounded-xl p-4 shadow-xl">
+                            <div className="flex items-center gap-2 mb-3">
+                                <span className="px-2 py-1 bg-yellow-600/20 text-yellow-500 rounded text-xs font-bold">
+                                    Score: {clarification.scores.overall}/5
+                                </span>
+                                <span className="text-sm text-neutral-300">
+                                    Round {clarification.round}/3
+                                </span>
+                            </div>
+                            <p className="text-sm text-neutral-400 mb-4">Please clarify the following to improve your design request:</p>
+                            
+                            <div className="space-y-4">
+                                {clarification.faqs.map((faq, idx) => (
+                                    <div key={idx} className="flex flex-col gap-1">
+                                        <label className="text-sm font-medium text-white">{faq.question}</label>
+                                        <input 
+                                            type="text" 
+                                            placeholder={faq.hint || "Your answer..."}
+                                            className="bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-sm text-white focus:border-blue-500 outline-none"
+                                            value={faqAnswers[faq.id] || ""}
+                                            onChange={(e) => setFaqAnswers(prev => ({...prev, [faq.id]: e.target.value}))}
+                                            disabled={isLoading}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            <button 
+                                onClick={() => handleSubmit(true)}
+                                disabled={isLoading}
+                                className="mt-4 w-full bg-blue-600 hover:bg-blue-500 text-white rounded-lg py-2 text-sm font-medium transition-colors"
+                            >
+                                Submit Clarifications
+                            </button>
+                        </div>
                     </div>
                 )}
 
