@@ -211,34 +211,12 @@ OUTPUT FORMAT:
     print(f"[api/design] Search terms extracted: {components_to_search}")
 
     # ─── PHASE 1.5: Check Assembly Templates ──────────────────────────────────
-    template = match_template(query)
-    if template:
-        print(f"[api/design] Template matched! Skipping LLM synthesis.")
-        template_data = template_to_design_data(template)
-        
-        # Solve assembly transforms
-        graph_nodes = template_data.get("_template_graph", [])
-        assembly_graph = template_data.get("assembly_graph", [])
-        assembly_transforms = solve_assembly(graph_nodes, assembly_graph)
-        
-        # Validate
-        assembly_validation = validate_assembly(assembly_transforms)
-        
-        # Build CAD URLs from assembly transforms
-        cad_urls = [t["cad_url"] for t in assembly_transforms]
-        
-        return DesignResponse(
-            subsystems=template_data.get("subsystems", []),
-            connections=template_data.get("connections", []),
-            bom=_consolidate_bom(template_data.get("bom", [])),
-            missing=template_data.get("missing", []),
-            validation=template_data.get("validation", []) + assembly_validation,
-            cad_available=len(cad_urls) > 0,
-            cad_url=cad_urls[0] if cad_urls else None,
-            cad_urls=cad_urls,
-            assembly_transforms=assembly_transforms,
-            assembly_mode="assembled"
-        )
+    # DISABLED per user request: We no longer intercept with modular HEBI templates, 
+    # forcing the system to always fetch the full monolithic CAD model instead.
+    # template = match_template(query)
+    # if template:
+    #     ...
+
 
     # ─── PHASE 2: Qdrant RAG Search ─────────────────────────────────────────────
     print("[api/design] Phase 2: Querying Qdrant Database...")
@@ -296,6 +274,7 @@ CRITICAL RULES:
 - Output ONLY valid JSON in the exact structure requested.
 
 ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
+0. **EXTREME BREVITY**: You are running on a constrained model. Keep your output EXTREMELY short. Generate a maximum of 5-8 essential components total across all subsystems. DO NOT generate extensive wiring or every single sensor/resistor. Keep it minimal to prevent JSON truncation!
 1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot (this causes EMI). Instead, use a Trunk-and-Branch topology: Route a thick "Main Power Trunk" to a "Local Distribution Hub" or "Local Busbar" near each joint, and branch off to local drivers.
 2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node" or "Common Ground Bus". Avoid ground loops.
 3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power. Generate an "E-Stop Button" connected to a "Safety Relay" or "Contactor". The Safety Relay MUST sit between the PSU and the Motor Drivers on the 24V/48V lines. Do NOT route E-Stop solely to the MCU.

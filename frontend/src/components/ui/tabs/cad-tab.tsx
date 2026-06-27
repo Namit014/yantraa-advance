@@ -981,10 +981,18 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     const fetchUrl = firstUrl.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL
                         ? `${process.env.NEXT_PUBLIC_API_URL}${firstUrl}`
                         : firstUrl;
-                    const headRes = await fetch(fetchUrl, { method: 'HEAD' });
-                    const size = parseInt(headRes.headers.get('content-length') || '0');
-                    if (size > 15 * 1024 * 1024) {
-                        setWarning('CAD file is large (>15MB) — loading may take a moment');
+                    
+                    // Attempt HEAD request just to check size, but ignore if it fails (e.g., S3 pre-signed URLs reject HEAD)
+                    try {
+                        const headRes = await fetch(fetchUrl, { method: 'HEAD' });
+                        if (headRes.ok) {
+                            const size = parseInt(headRes.headers.get('content-length') || '0');
+                            if (size > 15 * 1024 * 1024) {
+                                setWarning('CAD file is large (>15MB) — loading may take a moment');
+                            }
+                        }
+                    } catch (headErr) {
+                        console.warn('HEAD request failed, proceeding to GET anyway', headErr);
                     }
                 }
 
@@ -1097,6 +1105,29 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                 });
 
                 await Promise.all(fetchPromises);
+
+                if (loadedMeshes.length > 0) {
+                    const overallBox = new THREE.Box3();
+                    loadedMeshes.forEach(m => {
+                        m.geometry.computeBoundingBox();
+                        if (m.geometry.boundingBox) {
+                            overallBox.expandByPoint(m.geometry.boundingBox.min);
+                            overallBox.expandByPoint(m.geometry.boundingBox.max);
+                        }
+                    });
+
+                    // Translate all meshes so the absolute bottom sits exactly on the floor (y=0) and center X/Z
+                    const shiftX = -(overallBox.max.x + overallBox.min.x) / 2;
+                    const shiftY = -overallBox.min.y;
+                    const shiftZ = -(overallBox.max.z + overallBox.min.z) / 2;
+                    
+                    const shiftMatrix = new THREE.Matrix4().makeTranslation(shiftX, shiftY, shiftZ);
+                    loadedMeshes.forEach(m => {
+                        m.geometry.applyMatrix4(shiftMatrix);
+                        m.geometry.computeBoundingBox(); 
+                    });
+                    console.log(`[CAD] Centered model and shifted up by ${shiftY.toFixed(2)} to align with grid floor.`);
+                }
 
                 if (isMounted) {
                     setMeshes(loadedMeshes);
@@ -1441,7 +1472,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 anchor={[0, -1, 0]}
                                 lineWidth={3}
                             >
-                                <Center bottom>
+                                <group>
                                     <CADModel
                                         meshes={meshes}
                                         url={cadUrls ? cadUrls[0] : ''}
@@ -1470,7 +1501,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                         showBoundingBox={showBoundingBox}
                                         magnetEnabled={magnetEnabled}
                                     />
-                                </Center>
+                                </group>
                             </PivotControls>
                         )}
                     </Suspense>
