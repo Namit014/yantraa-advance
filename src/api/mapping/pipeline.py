@@ -72,10 +72,9 @@ class MappingPipeline:
         for e in conns:
             e.explainability = ExplainabilityEngine.generate_edge_explanation(e)
 
-        # Phase 13 & 14: Final UI Contract
+        # Phase 10: V4 Hierarchical UI Contract
         
-        if health.score == 0 and not comps:
-            # Phase 14: Empty Graph Protection
+        if health.overall_accuracy == 0 and not comps:
             return {
                 "status": "failed",
                 "stage": "connection_generation",
@@ -85,8 +84,14 @@ class MappingPipeline:
                 "connections": []
             }
 
-        # Convert to UI format
-        ui_subsystems = [{"name": "Core System", "components": [c.model_dump() for c in comps]}]
+        # Build Subsystems hierarchy based on parent_assembly
+        assembly_map = {}
+        for c in comps:
+            parent = c.parent_assembly or "Core System"
+            assembly_map.setdefault(parent, []).append(c.model_dump())
+            
+        ui_subsystems = [{"name": name, "components": components} for name, components in assembly_map.items()]
+        
         ui_connections = []
         for c in conns:
             ui_connections.append({
@@ -98,12 +103,14 @@ class MappingPipeline:
             })
 
         return {
-            "status": "success" if health.score > 80 else "partial_success",
+            "status": "success" if health.overall_accuracy > 80 else "partial_success",
             "stage": "complete",
             "error": " | ".join(health.errors) if health.errors else None,
-            "graph_health_score": health.score,
+            "graph_health_score": int(health.overall_accuracy),
+            "health_metrics": health.model_dump(),
             "subsystems": ui_subsystems,
             "connections": ui_connections,
-            "bom": [{"id": c.id, "name": c.name, "qty": 1} for c in comps],
-            "validation": [{"type": "error", "message": e} for e in health.errors]
+            "bom": [{"id": c.id, "name": c.engineering_name or c.name, "qty": 1} for c in comps],
+            "validation": [{"type": "error", "message": e} for e in health.errors],
+            "kinematic_chain": extracted_data.get("kinematic_chain", [])
         }

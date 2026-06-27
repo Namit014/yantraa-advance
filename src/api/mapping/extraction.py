@@ -4,8 +4,9 @@ from .schemas import ComponentNode, ConnectionEdge, EvidenceReference, SourceTyp
 
 class ExtractionEngine:
     """
-    Phase 1: Multi-Pass Component Extraction Engine.
-    Executes extractions for Physical, Assemblies, Interfaces, Connections, Power, Control, and Motion paths.
+    Phase 1, 2, 4, 5: V4 Engineering Semantic Extraction.
+    Extracts engineering meaning from CAD filenames, classifies functions strictly,
+    and extracts kinematic chains and assembly decompositions.
     """
     def __init__(self, raw_evidence: str):
         self.raw_evidence = raw_evidence
@@ -16,27 +17,36 @@ EVIDENCE_CONTEXT:
 {self.raw_evidence}
 
 Extract the engineering architecture strictly from the evidence above.
-Perform 7 separate internal passes, but output a single JSON object containing these EXACT 7 arrays.
-Pass 1: physical_components (motors, sensors, controllers, rails)
-Pass 2: assemblies (logical groupings like 'Arm Assembly', 'Base Assembly')
-Pass 3: interfaces (ports, connectors)
-Pass 4: connections (signal/data wires)
-Pass 5: power_paths (power wiring from PSU to components)
-Pass 6: control_paths (logical control relationships)
-Pass 7: motion_paths (mechanical linkages and drives)
+You must perform Semantic Extraction (Phase 1), Functional Classification (Phase 2),
+Kinematic Chain Extraction (Phase 4), and Assembly Decomposition (Phase 5).
+
+RULES:
+1. Translate raw filenames into explicit engineering roles (e.g. A-2228-01 -> J2 Servo Motor).
+2. Category must strictly be one of: Actuator, Sensor, Controller, Driver, Transmission, Structural, Power, Communication, Safety, End Effector, Mechanical Support, Motion Guide, Fluid System, Thermal System.
+3. Every component must belong to a parent assembly in 'parent_assembly'.
+4. Include a 'kinematic_chain' array showing the ordered sequence of joints/links from Base to End Effector.
+5. Edges must use specific verbs: powers, controls, drives, supports, mounted_to, communicates_with, provides_feedback_to, transmits_motion_to, contains, belongs_to. DO NOT use generic types like 'signal' or 'linkage'.
 
 OUTPUT FORMAT:
 {{
-  "physical_components": [{{"id": "c1", "name": "NEMA23", "category": "actuator", "evidence": "text segment"}}],
-  "assemblies": [{{"id": "a1", "name": "Base Assembly", "components": ["c1"]}}],
-  "interfaces": [{{"id": "i1", "component_id": "c1", "name": "Power Terminal"}}],
-  "connections": [{{"source": "c1", "target": "c2", "type": "SIGNAL", "evidence": "text segment"}}],
-  "power_paths": [{{"source": "c1", "target": "c2", "type": "POWER", "evidence": "text segment"}}],
-  "control_paths": [{{"source": "c1", "target": "c2", "type": "COMMUNICATION", "evidence": "text segment"}}],
-  "motion_paths": [{{"source": "c1", "target": "c2", "type": "MOTION", "evidence": "text segment"}}]
+  "components": [
+    {{
+      "id": "c1", 
+      "name": "A-2475-08", 
+      "engineering_name": "J2 Servo Motor", 
+      "engineering_role": "Drives Shoulder Joint", 
+      "category": "Actuator", 
+      "parent_assembly": "Shoulder Assembly",
+      "evidence": "text segment"
+    }}
+  ],
+  "kinematic_chain": ["Base Assembly", "J1", "Link1", "J2", "Link2", "End Effector"],
+  "connections": [
+    {{"source": "c1", "target": "c2", "type": "drives", "evidence": "text segment"}}
+  ]
 }}
 """
-        system_prompt = "You are Yantraa V3 Forensic Component Mapping Engine. You extract precise engineering graphs from evidence. Output ONLY valid JSON."
+        system_prompt = "You are Yantraa V4 Semantic Mapping Engine. Convert raw data into highly accurate engineering structures. Output ONLY valid JSON."
         try:
             res = invoke_yantra_ai(prompt, system_prompt=system_prompt, response_format="json_object")
             return self._parse_json(res)

@@ -29,6 +29,7 @@ class DesignResponse(BaseModel):
     error: Optional[str] = None
     mapping_generated: bool = True
     graph_health_score: int = 100
+    health_metrics: Optional[Dict[str, Any]] = None
     subsystems: List[Dict[str, Any]]
     connections: List[Dict[str, Any]]
     bom: List[Dict[str, Any]]
@@ -41,6 +42,7 @@ class DesignResponse(BaseModel):
     chat_reply: Optional[str] = None
     assembly_transforms: List[Dict[str, Any]] = []
     assembly_mode: str = "side_by_side"
+    kinematic_chain: List[str] = []
 
 def extract_json(text: str) -> dict:
     """Extract and parse JSON object from LLM response text."""
@@ -313,12 +315,14 @@ OUTPUT FORMAT:
         error_msg = final_graph.get("error")
         mapping_generated = True if status != "failed" else False
         graph_health_score = final_graph.get("graph_health_score", 100)
+        health_metrics = final_graph.get("health_metrics")
         
         subsystems = final_graph.get("subsystems", [])
         normalized_connections = final_graph.get("connections", [])
         bom = final_graph.get("bom", [])
         validation = final_graph.get("validation", [])
         missing = []
+        kinematic_chain = final_graph.get("kinematic_chain", [])
         
     except Exception as e:
         print(f"[api/design] V3 Mapping Pipeline failed: {e}")
@@ -327,11 +331,13 @@ OUTPUT FORMAT:
         error_msg = f"Graph engine failed: {str(e)}"
         mapping_generated = False
         graph_health_score = 0
+        health_metrics = None
         subsystems = []
         normalized_connections = []
         bom = []
         validation = [{"type": "error", "message": error_msg}]
         missing = []
+        kinematic_chain = []
 
     # Check CAD availability based on query
     cad_available = False

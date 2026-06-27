@@ -20,39 +20,57 @@ class GraphRepairEngine:
 
 class GraphValidationEngine:
     """
-    Phase 11: Graph Validation.
-    Validates graph rules (no isolated power, no isolated controllers).
-    Generates graph_health_score.
+    Phase 8 & 9: Graph Validation, Completeness, and Engineering Health Score.
     """
     @staticmethod
     def validate(components: List[ComponentNode], connections: List[ConnectionEdge]) -> GraphHealth:
-        score = 100
+        classification_accuracy = 100.0
+        connection_accuracy = 100.0
+        kinematic_accuracy = 100.0
+        subsystem_accuracy = 100.0
+        
         errors = []
         warnings = []
         
         connected_ids = {c.source for c in connections}.union({c.target for c in connections})
         
-        # 1. No isolated controllers
-        for c in components:
-            if c.category.lower() == "controller" and c.id not in connected_ids:
-                score -= 30
-                errors.append(f"Isolated Controller detected: {c.name}")
-                
-        # 2. No isolated power supplies
-        for c in components:
-            if c.category.lower() == "power" and c.id not in connected_ids:
-                score -= 30
-                errors.append(f"Isolated Power Supply detected: {c.name}")
-                
-        # 3. Graph completeness
-        if not components:
-            score -= 100
-            errors.append("No components found in graph.")
-        elif not connections:
-            score -= 50
-            errors.append("No connections found in graph.")
+        # --- Phase 8: Completeness Check ---
+        found_categories = set(c.category.lower() for c in components)
+        required_cats = {"controller", "power", "driver", "actuator"}
+        missing_cats = required_cats - found_categories
+        if missing_cats:
+            kinematic_accuracy -= 30.0
+            errors.append(f"Missing critical subsystem categories: {', '.join(missing_cats)}")
             
-        if score < 0:
-            score = 0
+        # --- Phase 9: Detailed Scoring ---
+        
+        # 1. Classification Accuracy (Are components classified correctly without unknown?)
+        unknowns = [c for c in components if c.category.lower() == "unknown" or not c.engineering_role]
+        if unknowns:
+            classification_accuracy -= (len(unknowns) / len(components)) * 100
+            warnings.append(f"{len(unknowns)} components lack clear engineering roles or categories.")
+
+        # 2. Connection Accuracy (Are there isolated components or generic connections?)
+        isolated = [c for c in components if c.id not in connected_ids]
+        if isolated:
+            connection_accuracy -= (len(isolated) / len(components)) * 100
+            errors.append(f"Found {len(isolated)} isolated components.")
             
-        return GraphHealth(score=score, errors=errors, warnings=warnings)
+        # 3. Subsystem Accuracy (Do components have parent assemblies?)
+        orphans = [c for c in components if not c.parent_assembly]
+        if orphans:
+            subsystem_accuracy -= (len(orphans) / len(components)) * 100
+            warnings.append(f"{len(orphans)} components lack a parent assembly.")
+
+        # 4. Overall Accuracy
+        overall_accuracy = (classification_accuracy + connection_accuracy + kinematic_accuracy + subsystem_accuracy) / 4.0
+
+        return GraphHealth(
+            overall_accuracy=max(0.0, overall_accuracy),
+            classification_accuracy=max(0.0, classification_accuracy),
+            connection_accuracy=max(0.0, connection_accuracy),
+            kinematic_accuracy=max(0.0, kinematic_accuracy),
+            subsystem_accuracy=max(0.0, subsystem_accuracy),
+            errors=errors,
+            warnings=warnings
+        )

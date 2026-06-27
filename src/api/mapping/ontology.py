@@ -46,22 +46,21 @@ class EngineeringOntology:
         sensors = by_class.get("Sensor", [])
         transmissions = by_class.get("Transmission", [])
 
-        # 1. Power Chain: Power Supply -> Driver -> Motor
+        # 1. Power Chain: Power Supply -> powers -> Driver
         if powers and drivers:
             for p in powers:
                 for d in drivers:
-                    # Check if connection already exists
                     if not any(c.source == p.id and c.target == d.id for c in connections):
                         new_connections.append(ConnectionEdge(
                             id=f"infer-pwr-{p.id}-{d.id}",
                             source=p.id,
                             target=d.id,
-                            type=ConnectionType.POWER,
+                            type=ConnectionType.POWERS,
                             confidence=0.8,
-                            explainability="Inferred Power Chain: Power Supply must power Driver."
+                            explainability="Inferred Power Chain: Power Supply powers Driver."
                         ))
-
-        # 2. Control Chain: Controller -> Driver
+        
+        # 2. Control Chain: Controller -> controls -> Driver
         if ctrls and drivers:
             for c in ctrls:
                 for d in drivers:
@@ -70,12 +69,12 @@ class EngineeringOntology:
                             id=f"infer-ctrl-{c.id}-{d.id}",
                             source=c.id,
                             target=d.id,
-                            type=ConnectionType.SIGNAL,
+                            type=ConnectionType.CONTROLS,
                             confidence=0.8,
-                            explainability="Inferred Control Chain: Controller must signal Driver."
+                            explainability="Inferred Control Chain: Controller controls Driver."
                         ))
         
-        # 3. Motion Chain: Driver -> Motor -> Transmission
+        # 3. Motion Chain: Driver -> drives -> Motor -> transmits_motion_to -> Transmission
         if drivers and acts:
             for d in drivers:
                 for a in acts:
@@ -84,9 +83,9 @@ class EngineeringOntology:
                             id=f"infer-drv-{d.id}-{a.id}",
                             source=d.id,
                             target=a.id,
-                            type=ConnectionType.POWER,
+                            type=ConnectionType.DRIVES,
                             confidence=0.8,
-                            explainability="Inferred Motion Chain: Driver powers Actuator."
+                            explainability="Inferred Motion Chain: Driver drives Actuator."
                         ))
 
         if acts and transmissions:
@@ -97,12 +96,12 @@ class EngineeringOntology:
                             id=f"infer-mech-{a.id}-{t.id}",
                             source=a.id,
                             target=t.id,
-                            type=ConnectionType.MECHANICAL,
+                            type=ConnectionType.TRANSMITS_MOTION_TO,
                             confidence=0.8,
-                            explainability="Inferred Motion Chain: Actuator drives Transmission."
+                            explainability="Inferred Motion Chain: Actuator transmits_motion_to Transmission."
                         ))
                         
-        # 4. Feedback Chain: Sensor -> Controller
+        # 4. Feedback Chain: Sensor -> provides_feedback_to -> Controller
         if sensors and ctrls:
             for s in sensors:
                 for c in ctrls:
@@ -111,9 +110,9 @@ class EngineeringOntology:
                             id=f"infer-sens-{s.id}-{c.id}",
                             source=s.id,
                             target=c.id,
-                            type=ConnectionType.SIGNAL,
+                            type=ConnectionType.PROVIDES_FEEDBACK_TO,
                             confidence=0.8,
-                            explainability="Inferred Feedback Chain: Sensor sends data to Controller."
+                            explainability="Inferred Feedback Chain: Sensor provides_feedback_to Controller."
                         ))
 
         return new_connections
