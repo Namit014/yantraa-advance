@@ -10,7 +10,7 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemini-2.0-flash-lite-preview-02-05:free")
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "openrouter/owl-alpha"
 
 def _call_gemini(messages: list, temperature: float = 0.7, response_format: str = "text", model: str = "gemini-2.5-flash") -> str:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"

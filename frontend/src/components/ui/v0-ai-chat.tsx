@@ -226,7 +226,7 @@ export function VercelV0Chat() {
                     "Content-Type": "application/json",
                     "ngrok-skip-browser-warning": "true"
                 },
-                body: JSON.stringify({ query: userMessage })
+                body: JSON.stringify({ query: queryToSend })
             });
 
             if (!response.ok) {
@@ -442,7 +442,7 @@ export function VercelV0Chat() {
                                 </button>
                                 <button
                                     type="button"
-                                    onClick={handleSubmit}
+                                    onClick={() => handleSubmit(false)}
                                     disabled={isLoading || !value.trim()}
                                     className={cn(
                                         "px-1.5 py-1.5 rounded-lg text-sm transition-colors border flex items-center justify-between gap-1",
