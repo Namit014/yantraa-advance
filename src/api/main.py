@@ -195,6 +195,20 @@ async def get_cad_file(filename: str):
     
     raise HTTPException(status_code=404, detail="CAD file not found in knowledgebase")
 
+@app.get("/api/debug")
+async def debug_env():
+    import os
+    return {
+        "GEMINI_API_KEY": bool(os.getenv("GEMINI_API_KEY")),
+        "OPENROUTER_API_KEY": bool(os.getenv("OPENROUTER_API_KEY")),
+        "GEMINI_PREFIX": os.getenv("GEMINI_API_KEY", "")[:5] if os.getenv("GEMINI_API_KEY") else None
+    }
+
+@app.get("/api/health")
+async def health_check():
+    """Simple health check endpoint"""
+    return {"status": "ok", "message": "API is running."}
+
 @app.get("/health")
 async def health_check():
     """Simple health check endpoint"""

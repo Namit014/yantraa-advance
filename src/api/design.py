@@ -55,6 +55,7 @@ def extract_json(text: str) -> dict:
             return json.loads(match.group(0))
         except json.JSONDecodeError:
             pass
+    print(f"[api/design] ERROR: extract_json completely failed to parse. RAW TEXT WAS:\n{text[:1000]}...")
     return {}
 
 FULL_ASSEMBLY_KEYWORDS = ["full_system", "full-system", "assembly", "complete", "system"]
@@ -117,6 +118,8 @@ def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json
         except Exception as e2:
             print(f"[api/design] Final LLM invocation failed: {e2}")
             import json
+            import traceback
+            print(f"[api/design] TRACEBACK for final LLM failure:\n{traceback.format_exc()}")
             
             # Create a clean, user-friendly error message
             friendly_err = "The AI service is currently busy or rate-limited. Please wait a moment and try your request again."

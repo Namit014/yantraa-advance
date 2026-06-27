@@ -1,17 +1,32 @@
-import sys
-sys.path.append('src')
+import os, sys
+import asyncio
 
-from fastapi.testclient import TestClient
-from api.main import app
-import traceback
+_src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "src"))
+sys.path.insert(0, _src_dir)
 
-try:
-    print("Initializing TestClient...")
-    client = TestClient(app)
-    print("Making request to /api/design...")
-    response = client.post("/api/design", json={"query": "Make a robot arm"})
-    print(f"Status Code: {response.status_code}")
-    print(f"Response Body: {response.text}")
-except Exception as e:
-    print("TestClient Failed!")
-    traceback.print_exc()
+from api.design import generate_robot_design, DesignRequest
+from retriever import Retriever
+
+class MockState:
+    def __init__(self):
+        self.retriever = Retriever()
+
+class MockApp:
+    def __init__(self):
+        self.state = MockState()
+
+class MockRequest:
+    def __init__(self):
+        self.app = MockApp()
+
+async def main():
+    try:
+        req = DesignRequest(query="scara robot")
+        res = await generate_robot_design(MockRequest(), req)
+        print("Subsystems:", res.subsystems)
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+
+if __name__ == "__main__":
+    asyncio.run(main())

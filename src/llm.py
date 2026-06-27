@@ -28,7 +28,7 @@ def _call_gemini(messages: list, temperature: float = 0.7, response_format: str 
         "contents": contents,
         "generationConfig": {
             "temperature": temperature,
-            "maxOutputTokens": 4000
+            "maxOutputTokens": 8192
         }
     }
     if system_instruction:
@@ -55,6 +55,8 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         except Exception as e:
             print(f"Gemini API failed: {e}. Falling back to OpenRouter...")
             target_model = OPENROUTER_MODEL
+    elif not GEMINI_API_KEY and target_model == DEFAULT_MODEL:
+        target_model = OPENROUTER_MODEL
 
     if not OPENROUTER_API_KEY:
         if not GEMINI_API_KEY:
