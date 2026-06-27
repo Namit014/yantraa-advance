@@ -482,12 +482,12 @@ interface ConnectionStore {
 }
 
 export const useConnectionStore = create<ConnectionStore>((set, get) => ({
-  nodes: DEMO_NODES,
-  edges: DEMO_EDGES,
+  nodes: [],
+  edges: [],
   selectedEdgeId: null,
   sidebarOpen: false,
   isGenerating: false,
-  prompt: "Raspberry Pi 4 + Arduino Mega + ESP32 WiFi + L298N motors + MPU6050 IMU + HC-SR04 + OLED display",
+  prompt: "",
   error: null,
   ercReport: null,
 

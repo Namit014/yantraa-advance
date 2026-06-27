@@ -1032,15 +1032,22 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                 connects_to: [],
                 quantity: 1,
             };
-            setNodes(prev => [...prev, newNode]);
-            setRawComponents(prev => [...prev, newRaw]);
+            
+            // We need to generate connections and layout for the new node
+            const updatedRaw = [...rawComponents, newRaw];
+            const updatedNodes = [...nodes, newNode];
+            setRawComponents(updatedRaw);
+            
+            const newConnections = generateConnections(updatedNodes, updatedRaw);
+            setConnections(newConnections);
+            setNodes(applyLayout(updatedNodes, newConnections));
         }
         
         setNewName("");
         setNewCat("electronic");
         setNewDesc("");
         setShowAddModal(false);
-    }, [newName, newCat, newDesc, nodes]);
+    }, [newName, newCat, newDesc, nodes, rawComponents]);
 
     const handleAddConnection = useCallback(() => {
         if (!selectedId || !inspectorConnTarget) return;

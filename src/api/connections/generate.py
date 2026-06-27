@@ -361,4 +361,9 @@ IMPORTANT:
         print(f"[connections/generate] LLM/parse error: {exc}")
         print(f"[connections/generate] Falling back to layout algorithm")
         # Return a clean fallback rather than 500
-        return _fallback_diagram(request.components)
+        fallback = _fallback_diagram(request.components)
+        if "402" in str(exc) or "credits" in str(exc).lower():
+            fallback["erc_report"] = "OpenRouter API Error: Insufficient credits. Please check your OpenRouter account and billing."
+        else:
+            fallback["erc_report"] = f"Generation failed to parse properly. Error: {str(exc)}. Please click Generate again to retry."
+        return fallback

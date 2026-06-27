@@ -118,6 +118,8 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
     Unified function to call Yantra AI via Google AI Studio or OpenRouter API fallback.
     Supports both standard text output and structured JSON extraction.
     """
+    if model is None:
+        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": prompt}
