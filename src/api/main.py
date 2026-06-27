@@ -67,13 +67,6 @@ app.include_router(design_router)
 print("[Yantra API] Registered /api/design")
 
 try:
-    from chat_router import router as chat_router_instance
-    app.include_router(chat_router_instance, prefix="/api/chat")
-    print("[Yantra API] Registered /api/chat")
-except Exception as _e:
-    print(f"[Yantra API] WARNING: Could not load chat router: {_e}")
-
-try:
     from generate import router as generate_router
     app.include_router(generate_router)
     print("[Yantra API] Registered /api/generate-cad")
