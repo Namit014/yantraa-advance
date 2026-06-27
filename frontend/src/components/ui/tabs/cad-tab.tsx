@@ -1115,27 +1115,27 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     }, [cadUrls, designData?.assembly_transforms, designData?.assembly_mode]);
 
     return (
-        <div className="relative w-full h-full bg-[#060810] overflow-hidden rounded-xl border border-neutral-800 select-none">
+        <div className="relative w-full h-full bg-[#0A0A0A] overflow-hidden rounded-xl border border-[#2A2A2A] select-none">
             {/* Cinematic Controls Overlay */}
             {meshes.length > 0 && !isLoading && (
                 <div className="absolute top-4 right-4 z-20 flex flex-col gap-3">
                     {/* View Controls */}
-                    <div className="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl p-2 flex flex-col gap-2">
-                        <span className="text-[10px] uppercase font-bold text-neutral-500 px-1 tracking-wider">Camera</span>
+                    <div className="bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-lg shadow-xl p-2 flex flex-col gap-2">
+                        <span className="text-[10px] uppercase font-medium text-[#888888] px-1 tracking-wider">Camera</span>
                         <div className="grid grid-cols-2 gap-1">
-                            <button onClick={() => snapView('front')} className="px-3 py-1.5 bg-neutral-800 hover:bg-blue-600/50 text-xs font-medium text-neutral-300 rounded transition-colors">Front</button>
-                            <button onClick={() => snapView('top')} className="px-3 py-1.5 bg-neutral-800 hover:bg-blue-600/50 text-xs font-medium text-neutral-300 rounded transition-colors">Top</button>
-                            <button onClick={() => snapView('side')} className="px-3 py-1.5 bg-neutral-800 hover:bg-blue-600/50 text-xs font-medium text-neutral-300 rounded transition-colors">Side</button>
-                            <button onClick={() => snapView('iso')} className="px-3 py-1.5 bg-neutral-800 hover:bg-blue-600/50 text-xs font-medium text-neutral-300 rounded transition-colors">Iso</button>
+                            <button onClick={() => snapView('front')} className="px-3 py-1.5 bg-[#1E1E1E] hover:bg-[#252525] text-xs font-medium text-[#888888] hover:text-[#F0F0F0] rounded transition-colors">Front</button>
+                            <button onClick={() => snapView('top')} className="px-3 py-1.5 bg-[#1E1E1E] hover:bg-[#252525] text-xs font-medium text-[#888888] hover:text-[#F0F0F0] rounded transition-colors">Top</button>
+                            <button onClick={() => snapView('side')} className="px-3 py-1.5 bg-[#1E1E1E] hover:bg-[#252525] text-xs font-medium text-[#888888] hover:text-[#F0F0F0] rounded transition-colors">Side</button>
+                            <button onClick={() => snapView('iso')} className="px-3 py-1.5 bg-[#1E1E1E] hover:bg-[#252525] text-xs font-medium text-[#888888] hover:text-[#F0F0F0] rounded transition-colors">Iso</button>
                         </div>
-                        <button onClick={() => setAutoRotate(!autoRotate)} className={`mt-1 flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${autoRotate ? 'bg-blue-600 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]' : 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'}`}>
+                        <button onClick={() => setAutoRotate(!autoRotate)} className={`mt-1 flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${autoRotate ? 'bg-blue-600 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]' : 'bg-[#1E1E1E] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}>
                             {autoRotate ? <Pause size={12} /> : <Play size={12} />}
                             {autoRotate ? 'Stop Rotation' : 'Auto-Rotate'}
                         </button>
                     </div>
 
-                    <div className="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl p-3 flex flex-col gap-2">
-                        <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Visuals</span>
+                    <div className="bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-lg shadow-xl p-3 flex flex-col gap-2">
+                        <span className="text-[10px] uppercase font-medium text-[#888888] tracking-wider">Visuals</span>
                         <div className="flex flex-col gap-2">
                             <button
                                 onClick={() => setRenderMode((prev) => (prev + 1) % 5)}
@@ -1144,7 +1144,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     renderMode === 2 ? 'bg-amber-600/90 text-white shadow-[0_0_15px_rgba(217,119,6,0.4)]' :
                                     renderMode === 3 ? 'bg-rose-600/90 text-white shadow-[0_0_15px_rgba(225,29,72,0.4)]' :
                                     renderMode === 4 ? 'bg-indigo-600/90 text-white shadow-[0_0_15px_rgba(79,70,229,0.4)]' :
-                                    'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'
+                                    'bg-[#1E1E1E] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'
                                 }`}
                                 title="Toggle Render Mode: Styled -> Ghost -> Actual -> Thermal -> Stress"
                             >
@@ -1180,21 +1180,21 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     )}
 
 
-                    <div className="space-y-3 pt-4 border-t border-white/5">
-                        <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider flex items-center justify-between">
+                    <div className="space-y-3 pt-4 border-t border-[#2A2A2A]">
+                        <span className="text-[10px] uppercase font-medium text-[#888888] tracking-wider flex items-center justify-between">
                             <span>Jarvis AI</span>
                             {isListening && <span className="flex h-2 w-2 relative"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span></span>}
                         </span>
                         <div className="flex flex-col gap-2">
                             <button
                                 onClick={() => setIsListening(!isListening)}
-                                className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${isListening ? 'bg-red-600/90 text-white shadow-[0_0_15px_rgba(220,38,38,0.4)] animate-pulse' : 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'}`}
+                                className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${isListening ? 'bg-red-600/90 text-white shadow-[0_0_15px_rgba(220,38,38,0.4)] animate-pulse' : 'bg-[#1E1E1E] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}
                             >
                                 {isListening ? <Mic size={12} /> : <MicOff size={12} />}
                                 {isListening ? 'Listening...' : 'Voice Control'}
                             </button>
                             {transcript && (
-                                <div className="text-[10px] text-neutral-400 italic bg-black/40 p-2 rounded border border-white/5 truncate px-1">
+                                <div className="text-[10px] text-[#888888] italic bg-[#1E1E1E] p-2 rounded border border-[#2A2A2A] truncate px-1">
                                     "{transcript}"
                                 </div>
                             )}
@@ -1204,11 +1204,11 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     {/* Remodeling Overlay */}
                     {isRemodeling && (
                         <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-xl">
-                            <div className="flex flex-col items-center gap-4 bg-neutral-900 border border-neutral-800 p-6 rounded-2xl shadow-2xl">
+                            <div className="flex flex-col items-center gap-4 bg-[#161616] border border-[#2A2A2A] p-6 rounded-2xl shadow-2xl">
                                 <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
                                 <div className="text-center">
-                                    <h3 className="text-white font-medium">Acquiring New Model</h3>
-                                    <p className="text-neutral-400 text-sm mt-1">Scraping GrabCAD for alternatives...</p>
+                                    <h3 className="text-[#F0F0F0] font-medium">Acquiring New Model</h3>
+                                    <p className="text-[#888888] text-sm mt-1">Scraping GrabCAD for alternatives...</p>
                                 </div>
                             </div>
                         </div>
@@ -1218,7 +1218,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
 
                     {selectedMesh && (
-                        <div className="space-y-3 pt-4 border-t border-white/5 animate-in fade-in slide-in-from-left-4 duration-300">
+                        <div className="space-y-3 pt-4 border-t border-[#2A2A2A] animate-in fade-in slide-in-from-left-4 duration-300">
                             <span className="text-[10px] uppercase font-bold text-cyan-500 tracking-wider">Part Selected</span>
                             <div className="flex flex-col gap-2">
                                 <button
@@ -1249,7 +1249,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                         </div>
                     )}
 
-                    <div className="space-y-3 pt-4 border-t border-white/5">
+                    <div className="space-y-3 pt-4 border-t border-[#2A2A2A]">
                         <div className="flex items-center justify-between">
                             <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Annotation</span>
                             <button
@@ -1264,7 +1264,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 setIsAnnotating(!isAnnotating);
                                 if (isMeasuring) setIsMeasuring(false);
                             }}
-                            className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${isAnnotating ? 'bg-purple-600 text-white shadow-[0_0_15px_rgba(147,51,234,0.4)]' : 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'}`}
+                            className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${isAnnotating ? 'bg-purple-600 text-white shadow-[0_0_15px_rgba(147,51,234,0.4)]' : 'bg-[#1E1E1E] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}
                         >
                             <MessageSquare size={12} />
                             {isAnnotating ? 'Click model to add note' : 'Add Note'}
@@ -1272,14 +1272,14 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     </div>
 
                     {/* Exploded View Slider */}
-                    <div className="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl p-3 flex flex-col gap-2">
-                        <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Environment Studio</span>
+                    <div className="bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-lg shadow-xl p-3 flex flex-col gap-2">
+                        <span className="text-[10px] uppercase font-medium text-[#888888] tracking-wider">Environment Studio</span>
                         <div className="grid grid-cols-2 gap-1">
                             {(['warehouse', 'studio', 'city', 'dawn'] as const).map(preset => (
                                 <button
                                     key={preset}
                                     onClick={() => setEnvPreset(preset)}
-                                    className={`px-2 py-1.5 rounded text-[10px] font-bold uppercase transition-colors ${envPreset === preset ? 'bg-indigo-600 text-white shadow-[0_0_10px_rgba(79,70,229,0.4)]' : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700'}`}
+                                    className={`px-2 py-1.5 rounded text-[10px] font-medium uppercase transition-colors ${envPreset === preset ? 'bg-indigo-600 text-white shadow-[0_0_10px_rgba(79,70,229,0.4)]' : 'bg-[#1E1E1E] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}
                                 >
                                     {preset}
                                 </button>
@@ -1288,10 +1288,10 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     </div>
 
                     {/* Exploded View Slider */}
-                    <div className="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl p-3 flex flex-col gap-2">
+                    <div className="bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-lg shadow-xl p-3 flex flex-col gap-2">
                         <div className="flex items-center justify-between">
-                            <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Exploded View</span>
-                            <span className="text-[10px] text-blue-400 font-mono">{explosion}%</span>
+                            <span className="text-[10px] uppercase font-medium text-[#888888] tracking-wider">Exploded View</span>
+                            <span className="text-[10px] text-[#888888] font-mono">{explosion}%</span>
                         </div>
                         <input
                             type="range"
@@ -1299,20 +1299,20 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             max="100"
                             value={explosion}
                             onChange={(e) => setExplosion(parseInt(e.target.value))}
-                            className="w-full accent-blue-500 h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer mt-1"
+                            className="w-full accent-[#888888] h-1.5 bg-[#1E1E1E] rounded-lg appearance-none cursor-pointer mt-1"
                         />
                     </div>
 
                     {/* Cross-Section Tool */}
-                    <div className="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl p-3 flex flex-col gap-2">
+                    <div className="bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-lg shadow-xl p-3 flex flex-col gap-2">
                         <div className="flex items-center justify-between">
-                            <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Cross-Section</span>
+                            <span className="text-[10px] uppercase font-medium text-[#888888] tracking-wider">Cross-Section</span>
                             <div className="flex gap-1">
                                 {(['x', 'y', 'z'] as const).map(axis => (
                                     <button
                                         key={axis}
                                         onClick={() => setClipAxis(clipAxis === axis ? null : axis)}
-                                        className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold uppercase transition-colors ${clipAxis === axis ? 'bg-blue-600 text-white shadow-[0_0_10px_rgba(37,99,235,0.4)]' : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700'}`}
+                                        className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold uppercase transition-colors ${clipAxis === axis ? 'bg-blue-600 text-white shadow-[0_0_10px_rgba(37,99,235,0.4)]' : 'bg-[#1E1E1E] text-[#888888] hover:bg-[#252525]'}`}
                                     >
                                         {axis}
                                     </button>
@@ -1326,28 +1326,28 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 max="100"
                                 value={clipValue}
                                 onChange={(e) => setClipValue(parseInt(e.target.value))}
-                                className="w-full accent-blue-500 h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer mt-1"
+                                className="w-full accent-blue-500 h-1.5 bg-[#1E1E1E] rounded-lg appearance-none cursor-pointer mt-1"
                             />
                         )}
                     </div>
 
                     {/* Measurement Tool */}
-                    <div className="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl p-3 flex flex-col gap-2">
+                    <div className="bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-lg shadow-xl p-3 flex flex-col gap-2">
                         <div className="flex items-center justify-between">
-                            <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Distance Tool</span>
+                            <span className="text-[10px] uppercase font-medium text-[#888888] tracking-wider">Distance Tool</span>
                         </div>
                         <button
                             onClick={() => {
                                 setIsMeasuring(!isMeasuring);
                                 if (isMeasuring) setMeasurePoints([]);
                             }}
-                            className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${isMeasuring ? 'bg-yellow-600 text-white shadow-[0_0_15px_rgba(202,138,4,0.4)]' : 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'}`}
+                            className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded text-xs font-medium transition-colors ${isMeasuring ? 'bg-yellow-600 text-white shadow-[0_0_15px_rgba(202,138,4,0.4)]' : 'bg-[#1E1E1E] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}
                         >
                             <Ruler size={12} />
                             {isMeasuring ? 'Measuring Active' : 'Measure Gap'}
                         </button>
                         {isMeasuring && measurePoints.length > 0 && (
-                            <span className="text-[10px] text-neutral-400 text-center leading-tight">
+                            <span className="text-[10px] text-[#888888] text-center leading-tight">
                                 {measurePoints.length === 1 ? 'Click 2nd point...' : 'Click to start new measurement'}
                             </span>
                         )}
@@ -1357,7 +1357,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
             {/* Loading Overlay */}
             {isLoading && (
-                <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#060810]/85 backdrop-blur-md gap-4">
+                <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#0A0A0A]/85 backdrop-blur-md gap-4">
                     <Loader2 size={40} className="text-blue-500 animate-spin" />
                     <div className="flex flex-col items-center gap-1">
                         <span className="text-blue-400 text-sm font-medium">Parsing High-Fidelity B-Rep CAD...</span>
@@ -1380,7 +1380,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
             {/* Error Overlay */}
             {error && !isLoading && (
-                <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#060810]/85 backdrop-blur-md gap-4">
+                <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#0A0A0A]/85 backdrop-blur-md gap-4">
                     <Info size={40} className="text-red-500" />
                     <span className="text-red-400 text-sm font-medium px-6 text-center">{error}</span>
                 </div>
@@ -1388,16 +1388,16 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
             {/* Empty State Overlay */}
             {(!cadUrls || cadUrls.length === 0) && !designData && !isLoading && !error && (
-                <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#060810]/50 backdrop-blur-sm gap-4">
-                    <Box size={40} className="text-neutral-500" />
-                    <span className="text-neutral-400 text-sm font-medium">No 3D CAD available for this model yet.</span>
+                <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#0A0A0A]/50 backdrop-blur-sm gap-4">
+                    <Box size={40} className="text-[#555555]" />
+                    <span className="text-[#888888] text-sm font-medium">No 3D CAD available for this model yet.</span>
                 </div>
             )}
 
             {/* 3D Canvas */}
             <div className="w-full h-full">
                 <Canvas camera={{ position: [200, 150, 250], fov: 45 }} gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.1, localClippingEnabled: true }}>
-                    <color attach="background" args={['#0e1117']} />
+                    <color attach="background" args={['#0A0A0A']} />
 
                     <ambientLight intensity={0.5} color="#ffffff" />
                     <spotLight position={[100, 300, 100]} intensity={1.5} angle={0.5} penumbra={1} castShadow color="#fffaf0" />
@@ -1495,7 +1495,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 depthTest={false}
                             />
                             <Html position={measurePoints[0].clone().lerp(measurePoints[1], 0.5)} center zIndexRange={[100, 0]}>
-                                <div className="bg-neutral-900/90 text-yellow-400 font-mono text-xs px-2 py-1 rounded border border-yellow-700/50 shadow-xl pointer-events-none whitespace-nowrap">
+                                <div className="bg-[#161616]/90 text-yellow-400 font-mono text-xs px-2 py-1 rounded border border-yellow-700/50 shadow-xl pointer-events-none whitespace-nowrap">
                                     {(measurePoints[0].distanceTo(measurePoints[1]) / autoScale).toFixed(2)} units
                                 </div>
                             </Html>
@@ -1539,30 +1539,30 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                 <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
                     <button
                         onClick={() => setShowBOM(!showBOM)}
-                        className={`flex items-center gap-2 px-3 py-2 rounded-lg border shadow-xl backdrop-blur-md transition-colors ${showBOM ? 'bg-blue-600/90 border-blue-500 text-white' : 'bg-neutral-900/80 border-neutral-800 text-neutral-200 hover:bg-neutral-800'}`}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg border shadow-xl backdrop-blur-md transition-colors ${showBOM ? 'bg-blue-600/90 border-blue-500 text-white' : 'bg-[#161616]/90 border-[#2A2A2A] text-[#888888] hover:bg-[#1E1E1E] hover:text-[#F0F0F0]'}`}
                     >
                         <ListTree size={16} />
                         <span className="text-xs font-medium">Assembly Tree ({meshes.length})</span>
                     </button>
 
                     {showBOM && (
-                        <div className="w-64 max-h-[60vh] bg-neutral-900/90 backdrop-blur-md border border-neutral-800 rounded-lg shadow-xl overflow-hidden flex flex-col">
-                            <div className="p-3 border-b border-neutral-800 flex items-center justify-between">
-                                <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Bill of Materials</span>
+                        <div className="w-64 max-h-[60vh] bg-[#161616]/95 backdrop-blur-md border border-[#2A2A2A] rounded-lg shadow-xl overflow-hidden flex flex-col">
+                            <div className="p-3 border-b border-[#2A2A2A] flex items-center justify-between">
+                                <span className="text-[10px] uppercase tracking-widest text-[#888888] font-medium">Bill of Materials</span>
                                 <button
                                     onClick={() => setHiddenMeshes(new Set())}
-                                    className="text-[10px] text-blue-400 hover:text-blue-300 transition-colors"
+                                    className="text-[10px] text-[#888888] hover:text-[#F0F0F0] transition-colors"
                                 >
                                     Show All
                                 </button>
                             </div>
-                            <div className="p-2 border-b border-neutral-800">
+                            <div className="p-2 border-b border-[#2A2A2A]">
                                 <input
                                     type="text"
                                     placeholder="Search components..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full bg-black/40 border border-neutral-700/50 rounded px-2 py-1.5 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
+                                    className="w-full bg-[#0A0A0A] border border-[#2A2A2A] rounded px-2 py-1.5 text-xs text-[#F0F0F0] placeholder-[#555555] focus:outline-none focus:border-[#444444] transition-colors"
                                 />
                             </div>
                             <div className="overflow-y-auto flex-1 p-2 flex flex-col gap-1 custom-scrollbar">
@@ -1574,16 +1574,16 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                     return (
                                         <div
                                             key={mesh.id}
-                                            className={`flex items-center justify-between px-2 py-1.5 rounded transition-colors cursor-pointer ${isSelected ? 'bg-blue-600/20 border border-blue-500/30' : isHovered ? 'bg-neutral-800' : 'hover:bg-neutral-800/50 border border-transparent'}`}
+                                            className={`flex items-center justify-between px-2 py-1.5 rounded transition-colors cursor-pointer ${isSelected ? 'bg-[#252525] border border-[#444444]' : isHovered ? 'bg-[#1E1E1E]' : 'hover:bg-[#1E1E1E] border border-transparent'}`}
                                             onMouseEnter={() => setHoveredMesh(mesh.id)}
                                             onMouseLeave={() => setHoveredMesh(null)}
                                             onClick={() => setSelectedMesh(isSelected ? null : mesh.id)}
                                         >
-                                            <span className={`text-xs truncate max-w-[140px] ${isHidden ? 'text-neutral-500 line-through' : 'text-neutral-300'}`}>
+                                            <span className={`text-xs truncate max-w-[140px] ${isHidden ? 'text-[#555555] line-through' : 'text-[#F0F0F0]'}`}>
                                                 {mesh.name}
                                             </span>
                                             <button
-                                                className="text-neutral-500 hover:text-neutral-300 transition-colors p-1"
+                                                className="text-[#555555] hover:text-[#F0F0F0] transition-colors p-1"
                                                 onClick={(e) => { e.stopPropagation(); toggleMeshVisibility(mesh.id); }}
                                             >
                                                 {isHidden ? <EyeOff size={14} /> : <Eye size={14} />}
@@ -1594,15 +1594,15 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             </div>
 
                             {designData?.missing && designData.missing.length > 0 && (
-                                <div className="p-3 border-t border-neutral-800 flex flex-col gap-2">
-                                    <span className="text-[10px] uppercase tracking-widest text-red-400 font-bold">Missing Parts (No CAD)</span>
+                                <div className="p-3 border-t border-[#2A2A2A] flex flex-col gap-2">
+                                    <span className="text-[10px] uppercase tracking-widest text-[#FF4444] font-medium">Missing Parts (No CAD)</span>
                                     <div className="flex flex-col gap-1.5 max-h-[20vh] overflow-y-auto custom-scrollbar">
                                         {designData.missing.map((item: any, idx: number) => {
                                             const partName = item.name;
                                             const status = generatingParts[partName];
                                             return (
-                                                <div key={idx} className="flex flex-col gap-1 p-2 bg-neutral-950/60 rounded border border-neutral-800/60">
-                                                    <span className="text-[11px] text-neutral-300 font-medium truncate" title={partName}>
+                                                <div key={idx} className="flex flex-col gap-1 p-2 bg-[#1E1E1E] rounded border border-[#2A2A2A]">
+                                                    <span className="text-[11px] text-[#F0F0F0] font-medium truncate" title={partName}>
                                                         {partName}
                                                     </span>
                                                     {status ? (
@@ -1630,7 +1630,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
             {/* Inspector Sidebar for Component Mapping */}
             {selectedMesh && (
-                <div className="absolute top-0 right-0 h-full w-80 bg-neutral-900/95 backdrop-blur-xl border-l border-neutral-800 shadow-2xl z-30 flex flex-col transform transition-transform duration-300 ease-in-out translate-x-0">
+                <div className="absolute top-0 right-0 h-full w-80 bg-[#161616]/95 backdrop-blur-xl border-l border-[#2A2A2A] shadow-2xl z-30 flex flex-col transform transition-transform duration-300 ease-in-out translate-x-0">
                     {(() => {
                         const activeMesh = meshes.find(m => m.id === selectedMesh);
                         if (!activeMesh) return null;
@@ -1639,36 +1639,36 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                             <div className="h-full flex flex-col p-5 overflow-y-auto custom-scrollbar">
                                 <div className="flex justify-between items-center mb-6">
                                     <div className="flex items-center gap-2">
-                                        <Info size={16} className="text-cyan-400" />
-                                        <h3 className="text-xs uppercase tracking-widest text-neutral-400 font-bold">Component Inspector</h3>
+                                        <Info size={16} className="text-[#888888]" />
+                                        <h3 className="text-xs uppercase tracking-widest text-[#888888] font-medium">Component Inspector</h3>
                                     </div>
-                                    <button onClick={() => setSelectedMesh(null)} className="text-neutral-500 hover:text-white transition-colors">✕</button>
+                                    <button onClick={() => setSelectedMesh(null)} className="text-[#555555] hover:text-[#F0F0F0] transition-colors">✕</button>
                                 </div>
 
-                                <h2 className="text-lg font-bold text-white mb-2">{activeMesh.name}</h2>
-                                <p className="text-xs text-neutral-400 mb-6 pb-4 border-b border-neutral-800">
+                                <h2 className="text-lg font-semibold text-[#F0F0F0] mb-2">{activeMesh.name}</h2>
+                                <p className="text-xs text-[#888888] mb-6 pb-4 border-b border-[#2A2A2A]">
                                     {data.function}
                                 </p>
 
-                                <h4 className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider mb-3">Transformation Tools</h4>
+                                <h4 className="text-[10px] uppercase font-medium text-[#888888] tracking-wider mb-3">Transformation Tools</h4>
                                 <div className="grid grid-cols-3 gap-2 mb-6">
                                     <button
                                         onClick={() => setTransformMode(transformMode === 'translate' ? null : 'translate')}
-                                        className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'translate' ? 'bg-cyan-600/90 border-cyan-400 text-white' : 'bg-black/40 border-neutral-800/50 text-neutral-400 hover:bg-neutral-800'}`}
+                                        className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'translate' ? 'bg-cyan-600/90 border-cyan-400 text-white' : 'bg-[#1E1E1E] border-[#2A2A2A] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}
                                     >
                                         <Move size={16} />
                                         <span className="text-[10px] font-medium">Move</span>
                                     </button>
                                     <button
                                         onClick={() => setTransformMode(transformMode === 'rotate' ? null : 'rotate')}
-                                        className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'rotate' ? 'bg-amber-600/90 border-amber-400 text-white' : 'bg-black/40 border-neutral-800/50 text-neutral-400 hover:bg-neutral-800'}`}
+                                        className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'rotate' ? 'bg-amber-600/90 border-amber-400 text-white' : 'bg-[#1E1E1E] border-[#2A2A2A] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}
                                     >
                                         <RotateCw size={16} />
                                         <span className="text-[10px] font-medium">Rotate</span>
                                     </button>
                                     <button
                                         onClick={() => setTransformMode(transformMode === 'scale' ? null : 'scale')}
-                                        className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'scale' ? 'bg-rose-600/90 border-rose-400 text-white' : 'bg-black/40 border-neutral-800/50 text-neutral-400 hover:bg-neutral-800'}`}
+                                        className={`flex flex-col items-center justify-center gap-1 p-2 rounded border transition-colors ${transformMode === 'scale' ? 'bg-rose-600/90 border-rose-400 text-white' : 'bg-[#1E1E1E] border-[#2A2A2A] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}
                                     >
                                         <Maximize2 size={16} />
                                         <span className="text-[10px] font-medium">Stretch</span>
@@ -1676,38 +1676,38 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                                 </div>
                                 <button
                                     onClick={() => setMagnetEnabled(!magnetEnabled)}
-                                    className={`w-full flex items-center justify-center gap-2 mb-6 px-3 py-2 rounded text-xs font-medium border transition-colors ${magnetEnabled ? 'bg-fuchsia-600/40 border-fuchsia-500 text-fuchsia-300 shadow-[0_0_15px_rgba(192,38,211,0.3)]' : 'bg-black/40 border-neutral-800/50 text-neutral-400 hover:bg-neutral-800'}`}
+                                    className={`w-full flex items-center justify-center gap-2 mb-6 px-3 py-2 rounded text-xs font-medium border transition-colors ${magnetEnabled ? 'bg-fuchsia-600/40 border-fuchsia-500 text-fuchsia-300 shadow-[0_0_15px_rgba(192,38,211,0.3)]' : 'bg-[#1E1E1E] border-[#2A2A2A] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0]'}`}
                                 >
                                     <Magnet size={14} />
                                     {magnetEnabled ? "Magnet Snap: ON" : "Magnet Snap: OFF"}
                                 </button>
 
-                                <h4 className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider mb-3">Specifications</h4>
-                                <div className="bg-black/40 rounded border border-neutral-800/50 p-3 flex flex-col gap-2 mb-6">
+                                <h4 className="text-[10px] uppercase font-medium text-[#888888] tracking-wider mb-3">Specifications</h4>
+                                <div className="bg-[#0A0A0A] rounded border border-[#2A2A2A] p-3 flex flex-col gap-2 mb-6">
                                     {data.specs.map((spec, i) => (
                                         <div key={i} className="flex justify-between items-center text-xs">
-                                            <span className="text-neutral-500">{spec.label}</span>
-                                            <span className="text-cyan-300 font-mono text-right">{spec.value}</span>
+                                            <span className="text-[#888888]">{spec.label}</span>
+                                            <span className="text-[#F0F0F0] font-mono text-right">{spec.value}</span>
                                         </div>
                                     ))}
                                 </div>
 
-                                <h4 className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider mb-3">Economics</h4>
-                                <div className="bg-black/40 rounded border border-neutral-800/50 p-3 flex flex-col gap-2 mb-6">
+                                <h4 className="text-[10px] uppercase font-medium text-[#888888] tracking-wider mb-3">Economics</h4>
+                                <div className="bg-[#0A0A0A] rounded border border-[#2A2A2A] p-3 flex flex-col gap-2 mb-6">
                                     <div className="flex justify-between items-center text-xs">
-                                        <span className="text-neutral-500">MSRP</span>
+                                        <span className="text-[#888888]">MSRP</span>
                                         <span className="text-emerald-400 font-bold">{data.cost}</span>
                                     </div>
                                     <div className="flex justify-between items-center text-xs">
-                                        <span className="text-neutral-500">Manufacturer</span>
-                                        <span className="text-white">{data.manufacturer}</span>
+                                        <span className="text-[#888888]">Manufacturer</span>
+                                        <span className="text-[#F0F0F0]">{data.manufacturer}</span>
                                     </div>
                                 </div>
 
-                                <h4 className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider mb-3">Alternatives</h4>
+                                <h4 className="text-[10px] uppercase font-medium text-[#888888] tracking-wider mb-3">Alternatives</h4>
                                 <div className="flex flex-wrap gap-2 mb-8">
                                     {data.alternatives.map((alt, i) => (
-                                        <span key={i} className="px-2 py-1 bg-neutral-800 border border-neutral-700 rounded text-[10px] text-neutral-300 hover:bg-neutral-700 hover:text-white cursor-pointer transition-colors">
+                                        <span key={i} className="px-2 py-1 bg-[#1E1E1E] border border-[#2A2A2A] rounded text-[10px] text-[#888888] hover:bg-[#252525] hover:text-[#F0F0F0] cursor-pointer transition-colors">
                                             {alt}
                                         </span>
                                     ))}
@@ -1732,48 +1732,48 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
             {/* Central Toolbar */}
             <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
-                <div className="flex items-center gap-1 p-1.5 bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 rounded-2xl shadow-2xl">
+                <div className="flex items-center gap-1 p-1.5 bg-[#161616]/90 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl shadow-2xl">
                     <button
                         onClick={() => setAutoRotate(!autoRotate)}
-                        className={`p-2.5 rounded-xl transition-all ${autoRotate ? 'bg-blue-600/20 text-blue-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
+                        className={`p-2.5 rounded-xl transition-all ${autoRotate ? 'bg-blue-600/20 text-blue-400' : 'text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525]'}`}
                         title="Auto Rotate"
                     >
                         <RotateCw size={18} />
                     </button>
-                    <div className="w-px h-6 bg-neutral-800 mx-1" />
+                    <div className="w-px h-6 bg-[#2A2A2A] mx-1" />
                     <button
                         onClick={() => setIsMeasuring(!isMeasuring)}
-                        className={`p-2.5 rounded-xl transition-all ${isMeasuring ? 'bg-amber-600/20 text-amber-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
+                        className={`p-2.5 rounded-xl transition-all ${isMeasuring ? 'bg-amber-600/20 text-amber-400' : 'text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525]'}`}
                         title="Measure Distance"
                     >
                         <Ruler size={18} />
                     </button>
                     <button
                         onClick={() => setRenderMode((renderMode + 1) % 3)}
-                        className={`p-2.5 rounded-xl transition-all ${renderMode === 1 ? 'bg-purple-600/20 text-purple-400' : renderMode === 2 ? 'bg-orange-600/20 text-orange-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
+                        className={`p-2.5 rounded-xl transition-all ${renderMode === 1 ? 'bg-purple-600/20 text-purple-400' : renderMode === 2 ? 'bg-orange-600/20 text-orange-400' : 'text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525]'}`}
                         title={renderMode === 0 ? "Standard View" : renderMode === 1 ? "Ghost View" : "Original CAD View"}
                     >
                         <Layers size={18} />
                     </button>
-                    <div className="w-px h-6 bg-neutral-800 mx-1" />
+                    <div className="w-px h-6 bg-[#2A2A2A] mx-1" />
                     <button
                         onClick={() => setShowBoundingBox(!showBoundingBox)}
-                        className={`p-2.5 rounded-xl transition-all ${showBoundingBox ? 'bg-cyan-600/20 text-cyan-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
+                        className={`p-2.5 rounded-xl transition-all ${showBoundingBox ? 'bg-cyan-600/20 text-cyan-400' : 'text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525]'}`}
                         title="Bounding Box & Clearances"
                     >
                         <BoxSelect size={18} />
                     </button>
-                    <div className="w-px h-6 bg-neutral-800 mx-1" />
+                    <div className="w-px h-6 bg-[#2A2A2A] mx-1" />
                     <button
                         onClick={() => setExplosion(explosion === 0 ? 50 : 0)}
-                        className={`p-2.5 rounded-xl transition-all ${explosion > 0 ? 'bg-orange-600/20 text-orange-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
+                        className={`p-2.5 rounded-xl transition-all ${explosion > 0 ? 'bg-orange-600/20 text-orange-400' : 'text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525]'}`}
                         title="Exploded View"
                     >
                         <Network size={18} />
                     </button>
                     <button
                         onClick={() => setClipAxis(clipAxis ? null : 'x')}
-                        className={`p-2.5 rounded-xl transition-all ${clipAxis ? 'bg-emerald-600/20 text-emerald-400' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
+                        className={`p-2.5 rounded-xl transition-all ${clipAxis ? 'bg-emerald-600/20 text-emerald-400' : 'text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525]'}`}
                         title="Cross Section"
                     >
                         <Scissors size={18} />
@@ -1782,7 +1782,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
                 {/* Secondary Panels (Clipping & Explosion Sliders) */}
                 {(clipAxis || explosion > 0) && (
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-64 p-3 bg-neutral-900/90 backdrop-blur-xl border border-neutral-800 rounded-xl shadow-xl flex flex-col gap-3">
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-64 p-3 bg-[#161616]/95 backdrop-blur-xl border border-[#2A2A2A] rounded-xl shadow-xl flex flex-col gap-3">
                         {clipAxis && (
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center justify-between">
@@ -1829,9 +1829,9 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
 
             {/* Status Info */}
             <div className="absolute bottom-4 left-4 z-10 pointer-events-none">
-                <div className="px-3 py-1.5 bg-blue-900/30 border border-blue-500/30 rounded-full flex items-center gap-2 backdrop-blur-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                    <span className="text-[10px] font-medium text-blue-300">WASM Parser Active</span>
+                <div className="px-3 py-1.5 bg-[#161616]/80 border border-[#2A2A2A] rounded-full flex items-center gap-2 backdrop-blur-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#888888] animate-pulse" />
+                    <span className="text-[10px] font-medium text-[#888888]">WASM Parser Active</span>
                 </div>
             </div>
         </div>

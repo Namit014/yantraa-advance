@@ -207,36 +207,44 @@ export function VercelV0Chat() {
     };
 
     return (
-        <div className={cn("flex w-full h-screen bg-black overflow-hidden transition-all duration-500", messages.length === 0 ? "justify-center" : "justify-start")}>
+        <div className={cn("flex w-full h-screen bg-[#0A0A0A] overflow-hidden transition-all duration-500", messages.length === 0 ? "justify-center" : "justify-start")}>
             {/* Main Chat Container */}
             <div className={cn("flex flex-col relative transition-all duration-500",
-                messages.length === 0 ? "w-full max-w-4xl p-4 items-center" : "w-[400px] border-r border-neutral-800 bg-neutral-950 shrink-0"
+                messages.length === 0 ? "w-full max-w-4xl p-4 items-center" : "w-[400px] border-r border-[#2A2A2A] bg-[#0A0A0A] shrink-0"
             )}>
                 {messages.length === 0 ? (
-                    <div className="flex-1 flex flex-col items-center justify-center space-y-8 w-full mt-20">
-                        <h1 className="text-4xl font-bold text-white text-center">
-                            Yantra AI
+                    <div className="flex-1 flex flex-col items-center justify-center space-y-3 w-full mt-20">
+                        {/* Brand wordmark */}
+                        <div className="mb-2 flex items-center gap-2">
+                            <div className="w-7 h-7 rounded-lg bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-xs font-bold text-[#F0F0F0]">Y</div>
+                            <span className="text-xs font-semibold tracking-widest text-[#555555] uppercase">Yantraa</span>
+                        </div>
+                        <h1 className="text-3xl font-medium text-[#F0F0F0] text-center leading-tight">
+                            What would you like to build today?
                         </h1>
+                        <p className="text-sm text-[#555555] text-center max-w-md">
+                            Describe your robot or physical product and let AI design it.
+                        </p>
                     </div>
                 ) : (
                     <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-8 px-4 flex flex-col">
                         {messages.map((msg, idx) => (
                             <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
                                 <div className={cn(
-                                    "max-w-[80%] rounded-2xl px-5 py-4",
+                                    "max-w-[82%] rounded-2xl px-4 py-3",
                                     msg.role === 'user'
-                                        ? "bg-neutral-800 text-white"
-                                        : "bg-transparent text-neutral-200"
+                                        ? "bg-[#1E1E1E] border border-[#2A2A2A] text-[#F0F0F0]"
+                                        : "bg-transparent text-[#F0F0F0]"
                                 )}>
                                     {msg.role === 'assistant' && (
                                         <div className="flex items-center gap-2 mb-2">
-                                            <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold">
+                                            <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0]">
                                                 Y
                                             </div>
-                                            <span className="font-semibold text-sm text-neutral-400">Yantra AI</span>
+                                            <span className="font-medium text-xs text-[#888888]">Yantra AI</span>
                                         </div>
                                     )}
-                                    <div className="whitespace-pre-wrap leading-relaxed text-[15px]">
+                                    <div className="whitespace-pre-wrap leading-relaxed text-[14px] text-[#F0F0F0]">
                                         {msg.content}
                                     </div>
                                 </div>
@@ -244,14 +252,14 @@ export function VercelV0Chat() {
                         ))}
                         {isLoading && (
                             <div className="flex w-full justify-start">
-                                <div className="bg-transparent text-neutral-200 rounded-2xl px-5 py-4 flex items-center gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold animate-pulse">
+                                <div className="bg-transparent text-[#F0F0F0] rounded-2xl px-4 py-3 flex items-center gap-3">
+                                    <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0] animate-pulse">
                                         Y
                                     </div>
                                     <div className="flex gap-1 items-center">
-                                        <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                                        <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                                        <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></div>
+                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce"></div>
                                     </div>
                                 </div>
                             </div>
@@ -264,12 +272,12 @@ export function VercelV0Chat() {
                 {/* Input Area */}
                 <div className={cn("w-full transition-all duration-300",
                     messages.length === 0
-                        ? "max-w-3xl pb-10"
-                        : "absolute bottom-0 left-0 w-full p-4 bg-neutral-950/80 backdrop-blur-md border-t border-neutral-800 z-10"
+                        ? "max-w-[580px] pb-10"
+                        : "absolute bottom-0 left-0 w-full p-4 bg-[#0A0A0A]/90 backdrop-blur-md border-t border-[#2A2A2A] z-10"
                 )}>
                     {cadPrompt.available && (
-                        <div className="mb-4 bg-blue-900/40 border border-blue-500/50 rounded-xl p-4 flex flex-col gap-3 shadow-xl animate-in slide-in-from-bottom-2">
-                            <p className="text-blue-100 text-sm font-medium">
+                        <div className="mb-3 bg-[#1E1E1E] border border-[#2A2A2A] rounded-xl p-4 flex flex-col gap-3 animate-in slide-in-from-bottom-2">
+                            <p className="text-[#F0F0F0] text-sm font-medium">
                                 {cadPrompt.urls.length > 1 
                                     ? `A highly detailed 3D CAD assembly with ${cadPrompt.urls.length} parts is available in our knowledge base. Do you want to view it?` 
                                     : "A highly detailed 3D CAD model for this robot is available in our knowledge base. Do you want to view it?"}
@@ -281,18 +289,18 @@ export function VercelV0Chat() {
                                         setActiveTab('cad');
                                         setCadPrompt({ available: false, urls: [] });
                                     }}
-                                    className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded-lg text-sm transition-colors font-medium">
+                                    className="bg-[#F0F0F0] hover:bg-white text-black px-4 py-1.5 rounded-lg text-xs transition-colors font-semibold">
                                     Yes, View CAD
                                 </button>
                                 <button 
                                     onClick={() => setCadPrompt({ available: false, urls: [] })}
-                                    className="bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-1.5 rounded-lg text-sm transition-colors font-medium">
+                                    className="bg-[#252525] hover:bg-[#333333] text-[#F0F0F0] px-4 py-1.5 rounded-lg text-xs transition-colors font-medium border border-[#2A2A2A]">
                                     No
                                 </button>
                             </div>
                         </div>
                     )}
-                    <div className="relative bg-neutral-900 rounded-xl border border-neutral-800 shadow-2xl">
+                    <div className="relative bg-[#1E1E1E] rounded-2xl border border-[#2A2A2A] shadow-2xl">
                         <div className="overflow-y-auto">
                             <Textarea
                                 ref={textareaRef}
@@ -302,16 +310,16 @@ export function VercelV0Chat() {
                                     adjustHeight();
                                 }}
                                 onKeyDown={handleKeyDown}
-                                placeholder="Ask me anything..."
+                                placeholder={messages.length === 0 ? "Try: Make a pick and place robot..." : "Ask me anything..."}
                                 className={cn(
                                     "w-full px-4 py-4",
                                     "resize-none",
                                     "bg-transparent",
                                     "border-none",
-                                    "text-white text-lg",
+                                    "text-[#F0F0F0] text-[15px]",
                                     "focus:outline-none",
                                     "focus-visible:ring-0 focus-visible:ring-offset-0",
-                                    "placeholder:text-neutral-500 placeholder:text-lg",
+                                    "placeholder:text-[#555555] placeholder:text-[15px]",
                                     "min-h-[60px]"
                                 )}
                                 style={{ overflow: "hidden" }}
@@ -319,14 +327,14 @@ export function VercelV0Chat() {
                             />
                         </div>
 
-                        <div className="flex items-center justify-between p-3">
+                        <div className="flex items-center justify-between px-3 pb-3 pt-1">
                             <div className="flex items-center gap-2">
                                 <button
                                     type="button"
-                                    className="group p-2 hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
+                                    className="group p-2 hover:bg-[#252525] rounded-lg transition-colors flex items-center gap-1"
                                 >
-                                    <Paperclip className="w-4 h-4 text-white" />
-                                    <span className="text-xs text-zinc-400 hidden group-hover:inline transition-opacity">
+                                    <Paperclip className="w-4 h-4 text-[#888888]" />
+                                    <span className="text-xs text-[#555555] hidden group-hover:inline transition-opacity">
                                         Attach
                                     </span>
                                 </button>
@@ -334,7 +342,7 @@ export function VercelV0Chat() {
                             <div className="flex items-center gap-2">
                                 <button
                                     type="button"
-                                    className="px-2 py-1.5 rounded-lg text-sm text-zinc-400 transition-colors border border-dashed border-zinc-700 hover:border-zinc-600 hover:bg-zinc-800 flex items-center justify-between gap-1"
+                                    className="px-2 py-1.5 rounded-lg text-xs text-[#888888] transition-colors border border-[#2A2A2A] hover:border-[#444444] hover:bg-[#252525] flex items-center justify-between gap-1"
                                 >
                                     <PlusIcon className="w-4 h-4" />
                                     Project
@@ -346,8 +354,8 @@ export function VercelV0Chat() {
                                     className={cn(
                                         "px-1.5 py-1.5 rounded-lg text-sm transition-colors border flex items-center justify-between gap-1",
                                         value.trim() && !isLoading
-                                            ? "bg-white text-black border-white hover:bg-neutral-200"
-                                            : "text-zinc-500 border-zinc-800 bg-zinc-900"
+                                            ? "bg-[#F0F0F0] text-black border-[#F0F0F0] hover:bg-white"
+                                            : "text-[#555555] border-[#2A2A2A] bg-[#1E1E1E]"
                                     )}
                                 >
                                     <ArrowUpIcon className="w-5 h-5" />
@@ -356,7 +364,7 @@ export function VercelV0Chat() {
                             </div>
                         </div>
                     </div>
-                    <div className="text-center mt-2 text-xs text-neutral-500">
+                    <div className="text-center mt-2 text-xs text-[#555555]">
                         Agentic AI can make mistakes. Consider verifying important information.
                     </div>
                 </div>
@@ -364,24 +372,52 @@ export function VercelV0Chat() {
 
             {/* Right Side Content (Only visible when messages > 0) */}
             {messages.length > 0 && (
-                <div className="flex-1 relative bg-[#0a0a0a] animate-in fade-in duration-500">
-                    {/* Top Nav */}
-                    <div className="absolute top-6 left-1/2 -translate-x-1/2 z-10 flex items-center gap-6 px-6 py-3 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-full shadow-2xl">
-                        <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
-                            <button onClick={() => setActiveTab('mapping')} className={cn("transition-colors", activeTab === 'mapping' ? "text-white" : "hover:text-white")}>Mapping</button>
-                            <button onClick={() => setActiveTab('connection')} className={cn("transition-colors", activeTab === 'connection' ? "text-white" : "hover:text-white")}>Connection</button>
-                            <button onClick={() => {
+                <div className="flex-1 relative bg-[#0A0A0A] animate-in fade-in duration-500">
+                    {/* Top Nav — pill tab bar */}
+                    <div className="absolute top-5 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1 px-1.5 py-1.5 bg-[#161616] border border-[#2A2A2A] rounded-full shadow-2xl">
+                        <button
+                            onClick={() => setActiveTab('mapping')}
+                            className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                                activeTab === 'mapping'
+                                    ? "bg-[#1E1E1E] text-[#F0F0F0] shadow-sm"
+                                    : "text-[#888888] hover:text-[#F0F0F0]"
+                            )}
+                        >
+                            Mapping
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('connection')}
+                            className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                                activeTab === 'connection'
+                                    ? "bg-[#1E1E1E] text-[#F0F0F0] shadow-sm"
+                                    : "text-[#888888] hover:text-[#F0F0F0]"
+                            )}
+                        >
+                            Connection
+                        </button>
+                        <button
+                            onClick={() => {
                                 if (cadPrompt.available) {
                                     setAcceptedCadUrls(cadPrompt.urls);
                                     setCadPrompt({ available: false, urls: [] });
                                 }
                                 setActiveTab('cad');
-                            }} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
-                        </div>
+                            }}
+                            className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                                activeTab === 'cad'
+                                    ? "bg-[#1E1E1E] text-[#F0F0F0] shadow-sm"
+                                    : "text-[#888888] hover:text-[#F0F0F0]"
+                            )}
+                        >
+                            CAD
+                        </button>
                     </div>
 
                     {/* Tab Content */}
-                    <div className="w-full h-full pt-20 pb-4 px-4 relative">
+                    <div className="w-full h-full pt-[60px] pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'cad' && (() => {
