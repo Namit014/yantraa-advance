@@ -2,12 +2,12 @@ import os
 import requests
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 # Using a much smarter free model that reliably outputs JSON
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemini-2.0-flash-lite-preview-02-05:free")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/free")
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 DEFAULT_MODEL = "gemini-2.5-flash"
@@ -68,7 +68,7 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         "temperature": temperature,
         # Cap max_tokens to prevent OpenRouter from estimating the max context window (65k) 
         # which exceeds free tier limits.
-        "max_tokens": 1000,
+        "max_tokens": 1500,
     }
     if response_format == "json_object":
         payload["response_format"] = {"type": "json_object"}
@@ -123,6 +123,7 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
         {"role": "user", "content": prompt}
     ]
     return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
+
 
 import json
 def call_llm_stream(messages: list, temperature: float = 0.7, response_format: str = "text", model: str = None):
