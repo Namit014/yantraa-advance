@@ -1,0 +1,262 @@
+[
+  {
+    "component": "ENS210",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "VDD",
+      "SCL",
+      "SDA",
+      "GND"
+    ],
+    "description": "Relative Humidity and Temperature Sensor with I2C Interface",
+    "keywords": [
+      "relative",
+      "humidity",
+      "temperature",
+      "i2c",
+      "pre-calibrated"
+    ]
+  },
+  {
+    "component": "HDC1080",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "GND",
+      "NC",
+      "VCC",
+      "SCL",
+      "DAP"
+    ],
+    "description": "Low Power,High Accuracy Digital Humidity Sensor with Temperature Sensor",
+    "keywords": [
+      "Temerature",
+      "Humidity",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "HDC2080",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "GND",
+      "ADDR",
+      "DRDY",
+      "VDD",
+      "SCL",
+      "PAD"
+    ],
+    "description": "Low Power Humidity and Temperature Sensor",
+    "keywords": [
+      "Temerature",
+      "Humidity",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "SHT31-DIS",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "ADDR",
+      "ALERT",
+      "SCL",
+      "VDD",
+      "~RESET",
+      "R",
+      "VSS"
+    ],
+    "description": "I\u00b2C humidity and temperature sensor, \u00b12%RH, \u00b10.2\u00b0C, DFN-8",
+    "keywords": [
+      "digital",
+      "temperature",
+      "humidity",
+      "i2c"
+    ]
+  },
+  {
+    "component": "SHT30-DIS",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "ADDR",
+      "ALERT",
+      "SCL",
+      "VDD",
+      "~RESET",
+      "R",
+      "VSS"
+    ],
+    "description": "I\u00b2C humidity and temperature sensor, \u00b12%RH, \u00b10.2\u00b0C, DFN-8",
+    "keywords": [
+      "digital",
+      "temperature",
+      "humidity",
+      "i2c"
+    ]
+  },
+  {
+    "component": "SHT35-DIS",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "ADDR",
+      "ALERT",
+      "SCL",
+      "VDD",
+      "~RESET",
+      "R",
+      "VSS"
+    ],
+    "description": "I\u00b2C humidity and temperature sensor, \u00b11.5%RH, \u00b10.1\u00b0C, DFN-8",
+    "keywords": [
+      "digital",
+      "temperature",
+      "humidity",
+      "i2c"
+    ]
+  },
+  {
+    "component": "SHT31A-DIS",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "ADDR",
+      "ALERT",
+      "SCL",
+      "VDD",
+      "~RESET",
+      "R",
+      "VSS"
+    ],
+    "description": "I\u00b2C humidity and temperature sensor, \u00b12%RH, \u00b10.3\u00b0C, AEQ-100, DFN-8",
+    "keywords": [
+      "digital",
+      "temperature",
+      "humidity",
+      "automotive",
+      "i2c"
+    ]
+  },
+  {
+    "component": "SHT35A-DIS",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "ADDR",
+      "ALERT",
+      "SCL",
+      "VDD",
+      "~RESET",
+      "R",
+      "VSS"
+    ],
+    "description": "I\u00b2C humidity and temperature sensor, \u00b11.5%RH, \u00b10.2\u00b0C, AEQ-100, DFN-8",
+    "keywords": [
+      "digital",
+      "temperature",
+      "humidity",
+      "automotive",
+      "i2c"
+    ]
+  },
+  {
+    "component": "SHT30A-DIS",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "ADDR",
+      "ALERT",
+      "SCL",
+      "VDD",
+      "~RESET",
+      "R",
+      "VSS"
+    ],
+    "description": "I\u00b2C humidity and temperature sensor, \u00b13%RH, \u00b10.3\u00b0C, AEQ-100, DFN-8",
+    "keywords": [
+      "digital",
+      "temperature",
+      "humidity",
+      "automotive",
+      "i2c"
+    ]
+  },
+  {
+    "component": "SHTC1",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "VDD",
+      "SCL",
+      "SDA",
+      "VSS",
+      "NC"
+    ],
+    "description": "Humidity and Temperature Sensor, +/-3%RH, +/-0.3degC, I2C, 1.62-1.98V, DFN-4",
+    "keywords": [
+      "Sensirion",
+      "environment",
+      "environmental",
+      "measurement",
+      "digital"
+    ]
+  },
+  {
+    "component": "SHTC3",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "VDD",
+      "SCL",
+      "SDA",
+      "VSS",
+      "NC"
+    ],
+    "description": "Humidity and Temperature Sensor, +/-2%RH, +/-0.2degC, I2C, 1.62-3.6V, DFN-4",
+    "keywords": [
+      "Sensirion",
+      "environment",
+      "environmental",
+      "measurement",
+      "digital"
+    ]
+  },
+  {
+    "component": "Si7020-A20",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "GND",
+      "NC",
+      "VDD",
+      "SCL",
+      "PAD"
+    ],
+    "description": "I2C Humidity and Temperature Sensor, DFN-6",
+    "keywords": [
+      "I2C",
+      "Humidity",
+      "Temperature",
+      "Sensor"
+    ]
+  },
+  {
+    "component": "Si7021-A20",
+    "type": "Sensor_Humidity",
+    "pins": [
+      "SDA",
+      "GND",
+      "NC",
+      "VDD",
+      "SCL",
+      "PAD"
+    ],
+    "description": "I2C Humidity and Temperature Sensor, DFN-6",
+    "keywords": [
+      "I2C",
+      "Humidity",
+      "Temperature",
+      "Sensor"
+    ]
+  }
+]

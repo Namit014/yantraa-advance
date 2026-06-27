@@ -1,0 +1,375 @@
+{
+  "components": {
+    "arduino uno": {
+      "label": "Arduino Uno R3",
+      "type": "microcontroller",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "5v", "label": "5V", "type": "power_out", "voltage": 5.0},
+        {"id": "3v3", "label": "3.3V", "type": "power_out", "voltage": 3.3},
+        {"id": "gnd1", "label": "GND", "type": "ground"},
+        {"id": "gnd2", "label": "GND", "type": "ground"},
+        {"id": "vin", "label": "VIN", "type": "power_in"},
+        {"id": "a0", "label": "A0", "type": "analog_in"},
+        {"id": "a1", "label": "A1", "type": "analog_in"},
+        {"id": "a4", "label": "A4 (SDA)", "type": "i2c_data"},
+        {"id": "a5", "label": "A5 (SCL)", "type": "i2c_clock"},
+        {"id": "d9", "label": "D9 (PWM)", "type": "pwm_out"},
+        {"id": "d10", "label": "D10 (PWM)", "type": "pwm_out"},
+        {"id": "d11", "label": "D11 (PWM)", "type": "pwm_out"},
+        {"id": "d2", "label": "D2", "type": "digital_in_out"},
+        {"id": "d3", "label": "D3", "type": "digital_in_out"}
+      ]
+    },
+    "arduino mega": {
+      "label": "Arduino Mega 2560",
+      "type": "microcontroller",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "5v", "label": "5V", "type": "power_out", "voltage": 5.0},
+        {"id": "3v3", "label": "3.3V", "type": "power_out", "voltage": 3.3},
+        {"id": "gnd1", "label": "GND", "type": "ground"},
+        {"id": "gnd2", "label": "GND", "type": "ground"},
+        {"id": "vin", "label": "VIN", "type": "power_in"},
+        {"id": "a0", "label": "A0", "type": "analog_in"},
+        {"id": "a1", "label": "A1", "type": "analog_in"},
+        {"id": "d20", "label": "D20 (SDA)", "type": "i2c_data"},
+        {"id": "d21", "label": "D21 (SCL)", "type": "i2c_clock"},
+        {"id": "d2", "label": "D2 (PWM)", "type": "pwm_out"},
+        {"id": "d3", "label": "D3 (PWM)", "type": "pwm_out"},
+        {"id": "d4", "label": "D4 (PWM)", "type": "pwm_out"},
+        {"id": "d22", "label": "D22", "type": "digital_in_out"},
+        {"id": "d23", "label": "D23", "type": "digital_in_out"},
+        {"id": "d24", "label": "D24", "type": "digital_in_out"}
+      ]
+    },
+    "stm32": {
+      "label": "STM32 Nucleo",
+      "type": "microcontroller",
+      "operating_voltage": [3.3],
+      "ports": [
+        {"id": "5v", "label": "5V", "type": "power_in", "voltage": 5.0},
+        {"id": "3v3", "label": "3.3V", "type": "power_out", "voltage": 3.3},
+        {"id": "gnd1", "label": "GND", "type": "ground"},
+        {"id": "gnd2", "label": "GND", "type": "ground"},
+        {"id": "pb7", "label": "PB7 (SDA)", "type": "i2c_data"},
+        {"id": "pb6", "label": "PB6 (SCL)", "type": "i2c_clock"},
+        {"id": "pa8", "label": "PA8 (PWM)", "type": "pwm_out"},
+        {"id": "pa9", "label": "PA9 (PWM)", "type": "pwm_out"},
+        {"id": "pa0", "label": "PA0 (ADC)", "type": "analog_in"},
+        {"id": "pa1", "label": "PA1 (ADC)", "type": "analog_in"}
+      ]
+    },
+    "raspberry pi pico": {
+      "label": "Raspberry Pi Pico",
+      "type": "microcontroller",
+      "operating_voltage": [3.3],
+      "ports": [
+        {"id": "vbus", "label": "VBUS (5V)", "type": "power_in", "voltage": 5.0},
+        {"id": "3v3", "label": "3V3", "type": "power_out", "voltage": 3.3},
+        {"id": "gnd1", "label": "GND", "type": "ground"},
+        {"id": "gnd2", "label": "GND", "type": "ground"},
+        {"id": "gp4", "label": "GP4 (SDA)", "type": "i2c_data"},
+        {"id": "gp5", "label": "GP5 (SCL)", "type": "i2c_clock"},
+        {"id": "gp15", "label": "GP15 (PWM)", "type": "pwm_out"},
+        {"id": "gp16", "label": "GP16 (PWM)", "type": "pwm_out"},
+        {"id": "gp26", "label": "GP26 (ADC0)", "type": "analog_in"},
+        {"id": "gp27", "label": "GP27 (ADC1)", "type": "analog_in"}
+      ]
+    },
+    "esp32": {
+      "label": "ESP32 DevKit V1",
+      "type": "microcontroller",
+      "operating_voltage": [3.3],
+      "ports": [
+        {"id": "vin", "label": "VIN (5V)", "type": "power_in", "voltage": 5.0},
+        {"id": "3v3", "label": "3.3V", "type": "power_out", "voltage": 3.3},
+        {"id": "gnd1", "label": "GND", "type": "ground"},
+        {"id": "gnd2", "label": "GND", "type": "ground"},
+        {"id": "d21", "label": "GPIO21 (SDA)", "type": "i2c_data"},
+        {"id": "d22", "label": "GPIO22 (SCL)", "type": "i2c_clock"},
+        {"id": "d18", "label": "GPIO18 (PWM)", "type": "pwm_out"},
+        {"id": "d19", "label": "GPIO19 (PWM)", "type": "pwm_out"},
+        {"id": "d34", "label": "GPIO34 (ADC)", "type": "analog_in"},
+        {"id": "d35", "label": "GPIO35 (ADC)", "type": "analog_in"}
+      ]
+    },
+    "raspberry pi 4": {
+      "label": "Raspberry Pi 4 Model B",
+      "type": "microcontroller",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "5v1", "label": "5V", "type": "power_out", "voltage": 5.0},
+        {"id": "3v31", "label": "3.3V", "type": "power_out", "voltage": 3.3},
+        {"id": "gnd1", "label": "GND", "type": "ground"},
+        {"id": "gpio2", "label": "GPIO2 (SDA)", "type": "i2c_data"},
+        {"id": "gpio3", "label": "GPIO3 (SCL)", "type": "i2c_clock"},
+        {"id": "gpio18", "label": "GPIO18 (PWM)", "type": "pwm_out"}
+      ]
+    },
+    "l298n": {
+      "label": "L298N Dual H-Bridge Motor Driver",
+      "type": "motor_driver",
+      "operating_voltage": [5.0, 12.0],
+      "ports": [
+        {"id": "12v", "label": "12V IN", "type": "power_in", "voltage": 12.0},
+        {"id": "5v", "label": "5V IN", "type": "power_in", "voltage": 5.0},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "ena", "label": "ENA", "type": "pwm_in"},
+        {"id": "in1", "label": "IN1", "type": "digital_in"},
+        {"id": "in2", "label": "IN2", "type": "digital_in"},
+        {"id": "in3", "label": "IN3", "type": "digital_in"},
+        {"id": "in4", "label": "IN4", "type": "digital_in"},
+        {"id": "enb", "label": "ENB", "type": "pwm_in"},
+        {"id": "out1", "label": "OUT1", "type": "motor_phase"},
+        {"id": "out2", "label": "OUT2", "type": "motor_phase"},
+        {"id": "out3", "label": "OUT3", "type": "motor_phase"},
+        {"id": "out4", "label": "OUT4", "type": "motor_phase"}
+      ]
+    },
+    "tb6612fng": {
+      "label": "TB6612FNG Motor Driver",
+      "type": "motor_driver",
+      "operating_voltage": [3.3, 5.0, 12.0],
+      "ports": [
+        {"id": "vmot", "label": "VMOT", "type": "power_in", "voltage": 12.0},
+        {"id": "vcc", "label": "VCC", "type": "power_in", "voltage": 5.0},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "pwma", "label": "PWMA", "type": "pwm_in"},
+        {"id": "ain1", "label": "AIN1", "type": "digital_in"},
+        {"id": "ain2", "label": "AIN2", "type": "digital_in"},
+        {"id": "pwmb", "label": "PWMB", "type": "pwm_in"},
+        {"id": "bin1", "label": "BIN1", "type": "digital_in"},
+        {"id": "bin2", "label": "BIN2", "type": "digital_in"},
+        {"id": "ao1", "label": "AO1", "type": "motor_phase"},
+        {"id": "ao2", "label": "AO2", "type": "motor_phase"},
+        {"id": "bo1", "label": "BO1", "type": "motor_phase"},
+        {"id": "bo2", "label": "BO2", "type": "motor_phase"}
+      ]
+    },
+    "mpu6050": {
+      "label": "MPU6050 IMU",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "scl", "label": "SCL", "type": "i2c_clock"},
+        {"id": "sda", "label": "SDA", "type": "i2c_data"}
+      ]
+    },
+    "ultrasonic sensor": {
+      "label": "HC-SR04 Ultrasonic Sensor",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in", "voltage": 5.0},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "trig", "label": "Trig", "type": "digital_in_out"},
+        {"id": "echo", "label": "Echo", "type": "digital_in_out"}
+      ]
+    },
+    "ir sensor": {
+      "label": "IR Obstacle Sensor",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "out", "label": "OUT", "type": "digital_out"}
+      ]
+    },
+    "vl53l0x": {
+      "label": "VL53L0X ToF Sensor",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "scl", "label": "SCL", "type": "i2c_clock"},
+        {"id": "sda", "label": "SDA", "type": "i2c_data"}
+      ]
+    },
+    "encoder": {
+      "label": "Rotary Encoder",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "dt", "label": "DT", "type": "digital_out"},
+        {"id": "clk", "label": "CLK", "type": "digital_out"}
+      ]
+    },
+    "limit switch": {
+      "label": "Limit Switch",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "sig", "label": "Signal", "type": "digital_out"}
+      ]
+    },
+    "current sensor": {
+      "label": "Current Sensor",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "out", "label": "OUT", "type": "analog_out"}
+      ]
+    },
+    "lidar": {
+      "label": "LiDAR Sensor",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "tx", "label": "TX", "type": "digital_out"},
+        {"id": "rx", "label": "RX", "type": "digital_in"}
+      ]
+    },
+    "gps": {
+      "label": "NEO-6M GPS Module",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "tx", "label": "TX", "type": "digital_out"},
+        {"id": "rx", "label": "RX", "type": "digital_in"}
+      ]
+    },
+    "camera": {
+      "label": "Camera Module",
+      "type": "sensor",
+      "operating_voltage": [3.3],
+      "ports": [
+        {"id": "3v3", "label": "3.3V", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "scl", "label": "SCL", "type": "i2c_clock"},
+        {"id": "sda", "label": "SDA", "type": "i2c_data"},
+        {"id": "d0", "label": "D0", "type": "digital_out"}
+      ]
+    },
+    "bno055": {
+      "label": "BNO055 IMU",
+      "type": "sensor",
+      "operating_voltage": [3.3, 5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "scl", "label": "SCL", "type": "i2c_clock"},
+        {"id": "sda", "label": "SDA", "type": "i2c_data"}
+      ]
+    },
+    "hall effect": {
+      "label": "Hall Effect Sensor",
+      "type": "sensor",
+      "operating_voltage": [5.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC", "type": "power_in"},
+        {"id": "gnd", "label": "GND", "type": "ground"},
+        {"id": "sig", "label": "Signal", "type": "digital_out"}
+      ]
+    },
+    "dc motor": {
+      "label": "DC Gear Motor 12V 100 RPM",
+      "type": "motor",
+      "operating_voltage": [5.0, 12.0],
+      "ports": [
+        {"id": "vcc", "label": "Terminal 1", "type": "power_in"},
+        {"id": "gnd", "label": "Terminal 2", "type": "ground"},
+        {"id": "shaft", "label": "Shaft", "type": "mechanical_out"}
+      ]
+    },
+    "servo": {
+      "label": "Servo Motor MG996R",
+      "type": "motor",
+      "operating_voltage": [5.0, 6.0],
+      "ports": [
+        {"id": "vcc", "label": "VCC (Red)", "type": "power_in", "voltage": 5.0},
+        {"id": "gnd", "label": "GND (Brown)", "type": "ground"},
+        {"id": "signal", "label": "Signal (Orange)", "type": "pwm_in"},
+        {"id": "shaft", "label": "Shaft", "type": "mechanical_out"}
+      ]
+    },
+    "stepper motor": {
+      "label": "NEMA 17 Stepper Motor",
+      "type": "motor",
+      "operating_voltage": [12.0, 24.0],
+      "ports": [
+        {"id": "a_plus", "label": "A+", "type": "motor_phase"},
+        {"id": "a_minus", "label": "A-", "type": "motor_phase"},
+        {"id": "b_plus", "label": "B+", "type": "motor_phase"},
+        {"id": "b_minus", "label": "B-", "type": "motor_phase"},
+        {"id": "shaft", "label": "Shaft", "type": "mechanical_out"}
+      ]
+    },
+    "a4988": {
+      "label": "A4988 Stepper Driver",
+      "type": "motor_driver",
+      "operating_voltage": [3.3, 5.0, 12.0],
+      "ports": [
+        {"id": "vmot", "label": "VMOT", "type": "power_in", "voltage": 12.0},
+        {"id": "gnd_mot", "label": "GND (Mot)", "type": "ground"},
+        {"id": "vdd", "label": "VDD", "type": "power_in", "voltage": 5.0},
+        {"id": "gnd_log", "label": "GND (Log)", "type": "ground"},
+        {"id": "step", "label": "STEP", "type": "digital_in"},
+        {"id": "dir", "label": "DIR", "type": "digital_in"},
+        {"id": "1a", "label": "1A", "type": "motor_phase"},
+        {"id": "1b", "label": "1B", "type": "motor_phase"},
+        {"id": "2a", "label": "2A", "type": "motor_phase"},
+        {"id": "2b", "label": "2B", "type": "motor_phase"}
+      ]
+    },
+    "battery": {
+      "label": "12V Li-Po Battery Pack",
+      "type": "power",
+      "operating_voltage": [12.0],
+      "ports": [
+        {"id": "vcc", "label": "V_BATT", "type": "power_out", "voltage": 12.0},
+        {"id": "gnd", "label": "GND", "type": "ground"}
+      ]
+    },
+    "star gnd": {
+      "label": "Star Ground Distribution",
+      "type": "power",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "gnd1", "label": "GND In", "type": "ground"},
+        {"id": "gnd2", "label": "GND In", "type": "ground"},
+        {"id": "gnd3", "label": "GND In", "type": "ground"},
+        {"id": "gnd4", "label": "GND In", "type": "ground"}
+      ]
+    },
+    "fuse": {
+      "label": "10A Inline Power Fuse",
+      "type": "protection",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "in", "label": "IN", "type": "power_in"},
+        {"id": "out", "label": "OUT", "type": "power_out"}
+      ]
+    },
+    "wheel": {
+      "label": "Rubber Wheel 65mm",
+      "type": "mechanical",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "axle", "label": "Axle", "type": "mechanical_in"}
+      ]
+    },
+    "nozzle": {
+      "label": "Paint Spray Nozzle",
+      "type": "mechanical",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "fluid", "label": "Fluid Tube", "type": "mechanical_in"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "component": "DRV2510-Q1",
+    "type": "Driver_Haptic",
+    "pins": [
+      "GND",
+      "BSTN",
+      "OUT-",
+      "OUT+",
+      "BSTP",
+      "INTZ",
+      "VDD",
+      "EN",
+      "REG",
+      "SDA",
+      "SCL",
+      "IN+",
+      "IN-",
+      "STDBY"
+    ],
+    "description": "Haptic driver for solenoids and voice coils, up to 3A output, TSSOP-16",
+    "keywords": [
+      "driver",
+      "haptic",
+      "solenoid",
+      "coil"
+    ]
+  },
+  {
+    "component": "DRV2605LDGS",
+    "type": "Driver_Haptic",
+    "pins": [
+      "REG",
+      "VDD",
+      "SCL",
+      "SDA",
+      "IN/TRIG",
+      "EN",
+      "VDD/NC",
+      "OUT+",
+      "GND",
+      "OUT-"
+    ],
+    "description": "Haptic driver for LRAs and ERMs with effect library, 2-5.2V, VSSOP-10",
+    "keywords": [
+      "haptic",
+      "driver",
+      "i2c"
+    ]
+  }
+]

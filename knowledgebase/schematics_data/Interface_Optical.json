@@ -1,0 +1,670 @@
+[
+  {
+    "component": "IS471F",
+    "type": "Interface_Optical",
+    "pins": [
+      "Vs",
+      "OUT",
+      "GND",
+      "GLo"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "IS485",
+    "type": "Interface_Optical",
+    "pins": [
+      "GND",
+      "OUT",
+      "Vs"
+    ],
+    "description": "Bult-in Amplifier Type OPIC Light Detector",
+    "keywords": [
+      "opto",
+      "receiver",
+      "amplifier",
+      "light",
+      "detector",
+      "OPIC"
+    ]
+  },
+  {
+    "component": "IS486",
+    "type": "Interface_Optical",
+    "pins": [
+      "GND",
+      "OUT",
+      "Vs"
+    ],
+    "description": "Bult-in Amplifier Type OPIC Light Detector",
+    "keywords": [
+      "opto",
+      "receiver",
+      "amplifier",
+      "light",
+      "detector",
+      "OPIC"
+    ]
+  },
+  {
+    "component": "QSE159",
+    "type": "Interface_Optical",
+    "pins": [
+      "GND",
+      "Out",
+      "Vcc"
+    ],
+    "description": "Plastic Silicon Photosensor",
+    "keywords": [
+      "opto",
+      "IR"
+    ]
+  },
+  {
+    "component": "SFP",
+    "type": "Interface_Optical",
+    "pins": [
+      "VeeT",
+      "VeeR",
+      "RD-",
+      "RD+",
+      "VccR",
+      "VccT",
+      "TD+",
+      "TD-",
+      "TX_FAULT",
+      "TX_DISABLE",
+      "MOD_DEF2",
+      "MOD_DEF1",
+      "MOD_DEF0",
+      "RATE_SELECT",
+      "RX_LOS",
+      "CAGE"
+    ],
+    "description": "Connector for Small Form Factor Pluggable (SFP) module, 1 Gbit/s, serial-to-serial data-agnostic optical transceiver",
+    "keywords": [
+      "SFP",
+      "transciever",
+      "gigabit",
+      "ethernet",
+      "INF-8074i"
+    ]
+  },
+  {
+    "component": "SFP+",
+    "type": "Interface_Optical",
+    "pins": [
+      "VeeT",
+      "VeeR",
+      "RD-",
+      "RD+",
+      "VccR",
+      "VccT",
+      "TD+",
+      "TD-",
+      "TX_FAULT",
+      "TX_DISABLE",
+      "SDA",
+      "SCL",
+      "MOD_ABS",
+      "RS0",
+      "RX_LOS",
+      "RS1",
+      "CAGE"
+    ],
+    "description": "Connector for Small Form Factor Pluggable (SFP+) module, 10 Gbit/s, serial-to-serial data-agnostic optical transceiver",
+    "keywords": [
+      "SFP",
+      "transciever",
+      "gigabit",
+      "ethernet",
+      "SFF-8432"
+    ]
+  },
+  {
+    "component": "TSDP341xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Data Transmission",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSDP343xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Data Transmission",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP341xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP343xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP345xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP41xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP43xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP45xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP348xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSMP58138",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Module (Repeater) for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "repeater",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSMP58000",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Module (Amplify&Condition) for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP17xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "GND",
+      "Vs",
+      "OUT"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP312xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "GND",
+      "Vs",
+      "OUT"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP314xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "GND",
+      "Vs",
+      "OUT"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP32S40F",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "Vs",
+      "GND"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP321xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "Vs",
+      "GND"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP323xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "Vs",
+      "GND"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP325xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "Vs",
+      "GND"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP21xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "Vs",
+      "GND"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP23xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "Vs",
+      "GND"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP25xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "Vs",
+      "GND"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP331xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP333xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP335xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP531xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP533xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP535xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP34S40F",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "IR Receiver Modules for Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP581xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP583xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP585xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP382xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP384xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP582xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP584xx",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  },
+  {
+    "component": "TSOP38G36",
+    "type": "Interface_Optical",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vs"
+    ],
+    "description": "Photo Modules for PCM Remote Control Systems",
+    "keywords": [
+      "opto",
+      "IR",
+      "receiver"
+    ]
+  }
+]

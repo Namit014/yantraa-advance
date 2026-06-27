@@ -1,0 +1,5223 @@
+[
+  {
+    "component": "AD8015",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "Iin",
+      "Vbyp",
+      "-V",
+      "-",
+      "+",
+      "+V"
+    ],
+    "description": "Wideband/Differential Output Transimpedance Amplifier, SOIC-8",
+    "keywords": [
+      "amplifier",
+      "transimpedance",
+      "differential",
+      "optical",
+      "receiver"
+    ]
+  },
+  {
+    "component": "AD8603",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Precision Micropower, Low Noise CMOS, Rail-to-Rail Input/Output Operational Amplifier, TSOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA188xxDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Zero-Drift, Precision, Low-Noise, Rail-to-Rail Output, 36-V Operational Amplifier, TSOT-23-5",
+    "keywords": [
+      "single",
+      "opamp",
+      "zero-drift"
+    ]
+  },
+  {
+    "component": "ADA4530-1",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "IC",
+      "V-",
+      "V+",
+      "-"
+    ],
+    "description": "Femtoampere Input Bias Current Electrometer Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4610-2xCP",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low Noise, Precision, Rail-to-Rail Output, JFET Op Amp, LFCSP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4610-4xCP",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "NIC",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Low Noise, Precision, Rail-to-Rail Output, JFET Op Amp, LFCSP-16",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4807-1",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "~DISABLE",
+      "V+"
+    ],
+    "description": "Single Rail-to-Rail Input/Output Amplifiers, with disable, SC-70-6/SOT-23-6",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4807-2ACP",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "~DISABLE1",
+      "~DISABLE2",
+      "V+",
+      "EPAD",
+      "V-"
+    ],
+    "description": "Dual Rail-to-Rail Input/Output Amplifiers, with disable, SC-70-6/SOT-23-6",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4841-1YRJ",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "~PD",
+      "V+"
+    ],
+    "description": "Low Power, Low Noise and Distorsion, Rail-to-Rail Output Amplifier, SOT-23-6",
+    "keywords": [
+      "single",
+      "opamp",
+      "low-noise",
+      "rail-to-rail"
+    ]
+  },
+  {
+    "component": "ADA4870ARRZ",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "TFL",
+      "PAD",
+      "~SD",
+      "~ON",
+      "NC",
+      "+",
+      "-"
+    ],
+    "description": "High Speed, High Voltage, 1A Output Drive Amplifier, PSOP-20",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4898-1YRDZ",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "~PD",
+      "EP"
+    ],
+    "description": "High Voltage, Low Noise, Low Distortion, Unity-Gain Stable, High Speed Op Amp, SOIC-8",
+    "keywords": [
+      "opamp",
+      "single",
+      "low",
+      "noise",
+      "low",
+      "distortion"
+    ]
+  },
+  {
+    "component": "ADA4898-2",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "EP"
+    ],
+    "description": "Dual High Voltage, Low Noise, Low Distortion, Unity-Gain Stable, High Speed Op Amp, SOIC-8-1EP",
+    "keywords": [
+      "opamp",
+      "dual",
+      "low",
+      "noise",
+      "low",
+      "distortion"
+    ]
+  },
+  {
+    "component": "AS13704",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "DIODE_BIAS",
+      "+",
+      "-",
+      "V+",
+      "V-"
+    ],
+    "description": "Quad Operational Transconductance Amplifiers (OTA), with linearizing diodes, SSOP24",
+    "keywords": [
+      "operational",
+      "transconductance",
+      "amplifier",
+      "OTA"
+    ]
+  },
+  {
+    "component": "CA3080",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "BIAS",
+      "V+"
+    ],
+    "description": "2MHz, Operational Transconductance Amplifier (OTA), gM spread 2:1, DIP-8/SOIC-8",
+    "keywords": [
+      "operational",
+      "transconductance",
+      "amplifier",
+      "ota"
+    ]
+  },
+  {
+    "component": "CA3080A",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "BIAS",
+      "V+"
+    ],
+    "description": "2MHz, Operational Transconductance Amplifier (OTA), gM spread 1.6:1, DIP-8/SOIC-8",
+    "keywords": [
+      "operational",
+      "transconductance",
+      "amplifier",
+      "ota"
+    ]
+  },
+  {
+    "component": "CA3130",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "STRB"
+    ],
+    "description": "15MHz, BiMOS Operational Amplifier with MOSFET Input/CMOS Output, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "CA3140",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "STRB"
+    ],
+    "description": "4.5MHz, BiMOS Operational Amplifier with MOSFET Input/Bipolar Output, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "HMC799LP3E",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "VCC",
+      "GND",
+      "CFILT",
+      "IN",
+      "CEXT"
+    ],
+    "description": "DC - 700 MHz, 10 kOhm Transimpedance amplifier, QFN-16",
+    "keywords": [
+      "amplifier",
+      "transimpedance"
+    ]
+  },
+  {
+    "component": "L272",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "-",
+      "GND",
+      "Vs"
+    ],
+    "description": "Dual Power Operation Amplifier, DIP-16",
+    "keywords": [
+      "dual",
+      "power",
+      "opamp"
+    ]
+  },
+  {
+    "component": "L272D",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "+",
+      "-",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual Power Operation Amplifier, SOIC-16",
+    "keywords": [
+      "dual",
+      "power",
+      "opamp"
+    ]
+  },
+  {
+    "component": "L272M",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "-",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual Power Operation Amplifier, DIP-8",
+    "keywords": [
+      "dual",
+      "power",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LF351D",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Wide bandwidth single JFET operational amplifier, SOIC-8",
+    "keywords": [
+      "Single",
+      "OpAmp",
+      "JFET"
+    ]
+  },
+  {
+    "component": "LF351N",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Wide bandwidth single JFET operational amplifier, DIP-8",
+    "keywords": [
+      "Single",
+      "OpAmp",
+      "JFET"
+    ]
+  },
+  {
+    "component": "LM13700",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "DIODE_BIAS",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual Operational Transconductance Amplifiers with Linearizing Diodes and Buffers, DIP-16/SOIC-16",
+    "keywords": [
+      "operational",
+      "transconductance",
+      "amplifier",
+      "OTA"
+    ]
+  },
+  {
+    "component": "LM13600",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "DIODE_BIAS",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual Operational Transconductance Amplifiers with Linearizing Diodes and Buffers, DIP-16/SOIC-16",
+    "keywords": [
+      "operational",
+      "transconductance",
+      "amplifier",
+      "OTA"
+    ]
+  },
+  {
+    "component": "LM2902",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Power, Quad-Operational Amplifiers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM324",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Power, Quad-Operational Amplifiers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TLC274",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad LinCMOS Precision Quad Operational Amplifiers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TLC279",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad LinCMOS Precision Quad Operational Amplifiers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL074",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM324A",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Power, Quad-Operational Amplifiers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6004",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "1MHz, Low-Power Op Amp, DIP-14/SOIC-14/TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL084",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad JFET-Input Operational Amplifiers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL064",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Low-Power JFET-Input Operational Amplifiers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMV324",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Low-Voltage Rail-to-Rail Output Operational Amplifier, SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMC6484",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad CMOS Rail-to-Rail Input and Output Operational Amplifier, DIP-14/SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP604",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad 2.7V to 6.0V Single Supply CMOS Op Amps, DIP-14/SOIC-14/TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MC33079",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low Noise, Quad Operational Amplifiers, DIP-14/SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MC33174",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Single Supply 3.0V to 44V, Low Power Operational Amplifiers, DIP-14/SOIC-14/TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MC33179",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Low Power, Low Noise Operational Amplifiers, DIP-14/SOIC-14/SSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA1604",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad SoundPlus High Performance, Bipolar-Input Audio Operational Amplifiers, SOIC-14/TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA1679",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Distortion Audio Operational Amplifiers, SOIC-14/TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA4134",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad SoundPlus High Performance Audio Operational Amplifiers, SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA4340UA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Single-Supply, Rail-to-Rail Operational Amplifier, MicroAmplifier Series, SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA4376",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, SC-70-5",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L94",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "10 MHz, 850 \u00b5A Op Amps, SOIC-14/TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TSV914",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad rail-to-rail input/output 8 MHz operational amplifiers, SOIC-14/TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4807-4",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Rail-to-Rail Input/Output Amplifiers, TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TSV994",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Rail-to-rail, 20 MHz GBP, operational amplifiers, SOIC-14/TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM2904",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifiers, DIP-8/SOIC-8/TSSOP-8/VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM358",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "AD8620",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Precision, Very Low Noise, Low Input Bias Current, Wide Bandwidth JFET Operational Amplifiers, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMC6062",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision CMOS Dual Micropower Operational Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMC6082",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision CMOS Dual Operational Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL062",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low-Power JFET-Input Operational Amplifiers, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL072",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low-Noise JFET-Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL082",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual JFET-Input Operational Amplifiers, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NE5532",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low-Noise Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "SA5532",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low-Noise Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "RC4558",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual General Purpose, Operational Amplifier, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "RC4560",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Audio Operational Amplifier, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "RC4580",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Audio Operational Amplifier, SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMV358",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low-Voltage Rail-to-Rail Output Operational Amplifiers, SOIC-8/SSOP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TS912",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Rail-to-rail CMOS Operational Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TSV912IDT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual rail-to-rail input/output 8 MHz operational amplifiers, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TSV912IST",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual rail-to-rail input/output 8 MHz operational amplifiers, MiniSO-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TLC272",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual LinCMOS Precision Dual Operational Amplifiers, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TLC277",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual LinCMOS Precision Dual Operational Amplifiers, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP602",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 2.7V to 6.0V Single Supply CMOS Op Amps, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA1678",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Distortion Audio Operational Amplifiers, SOIC-8/VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2134",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual SoundPlus High Performance Audio Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2340",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Single-Supply, Rail-to-Rail Operational Amplifiers, MicroAmplifier Series, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2376xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2376xxDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MC33078",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low Noise, Dual Operational Amplifiers, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MC33178",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low Power, Low Noise Operational Amplifiers, DIP-8/SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM4562",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual High-Performance, High-Fidelity Audio Operational Amplifier, DIP-8/SOIC-8/TO-99-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OP249",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision JFET, High Speed, Dual Operational Amplifier, DIP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OP275",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Bipolar/JFET, Audio Operational Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4075-2",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Ultralow Noise Amplifier at Lower Power, SOIC-8/LFCSP-8",
+    "keywords": [
+      "dual",
+      "low-power",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6002-xP",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "1MHz, Low-Power Op Amp, DIP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6002-xSN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "1MHz, Low-Power Op Amp, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6002-xMS",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "1MHz, Low-Power Op Amp, MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM7332",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Rail-to-Rail Input and Output 30-V, Wide Voltage Range, High Output, Operational Amplifier, SOIC-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2333xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 1.8V, microPower, CMOS Operational Amplifiers, Zero-Drift Series, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2333xxDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 1.8V, microPower, CMOS Operational Amplifiers, Zero-Drift Series, VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMC6482",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual CMOS Rail-to-Rail Input and Output Operational Amplifier, DIP-8/SOIC-8, SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LT1492",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "5MHz, 3V/\u00b5s, Low Power, Single Supply, Dual Precision Op Amps, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6081xMS8",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision Dual CMOS Rail-to-Rail Input/Output Amplifiers, MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM6172",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual High Speed, Low Power, Low Distortion, Voltage Feedback Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L92",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "10 MHz, 850 \u00b5A Op Amps, SOIC-8/MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NJM2043",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low Noise Pre-Amplifier, DIP-8/DMP-8/SIP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NJM2114",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual High Performance Low Noise Operational Amplifier, DIP-8/DMP-8/SIP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NJM4556A",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual High Current Operational Amplifier, DIP-8/DMP-8/SIP-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NJM4558",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifier, DIP-8/DMP-8/SIP-8/SOP-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NJM4559",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifier, DIP-8/DMP-8/SIP-8/SOP-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NJM4560",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifier, DIP-8/DMP-8/SIP-8/SOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NJM4580",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifier, DIP-8/DMP-8/SIP-8/MSOP-8/SOP-8/SSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NJM5532",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low-Noise Operational Amplifier, DIP-8/DMP-8/SIP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4807-2ARM",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Rail-to-Rail Input/Output Amplifiers, MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2691",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Wideband, Current-Feedback Operational Amplifier, SOIC-8",
+    "keywords": [
+      "dual",
+      "current",
+      "feedback",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LT6234",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 60MHz, Rail-to-Rail Output, 1.9nV/\u221aHz, 1.2mA, Operational Amplifier, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2356xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual High Speed CMOS Operational Amplifiers, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2356xxDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual High Speed CMOS Operational Amplifiers, VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA1612AxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual SoundPlus High Performance, Bipolar-Input Audio Operational Amplifiers, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MC33172",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Single Supply 3.0V to 44V, Low Power Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA1602",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual SoundPlus High Performance, Bipolar-Input Audio Operational Amplifiers, SOIC-8/MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TLV2372",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Rail-to-Rail Input/Output Operational Amplifier, DIP-8/SOIC-8/VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LT6237",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 215MHz, Rail-to-Rail Output, 1.1nV/\u221aHz, 3.5mA, Operational Amplifier, MSOP-8/DFN-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2277",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual High Precision Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6022",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifiers, Rail-to-Rail Input/Output, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "rail-to-rail"
+    ]
+  },
+  {
+    "component": "MCP6V67EMS",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifiers, Zero-Drift, 80 kHz Bandwidth, 1.8V to 5.5V, Rail-to-Rail, MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "zero",
+      "drift"
+    ]
+  },
+  {
+    "component": "LM318J",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "V+",
+      "BAL2",
+      "BAL1",
+      "-",
+      "+",
+      "V-",
+      "BAL3"
+    ],
+    "description": "Operational Amplifier, DIP-14",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM318M",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL1",
+      "-",
+      "+",
+      "V-",
+      "BAL3",
+      "V+",
+      "BAL2"
+    ],
+    "description": "Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM318H",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL1",
+      "-",
+      "+",
+      "V-",
+      "BAL3",
+      "V+",
+      "BAL2"
+    ],
+    "description": "Operational Amplifier, TO-99-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM318N",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL1",
+      "-",
+      "+",
+      "V-",
+      "BAL3",
+      "V+",
+      "BAL2"
+    ],
+    "description": "Operational Amplifier, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM321",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Low Power Single Operational Amplifier, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L01Ux-xOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Single, 1 MHz, 85\u00b5A, Rail-to-Rail input and ouput, SOT-23-5",
+    "keywords": [
+      "opamp",
+      "vfa",
+      "r2r",
+      "rtr"
+    ]
+  },
+  {
+    "component": "LM4250",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "IQ"
+    ],
+    "description": "Programmable Operational Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "Programmable",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM6361",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "VOS",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single High Speed Operational Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM675",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "Power Operational Amplifier, TO-220-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM7171xIM",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single Very High Speed High Output Current Voltage Feedback Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM7171xIN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single Very High Speed High Output Current Voltage Feedback Amplifier, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM741",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Operational Amplifier, DIP-8/TO-99-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "AD8610",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single Precision, Very Low Noise, Low Input Bias Current, Wide Bandwidth JFET Operational Amplifiers, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LF155",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single JFET Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "jfet",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LF156",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single JFET Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "jfet",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LF256",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single JFET Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "jfet",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LF257",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single JFET Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "jfet",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LF355",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single JFET Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "jfet",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LF356",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single JFET Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "jfet",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LF357",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single JFET Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "jfet",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL081",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single JFET-Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL061",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single Low-Power JFET-Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TL071",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NULL",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "NC"
+    ],
+    "description": "Single Low-Noise JFET-Input Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "singel",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMH6551MA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "VCM",
+      "V+",
+      "+",
+      "V-",
+      "NC"
+    ],
+    "description": "Differential, High-Speed, Op Amp, SOIC-8",
+    "keywords": [
+      "differential",
+      "opamp",
+      "operational",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LMH6551MM",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "VCM",
+      "V+",
+      "+",
+      "V-",
+      "NC"
+    ],
+    "description": "Differential, High-Speed, Op Amp, VSSOP-8",
+    "keywords": [
+      "differential",
+      "opamp",
+      "operational",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LMH6611",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "~DISABLE",
+      "V+"
+    ],
+    "description": "Single Supply, 345 MHz, Rail-to-Rail Output, Amplifier, TSOT-23-6",
+    "keywords": [
+      "opamp",
+      "operational",
+      "amplifier",
+      "single"
+    ]
+  },
+  {
+    "component": "LMV321",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Low-Voltage Rail-to-Rail Output Operational Amplifiers, SOT-23-5/SC-70-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6401UT-xOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "1 MHz, 45 \u00b5A Op Amps, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6001U",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "1MHz, Low-Power Op Amp, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA333xxDCK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V, microPower, CMOS Operational Amplifiers, Zero-Drift Series, SC-70-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA376xxDCK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, SC-70-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA330xxDCK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "50\u03bcV V OS, 0.25\u03bcV/\u00b0C, 35\u03bcA CMOS OPERATIONAL AMPLIFIERS, Zer\u00f8-Drift Series, SC70",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMV601",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "~SHDN",
+      "V+"
+    ],
+    "description": "1MHz, Low-Power, General-Purpose, 2.7V Operational Amplifiers, SC-70-6",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC1151CN8",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual \u00b115V, Zero-Drift, Operational Amplifier, DIP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC1151CSW",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual \u00b115V, Zero-Drift, Operational Amplifier, SOIC-16W",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC1152",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "SHDN",
+      "-",
+      "+",
+      "V-",
+      "COMP",
+      "V+",
+      "CP"
+    ],
+    "description": "Rail-to-Rail Input, Rail-to-Rail Output, Zero-Drift Op Amp, DIP-8, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6081xDD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "~SHDN_A",
+      "~SHDN_B",
+      "V+",
+      "V-"
+    ],
+    "description": "Precision Dual CMOS Rail-to-Rail Input/Output Amplifiers, DFN-10",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6082xDHC",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "NC",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision Quad CMOS Rail-to-Rail Input/Output Amplifiers, DFN-16",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6082xGN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "NC",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision Quad CMOS Rail-to-Rail Input/Output Amplifiers, SSOP-16",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LT1493",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "NC",
+      "V-",
+      "V+"
+    ],
+    "description": "5MHz, 3V/\u00b5s, Low Power, Single Supply, Quad Precision Op Amps, SOIC-16",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA4340EA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "NC",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Single-Supply, Rail-to-Rail Operational Amplifier, MicroAmplifier Series, SSOP-16",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6228xDC",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "+",
+      "V-",
+      "~SHDN",
+      "-"
+    ],
+    "description": "Low Distortion Rail-to-Rail Output Op Amp with Shutdown, DFN-6",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6228xS6",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "~SHDN",
+      "V+"
+    ],
+    "description": "Low Distortion Rail-to-Rail Output Op Amp with Shutdown, TSOT-23-6",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6228xS8",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "FB",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "~SHDN"
+    ],
+    "description": "Low Distortion Rail-to-Rail Output Op Amp with Shutdown, SO-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6229xDD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "~SHDN",
+      "V+",
+      "V-"
+    ],
+    "description": "Low Distortion Rail-to-Rail Output Op Amps with Shutdown, DFN-10",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6229xMS8E",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low Distortion Rail-to-Rail Output Op Amps with Shutdown, MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6268xS6-10",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "~SHDN",
+      "V+"
+    ],
+    "description": "4GHz, Ultra-Low Bias Current, FET Input, Op Amp, TSOT-23",
+    "keywords": [
+      "single",
+      "opamp",
+      "transimpedance"
+    ]
+  },
+  {
+    "component": "LTC6268xS8-10",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "~SHDN"
+    ],
+    "description": "4GHz, Ultra-Low Bias Current, FET Input, Op Amp, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp",
+      "transimpedance"
+    ]
+  },
+  {
+    "component": "LTC6362xDD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "VOCM",
+      "V+",
+      "+",
+      "V-",
+      "~SHDN"
+    ],
+    "description": "Precision, Low Power, Rail-to-Rail Input/Output, Differential Op Amp/SAR ADC Driver, DFN-8",
+    "keywords": [
+      "single",
+      "differential",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LTC6362xMS8",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "VOCM",
+      "V+",
+      "+",
+      "V-",
+      "~SHDN"
+    ],
+    "description": "Precision, Low Power, Rail-to-Rail Input/Output, Differential Op Amp/SAR ADC Driver, DFN-8",
+    "keywords": [
+      "single",
+      "differential",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MAX4238ASA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "~SHDN",
+      "-",
+      "+",
+      "V-",
+      "NC",
+      "V+"
+    ],
+    "description": "Ultra-Low Offset/Drift, Low-Noise, Precision Amplifiers, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MAX4239ASA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "~SHDN",
+      "-",
+      "+",
+      "V-",
+      "NC",
+      "V+"
+    ],
+    "description": "Ultra-Low Offset/Drift, Low-Noise, Precision Amplifiers, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MAX4238AUT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "~SHDN",
+      "V+"
+    ],
+    "description": "Ultra-Low Offset/Drift, Low-Noise, Precision Amplifiers, SOT-23-6",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MAX4239AUT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "~SHDN",
+      "V+"
+    ],
+    "description": "Ultra-Low Offset/Drift, Low-Noise, Precision Amplifiers, SOT-23-6",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6001x-LT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "1 MHz, Low-Power Op Amp, SC-70-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TS881xCx",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Rail-to-rail 0.9V nanopower comparator, SC-70-5",
+    "keywords": [
+      "single",
+      "comparator"
+    ]
+  },
+  {
+    "component": "MCP6401T-xLT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "1 MHz, 45 \u00b5A Op Amps, SC-70-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L01x-xLT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single, 1 MHz, Rail-to-Rail input and output, SC-70-5",
+    "keywords": [
+      "opamp",
+      "vfa",
+      "r2r",
+      "rtr"
+    ]
+  },
+  {
+    "component": "MCP6002-xMC",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "1MHz, Low-Power Op Amp, DFN-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP601-xP",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM6171xxN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single High Speed Low Power Low Distortion Voltage Feedback Amplifier, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA340P",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single Single-Supply, Rail-to-Rail Operational Amplifier, MicroAmplifier Series, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "AD8001AN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Current Feedback Amplifier, 800 MHz, 50mW, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TLV2371P",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Rail-to-Rail Input/Output Operational Amplifier, PDIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP601-xST",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, TSSOP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP603-xCH",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "~CS",
+      "V+"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, with Chip Select, SOT-23-6",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP603-xP",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "~CS"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, with Chip Select, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP603-xSN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "~CS"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, with Chip Select, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP603-xST",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "~CS"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, with Chip Select, TSSOP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L91RT-EMS",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "10 MHz, 850 \u00b5A Op Amps, MSOP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4077-1xRM",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "4MHz, 7nV/sqrtHz, Low Offset and Drift, High Precision Amplifier, MSOP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L91RT-EOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "10 MHz, 850 \u00b5A Op Amps, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6401RT-xOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "1 MHz, 45 \u00b5A Op Amps, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6001R",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "1MHz, Low-Power Op Amp, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP601R",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TSV911RILT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "Single rail-to-rail input/output 8 MHz operational amplifiers, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L01Rx-xOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "Single, 1 MHz, 85\u00b5A, Rail-to-Rail input and ouput, SOT-23-5",
+    "keywords": [
+      "opamp",
+      "vfa",
+      "r2r",
+      "rtr"
+    ]
+  },
+  {
+    "component": "MCP6L91T-EOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "10 MHz, 850 \u00b5A Op Amps, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6401T-xOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "1 MHz, 45 \u00b5A Op Amps, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6001-OT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "1MHz, Low-Power Op Amp, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP601-xOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA333xxDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 1.8V, microPower, CMOS Operational Amplifiers, Zero-Drift Series, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA340NA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single Single-Supply, Rail-to-Rail Operational Amplifier, MicroAmplifier Series, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA376xxDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TS881xLx",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Rail-to-rail 0.9V nanopower comparator, SOT-23-5",
+    "keywords": [
+      "single",
+      "comparator"
+    ]
+  },
+  {
+    "component": "TSV911xxLx",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single rail-to-rail input/output 8 MHz operational amplifiers, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA330xxDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "50\u03bcV V OS, 0.25\u03bcV/\u00b0C, 35\u03bcA CMOS OPERATIONAL AMPLIFIERS, Zer\u00f8-Drift Series, SOT",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA356xxDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single High Speed CMOS Operational Amplifier, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMH6702MF",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "1.7 GHz Ultra-Low Distortion Wideband Op Amp, SOT-23-5",
+    "keywords": [
+      "opamp",
+      "single",
+      "low",
+      "distortion",
+      "wideband"
+    ]
+  },
+  {
+    "component": "LMH6609MF",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "900MHz Voltage Feedback Op Amp, SOT-23-5",
+    "keywords": [
+      "opamp",
+      "single",
+      "wideband",
+      "unity-gain",
+      "stable"
+    ]
+  },
+  {
+    "component": "TLV2371DBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Rail-to-Rail Input/Output Operational Amplifier, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA842xDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "200MHz, Low Distortion, Unity-Gain Stable, Voltage Feedback Operational Amplifier, SOT23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA843xDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "800MHz, Wideband, Low Distortion, Medium Gain, Voltage-Feedback Operational Amplifier, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp",
+      "low",
+      "distortion"
+    ]
+  },
+  {
+    "component": "OPA846xDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "1750MHz, Wideband, Low-Noise, Voltage Feedback Operational Amplifier, SOT23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LT6015xS5",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "3.2MHz, 0.8V/us, Low Power, Over-The-Top Precision Op Amp, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA197xDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single 36V, Precision, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, SOT-23",
+    "keywords": [
+      "single",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "OPA196xDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single, Low-Power, Low Offset Voltage, Rail-to-Rail Operational Amplifier, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LPV811DBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single operational amplifier, 8kHz GBW, 425 nA/channel quiescent, 100 fA input bias, 300 uV offset max, 1 uV/C, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp",
+      "low-power",
+      "rail-to-rail"
+    ]
+  },
+  {
+    "component": "MCP6L01x-xOT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Single, 1 MHz, 85\u00b5A, Rail-to-Rail input and output, SOT-23-5",
+    "keywords": [
+      "opamp",
+      "vfa",
+      "rtr",
+      "r2r"
+    ]
+  },
+  {
+    "component": "OPA365xxDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "50-MHz, Zero-Crossover, Low-Distortion, High CMRR, RRI/O, Single-Supply, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4610-1xRJ",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Low Noise, Precision, Rail-to-Rail Output, JFET Single Op Amp, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6V67xMNY",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Operational Amplifiers, Zero-Drift, 80 kHz Bandwidth, 1.8V to 5.5V, Rail-to-Rail, TDFN-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "zero",
+      "drift"
+    ]
+  },
+  {
+    "component": "NCS20071SN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "Single, 2.8V/\u00b5s, Rail-to-Rail Output, TSOP-5",
+    "keywords": [
+      "OpAmp",
+      "Rail-to-rail",
+      "Output",
+      "Single",
+      "vfa"
+    ]
+  },
+  {
+    "component": "NCS20071XV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Single, 2.8V/\u00b5s, Rail-to-Rail Output, SOT-553",
+    "keywords": [
+      "OpAmp",
+      "Rail-to-rail",
+      "Output",
+      "Single",
+      "vfa"
+    ]
+  },
+  {
+    "component": "NCS20072DTB",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual, 2.8V/\u00b5s, Rail-to-Rail Output, TSSOP-8",
+    "keywords": [
+      "dual",
+      "rail-to-rail",
+      "output",
+      "opamp",
+      "vfa"
+    ]
+  },
+  {
+    "component": "NCS20074DTB",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad, 2.8V/\u00b5s, Rail-to-Rail Output, TSSOP-14",
+    "keywords": [
+      "quad",
+      "rail-to-rail",
+      "output",
+      "opamp",
+      "vfa"
+    ]
+  },
+  {
+    "component": "NCS2325D",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual operational amplifier, 50uV Offset, 0.25uV/C, 35uA Zero-Drift, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "low-power"
+    ]
+  },
+  {
+    "component": "OPA2197xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 36V, Precision, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "OPA2196xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual, Low-Power, Low Offset Voltage, Rail-to-Rail Operational Amplifier, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "low-power"
+    ]
+  },
+  {
+    "component": "AD8676xR",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual operational amplifier, Ultra-precision, 36V, Rail-to-rail output, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "precision",
+      "high-voltage",
+      "RRO",
+      "RTR"
+    ]
+  },
+  {
+    "component": "OPA1692xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual SoundPlus Low Power, Low Noise & Low Distortion Audio Operational Amplifiers, SOIC-8",
+    "keywords": [
+      "VFA",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L02x-xSN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual, 1 MHz, 85\u00b5A, Rail-to-Rail input and ouput SOIC-8",
+    "keywords": [
+      "opamp",
+      "vfa",
+      "r2r",
+      "rtr"
+    ]
+  },
+  {
+    "component": "NCS20072D",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual, 2.8V/\u00b5s, Rail-to-Rail Output, SOIC-8",
+    "keywords": [
+      "dual",
+      "rail-to-rail",
+      "ouput",
+      "opamp",
+      "vfa"
+    ]
+  },
+  {
+    "component": "OPA2156xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 36V, Ultra Low Noise, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "low-noise",
+      "r2r"
+    ]
+  },
+  {
+    "component": "ADA4610-2xR",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low Noise, Precision, Rail-to-Rail Output, JFET Op Amp, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NCS2325DM",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual operational amplifier, 50uV Offset, 0.25uV/C, 35uA Zero-Drift, MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "low-power"
+    ]
+  },
+  {
+    "component": "MCP6L02x-xMS",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual, 1 MHz, 85\u00b5A, Rail-to-Rail input and ouput, MSOP-8",
+    "keywords": [
+      "opamp",
+      "vfa",
+      "r2r",
+      "rtr"
+    ]
+  },
+  {
+    "component": "NCS20072DM",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual, 2.8V/\u00b5s, Rail-to-Rail Output, MSOP-8",
+    "keywords": [
+      "dual",
+      "rail-to-rail",
+      "output",
+      "opamp",
+      "vfa"
+    ]
+  },
+  {
+    "component": "LTC6253xMS8",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "720MHz, 3.5mA Power Efficient, Rail-to-Rail Op Amp, MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "low-power"
+    ]
+  },
+  {
+    "component": "ADA4610-2xRM",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Low Noise, Precision, Rail-to-Rail Output, JFET Op Amp, MSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "NCS325",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "Single operational amplifier, 50uV Offset, 0.25uV/C, 35uA Zero-Drift, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp",
+      "low-power"
+    ]
+  },
+  {
+    "component": "NCS4325",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad operational amplifier, 50uV Offset, 0.25uV/C, 35uA Zero-Drift, SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp",
+      "low-power"
+    ]
+  },
+  {
+    "component": "NCS20074D",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad, 2.8V/\u00b5s, Rail-to-Rail Output, SOIC-14",
+    "keywords": [
+      "quad",
+      "rail-to-rail",
+      "output",
+      "opamp",
+      "vfa"
+    ]
+  },
+  {
+    "component": "NE5534",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL",
+      "-",
+      "+",
+      "V-",
+      "COMP",
+      "V+",
+      "C/B"
+    ],
+    "description": "Single Low-Noise Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "SA5534",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL",
+      "-",
+      "+",
+      "V-",
+      "COMP",
+      "V+",
+      "C/B"
+    ],
+    "description": "Single Low-Noise Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM101",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL",
+      "-",
+      "+",
+      "V-",
+      "COMP",
+      "V+",
+      "C/B"
+    ],
+    "description": "Operational Amplifier, DIP-8/TO-99-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM201",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL",
+      "-",
+      "+",
+      "V-",
+      "COMP",
+      "V+",
+      "C/B"
+    ],
+    "description": "Operational Amplifier, DIP-8/TO-99-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM301",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL",
+      "-",
+      "+",
+      "V-",
+      "COMP",
+      "V+",
+      "C/B"
+    ],
+    "description": "Operational Amplifier, DIP-8/TO-99-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "AD797",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL",
+      "-",
+      "+",
+      "V-",
+      "COMP",
+      "V+",
+      "C/B"
+    ],
+    "description": "Ultralow Distortion, Ultralow Noise Op Amp, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LT1012",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "BAL",
+      "-",
+      "+",
+      "V-",
+      "COMP",
+      "V+",
+      "C/B"
+    ],
+    "description": "Single Picoamp Input Current, Microvolt Offset, Low Noise Op Amp, DIP-8/SOIC-8/TO-5-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OP07",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "VOS",
+      "-",
+      "+",
+      "V-",
+      "NC",
+      "V+"
+    ],
+    "description": "Single Ultra-Low Offset Voltage Operational Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OP77",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "VOS",
+      "-",
+      "+",
+      "V-",
+      "NC",
+      "V+"
+    ],
+    "description": "Next Generation OP07 Ultralow Offset Voltage Operational Amplifier, DIP-8/TO-99-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LT1363",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "VOS",
+      "-",
+      "+",
+      "V-",
+      "NC",
+      "V+"
+    ],
+    "description": "70MHz, 1000V/\u00b5s Operational Amplifier, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA134",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "VOS",
+      "-",
+      "+",
+      "V-",
+      "NC",
+      "V+"
+    ],
+    "description": "Single SoundPlus High Performance Audio Operational Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OP1177AR",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision Low Noise, Low Input Bias Current Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "operational",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "OP1177ARM",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision Low Noise, Low Input Bias Current Operational Amplifier, MSOP-8",
+    "keywords": [
+      "single",
+      "operational",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "OP179GRT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "Single Rail-to-Rail High Output Current Operational Amplifiers, SOT-23-5",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OP179GS",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single Rail-to-Rail High Output Current Operational Amplifiers, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OP249GS",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "-",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision JFET, High Speed, Dual Operational Amplifier, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OP279",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual Rail-to-Rail High Output Current Operational Amplifiers, SOIC-8/TSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA1641",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "JFET input, ultralow distortion, low-noise operational amplifier, SOIC-8/VSSOP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA197xDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "V-",
+      "V+",
+      "-",
+      "+"
+    ],
+    "description": "Single 36V, Precision, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, VSSOP-8",
+    "keywords": [
+      "single",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "OPA196xDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "V-",
+      "V+",
+      "-",
+      "+"
+    ],
+    "description": "Single, Low-Power, Low Offset Voltage, Rail-to-Rail Operational Amplifier, VSSOP-8",
+    "keywords": [
+      "single",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "OPA2197xDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 36V, Precision, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "LPV812DGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual operational amplifier, 8kHz GBW, 425 nA/channel quiescent, 100 fA input bias, 300 uV offset max, 1 uV/C, VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "low-power",
+      "rail-to-rail"
+    ]
+  },
+  {
+    "component": "OPA2196xDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual, Low-Power, Low Offset Voltage, Rail-to-Rail Operational Amplifier, VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "OPA1692xDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual SoundPlus Low Power, Low Noise & Low Distortion Audio Operational Amplifiers, VSSOP-8",
+    "keywords": [
+      "VFA",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2156xDGK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Dual 36V, Ultra Low Noise, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, VSSOP-8",
+    "keywords": [
+      "dual",
+      "opamp",
+      "low-noise",
+      "r2r"
+    ]
+  },
+  {
+    "component": "OPA2325",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision, 10-MHz, Low-Noise, Low-Power, RRIO, CMOS Operational Amplifier, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2333xxDRB",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "PAD"
+    ],
+    "description": "Dual 1.8V, microPower, CMOS Operational Amplifiers, Zero-Drift Series, SON-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2376xxYZD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, DSBGA-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2691-14",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "NC",
+      "+",
+      "~DIS_A",
+      "~DIS_B",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual Wideband, Current-Feedback Operational Amplifier With Disable, SOIC-14",
+    "keywords": [
+      "dual",
+      "current",
+      "feedback",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2695xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual, Ultra-Wideband, Current-Feedback Operational Amplifier with Disable, SOIC-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA2695xRGT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "~DIS_A",
+      "NC",
+      "-",
+      "+",
+      "~DIS_B",
+      "V+",
+      "V-"
+    ],
+    "description": "Dual, Ultra-Wideband, Current-Feedback Operational Amplifier with Disable, QFN-16",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA330xxYFF",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "V-",
+      "+",
+      "-"
+    ],
+    "description": "50\u03bcV V OS, 0.25\u03bcV/\u00b0C, 35\u03bcA CMOS OPERATIONAL AMPLIFIERS, Zer\u00f8-Drift Series, DSBGA",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA333xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single 1.8V, microPower, CMOS Operational Amplifiers, Zero-Drift Series, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA340UA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single Single-Supply, Rail-to-Rail Operational Amplifier, MicroAmplifier Series, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA376xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single Low-Noise, Low Quiescent Current, Precision Operational Amplifier e-trim Series, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP6L91RT-ESN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "10 MHz, 850 \u00b5A Op Amps, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TSV911IDT",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single rail-to-rail input/output 8 MHz operational amplifiers, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "THS4631D",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single High-voltage, High Slew Rate, Wideband, FET-input Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA330xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "50\u03bcV V OS, 0.25\u03bcV/\u00b0C, 35\u03bcA CMOS OPERATIONAL AMPLIFIERS, Zer\u00f8-Drift Series, SOIC",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "MCP601-xSN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single 2.7V to 6.0V Single Supply CMOS Op Amps, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM6171D",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "High Speed Low Power Low Distortion Voltage Feedback Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA356xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single High Speed CMOS Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "AD8001AR",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Current Feedback Amplifier, 800 MHz, 50mW, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LMH6702MA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "1.7 GHz Ultra-Low Distortion Wideband Op Amp, SOIC-8",
+    "keywords": [
+      "opamp",
+      "single",
+      "low",
+      "distortion",
+      "wideband"
+    ]
+  },
+  {
+    "component": "LMH6609MA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "900MHz Voltage Feedback Op Amp, SOIC-8",
+    "keywords": [
+      "opamp",
+      "single",
+      "wideband",
+      "unity-gain",
+      "stable"
+    ]
+  },
+  {
+    "component": "OPA188xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Precision, Low-Noise, Rail-to-Rail Output, 36-V, Zero-Drift Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp",
+      "zero-drift"
+    ]
+  },
+  {
+    "component": "TLV2371D",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Rail-to-Rail Input/Output Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA842xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "200MHz, Low Distortion, Unity-Gain Stable, Voltage Feedback Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA843xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "800MHz, Wideband, Low Distortion, Medium Gain, Voltage-Feedback Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp",
+      "low",
+      "distortion"
+    ]
+  },
+  {
+    "component": "OPA846xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "1750MHz, Wideband, Low-Noise, Voltage Feedback Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA197xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Single 36V, Precision, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "OPA196xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Sing, Low-Power, Low Offset Voltage, Rail-to-Rail Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA365xxD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "50-MHz, Zero-Crossover, Low-Distortion, High CMRR, RRI/O, Single-Supply, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4077-1xR",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "4MHz, 7nV/sqrtHz, Low Offset and Drift, High Precision Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "ADA4610-1xR",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low Noise, Precision, Rail-to-Rail Output, JFET Single Op Amp, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA355NA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "ENABLE",
+      "V+"
+    ],
+    "description": "200MHz, CMOS, Operational amplifier, with shutdown, SOT-23-6",
+    "keywords": [
+      "operational",
+      "amplifier",
+      "opamp",
+      "shutdown",
+      "high-speed"
+    ]
+  },
+  {
+    "component": "OPA4197xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad 36V, Precision, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "OPA4196xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad, Low-Power, Low Offset Voltage, Rail-to-Rail Operational Amplifier, SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "MCP6L04x-xSL",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad, 1 MHz, 85\u00b5A, Rail-to-Rail input and ouput, SOIC-14",
+    "keywords": [
+      "opamp",
+      "vfa",
+      "r2r",
+      "rtr"
+    ]
+  },
+  {
+    "component": "ADA4610-4xR",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad Low Noise, Precision, Rail-to-Rail Output, JFET Single Op Amp, SOIC-14",
+    "keywords": [
+      "quad",
+      "opamp",
+      "low-power"
+    ]
+  },
+  {
+    "component": "OPA4197xPW",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad 36V, Precision, Rail-to-Rail Input/Output, Low Offset Voltage, Operational Amplifier, TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "OPA4196xPW",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad, Low-Power, Low Offset Voltage, Rail-to-Rail Operational Amplifier, TSSOP-14",
+    "keywords": [
+      "quad",
+      "opamp",
+      "rtor"
+    ]
+  },
+  {
+    "component": "MCP6L04-xST",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Quad, 1 MHz, 85\u00b5A, Rail-to-Rail input and ouput, TSSOP-14",
+    "keywords": [
+      "opamp",
+      "vfa",
+      "r2r",
+      "rtr"
+    ]
+  },
+  {
+    "component": "OPA551P",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "Flag"
+    ],
+    "description": "High-Voltage High-Current Operational Amplifier, bandwidth 3MHz, slew-rate 15V/us, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA552P",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "Flag"
+    ],
+    "description": "High-Voltage High-Current Operational Amplifier, bandwidth 12MHz, slew-rate 24V/us, DIP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA551U",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "-",
+      "+",
+      "V+",
+      "Flag"
+    ],
+    "description": "High-Voltage High-Current Operational Amplifier, bandwidth 3MHz, slew-rate 15V/us, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA552U",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "-",
+      "+",
+      "V+",
+      "Flag"
+    ],
+    "description": "High-Voltage High-Current Operational Amplifier, bandwidth 12MHz, slew-rate 24V/us, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "OPA569DWP",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "PAD",
+      "V+",
+      "OUT",
+      "V-",
+      "IMON",
+      "POUT1",
+      "ISET",
+      "~IFLAG",
+      "-IN",
+      "+IN",
+      "~TFLAG",
+      "ENA",
+      "POUT2"
+    ],
+    "description": "Rail-to-Rail I/O, 2A, Power Amplifier, SO-20",
+    "keywords": [
+      "opamp",
+      "single",
+      "high",
+      "current"
+    ]
+  },
+  {
+    "component": "OPA818xDRG",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "~PD",
+      "V+",
+      "EP",
+      "NC",
+      "FB",
+      "-",
+      "+",
+      "V-"
+    ],
+    "description": "2.7 GHz, High-Voltage, FET-Input, Low Noise, Operational Amplifier, WSON-8",
+    "keywords": [
+      "opamp",
+      "VFA"
+    ]
+  },
+  {
+    "component": "OPA858xDSG",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "~PD",
+      "V-",
+      "NC",
+      "FB",
+      "-",
+      "+"
+    ],
+    "description": "5.5-GHz Gain Bandwidth Product, Gain of 7 V/V Stable, FET Input Amplifier, WSON-8",
+    "keywords": [
+      "opamp",
+      "VFA"
+    ]
+  },
+  {
+    "component": "OPA855xDSG",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "~PD",
+      "V-",
+      "NC",
+      "FB",
+      "-",
+      "+"
+    ],
+    "description": "8-GHz Gain Bandwidth Product, Gain of 7-V/V Stable, Bipolar Input Amplifier, WSON-8",
+    "keywords": [
+      "opamp",
+      "VFA"
+    ]
+  },
+  {
+    "component": "OPA859xDSG",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V+",
+      "~PD",
+      "V-",
+      "NC",
+      "FB",
+      "-",
+      "+"
+    ],
+    "description": "1.8 GHz Unity-Gain Bandwidth FET Input Amplifier, WSON-8",
+    "keywords": [
+      "opamp",
+      "VFA"
+    ]
+  },
+  {
+    "component": "OPA890xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "NC",
+      "-",
+      "+",
+      "~DIS"
+    ],
+    "description": "Single Low-Power, Wideband, Voltage-Feedback Operational Amplifier with Disable, SO-8",
+    "keywords": [
+      "single",
+      "opamp",
+      "wideband",
+      "low-power"
+    ]
+  },
+  {
+    "component": "OPA847xD",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "NC",
+      "-",
+      "+",
+      "~DIS"
+    ],
+    "description": "Single Low-Power, 3.9GHz, Wideband, Ultra-Low Noise, Voltage-Feedback Operational Amplifier with Disable, SO-8",
+    "keywords": [
+      "single",
+      "opamp",
+      "wideband",
+      "low-power"
+    ]
+  },
+  {
+    "component": "OPA890xDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-",
+      "~DIS"
+    ],
+    "description": "Single Low-Power, Wideband, Voltage-Feedback Operational Amplifier with Disable, SOT-23-6",
+    "keywords": [
+      "single",
+      "opamp",
+      "wideband",
+      "low-power"
+    ]
+  },
+  {
+    "component": "OPA847xDBV",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "V-",
+      "V+",
+      "+",
+      "-",
+      "~DIS"
+    ],
+    "description": "Single Low-Power, 3.9GHz, Wideband, Ultra-Low Noise, Voltage-Feedback Operational Amplifier with Disable, SOT-23-6",
+    "keywords": [
+      "single",
+      "opamp",
+      "wideband",
+      "low-power"
+    ]
+  },
+  {
+    "component": "THS3491xDDA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "REF",
+      "-",
+      "+",
+      "V-",
+      "NC",
+      "V+",
+      "~PD",
+      "EP"
+    ],
+    "description": "900-MHz, 500-mA High-Power Output Current Feedback Operational Amplifier, SOIC-8",
+    "keywords": [
+      "opamp",
+      "single",
+      "current",
+      "feedback",
+      "wideband"
+    ]
+  },
+  {
+    "component": "THS4631DDA",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "PAD"
+    ],
+    "description": "Single High-voltage, High Slew Rate, Wideband, FET-input Operational Amplifier, SOIC-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "THS4631DGN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "NC",
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "PAD"
+    ],
+    "description": "Single High-voltage, High Slew Rate, Wideband, FET-input Operational Amplifier, MSOP-8",
+    "keywords": [
+      "single",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TLV172IDCK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Low-power Operational Amplifier, SOT-353",
+    "keywords": [
+      "op",
+      "amp",
+      "operational",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TLV6001DCK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Low-power, Rail-to-rail, 1MHz Operational Amplifier, SOT-353",
+    "keywords": [
+      "op",
+      "amp",
+      "operational",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TLV9001IDCK",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "V-",
+      "-",
+      "V+"
+    ],
+    "description": "Low-power, Rail-to-Rail, 1MHz Operational Amplifier, SOT-353",
+    "keywords": [
+      "op",
+      "amp",
+      "operational",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "TLV9004xRUCR",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+"
+    ],
+    "description": "Low-Power, Quad-Operational Amplifiers, Texas S-PX2QFN-14",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TSV524xIQ4T",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "+",
+      "-",
+      "NC",
+      "V-",
+      "EP",
+      "V+"
+    ],
+    "description": "Quad CMOS Rail-to-Rail Input/Output Amplifier, 1.15MHz GBP, QFN-16",
+    "keywords": [
+      "quad",
+      "opamp"
+    ]
+  },
+  {
+    "component": "TSV912IQ2T",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "PAD"
+    ],
+    "description": "Dual rail-to-rail input/output 8 MHz operational amplifiers, DFN-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  },
+  {
+    "component": "LM358_DFN",
+    "type": "Amplifier_Operational",
+    "pins": [
+      "-",
+      "+",
+      "V-",
+      "V+",
+      "PAD"
+    ],
+    "description": "Low-Power, Dual Operational Amplifiers, DFN-8",
+    "keywords": [
+      "dual",
+      "opamp"
+    ]
+  }
+]

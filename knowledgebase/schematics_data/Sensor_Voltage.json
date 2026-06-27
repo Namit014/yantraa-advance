@@ -1,0 +1,18 @@
+[
+  {
+    "component": "LV25-P",
+    "type": "Sensor_Voltage",
+    "pins": [
+      "HV+",
+      "HV-",
+      "M",
+      "V+",
+      "V-"
+    ],
+    "description": "LEM Voltage transducer LV 25-P",
+    "keywords": [
+      "Voltage",
+      "transducer"
+    ]
+  }
+]

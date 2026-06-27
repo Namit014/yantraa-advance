@@ -1,0 +1,7445 @@
+[
+  {
+    "component": "2N7000",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "0.2A Id, 200V Vds, N-Channel MOSFET, 2.6V Logic Level, TO-92",
+    "keywords": [
+      "N-Channel",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "3SK263",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G1",
+      "G2"
+    ],
+    "description": "30mA Id, 15V Vds, N-Channel Dual Gate MOSFET, SOT-143/343",
+    "keywords": [
+      "N-Channel",
+      "MOSFET",
+      "Dual",
+      "Gate"
+    ]
+  },
+  {
+    "component": "BF244A",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "50mA Id, 30V Vgs, N-Channel FET Transistor, TO-92",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BF244B",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "50mA Id, 30V Vgs, N-Channel FET Transistor, TO-92",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BF244C",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "10mA Id, 30V Vgs, N-Channel FET Transistor, TO-92",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BF245A",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "50mA Id, 30V Vgs, N-Channel FET Transistor, TO-92",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BF245B",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "10mA Id, 30V Vgs, N-Channel FET Transistor, TO-92",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BF245C",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "10mA Id, 30V Vgs, N-Channel FET Transistor, TO-92",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BF545A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "D",
+      "G"
+    ],
+    "description": "5mA Idss, 30V Vgs, N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BF545B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "D",
+      "G"
+    ],
+    "description": "15mA Idss, 30V Vgs, N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BF545C",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "D",
+      "G"
+    ],
+    "description": "25mA Idss, 30V Vgs, N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor",
+      "Low",
+      "Voltage"
+    ]
+  },
+  {
+    "component": "BS107",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "0.25A Id, 200V Vds, N-Channel MOSFET, TO-92",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BS108",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "0.25A Id, 200V Vds, N-Channel MOSFET, TO-92",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BS170",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "0.5A Id, 60V Vds, N-Channel MOSFET, TO-92",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BS250",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "-0.18A Id, -45V Vds, P-Channel MOSFET, TO-92",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB008NE2LX",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "180A Id, 25V Vds, 0.8mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB012NE2LXI",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "170A Id, 25V Vds, 1.2mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB013NE2LXI",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "163A Id, 25V Vds, 1.3mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB014N04LX3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "180A Id, 40V Vds, 1.4mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB015N04NX3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "180A Id, 40V Vds, 1.5mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6616",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "19A Id, 40V Vds, 5mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6620",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "150A Id, 20V Vds, 2.7mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6628",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "27A Id, 25V Vds, 2.5mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6635",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "32A Id, 30V Vds, 1.8mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6714M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "29A Id, 25V Vds, 2.1mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6715M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "34A Id, 25V Vds, 1.6mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6716M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "39A Id, 25V Vds, 1.6mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6717M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "38A Id, 25V Vds, 1.25mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6724M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "27A Id, 30V Vds, 2.5mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6725M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "28A Id, 30V Vds, 2.2mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6727M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "32A Id, 30V Vds, 1.7mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6728M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "23A Id, 30V Vds, 2.5mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6795M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "32A Id, 25V Vds, 1.8mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6797M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "36A Id, 25V Vds, 1.4mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6798M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "37A Id, 25V Vds, 1.3mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6893M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "29A Id, 25V Vds, 1.6mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6894M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "37A Id, 25V Vds, 1.3mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6898M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "35A Id, 25V Vds, 1.1mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7946",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "198A Id, 40V Vds, 1.4mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF8302M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "31A Id, 30V Vds, 1.8mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF8304M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "28A Id, 30V Vds, 2.2mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF8306M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "23A Id, 30V Vds, 2.5mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF8308M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "27A Id, 30V Vds, 2.5mOhm Rds, N-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB028N06NN3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "90A Id, 60V Vds, 2.8mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB044N08NN3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "90A Id, 80V Vds, 4.4mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB056N10NN3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "83A Id, 100V Vds, 5.1mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6644",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "57A Id, 100V Vds, 13mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6646",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "12A Id, 80V Vds, 9.5mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6648",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "86A Id, 60V Vds, 7mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6662",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "8.3A Id, 100V Vds, 22mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6668",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "55A Id, 80V Vds, 15mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7171M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "93A Id, 100V Vds, 6.5mOhm Rds, N-Channel MOSFET, DirectFET MN",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB104N08NP3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "50A Id, 80V Vds, 10.4mOhm Rds, N-Channel MOSFET, DirectFET MP",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6637",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "14A Id, 30V Vds, 7.7mOhm Rds, N-Channel MOSFET, DirectFET MP",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6722M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "13A Id, 30V Vds, 7.7mOhm Rds, N-Channel MOSFET, DirectFET MP",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB165N15NZ3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "45A Id, 150V Vds, 16.5mOhm Rds, N-Channel MOSFET, DirectFET MZ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSB280N15NZ3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "30A Id, 150V Vds, 28mOhm Rds, N-Channel MOSFET, DirectFET MZ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6641",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "26A Id, 200V Vds, 59.9mOhm Rds, N-Channel MOSFET, DirectFET MZ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6643",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "35A Id, 150V Vds, 34.5mOhm Rds, N-Channel MOSFET, DirectFET MZ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6674",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "13.4A Id, 60V Vds, 11mOhm Rds, N-Channel MOSFET, DirectFET MZ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6775M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "28A Id, 150V Vds, 56mOhm Rds, N-Channel MOSFET, DirectFET MZ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6785",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "19A Id, 200V Vds, 100mOhm Rds, N-Channel MOSFET, DirectFET MZ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSC13DN30NSFD",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "16A Id, 300V Vds, OptiMOS N-Channel Power MOSFET, 130mOhm Ron, Qg (typ) 30.0nC, PG-TDSON-8",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSD235C",
+    "type": "Transistor_FET",
+    "pins": [
+      "SN",
+      "GN",
+      "DN",
+      "DP",
+      "SP",
+      "GP"
+    ],
+    "description": "-0.53/+0.95A Id, -20/+20V Vds, P/N-Channel MOSFET, SOT-363, Infineon",
+    "keywords": [
+      "OptiMOS",
+      "MOSFET",
+      "complementary",
+      "nmos",
+      "pmos",
+      "enchanced",
+      "avalanche",
+      "AEC",
+      "Q101",
+      "super",
+      "logic",
+      "infineon"
+    ]
+  },
+  {
+    "component": "BSF030NE2LQ",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "75A Id, 25V Vds, 3mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSF035NE2LQ",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "69A Id, 25V Vds, 3.5mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6621",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "12A Id, 30V Vds, 9.1mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6622",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "15A Id, 25V Vds, 6.3mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6631",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "13A Id, 30V Vds, 7.8mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6711S",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "19A Id, 25V Vds, 3.8mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6712S",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "17A Id, 25V Vds, 4.9mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6713S",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "22A Id, 25V Vds, 3mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6721S",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "14A Id, 30V Vds, 7.3mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6811S",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "19A Id, 25V Vds, 3.7mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF8327S",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "13A Id, 30V Vds, 7.3mOhm Rds, N-Channel MOSFET, DirectFET SQ",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSF450NE7NH3",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "15A Id, 75V Vds, 45mOhm Rds, N-Channel MOSFET, DirectFET ST",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6614",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "12.7A Id, 40V Vds, 8.3mOhm Rds, N-Channel MOSFET, DirectFET ST",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6617",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "55A Id, 30V Vds, 8.1mOhm Rds, N-Channel MOSFET, DirectFET ST",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6623",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "55A Id, 20V Vds, 5.7mOhm Rds, N-Channel MOSFET, DirectFET ST",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6636",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "18A Id, 20V Vds, 4.5mOhm Rds, N-Channel MOSFET, DirectFET ST",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSP129",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "0.35A Id, 240V Vds, N-Channel MOSFET, SOT-223",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSP89",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "0.35A Id, 240V Vds, N-Channel Enhancement Mode MOSFET, SOT-223",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BUK7880-55A",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "7A Id, 55V Vds, N-Channel Enhancement Mode MOSFET, SOT-223",
+    "keywords": [
+      "n-channel",
+      "n",
+      "channel",
+      "mosfet",
+      "enhancement",
+      "mode"
+    ]
+  },
+  {
+    "component": "BSR56",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "50mA min, 40V, 25mOhm max, 4-10V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "BSR57",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "20mA min, 40V, 40mOhm max, 2-6V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "BSR58",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "80mA min, 40V, 60mOhm max, 0.8-4V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "MMBF4391",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "50mA min, 30V, 30mOhm max, 4-10V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "MMBF4392",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "25mA min, 30V, 60mOhm max, 2-5V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "MMBF4393",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "5mA min, 30V, 100mOhm max, 0.5-3V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "MMBFJ111",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "20mA min, 35V, 30mOhm max, 3-10V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "MMBFJ112",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "5mA min, 35V, 50mOhm max, 1-5V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "MMBFJ113",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "G"
+    ],
+    "description": "2mA min, 35V, 100mOhm max, 0.5-3V Vgs(off), N-Channel JFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "FET",
+      "Transistor"
+    ]
+  },
+  {
+    "component": "BSS138",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "50V Vds, 0.22A Id, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "2N7002",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "Switching",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "2N7002E",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.24A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "2N7002H",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.21A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "2N7002K",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.38A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BS170F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.15A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BS870",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.25A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSN20",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.5A Id, 50V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSS123",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.17A Id, 100V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSS127S",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.07A Id, 600V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMG2302U",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.2A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMG3402L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMG3404L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "5.8A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMG3406L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "3.6A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMG3414U",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.2A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMG3418L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN10H220L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "1.6A Id, 100V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN10H700S",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.7A Id, 100V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN13H750S",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "1A Id, 130V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN2041L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "6.4A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN2050L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "5.9A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN2056U",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN2058U",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.6A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN2075U",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.2A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN2230U",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN24H11DS",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.27A Id, 240V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN24H3D5L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.48A Id, 240V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN3042L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "5.8A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN3051L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "5.8A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN30H4D0L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.25A Id, 300V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN3110S",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "3.3A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN3150L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "3.8A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN3300U",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN3404L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "5.8A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN6075S",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2.5A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN6140L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2.3A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN67D7L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.21A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMN67D8L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.21A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "MMBF170",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.5A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "VN10LF",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.15A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZVN3306F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.15A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZVN3310F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.1A Id, 100V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZVN3320F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.06A Id, 200V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZVN4106F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.2A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXM61N02F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "1.7A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXM61N03F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "1.4A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN10A07F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "0.76A Id, 100V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN2A01F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2.2A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN2A14F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.1A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN2B01F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2.4A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN2B14FH",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.3A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN2F30FH",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.9A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN2F34FH",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN3A01F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN3A14F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "3.2A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN3B01F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN3B14F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "3.5A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN3F30FH",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.6A Id, 30V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMN6A07F",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "1.4A Id, 60V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRLML0030",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "5.3A Id, 30V Vds, 27mOhm Rds, N-Channel HEXFET Power MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "IRLML2060",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "1.2A Id, 60V Vds, 480mOhm Rds, N-Channel HEXFET Power MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "TSM2302CX",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "3.9A Id, 20V Vds, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "AO3400A",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSS214NW",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "20V Vds, 1.5A Id, N-Channel MOSFET, SOT-323",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BUK9M53-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "17A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 46mOhm Ron, 6nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M85-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "12.8A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 73mOhm Ron, 4.4nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M45-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "19A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 45mOhm Ron, 6.2nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M52-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "17.6A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 40mOhm Ron, 4.5nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M42-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "22A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 37mOhm Ron, 8.3nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M14-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "44A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 11mOhm Ron, 11.3nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M24-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "32A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 21mOhm Ron, 12.4nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M10-30EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "54A Id, 30V Vds, N-Channel TrenchMOS MOSFET, 7.8mOhm Ron, 12.2nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M11-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "53A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 9mOhm Ron, 13.4nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M10-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "56A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 10mOhm Ron, 19.5nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M15-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "42.9A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 15mOhm Ron, 19.4nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M19-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "35.8A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 19mOhm Ron, 17.3nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M9R1-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "64A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 7.3mOhm Ron, 16.2nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M6R6-30EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "70A Id, 30V Vds, N-Channel TrenchMOS MOSFET, 5.3mOhm Ron, 18nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M12-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "54A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 11mOhm Ron, - Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M9R9-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "60A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 9.9mOhm Ron, 30.1nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M42-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "20A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 42mOhm Ron, 9nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M156-100EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "9.3A Id, 100V Vds, N-Channel TrenchMOS MOSFET, 150mOhm Ron, 7.4nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M33-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "24A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 33mOhm Ron, 10.9nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M21-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "33A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 21mOhm Ron, 10.7nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M43-100EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "25A Id, 100V Vds, N-Channel TrenchMOS MOSFET, 43mOhm Ron, 20.2nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M12-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "53A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 12mOhm Ron, 24.8nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M15-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "47A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 13mOhm Ron, 17nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M27-80EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "30A Id, 80V Vds, N-Channel TrenchMOS MOSFET, 27mOhm Ron, 19.5nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M19-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "38A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 17mOhm Ron, 13.8nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M5R2-30EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "70A Id, 30V Vds, N-Channel TrenchMOS MOSFET, 4.1mOhm Ron, 22.5nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M17-80EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "43A Id, 80V Vds, N-Channel TrenchMOS MOSFET, 17mOhm Ron, 29.6nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M7R2-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "70A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 5.8mOhm Ron, 19.7nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M34-100EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "29A Id, 100V Vds, N-Channel TrenchMOS MOSFET, 34mOhm Ron, 24.7nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M23-80EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "37A Id, 80V Vds, N-Channel TrenchMOS MOSFET, 20mOhm Ron, 20nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M67-60EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "14A Id, 60V Vds, N-Channel TrenchMOS MOSFET, 67mOhm Ron, 6.7nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M24-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "30A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 20mOhm Ron, 7.7nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M120-100EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "11.5A Id, 100V Vds, N-Channel TrenchMOS MOSFET, 119mOhm Ron, 8.8nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M17-30EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "37A Id, 30V Vds, N-Channel TrenchMOS MOSFET, 14mOhm Ron, 8nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M12-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "48A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 12mOhm Ron, 15.8nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M28-80EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "33A Id, 80V Vds, N-Channel TrenchMOS MOSFET, 25mOhm Ron, 16.7nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M8R0-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "69A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 8mOhm Ron, 23.8nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK9M35-80EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "26A Id, 80V Vds, N-Channel TrenchMOS MOSFET, 31mOhm Ron, 13.5nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M6R3-40EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "70A Id, 40V Vds, N-Channel TrenchMOS MOSFET, 6.3mOhm Ron, 28.1nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUK7M22-80EX",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "37A Id, 80V Vds, N-Channel TrenchMOS MOSFET, 22mOhm Ron, 23.9nC Qqd, -55 to 175 \u00b0C, LFPAK33",
+    "keywords": [
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BUZ11",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "30A Id, 50V Vds, N-Channel Power MOSFET, TO-220",
+    "keywords": [
+      "N-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF3205",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "110A Id, 55V Vds, Single N-Channel HEXFET Power MOSFET, 8mOhm Ron, TO-220AB",
+    "keywords": [
+      "Single",
+      "N-Channel",
+      "HEXFET",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF540N",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "33A Id, 100V Vds, HEXFET N-Channel MOSFET, TO-220",
+    "keywords": [
+      "HEXFET",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF740",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "10A Id, 400V Vds, N-Channel Power MOSFET, 500mOhm Rds, TO-220AB",
+    "keywords": [
+      "N",
+      "Channel"
+    ]
+  },
+  {
+    "component": "IRLB8721PBF",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "62A Id, 30V Vds, 8.7 mOhm Rds, N-Channel HEXFET Power MOSFET, TO-220",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "IRLZ34N",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "30A Id, 55V Vds, 35mOhm Rds, N-Channel HEXFET Power MOSFET, TO-220AB",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "IRLZ44N",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "47A Id, 55V Vds, 22mOhm Rds Single N-Channel HEXFET Power MOSFET, TO-220AB",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "VNP10N07",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "10A Id, 70V Vds, N-Channel Power MOSFET, fully autoprotected, TO-220",
+    "keywords": [
+      "N-Channel",
+      "Power",
+      "MOSFET",
+      "OMNIFET"
+    ]
+  },
+  {
+    "component": "IPP060N06N",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "45A Id, 60V Vds, Single N-Channel Power MOSFET, 6mOhm Ron, TO-220",
+    "keywords": [
+      "N-Channel",
+      "Power",
+      "MOSFET",
+      "Infineon"
+    ]
+  },
+  {
+    "component": "C3M0030090K",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "DS",
+      "G"
+    ],
+    "description": "63A Id, 900V Vds, 30mOhm, N-Channel SiC MOSFET, TO-247-4",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0065100K",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "DS",
+      "G"
+    ],
+    "description": "35A Id, 1000V Vds, 65mOhm, N-Channel SiC MOSFET, TO-247-4",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0075120K",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "DS",
+      "G"
+    ],
+    "description": "30A Id, 1200V Vds, 75mOhm, N-Channel SiC MOSFET, TO-247-4",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0120100K",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "DS",
+      "G"
+    ],
+    "description": "22A Id, 1000V Vds, 120mOhm, N-Channel SiC MOSFET, TO-247-4",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0065090D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "36A Id, 900V Vds, 65mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0120090D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "23A Id, 900V Vds, 120mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0280090D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "11.5A Id, 900V Vds, 280mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C2M0025120D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "90A Id, 1200V Vds, 25mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C2M0040120D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "60A Id, 1200V Vds, 40mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C2M0080120D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "36A Id, 1200V Vds, 80mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C2M0160120D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "19A Id, 1200V Vds, 160mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C2M0280120D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "10A Id, 1200V Vds, 280mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C2M0045170D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "72A Id, 1700V Vds, 45mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C2M1000170D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "5A Id, 1700V Vds, 1000mOhm, N-Channel SiC MOSFET, TO-247",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0065090J",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "DS",
+      "S",
+      "D"
+    ],
+    "description": "35A Id, 900V Vds, 65mOhm, N-Channel SiC MOSFET, TO-263-7",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0065100J",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "DS",
+      "S",
+      "D"
+    ],
+    "description": "35A Id, 1000V Vds, 65mOhm, N-Channel SiC MOSFET, TO-263-7",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0075120J",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "DS",
+      "S",
+      "D"
+    ],
+    "description": "30A Id, 1200V Vds, 75mOhm, N-Channel SiC MOSFET, TO-263-7",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0280090J",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "DS",
+      "S",
+      "D"
+    ],
+    "description": "11.5A Id, 900V Vds, 280mOhm, N-Channel SiC MOSFET, TO-263-7",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C2M1000170J",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "DS",
+      "S",
+      "D"
+    ],
+    "description": "5.3A Id, 1700V Vds, 1000mOhm, N-Channel SiC MOSFET, TO-263-7",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0120090J",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "DS",
+      "S",
+      "D"
+    ],
+    "description": "22A Id, 900V Vds, 120mOhm, N-Channel SiC MOSFET, TO-263-7",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "C3M0120100J",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "DS",
+      "S",
+      "D"
+    ],
+    "description": "22A Id, 1000V Vds, 120mOhm, N-Channel SiC MOSFET, TO-263-7",
+    "keywords": [
+      "N-Channel",
+      "SiC",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "CSD16301Q2",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "5A Id, 25V Vds, NexFET N-Channel Power MOSFET, 19mOhm Ron, SON-6",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17313Q2",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "5A Id, 30V Vds, NexFET N-Channel Power MOSFET, 24mOhm Ron, SON-6",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17578Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "25A Id, 30V Vds, NexFET N-Channel Power MOSFET, 6.9mOhm Ron, Qg (typ) 7.9nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17579Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "25A Id, 30V Vds, NexFET N-Channel Power MOSFET, 9.7mOhm Ron, Qg (typ) 5.4nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16570Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 0.59mOhm Ron, 95nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17577Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "60A Id, 30V Vds, NexFET N-Channel Power MOSFET, 4.2mOhm Ron, 13nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18509Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 40V Vds, NexFET N-Channel Power MOSFET, 1.2mOhm Ron, 150nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18540Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 60V Vds, NexFET N-Channel Power MOSFET, 2.2mOhm Ron, 41nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17573Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 1mOhm Ron, 49nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17576Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 2mOhm Ron, 25nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD19534Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "50A Id, 100V Vds, NexFET N-Channel Power MOSFET, 15.1mOhm Ron, 17nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17570Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 0.69mOhm Ron, 93nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD19533Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 100V Vds, NexFET N-Channel Power MOSFET, 9.5mOhm Ron, 27nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD19502Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 80V Vds, NexFET N-Channel Power MOSFET, 4.1mOhm Ron, 48nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD19532Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 100V Vds, NexFET N-Channel Power MOSFET, 4.9mOhm Ron, 48nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD19531Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 100V Vds, NexFET N-Channel Power MOSFET, 6.4mOhm Ron, 37nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18563Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 60V Vds, NexFET N-Channel Power MOSFET, 6.8mOhm Ron, 15nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18537NQ5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "50A Id, 60V Vds, NexFET N-Channel Power MOSFET, 13mOhm Ron, 14nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18532NQ5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 60V Vds, NexFET N-Channel Power MOSFET, 3.4mOhm Ron, 49nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17556Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 1.4mOhm Ron, Qg (typ) 28.5nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18502Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 40V Vds, NexFET N-Channel Power MOSFET, 2.3mOhm Ron, 52nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18532Q5B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 60V Vds, NexFET N-Channel Power MOSFET, 3.2mOhm Ron, 44nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17552Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "60A Id, 30V Vds, NexFET N-Channel Power MOSFET, 6.2mOhm Ron, 9nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17559Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 1.15mOhm Ron, 39nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18534Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "50A Id, 60V Vds, NexFET N-Channel Power MOSFET, 9.8mOhm Ron, 17nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18533Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 60V Vds, NexFET N-Channel Power MOSFET, 5.9mOhm Ron, 29nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17555Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 2.7mOhm Ron, 23nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17551Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "48A Id, 30V Vds, NexFET N-Channel Power MOSFET, 8.8mOhm Ron, 6nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18501Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 40V Vds, NexFET N-Channel Power MOSFET, 3.2mOhm Ron, 42nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18503Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 40V Vds, NexFET N-Channel Power MOSFET, 4.3mOhm Ron, 26nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18504Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "50A Id, 40V Vds, NexFET N-Channel Power MOSFET, 6.6mOhm Ron, 16nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD18531Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 60V Vds, NexFET N-Channel Power MOSFET, 4.6mOhm Ron, 36nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17553Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 3.1mOhm Ron, Qg (typ) 17.5nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16342Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 5.5mOhm Ron, Qg (typ) 6.5nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17322Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 12.4mOhm Ron, Qg (typ) 3.6nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17327Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 15.5mOhm Ron, Qg (typ) 2.8nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17522Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 8.1mOhm Ron, Qg (typ) 3.6nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17527Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 10.8mOhm Ron, Qg (typ) 2.8nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17501Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 2.9mOhm Ron, Qg (typ) 13.2nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17506Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 4mOhm Ron, Qg (typ) 8.3nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17505Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 3.5mOhm Ron, 10nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17507Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 10.8mOhm Ron, Qg (typ) 2.8nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17510Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 5.2mOhm Ron, Qg (typ) 6.4nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17311Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 2.3mOhm Ron, 24nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17312Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 1.7mOhm Ron, 28nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17303Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 2.6mOhm Ron, 18nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16415Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 1.15mOhm Ron, 21nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17302Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 9mOhm Ron, Qg (typ) 5.4nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17305Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 2.8mOhm Ron, Qg (typ) 14.1nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17306Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 4.2mOhm Ron, Qg (typ) 11.8nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17307Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 12.1mOhm Ron, 4nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17310Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 5.9mOhm Ron, Qg (typ) 8.9nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD17301Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 30V Vds, NexFET N-Channel Power MOSFET, 3mOhm Ron, 19nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16408Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 4.5mOhm Ron, Qg (typ) 6.7nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16322Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 5.8mOhm Ron, Qg (typ) 6.8nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16325Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 2.2mOhm Ron, 18nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16321Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 2.6mOhm Ron, 14nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16414Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 1.9mOhm Ron, Qg (typ) 16.6nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16401Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 1.6mOhm Ron, 21nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16403Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 2.8mOhm Ron, Qg (typ) 13.3nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16404Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 5.1mOhm Ron, Qg (typ) 6.5nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16407Q5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 2.4mOhm Ron, Qg (typ) 13.3nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16410Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 8.5mOhm Ron, Qg (typ) 3.9nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16412Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 11mOhm Ron, Qg (typ) 2.9nC, SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD16413Q5A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 25V Vds, NexFET N-Channel Power MOSFET, 3.9mOhm Ron, 9nC Qg(typ), SON8 5x6mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC026N08NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 2.6mOhm Ron, Qg (typ) 74.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC030N08NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 3.0mOhm Ron, Qg (typ) 61.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC035N10NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 3.5mOhm Ron, Qg (typ) 70.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC037N08NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 3.7mOhm Ron, Qg (typ) 46.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC040N10NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 4.0mOhm Ron, Qg (typ) 58.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC040N08NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 4.0mOhm Ron, Qg (typ) 43.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC046N10NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 4.6mOhm Ron, Qg (typ) 63.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC047N08NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 4.7mOhm Ron, Qg (typ) 52.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC052N08NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "95A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 5.2mOhm Ron, Qg (typ) 32.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC057N08NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 5.7mOhm Ron, Qg (typ) 42.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC060N10NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "90A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 6.0mOhm Ron, Qg (typ) 51.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC061N08NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "82A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 6.1mOhm Ron, Qg (typ) 27.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC070N10NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "90A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 7.0mOhm Ron, Qg (typ) 42.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC070N10NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "80A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 7.0mOhm Ron, Qg (typ) 30.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC072N08NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "74A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 7.2mOhm Ron, Qg (typ) 24.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC079N10NSG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 7.9mOhm Ron, Qg (typ) 66.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC082N10LSG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 8.2mOhm Ron, Qg (typ) 78.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC098N10NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "60A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 9.8mOhm Ron, Qg (typ) 22.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC100N10NSFG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "90A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 10.0mOhm Ron, Qg (typ) 33.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC105N10LSFG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "90A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 10.5mOhm Ron, Qg (typ) 40.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC109N10NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "63A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 10.9mOhm Ron, Qg (typ) 26.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC117N08NS5",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "49A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 11.7mOhm Ron, Qg (typ) 15.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC118N10NSG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "71A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 11.8mOhm Ron, Qg (typ) 42.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC123N08NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "55A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 12.3mOhm Ron, Qg (typ) 19.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC123N10LSG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "71A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 12.3mOhm Ron, Qg (typ) 51.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC159N10LSFG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "63A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 15.9mOhm Ron, Qg (typ) 26.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC160N10NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "42A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 16.0mOhm Ron, Qg (typ) 19.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC196N10NSG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "45A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 19.6mOhm Ron, Qg (typ) 25.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC252N10NSFG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "40A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 25.2mOhm Ron, Qg (typ) 13.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC265N10LSFG",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "40A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 26.5mOhm Ron, Qg (typ) 16.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC340N08NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "23A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 34.0mOhm Ron, Qg (typ) 6.8nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC440N10NS3G",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "18A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 44.0mOhm Ron, Qg (typ) 8.1nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "BSC028N06LS3",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A Id, 60V Vds, OptiMOS N-Channel Power MOSFET, 2.8mOhm Ron, Qg (typ) 31.0nC, PG-TDSON-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "FDMS8350LET40",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "49A Id, 40V Vds, N-Channel PowerTrench MOSFET, 0.85mOhm Ron, 242nC Qgmax, -55 to 175 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench-MOSFET",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS8050ET30",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "55A Id, 30V Vds, N-Channel PowerTrench MOSFET, 0.65mOhm Ron, 285nC Qgmax, -55 to 175 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86202ET120",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "13.5A Id, 120V Vds, N-Channel Shielded Gate PowerTrench MOSFET, 7.2mOhm Ron, 64nC Qgmax, -55 to 175 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "shielded-gate-powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86150ET100",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "16A Id, 100V Vds, N-Channel PowerTrench MOSFET, 4.85mOhm Ron, 62nC Qgmax, -55 to 175 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench-MOSFET",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86255ET150",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "10A Id, 150V Vds, N-Channel Shielded Gate PowerTrench MOSFET, 12.4mOhm Ron, 63nC Qgmax, -55 to 175 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "shielded-gate-powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86350ET80",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "25A Id, 80V Vds, N-Channel PowerTrench MOSFET, 2.4mOhm Ron, 155nC Qgmax, -55 to 175 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86550ET60",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "32A Id, 60V Vds, N-Channel PowerTrench MOSFET, 1.65mOhm Ron, 154nC Qgmax, -55 to 175 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS8050",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "55A Id, 30V Vds, N-Channel PowerTrench MOSFET, 0.65mOhm Ron, 285nC Qgmax, -55 to 150 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS8350L",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "47A Id, 40V Vds, N-Channel PowerTrench MOSFET, 0.85mOhm Ron, 242nC Qgmax, -55 to 150 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86255",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "10A Id, 150V Vds, N-Channel Shielded Gate PowerTrench MOSFET, 12.4mOhm Ron, 63nC Qgmax, -55 to 150 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "shielded-gate-powertrench-MOSFET",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86550",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "32A Id, 60V Vds, N-Channel PowerTrench MOSFET, 1.65mOhm Ron, 154nC Qgmax, -55 to 150 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86202",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "13.5A Id, 120V Vds, N-Channel Shielded Gate PowerTrench MOSFET, 7.2mOhm Ron, 64nC Qgmax, -55 to 150 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "shielded-gate-powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86350",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "25A Id, 80V Vds, N-Channel PowerTrench MOSFET, 2.4mOhm Ron, 155nC Qgmax, -55 to 150 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86152",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "14A Id, 100V Vds, N-Channel PowerTrench MOSFET, 6mOhm Ron, 50nC Qgmax, -55 to 150 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMS86150",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "16A Id, 100V Vds, N-Channel PowerTrench MOSFET, 4.85mOhm Ron, 62nC Qgmax, -55 to 150 \u00b0C, 5x6mm SON8",
+    "keywords": [
+      "powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "CSD19537Q3",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "50A Id, 100V Vds, NexFET N-Channel Power MOSFET, 13mOhm Ron, Qg Typ 16.0nC, VSON8 3.3x3.3mm",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "CSD25302Q2",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "5A Id, 20V Vds, NexFET P-Channel Power MOSFET, 39mOhm Ron, SON-6",
+    "keywords": [
+      "NexFET",
+      "Power",
+      "MOSFET",
+      "P-MOS"
+    ]
+  },
+  {
+    "component": "DMC2053UVT",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "4.6A/-3.2A Id, 20V Vds, Complementary pair enhancement mode P-Channel and N-Channel MOSFET, TSOT-23-6",
+    "keywords": [
+      "complementary",
+      "mosfet"
+    ]
+  },
+  {
+    "component": "DMC3071LVT",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "3.4A/-2.7A Id, 30V Vds, Complementary pair enhancement mode P-Channel and N-Channel MOSFET, TSOT-23-6",
+    "keywords": [
+      "complementary",
+      "mosfet"
+    ]
+  },
+  {
+    "component": "DMG1012T",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "20V Vds, 0.63 Id, N-Channel MOSFET with ESD protection, SOT-523",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMG9926UDM",
+    "type": "Transistor_FET",
+    "pins": [
+      "D1",
+      "S1/D2",
+      "S2",
+      "G2",
+      "G1"
+    ],
+    "description": "4.2A Id, 20V Vds, Common-Drain, Dual Half Bridge N-Channel MOSFET, 28mOhm Ron, SOT-23-6",
+    "keywords": [
+      "Dual",
+      "Half",
+      "Bridge",
+      "N-Channel",
+      "MOSFET",
+      "Logic",
+      "Level",
+      "Common",
+      "Drain"
+    ]
+  },
+  {
+    "component": "DMN3033LDM",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "6.9A Id, 30V Vds, N-Channel MOSFET, SOT-23-6",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMP3013SFV",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-12A Id, -30V Vds, P-Channel Power MOSFET, 9.5mOhm Ron, 33.7nC Qg (typ), PowerDI3333-8",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDC2512",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "1.4A Id, 150V Vds, N-Channel MOSFET, 425mOhm Ron, SuperSOT-6",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDC86244",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "2.3A Id, 150V Vds, N-Channel MOSFET, 144mOhm Ron, SuperSOT-6",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDC6330L",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "D2",
+      "S2",
+      "G1",
+      "D1"
+    ],
+    "description": "-2.3A, 20V Vds, Integrated load switch, P-Channel MOSFET driven by small N-Channel MOSFET, TSOT-23-6",
+    "keywords": [
+      "complementary",
+      "mosfet"
+    ]
+  },
+  {
+    "component": "FDG1024NZ",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "1.2A Id, 20V Vds, Dual N-Channel MOSFET, 175mOhm Ron, SC-70-6",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET",
+      "Logic",
+      "Level"
+    ]
+  },
+  {
+    "component": "FDG6335N",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "0.7A Id, 20V Vds, Dual N-Channel MOSFET, 300mOhm Ron, SC-70-6",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDMC8032L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G1",
+      "S1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "7A Id, 40V Vds, Dual N-Channel MOSFET, 20mOhm Ron, Power33 Package",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDMT80060DC",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "43A Id, 60V Vds, PowerTrench N-Channel Power MOSFET, 6.9mOhm Ron, Qg (typ) 7.9nC 8x8mm MLP",
+    "keywords": [
+      "PowerTrench",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "FDMT80080DC",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "36A Id, 80V Vds, N-Channel Dual Cool PowerTrench MOSFET, 1.35mOhm Ron, 273nC Qgmax, -55 to 150 \u00b0C, 8x8mm MLP",
+    "keywords": [
+      "dual-cool-powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMT800120DC",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "20A Id, 120V Vds, N-Channel Dual cool 88 PowerTrench MOSFET, 4.2mOhm Ron, 107nC Qgmax, -55 to 150 \u00b0C, 8x8mm MLP",
+    "keywords": [
+      "dual-cool-powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMT800100DC",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "24A Id, 100V Vds, N-Channel Dual Cool PowerTrench MOSFET, 2.95mOhm Ron, 111nC Qgmax, -55 to 150 \u00b0C, 8x8mm MLP",
+    "keywords": [
+      "dual-cool-powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMT800150DC",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "15A Id, 150V Vds, N-Channel Dual cool PowerTrench MOSFET, 6.5mOhm Ron, 108nC Qgmax, -55 to 150 \u00b0C, 8x8mm MLP",
+    "keywords": [
+      "dual-cool-powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDMT800152DC",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "13A Id, 150V Vds, N-Channel Dual Cool PowerTrench MOSFET, 9.0mOhm Ron, 83nC Qgmax, -55 to 150 \u00b0C, 8x8mm MLP",
+    "keywords": [
+      "dual-cool-powertrench",
+      "MOSFET",
+      "fairchild"
+    ]
+  },
+  {
+    "component": "FDS6890A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "G1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "7.5A Id, 20V Vds, Dual N-Channel MOSFET, 18mOhm Ron, SO-8",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS6892A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "G1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "7.5A Id, 20V Vds, Dual N-Channel MOSFET PWM Optimized, 18mOhm Ron, SO-8",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET",
+      "Low",
+      "Gate",
+      "Charge"
+    ]
+  },
+  {
+    "component": "FDS6898A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "G1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "9.4A Id, 20V Vds, Dual N-Channel MOSFET, 14mOhm Ron, SO-8",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS9926A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "G1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "6.5A Id, 20V Vds, Dual N-Channel MOSFET, 30mOhm Ron, SO-8",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "STS2DNE60",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "G1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "2A Id, 60V Vds, Dual N-Channel MOSFET, 180mOhm Ron, SO-8",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS6930A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "G1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "5.5A Id, 30V Vds, Dual N-Channel Logic Level MOSFET, 40mOhm Ron, SO-8",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS6930B",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "G1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "5.5A Id, 30V Vds, Dual N-Channel Logic Level MOSFET, 38mOhm Ron, SO-8",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IGLD60R070D1",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "SS",
+      "G"
+    ],
+    "description": "15A Id, 600V Vds, 70mOhm, N-Channel GaN MOSFET, LSON-8",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IGLD60R190D1",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S",
+      "SS",
+      "G"
+    ],
+    "description": "10A Id, 600V Vds, 190mOhm, N-Channel GaN MOSFET, LSON-8",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IGO60R070D1",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "SS"
+    ],
+    "description": "31A Id, 600V Vds, 70mOhm, N-Channel GaN MOSFET, PD-DSO-20-85",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IGOT60R070D1",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "SS"
+    ],
+    "description": "31A Id, 600V Vds, 70mOhm, N-Channel GaN MOSFET, PD-DSO-20-87",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IGT60R070D1",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "SS",
+      "G",
+      "D"
+    ],
+    "description": "31A Id, 600V Vds, 70mOhm, N-Channel GaN MOSFET, HSOF-8",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IGT60R190D1S",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "SS",
+      "G",
+      "D"
+    ],
+    "description": "12.5A Id, 600V Vds, 190mOhm, N-Channel GaN MOSFET, HSOF-8",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IGT40R070D1_E8220",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "SS",
+      "G",
+      "D"
+    ],
+    "description": "31A Id, 400V Vds, 70mOhm, N-Channel GaN MOSFET, HSOF-8",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPB180N10S4-02",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "180A Id, 100V Vds, OptiMOS-T2 N-Channel Power MOSFET, 2.5mOhm Ron, Qg (typ) 156nC, TO-263-6",
+    "keywords": [
+      "OptiMOS-T2",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "IPD50R380CE",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "14.1A Id, 500V Vds, CoolMOS N-Channel Power MOSFET, 380mOhm Ron, 24.8nC Qg (typ), TO-252-2",
+    "keywords": [
+      "CoolMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "IPD50R3K0CE",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "1.7A Id, 500V Vds, CoolMOS N-Channel Power MOSFET, 3Ohm Ron, 4.3nC Qg (typ), TO-252-2",
+    "keywords": [
+      "CoolMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "QM6006D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "35A Id, 60V Vds, N-Channel Power MOSFET, 18mOhm Ron, 19.3nC Qg (typ), TO252",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPDD60R050G7",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "DS",
+      "PS"
+    ],
+    "description": "47A Id, 600V Vds, 50mOhm, N-Channel MOSFET, CoolMOS G7, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPDD60R080G7",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "DS",
+      "PS"
+    ],
+    "description": "29A Id, 600V Vds, 80mOhm, N-Channel MOSFET, CoolMOS G7, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPDD60R102G7",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "DS",
+      "PS"
+    ],
+    "description": "23A Id, 600V Vds, 102mOhm, N-Channel MOSFET, CoolMOS G7, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPDD60R125G7",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "DS",
+      "PS"
+    ],
+    "description": "20A Id, 600V Vds, 125mOhm, N-Channel MOSFET, CoolMOS G7, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPDD60R150G7",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "DS",
+      "PS"
+    ],
+    "description": "16A Id, 600V Vds, 150mOhm, N-Channel MOSFET, CoolMOS G7, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPDD60R190G7",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "DS",
+      "PS"
+    ],
+    "description": "13A Id, 600V Vds, 190mOhm, N-Channel MOSFET, CoolMOS G7, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IPT012N08N5",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "300A Id, 80V Vds, OptiMOS N-Channel Power MOSFET, 1.2mOhm Ron, Qg (typ) 178.0nC, PG-HSOF-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "IPT015N10N5",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "300A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 1.5mOhm Ron, Qg (typ) 169.0nC, PG-HSOF-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "IPT020N10N3",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "300A Id, 100V Vds, OptiMOS N-Channel Power MOSFET, 2.0mOhm Ron, Qg (typ) 156.0nC, PG-HSOF-8",
+    "keywords": [
+      "OptiMOS",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "IRF40DM229",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "159A Id, 40V Vds, 1.85mOhm Rds, N-Channel MOSFET, DirectFET MF",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7483M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "135A Id, 40V Vds, 2.3mOhm Rds, N-Channel MOSFET, DirectFET MF",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF60DM206",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "130A Id, 60V Vds, 2.9mOhm Rds, N-Channel MOSFET, DirectFET ME",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7480M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "330A Id, 40V Vds, 1.2mOhm Rds, N-Channel MOSFET, DirectFET ME",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7486M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "209A Id, 40V Vds, 1.25mOhm Rds, N-Channel MOSFET, DirectFET ME",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7580M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "114A Id, 60V Vds, 3.6mOhm Rds, N-Channel MOSFET, DirectFET ME",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7780M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "89A Id, 75V Vds, 5.7mOhm Rds, N-Channel MOSFET, DirectFET ME",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6613",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "150A Id, 40V Vds, 3.4mOhm Rds, N-Channel MOSFET, DirectFET MT",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6618",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "170A Id, 30V Vds, 2.2mOhm Rds, N-Channel MOSFET, DirectFET MT",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6726M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "32A Id, 30V Vds, 1.7mOhm Rds, N-Channel MOSFET, DirectFET MT",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF8301M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "34A Id, 30V Vds, 1.5mOhm Rds, N-Channel MOSFET, DirectFET MT",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6655",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "4.2A Id, 100V Vds, 62mOhm Rds, N-Channel MOSFET, DirectFET SH",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6665",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "19A Id, 100V Vds, 62mOhm Rds, N-Channel MOSFET, DirectFET SH",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6710S2",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "12A Id, 25V Vds, 5.9mOhm Rds, N-Channel MOSFET, DirectFET S1",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6810S",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "16A Id, 25V Vds, 5.2mOhm Rds, N-Channel MOSFET, DirectFET S1",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6718L2",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "61A Id, 25V Vds, 0.7mOhm Rds, N-Channel MOSFET, DirectFET L6",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7748L1",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "104A Id, 60V Vds, 2.2mOhm Rds, N-Channel MOSFET, DirectFET L6",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF6802SD",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G1",
+      "S1",
+      "G2",
+      "S2"
+    ],
+    "description": "16A Id, 25V Vds, 4.2mOhm Rds, Dual N-Channel MOSFET, DirectFET SA",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRL6297SD",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G1",
+      "S1",
+      "G2",
+      "S2"
+    ],
+    "description": "15A Id, 20V Vds, 4.9mOhm Rds, Dual N-Channel HEXFET Power MOSFET, DirectFET SA",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "IRF6892S",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "28A Id, 25V Vds, 1.7mOhm Rds, N-Channel MOSFET, DirectFET S3C",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7309IPBF",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "3A Id, 30V Vds, Dual HEXFET MOSFET, SO-8",
+    "keywords": [
+      "Dual",
+      "HEXFET",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS4559",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "4.5A Id, 60V Vds, Dual N and P Channel MOSFET, 55mOhm Ron, 10V Vgs, SO8L",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS4897AC",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "6.1A Id, 40V Vds, Dual N and P Channel MOSFET, 26mOhm Ron, 10V Vgs, SO8L",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS4897C",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "6.2A Id, 40V Vds, Dual N and P Channel MOSFET, 29mOhm Ron, 10V Vgs, SO8L",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS8960C",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "7A Id, 35V Vds, Dual N and P Channel MOSFET, 24mOhm Ron, 10V Vgs, SO8L",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS9934C",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "6.5A Id, 20V Vds, Dual N and P Channel MOSFET, 30mOhm Ron, 4.5V Vgs, SO8L",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7343PBF",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "4A Id, 55V Vds, Dual HEXFET MOSFET, SO-8",
+    "keywords": [
+      "Dual",
+      "HEXFET",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si4532DY",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "3.9A Id, 30V Vds, Dual N and P Channel MOSFET, 65mOhm Ron, 10V Vgs, SO8L",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si4542DY",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D",
+      "1"
+    ],
+    "description": "Dual N and P Channel MOSFET, 6A Id, 30V Vds, 28mOhm Ron, 10V Vgs, SO8L",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7324",
+    "type": "Transistor_FET",
+    "pins": [
+      "S1",
+      "G1",
+      "D1",
+      "S2",
+      "G2",
+      "D2"
+    ],
+    "description": "9A Id, -20V Vds, Dual HEXFET P-Channel MOSFET, SO-8",
+    "keywords": [
+      "Dual",
+      "HEXFET",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7404",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-6.7A Id, -20V Vds, P-Channel HEXFET Power MOSFET, SO-8",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS9435A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-5.3A Id, -30V Vds, P-Channel MOSFET, 50mOhm Ron, SO-8",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7606PBF",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-3.6A Id, -30V Vds, HexFET P-MOS Power MOSFET, Ronon 0.09R, Micro8",
+    "keywords": [
+      "HexFET",
+      "Power",
+      "MOSFET",
+      "P-MOS"
+    ]
+  },
+  {
+    "component": "IRF7607PBF",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "5.2A Id, 20V Vds, HexFET N-MOS Power MOSFET, Ronon 0.03R, Micro8",
+    "keywords": [
+      "HexFET",
+      "Power",
+      "MOSFET",
+      "N-MOS"
+    ]
+  },
+  {
+    "component": "IRF7665S2",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "14.4A Id, 100V Vds, 62mOhm Rds, N-Channel MOSFET, DirectFET SB",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7739L1",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "270A Id, 40V Vds, 1.0mOhm Rds, N-Channel MOSFET, DirectFET L8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7759L2",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "160A Id, 75V Vds, 2.3mOhm Rds, N-Channel MOSFET, DirectFET L8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7769L1",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "88A Id, 100V Vds, 3.5mOhm Rds, N-Channel MOSFET, DirectFET L8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7779L2",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "67A Id, 150V Vds, 11mOhm Rds, N-Channel MOSFET, DirectFET L8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7799L2",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "35A Id, 250V Vds, 38mOhm Rds, N-Channel MOSFET, DirectFET L8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRL7472L1",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "375A Id, 40V Vds, 0.45mOhm Rds, N-Channel HEXFET Power MOSFET, DirectFET L8",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level",
+      "IRFET"
+    ]
+  },
+  {
+    "component": "IRF8721PBF-1",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "14A Id, 30V Vds, HEXFET N-Channel MOSFET, SO-8",
+    "keywords": [
+      "HEXFET",
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF7403",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "9.7A Id, 30V Vds, N-Channel HEXFET Power MOSFET, SO-8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS2734",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "3.0A Id, 250V Vds, N-Channel MOSFET, 117mOhm Ron, SOIC-8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDS6630A",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "6.5A Id, 30V Vds, N-Channel MOSFET, 38mOhm Ron, SOIC-8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si4162DY",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "19.3A Id, 30V Vds, TrenchFET N-Channel Power MOSFET, SO-8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF9383M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "-22A Id, -30V Vds, 2.9mOhm Rds, P-Channel MOSFET, DirectFET MX",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRF9540N",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "-23A Id, -100V Vds, 117mOhm Rds, P-Channel HEXFET Power MOSFET, TO-220",
+    "keywords": [
+      "P-Channel",
+      "MOSFET",
+      "HEXFET"
+    ]
+  },
+  {
+    "component": "IRF4905",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "-74A Id, -55V Vds, Single P-Channel HEXFET Power MOSFET, 20mOhm Ron, TO-220AB",
+    "keywords": [
+      "Single",
+      "P-Channel",
+      "HEXFET",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FQP27P06",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "-27A Id, -60V Vds, QFET P-Channel MOSFET, TO-220",
+    "keywords": [
+      "QFET",
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRFI4019H",
+    "type": "Transistor_FET",
+    "pins": [
+      "S2",
+      "G2",
+      "S1/D2",
+      "G1",
+      "D1"
+    ],
+    "description": "8.7A Id, 150V Vds, 80mOhm Rds, Dual Half Bridge N-Channel MOSFET, TO-220-5",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET",
+      "Half-Bridge"
+    ]
+  },
+  {
+    "component": "IRFI4020H",
+    "type": "Transistor_FET",
+    "pins": [
+      "S2",
+      "G2",
+      "S1/D2",
+      "G1",
+      "D1"
+    ],
+    "description": "9.1A Id, 200V Vds, 80mOhm Rds, Dual Half Bridge N-Channel MOSFET, TO-220-5",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET",
+      "Half-Bridge"
+    ]
+  },
+  {
+    "component": "IRFI4212H",
+    "type": "Transistor_FET",
+    "pins": [
+      "S2",
+      "G2",
+      "S1/D2",
+      "G1",
+      "D1"
+    ],
+    "description": "11A Id, 100V Vds, 58mOhm Rds, Dual Half Bridge N-Channel MOSFET, TO-220-5",
+    "keywords": [
+      "Dual",
+      "N-Channel",
+      "MOSFET",
+      "Half-Bridge"
+    ]
+  },
+  {
+    "component": "IRL6283M",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "38A Id, 20V Vds, 0.75mOhm Rds, N-Channel HEXFET Power MOSFET, DirectFET MD",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET",
+      "IRFET"
+    ]
+  },
+  {
+    "component": "IRLIZ44N",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "30A Id, 55V Vds, 22mOhm Rds, N-Channel HEXFET Power MOSFET, TO-220AB",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "PGA26E07BA",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S2",
+      "S1",
+      "G"
+    ],
+    "description": "26A Id, 600V Vds, 56mOhm, N-Channel GaN MOSFET, DFN-8",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "PGA26E19BA",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "S2",
+      "S1",
+      "G"
+    ],
+    "description": "13A Id, 600V Vds, 140mOhm, N-Channel GaN MOSFET, DFN-8",
+    "keywords": [
+      "N-Channel",
+      "GaN",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "PMN48XP",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "-4.1A Id, -20V Vds, P-Channel Power MOSFET, 48mOhm Ron, SC-74-6",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "PSMN5R2-60YL",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "100A, 60V Vds, N-Channel MOSFET, 5.2mOhm Ron, LFPAK56",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "QM6015D",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "-35A Id, -60V Vds, P-Channel Power MOSFET, 25mOhm Ron, 25.0nC Qg (typ), TO252",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "STB15N80K5",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "14A Id, 800V Vds, N-Channel MOSFET, 375mOhm Ron, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "STB33N65M2",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "24A Id, 650V Vds, N-Channel MDmesh M2 MOSFET, 140mOhm Ron, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "STB40N60M2",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "34A Id, 600V Vds, N-Channel MDmesh M2 MOSFET, 78mOhm Ron, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRFS4115",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "99A Id, 150V Vds, 10.3mOhm Rds, N-Channel HEXFET Power MOSFET, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "HEXFET",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRFS4127",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "72A Id, 200V Vds, 18.6mOhm Rds, N-Channel MOSFET, 18.6mOhm Ron, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRFS4227",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "130A Id, 200V Vds, 22mOhm Rds, N-Channel MOSFET, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRFS4229",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "91A Id, 250V Vds, 42mOhm Rds, N-Channel MOSFET, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRFS4310Z",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "120A Id, 100V Vds, 4.8mOhm Rds, N-Channel HEXFET Power MOSFET, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRFS4321",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "85A Id, 150V Vds, 12mOhm Rds, N-Channel HEXFET Power MOSFET, D2PAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET",
+      "HEXFET"
+    ]
+  },
+  {
+    "component": "STD7NK40Z",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "5.4A Id, 400V Vds, N-Channel MOSFET, 1Ohm Ron, DPAK",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SUD19P06-60",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "19A Id, 60V Vds, TrenchFET P-Channel Power MOSFET, 60mOhm Ron, 40nC Qg, -55 to 150 \u00b0C, TO-252-2",
+    "keywords": [
+      "TrenchFET",
+      "P-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SUD50P08-25L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "50A Id, 80V Vds, TrenchFET P-Channel Power MOSFET, 25.2mOhm Ron, 160nC Qg, -55 to 175 \u00b0C, TO-252-2",
+    "keywords": [
+      "TrenchFET",
+      "P-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SUD45P03-09",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "45A Id, 30V Vds, TrenchFET P-Channel Power MOSFET, 8.7mOhm Ron, 90nC Qg, -55 to 150 \u00b0C, TO-252-2",
+    "keywords": [
+      "TrenchFET",
+      "P-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SUD09P10-195",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "8.8A Id, 100V Vds, TrenchFET P-Channel Power MOSFET, 195mOhm Ron, 34.8nC Qg, -55 to 150 \u00b0C, TO-252-2",
+    "keywords": [
+      "TrenchFET",
+      "P-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SUD08P06-155L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "8.4A Id, 60V Vds, TrenchFET P-Channel Power MOSFET, 155mOhm Ron, 19nC Qg, -55 to 150 \u00b0C, TO-252-2",
+    "keywords": [
+      "TrenchFET",
+      "P-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SUD50P10-43L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "37A Id, 100V Vds, TrenchFET P-Channel Power MOSFET, 43mOhm Ron, 160nC Qg, -55 to 150 \u00b0C, TO-252-2",
+    "keywords": [
+      "TrenchFET",
+      "P-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SUD50P06-15",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "50A Id, 60V Vds, TrenchFET P-Channel Power MOSFET, 15mOhm Ron, 165nC Qg, -55 to 150 \u00b0C, TO-252-2",
+    "keywords": [
+      "TrenchFET",
+      "P-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SUD50P04-08",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "50A Id, 40V Vds, TrenchFET P-Channel Power MOSFET, 8.1mOhm Ron, 159nC Qg, -55 to 150 \u00b0C, TO-252-2",
+    "keywords": [
+      "TrenchFET",
+      "P-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si1442DH",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "12V Vds, TrenchFET N-Channel Power MOSFET, SC-70-6",
+    "keywords": [
+      "TrenchFET",
+      "N-Channel",
+      "Power",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si7141DP",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "60A Id, 20V Vds, 1.9 mOhm Ron, PowerPAK-8",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si7336ADP",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "30A Id, 30V Vds, 2.4mOhm Ron, PowerPAK-8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si7450DP",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "5.3A Id, 200V Vds, 80mOhm Ron, PowerPAK-8",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SiA453EDJ",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "-10A Id, -30V Vds, P-Channel MOSFET",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SiA449DJ",
+    "type": "Transistor_FET",
+    "pins": [
+      "D",
+      "G",
+      "S"
+    ],
+    "description": "-12A Id, -30V Vds, P-Channel MOSFET, PowerPAK SC70-6",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SiS415DNT",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-35A Id, -20V Vds, P-Channel MOSFET, PowerPAK 1212-8 Single",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SiSS27DN",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-50A Id, -30V Vds, P-Channel MOSFET, PowerPAK 1212-8 Single",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SiS443DN",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-35A Id, -40V Vds, P-Channel MOSFET, PowerPAK 1212-8 Single",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "SiS454DN",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "35A Id, 20V Vds, N-Channel MOSFET, PowerPAK 1212-8 Single",
+    "keywords": [
+      "N-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "TP0610L",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-0.18A Id, -60V Vds, P-Channel MOSFET, TO-92",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "VP0610L",
+    "type": "Transistor_FET",
+    "pins": [
+      "S",
+      "G",
+      "D"
+    ],
+    "description": "-0.18A Id, -60V Vds, P-Channel MOSFET, TO-92",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "TP0610T",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-0.18A Id, -60V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "VP0610T",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-0.18A Id, -60V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSS84",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "NTR2101P",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-3.7A Id, -8V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "BSS83P",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-0.33A Id, -60V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si2319CDS",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-4.4A Id, -40V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRLML6401",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-4.3A Id, -12V Vds, 50mOhm Rds, P-Channel HEXFET Power MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "IRLML6402",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-3.7A Id, -20V Vds, 65mOhm Rds, P-Channel HEXFET Power MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "HEXFET",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "DMG2301L",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-3A Id, -20V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "AO3401A",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "IRLML9301",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-3.6A Id, -30V Vds, 64mOhm Rds, P-Channel HEXFET Power MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "HEXFET",
+      "MOSFET",
+      "Logic-Level"
+    ]
+  },
+  {
+    "component": "IRLML5203",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-3.0A Id, -30V Vds, 98mOhm Rds, P-Channel HEXFET Power MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "HEXFET",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "Si2371EDS",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-3.6A Id, -30V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "TSM2301ACX",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "-2.8A Id, -20V Vds, P-Channel MOSFET, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "FDN340P",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "S",
+      "D"
+    ],
+    "description": "2A Id, 20V Vds, P-Channel MOSFET, 70mOhm Ron, SOT-23",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  },
+  {
+    "component": "ZXMP4A16G",
+    "type": "Transistor_FET",
+    "pins": [
+      "G",
+      "D",
+      "S"
+    ],
+    "description": "-6.4A Id, -40V Vds, P-Channel MOSFET, SOT-223",
+    "keywords": [
+      "P-Channel",
+      "MOSFET"
+    ]
+  }
+]

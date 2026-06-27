@@ -1,0 +1,86 @@
+{
+  "project": "pipe_inspector",
+  "robot_type": "Inspection Robot",
+  "components": [
+    {
+      "ref": "U1",
+      "part": "ESP32",
+      "category": "controller"
+    },
+    {
+      "ref": "M1",
+      "part": "DC Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "DRV1",
+      "part": "DRV8825",
+      "category": "driver"
+    },
+    {
+      "ref": "CAM1",
+      "part": "Camera",
+      "category": "sensor"
+    },
+    {
+      "ref": "LED1",
+      "part": "DC Motors",
+      "category": "actuator"
+    },
+    {
+      "ref": "BATT",
+      "part": "Batteries",
+      "category": "power"
+    }
+  ],
+  "nets": [
+    {
+      "name": "PWM_DRIVE",
+      "connections": [
+        "U1.GPIO4",
+        "DRV1.STEP"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_DRIVE",
+      "connections": [
+        "U1.GPIO5",
+        "DRV1.DIR"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "CAM_DATA",
+      "connections": [
+        "CAM1.D0",
+        "U1.DVP"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "LED_PWM",
+      "connections": [
+        "U1.GPIO12",
+        "LED1.PWR"
+      ],
+      "inferred": true
+    }
+  ],
+  "functional_blocks": [
+    {
+      "name": "Locomotion",
+      "components": [
+        "DRV1",
+        "M1"
+      ]
+    },
+    {
+      "name": "Vision",
+      "components": [
+        "CAM1",
+        "LED1"
+      ]
+    }
+  ]
+}

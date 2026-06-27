@@ -1,0 +1,1493 @@
+[
+  {
+    "component": "AD8202",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "A1",
+      "A2",
+      "OUT",
+      "+Vs",
+      "NC",
+      "+IN"
+    ],
+    "description": "28V High Common-Mode Voltage, Single-Supply Difference Amplifier, 10V/V x 2V/V adjustable gain, bandwidth 50kHz, Vcc=3.5V~12V, unidirectional, SOIC-8/MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered",
+      "monitor",
+      "preamp"
+    ]
+  },
+  {
+    "component": "AD8208",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "A1",
+      "A2",
+      "OUT",
+      "+Vs",
+      "NC",
+      "+IN"
+    ],
+    "description": "45V High Voltage, Precision Difference Amplifier, 10V/V x 2V/V adjustable gain, bandwidth 70kHz, Vcc=5V, unidirectional, SOIC-8/MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered",
+      "monitor",
+      "preamp"
+    ]
+  },
+  {
+    "component": "AD8203",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "A1",
+      "A2",
+      "OUT",
+      "NC",
+      "+Vs",
+      "+IN"
+    ],
+    "description": "30V High Common-Mode Voltage, Single-Supply Difference Amplifier, 7V/V x 2V/V adjustable gain, bandwidth 60kHz, Vcc=3.5V~12V, unidirectional, SOIC-8/MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered",
+      "monitor",
+      "preamp"
+    ]
+  },
+  {
+    "component": "AD8209",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "A1",
+      "A2",
+      "OUT",
+      "NC",
+      "+Vs",
+      "+IN"
+    ],
+    "description": "45V High Voltage, Precision Difference Amplifier, 7V/V x 2V/V adjustable gain, bandwidth 80kHz, Vcc=5V, unidirectional, MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered",
+      "monitor",
+      "preamp"
+    ]
+  },
+  {
+    "component": "AD8210",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "Vref2",
+      "NC",
+      "OUT",
+      "V+",
+      "Vref1",
+      "+IN"
+    ],
+    "description": "65V High Voltage, Bidirectional Current Shunt Monitor, 20V/V gain, bandwidth 450kHz, Vcc=5V, SOIC-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered"
+    ]
+  },
+  {
+    "component": "AD8216",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "Vref2",
+      "NC",
+      "OUT",
+      "V+",
+      "Vref1",
+      "+IN"
+    ],
+    "description": "65V High Bandwidth, Bidirectional Difference Amplifier, 3V/V gain, bandwidth 3MHz, Vcc=5V, SOIC-8",
+    "keywords": [
+      "HS",
+      "difference",
+      "amplifier",
+      "linear"
+    ]
+  },
+  {
+    "component": "AD8205",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "Vref2",
+      "NC",
+      "OUT",
+      "V+",
+      "Vref1",
+      "+IN"
+    ],
+    "description": "65V Single-Supply, System Difference Amplifier, 50V/V gain, bandwidth 50kHz, Vcc=5V, SOIC-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "difference",
+      "amplifier",
+      "linear",
+      "buffered"
+    ]
+  },
+  {
+    "component": "AD8206",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "Vref2",
+      "NC",
+      "OUT",
+      "V+",
+      "Vref1",
+      "+IN"
+    ],
+    "description": "65V High Common-Mode Voltage, Bidirectional, Current Shunt Amplifier, 20V/V gain, bandwidth 100kHz, Vcc=5V, SOIC-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered"
+    ]
+  },
+  {
+    "component": "AD8211",
+    "type": "Amplifier_Current",
+    "pins": [
+      "OUT",
+      "GND",
+      "Vin+",
+      "Vin-",
+      "V+"
+    ],
+    "description": "65V High Voltage, Current Shunt Monitor, 20V/V gain, bandwidth 500kHz, Vcc=5V, SOT-23-5",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered"
+    ]
+  },
+  {
+    "component": "AD8212",
+    "type": "Amplifier_Current",
+    "pins": [
+      "V+",
+      "COM",
+      "BIAS",
+      "NC",
+      "Iout",
+      "ALPHA",
+      "Vsns"
+    ],
+    "description": "65V High Voltage Current, Shunt Monitor, adjustable gain, bandwidth 1000kHz, Vcc=7V~65V, current output, unidirectional, MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "shunt",
+      "monitor",
+      "amplifier",
+      "linear"
+    ]
+  },
+  {
+    "component": "AD8213",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "CF",
+      "OUT",
+      "V+",
+      "+IN"
+    ],
+    "description": "65V Dual, High Voltage, Current Shunt Monitor, 20V/V gain, bandwidth 500kHz, Vcc=5V, MSOP-10",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered",
+      "dual",
+      "monitor"
+    ]
+  },
+  {
+    "component": "AD8215",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-IN",
+      "GND",
+      "NC",
+      "OUT",
+      "V+",
+      "+IN"
+    ],
+    "description": "65V High Voltage, Current Shunt Monitor, 20V/V gain, bandwidth 450kHz, Vcc=5V, unidirectional, SOIC-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered",
+      "monitor"
+    ]
+  },
+  {
+    "component": "AD8217",
+    "type": "Amplifier_Current",
+    "pins": [
+      "+IN",
+      "NC",
+      "GND",
+      "OUT",
+      "-IN"
+    ],
+    "description": "80V High Resolution, Zero-Drift, Current Shunt Monitor, 20V/V gain, bandwidth 500kHz, internal LDO, unidirectional, MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered",
+      "monitor"
+    ]
+  },
+  {
+    "component": "AD8218xCP",
+    "type": "Amplifier_Current",
+    "pins": [
+      "+IN",
+      "Vs",
+      "ENB",
+      "GND",
+      "OUT",
+      "NC",
+      "REF",
+      "-IN"
+    ],
+    "description": "80V Zero Drift, Bidirectional, Current Shunt Monitor, 20V/V gain, bandwidth 450kHz, Vcc=5V, LFCSP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered"
+    ]
+  },
+  {
+    "component": "AD8218xRM",
+    "type": "Amplifier_Current",
+    "pins": [
+      "+IN",
+      "Vs",
+      "ENB",
+      "GND",
+      "OUT",
+      "NC",
+      "REF",
+      "-IN"
+    ],
+    "description": "80V Zero Drift, Bidirectional, Current Shunt Monitor, 20V/V gain, bandwidth 450kHz, Vcc=5V, MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered"
+    ]
+  },
+  {
+    "component": "AD8219",
+    "type": "Amplifier_Current",
+    "pins": [
+      "+IN",
+      "Vs",
+      "NC",
+      "GND",
+      "OUT",
+      "-IN"
+    ],
+    "description": "80V Zero Drift, Unidirectional, Current Shunt Monitor, 60V/V gain, bandwidth 500kHz, Vcc=4V~80V, MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear",
+      "buffered",
+      "monitor"
+    ]
+  },
+  {
+    "component": "AD8417",
+    "type": "Amplifier_Current",
+    "pins": [
+      "IN-",
+      "GND",
+      "REF2",
+      "NC",
+      "OUT",
+      "VS",
+      "REF1",
+      "IN+"
+    ],
+    "description": "70V Bidirectional, Zero Drift, Current Sense Amplifier, 60V/V gain, bandwidth 250kHz, VS=2.7V~5.5V, SOIC-8/MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear"
+    ]
+  },
+  {
+    "component": "AD8418",
+    "type": "Amplifier_Current",
+    "pins": [
+      "IN-",
+      "GND",
+      "REF2",
+      "NC",
+      "OUT",
+      "VS",
+      "REF1",
+      "IN+"
+    ],
+    "description": "70V Bidirectional, Zero Drift, Current Sense Amplifier, 20V/V gain, bandwidth 250kHz, VS=2.7V~5.5V, SOIC-8/MSOP-8",
+    "keywords": [
+      "highside",
+      "HS",
+      "current",
+      "sense",
+      "amplifier",
+      "linear"
+    ]
+  },
+  {
+    "component": "BQ500100DCK",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "20V High side current sensor, Voltage Output, 50V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA138",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "High-Side Measurement Current Shunt Monitor, 36V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA168",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "High-Side Measurement Current Shunt Monitor, 60V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA139",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "High-Side Measurement Current Shunt Monitor, 40V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA169",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "High-Side Measurement Current Shunt Monitor, 60V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA181",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "REF",
+      "V+"
+    ],
+    "description": "Bidirectional, Low- and High-Side Voltage Output, Current-Sense Amplifier, SOT-23-6",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional"
+    ]
+  },
+  {
+    "component": "INA193",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "Current Shunt Monitor \u221216V to +80V Common-Mode Range, 20V/V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA194",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "Current Shunt Monitor \u221216V to +80V Common-Mode Range, 50V/V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA195",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "Current Shunt Monitor \u221216V to +80V Common-Mode Range, 100V/V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA196",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Current Shunt Monitor \u221216V to +80V Common-Mode Range, 20V/V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA197",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Current Shunt Monitor \u221216V to +80V Common-Mode Range, 50V/V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA198",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "V+",
+      "+",
+      "-"
+    ],
+    "description": "Current Shunt Monitor \u221216V to +80V Common-Mode Range, 100V/V, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "INA240A1D",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High- and Low-Side, Bidirectional, Zero-Drift, Current-Sense Amplifier With Enhanced PWM Rejection, 20V/V, SOIC-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "component": "INA240A2D",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High- and Low-Side, Bidirectional, Zero-Drift, Current-Sense Amplifier With Enhanced PWM Rejection, 50V/V, SOIC-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "component": "INA240A3D",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High- and Low-Side, Bidirectional, Zero-Drift, Current-Sense Amplifier With Enhanced PWM Rejection, 100V/V, SOIC-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "component": "INA240A4D",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High- and Low-Side, Bidirectional, Zero-Drift, Current-Sense Amplifier With Enhanced PWM Rejection, 200V/V, SOIC-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "component": "INA240A1PW",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+",
+      "REF2",
+      "REF1"
+    ],
+    "description": "High- and Low-Side, Bidirectional, Zero-Drift, Current-Sense Amplifier With Enhanced PWM Rejection, 20V/V, TSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "component": "INA240A2PW",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+",
+      "REF2",
+      "REF1"
+    ],
+    "description": "High- and Low-Side, Bidirectional, Zero-Drift, Current-Sense Amplifier With Enhanced PWM Rejection, 50V/V, TSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "component": "INA240A3PW",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+",
+      "REF2",
+      "REF1"
+    ],
+    "description": "High- and Low-Side, Bidirectional, Zero-Drift, Current-Sense Amplifier With Enhanced PWM Rejection, 100V/V, TSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "component": "INA240A4PW",
+    "type": "Amplifier_Current",
+    "pins": [
+      "GND",
+      "+",
+      "-",
+      "V+",
+      "REF2",
+      "REF1"
+    ],
+    "description": "High- and Low-Side, Bidirectional, Zero-Drift, Current-Sense Amplifier With Enhanced PWM Rejection, 200V/V, TSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "component": "INA253",
+    "type": "Amplifier_Current",
+    "pins": [
+      "IS-",
+      "REF2",
+      "REF1",
+      "NC",
+      "OUT",
+      "DNC2",
+      "GND",
+      "IN+",
+      "SH+",
+      "IS+",
+      "SH-",
+      "IN-",
+      "DNC1",
+      "VS"
+    ],
+    "description": "High Voltage, Bidirectional, Zero-Drift, Current-ShuntMonitor With Integrated, 2-m\u03a9, Precision, Low Inductive Shunt Resistor, TSSOP-20",
+    "keywords": [
+      "shunt",
+      "current",
+      "amplifier",
+      "bidirectional"
+    ]
+  },
+  {
+    "component": "INA282",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "NC",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High-Accuracy, Wide Common-Mode Range, Bidirectional Current Shunt Monitors, Zero-Drift Series, 50V/V, SOIC-8/VSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional"
+    ]
+  },
+  {
+    "component": "INA283",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "NC",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High-Accuracy, Wide Common-Mode Range, Bidirectional Current Shunt Monitors, Zero-Drift Series, 200V/V, SOIC-8/VSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional"
+    ]
+  },
+  {
+    "component": "INA284",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "NC",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High-Accuracy, Wide Common-Mode Range, Bidirectional Current Shunt Monitors, Zero-Drift Series, 500V/V, SOIC-8/VSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional"
+    ]
+  },
+  {
+    "component": "INA285",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "NC",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High-Accuracy, Wide Common-Mode Range, Bidirectional Current Shunt Monitors, Zero-Drift Series, 1000V/V, SOIC-8/VSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional"
+    ]
+  },
+  {
+    "component": "INA286",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-",
+      "GND",
+      "REF2",
+      "NC",
+      "V+",
+      "REF1",
+      "+"
+    ],
+    "description": "High-Accuracy, Wide Common-Mode Range, Bidirectional Current Shunt Monitors, Zero-Drift Series, 100V/V, SOIC-8/VSSOP-8",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor",
+      "bidirectional"
+    ]
+  },
+  {
+    "component": "LMP8640",
+    "type": "Amplifier_Current",
+    "pins": [
+      "V-",
+      "+",
+      "-",
+      "V+"
+    ],
+    "description": "Precision High Voltage Current Sense Amplifiers, 42V/76V, SOT-23-6",
+    "keywords": [
+      "current",
+      "monitor",
+      "shunt",
+      "sensor"
+    ]
+  },
+  {
+    "component": "LT6106",
+    "type": "Amplifier_Current",
+    "pins": [
+      "V-",
+      "-",
+      "+",
+      "V+"
+    ],
+    "description": "36V Low Cost, High Side Current Sense, SOT-23-5",
+    "keywords": [
+      "current",
+      "sense"
+    ]
+  },
+  {
+    "component": "LTC6102xDD",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-INS",
+      "-INF",
+      "V-",
+      "OUT",
+      "VREG",
+      "V+",
+      "+IN"
+    ],
+    "description": "Precision Zero Drift Current Sense Amplifier, 60V, DFN-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LTC6102HVxDD",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-INS",
+      "-INF",
+      "V-",
+      "OUT",
+      "VREG",
+      "V+",
+      "+IN"
+    ],
+    "description": "Precision Zero Drift Current Sense Amplifier, 100V, DFN-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LTC6102xDD-1",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-INS",
+      "-INF",
+      "EN",
+      "OUT",
+      "V-",
+      "VREG",
+      "V+",
+      "+IN"
+    ],
+    "description": "Precision Zero Drift Current Sense Amplifier, 60V, DFN-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LTC6102xMS8",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-INS",
+      "-INF",
+      "V-",
+      "OUT",
+      "VREG",
+      "V+",
+      "+IN"
+    ],
+    "description": "Precision Zero Drift Current Sense Amplifier, 60V, MSOP-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LTC6102HVxMS8",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-INS",
+      "-INF",
+      "V-",
+      "OUT",
+      "VREG",
+      "V+",
+      "+IN"
+    ],
+    "description": "Precision Zero Drift Current Sense Amplifier, 100V, MSOP-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "LTC6102xMS8-1",
+    "type": "Amplifier_Current",
+    "pins": [
+      "-INS",
+      "-INF",
+      "EN",
+      "OUT",
+      "V-",
+      "VREG",
+      "V+",
+      "+IN"
+    ],
+    "description": "Precision Zero Drift Current Sense Amplifier, 60V, MSOP-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX4080F",
+    "type": "Amplifier_Current",
+    "pins": [
+      "RS+",
+      "Vcc",
+      "NC",
+      "GND",
+      "OUT",
+      "RS-"
+    ],
+    "description": "76V, High-Side, Current-Sense Amplifiers with Voltage Output, Unidirectional, 5V/V Gain, SOIC-8/uMAX-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX4080T",
+    "type": "Amplifier_Current",
+    "pins": [
+      "RS+",
+      "Vcc",
+      "NC",
+      "GND",
+      "OUT",
+      "RS-"
+    ],
+    "description": "76V, High-Side, Current-Sense Amplifiers with Voltage Output, Unidirectional, 20V/V Gain, SOIC-8/uMAX-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX4080S",
+    "type": "Amplifier_Current",
+    "pins": [
+      "RS+",
+      "Vcc",
+      "NC",
+      "GND",
+      "OUT",
+      "RS-"
+    ],
+    "description": "76V, High-Side, Current-Sense Amplifiers with Voltage Output, Undirectional, 60V/V Gain, SOIC-8/uMAX-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX4081F",
+    "type": "Amplifier_Current",
+    "pins": [
+      "RS+",
+      "Vcc",
+      "NC",
+      "GND",
+      "OUT",
+      "REF1B",
+      "REF1A",
+      "RS-"
+    ],
+    "description": "76V, High-Side, Current-Sense Amplifiers with Voltage Output, Bidirectional, 5V/V Gain, SOIC-8/uMAX-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX4081T",
+    "type": "Amplifier_Current",
+    "pins": [
+      "RS+",
+      "Vcc",
+      "NC",
+      "GND",
+      "OUT",
+      "REF1B",
+      "REF1A",
+      "RS-"
+    ],
+    "description": "76V, High-Side, Current-Sense Amplifiers with Voltage Output, Bidirectional, 20V/V Gain, SOIC-8/uMAX-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX4081S",
+    "type": "Amplifier_Current",
+    "pins": [
+      "RS+",
+      "Vcc",
+      "NC",
+      "GND",
+      "OUT",
+      "REF1B",
+      "REF1A",
+      "RS-"
+    ],
+    "description": "76V, High-Side, Current-Sense Amplifiers with Voltage Outpute, Bidirectional, 60V/V Gain, SOIC-8/uMAX-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX471",
+    "type": "Amplifier_Current",
+    "pins": [
+      "SHDN",
+      "RS+",
+      "GND",
+      "SIGN",
+      "RS-",
+      "OUT"
+    ],
+    "description": "Precision, High-Side, Current-Sense Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "MAX472",
+    "type": "Amplifier_Current",
+    "pins": [
+      "SHDN",
+      "NC",
+      "SENSE+",
+      "GND",
+      "SIGN",
+      "SENSE-",
+      "VCC",
+      "OUT"
+    ],
+    "description": "Precision, High-Side, Current-Sense Amplifiers, DIP-8/SOIC-8",
+    "keywords": [
+      "current",
+      "sense",
+      "amplifier"
+    ]
+  },
+  {
+    "component": "NCS210",
+    "type": "Amplifier_Current",
+    "pins": [
+      "REF",
+      "GND",
+      "Vs",
+      "+IN",
+      "-IN",
+      "OUT"
+    ],
+    "description": "Current-Shunt Monitor, Voltage Output, Bi-Directional Zero-Drift, 200V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "NCV210",
+    "type": "Amplifier_Current",
+    "pins": [
+      "REF",
+      "GND",
+      "Vs",
+      "+IN",
+      "-IN",
+      "OUT"
+    ],
+    "description": "Current-Shunt Monitor, Voltage Output, Bi-Directional Zero-Drift, 200V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "NCS211",
+    "type": "Amplifier_Current",
+    "pins": [
+      "REF",
+      "GND",
+      "Vs",
+      "+IN",
+      "-IN",
+      "OUT"
+    ],
+    "description": "Current-Shunt Monitor, Voltage Output, Bi-Directional Zero-Drift, 500V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "NCS213",
+    "type": "Amplifier_Current",
+    "pins": [
+      "REF",
+      "GND",
+      "Vs",
+      "+IN",
+      "-IN",
+      "OUT"
+    ],
+    "description": "Current-Shunt Monitor, Voltage Output, Bi-Directional Zero-Drift, 50V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "NCS214",
+    "type": "Amplifier_Current",
+    "pins": [
+      "REF",
+      "GND",
+      "Vs",
+      "+IN",
+      "-IN",
+      "OUT"
+    ],
+    "description": "Current-Shunt Monitor, Voltage Output, Bi-Directional Zero-Drift, 100V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "NCV211",
+    "type": "Amplifier_Current",
+    "pins": [
+      "REF",
+      "GND",
+      "Vs",
+      "+IN",
+      "-IN",
+      "OUT"
+    ],
+    "description": "Current-Shunt Monitor, Voltage Output, Bi-Directional Zero-Drift, 500V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "NCV213",
+    "type": "Amplifier_Current",
+    "pins": [
+      "REF",
+      "GND",
+      "Vs",
+      "+IN",
+      "-IN",
+      "OUT"
+    ],
+    "description": "Current-Shunt Monitor, Voltage Output, Bi-Directional Zero-Drift, 50V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "NCV214",
+    "type": "Amplifier_Current",
+    "pins": [
+      "REF",
+      "GND",
+      "Vs",
+      "+IN",
+      "-IN",
+      "OUT"
+    ],
+    "description": "Current-Shunt Monitor, Voltage Output, Bi-Directional Zero-Drift, 100V/V Gain, SC-70-6",
+    "keywords": [
+      "Current",
+      "shunt",
+      "monitor"
+    ]
+  },
+  {
+    "component": "ZXCT1009F",
+    "type": "Amplifier_Current",
+    "pins": [
+      "Vs-",
+      "Vs+",
+      "Iout"
+    ],
+    "description": "High-Side Current Monitor, SOT-23",
+    "keywords": [
+      "High",
+      "side",
+      "current",
+      "monitor",
+      "shunt"
+    ]
+  },
+  {
+    "component": "ZXCT1009T8",
+    "type": "Amplifier_Current",
+    "pins": [
+      "Vs-",
+      "NC",
+      "Vs+",
+      "Iout"
+    ],
+    "description": "High-Side Current Monitor, SM8",
+    "keywords": [
+      "High",
+      "side",
+      "current",
+      "monitor",
+      "shunt"
+    ]
+  },
+  {
+    "component": "ZXCT1010",
+    "type": "Amplifier_Current",
+    "pins": [
+      "NC",
+      "GND",
+      "OUT",
+      "Vs+",
+      "Vs-"
+    ],
+    "description": "Enhanced High-Side Current Monitors, SOT-23-5",
+    "keywords": [
+      "High",
+      "side",
+      "current",
+      "monitor",
+      "shunt"
+    ]
+  },
+  {
+    "component": "ZXCT1107",
+    "type": "Amplifier_Current",
+    "pins": [
+      "Vs+",
+      "Vs-",
+      "OUT"
+    ],
+    "description": "Low Power High-Side Current Monitors, SOT-23",
+    "keywords": [
+      "High",
+      "side",
+      "current",
+      "monitor",
+      "shunt"
+    ]
+  },
+  {
+    "component": "ZXCT1109",
+    "type": "Amplifier_Current",
+    "pins": [
+      "Vs-",
+      "Vs+",
+      "OUT"
+    ],
+    "description": "Low Power High-Side Current Monitors, SOT-23",
+    "keywords": [
+      "High",
+      "side",
+      "current",
+      "monitor",
+      "shunt"
+    ]
+  },
+  {
+    "component": "ZXCT1110",
+    "type": "Amplifier_Current",
+    "pins": [
+      "NC",
+      "GND",
+      "OUT",
+      "Vs+",
+      "Vs-"
+    ],
+    "description": "Low Power High-Side Current Monitors, SOT-23-5",
+    "keywords": [
+      "High",
+      "side",
+      "current",
+      "monitor",
+      "shunt"
+    ]
+  }
+]

@@ -1,0 +1,436 @@
+{
+  "project_name": "Autonomous_Mobile_Robot",
+  "sub_assemblies": [
+    {
+      "folder": "Autonomous_Mobile_Robot\\autonomous_mobile_robot_cad",
+      "assembly_file": "autonomous_mobile_robot.stp",
+      "total_unique_parts": 106,
+      "bom": [
+        {
+          "part_name": "10 PIN DG306-5 GREEN - PITCH 5 mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "12-Pin Header-Male-Double-2.54mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "2 Side Screw_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "2020_int_L_joint",
+          "quantity": 1
+        },
+        {
+          "part_name": "34-Pin-Header-Female-Double-2.54mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "3M Bolt_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "3mm_bolt_Varsayilan",
+          "quantity": 1
+        },
+        {
+          "part_name": "3x35_screw_Varsayilan",
+          "quantity": 1
+        },
+        {
+          "part_name": "8 PIN DG306-5 GREEN - PITCH 5 mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "90headerMale",
+          "quantity": 1
+        },
+        {
+          "part_name": "AP2020 - 200mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "AP2020 - 280mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "BTS7960B",
+          "quantity": 1
+        },
+        {
+          "part_name": "Bearing",
+          "quantity": 1
+        },
+        {
+          "part_name": "Body",
+          "quantity": 1
+        },
+        {
+          "part_name": "Body DIP-14 P7.62mm Socket",
+          "quantity": 1
+        },
+        {
+          "part_name": "Bracket Bearing (OD10)",
+          "quantity": 1
+        },
+        {
+          "part_name": "Bracket IR",
+          "quantity": 1
+        },
+        {
+          "part_name": "Bracket IR Front",
+          "quantity": 1
+        },
+        {
+          "part_name": "Bracket Line Kanan",
+          "quantity": 1
+        },
+        {
+          "part_name": "Bracket Line Kiri",
+          "quantity": 1
+        },
+        {
+          "part_name": "Bracket Motor",
+          "quantity": 1
+        },
+        {
+          "part_name": "Bracket myRIO",
+          "quantity": 1
+        },
+        {
+          "part_name": "CONNECTOR JST XH 3 PIN - 2,54 mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "CONNECTOR WHITE JST XH 4 PIN - 2,54 mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "CONNECTOR WHITE JST XH 6 PIN - 2,54 mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "Chasis Bottom",
+          "quantity": 1
+        },
+        {
+          "part_name": "Chasis Top",
+          "quantity": 1
+        },
+        {
+          "part_name": "DIP-14 7.62mm Package",
+          "quantity": 1
+        },
+        {
+          "part_name": "DIP-14 W7.62",
+          "quantity": 1
+        },
+        {
+          "part_name": "DIP-14 W7.62mm IC with Socket",
+          "quantity": 1
+        },
+        {
+          "part_name": "Emergency Stop",
+          "quantity": 1
+        },
+        {
+          "part_name": "Fix_PCB_PM",
+          "quantity": 1
+        },
+        {
+          "part_name": "GP2Y0A21YK0F SHARP",
+          "quantity": 1
+        },
+        {
+          "part_name": "HEATSINK, BTS7960 43A HIGH POWER H BRIDGE MODULE",
+          "quantity": 1
+        },
+        {
+          "part_name": "Header Bottom",
+          "quantity": 1
+        },
+        {
+          "part_name": "Header Top",
+          "quantity": 1
+        },
+        {
+          "part_name": "Hub Motor",
+          "quantity": 1
+        },
+        {
+          "part_name": "Hub Motor_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "IC Beinchen",
+          "quantity": 1
+        },
+        {
+          "part_name": "IRboard",
+          "quantity": 1
+        },
+        {
+          "part_name": "IRsensors",
+          "quantity": 1
+        },
+        {
+          "part_name": "Indicator LED (KL0624) Red",
+          "quantity": 1
+        },
+        {
+          "part_name": "Inner_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "JST XHP-4",
+          "quantity": 1
+        },
+        {
+          "part_name": "LED",
+          "quantity": 1
+        },
+        {
+          "part_name": "LT_Back",
+          "quantity": 1
+        },
+        {
+          "part_name": "LT_Main",
+          "quantity": 1
+        },
+        {
+          "part_name": "LT_Side",
+          "quantity": 1
+        },
+        {
+          "part_name": "Lance Tool",
+          "quantity": 1
+        },
+        {
+          "part_name": "MDSA",
+          "quantity": 1
+        },
+        {
+          "part_name": "Mecanum",
+          "quantity": 1
+        },
+        {
+          "part_name": "Mecanum Right+Hub",
+          "quantity": 1
+        },
+        {
+          "part_name": "Mecanum Right+Hub_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "Mecanum_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "NI myRIO",
+          "quantity": 1
+        },
+        {
+          "part_name": "Nut",
+          "quantity": 1
+        },
+        {
+          "part_name": "PCB",
+          "quantity": 1
+        },
+        {
+          "part_name": "PCB_PM",
+          "quantity": 1
+        },
+        {
+          "part_name": "PG28+Encoder",
+          "quantity": 1
+        },
+        {
+          "part_name": "PM_Back",
+          "quantity": 1
+        },
+        {
+          "part_name": "PM_Bottom",
+          "quantity": 1
+        },
+        {
+          "part_name": "PM_Front",
+          "quantity": 1
+        },
+        {
+          "part_name": "PM_Side",
+          "quantity": 1
+        },
+        {
+          "part_name": "PM_Top",
+          "quantity": 1
+        },
+        {
+          "part_name": "Part3",
+          "quantity": 1
+        },
+        {
+          "part_name": "Part31",
+          "quantity": 1
+        },
+        {
+          "part_name": "Pin Header - Double - Female - 2.54mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "Plate",
+          "quantity": 1
+        },
+        {
+          "part_name": "Plate_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "Push_ASM",
+          "quantity": 1
+        },
+        {
+          "part_name": "Push_main",
+          "quantity": 1
+        },
+        {
+          "part_name": "Push_ring",
+          "quantity": 1
+        },
+        {
+          "part_name": "Push_screw",
+          "quantity": 1
+        },
+        {
+          "part_name": "Ring_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "Robot",
+          "quantity": 1
+        },
+        {
+          "part_name": "Roller_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "Sayap Samping",
+          "quantity": 1
+        },
+        {
+          "part_name": "Sayap Tengah",
+          "quantity": 1
+        },
+        {
+          "part_name": "Screw_MIR",
+          "quantity": 1
+        },
+        {
+          "part_name": "Spacer 10mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "Spacer 40mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "Spacer 60mm",
+          "quantity": 1
+        },
+        {
+          "part_name": "Stamped Dual Wipe Contact for DIP Sockets",
+          "quantity": 1
+        },
+        {
+          "part_name": "Switch 3 Pin",
+          "quantity": 1
+        },
+        {
+          "part_name": "TATTU 1300mah 3s",
+          "quantity": 1
+        },
+        {
+          "part_name": "Tahanan Sayap",
+          "quantity": 1
+        },
+        {
+          "part_name": "Voltmeter",
+          "quantity": 1
+        },
+        {
+          "part_name": "Washer",
+          "quantity": 1
+        },
+        {
+          "part_name": "XT60 Buchse",
+          "quantity": 1
+        },
+        {
+          "part_name": "ZL202-80_P2-54_L101_W5-08_H8-9",
+          "quantity": 1
+        },
+        {
+          "part_name": "blackLEDIRsensor",
+          "quantity": 1
+        },
+        {
+          "part_name": "inner_cylinder_Varsayilan",
+          "quantity": 1
+        },
+        {
+          "part_name": "liner_Varsayilan",
+          "quantity": 1
+        },
+        {
+          "part_name": "roller_Varsayilan",
+          "quantity": 1
+        },
+        {
+          "part_name": "smdChip8pin",
+          "quantity": 1
+        },
+        {
+          "part_name": "smdLED",
+          "quantity": 1
+        },
+        {
+          "part_name": "smdResistor101",
+          "quantity": 1
+        },
+        {
+          "part_name": "smdResistor102",
+          "quantity": 1
+        },
+        {
+          "part_name": "smdResistor103",
+          "quantity": 1
+        },
+        {
+          "part_name": "smdTrimmerP103",
+          "quantity": 1
+        },
+        {
+          "part_name": "smdceramiccapacitor",
+          "quantity": 1
+        },
+        {
+          "part_name": "solder",
+          "quantity": 1
+        },
+        {
+          "part_name": "tattu 1300MHa 3s LiPo",
+          "quantity": 1
+        },
+        {
+          "part_name": "two_sided_screw_Varsayilan",
+          "quantity": 1
+        },
+        {
+          "part_name": "whiteLEDIRsensor",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}
