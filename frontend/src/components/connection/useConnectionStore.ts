@@ -753,7 +753,12 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       }
     });
 
-    set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false });
+    const loadedComponentNames = designSubsystems.flatMap((sub: any) =>
+      (sub.components || []).map((c: any) => c.name)
+    ).filter(Boolean);
+    const newPrompt = loadedComponentNames.length > 0 ? loadedComponentNames.join(" + ") : get().prompt;
+
+    set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false, prompt: newPrompt });
   },
 
   setNodes: (nodesOrUpdater) =>
