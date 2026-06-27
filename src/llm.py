@@ -115,28 +115,51 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
 
 import time
 
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/v1/chat/completions")
+
 def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=None, temperature=0.7):
     """
-    Unified function to call Yantra AI via Google AI Studio or OpenRouter API fallback.
-    Supports both standard text output and structured JSON extraction.
-    Includes exponential backoff (2s, 5s, 10s, 20s) for rate limit resiliency.
+    Unified function to call Yantra AI via Ollama, Google AI Studio, or OpenRouter.
     """
     if model is None:
-        model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
+        model = os.getenv("OLLAMA_MODEL") or os.getenv("OPENROUTER_MODEL", "openrouter/free")
         
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": prompt}
     ]
     
+    # If the user requested Ollama, try that first
+    if os.getenv("OLLAMA_MODEL") or model.startswith("ollama/"):
+        target_model = model.replace("ollama/", "") if model.startswith("ollama/") else os.getenv("OLLAMA_MODEL", "llama3")
+        try:
+            payload = {
+                "model": target_model,
+                "messages": messages,
+                "temperature": temperature,
+            }
+            if response_format == "json_object":
+                payload["response_format"] = {"type": "json_object"}
+                
+            response = requests.post(OLLAMA_URL, json=payload, timeout=120)
+            response.raise_for_status()
+            data = response.json()
+            if "choices" in data and len(data["choices"]) > 0:
+                return data["choices"][0]["message"]["content"].strip()
+            else:
+                raise Exception("No response candidates found in Ollama API output.")
+        except Exception as e:
+            print(f"[llm.py] Ollama failed: {e}. Falling back to OpenRouter...")
+            model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
+
     retries = [2, 5, 10, 20]
     for attempt, delay in enumerate(retries + [0]):
         try:
             return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
         except Exception as e:
             err_str = str(e).lower()
-            if delay > 0 and ("rate limit" in err_str or "429" in err_str or "busy" in err_str):
-                print(f"[llm.py] Rate limit hit. Retrying in {delay} seconds... (Attempt {attempt+1}/{len(retries)})")
+            if delay > 0 and ("rate limit" in err_str or "429" in err_str or "busy" in err_str or "afford" in err_str):
+                print(f"[llm.py] Rate limit or insufficient credits hit. Retrying in {delay} seconds... (Attempt {attempt+1}/{len(retries)})")
                 time.sleep(delay)
             else:
                 if delay > 0:
