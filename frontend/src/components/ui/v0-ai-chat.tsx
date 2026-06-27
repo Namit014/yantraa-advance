@@ -128,7 +128,6 @@ export function VercelV0Chat() {
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
     const [robotDesign, setRobotDesign] = useState<any | null>(null);
-    const [isRemodeling, setIsRemodeling] = useState(false);
 
     // Derive latest AI response and last user query to feed into MappingTab
     const latestAIResponse = [...messages].reverse().find(m => m.role === 'assistant')?.content ?? "";
@@ -159,7 +158,7 @@ export function VercelV0Chat() {
         setIsLoading(true);
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
             const response = await fetch(`${apiUrl}/api/design`, {
                 method: "POST",
                 headers: {
@@ -200,40 +199,6 @@ export function VercelV0Chat() {
         }
     };
 
-    const handleRemodel = async () => {
-        if (!latestUserQuery || isRemodeling) return;
-        
-        setIsRemodeling(true);
-        try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-            const response = await fetch(`${apiUrl}/api/design`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "ngrok-skip-browser-warning": "true"
-                },
-                body: JSON.stringify({ query: latestUserQuery, remodel: true })
-            });
-
-            if (!response.ok) {
-                throw new Error("Failed to fetch response");
-            }
-
-            const data = await response.json();
-            setRobotDesign(data);
-            
-            if (data.cad_available && data.cad_urls && data.cad_urls.length > 0) {
-                setAcceptedCadUrls(data.cad_urls);
-            } else if (data.cad_available && data.cad_url) {
-                setAcceptedCadUrls([data.cad_url]);
-            }
-        } catch (error) {
-            console.error("Error remodeling:", error);
-        } finally {
-            setIsRemodeling(false);
-        }
-    };
-
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter" && !e.shiftKey) {
             e.preventDefault();
@@ -254,7 +219,7 @@ export function VercelV0Chat() {
                         </h1>
                     </div>
                 ) : (
-                    <div className="flex-1 w-full overflow-y-auto space-y-6 pb-20 pt-8 px-4 flex flex-col">
+                    <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-8 px-4 flex flex-col">
                         {messages.map((msg, idx) => (
                             <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
                                 <div className={cn(
@@ -423,13 +388,21 @@ export function VercelV0Chat() {
                             const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
                             const cadUrl = urls[0] || 'default-cad';
                             return (
-                                <CADTab
+                                <CADTab 
                                     key={cadUrl}
-                                    currentQuery={latestUserQuery}
-                                    cadUrls={urls}
-                                    designData={robotDesign}
-                                    onRemodel={handleRemodel}
-                                    isRemodeling={isRemodeling}
+                                    currentQuery={latestUserQuery} 
+                                    cadUrls={urls} 
+                                    designData={robotDesign} 
+                                    onGeneratedCad={(newUrl) => {
+                                        setAcceptedCadUrls(prev => [...prev, newUrl]);
+                                        if (robotDesign) {
+                                            setRobotDesign((prev: any) => ({
+                                                ...prev,
+                                                cad_urls: [...(prev.cad_urls || []), newUrl],
+                                                missing: prev.missing ? prev.missing.filter((m: any) => !newUrl.toLowerCase().includes(m.name.toLowerCase())) : []
+                                            }));
+                                        }
+                                    }}
                                 />
                             );
                         })()}

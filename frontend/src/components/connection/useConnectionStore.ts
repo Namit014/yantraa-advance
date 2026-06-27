@@ -4,7 +4,7 @@ import dagre from "dagre";
 
 // ─── Wire / Port Types ─────────────────────────────────────────────────────────
 
-export type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can";
+export type WireType = "power" | "ground" | "signal" | "data" | "pwm" | "can" | "feedback" | "safety";
 export type NodeShape =
   | "raspberry-pi"
   | "arduino-uno"
@@ -55,9 +55,47 @@ export const WIRE_COLORS: Record<WireType, string> = {
   ground: "#444444",
   signal: "#FFD700",
   data: "#4488FF",
-  pwm: "#FF8C00",
-  can: "#44FF88",
+  pwm: "#4488FF",
+  can: "#4488FF",
+  feedback: "#00FF00",
+  safety: "#FFD700",
 };
+
+const toNodeId = (name: string, existingIds: Set<string>): string => {
+  let base = name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_|_$/g, '') || 'component'
+
+  if (!existingIds.has(base)) {
+    existingIds.add(base)
+    return base
+  }
+
+  // Collision — append a suffix derived from the original name
+  const suffix = name
+    .split('')
+    .reduce((acc, c) => (acc * 31 + c.charCodeAt(0)) & 0xffff, 0)
+    .toString(36)
+
+  const unique = `${base}_${suffix}`
+  if (!existingIds.has(unique)) {
+    existingIds.add(unique)
+    return unique
+  }
+
+  // If the base + suffix also collides, append a counter suffix until unique
+  let counter = 1
+  let candidate = `${unique}_${counter}`
+  while (existingIds.has(candidate)) {
+    counter++
+    candidate = `${unique}_${counter}`
+  }
+  existingIds.add(candidate)
+  return candidate
+}
+
+const normalizeNodeId = (name: string): string => toNodeId(name, new Set());
 
 // ─── API payload types ─────────────────────────────────────────────────────────
 
@@ -68,6 +106,7 @@ interface GenerateComponent {
 }
 
 interface GenerateResponse {
+  erc_report?: string;
   nodes: Array<{
     id: string;
     label: string;
@@ -343,7 +382,7 @@ function _wire(
       label: lbl,
       wireType: wt,
     },
-    style: { stroke: WIRE_COLORS[wt], strokeWidth: 2 },
+    style: { stroke: WIRE_COLORS[wt], strokeWidth: 3 },
   };
 }
 
@@ -417,6 +456,7 @@ interface ConnectionStore {
   isGenerating: boolean;
   prompt: string;
   error: string | null;
+  ercReport: string | null;
 
   // Actions
   setNodes: (nodes: CircuitNode[] | ((prev: CircuitNode[]) => CircuitNode[])) => void;
@@ -437,7 +477,7 @@ interface ConnectionStore {
   deleteEdge: (id: string) => void;
   addEdge: (edge: CircuitEdge) => void;
 
-  generate: (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => Promise<void>;
+  generate: (components: GenerateComponent[], prompt: string, subsystems?: any) => Promise<void>;
   loadDesignData: (designData: any) => void;
 }
 
@@ -449,6 +489,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
   isGenerating: false,
   prompt: "Raspberry Pi 4 + Arduino Mega + ESP32 WiFi + L298N motors + MPU6050 IMU + HC-SR04 + OLED display",
   error: null,
+  ercReport: null,
 
   loadDesignData: (designData) => {
     if (!designData) return;
@@ -500,13 +541,45 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       other: 0
     };
 
-    const connections = designData.connections || [];
+    const rawConnections = designData.connections || [];
+    const connections = rawConnections.filter((conn: any) => {
+        const relation = (conn.relation || "").toLowerCase();
+        const protocol = (conn.protocol || "").toLowerCase();
+        return relation !== "mounted_on" && relation !== "attached_to" && relation !== "fastened_to" && protocol !== "mechanical";
+    });
     
     // Pass 1: Collect required ports for each component from the explicit connections
     const collectedPorts = new Map<string, Set<string>>();
-    connections.forEach((conn: any) => {
-      const fId = conn.from;
-      const tId = conn.to;
+    const normalizeId = (id: any) => id ? id.toString().toLowerCase().replace(/\s+/g, '_') : "";
+    
+    // Create a map of all component IDs to components to do fuzzy matching BEFORE collecting ports
+    const validCompIds = new Map<string, any>();
+    const designSubsystems = designData.subsystems || [];
+    designSubsystems.forEach((sub: any) => {
+      (sub.components || []).forEach((comp: any) => {
+        validCompIds.set(normalizeId(comp.id), comp);
+      });
+    });
+
+    const resolvedConnections = connections.map((conn: any) => {
+      let fromId = normalizeId(conn.from);
+      let toId = normalizeId(conn.to);
+      
+      if (!validCompIds.has(fromId)) {
+        const fuzzyId = Array.from(validCompIds.keys()).find(k => k.includes(fromId) || validCompIds.get(k).name.toLowerCase().includes(fromId));
+        if (fuzzyId) fromId = fuzzyId;
+      }
+      if (!validCompIds.has(toId)) {
+        const fuzzyId = Array.from(validCompIds.keys()).find(k => k.includes(toId) || validCompIds.get(k).name.toLowerCase().includes(toId));
+        if (fuzzyId) toId = fuzzyId;
+      }
+      
+      return { ...conn, resolvedFrom: fromId, resolvedTo: toId };
+    });
+
+    resolvedConnections.forEach((conn: any) => {
+      const fId = conn.resolvedFrom;
+      const tId = conn.resolvedTo;
       const fPort = conn.from_port || "IO1";
       const tPort = conn.to_port || "IO1";
       
@@ -524,32 +597,72 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     const getPortId = (compId: string, label: string) => `${compId}-${label.replace(/\s+/g, "_").toLowerCase()}`;
 
     const rfNodes: CircuitNode[] = [];
-    const designSubsystems = designData.subsystems || [];
-
+    
     designSubsystems.forEach((sub: any) => {
       const components = sub.components || [];
       components.forEach((comp: any) => {
+        const compId = normalizeId(comp.id) || `comp-${Math.random().toString(36).substr(2,9)}`;
+        const isConnected = collectedPorts.has(compId);
+        
+        // Skip purely mechanical components (like brackets, mounts) UNLESS they have electrical connections
+        const isMechanical = (comp.interface || "").toLowerCase().includes("mechanical") || 
+                             (comp.voltage || "").toLowerCase() === "n/a" || 
+                             (comp.role || "").toLowerCase().includes("bracket") || 
+                             (comp.role || "").toLowerCase().includes("mount") || 
+                             (comp.name || "").toLowerCase().includes("bracket");
+        
+        if (isMechanical && !isConnected) {
+            return;
+        }
+
         const shape = inferShape(comp.name, comp.role || "");
         const type = inferType(comp.name, comp.role || "");
+
+        // Generate port layouts based on collected dynamic ports
+        const nodePorts: Port[] = [];
+        const portLabels = Array.from(collectedPorts.get(compId) || []);
         
-        const compId = comp.id || `node-${comp.name.replace(/\s+/g, "_")}`;
-        const nodePorts: Port[] = [
-          { id: `${compId}-vcc`, label: "VCC", side: "top", offsetPercent: 33 },
-          { id: `${compId}-gnd`, label: "GND", side: "top", offsetPercent: 67 },
-          { id: `${compId}-io1`, label: "IO1", side: "left", offsetPercent: 33 },
-          { id: `${compId}-io2`, label: "IO2", side: "left", offsetPercent: 67 },
-        ];
+        // Ensure VCC and GND exist
+        if (!portLabels.some(l => l.toUpperCase() === "VCC" || l.toUpperCase() === "VIN" || l.toUpperCase() === "5V")) portLabels.push("VCC");
+        if (!portLabels.some(l => l.toUpperCase() === "GND")) portLabels.push("GND");
 
-        const rowCount = rowCounts[type] || 0;
-        rowCounts[type] = rowCount + 1;
+        // Categorize into sides
+        const topPorts: string[] = [];
+        const leftPorts: string[] = [];
+        const rightPorts: string[] = [];
+        const bottomPorts: string[] = [];
 
-        const x = 80 + rowCount * 300;
-        const y = rowHeights[type] || 400;
+        portLabels.forEach(lbl => {
+            const L = lbl.toUpperCase();
+            if (L.includes("VCC") || L.includes("VIN") || L.includes("5V") || L.includes("3V") || L.includes("GND") || L.includes("PWR")) {
+                topPorts.push(lbl);
+            } else if (L.includes("TX") || L.includes("RX") || L.includes("SDA") || L.includes("SCL") || L.includes("MISO") || L.includes("MOSI") || L.includes("SCK") || L.includes("CS") || L.includes("IN") || L.includes("ENA") || L.includes("ENB")) {
+                leftPorts.push(lbl);
+            } else {
+                rightPorts.push(lbl);
+            }
+        });
 
+        const distribute = (labels: string[], side: "top"|"bottom"|"left"|"right") => {
+            labels.forEach((lbl, idx) => {
+                const offset = (100 / (labels.length + 1)) * (idx + 1);
+                nodePorts.push({
+                    id: getPortId(compId, lbl),
+                    label: lbl,
+                    side,
+                    offsetPercent: Math.round(offset)
+                });
+            });
+        };
+
+        distribute(topPorts, "top");
+        distribute(leftPorts, "left");
+        distribute(rightPorts, "right");
+        distribute(bottomPorts, "bottom");
         rfNodes.push({
           id: compId,
           type: "circuitNode",
-          position: { x, y },
+          position: { x: 0, y: 0 },
           draggable: true,
           data: {
             label: comp.name,
@@ -561,59 +674,48 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       });
     });
 
-    const rfEdges: CircuitEdge[] = connections.map((conn: any, idx: number) => {
-      const fromNodeId = conn.from;
-      const toNodeId = conn.to;
-      const protocol = (conn.protocol || "signal").toUpperCase();
+    const rfEdges: CircuitEdge[] = [];
+    resolvedConnections.forEach((conn: any, idx: number) => {
+      const fromNodeId = conn.resolvedFrom;
+      const toNodeId = conn.resolvedTo;
+
+      if (!rfNodes.some(n => n.id === fromNodeId) || !rfNodes.some(n => n.id === toNodeId)) {
+        return; // skip if nodes were filtered out (e.g. mechanical) or missing
+      }
+
+      const fPortLabel = conn.from_port || "IO1";
+      const tPortLabel = conn.to_port || "IO1";
       
       let wireType: WireType = "signal";
-      if (protocol.includes("I2C") || protocol.includes("UART") || protocol.includes("SPI") || protocol.includes("RS485")) {
-        wireType = "data";
-      } else if (protocol.includes("CAN")) {
-        wireType = "can";
-      } else if (protocol.includes("PWM")) {
-        wireType = "pwm";
-      } else if (protocol.includes("DC") || protocol.includes("POWER")) {
-        wireType = "power";
+      if (conn.wire_type && WIRE_COLORS[conn.wire_type as WireType]) {
+        wireType = conn.wire_type as WireType;
+      } else {
+        const protocol = (conn.protocol || "signal").toUpperCase();
+        if (protocol.includes("I2C") || protocol.includes("UART") || protocol.includes("SPI") || protocol.includes("RS485")) {
+          wireType = "data";
+        } else if (protocol.includes("CAN")) {
+          wireType = "can";
+        } else if (protocol.includes("PWM")) {
+          wireType = "pwm";
+        } else if (protocol.includes("DC") || protocol.includes("POWER") || fPortLabel.toUpperCase().includes("VCC") || fPortLabel.toUpperCase().includes("GND")) {
+          wireType = "power";
+        }
       }
 
-      let srcPort = `${fromNodeId}-io1`;
-      let tgtPort = `${toNodeId}-io1`;
-      
-      const fromNode = rfNodes.find(n => n.id === fromNodeId);
-      const toNode = rfNodes.find(n => n.id === toNodeId);
-      
-      if (fromNode && fromNode.data.ports.length > 0) {
-        const match = fromNode.data.ports.find((p: any) => 
-          p.id.includes("sda") || p.id.includes("tx") || p.id.includes("can") || p.id.includes("pwm") || p.id.includes("io1")
-        );
-        srcPort = match ? match.id : fromNode.data.ports[0].id;
-      }
-      if (toNode && toNode.data.ports.length > 0) {
-        const match = toNode.data.ports.find((p: any) => 
-          p.id.includes("sda") || p.id.includes("rx") || p.id.includes("can") || p.id.includes("pwm") || p.id.includes("io1")
-        );
-        tgtPort = match ? match.id : toNode.data.ports[0].id;
-      }
-      
-      if (wireType === "power") {
-        const srcVcc = `${fromNodeId}-vcc`;
-        const tgtVcc = `${toNodeId}-vcc`;
-        if (fromNode?.data.ports.some(p => p.id === srcVcc)) srcPort = srcVcc;
-        if (toNode?.data.ports.some(p => p.id === tgtVcc)) tgtPort = tgtVcc;
-      }
+      const srcPortId = getPortId(fromNodeId, fPortLabel);
+      const tgtPortId = getPortId(toNodeId, tPortLabel);
 
-      return {
+      rfEdges.push({
         id: `wire-design-${idx}-${Date.now()}`,
         source: fromNodeId,
         target: toNodeId,
-        sourceHandle: srcPort,
-        targetHandle: tgtPort,
+        sourceHandle: srcPortId,
+        targetHandle: tgtPortId,
         type: "circuitWire",
         label: conn.protocol || conn.relation || "signal",
         data: {
-          from: { nodeId: fromNodeId, portId: srcPort },
-          to: { nodeId: toNodeId, portId: tgtPort },
+          from: { nodeId: fromNodeId, portId: srcPortId },
+          to: { nodeId: toNodeId, portId: tgtPortId },
           color: WIRE_COLORS[wireType],
           label: conn.protocol || conn.relation || "signal",
           wireType
@@ -621,8 +723,34 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         style: {
           stroke: WIRE_COLORS[wireType],
           strokeWidth: 2
-        }
-      };
+        },
+        animated: false
+      });
+    });
+
+    // Apply Dagre auto-layout with wider spacing to reduce congestion
+    const g = new dagre.graphlib.Graph();
+    g.setGraph({ rankdir: "TB", nodesep: 350, ranksep: 400, marginx: 100, marginy: 100 });
+    g.setDefaultEdgeLabel(() => ({}));
+
+    rfNodes.forEach((node) => {
+      g.setNode(node.id, { width: 260, height: 200 });
+    });
+
+    rfEdges.forEach((edge) => {
+      g.setEdge(edge.source, edge.target);
+    });
+
+    dagre.layout(g);
+
+    rfNodes.forEach((node) => {
+      const nodeWithPosition = g.node(node.id);
+      if (nodeWithPosition) {
+        node.position = {
+          x: nodeWithPosition.x - 110,
+          y: nodeWithPosition.y - 75,
+        };
+      }
     });
 
     set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false });
@@ -674,16 +802,31 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     set({ edges: [...get().edges, edge] });
   },
 
-  generate: async (components: GenerateComponent[], prompt: string, subsystems?: any[] | null) => {
-    set({ isGenerating: true, error: null });
+  generate: async (components, prompt, subsystems) => {
+    set({ isGenerating: true, error: null, ercReport: null, nodes: [], edges: [] });
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ components, prompt, subsystems }),
-      });
+      const payload = { components, prompt, subsystems };
+      let res: Response | null = null;
+      let retries = 3;
+      while (retries > 0) {
+        try {
+          res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (res.ok) break;
+        } catch (e) {
+          if (retries === 1) throw e;
+        }
+        retries--;
+        await new Promise(r => setTimeout(r, 3000)); // wait 3s before retry
+      }
 
-      if (!res.ok) throw new Error(`API error ${res.status}`);
+      if (!res || !res.ok) {
+        const errText = res ? await res.text() : "Connection refused (backend starting?)";
+        throw new Error(errText);
+      }
 
       const data: GenerateResponse = await res.json();
 
@@ -711,13 +854,28 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
         const fromPortId = w.from.portId.toString().toLowerCase().replace(/\s+/g, '_');
         const toPortId = w.to.portId.toString().toLowerCase().replace(/\s+/g, '_');
 
-        const fromNodeExists = rfNodes.some(n => n.id === fromNodeId);
-        const toNodeExists = rfNodes.some(n => n.id === toNodeId);
+        const fromNodeExists = rfNodes.find(n => n.id === fromNodeId);
+        const toNodeExists = rfNodes.find(n => n.id === toNodeId);
         if (!fromNodeExists) {
           console.warn(`Generated edge references non-existent source node ID: ${fromNodeId}`);
         }
         if (!toNodeExists) {
           console.warn(`Generated edge references non-existent target node ID: ${toNodeId}`);
+        }
+
+        // Force green color for sensor feedback wires if LLM missed it
+        let finalColor = w.color;
+        let finalType = w.type;
+        
+        const isSensorNode = (n: any) => {
+          if (!n) return false;
+          const str = (n.data.type + " " + n.data.label + " " + n.id).toLowerCase();
+          return str.includes("sensor") || str.includes("feedback") || str.includes("ultrasonic") || str.includes("camera") || str.includes("encoder") || str.includes("imu") || str.includes("switch") || str.includes("limit") || str.includes("hall") || str.includes("potentiometer");
+        };
+
+        if (isSensorNode(fromNodeExists) || isSensorNode(toNodeExists) || w.type === "feedback" || w.label.toLowerCase().includes("feedback") || w.label.toLowerCase().includes("sensor")) {
+          finalColor = "#00FF00";
+          finalType = "feedback";
         }
 
         return {
@@ -731,20 +889,20 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
           data: {
             from: { nodeId: fromNodeId, portId: fromPortId },
             to: { nodeId: toNodeId, portId: toPortId },
-            color: w.color,
+            color: finalColor,
             label: w.label,
-            wireType: w.type,
+            wireType: finalType,
           },
           style: {
-            stroke: w.color,
-            strokeWidth: 1.5,
+            stroke: finalColor,
+            strokeWidth: 3.5,
           },
           markerEnd: undefined,
           animated: false,
         };
       });
 
-      set({ nodes: rfNodes, edges: rfEdges });
+      set({ nodes: rfNodes, edges: rfEdges, ercReport: data.erc_report || null });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       set({ error: msg });

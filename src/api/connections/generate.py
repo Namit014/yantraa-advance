@@ -16,6 +16,9 @@ import requests
 from dotenv import load_dotenv
 from typing import List, Optional
 
+# Import ERC module
+from api.connections.erc import validate_and_fix_diagram, load_hardware_db
+
 load_dotenv()
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
@@ -25,8 +28,11 @@ _src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
-# ── LLM Config ─────────────────────────────────────────────────────────
-from llm import invoke_yantra_ai
+# ── OpenRouter config ──────────────────────────────────────────────────────────
+OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+# Use a fast, reliable model for Yantra AI.
+CONNECTIONS_MODEL = os.environ.get("OPENROUTER_MODEL", "openrouter/owl-alpha")
 
 # ── Pydantic models ────────────────────────────────────────────────────────────
 
@@ -65,8 +71,8 @@ def _rag_search(query: str, top_k: int = 5) -> str:
 
         embedder = Embedder()
         vec = embedder.embed_text(query)
-        client = get_qdrant_client()
 
+        client = get_qdrant_client()
         results = client.query_points(
             collection_name="yantra_knowledgebase",
             query=vec,
@@ -80,12 +86,56 @@ def _rag_search(query: str, top_k: int = 5) -> str:
         return ""
 
 
+async def _web_fallback_pinout_search(query: str) -> str:
+    """Fallback to search the internet for component pinouts if local database is empty."""
+    try:
+        from scraper.search import search_web
+        from scraper.pipeline import rank_urls, is_garbage_text, _url_cache, _save_url_cache
+        from scraper.scraper import fetch_clean_text
+        
+        print(f"[connections/generate] Triggering web fallback for: {query}")
+        urls = search_web(query, max_results=5)
+        if not urls:
+            return ""
+        
+        ranked_urls = rank_urls(urls)[:3]
+        texts = []
+        
+        for url in ranked_urls:
+            if url in _url_cache:
+                continue
+            text = await fetch_clean_text(url)
+            if text and not is_garbage_text(text):
+                texts.append(f"Source: {url}\n" + text)
+                _url_cache.add(url)
+                _save_url_cache(_url_cache)
+            if len(texts) >= 2:
+                break
+                
+        # Return truncated context
+        return "\n\n---\n\n".join(texts)[:4000]
+    except Exception as e:
+        print(f"[connections/generate] Web fallback error: {e}")
+        return ""
+
+
 def _call_llm(system: str, user: str) -> str:
-    """Call Google Gemini and return raw content string."""
+    """Call LLM unified from src/llm.py"""
+    try:
+        from llm import invoke_yantra_ai
+    except ImportError:
+        try:
+            from src.llm import invoke_yantra_ai
+        except ImportError:
+            import sys
+            sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+            from src.llm import invoke_yantra_ai
+            
     return invoke_yantra_ai(
-        prompt=user,
-        system_prompt=system,
-        response_format="json_object"
+        prompt=user, 
+        system_prompt=system, 
+        response_format="text", 
+        temperature=0.3
     )
 
 
@@ -102,84 +152,9 @@ def _strip_markdown_json(text: str) -> str:
 
 
 def _fallback_diagram(components: List[ComponentIn]) -> dict:
-    """
-    Generate a simple fallback diagram when the LLM fails or returns invalid JSON.
-    Lays out nodes in a grid and connects them sequentially.
-    """
-    # Shape heuristics
-    def pick_shape(c: ComponentIn) -> str:
-        n = (c.name + c.id).lower()
-        if "raspberry" in n or "rpi" in n:
-            return "raspberry-pi"
-        if "arduino" in n or "uno" in n or "nano" in n:
-            return "arduino-uno"
-        if "esp32" in n or "esp8266" in n:
-            return "esp32"
-        if "breadboard" in n:
-            return "breadboard"
-        if "ic" in n or "chip" in n or "dip" in n or "74hc" in n:
-            return "ic-chip"
-        return "generic-board"
+    """Fallback if LLM JSON fails."""
+    return {"nodes": [], "wires": [], "erc_report": "Generation failed to parse properly. Please click Generate again to retry."}
 
-    def pick_type(c: ComponentIn) -> str:
-        t = c.type.lower()
-        n = c.name.lower()
-        if "controller" in t or "microcontroller" in t or "arduino" in n or "raspberry" in n or "esp" in n:
-            return "microcontroller"
-        if "sensor" in t or "sensor" in n:
-            return "sensor"
-        if "motor" in t or "actuator" in t:
-            return "motor"
-        if "power" in t or "battery" in n or "supply" in n:
-            return "power"
-        if "display" in t or "lcd" in n or "oled" in n:
-            return "display"
-        return "module"
-
-    COLS = 3
-    nodes = []
-    for i, comp in enumerate(components):
-        col = i % COLS
-        row = i // COLS
-        x = 80 + col * 320
-        y = 80 + row * 280
-
-        ports = [
-            {"id": f"{comp.id}-vcc", "label": "VCC", "side": "top", "offsetPercent": 20},
-            {"id": f"{comp.id}-gnd", "label": "GND", "side": "top", "offsetPercent": 80},
-            {"id": f"{comp.id}-out", "label": "OUT", "side": "right", "offsetPercent": 50},
-            {"id": f"{comp.id}-in", "label": "IN", "side": "left", "offsetPercent": 50},
-        ]
-
-        nodes.append(
-            {
-                "id": comp.id,
-                "label": comp.name,
-                "type": pick_type(comp),
-                "shape": pick_shape(comp),
-                "x": x,
-                "y": y,
-                "ports": ports,
-            }
-        )
-
-    # Connect sequentially
-    wires = []
-    for i in range(len(nodes) - 1):
-        src = nodes[i]
-        tgt = nodes[i + 1]
-        wires.append(
-            {
-                "id": f"wire-{i}",
-                "from": {"nodeId": src["id"], "portId": f'{src["id"]}-out'},
-                "to": {"nodeId": tgt["id"], "portId": f'{tgt["id"]}-in'},
-                "color": "#4488FF",
-                "label": "signal",
-                "type": "signal",
-            }
-        )
-
-    return {"nodes": nodes, "wires": wires}
 
 
 @router.post("/api/connections/generate")
@@ -192,13 +167,33 @@ async def generate_connections(request: GenerateRequest):
     if not request.prompt.strip():
         raise HTTPException(status_code=400, detail="Prompt cannot be empty.")
 
-    # ── Step 1: RAG context per component ─────────────────────────────────────
+    # ── Step 1: RAG context + Hardware DB per component ─────────────────────────
     rag_contexts: List[str] = []
+    hardware_db = load_hardware_db()
+    
     if request.components:
         for comp in request.components[:12]:  # limit to avoid huge prompts
-            ctx = _rag_search(f"{comp.name} pinout datasheet connections")
-            if ctx:
-                rag_contexts.append(f"## {comp.name}\n{ctx}")
+            # Check Hardware DB first
+            comp_name_lower = comp.name.lower()
+            hw_match = next((k for k in hardware_db.keys() if k in comp_name_lower or comp_name_lower in k), None)
+            
+            if hw_match:
+                hw_info = hardware_db[hw_match]
+                hw_ctx = f"## {comp.name} (from Hardware DB)\nExplicit Ports and Voltages: {json.dumps(hw_info['ports'])}"
+                rag_contexts.append(hw_ctx)
+                print(f"[connections/generate] Loaded DB info for {comp.name}")
+            else:
+                # Fallback to RAG
+                ctx = _rag_search(f"{comp.name} pinout datasheet connections")
+                
+                if len(ctx) < 150: # If RAG context is empty or too short
+                    print(f"[connections/generate] RAG insufficient for {comp.name}, scraping web...")
+                    web_ctx = await _web_fallback_pinout_search(f"{comp.name} pinout wiring specifications")
+                    if web_ctx:
+                        ctx = web_ctx + "\n" + ctx
+                        
+                if ctx:
+                    rag_contexts.append(f"## {comp.name}\n{ctx}")
     else:
         ctx = _rag_search(f"{request.prompt} robot components pinout connections datasheet", top_k=8)
         if ctx:
@@ -226,6 +221,7 @@ async def generate_connections(request: GenerateRequest):
     # Load connection rules from connection_kb.py
     from connection_kb import CONNECTION_RULES, validate_connections
     serialized_rules = "\n".join(f"{idx + 1}. {rule}" for idx, rule in enumerate(CONNECTION_RULES))
+
 
     # ── Step 2: Build LLM prompt ───────────────────────────────────────────────
     if request.components:
@@ -257,9 +253,10 @@ CONNECTION RULES (you must follow these exactly):
 WIRE COLOR CONVENTION:
 - power (3.3V/5V/12V): #FF4444
 - ground: #888888
-- signal/PWM: #FFD700
+- control/signal/PWM: #FFD700
 - data (I2C/SPI/UART): #4488FF
-- CAN: #44FF88
+- sensor/feedback: #00FF00
+- safety/e-stop: #FFFF00
 
 NODE SHAPE RULES:
 - Use "raspberry-pi" for Raspberry Pi boards
@@ -270,13 +267,14 @@ NODE SHAPE RULES:
 - Use "generic-board" for everything else
 
 ROBOTICS STANDARDS & REQUIREMENTS:
-- Grounding: Add an explicit "STAR GND" node component. Ensure Logic GND, Motor GND, and Servo GND all explicitly route back to this single "STAR GND" node.
-- Emergency Stop: Clearly implement the E-Stop by either placing a Relay/Contactor that physically cuts main motor power, OR wiring it to pull all driver ENABLE pins to their safe state. Mention which method is used.
-- Fuse Placement: Explicitly include and wire a "Battery Fuse", a "Main System Fuse", and a "Buck Converter Fuse" as separate components.
-- Motor Driver Wiring: Ensure VMOT connects to the main motor supply. Include an explicit "100-470 µF Capacitor" node wired closely across VMOT and GND. Include signal lines: STEP, DIR, ENABLE. Show motor phases: A+, A-, B+, B-.
-- Servo Power: Provide dedicated step-down voltage regulation (e.g., 5V/6V Buck Converter) for Servos. Include an explicit "470-1000 µF Capacitor" node near the servo power pins.
-- Safe Power Architecture: NEVER directly connect a 24V PSU and LiPo battery simultaneously without power path management.
-- Labeling & Layout: Label motors as J1 Base Rotation, J2 Arm Rotation, Z-Axis Vertical, End Effector Servo. Enforce 1 Stepper Driver per stepper motor. Include Limit/Homing switches. Clearly distinguish Power lines, Signal lines, Ground lines. Keep layout clean and professional.
+- SENSORS & LOGICAL COMPLETENESS: If the prompt implies a standard robot (e.g. "2 wheel robot", "rover", "arm"), automatically include common necessary sensors (like ultrasonic sensors, IMU, encoders, limits) to make the design functionally complete. DO NOT omit core functional sensors.
+- SIMPLICITY FIRST (CRITICAL): ONLY generate the strictly necessary functional components. DO NOT add unnecessary passive components like decoupling capacitors or flyback diodes unless explicitly requested.
+- STRICTLY ELECTRICAL: DO NOT include purely mechanical brackets, adapters, tubes, or structural mounts in the diagram. Only electrical/electronic components (motors, controllers, sensors, power) are allowed.
+- CORE ELECTRONICS: You MUST include the main microcontroller (e.g., Arduino/Raspberry Pi), required motor drivers (e.g., L298N or A4988) for any actuators provided, and a main power supply/battery.
+- SEMANTIC LABELING: Assign role-based labels to EACH component. NEVER use generic duplicate names for multiple parts.
+- SIGNAL ARCHITECTURE: Clearly separate and label Power lines, Signal lines, and Ground lines. ALWAYS use "feedback" type and "#00FF00" color for wires connected to sensors!
+- MOTOR CONTROL: Enforce a strict 1:1 relationship between drivers and motors where appropriate.
+- Layout Readability: Improve text readability by avoiding overlapping labels and maintaining uniform spacing. Distribute nodes using a cleaner hierarchical visual flow from left to right: Power -> Controller -> Drivers -> Motors.
 
 Return ONLY this JSON structure (no markdown fences):
 {{
@@ -286,8 +284,8 @@ Return ONLY this JSON structure (no markdown fences):
       "label": string (human-readable name),
       "type": "microcontroller"|"sensor"|"motor"|"power"|"display"|"module"|"other",
       "shape": "raspberry-pi"|"arduino-uno"|"esp32"|"breadboard"|"ic-chip"|"generic-board",
-      "x": number (canvas x, spread components 280px apart),
-      "y": number (canvas y, group by category in rows),
+      "x": number (canvas x, use this to create hierarchical flow: e.g., Power=100, Controller=400, Drivers=700, Motors=1000, Sensors=1300),
+      "y": number (canvas y, maintain at least 300px vertical spacing between parallel components to avoid overlapping labels),
       "ports": [
         {{ "id": string, "label": string, "side": "top"|"bottom"|"left"|"right", "offsetPercent": number }}
       ]
@@ -299,13 +297,14 @@ Return ONLY this JSON structure (no markdown fences):
       "from": {{ "nodeId": string, "portId": string }},
       "to": {{ "nodeId": string, "portId": string }},
       "color": string (hex),
-      "label": string (e.g. "I2C SDA", "PWM", "GND"),
-      "type": "power"|"ground"|"signal"|"data"|"pwm"|"can"
+      "label": string (e.g. "I2C SDA", "PWM", "GND", "Sensor Data"),
+      "type": "power"|"ground"|"signal"|"data"|"pwm"|"feedback"|"safety"
     }}
   ]
 }}
 
 IMPORTANT:
+- STRICT ACCURACY: Use EXACT pin names, voltage levels, and interfaces provided in the GROUNDING CONTEXT. DO NOT hallucinate or guess generic pin names if the true pinout is provided.
 - Select ONLY the necessary components from the list above, or invent new ones if needed, to build the requested circuit. Do NOT include all components.
 - Ports must match the physical pinout of the component.
 - Include VCC, GND ports on every node.
@@ -331,13 +330,32 @@ IMPORTANT:
         if "nodes" not in diagram or "wires" not in diagram:
             raise ValueError("Missing 'nodes' or 'wires' keys in LLM response")
 
-        # Run connection validation rules after LLM response
+        # Run Electrical Rule Checker (ERC) to auto-fix and validate
+        diagram = validate_and_fix_diagram(diagram)
+        
+        # Run upstream connection validation rules as an extra safeguard
+        from connection_kb import validate_connections
         valid_wires, logs = validate_connections(diagram["nodes"], diagram["wires"])
         diagram["wires"] = valid_wires
         if logs:
-            print(f"[connections/generate] Connections validated/repaired: {logs}")
+            print(f"[connections/generate] Upstream connections validated/repaired: {logs}")
 
-        return diagram
+        # Pass 2: Deep LLM ERC Validation
+        from api.connections.erc import llm_validate_diagram
+        print("[connections/generate] Starting Pass 2: Deep LLM ERC Validation...")
+        validated_data = llm_validate_diagram(diagram, request.prompt)
+        
+        final_diagram = validated_data if ("nodes" in validated_data and "wires" in validated_data) else diagram
+        erc_report = validated_data.get("erc_report", "Validation passed with no remarks.")
+        
+        # Ensure diagram structure is maintained
+        if "nodes" not in final_diagram or "wires" not in final_diagram:
+            final_diagram = diagram
+            
+        final_diagram["erc_report"] = erc_report
+        print("[connections/generate] Pass 2 Complete.")
+        
+        return final_diagram
 
     except Exception as exc:
         print(f"[connections/generate] LLM/parse error: {exc}")

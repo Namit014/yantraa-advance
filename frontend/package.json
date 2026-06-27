@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "npx kill-port 3000 8000 || exit 0",
     "dev": "concurrently \"npm run fastapi-dev\" \"npm run next-dev\"",
     "next-dev": "next dev",
-    "fastapi-dev": "py -3.11 ../src/api/main.py",
+    "fastapi-dev": "..\\.venv\\Scripts\\python ../src/api/main.py",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -14,6 +15,7 @@
     "@base-ui/react": "^1.5.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
+    "@reactflow/core": "^11.11.4",
     "@types/dagre": "^0.7.54",
     "@xyflow/react": "^12.11.0",
     "class-variance-authority": "^0.7.1",
@@ -24,6 +26,7 @@
     "occt-import-js": "^0.0.23",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "reactflow": "^11.11.4",
     "shadcn": "^4.10.0",
     "tailwind-merge": "^3.6.0",
     "three": "^0.184.0",

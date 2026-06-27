@@ -1,0 +1,42 @@
+Source URL: https://www.geeksforgeeks.org/electrical-engineering/servo-motor/
+Scraped: 2026-06-18T12:43:50.194506
+============================================================
+
+**Servo Motor – Technical Overview (as described in the source text)**  
+
+- **Function:** Rotary actuator that provides precise control of angular position, speed, and torque. Operates as a closed‑loop system (feedback‑controlled).  
+
+- **Core Components**  
+  - **Rotor & Stator:** Rotor drives the output shaft; stator is stationary.  
+  - **Feedback Device:** Encoder (AC versions) or potentiometer (DC versions) continuously measures actual shaft position.  
+  - **Controller:** Receives the feedback signal, compares it with the commanded position, computes an error voltage and drives the motor to eliminate the error.  
+  - **Control Input:** Electrical pulses, typically Pulse‑Width Modulation (PWM).  
+  - **Power Supply:** Either DC or AC, depending on motor type.  
+  - **Gear Train (optional):** Provides torque multiplication or speed reduction for applications requiring higher torque or lower speed.  
+
+- **Control Method**  
+  - **PWM Signal:** Pulse width varies from **1 ms to 2 ms**, repeated at **50 Hz** (i.e., 50 pulses per second). The pulse width directly determines the commanded shaft angle.  
+
+- **Types of Servo Motors**  
+  1. **DC Servo Motor**  
+     - **Construction:** DC motor + position sensor (potentiometer) + gear train + control circuit.  
+     - **Reference Setting:** Desired output set by a DC reference voltage generated via potentiometer, pulse converter, or timer.  
+     - **Digital Control:** Microprocessor generates PWM for fine positioning.  
+     - **Feedback:** Potentiometer output fed to an error‑amplifier; motor is driven until the error voltage is zero.  
+  2. **AC Servo Motor**  
+     - **Construction:** Two‑phase induction motor + encoder (or resolver) + gear train + control electronics.  
+     - **Power Range:** From a few watts up to several hundred watts.  
+     - **Operating Frequency:** **50 Hz – 400 Hz** (variable frequency drives used to set speed).  
+     - **Control:** Closed‑loop with encoder feedback for both speed and angular position.  
+
+- **Key Characteristics**  
+  - **High torque‑to‑inertia ratio:** Enables rapid acceleration/deceleration while maintaining precise positioning.  
+  - **Size & Power Scalability:** Available in many sizes and power ratings for diverse applications.  
+  - **Integrated Features (optional):** Built‑in controller, communication interfaces (e.g., serial, CAN), making integration into complex systems easier.  
+
+- **Typical Applications**  
+  - Robotics (joint actuation, arm movement)  
+  - Industrial automation (machine tools, conveyor positioning)  
+  - CNC machines, 3‑D printers, and other equipment demanding accurate, repeatable motion.  
+
+*All data above are extracted directly from the provided GeeksforGeeks article; no external information has been added.*

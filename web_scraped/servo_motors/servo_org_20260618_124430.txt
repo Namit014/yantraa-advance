@@ -1,0 +1,5 @@
+Source URL: https://servo.org/
+Scraped: 2026-06-18T12:44:30.185398
+============================================================
+
+Servo is a lightweight, high-performance browser rendering engine built in Rust. It supports WebGL and WebGPU, allowing deployment across desktop, mobile, and embedded platforms. The engine offers a WebView API for embedding web content in other applications. Its Rust-based architecture ensures memory safety and fewer concurrency vulnerabilities. Servo provides modular design using widely adopted Rust crates, supporting parallel rendering on multi-core devices. It operates on multiple platforms, including Windows, macOS, Linux, Android, and OpenHarmony. Additional enhancements include performance upgrades like better UI controls, improved keyboard navigation, increased security features, and refined Debugger and Inspector tools. Recent updates cover faster layout, scripting controls, and improved value inspection in DevTools. The project is managed by the Linux Foundation Europe Technical Steering Committee. Support is available via open governance, with sponsorship options including partnerships with AWS and GitHub.

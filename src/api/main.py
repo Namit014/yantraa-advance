@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import sys
 import os
@@ -24,7 +24,6 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from fastapi.middleware.cors import CORSMiddleware
 from retriever import Retriever
-
 from contextlib import asynccontextmanager
 
 @asynccontextmanager
@@ -43,10 +42,13 @@ app = FastAPI(
 )
 
 # Add CORS middleware
-ALLOWED_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+# Default includes production domain + localhost for development
+_default_origins = "http://localhost:3000,https://labs.yantraa.tech,https://www.labs.yantraa.tech,https://yantraa.tech,https://www.yantraa.tech,https://api.yantraa.tech"
+ALLOWED_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", _default_origins).split(",") if o.strip()]
+print(f"[Yantra API] CORS Allowed Origins configured in env: {ALLOWED_ORIGINS}")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS, 
+    allow_origins=["*"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -60,13 +62,30 @@ try:
 except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load connections router: {_e}")
 
-try:
-    from design import router as design_router
-    app.include_router(design_router)
-    print("[Yantra API] Registered /api/design")
-except Exception as _e:
-    print(f"[Yantra API] WARNING: Could not load design router: {_e}")
+from design import router as design_router
+app.include_router(design_router)
+print("[Yantra API] Registered /api/design")
 
+try:
+    from generate import router as generate_router
+    app.include_router(generate_router)
+    print("[Yantra API] Registered /api/generate-cad")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load generate router: {_e}")
+
+try:
+    from mapping.generate import router as mapping_router
+    app.include_router(mapping_router)
+    print("[Yantra API] Registered /api/mapping/build-graph")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load mapping router: {_e}")
+
+try:
+    from ros2_export import router as ros2_export_router
+    app.include_router(ros2_export_router)
+    print("[Yantra API] Registered /api/export-ros2")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load ros2_export router: {_e}")
 
 # Define Pydantic models for JSON request/response validation
 class QueryRequest(BaseModel):
@@ -118,7 +137,13 @@ async def ask_question(request: Request, payload: QueryRequest):
         )
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        import traceback
+        error_details = traceback.format_exc()
+        return QueryResponse(
+            response=f"An error occurred in the backend: {str(e)}\n\n{error_details}",
+            status="error",
+            cad_available=False
+        )
 
 @app.get("/search", response_model=QueryResponse)
 async def search_question(request: Request, query: str):
@@ -178,4 +203,5 @@ async def health_check():
 if __name__ == "__main__":
     import uvicorn
     # Allow running directly using `python src/api/main.py`
+    print("ALL ROUTES BEFORE RUNNING:", [getattr(r, "path", getattr(r, "name", str(r))) for r in app.routes])
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)
