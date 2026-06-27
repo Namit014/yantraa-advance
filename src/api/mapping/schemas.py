@@ -3,34 +3,35 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 
 class ConnectionType(str, Enum):
-    MECHANICAL_ATTACHMENT = "MECHANICAL_ATTACHMENT"
+    MECHANICAL = "MECHANICAL"
     POWER = "POWER"
     SIGNAL = "SIGNAL"
-    FLUID = "FLUID"
     MOTION = "MOTION"
     THERMAL = "THERMAL"
+    PNEUMATIC = "PNEUMATIC"
+    HYDRAULIC = "HYDRAULIC"
+    COMMUNICATION = "COMMUNICATION"
+    SAFETY = "SAFETY"
 
 class SourceType(str, Enum):
     CAD = "CAD"
     BOM = "BOM"
+    SCHEMATIC = "SCHEMATIC"
     MANUAL = "MANUAL"
     DATASHEET = "DATASHEET"
+    KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
     WEB = "WEB"
+    IMAGE = "IMAGE"
 
 class EvidenceReference(BaseModel):
+    source_id: str
     source_type: SourceType
     source_file: str
+    source_priority: float = 1.0
+    source_confidence: float = 1.0
     page_number: Optional[int] = None
     paragraph: Optional[str] = None
     image_region: Optional[str] = None
-    cad_assembly_path: Optional[str] = None
-    confidence: float = 1.0
-
-class ExplainabilityRecord(BaseModel):
-    source: str
-    target: str
-    relationship: str
-    why: List[str]
 
 class ComponentNode(BaseModel):
     id: str
@@ -41,25 +42,24 @@ class ComponentNode(BaseModel):
     fingerprint_hash: Optional[str] = None
     confidence: float = 0.0
     evidence: List[EvidenceReference] = []
+    parent_id: Optional[str] = None
+    explainability: str = ""
 
 class ConnectionEdge(BaseModel):
     id: str
-    source_id: str
-    target_id: str
+    source: str
+    target: str
     type: ConnectionType
-    relation_name: str
     confidence: float = 0.0
     evidence: List[EvidenceReference] = []
-    explanation: Optional[ExplainabilityRecord] = None
+    explainability: str = ""
 
 class Conflict(BaseModel):
     issue_type: str
     description: str
     involved_nodes: List[str]
 
-class ValidationReport(BaseModel):
-    missing_components: List[str] = []
-    duplicate_components: List[str] = []
-    orphan_components: List[str] = []
-    unresolved_aliases: List[str] = []
-    conflicts: List[Conflict] = []
+class GraphHealth(BaseModel):
+    score: int = 100
+    errors: List[str] = []
+    warnings: List[str] = []

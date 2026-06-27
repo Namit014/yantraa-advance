@@ -294,159 +294,44 @@ OUTPUT FORMAT:
         print(f"[api/design] Could not load component graphs: {e}")
 
     # ─── PHASE 3: Synthesis Agent (Mapping + Connection + Validation) ────────
-    print("[api/design] Phase 3: Running Synthesis Agent...")
-    synthesis_system = """You are Yantraa, a master robotics design AI. Your job is to assemble a complete, industrial-grade robot according to the USER REQUEST.
-You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
-
-CRITICAL RULES:
-- If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
-- If the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone), you should generate standard generic custom components (e.g., `quadcopter_frame`, `brushless_motor`).
-- Any custom component you generate MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
-- If you use custom components or define an assembly, you MUST include 'assembly_graph' in your JSON output detailing the parent-child relationships and connection ports.
-- Output ONLY valid JSON in the exact structure requested.
-
-ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
-1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot. Instead, use a Trunk-and-Branch topology.
-2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node".
-3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power via a Safety Relay or Contactor.
-4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring.
-5. **Power Supply Sizing & Fusing**: Every individual branch from the PSU to a Driver MUST pass through a dedicated Fuse or Circuit Breaker.
-6. **Communication Architecture (Daisy-Chain)**: Wire the Fieldbus in a Daisy-Chain topology to minimize long signal wires.
-7. **Power Isolation**: Strictly separate Logic and Motor power. Use a DC-DC Buck Converter for logic.
-8. **Dynamic Joint Naming**: Explicitly name motors/actuators with their kinematic role (e.g., "J1 Base Rotation Motor").
-9. **Strict Connectivity**: 
-   - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
-   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
-
-OUTPUT FORMAT:
-{
-  "subsystems": [
-    {
-      "name": "subsystem name",
-      "components": [
-        {
-          "id": "unique_id",
-          "name": "exact component name",
-          "role": "what it does",
-          "voltage": "operating voltage",
-          "interface": "communication protocol"
-        }
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "from": "component_id",
-      "from_port": "exact_pin_name",
-      "to": "component_id",
-      "to_port": "exact_pin_name",
-      "wire_type": "power | ground | signal | data | pwm | can",
-      "relation": "powered_by | controlled_by | drives | communicates_with"
-    }
-  ],
-  "bom": [
-    {"id": "id", "name": "exact name", "qty": 1}
-  ],
-  "missing": [
-    {"name": "component name"}
-  ],
-  "validation": [
-    {"type": "error | warning", "message": "validation check"}
-  ],
-  "assembly_graph": [
-    {"parent": "parent_id", "child": "child_id", "parent_port": "port_name", "child_port": "port_name"}
-  ]
-}"""
-
-    # Build user prompt
-    user_prompt = f"USER REQUEST: {query}\n\n"
-    if component_graph_text:
-        user_prompt += f"{component_graph_text}\n"
-    if rag_results:
-        user_prompt += f"COMPONENT SPECS & DATA SHEETS:\n{rag_results}\n"
-
-    print("[api/design] Invoking LLM...")
-    try:
-        res_text = _safe_llm_call(prompt=user_prompt, system_prompt=synthesis_system, response_format="json_object")
-        print(f"[api/design] RAW LLM SYNTHESIS TEXT:\n{res_text}\n{'='*40}")
-        data = extract_json(res_text)
-    except Exception as e:
-        print(f"[api/design] Error parsing LLM JSON: {e}")
-        data = {}
-
-    connections = data.get("connections", [])
-    normalized_connections = []
-    bom = data.get("bom", [])
-    subsystems = data.get("subsystems", [])
-    missing = data.get("missing", [])
-    validation = data.get("validation", [])
+    print("[api/design] Phase 3: Running V3 Forensic Mapping Pipeline...")
     
-    status = "success"
-    stage = "complete"
-    error_msg = None
-    mapping_generated = True
+    # Build complete context evidence
+    evidence = f"USER REQUEST: {query}\n"
+    if component_graph_text:
+        evidence += f"\n{component_graph_text}\n"
+    if rag_results:
+        evidence += f"\nCOMPONENT SPECS:\n{rag_results}\n"
 
-    # Fix #2, #3, #7, #8: Fallback Recovery Engine
-    if not subsystems and not connections:
-        print("[api/design] LLM returned empty data. Triggering Deterministic Fallback Engine...")
-        from mapping.recovery_engine import DeterministicRecoveryEngine
-        fallback_comps = DeterministicRecoveryEngine.extract_components(query)
-        if fallback_comps:
-            subsystems = [{"name": "Core System", "components": fallback_comps}]
-            connections = DeterministicRecoveryEngine.extract_connections(fallback_comps)
-            status = "partial_success"
-            stage = "recovery"
-            error_msg = "LLM failed. Components and connections recovered deterministically."
-        else:
-            status = "failed"
-            stage = "llm_generation"
-            error_msg = "Rate limited or LLM failure. No components recovered."
-            mapping_generated = False
-    elif subsystems and not connections:
-        print("[api/design] LLM returned components but NO connections. Auto-repairing...")
-        from mapping.recovery_engine import DeterministicRecoveryEngine
-        all_comps = []
-        for s in subsystems:
-            all_comps.extend(s.get("components", []))
-        connections = DeterministicRecoveryEngine.extract_connections(all_comps)
-        status = "partial_success"
-        stage = "connection_recovery"
-        error_msg = "Components recovered. Connection extraction failed."
-
-    # Fix #6: Empty Graph Blocker
-    if not subsystems and not connections and status != "failed":
+    from mapping.pipeline import MappingPipeline
+    try:
+        pipeline = MappingPipeline(evidence)
+        final_graph = pipeline.run()
+        
+        status = final_graph.get("status", "success")
+        stage = "mapping_generated"
+        error_msg = final_graph.get("error")
+        mapping_generated = True if status != "failed" else False
+        graph_health_score = final_graph.get("graph_health_score", 100)
+        
+        subsystems = final_graph.get("subsystems", [])
+        normalized_connections = final_graph.get("connections", [])
+        bom = final_graph.get("bom", [])
+        validation = final_graph.get("validation", [])
+        missing = []
+        
+    except Exception as e:
+        print(f"[api/design] V3 Mapping Pipeline failed: {e}")
         status = "failed"
-        stage = "llm_generation"
-        error_msg = "GraphGenerationFailure: Both components and connections are empty."
+        stage = "connection_generation"
+        error_msg = f"Graph engine failed: {str(e)}"
         mapping_generated = False
-
-    # Fix #9: Graph Health Validation
-    graph_health_score = 100
-    if not subsystems:
-        graph_health_score -= 50
-    if not connections:
-        graph_health_score -= 40
-    if status == "partial_success":
-        graph_health_score -= 20
-    if graph_health_score < 0:
         graph_health_score = 0
-
-    if isinstance(connections, list):
-        for conn in connections:
-            if not isinstance(conn, dict):
-                continue
-            c_from = conn.get("from") or conn.get("id_from") or conn.get("from_id")
-            c_to = conn.get("to") or conn.get("id_to") or conn.get("to_id")
-            if c_from and c_to:
-                normalized_connections.append({
-                    "from": str(c_from),
-                    "from_port": str(conn.get("from_port") or "IO1"),
-                    "to": str(c_to),
-                    "to_port": str(conn.get("to_port") or "IO1"),
-                    "wire_type": str(conn.get("wire_type") or "signal"),
-                    "relation": conn.get("relation", "connected_to"),
-                    "protocol": conn.get("protocol", "DC")
-                })
+        subsystems = []
+        normalized_connections = []
+        bom = []
+        validation = [{"type": "error", "message": error_msg}]
+        missing = []
 
     # Check CAD availability based on query
     cad_available = False
