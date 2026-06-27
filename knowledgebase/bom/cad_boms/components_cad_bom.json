@@ -1,0 +1,16 @@
+{
+  "project_name": "components_cad",
+  "sub_assemblies": [
+    {
+      "folder": "main_assembly",
+      "assembly_file": "bag_gripper.stp",
+      "total_unique_parts": 1,
+      "bom": [
+        {
+          "part_name": "bry\\X2\\0142\\X0\\a",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

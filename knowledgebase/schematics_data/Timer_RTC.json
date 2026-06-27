@@ -1,0 +1,832 @@
+[
+  {
+    "component": "AB0805",
+    "type": "Timer_RTC",
+    "pins": [
+      "NC",
+      "EXTI",
+      "FOUT/~IRQ",
+      "~TIRQ",
+      "VCC",
+      "AF",
+      "XO",
+      "XI",
+      "VSS",
+      "WDI",
+      "~IRQ2",
+      "VBAT",
+      "SDA",
+      "SCL"
+    ],
+    "description": "Real-Time Clock, I2C Interface, 3 GPO, QFN-16",
+    "keywords": [
+      "rtc"
+    ]
+  },
+  {
+    "component": "AB0815",
+    "type": "Timer_RTC",
+    "pins": [
+      "NC",
+      "EXTI",
+      "FOUT/~IRQ",
+      "~CE",
+      "VCC",
+      "AF",
+      "XO",
+      "XI",
+      "VSS",
+      "WDI",
+      "~IRQ2",
+      "VBAT",
+      "SDO",
+      "SCL",
+      "SDI"
+    ],
+    "description": "Real-Time Clock, SPI Interface, 2 GPO, QFN-16",
+    "keywords": [
+      "rtc"
+    ]
+  },
+  {
+    "component": "AB1805",
+    "type": "Timer_RTC",
+    "pins": [
+      "~RST",
+      "EXTI",
+      "FOUT/~IRQ",
+      "~TIRQ",
+      "VCC",
+      "AF",
+      "XO",
+      "XI",
+      "VSS",
+      "WDI",
+      "~EXTR",
+      "~IRQ2",
+      "VBAT",
+      "SDA",
+      "SCL",
+      "CLKOUT/~IRQ3"
+    ],
+    "description": "Real-Time Clock, I2C Interface, 4 GPO, QFN-16",
+    "keywords": [
+      "rtc"
+    ]
+  },
+  {
+    "component": "AB1815",
+    "type": "Timer_RTC",
+    "pins": [
+      "~RST",
+      "EXTI",
+      "FOUT/~IRQ",
+      "~CE",
+      "VCC",
+      "AF",
+      "XO",
+      "XI",
+      "VSS",
+      "WDI",
+      "~EXTR",
+      "~IRQ2",
+      "VBAT",
+      "SDO",
+      "SCL",
+      "CLKOUT/~IRQ3",
+      "SDI"
+    ],
+    "description": "Real-Time Clock, SPI Interface, 3 GPO, QFN-16",
+    "keywords": [
+      "rtc"
+    ]
+  },
+  {
+    "component": "BQ32000",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "VBACK",
+      "GND",
+      "SDA",
+      "SCL",
+      "~IRQ",
+      "VCC"
+    ],
+    "description": "Serial, I2C Real-time clock, Trickle charger, 3V to 3.6V VCC, -40\u00b0C to +85\u00b0C, SOIC-8",
+    "keywords": [
+      "RTC",
+      "I2C",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "BQ32002",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "VBACK",
+      "GND",
+      "SDA",
+      "SCL",
+      "~IRQ",
+      "VCC"
+    ],
+    "description": "Serial, I2C Real-time clock, 3V to 3.6V VCC, -40\u00b0C to +85\u00b0C, SOIC-8",
+    "keywords": [
+      "RTC",
+      "I2C",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1302+",
+    "type": "Timer_RTC",
+    "pins": [
+      "VCC2",
+      "X1",
+      "X2",
+      "GND",
+      "CE",
+      "I/O",
+      "SCLK",
+      "VCC1"
+    ],
+    "description": "Trickle-Charge Timekeeping Chip, 2.0V to 5.5V VCC, 0\u00b0C to +70\u00b0C, DIP-8",
+    "keywords": [
+      "RTC",
+      "Trickle-Charge",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1302N+",
+    "type": "Timer_RTC",
+    "pins": [
+      "VCC2",
+      "X1",
+      "X2",
+      "GND",
+      "CE",
+      "I/O",
+      "SCLK",
+      "VCC1"
+    ],
+    "description": "Trickle-Charge Timekeeping Chip, 2.0V to 5.5V VCC, -40\u00b0C to +85\u00b0C, DIP-8",
+    "keywords": [
+      "RTC",
+      "Trickle-Charge",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1302S+",
+    "type": "Timer_RTC",
+    "pins": [
+      "VCC2",
+      "X1",
+      "X2",
+      "GND",
+      "CE",
+      "I/O",
+      "SCLK",
+      "VCC1"
+    ],
+    "description": "Trickle-Charge Timekeeping Chip, 2.0V to 5.5V VCC, 0\u00b0C to +70\u00b0C, SO-8",
+    "keywords": [
+      "RTC",
+      "Trickle-Charge",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1302SN+",
+    "type": "Timer_RTC",
+    "pins": [
+      "VCC2",
+      "X1",
+      "X2",
+      "GND",
+      "CE",
+      "I/O",
+      "SCLK",
+      "VCC1"
+    ],
+    "description": "Trickle-Charge Timekeeping Chip, 2.0V to 5.5V VCC, -40\u00b0C to +85\u00b0C, SO-8",
+    "keywords": [
+      "RTC",
+      "Trickle-Charge",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1302Z+",
+    "type": "Timer_RTC",
+    "pins": [
+      "VCC2",
+      "X1",
+      "X2",
+      "GND",
+      "CE",
+      "I/O",
+      "SCLK",
+      "VCC1"
+    ],
+    "description": "Trickle-Charge Timekeeping Chip, 2.0V to 5.5V VCC, 0\u00b0C to +70\u00b0C, SOIC-8",
+    "keywords": [
+      "RTC",
+      "Trickle-Charge",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1302ZN+",
+    "type": "Timer_RTC",
+    "pins": [
+      "VCC2",
+      "X1",
+      "X2",
+      "GND",
+      "CE",
+      "I/O",
+      "SCLK",
+      "VCC1"
+    ],
+    "description": "Trickle-Charge Timekeeping Chip, 2.0V to 5.5V VCC, -40\u00b0C to +85\u00b0C, SOIC-8",
+    "keywords": [
+      "RTC",
+      "Trickle-Charge",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1307+",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "GND",
+      "SDA",
+      "SCL",
+      "SQW/OUT",
+      "VCC"
+    ],
+    "description": "64 x 8, Serial, I2C Real-time clock, 4.5V to 5.5V VCC, 0\u00b0C to +70\u00b0C, DIP-8",
+    "keywords": [
+      "RTC",
+      "Trickle-Charge",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1307N+",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "GND",
+      "SDA",
+      "SCL",
+      "SQW/OUT",
+      "VCC"
+    ],
+    "description": "64 x 8, Serial, I2C Real-time clock, 4.5V to 5.5V VCC, -40\u00b0C to +85\u00b0C, DIP-8",
+    "keywords": [
+      "RTC",
+      "Trickle-Charge",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1307Z+",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "GND",
+      "SDA",
+      "SCL",
+      "SQW/OUT",
+      "VCC"
+    ],
+    "description": "64 x 8, Serial, I2C Real-time clock, 4.5V to 5.5V VCC, 0\u00b0C to +70\u00b0C, SOIC-8",
+    "keywords": [
+      "RTC",
+      "I2C",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1307ZN+",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "GND",
+      "SDA",
+      "SCL",
+      "SQW/OUT",
+      "VCC"
+    ],
+    "description": "64 x 8, Serial, I2C Real-time clock, 4.5V to 5.5V VCC, -40\u00b0C to +85\u00b0C, SOIC-8",
+    "keywords": [
+      "RTC",
+      "I2C",
+      "Timekeeping",
+      "Chip"
+    ]
+  },
+  {
+    "component": "DS1602",
+    "type": "Timer_RTC",
+    "pins": [
+      "~RST~",
+      "DQ",
+      "CLK",
+      "GND",
+      "VBAT",
+      "XTAL2",
+      "XTAL1",
+      "VCC"
+    ],
+    "description": "Elapsed Time Counter, -40 to +85 C, 2.5V to 5.5V VCC, DIP-8, SO-8",
+    "keywords": [
+      "Elapsed",
+      "Time",
+      "Counter"
+    ]
+  },
+  {
+    "component": "DS3231M",
+    "type": "Timer_RTC",
+    "pins": [
+      "32KHZ",
+      "GND",
+      "VBAT",
+      "SDA",
+      "SCL",
+      "VCC",
+      "~INT~/SQW",
+      "~RST"
+    ],
+    "description": "Extremely Accurate I2C-Integrated RTC/TCXO/Crystal SOIC-16",
+    "keywords": [
+      "RTC",
+      "TCXO",
+      "Realtime",
+      "Time",
+      "Clock",
+      "Crystal",
+      "Oscillator",
+      "I2C"
+    ]
+  },
+  {
+    "component": "DS3231MZ",
+    "type": "Timer_RTC",
+    "pins": [
+      "32KHZ",
+      "VCC",
+      "~INT~/SQW",
+      "~RST",
+      "GND",
+      "VBAT",
+      "SDA",
+      "SCL"
+    ],
+    "description": "\u00b15ppm, I2C Real-Time Clock SOIC-8",
+    "keywords": [
+      "RTC",
+      "TCXO",
+      "Realtime",
+      "Time",
+      "Clock",
+      "MEMS",
+      "I2C"
+    ]
+  },
+  {
+    "component": "DS3232M",
+    "type": "Timer_RTC",
+    "pins": [
+      "32KHZ",
+      "VCC",
+      "~INT~/SQW",
+      "~RST",
+      "GND",
+      "VBAT",
+      "SDA",
+      "SCL"
+    ],
+    "description": "\u00b15ppm, I2C Real-Time Clock with SRAM SOIC-8",
+    "keywords": [
+      "RTC",
+      "TCXO",
+      "Realtime",
+      "Time",
+      "Clock",
+      "MEMS",
+      "SRAM",
+      "I2C"
+    ]
+  },
+  {
+    "component": "M41T62Q",
+    "type": "Timer_RTC",
+    "pins": [
+      "XI",
+      "SCL",
+      "~IRQ~/OUT",
+      "VCC",
+      "EP",
+      "XO",
+      "SQW",
+      "VSS",
+      "SDA"
+    ],
+    "description": "Low-power I2C RTC with alarm interrupt QFN",
+    "keywords": [
+      "I2C",
+      "RTC",
+      "Alarm",
+      "interrupt"
+    ]
+  },
+  {
+    "component": "MCP7940N-xMNY",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "MFP",
+      "VCC",
+      "EP"
+    ],
+    "description": "Real-Time Clock, I2C, Battery Backup, TDFN-8",
+    "keywords": [
+      "realtime",
+      "clock",
+      "RTC"
+    ]
+  },
+  {
+    "component": "MCP7940N-xMS",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "MFP",
+      "VCC"
+    ],
+    "description": "Real-Time Clock, I2C, Battery Backup, MSOP-8",
+    "keywords": [
+      "realtime",
+      "clock",
+      "RTC"
+    ]
+  },
+  {
+    "component": "MCP7940N-xP",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "MFP",
+      "VCC"
+    ],
+    "description": "Real-Time Clock, I2C, Battery Backup, DIP-8",
+    "keywords": [
+      "realtime",
+      "clock",
+      "RTC"
+    ]
+  },
+  {
+    "component": "MCP7940N-xSN",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "MFP",
+      "VCC"
+    ],
+    "description": "Real-Time Clock, I2C, Battery Backup, SOIC-8",
+    "keywords": [
+      "realtime",
+      "clock",
+      "RTC"
+    ]
+  },
+  {
+    "component": "MCP7940N-xST",
+    "type": "Timer_RTC",
+    "pins": [
+      "X1",
+      "X2",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "MFP",
+      "VCC"
+    ],
+    "description": "Real-Time Clock, I2C, Battery Backup, TSSOP-8",
+    "keywords": [
+      "realtime",
+      "clock",
+      "RTC"
+    ]
+  },
+  {
+    "component": "PCF8523T",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~INT1~/CLKOUT",
+      "VDD"
+    ],
+    "description": "Realtime Clock/Calendar I2C Interface, SOIC-8",
+    "keywords": [
+      "I2C",
+      "RTC",
+      "Clock",
+      "Calendar"
+    ]
+  },
+  {
+    "component": "PCF8523TK",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~INT1~/CLKOUT",
+      "VDD"
+    ],
+    "description": "Realtime Clock/Calendar I2C Interface, HVSON-8",
+    "keywords": [
+      "I2C",
+      "RTC",
+      "Clock",
+      "Calendar"
+    ]
+  },
+  {
+    "component": "PCF8523TS",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "SDA",
+      "SCL",
+      "NC",
+      "~INT1~/CLKOUT",
+      "VDD",
+      "OSCO",
+      "VBAT",
+      "VSS",
+      "~INT2",
+      "CLKOUT"
+    ],
+    "description": "Realtime Clock/Calendar I2C Interface, TSSOP-14",
+    "keywords": [
+      "I2C",
+      "RTC",
+      "Clock",
+      "Calendar"
+    ]
+  },
+  {
+    "component": "PCF85263AT",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~INTA",
+      "VDD"
+    ],
+    "description": "Tiny Real-Time Clock/calendar with alarm function, battery switch-over, time stamp input, I2C bus, SO-8",
+    "keywords": [
+      "RTC",
+      "battery",
+      "I2C"
+    ]
+  },
+  {
+    "component": "PCF85263ATT",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~INTA",
+      "VDD"
+    ],
+    "description": "Tiny Real-Time Clock/calendar with alarm function, battery switch-over, time stamp input, I2C bus, TSSOP-8",
+    "keywords": [
+      "RTC",
+      "battery",
+      "I2C"
+    ]
+  },
+  {
+    "component": "PCF85363ATT",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "VBAT",
+      "VSS",
+      "SDA",
+      "SCL",
+      "~INTA",
+      "VDD"
+    ],
+    "description": "Tiny Real-Time Clock/calendar with 64 byte RAM, alarm function, battery switch-over, time stamp input, I2C bus, TSSOP-8",
+    "keywords": [
+      "RTC",
+      "RAM",
+      "battery",
+      "I2C"
+    ]
+  },
+  {
+    "component": "PCF85263ATT1",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "VDD",
+      "OSCO",
+      "VBAT",
+      "TS",
+      "VSS",
+      "SDA",
+      "SCL",
+      "CLK",
+      "~INTA"
+    ],
+    "description": "Tiny Real-Time Clock/calendar with alarm function, battery switch-over, time stamp input, I2C bus, TSSOP-10",
+    "keywords": [
+      "RTC",
+      "battery",
+      "I2C"
+    ]
+  },
+  {
+    "component": "PCF85363ATT1",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "VDD",
+      "OSCO",
+      "VBAT",
+      "TS",
+      "VSS",
+      "SDA",
+      "SCL",
+      "CLK",
+      "~INTA"
+    ],
+    "description": "Tiny Real-Time Clock/calendar with 64 byte RAM, alarm function, battery switch-over, time stamp input, I2C bus, TSSOP-10",
+    "keywords": [
+      "RTC",
+      "RAM",
+      "battery",
+      "I2C"
+    ]
+  },
+  {
+    "component": "PCF8563T",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "~INT~",
+      "VSS",
+      "SDA",
+      "SCL",
+      "CLKO",
+      "VDD"
+    ],
+    "description": "Realtime Clock/Calendar I2C Interface, SOIC-8",
+    "keywords": [
+      "I2C",
+      "RTC",
+      "Clock",
+      "Calendar"
+    ]
+  },
+  {
+    "component": "PCF8563TS",
+    "type": "Timer_RTC",
+    "pins": [
+      "OSCI",
+      "OSCO",
+      "~INT~",
+      "VSS",
+      "SDA",
+      "SCL",
+      "CLKO",
+      "VDD"
+    ],
+    "description": "Realtime Clock/Calendar I2C Interface, TSSOP-8",
+    "keywords": [
+      "I2C",
+      "RTC",
+      "Clock",
+      "Calendar"
+    ]
+  },
+  {
+    "component": "RV-1805-C3",
+    "type": "Timer_RTC",
+    "pins": [
+      "VDD",
+      "~RST",
+      "Cap_RC",
+      "CLK/~INT",
+      "SCL",
+      "SDA",
+      "VSS",
+      "VBACKUP",
+      "PSW",
+      "WDI"
+    ],
+    "description": "Realtime Clock/Calendar I2C Interface, Extreme Low Power, MicroCrystal C3",
+    "keywords": [
+      "Low",
+      "Power",
+      "RTC",
+      "I2C"
+    ]
+  },
+  {
+    "component": "RV-8523-C3",
+    "type": "Timer_RTC",
+    "pins": [
+      "VDD",
+      "NC",
+      "~INT_1",
+      "SCL",
+      "SDA",
+      "CLKOUT",
+      "~INT_2",
+      "VSS",
+      "VBACKUP"
+    ],
+    "description": "Realtime Clock/Calendar I2C Interface, Low Power, 1.2 V to 5.5 V, MicroCrystal C3",
+    "keywords": [
+      "Low",
+      "Power",
+      "RTC",
+      "I2C"
+    ]
+  }
+]

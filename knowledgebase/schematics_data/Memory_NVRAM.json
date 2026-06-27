@@ -1,0 +1,484 @@
+[
+  {
+    "component": "47L04",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "VCAP",
+      "A1",
+      "A2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "HS",
+      "VCC"
+    ],
+    "description": "4kbit I2C serial EERAM, SRAM with EEPROM backup, 2.7-3.6V, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "4kb",
+      "3V",
+      "I2C",
+      "serial",
+      "EERAM",
+      "SRAM",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "47C04",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "VCAP",
+      "A1",
+      "A2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "HS",
+      "VCC"
+    ],
+    "description": "4kbit I2C serial EERAM, SRAM with EEPROM backup, 4.5-5.5V, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "4kb",
+      "5V",
+      "I2C",
+      "serial",
+      "EERAM",
+      "SRAM",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "47L16",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "VCAP",
+      "A1",
+      "A2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "HS",
+      "VCC"
+    ],
+    "description": "16kbit I2C serial EERAM, SRAM with EEPROM backup, 2.7-3.6V, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "16kb",
+      "3V",
+      "I2C",
+      "serial",
+      "EERAM",
+      "SRAM",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "47C16",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "VCAP",
+      "A1",
+      "A2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "HS",
+      "VCC"
+    ],
+    "description": "16kbit I2C serial EERAM, SRAM with EEPROM backup, 4.5-5.5V, DIP-8/SOIC-8/TSSOP-8",
+    "keywords": [
+      "16kb",
+      "5V",
+      "I2C",
+      "serial",
+      "EERAM",
+      "SRAM",
+      "EEPROM"
+    ]
+  },
+  {
+    "component": "FM16W08-SG",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "A0",
+      "DQ0",
+      "DQ1",
+      "DQ2",
+      "VSS",
+      "DQ3",
+      "DQ4",
+      "DQ5",
+      "DQ6",
+      "DQ7",
+      "A12",
+      "~CE~",
+      "A10",
+      "~OE~",
+      "A11",
+      "A9",
+      "A8",
+      "~WE~",
+      "VDD",
+      "A7",
+      "A6",
+      "A5",
+      "A4",
+      "A3",
+      "A2",
+      "A1"
+    ],
+    "description": "64Kb FRAM nonvolatile memory, SOIC-28",
+    "keywords": [
+      "FRAM",
+      "5V",
+      "Parallel"
+    ]
+  },
+  {
+    "component": "FM1608B-SG",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "A0",
+      "DQ0",
+      "DQ1",
+      "DQ2",
+      "VSS",
+      "DQ3",
+      "DQ4",
+      "DQ5",
+      "DQ6",
+      "DQ7",
+      "A12",
+      "~CE~",
+      "A10",
+      "~OE~",
+      "A11",
+      "A9",
+      "A8",
+      "~WE~",
+      "VDD",
+      "A7",
+      "A6",
+      "A5",
+      "A4",
+      "A3",
+      "A2",
+      "A1"
+    ],
+    "description": "64Kb FRAM nonvolatile memory, SOIC-28",
+    "keywords": [
+      "FRAM",
+      "5V",
+      "Parallel"
+    ]
+  },
+  {
+    "component": "FM18W08-SG",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "A14",
+      "A0",
+      "DQ0",
+      "DQ1",
+      "DQ2",
+      "VSS",
+      "DQ3",
+      "DQ4",
+      "DQ5",
+      "DQ6",
+      "DQ7",
+      "A12",
+      "~CE~",
+      "A10",
+      "~OE~",
+      "A11",
+      "A9",
+      "A8",
+      "A13",
+      "~WE~",
+      "VDD",
+      "A7",
+      "A6",
+      "A5",
+      "A4",
+      "A3",
+      "A2",
+      "A1"
+    ],
+    "description": "256k FRAM nonvolatile memory, SOIC-28",
+    "keywords": [
+      "FRAM",
+      "5V",
+      "Parallel"
+    ]
+  },
+  {
+    "component": "FM1808B-SG",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "A14",
+      "A0",
+      "DQ0",
+      "DQ1",
+      "DQ2",
+      "VSS",
+      "DQ3",
+      "DQ4",
+      "DQ5",
+      "DQ6",
+      "DQ7",
+      "A12",
+      "~CE~",
+      "A10",
+      "~OE~",
+      "A11",
+      "A9",
+      "A8",
+      "A13",
+      "~WE~",
+      "VDD",
+      "A7",
+      "A6",
+      "A5",
+      "A4",
+      "A3",
+      "A2",
+      "A1"
+    ],
+    "description": "256k FRAM nonvolatile memory, SOIC-28",
+    "keywords": [
+      "FRAM",
+      "5V",
+      "Parallel"
+    ]
+  },
+  {
+    "component": "FM24C64B",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "WP",
+      "VDD"
+    ],
+    "description": "64Kb serial FRAM nonvolatile Memory, SOIC-8",
+    "keywords": [
+      "FRAM",
+      "I2C",
+      "Serial",
+      "5V",
+      "FRAM",
+      "NVRAM"
+    ]
+  },
+  {
+    "component": "FM24C64C",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "A0",
+      "A1",
+      "A2",
+      "VSS",
+      "SDA",
+      "SCL",
+      "WP",
+      "VDD"
+    ],
+    "description": "64Kb serial FRAM nonvolatile Memory, SOIC-8",
+    "keywords": [
+      "FRAM",
+      "I2C",
+      "Serial",
+      "5V",
+      "FRAM",
+      "NVRAM"
+    ]
+  },
+  {
+    "component": "MB85RS16",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "GND",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD"
+    ],
+    "description": "FRAM memory with SPI interface, SOIC-8 SON-8",
+    "keywords": [
+      "FRAM",
+      "SPI",
+      "3.3V"
+    ]
+  },
+  {
+    "component": "MB85RS64",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "GND",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD"
+    ],
+    "description": "FRAM memory with SPI interface, SOIC-8 SON-8",
+    "keywords": [
+      "FRAM",
+      "SPI",
+      "3.3V"
+    ]
+  },
+  {
+    "component": "MB85RS128B",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "GND",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD"
+    ],
+    "description": "FRAM memory with SPI interface, SOIC-8 SON-8",
+    "keywords": [
+      "FRAM",
+      "SPI",
+      "3.3V"
+    ]
+  },
+  {
+    "component": "MB85RS256B",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "GND",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD"
+    ],
+    "description": "FRAM memory with SPI interface, SOIC-8 SON-8",
+    "keywords": [
+      "FRAM",
+      "SPI",
+      "3.3V"
+    ]
+  },
+  {
+    "component": "MB85RS512T",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "GND",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD"
+    ],
+    "description": "FRAM memory with SPI interface, SOIC-8 SON-8",
+    "keywords": [
+      "FRAM",
+      "SPI",
+      "3.3V"
+    ]
+  },
+  {
+    "component": "MB85RS1MT",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "GND",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD"
+    ],
+    "description": "FRAM memory with SPI interface, SOIC-8 SON-8",
+    "keywords": [
+      "FRAM",
+      "SPI",
+      "3.3V"
+    ]
+  },
+  {
+    "component": "MB85RS2MT",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "GND",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD"
+    ],
+    "description": "FRAM memory with SPI interface, SOIC-8 SON-8",
+    "keywords": [
+      "FRAM",
+      "SPI",
+      "3.3V"
+    ]
+  },
+  {
+    "component": "MR20H40",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "VSS",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD",
+      "PAD"
+    ],
+    "description": "4Mb MRAM memory with SPI interface, DFN-8",
+    "keywords": [
+      "MRAM",
+      "SPI",
+      "EEPROM",
+      "3.3V"
+    ]
+  },
+  {
+    "component": "MR25H40",
+    "type": "Memory_NVRAM",
+    "pins": [
+      "~CS",
+      "SO",
+      "~WP",
+      "VSS",
+      "SI",
+      "SCK",
+      "~HOLD",
+      "VDD",
+      "PAD"
+    ],
+    "description": "4Mb MRAM memory with SPI interface, DFN-8",
+    "keywords": [
+      "MRAM",
+      "SPI",
+      "EEPROM",
+      "3.3V"
+    ]
+  }
+]

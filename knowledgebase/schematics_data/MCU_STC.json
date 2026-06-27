@@ -1,0 +1,170 @@
+[
+  {
+    "component": "STC15W201S-35x-SOP16",
+    "type": "MCU_STC",
+    "pins": [
+      "P1.2/CMPO/T0",
+      "TxD/T2/P3.1",
+      "INT0/P3.2",
+      "INT1/P3.3",
+      "~INT2~/RxD_2/P3.6",
+      "~INT3~/TxD_2/P3.7",
+      "P1.0/RSTOUT_LOW",
+      "P1.1",
+      "P1.3",
+      "P1.4/T0CLKO",
+      "P1.5",
+      "CMP-/MCLKO/RST/P5.4",
+      "VCC",
+      "CMP+/P5.5",
+      "GND",
+      "RxD/~INT4~/T2CLKO/P3.0"
+    ],
+    "description": "Single Chip MCU based on the 8051 architecture, 1KB Flash, 4KB EEPROM, SOP-16",
+    "keywords": [
+      "STC",
+      "8051",
+      "microcontroller"
+    ]
+  },
+  {
+    "component": "STC15W203S-35x-SOP16",
+    "type": "MCU_STC",
+    "pins": [
+      "P1.2/CMPO/T0",
+      "TxD/T2/P3.1",
+      "INT0/P3.2",
+      "INT1/P3.3",
+      "~INT2~/RxD_2/P3.6",
+      "~INT3~/TxD_2/P3.7",
+      "P1.0/RSTOUT_LOW",
+      "P1.1",
+      "P1.3",
+      "P1.4/T0CLKO",
+      "P1.5",
+      "CMP-/MCLKO/RST/P5.4",
+      "VCC",
+      "CMP+/P5.5",
+      "GND",
+      "RxD/~INT4~/T2CLKO/P3.0"
+    ],
+    "description": "Single Chip MCU based on the 8051 architecture, 3KB Flash, 2KB EEPROM, SOP-16",
+    "keywords": [
+      "STC",
+      "8051",
+      "microcontroller"
+    ]
+  },
+  {
+    "component": "STC15W204S-35x-SOP16",
+    "type": "MCU_STC",
+    "pins": [
+      "P1.2/CMPO/T0",
+      "TxD/T2/P3.1",
+      "INT0/P3.2",
+      "INT1/P3.3",
+      "~INT2~/RxD_2/P3.6",
+      "~INT3~/TxD_2/P3.7",
+      "P1.0/RSTOUT_LOW",
+      "P1.1",
+      "P1.3",
+      "P1.4/T0CLKO",
+      "P1.5",
+      "CMP-/MCLKO/RST/P5.4",
+      "VCC",
+      "CMP+/P5.5",
+      "GND",
+      "RxD/~INT4~/T2CLKO/P3.0"
+    ],
+    "description": "Single Chip MCU based on the 8051 architecture, 4KB Flash, 1KB EEPROM, SOP-16",
+    "keywords": [
+      "STC",
+      "8051",
+      "microcontroller"
+    ]
+  },
+  {
+    "component": "IAP15W205S-35x-SOP16",
+    "type": "MCU_STC",
+    "pins": [
+      "P1.2/CMPO/T0",
+      "TxD/T2/P3.1",
+      "INT0/P3.2",
+      "INT1/P3.3",
+      "~INT2~/RxD_2/P3.6",
+      "~INT3~/TxD_2/P3.7",
+      "P1.0/RSTOUT_LOW",
+      "P1.1",
+      "P1.3",
+      "P1.4/T0CLKO",
+      "P1.5",
+      "CMP-/MCLKO/RST/P5.4",
+      "VCC",
+      "CMP+/P5.5",
+      "GND",
+      "RxD/~INT4~/T2CLKO/P3.0"
+    ],
+    "description": "Single Chip MCU based on the 8051 architecture, 5KB Flash, unified program/data memory, SOP-16",
+    "keywords": [
+      "STC",
+      "8051",
+      "microcontroller"
+    ]
+  },
+  {
+    "component": "IRC15W207S-35x-SOP16",
+    "type": "MCU_STC",
+    "pins": [
+      "P1.2/CMPO/T0",
+      "TxD/T2/P3.1",
+      "INT0/P3.2",
+      "INT1/P3.3",
+      "~INT2~/RxD_2/P3.6",
+      "~INT3~/TxD_2/P3.7",
+      "P1.0/RSTOUT_LOW",
+      "P1.1",
+      "P1.3",
+      "P1.4/T0CLKO",
+      "P1.5",
+      "CMP-/MCLKO/RST/P5.4",
+      "VCC",
+      "CMP+/P5.5",
+      "GND",
+      "RxD/~INT4~/T2CLKO/P3.0"
+    ],
+    "description": "Single Chip MCU based on the 8051 architecture, 7.5KB Flash, unified program/data memory, fixed 24MHz Clock, SOP-16",
+    "keywords": [
+      "STC",
+      "8051",
+      "microcontroller"
+    ]
+  },
+  {
+    "component": "STC15W202S-35x-SOP16",
+    "type": "MCU_STC",
+    "pins": [
+      "P1.2/CMPO/T0",
+      "TxD/T2/P3.1",
+      "INT0/P3.2",
+      "INT1/P3.3",
+      "~INT2~/RxD_2/P3.6",
+      "~INT3~/TxD_2/P3.7",
+      "P1.0/RSTOUT_LOW",
+      "P1.1",
+      "P1.3",
+      "P1.4/T0CLKO",
+      "P1.5",
+      "CMP-/MCLKO/RST/P5.4",
+      "VCC",
+      "CMP+/P5.5",
+      "GND",
+      "RxD/~INT4~/T2CLKO/P3.0"
+    ],
+    "description": "Single Chip MCU based on the 8051 architecture, 2KB Flash, 3KB EEPROM, SOP-16",
+    "keywords": [
+      "STC",
+      "8051",
+      "microcontroller"
+    ]
+  }
+]

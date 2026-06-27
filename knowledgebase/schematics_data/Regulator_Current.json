@@ -1,0 +1,32 @@
+[
+  {
+    "component": "HV100K5-G",
+    "type": "Regulator_Current",
+    "pins": [
+      "VPP",
+      "VNN",
+      "GATE"
+    ],
+    "description": "Hot-Swap Current Limiter Controller, SOT223",
+    "keywords": [
+      "Hot-Swap",
+      "Current",
+      "Limiter"
+    ]
+  },
+  {
+    "component": "HV101K5-G",
+    "type": "Regulator_Current",
+    "pins": [
+      "VPP",
+      "VNN",
+      "GATE"
+    ],
+    "description": "Hot-Swap Current Limiter Controller, SOT223",
+    "keywords": [
+      "Hot-Swap",
+      "Current",
+      "Limiter"
+    ]
+  }
+]

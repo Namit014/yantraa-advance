@@ -1,0 +1,44 @@
+[
+  {
+    "component": "XTR115U",
+    "type": "Interface_CurrentLoop",
+    "pins": [
+      "VREF",
+      "IIN",
+      "IRET",
+      "IO",
+      "E",
+      "B",
+      "V+",
+      "VREG"
+    ],
+    "description": "4-20mA Current Loop Transmitter, VREF 2.5V, SO-8",
+    "keywords": [
+      "4-20mA",
+      "Current",
+      "Loop",
+      "Transmitter"
+    ]
+  },
+  {
+    "component": "XTR116U",
+    "type": "Interface_CurrentLoop",
+    "pins": [
+      "VREF",
+      "IIN",
+      "IRET",
+      "IO",
+      "E",
+      "B",
+      "V+",
+      "VREG"
+    ],
+    "description": "4-20mA Current Loop Transmitter, VREF 4.096V, SO-8",
+    "keywords": [
+      "4-20mA",
+      "Current",
+      "Loop",
+      "Transmitter"
+    ]
+  }
+]

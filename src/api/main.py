@@ -46,7 +46,6 @@ app = FastAPI(
 _default_origins = "http://localhost:3000,https://labs.yantraa.tech,https://www.labs.yantraa.tech,https://yantraa.tech,https://www.yantraa.tech,https://api.yantraa.tech"
 ALLOWED_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", _default_origins).split(",") if o.strip()]
 print(f"[Yantra API] CORS Allowed Origins configured in env: {ALLOWED_ORIGINS}")
-
 # Configure CORSMiddleware with a regex to dynamically match localhost, yantraa.tech, and ngrok origins
 # while supporting credentials.
 app.add_middleware(

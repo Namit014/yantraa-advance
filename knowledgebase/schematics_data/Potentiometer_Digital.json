@@ -1,0 +1,1140 @@
+[
+  {
+    "component": "AD5254",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "W0",
+      "VSS",
+      "A2",
+      "B2",
+      "W2",
+      "SCL",
+      "DGND",
+      "AD1",
+      "A3",
+      "B3",
+      "W3",
+      "B0",
+      "VDD",
+      "A0",
+      "AD0",
+      "~WP~",
+      "W1",
+      "B1",
+      "A1",
+      "SDA"
+    ],
+    "description": "Digital potentiometer, 256 position, 4 output, I2C interface, TSSOP-20",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "AD5253",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "W0",
+      "VSS",
+      "A2",
+      "B2",
+      "W2",
+      "SCL",
+      "DGND",
+      "AD1",
+      "A3",
+      "B3",
+      "W3",
+      "B0",
+      "VDD",
+      "A0",
+      "AD0",
+      "~WP~",
+      "W1",
+      "B1",
+      "A1",
+      "SDA"
+    ],
+    "description": "Digital potentiometer, 64 position, 4 output, I2C interface, TSSOP-20",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "AD5272BCP",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "ADDR",
+      "VSS",
+      "A",
+      "W",
+      "EXT_CAP",
+      "GND",
+      "~RESET",
+      "SDA",
+      "SCL"
+    ],
+    "description": "Digital potentiometer, 1024 position, 1% Resistor Tolerance, I2C interface, LFCSP-10",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "AD5274BCP",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "ADDR",
+      "VSS",
+      "A",
+      "W",
+      "EXT_CAP",
+      "GND",
+      "~RESET",
+      "SDA",
+      "SCL"
+    ],
+    "description": "Digital potentiometer, 256 position, 1% Resistor Tolerance, I2C interface, LFCSP-10",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "AD5272BRM",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "ADDR",
+      "A",
+      "W",
+      "VSS",
+      "EXT_CAP",
+      "GND",
+      "~RESET",
+      "SDA",
+      "SCL"
+    ],
+    "description": "Digital potentiometer, 1024 position, 1% Resistor Tolerance, I2C interface, MSOP-10",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "AD5274BRM",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "ADDR",
+      "A",
+      "W",
+      "VSS",
+      "EXT_CAP",
+      "GND",
+      "~RESET",
+      "SDA",
+      "SCL"
+    ],
+    "description": "Digital potentiometer, 256 position, 1% Resistor Tolerance, I2C interface, MSOP-10",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "AD5280",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "A",
+      "GND",
+      "VSS",
+      "O2",
+      "VLOG",
+      "O1",
+      "W",
+      "B",
+      "VDD",
+      "~SHDN~",
+      "SCL",
+      "SDA",
+      "AD0",
+      "AD1"
+    ],
+    "description": "Digital potentiometer, 256 position, single output, I2C interface",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "AD5282",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "O1",
+      "AD1",
+      "GND",
+      "VSS",
+      "VLOG",
+      "B2",
+      "W2",
+      "A2",
+      "A1",
+      "W1",
+      "B1",
+      "VDD",
+      "~SHDN~",
+      "SCL",
+      "SDA",
+      "AD0"
+    ],
+    "description": "Digital potentiometer, 256 position, dual output, I2C interface",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "AD5290",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "RH",
+      "RW",
+      "RL",
+      "Vss-",
+      "GND",
+      "~CS~",
+      "CLK",
+      "SDI",
+      "SDO",
+      "Vdd+"
+    ],
+    "description": "Digital Potentiometer  256 steps   (SPI control) +- 15V, MSOP-10",
+    "keywords": [
+      "R",
+      "POT"
+    ]
+  },
+  {
+    "component": "AD5293",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~RST~",
+      "SDI",
+      "CLK",
+      "~CS~",
+      "SDO",
+      "RDY",
+      "Vss-",
+      "RH",
+      "RW",
+      "RL",
+      "Vdd+",
+      "EXT_CAP",
+      "Vlog",
+      "GND"
+    ],
+    "description": "Digital potentiometer 1024 pos (SPI), TSSOP-14",
+    "keywords": [
+      "R",
+      "POT"
+    ]
+  },
+  {
+    "component": "DS1267_DIP",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VB",
+      "L0",
+      "H0",
+      "W0",
+      "SOUT",
+      "VCC",
+      "H1",
+      "L1",
+      "W1",
+      "~Reset",
+      "CLK",
+      "GND",
+      "DQ",
+      "COUT"
+    ],
+    "description": "Dual Digital Potentiometer, Serial, 256 Steps, DIP-14",
+    "keywords": [
+      "Dual",
+      "Digital",
+      "Potentiometer",
+      "Maxim"
+    ]
+  },
+  {
+    "component": "DS1267_SOIC",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VB",
+      "COUT",
+      "L0",
+      "H0",
+      "W0",
+      "SOUT",
+      "VCC",
+      "H1",
+      "L1",
+      "W1",
+      "~Reset",
+      "CLK",
+      "GND",
+      "DQ"
+    ],
+    "description": "Dual Digital Potentiometer, Serial, 256 Steps, SOIC-16",
+    "keywords": [
+      "Dual",
+      "Digital",
+      "Potentiometer",
+      "Maxim"
+    ]
+  },
+  {
+    "component": "DS1267_TSSOP",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VB",
+      "GND",
+      "DQ",
+      "COUT",
+      "L0",
+      "H0",
+      "W0",
+      "SOUT",
+      "VCC",
+      "H1",
+      "L1",
+      "W1",
+      "~Reset",
+      "CLK"
+    ],
+    "description": "Dual Digital Potentiometer, Serial, 256 Steps, TSSOP-20",
+    "keywords": [
+      "Dual",
+      "Digital",
+      "Potentiometer",
+      "Maxim"
+    ]
+  },
+  {
+    "component": "DS1882E",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "GND",
+      "H1",
+      "W1",
+      "~CE",
+      "SDA",
+      "SCL",
+      "VCC",
+      "VDD",
+      "A2",
+      "A1",
+      "V-",
+      "A0",
+      "W0",
+      "L0",
+      "H0",
+      "L1"
+    ],
+    "description": "Dual Log Audio Digital Potentiometer, 64 positions, TSSOP-16",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "MAX5436",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "SCLK",
+      "VCC",
+      "Din",
+      "CS",
+      "Gnd",
+      "V-",
+      "V+",
+      "H",
+      "W",
+      "L"
+    ],
+    "description": "Low-Drift Digital Potentiometer",
+    "keywords": [
+      "digital",
+      "potentiometer",
+      "resistor",
+      "variable"
+    ]
+  },
+  {
+    "component": "MAX5438",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "SCLK",
+      "VCC",
+      "Din",
+      "CS",
+      "Gnd",
+      "V-",
+      "V+",
+      "H",
+      "W",
+      "L"
+    ],
+    "description": "Low-Drift Digital Potentiometer",
+    "keywords": [
+      "digital",
+      "potentiometer",
+      "resistor",
+      "variable"
+    ]
+  },
+  {
+    "component": "MCP4011-xxxxMS",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "A",
+      "W",
+      "~CS",
+      "B",
+      "NC",
+      "U/~D"
+    ],
+    "description": "Low-Cost 64-Step Volatile Digital Potentiometer",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4021-xxxxMS",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "A",
+      "W",
+      "~CS",
+      "B",
+      "NC",
+      "U/~D"
+    ],
+    "description": "Low-Cost 64-Step Digital Potentiometer with WiperLock\u2122 Technology, MSOP-8",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4011-xxxxSN",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "A",
+      "W",
+      "~CS",
+      "B",
+      "NC",
+      "U/~D"
+    ],
+    "description": "Low-Cost 64-Step Volatile Digital Potentiometer",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4021-xxxxSN",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "A",
+      "W",
+      "~CS",
+      "B",
+      "NC",
+      "U/~D"
+    ],
+    "description": "Low-Cost 64-Step Digital Potentiometer with WiperLock\u2122 Technology, SOIC-8",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4012-xxxxCH",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "U/~D",
+      "~CS",
+      "W",
+      "A"
+    ],
+    "description": "Low-Cost 64-Step Volatile Digital Potentiometer",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4022-xxxxCH",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "U/~D",
+      "~CS",
+      "W",
+      "A"
+    ],
+    "description": "Low-Cost 64-Step Digital Potentiometer with WiperLock\u2122 Technology, SOT-23-6",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4013-xxxxCH",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "U/~D",
+      "~CS",
+      "W",
+      "A"
+    ],
+    "description": "Low-Cost 64-Step Volatile Digital Potentiometer",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4023-xxxxCH",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "U/~D",
+      "~CS",
+      "W",
+      "A"
+    ],
+    "description": "Low-Cost 64-Step Digital Potentiometer with WiperLock\u2122 Technology, SOT-23-6",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4014-xxxxOT",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "U/~D",
+      "~CS",
+      "W"
+    ],
+    "description": "Low-Cost 64-Step Volatile Digital Potentiometer",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4024-xxxxOT",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "U/~D",
+      "~CS",
+      "W"
+    ],
+    "description": "Low-Cost 64-Step Digital Potentiometer with WiperLock\u2122 Technology, SOT-23-5",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "Up",
+      "Down"
+    ]
+  },
+  {
+    "component": "MCP4017-xxxxLT",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "SCL",
+      "SDA",
+      "B",
+      "W"
+    ],
+    "description": "Low-Cost 128-Step Volatile I2C Digital Potentiometer, SC-70-6",
+    "keywords": [
+      "TWI",
+      "pot",
+      "rheostat"
+    ]
+  },
+  {
+    "component": "MCP4018-xxxxLT",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "SCL",
+      "SDA",
+      "W",
+      "A"
+    ],
+    "description": "Low-Cost 128-Step Volatile I2C Digital Potentiometer, SC-70-6",
+    "keywords": [
+      "TWI",
+      "pot"
+    ]
+  },
+  {
+    "component": "MCP4019-xxxxLT",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "VSS",
+      "SCL",
+      "SDA",
+      "W"
+    ],
+    "description": "Low-Cost 128-Step Volatile I2C Digital Potentiometer, SC-70-5",
+    "keywords": [
+      "TWI",
+      "pot",
+      "rheostat"
+    ]
+  },
+  {
+    "component": "MCP41010",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "SCK",
+      "SI",
+      "VSS",
+      "PA0",
+      "PW0",
+      "PB0",
+      "VDD"
+    ],
+    "description": "Single Digital Potentiometer, SPI interface, 256 taps, 10 kohm",
+    "keywords": [
+      "R",
+      "POT"
+    ]
+  },
+  {
+    "component": "MCP41050",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "SCK",
+      "SI",
+      "VSS",
+      "PA0",
+      "PW0",
+      "PB0",
+      "VDD"
+    ],
+    "description": "Single Digital Potentiometer, SPI interface, 256 taps, 50 kohm",
+    "keywords": [
+      "R",
+      "POT"
+    ]
+  },
+  {
+    "component": "MCP41100",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "SCK",
+      "SI",
+      "VSS",
+      "PA0",
+      "PW0",
+      "PB0",
+      "VDD"
+    ],
+    "description": "Single Digital Potentiometer, SPI interface, 256 taps, 100 kohm",
+    "keywords": [
+      "R",
+      "POT"
+    ]
+  },
+  {
+    "component": "MCP42010",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "PB0",
+      "~RS",
+      "~SHDN",
+      "SO",
+      "VDD",
+      "SCK",
+      "SI",
+      "VSS",
+      "PB1",
+      "PW1",
+      "PA1",
+      "PA0",
+      "PW0"
+    ],
+    "description": "Dual Digital Potentiometer, SPI interface, 256 taps, 10 kohm",
+    "keywords": [
+      "R",
+      "POT"
+    ]
+  },
+  {
+    "component": "MCP42050",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "PB0",
+      "~RS",
+      "~SHDN",
+      "SO",
+      "VDD",
+      "SCK",
+      "SI",
+      "VSS",
+      "PB1",
+      "PW1",
+      "PA1",
+      "PA0",
+      "PW0"
+    ],
+    "description": "Dual Digital Potentiometer, SPI interface, 256 taps, 50 kohm",
+    "keywords": [
+      "R",
+      "POT"
+    ]
+  },
+  {
+    "component": "MCP42100",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "PB0",
+      "~RS",
+      "~SHDN",
+      "SO",
+      "VDD",
+      "SCK",
+      "SI",
+      "VSS",
+      "PB1",
+      "PW1",
+      "PA1",
+      "PA0",
+      "PW0"
+    ],
+    "description": "Dual Digital Potentiometer, SPI interface, 256 taps, 100 kohm",
+    "keywords": [
+      "R",
+      "POT"
+    ]
+  },
+  {
+    "component": "MCP4251-xxxx-ML",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "SCK",
+      "P0B",
+      "NC",
+      "~WP",
+      "~SHDN",
+      "SDO",
+      "VDD",
+      "~CS",
+      "EP",
+      "SDI",
+      "VSS",
+      "P1B",
+      "P1W",
+      "P1A",
+      "P0A",
+      "P0W"
+    ],
+    "description": "Dual 8 Bit Digital Pot, SPI, Volatile Memory, QFN-16",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer"
+    ]
+  },
+  {
+    "component": "MCP4251-xxxx-P",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "P0B",
+      "~WP",
+      "~SHDN",
+      "SDO",
+      "VDD",
+      "SCK",
+      "SDI",
+      "VSS",
+      "P1B",
+      "P1W",
+      "P1A",
+      "P0A",
+      "P0W"
+    ],
+    "description": "Dual 8 Bit Digital Pot, SPI, Volatile Memory, PDIP-14",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer"
+    ]
+  },
+  {
+    "component": "MCP4251-xxxx-SL",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "P0B",
+      "~WP",
+      "~SHDN",
+      "SDO",
+      "VDD",
+      "SCK",
+      "SDI",
+      "VSS",
+      "P1B",
+      "P1W",
+      "P1A",
+      "P0A",
+      "P0W"
+    ],
+    "description": "Dual 8 Bit Digital Pot, SPI, Volatile Memory, SOIC-14",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer"
+    ]
+  },
+  {
+    "component": "MCP4251-xxxx-ST",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "P0B",
+      "~WP",
+      "~SHDN",
+      "SDO",
+      "VDD",
+      "SCK",
+      "SDI",
+      "VSS",
+      "P1B",
+      "P1W",
+      "P1A",
+      "P0A",
+      "P0W"
+    ],
+    "description": "Dual 8 Bit Digital Pot, SPI, Volatile Memory, TSSOP-14",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer"
+    ]
+  },
+  {
+    "component": "MCP45HV51-MQ",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VL",
+      "NC",
+      "DGND",
+      "V-",
+      "P0B",
+      "P0W",
+      "P0A",
+      "V+",
+      "SCL",
+      "EP",
+      "A1",
+      "SDA",
+      "A0",
+      "~WLAT",
+      "~SHDN"
+    ],
+    "description": "7/8-bit single +36V (+/-18V) digital pot, I2C serial interface, volatile memory, QFN-20",
+    "keywords": [
+      "I2C",
+      "Potentiometer",
+      "pot",
+      "digital"
+    ]
+  },
+  {
+    "component": "MCP45HV31-MQ",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VL",
+      "NC",
+      "DGND",
+      "V-",
+      "P0B",
+      "P0W",
+      "P0A",
+      "V+",
+      "SCL",
+      "EP",
+      "A1",
+      "SDA",
+      "A0",
+      "~WLAT",
+      "~SHDN"
+    ],
+    "description": "7/8-bit single +36V (+/-18V) digital pot, I2C serial interface, volatile memory, QFN-20",
+    "keywords": [
+      "I2C",
+      "Potentiometer",
+      "pot",
+      "digital"
+    ]
+  },
+  {
+    "component": "MCP45HV51-ST",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VL",
+      "V-",
+      "P0B",
+      "P0W",
+      "P0A",
+      "V+",
+      "SCL",
+      "A1",
+      "SDA",
+      "A0",
+      "~WLAT",
+      "NC",
+      "~SHDN",
+      "DGND"
+    ],
+    "description": "7/8-bit single +36V (+/-18V) digital pot, I2C serial interface, volatile memory, TSSOP-14",
+    "keywords": [
+      "I2C",
+      "Potentiometer",
+      "pot",
+      "digital"
+    ]
+  },
+  {
+    "component": "MCP45HV31-ST",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VL",
+      "V-",
+      "P0B",
+      "P0W",
+      "P0A",
+      "V+",
+      "SCL",
+      "A1",
+      "SDA",
+      "A0",
+      "~WLAT",
+      "NC",
+      "~SHDN",
+      "DGND"
+    ],
+    "description": "7/8-bit single +36V (+/-18V) digital pot, I2C serial interface, volatile memory, TSSOP-14",
+    "keywords": [
+      "I2C",
+      "Potentiometer",
+      "pot",
+      "digital"
+    ]
+  },
+  {
+    "component": "TPL0401A-10-Q1",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "GND",
+      "SCL",
+      "SDA",
+      "W",
+      "H"
+    ],
+    "description": "128-TAPS Single-Channel Digital Potentiometer, I2C Interface, SC-70-6",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "I2C"
+    ]
+  },
+  {
+    "component": "TPL0401B-10-Q1",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "VDD",
+      "GND",
+      "SCL",
+      "SDA",
+      "W",
+      "H"
+    ],
+    "description": "128-TAPS Single-Channel Digital Potentiometer, I2C Interface, SC-70-6",
+    "keywords": [
+      "Digital",
+      "Pot",
+      "Potentiometer",
+      "I2C"
+    ]
+  },
+  {
+    "component": "X9118",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "V+",
+      "VCC",
+      "A0",
+      "SCL",
+      "SDA",
+      "VSS",
+      "V-",
+      "A1",
+      "RW0",
+      "RH0",
+      "RL0",
+      "~WP"
+    ],
+    "description": "100k Digital Potentiometer, 1024 steps, TSSOP-14",
+    "keywords": [
+      "digital",
+      "potentiometer"
+    ]
+  },
+  {
+    "component": "X9250",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "~CS",
+      "SIN",
+      "A1",
+      "VSS",
+      "V-",
+      "A0",
+      "SCL",
+      "~HOLD",
+      "V+",
+      "VCC",
+      "SOUT",
+      "RW0",
+      "~WP",
+      "RL1",
+      "RH1",
+      "RW1",
+      "RW2",
+      "RH2",
+      "RL2",
+      "RW3",
+      "RH3",
+      "RL3",
+      "RL0",
+      "RH0"
+    ],
+    "description": "Quad 100k Digital Potentiometer, 256 steps, TSSOP-24/SOIC-24",
+    "keywords": [
+      "potentiometer",
+      "resistor",
+      "variable",
+      "digital"
+    ]
+  },
+  {
+    "component": "X9258",
+    "type": "Potentiometer_Digital",
+    "pins": [
+      "A2",
+      "SDA",
+      "A1",
+      "VSS",
+      "V-",
+      "A0",
+      "SCL",
+      "A3",
+      "V+",
+      "VCC",
+      "RW0",
+      "~WP",
+      "RL1",
+      "RH1",
+      "RW1",
+      "RW2",
+      "RH2",
+      "RL2",
+      "RW3",
+      "RH3",
+      "RL3",
+      "RL0",
+      "RH0"
+    ],
+    "description": "Quad 50k Digital Potentiometer, 256 steps, TSSOP-24/SOIC-24",
+    "keywords": [
+      "potentiometer",
+      "resistor",
+      "variable",
+      "digital"
+    ]
+  }
+]

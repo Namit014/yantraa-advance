@@ -1,0 +1,138 @@
+{
+  "project": "fast_scara",
+  "robot_type": "SCARA Robot",
+  "components": [
+    {
+      "ref": "U1",
+      "part": "STM32",
+      "category": "controller"
+    },
+    {
+      "ref": "S1",
+      "part": "Servo Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "S2",
+      "part": "Servo Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "M3",
+      "part": "Stepper Motor",
+      "category": "motor"
+    },
+    {
+      "ref": "DRV1",
+      "part": "DRV8825",
+      "category": "driver"
+    },
+    {
+      "ref": "ENC1",
+      "part": "Encoders",
+      "category": "sensor"
+    },
+    {
+      "ref": "ENC2",
+      "part": "Encoders",
+      "category": "sensor"
+    }
+  ],
+  "nets": [
+    {
+      "name": "PWM_J1",
+      "connections": [
+        "U1.PWM1",
+        "S1.SIGNAL"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "PWM_J2",
+      "connections": [
+        "U1.PWM2",
+        "S2.SIGNAL"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "STEP_Z",
+      "connections": [
+        "U1.GPIO4",
+        "DRV1.STEP"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "DIR_Z",
+      "connections": [
+        "U1.GPIO5",
+        "DRV1.DIR"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "MOT_Z_OUT",
+      "connections": [
+        "DRV1.OUT",
+        "M3.WINDINGS"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "ENC1_A",
+      "connections": [
+        "ENC1.A",
+        "U1.TIM1_CH1"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "ENC1_B",
+      "connections": [
+        "ENC1.B",
+        "U1.TIM1_CH2"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "ENC2_A",
+      "connections": [
+        "ENC2.A",
+        "U1.TIM2_CH1"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "ENC2_B",
+      "connections": [
+        "ENC2.B",
+        "U1.TIM2_CH2"
+      ],
+      "inferred": true
+    }
+  ],
+  "functional_blocks": [
+    {
+      "name": "Joint_1_Shoulder",
+      "components": [
+        "S1",
+        "ENC1"
+      ]
+    },
+    {
+      "name": "Joint_2_Elbow",
+      "components": [
+        "S2",
+        "ENC2"
+      ]
+    },
+    {
+      "name": "Joint_3_Z",
+      "components": [
+        "DRV1",
+        "M3"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "project": "safe_cobot",
+  "robot_type": "Cobot",
+  "components": [
+    {
+      "ref": "U1",
+      "part": "Jetson",
+      "category": "controller"
+    },
+    {
+      "ref": "M1",
+      "part": "BLDC Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "M2",
+      "part": "BLDC Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "DRV1",
+      "part": "Servo Drivers",
+      "category": "driver"
+    },
+    {
+      "ref": "DRV2",
+      "part": "Servo Drivers",
+      "category": "driver"
+    },
+    {
+      "ref": "FS1",
+      "part": "Force Sensors",
+      "category": "sensor"
+    },
+    {
+      "ref": "FS2",
+      "part": "Force Sensors",
+      "category": "sensor"
+    },
+    {
+      "ref": "ENC1",
+      "part": "Encoders",
+      "category": "sensor"
+    }
+  ],
+  "nets": [
+    {
+      "name": "ETHERCAT_TX",
+      "connections": [
+        "U1.ETH_TX",
+        "DRV1.ETH_IN"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "ETHERCAT_RX",
+      "connections": [
+        "DRV1.ETH_OUT",
+        "DRV2.ETH_IN"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "FORCE_A",
+      "connections": [
+        "FS1.OUT",
+        "DRV1.ADC"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "FORCE_B",
+      "connections": [
+        "FS2.OUT",
+        "DRV2.ADC"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "MOT_1_PWR",
+      "connections": [
+        "DRV1.PHASES",
+        "M1.PHASES"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "MOT_2_PWR",
+      "connections": [
+        "DRV2.PHASES",
+        "M2.PHASES"
+      ],
+      "inferred": true
+    }
+  ],
+  "functional_blocks": [
+    {
+      "name": "Joint_1_Safe",
+      "components": [
+        "DRV1",
+        "M1",
+        "FS1"
+      ]
+    },
+    {
+      "name": "Joint_2_Safe",
+      "components": [
+        "DRV2",
+        "M2",
+        "FS2"
+      ]
+    }
+  ]
+}

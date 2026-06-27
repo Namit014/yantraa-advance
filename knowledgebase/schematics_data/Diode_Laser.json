@@ -1,0 +1,67 @@
+[
+  {
+    "component": "PL450B",
+    "type": "Diode_Laser",
+    "pins": [
+      "A",
+      "NC",
+      "C"
+    ],
+    "description": "Blue Laser Diode (450nm), TO-38",
+    "keywords": [
+      "opto",
+      "laserdiode"
+    ]
+  },
+  {
+    "component": "PL520",
+    "type": "Diode_Laser",
+    "pins": [
+      "A",
+      "NC",
+      "C"
+    ],
+    "description": "Green Laser Diode (520nm), TO-38",
+    "keywords": [
+      "opto",
+      "laserdiode"
+    ]
+  },
+  {
+    "component": "PLT5_510",
+    "type": "Diode_Laser",
+    "pins": [
+      "A",
+      "NC",
+      "C"
+    ],
+    "description": "Green Laser Diode (510nm), TO-38",
+    "keywords": [
+      "opto",
+      "laserdiode"
+    ]
+  },
+  {
+    "component": "PLT5_488",
+    "type": "Diode_Laser",
+    "pins": [],
+    "description": "Cyan Laser Diode (488nm), TO-56",
+    "keywords": [
+      "opto",
+      "laserdiode"
+    ]
+  },
+  {
+    "component": "SPL_PL90",
+    "type": "Diode_Laser",
+    "pins": [
+      "C",
+      "A"
+    ],
+    "description": "Pulsed Laser Diode in Plastic Package 25W Peak Power",
+    "keywords": [
+      "opto",
+      "laserdiode"
+    ]
+  }
+]

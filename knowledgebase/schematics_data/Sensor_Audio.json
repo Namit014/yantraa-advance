@@ -1,0 +1,66 @@
+[
+  {
+    "component": "IM69D120",
+    "type": "Sensor_Audio",
+    "pins": [
+      "DATA",
+      "VDD",
+      "CLOCK",
+      "SELECT",
+      "GND"
+    ],
+    "description": "High performance digital XENSIV MEMS microphone, -26 dBFS Sensitivity, LLGA-5",
+    "keywords": [
+      "mems",
+      "microphone"
+    ]
+  },
+  {
+    "component": "IM69D130",
+    "type": "Sensor_Audio",
+    "pins": [
+      "DATA",
+      "VDD",
+      "CLOCK",
+      "SELECT",
+      "GND"
+    ],
+    "description": "High performance digital XENSIV MEMS microphone, -36 dBFS Sensitivity, LLGA-5",
+    "keywords": [
+      "mems",
+      "microphone"
+    ]
+  },
+  {
+    "component": "MP45DT02",
+    "type": "Sensor_Audio",
+    "pins": [
+      "GND",
+      "LR",
+      "CLK",
+      "DOUT",
+      "VDD"
+    ],
+    "description": "MEMS Omnidirectional Digital Microphone, HLGA-6",
+    "keywords": [
+      "MEMS",
+      "Microphone"
+    ]
+  },
+  {
+    "component": "SPH0641LU4H-1",
+    "type": "Sensor_Audio",
+    "pins": [
+      "DATA",
+      "SEL",
+      "GND",
+      "CLOCK",
+      "VDD"
+    ],
+    "description": "Digital MEMS Microphone, LGA-5",
+    "keywords": [
+      "Microphone",
+      "MEMS"
+    ]
+  }
+]

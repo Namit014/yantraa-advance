@@ -1,0 +1,7050 @@
+[
+  {
+    "component": "1.5KExxA",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "1500W unidirectional TRANSZORB\u00ae Transient Voltage Suppressor, DO-201AE",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "1N62xxA",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "1500W unidirectional TRANSZORB\u00ae Transient Voltage Suppressor, DO-201AE",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "1N630xA",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "1500W unidirectional TRANSZORB\u00ae Transient Voltage Suppressor, DO-201AE",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "1.5KExxCA",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "1500W bidirectional TRANSZORB\u00ae Transient Voltage Suppressor, DO-201AE",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "1N62xxCA",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "1500W bidirectional TRANSZORB\u00ae Transient Voltage Suppressor, DO-201AE",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "1N630xCA",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "1500W bidirectional TRANSZORB\u00ae Transient Voltage Suppressor, DO-201AE",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "1N4001",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 1A General Purpose Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4002",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 1A General Purpose Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4003",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V 1A General Purpose Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4004",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V 1A General Purpose Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4005",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V 1A General Purpose Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4006",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V 1A General Purpose Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4007",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V 1A General Purpose Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BA157",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V 1A Fast recovery Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BA158",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V 1A Fast recovery Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BA159",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V 1A Fast recovery Rectifier Diode, DO-41",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4148",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.15A standard switching diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4448",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.15A High-speed standard diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4149",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V Vrm 0.5A Ifsm standard switching diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4151",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.5A standard switching diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N914",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.3A Small Signal Fast Switching Diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BA243",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 0.1A silicon planar diode for VHF tuner band selection, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BA244",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 0.1A silicon planar diode for VHF tuner band selection, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BA282",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "35V 0.1A Band Switching Diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BA283",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "35V 0.1A Band Switching Diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV17",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 0.25A Small Signal Switching Diode, High Voltage, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV18",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 0.25A Small Signal Switching Diode, High Voltage, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV19",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.25A Small Signal Switching Diode, High Voltage, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV20",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150V 0.25A Small Signal Switching Diode, High Voltage, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV21",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V 0.25A Small Signal Switching Diode, High Voltage, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAW75",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "25V 0.45A Small Signal Switching Diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAW76",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 0.3A Small Signal Fast Switching Diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAY93",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 0.115A Very Fast Switching Diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4148WS",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.15A Fast switching Diode, SOD-323",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4448WS",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.15A Small Signal Fast switching Diode, SOD-323",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAS316",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V, 0.25A, High-speed Switching Diode, SOD-323",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4148WT",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.15A Fast switching Diode, SOD-523",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4448WT",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.15A Fast switching Diode, SOD-523",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N914WT",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.15A Fast switching Diode, SOD-523",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAS516",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V, 0.25A, High-speed Switching Diode, SOD-523",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N53xxB",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "5000mW Zener Diode, DO-201",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5400",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5401",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5402",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5404",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5405",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "500V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5406",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5407",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5408",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5400",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5401",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5402",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5403",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5404",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5405",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "500V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5406",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5407",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "UF5408",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V 3A Soft Recovery Ultrafast Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5403",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300V 3A General Purpose Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N5711UR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "70V 33mA Schottky diode, MELF(DO-213AA)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5712UR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 75mA Schottky diode, MELF(DO-213AA)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N6857UR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 150mA Schottky diode, MELF(DO-213AA)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N6858UR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "70V 75mA Schottky diode, MELF(DO-213AA)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5820",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 3A Schottky Barrier Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5821",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 3A Schottky Barrier Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5822",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 3A Schottky Barrier Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR340",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 3A Schottky Barrier Rectifier Diode, DO-201AD",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N6263",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V 15mA Schottky diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT41",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.1A Small Signal Schottky Diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT42",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 0.2A Small Signal Schottky Diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT43",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 0.2A Small Signal Schottky Diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT46",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.15A Small Signal Schottky Diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT48RL",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 0.35A Small Signal Schottky Diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT85",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 0.2A Schottky barrier single diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT86S",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 0.2A Small Signal Schottky Diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT86",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 0.2A Small Signal Schottky Diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5711",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "70V 33mA Schottky diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5712",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 75mA Schottky diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N6857",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 150mA Schottky diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N6858",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "70V 75mA Schottky diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "DSB5712",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 75mA Schottky diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "DSB2810",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 75mA Schottky diode, DO-35",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "2BZX84Cxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300mW Double Zener Diode, SOT-23",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "5KPxxA",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "5000W unidirectional Transient Voltage Suppressor, P-600",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "5KPxxCA",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "5000W bidirectional Transient Voltage Suppressor, P-600",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "B120-E3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 1A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B130-E3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 1A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B140-E3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 1A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B150-E3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 1A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B160-E3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V 1A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBRA340",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 3A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "CDBA360-HF",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V 3A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "CDBA340-HF",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 3A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "CDBA3100-HF",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 3A Schottky Barrier Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B220",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 2A Schottky Barrier Rectifier Diode, SMB",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B230",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 2A Schottky Barrier Rectifier Diode, SMB",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B240",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 2A Schottky Barrier Rectifier Diode, SMB",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B250",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 2A Schottky Barrier Rectifier Diode, SMB",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B260",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V 2A Schottky Barrier Rectifier Diode, SMB",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B320",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 3A Schottky Barrier Rectifier Diode, SMC",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B330",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 3A Schottky Barrier Rectifier Diode, SMC",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B340",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 3A Schottky Barrier Rectifier Diode, SMC",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B350",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 3A Schottky Barrier Rectifier Diode, SMC",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "B360",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V 3A Schottky Barrier Rectifier Diode, SMC",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAR42FILM",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "NC",
+      "K"
+    ],
+    "description": "30V 0.1A Small signal Schottky diode, SOT-23",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAR43FILM",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "NC",
+      "K"
+    ],
+    "description": "30V 0.1A Small signal Schottky diode, SOT-23",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAS16TW",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Fast switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAS16VY",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Fast switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MMBD4148TW",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Fast switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MMBD4448HTW",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Fast switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "HN2D02FU",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Ultra high speed switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "Comchip_ACDSV6-4448TI-G",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Small signal switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "Central_Semi_CMKD6001",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Ultra low leakage switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "Central_Semi_CMKD4448",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "High speed switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "Comchip_CDSV6-4148-G",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Fast switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "Comchip_CDSV6-4448TI-G",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "High speed switching diode array 3 independent",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAS16W",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "NC",
+      "K"
+    ],
+    "description": "100V, 0.175A, High-speed Switching Diode, SOT-323",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAS19",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "NC",
+      "K"
+    ],
+    "description": "120V, 0.4A, High-speed Switching Diode, SOT-23",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAS20",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "NC",
+      "K"
+    ],
+    "description": "200V, 0.4A, High-speed Switching Diode, SOT-23",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAS21",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "NC",
+      "K"
+    ],
+    "description": "250V, 0.4A, High-speed Switching Diode, SOT-23",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAS40-04",
+    "type": "Diode",
+    "pins": [],
+    "description": "40V 0.2A Dual Small Signal Schottky Diodes",
+    "keywords": [
+      "Schottky",
+      "Diode"
+    ]
+  },
+  {
+    "component": "BAT48JFILM",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 0.35A Small Signal Schottky Diode, SOD-323",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "NSR0340HT1G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 0.25A Schottky Diode, SOD-323",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT60A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "10V 3A High Current Recitifier Schottky Diode, SOD-323",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT48ZFILM",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 0.35A Small Signal Schottky Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR0520LT",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 0.5A Schottky Power Rectifier Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR0520",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 0.5A Schottky Power Rectifier Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR0530",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 0.5A Schottky Power Rectifier Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR0540",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 0.5A Schottky Power Rectifier Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR0550",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 0.5A Schottky Power Rectifier Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR0560",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V 0.5A Schottky Power Rectifier Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR0570",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "70V 0.5A Schottky Power Rectifier Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR0580",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "80V 0.5A Schottky Power Rectifier Diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT42W-V",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 0.2A Small Signal Schottky diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT43W-V",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 0.2A Small Signal Schottky diode, SOD-123",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT54A",
+    "type": "Diode",
+    "pins": [],
+    "description": "schottky barrier diode",
+    "keywords": [
+      "schottky",
+      "diode"
+    ]
+  },
+  {
+    "component": "BAT54ADW",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Schottky diode array 2 pair Com A",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAT54AW",
+    "type": "Diode",
+    "pins": [],
+    "description": "Dual schottky barrier diode, common anode, SOT-323",
+    "keywords": [
+      "dual",
+      "schottky",
+      "diode"
+    ]
+  },
+  {
+    "component": "BAT54C",
+    "type": "Diode",
+    "pins": [],
+    "description": "dual schottky barrier diode, common cathode",
+    "keywords": [
+      "schottky",
+      "diode",
+      "common",
+      "cathode"
+    ]
+  },
+  {
+    "component": "BAT54CW",
+    "type": "Diode",
+    "pins": [],
+    "description": "Dual schottky barrier diode, common cathode, SOT-323",
+    "keywords": [
+      "dual",
+      "schottky",
+      "diode"
+    ]
+  },
+  {
+    "component": "BAT54J",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 200mA Schottky diode, SOD-323F",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "BAT54S",
+    "type": "Diode",
+    "pins": [],
+    "description": "schottky barrier diode",
+    "keywords": [
+      "schottky",
+      "diode"
+    ]
+  },
+  {
+    "component": "BAT54SW",
+    "type": "Diode",
+    "pins": [],
+    "description": "Dual schottky barrier diode, in series, SOT-323",
+    "keywords": [
+      "dual",
+      "schottky",
+      "diode"
+    ]
+  },
+  {
+    "component": "BAT54W",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "NC",
+      "K"
+    ],
+    "description": "Schottky barrier diode, SOT-323",
+    "keywords": [
+      "schottky",
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV70",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Dual 100V 215mA high-speed switching diodes, common cathode, SOT-23",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV70M",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Dual 100V 150mA high-speed switching diodes, common cathode, SOT-883",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV70S",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "100V 250mA high-speed switching diodes, dual common cathode, SOT-363",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV70T",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Dual 100V 150mA high-speed switching diodes, common cathode, SOT-416",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV70W",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Dual 100V 175mA high-speed switching diodes, common cathode, SOT-323",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV756S",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A4",
+      "CK",
+      "K2",
+      "CA",
+      "K3"
+    ],
+    "description": "High-speed switching diodes, dual common anode/common cathode, SOT-363",
+    "keywords": [
+      "Diode"
+    ]
+  },
+  {
+    "component": "BAV99",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "BAV99 High-speed switching diodes, SOT-23",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV99S",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K2",
+      "K3A4",
+      "K1A2",
+      "A3",
+      "K4"
+    ],
+    "description": "High-speed switching diodes, dual series, SOT-363",
+    "keywords": [
+      "Diode"
+    ]
+  },
+  {
+    "component": "BAV199DW",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K2",
+      "K3A4",
+      "K1A2",
+      "A3",
+      "K4"
+    ],
+    "description": "Quad Surface Mount Low Leakage Diode, SOT-363",
+    "keywords": [
+      "Quad",
+      "diode"
+    ]
+  },
+  {
+    "component": "BYV79-100",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 14A Ultrafast Rectifier Diode, TO-220",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BYV79-200",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V 14A Ultrafast Rectifier Diode, TO-220",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BYV79-150",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150V 14A Ultrafast Rectifier Diode, TO-220",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BZD27Cxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800mW Zener Diode, 3.6-200V, SMF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZM55Bxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "500mW Zener Diode, 2%, MicroMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZM55Cxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "500mW Zener Diode, 6%, MicroMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZT52Bxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "500mW Zener Diode, SOD-123",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZX384-xxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300mW Zener Diode, SOD-323",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZX84Cxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300mW Zener Diode, SOT-23",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D02060F",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 2A, SiC Schottky Diode, TO-220F",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D03060F",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 3A, SiC Schottky Diode, TO-220F",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D04060F",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 4A, SiC Schottky Diode, TO-220F",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D06060F",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 6A, SiC Schottky Diode, TO-220F",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D06060G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 6A, SiC Schottky Diode, TO-263",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D08060G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 8A, SiC Schottky Diode, TO-263",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D10060G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 10A, SiC Schottky Diode, TO-263",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D16060D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "600V, 16A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D20060D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "600V, 20A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D16065D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "650V, 16A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D20065D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "650V, 20A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D30065D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "650V, 30A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C5D50065D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "650V, 50A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D10120D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "1200V, 10A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D15120D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "1200V, 15A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D20120D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "1200V, 20A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D30120D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "1200V, 30A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D40120D",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "K",
+      "A2"
+    ],
+    "description": "1200V, 40A, SiC Schottky Diode, TO-247-3",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D1P7060Q",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 1.7A, SiC Schottky Diode, QFN",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D10120H",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 10A, SiC Schottky Diode, TO-247",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D15120H",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 15A, SiC Schottky Diode, TO-247",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D20120H",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 20A, SiC Schottky Diode, TO-247",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D10170H",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1700V, 10A, SiC Schottky Diode, TO-247",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D25170H",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1700V, 25A, SiC Schottky Diode, TO-247",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "CD4148W",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.15A Switching Diode, 0805",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "CSD01060E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 1A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D02060E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 2A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D03060E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 3A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D04060E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 4A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D02065E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 2A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D03065E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 3A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D04065E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 4A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D06065E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 6A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D08065E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 8A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D10065E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 10A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D02120E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 2A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D05120E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 5A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D08120E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 8A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D10120E",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 10A, SiC Schottky Diode, TO-252",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "DB3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "32V 2A Bidirectional trigger diode, DO-35",
+    "keywords": [
+      "AC",
+      "diode",
+      "DIAC"
+    ]
+  },
+  {
+    "component": "DB4",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "34V 2A Bidirectional trigger diode, DO-35",
+    "keywords": [
+      "AC",
+      "diode",
+      "DIAC"
+    ]
+  },
+  {
+    "component": "DC34",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 2A Bidirectional trigger diode, DO-35",
+    "keywords": [
+      "AC",
+      "diode",
+      "DIAC"
+    ]
+  },
+  {
+    "component": "ESD9B5.0ST5G",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "ESD protection diode, 5.0Vrwm, SOD-923",
+    "keywords": [
+      "diode",
+      "TVS",
+      "ESD"
+    ]
+  },
+  {
+    "component": "ESD9B3.3ST5G",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "ESD protection diode, 3.3Vrwm, SOD-923",
+    "keywords": [
+      "diode",
+      "TVS",
+      "ESD"
+    ]
+  },
+  {
+    "component": "SZESD9B5.0ST5G",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "ESD protection diode, 5.0Vrwm, SOD-923",
+    "keywords": [
+      "diode",
+      "TVS",
+      "ESD"
+    ]
+  },
+  {
+    "component": "IDDD04G65C6",
+    "type": "Diode",
+    "pins": [
+      "NC",
+      "K",
+      "A"
+    ],
+    "description": "650V, 4A, SiC Schottky Diode, CoolSiC, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "IDDD06G65C6",
+    "type": "Diode",
+    "pins": [
+      "NC",
+      "K",
+      "A"
+    ],
+    "description": "650V, 6A, SiC Schottky Diode, CoolSiC, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "IDDD08G65C6",
+    "type": "Diode",
+    "pins": [
+      "NC",
+      "K",
+      "A"
+    ],
+    "description": "650V, 8A, SiC Schottky Diode, CoolSiC, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "IDDD10G65C6",
+    "type": "Diode",
+    "pins": [
+      "NC",
+      "K",
+      "A"
+    ],
+    "description": "650V, 10A, SiC Schottky Diode, CoolSiC, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "IDDD12G65C6",
+    "type": "Diode",
+    "pins": [
+      "NC",
+      "K",
+      "A"
+    ],
+    "description": "650V, 12A, SiC Schottky Diode, CoolSiC, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "IDDD16G65C6",
+    "type": "Diode",
+    "pins": [
+      "NC",
+      "K",
+      "A"
+    ],
+    "description": "650V, 16A, SiC Schottky Diode, CoolSiC, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "IDDD20G65C6",
+    "type": "Diode",
+    "pins": [
+      "NC",
+      "K",
+      "A"
+    ],
+    "description": "650V, 20A, SiC Schottky Diode, CoolSiC, PG-HDSOP-10-1 (DDPAK)",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "LL41",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.1A Small Signal Schottky diode, MiniMELF",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "LL42",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 0.2A Small Signal Schottky diode, MiniMELF",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "LL43",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 0.2A Small Signal Schottky diode, MiniMELF",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "LL4148",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.15A standard switching diode, MiniMELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "LL4448",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.15A standard switching diode, MiniMELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MBR735",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "35V 7.5A Schottky Barrier Rectifier Diode, TO-220",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "MBR745",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "45V 7.5A Schottky Barrier Rectifier Diode, TO-220",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "CSD01060A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 1A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D02060A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 2A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D03060A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 3A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D04060A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 4A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D06060A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 6A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D08060A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 8A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D10060A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 10A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D04065A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 4A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D06065I",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 6A, SiC Schottky Diode, Isolated TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D06065A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 6A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D08065A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 8A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D08065I",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 8A, SiC Schottky Diode, Isolated TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D10065I",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 10A, SiC Schottky Diode, Isolated TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D10065A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 10A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D12065A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 12A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C3D16065A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 16A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "CVFD20065A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "650V, 20A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D02120A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 2A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D05120A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 5A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D08120A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 8A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D10120A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 10A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D15120A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 15A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "C4D20120A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 20A, SiC Schottky Diode, TO-220",
+    "keywords": [
+      "sic",
+      "diode"
+    ]
+  },
+  {
+    "component": "MCL4148",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.2A Switching Diode, MicroMELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MCL4448",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.2A Switching Diode, MicroMELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV300",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 0.25A Switching Diode, High Voltage, MicroMELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV301",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.25A Switching Diode, High Voltage, MicroMELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV302",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150V 0.25A Switching Diode, High Voltage, MicroMELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV303",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V 0.25A Switching Diode, High Voltage, MicroMELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MM3Zxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300mW Zener Diode, SOD-123F",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "MM5Zxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300mW Zener Diode, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S030X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 3.0V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S033X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 3.3V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S036X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 3.6V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S039X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 3.9V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S047X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 4.7V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S051X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 5.1V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S056X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 5.6V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S068X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 6.8V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S082X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 8.2V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S100X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 10V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S120X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 12V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S130X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 13V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S150X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 15V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S160X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 16V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S180X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 18V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S200X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 20V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S360X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 36V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "DZ2S110X0L",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "150mW Silicon Planar Zener Diode, 11V, SOD-523",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "MMBZxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Double Zener Diode, Common Anode, 225mW, SOT-23",
+    "keywords": [
+      "dual",
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "MMSD914",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.2A Switching Diode, SOD-123",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4148W",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.15A Fast Switching Diode, SOD-123",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAV16W",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V 0.15A Fast Switching Diode, SOD-123",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "1N4448W",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 0.15A High-speed standard diode, SOD-123",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MMSD4148",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 200mA Switching Diode, SOD-123",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MRA4003T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MRA4004T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MRA4005T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MRA4006T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MRA4007T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "NRVA4003T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "NRVA4004T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "NRVA4005T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "NRVA4006T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "NRVA4007T3G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "US1A",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Ultra",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US1B",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Ultra",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US1D",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Ultra",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US1G",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Ultra",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US1J",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Ultra",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US1K",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Ultra",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US1M",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V, 1A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Ultra",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US2AA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V, 1.5A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Super",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US2BA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V, 1.5A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Super",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US2DA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V, 1.5A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Super",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US2FA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "300V, 1.5A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Super",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US2GA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V, 1.5A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Super",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US2JA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V, 1.5A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Super",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US2KA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V, 1.5A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Super",
+      "Fast"
+    ]
+  },
+  {
+    "component": "US2MA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V, 1.5A, General Purpose Rectifier Diode, SMA(DO-214AC)",
+    "keywords": [
+      "Super",
+      "Fast"
+    ]
+  },
+  {
+    "component": "PMEG2005EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 500mA very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG1020EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "10V, 2A ultra low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG1030EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "10V, 3A ultra low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2010AEH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2010EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2015EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1.5A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2020EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 2A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3010CEH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3010EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3015EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1.5A ultra low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3020EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 2A ultra low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4010CEH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4010EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3005EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 500mA very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4005EH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 500mA very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6010CEH",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "MBR1020VL",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A, 340 mV, Schottky Diode Rectifier, SOD-123F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2005EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 500mA very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG1020EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "10V, 2A ultra low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG1030EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "10V, 3A ultra low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2010AEJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2010EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2015EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1.5A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2020EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 2A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3002EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 200mA low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3010CEJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3010EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3015EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1.5A ultra low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3020EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 2A ultra low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4002EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 200mA low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4005CEJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 500mA low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4010CEJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4010EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6002EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 200mA very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3005EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 500mA very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4005EJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 500mA very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6010CEJ",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 1A very low Vf MEGA Schottky barrier rectifier, SOD-323F",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2010AET",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A very low Vf MEGA Schottky barrier rectifier, SOT-23",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2010ET",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A very low Vf MEGA Schottky barrier rectifier, SOT-23",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3010ET",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1A very low Vf MEGA Schottky barrier rectifier, SOT-23",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4010ET",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 1A very low Vf MEGA Schottky barrier rectifier, SOT-23",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4050EP",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 5A low Vf Schottky barrier rectifier, SOD-128",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6030EP",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 3A low Vf MEGA Schottky barrier rectifier, SOD-128",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6045ETP",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 4.5A High-Temperature Schottky barrier rectifier, SOD-128",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG40T10ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 1A low Vf Trench MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG40T20ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 2A low Vf Trench MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG40T30ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 3A low Vf Trench MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG60T10ELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 1A low leakage current Trench MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG60T20ELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 2A low leakage current Trench MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG60T30ELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 3A low leakage current Trench MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2010BER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG2010ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 1A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3010BER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3010ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 1A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3020BER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 2A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG3020ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 2A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4010ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 1A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4020ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 2A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG4030ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V, 3A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6010ELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 1A low leakage current MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6010ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 1A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6020AELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 2A low leakage current MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6020ELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 2A low leakage current MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG6020ER",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V, 2A low Vf MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG10010ELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V, 1A low leakage current MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG10020AELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V, 2A low leakage current MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG10020ELR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V, 2A low leakage current MEGA Schottky barrier rectifier, SOD-123W",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG45A10EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 10A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG45T15EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 15A low Vf Trench MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG45U10EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 10A extremely low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG030V030EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "30V, 3A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG030V050EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "30V, 5A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG040V030EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "40V, 3A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG040V050EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "40V, 5A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG045T050EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 5A low Vf Trench MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG045T100EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 10A low Vf Trench MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG045T150EIPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 15A low Vf Trench MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG045T150EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 15A low Vf Trench MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG045V050EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 5A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG045V100EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 10A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG045V150EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "45V, 15A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG050T150EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "50V, 15A low Vf Trench MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG050V030EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "50V, 3A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG050V150EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "50V, 15A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG060V030EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "60V, 3A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG060V050EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "60V, 5A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG060V100EPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "60V, 10A low Vf MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "forward",
+      "voltage",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG100V060ELPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "100V, 6A low leakage current MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG100V080ELPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "100V, 8A low leakage current MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "PMEG100V100ELPD",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "100V, 10A low leakage current MEGA Schottky barrier rectifier, SOT-1289",
+    "keywords": [
+      "ir",
+      "diode"
+    ]
+  },
+  {
+    "component": "Rohm_UMN1N",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "High-speed switching diodes 2 pair Com A",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MMBD4448HCQW",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Quad Switching Diode Array Common Cathode",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "Panasonic_MA5J002E",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "Quad Ultra high Speed Switching Diode Array Com K",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "Rohm_UMP11N",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "High-speed switching diodes 2 pair Com A",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAW56DW",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Switching diode array 2 pair Com A",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "BAW56S",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "High Speed Switching Diode Array 2 pair Com A",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "MMBD4448HADW",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Fast Switching Diode Array 2 pair Com A",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "Toshiba_HN1D01FU",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Ultra High Speed Switching Diode Array 2 pair Com A",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "S2JTR",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V 2A General Purpose Rectifier Diode, SMB",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "STTH212U",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V 2A High Voltage Ultrafast Diode, SMB",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SB120",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 1A Schottky Barrier Rectifier Diode, DO-41",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "SB130",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 1A Schottky Barrier Rectifier Diode, DO-41",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "SB140",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 1A Schottky Barrier Rectifier Diode, DO-41",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "SB150",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 1A Schottky Barrier Rectifier Diode, DO-41",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "SB160",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "60V 1A Schottky Barrier Rectifier Diode, DO-41",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5817",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V 1A Schottky Barrier Rectifier Diode, DO-41",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5818",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V 1A Schottky Barrier Rectifier Diode, DO-41",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "1N5819",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "40V 1A Schottky Barrier Rectifier Diode, DO-41",
+    "keywords": [
+      "diode",
+      "Schottky"
+    ]
+  },
+  {
+    "component": "SD05_SOD323",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "5V, 450W Discrete Bidirectional TVS Diode, SOD-323",
+    "keywords": [
+      "transient",
+      "voltage",
+      "suppressor",
+      "thyrector",
+      "transil"
+    ]
+  },
+  {
+    "component": "SD12_SOD323",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "12V, 450W Discrete Bidirectional TVS Diode, SOD-323",
+    "keywords": [
+      "transient",
+      "voltage",
+      "suppressor",
+      "thyrector",
+      "transil"
+    ]
+  },
+  {
+    "component": "SD15_SOD323",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "15V, 450W Discrete Bidirectional TVS Diode, SOD-323",
+    "keywords": [
+      "transient",
+      "voltage",
+      "suppressor",
+      "thyrector",
+      "transil"
+    ]
+  },
+  {
+    "component": "SD24_SOD323",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "24V, 450W Discrete Bidirectional TVS Diode, SOD-323",
+    "keywords": [
+      "transient",
+      "voltage",
+      "suppressor",
+      "thyrector",
+      "transil"
+    ]
+  },
+  {
+    "component": "SD36_SOD323",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "36V, 450W Discrete Bidirectional TVS Diode, SOD-323",
+    "keywords": [
+      "transient",
+      "voltage",
+      "suppressor",
+      "thyrector",
+      "transil"
+    ]
+  },
+  {
+    "component": "SD103ATW",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "Schottky Barrier Diode Array, SOT-363",
+    "keywords": [
+      "schottky",
+      "barrier",
+      "diode",
+      "array"
+    ]
+  },
+  {
+    "component": "SM4001",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "50V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM4002",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "100V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM4003",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "200V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM4004",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "400V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM4005",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "600V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM4006",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM4007",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM513",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "130V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM516",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1600V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM518",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1800V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM2000",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2000V 1A General Purpose Rectifier Diode, MELF",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "SM6T6V8A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 6.8Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T7V5A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 7.5Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T10A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 10Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T12A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 12Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T15A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 15Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T18A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 18Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T22A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 22Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T24A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 24Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T27A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 27Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T30A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 30Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T33A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 33Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T36A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 36Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T39A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 39Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T56A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 56Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T68A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 68Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T75A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 75Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T100A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 100Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T150A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 150Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T200A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 200Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM6T220A",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2"
+    ],
+    "description": "600W unidirectional Transil Transient Voltage Suppressor, 220Vrwm, DO-214AA",
+    "keywords": [
+      "diode",
+      "TVS",
+      "voltage",
+      "suppressor"
+    ]
+  },
+  {
+    "component": "SM712_SOT23",
+    "type": "Diode",
+    "pins": [
+      "A1",
+      "A2",
+      "common"
+    ],
+    "description": "7V/12V, 600W Asymmetrical TVS Diode Array, SOT-23",
+    "keywords": [
+      "transient",
+      "voltage",
+      "suppressor",
+      "thyrector",
+      "transil"
+    ]
+  },
+  {
+    "component": "STBR3008WY",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V, 30A, General Purpose Rectifier Diode, DO-247",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "STBR3012WY",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 30A, General Purpose Rectifier Diode, DO-247",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "STBR6008WY",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "800V, 60A, General Purpose Rectifier Diode, DO-247",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "STBR6012WY",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V, 60A, General Purpose Rectifier Diode, DO-247",
+    "keywords": [
+      "AEC-Q101"
+    ]
+  },
+  {
+    "component": "STTH212S",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1200V 2A High Voltage Ultrafast Diode, SMC",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "VS-6ESU06",
+    "type": "Diode",
+    "pins": [
+      "A",
+      "K"
+    ],
+    "description": "600V 6.0A Ultrafast Rectifier, TO-277A",
+    "keywords": [
+      "diode",
+      "fred"
+    ]
+  },
+  {
+    "component": "Z1SMAxxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000mW Zener Diode, SMA(DO-214AC)",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "Z2SMBxxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2000mW Zener Diode, SMB(DO-214AA)",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "Z3SMCxxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3000mW Zener Diode, SMC(DO-214AB)",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "ZMDxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1000mW Zener Diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "ZMMxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "500mW Zener Diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B2V4",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2.4V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C2V4",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2.4V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C2V7",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2.7V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B2V7",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2.7V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C3V0",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3.0V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B3V0",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3.0V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C3V3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3.3V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B3V3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3.3V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B3V6",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3.6V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C3V6",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3.6V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B3V9",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3.9V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C3V9",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "3.9V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B4V3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "4.3V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C4V3",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "4.3V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B4V7",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "4.7V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C4V7",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "4.7V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B5V1",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "5.1V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C5V1",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "5.1V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B5V6",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "5.6V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C5V6",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "5.6V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B6V2",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "6.2V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C6V2",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "6.2V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B6V8",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "6.8V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C6V8",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "6.8V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B7V5",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "7.5V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C7V5",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "7.5V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B8V2",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "8.2V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C8V2",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "8.2V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B9V1",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "9.1V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C9V1",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "9.1V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B10",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "10V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C10",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "10V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B11",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "11V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C11",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "11V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B12",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "12V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C12",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "12V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B13",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "13V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C13",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "13V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B15",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "15V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C15",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "15V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B16",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "16V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C16",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "16V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B18",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "18V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C18",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "18V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B20",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C20",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "20V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B22",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "22V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C22",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "22V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B24",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "24V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C24",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "24V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B27",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2.4V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C27",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "27V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B30",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C30",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "30V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B33",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "33V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C33",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "33V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B36",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "36V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C36",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "36V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B39",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "39V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C39",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "39V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B43",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "43V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C43",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "43V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B47",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "47V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C47",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "47V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B51",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "51V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C51",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "51V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B56",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "56V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C56",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "56V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B62",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "62V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C62",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "62V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B68",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "68V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C68",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "68V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55B75",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V, 500mW, 2%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "BZV55C75",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "75V, 500mW, 5%, Zener diode, MiniMELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "ZMYxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1300mW Zener Diode, MELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "SMZxxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2000mW Zener Diode, MELF",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "ZPDxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "500mW Zener Diode, DO-35",
+    "keywords": [
+      "diode"
+    ]
+  },
+  {
+    "component": "ZPYxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1300mW Zener Diode, DO-41",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "1N47xxA",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "1300mW Silicon planar power Zener diodes, DO-41",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  },
+  {
+    "component": "ZYxxx",
+    "type": "Diode",
+    "pins": [
+      "K",
+      "A"
+    ],
+    "description": "2000mW Zener Diode, DO-41",
+    "keywords": [
+      "zener",
+      "diode"
+    ]
+  }
+]

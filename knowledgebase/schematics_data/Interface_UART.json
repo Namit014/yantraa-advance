@@ -1,0 +1,3770 @@
+[
+  {
+    "component": "16450",
+    "type": "Interface_UART",
+    "pins": [
+      "D0",
+      "SIN",
+      "SOUT",
+      "CS0",
+      "CS1",
+      "~CS2~",
+      "~BAUDOUT~",
+      "XIN",
+      "XOUT",
+      "~WR~",
+      "WR",
+      "D1",
+      "GND",
+      "~RD~",
+      "RD",
+      "DDIS",
+      "CSOUT",
+      "~ADS~",
+      "A2",
+      "A1",
+      "A0",
+      "D2",
+      "INTR",
+      "~OUT2~",
+      "~RTS~",
+      "~DTR~",
+      "~OUT1~",
+      "MR",
+      "~CTS~",
+      "~DSR~",
+      "~DCD~",
+      "~RI~",
+      "D3",
+      "VCC",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "RCLK"
+    ],
+    "description": "PC16450, Universal Asynchronous Receiver/Transmitter, PDIP-40",
+    "keywords": [
+      "1ch",
+      "UART"
+    ]
+  },
+  {
+    "component": "8250",
+    "type": "Interface_UART",
+    "pins": [
+      "D0",
+      "SIN",
+      "SOUT",
+      "CS0",
+      "CS1",
+      "~CS2~",
+      "~BAUDOUT~",
+      "XIN",
+      "XOUT",
+      "~WR~",
+      "WR",
+      "D1",
+      "GND",
+      "~RD~",
+      "RD",
+      "DDIS",
+      "CSOUT",
+      "~ADS~",
+      "A2",
+      "A1",
+      "A0",
+      "D2",
+      "INTR",
+      "~OUT2~",
+      "~RTS~",
+      "~DTR~",
+      "~OUT1~",
+      "MR",
+      "~CTS~",
+      "~DSR~",
+      "~DCD~",
+      "~RI~",
+      "D3",
+      "VCC",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "RCLK"
+    ],
+    "description": "PC8250A, Universal Asynchronous Receiver/Transmitter, PDIP-40",
+    "keywords": [
+      "1ch",
+      "UART"
+    ]
+  },
+  {
+    "component": "16550",
+    "type": "Interface_UART",
+    "pins": [
+      "D0",
+      "SIN",
+      "SOUT",
+      "CS0",
+      "CS1",
+      "~CS2~",
+      "~BAUDOUT~",
+      "XIN",
+      "XOUT",
+      "~WR~",
+      "WR",
+      "D1",
+      "GND",
+      "~RD~",
+      "RD",
+      "DDIS",
+      "~TXRDY~",
+      "~ADS~",
+      "A2",
+      "A1",
+      "A0",
+      "~RXRDY~",
+      "D2",
+      "INTR",
+      "~OUT2~",
+      "~RTS~",
+      "~DTR~",
+      "~OUT1~",
+      "MR",
+      "~CTS~",
+      "~DSR~",
+      "~DCD~",
+      "~RI~",
+      "D3",
+      "VCC",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "RCLK"
+    ],
+    "description": "PC16550D, Universal Asynchronous Receiver/Transmitter with FIFOs, PDIP-40",
+    "keywords": [
+      "1ch",
+      "UART",
+      "FIFO"
+    ]
+  },
+  {
+    "component": "68C681",
+    "type": "Interface_UART",
+    "pins": [
+      "A1",
+      "RXDB",
+      "TXDB",
+      "OP1",
+      "OP3",
+      "OP5",
+      "OP7",
+      "D1",
+      "D3",
+      "D5",
+      "D7",
+      "IP3",
+      "GND",
+      "INTRN",
+      "D6",
+      "D4",
+      "D2",
+      "D0",
+      "OP6",
+      "OP4",
+      "OP2",
+      "OP0",
+      "A2",
+      "TXDA",
+      "RXDA",
+      "X1/CLK",
+      "X2",
+      "RESETN",
+      "CSN",
+      "IP2",
+      "IACKN",
+      "IP5",
+      "IP4",
+      "IP1",
+      "VCC",
+      "A3",
+      "A4",
+      "IP0",
+      "RWN",
+      "DTACKN"
+    ],
+    "description": "CMOS Dual Channel UART",
+    "keywords": [
+      "UART",
+      "serial"
+    ]
+  },
+  {
+    "component": "8252",
+    "type": "Interface_UART",
+    "pins": [
+      "~RD~",
+      "D7",
+      "A0",
+      "A1",
+      "IX",
+      "OX",
+      "(TXD)SDO",
+      "GND",
+      "~CTS~",
+      "~DSR~",
+      "~DTR~",
+      "~WR~",
+      "~RTS~",
+      "CO",
+      "TBRE",
+      "RST",
+      "INTR",
+      "(RXD)SDI",
+      "DR",
+      "VCC",
+      "CS0",
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6"
+    ],
+    "description": "Universal Asynchronous Receiver/Transmitter, PDIP-28",
+    "keywords": [
+      "UART",
+      "Serial",
+      "Interface"
+    ]
+  },
+  {
+    "component": "ADM101E",
+    "type": "Interface_UART",
+    "pins": [
+      "GND",
+      "VCC",
+      "C1-",
+      "VS-",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "SD",
+      "C1+"
+    ],
+    "description": "Single RS232 driver/receiver, 5V supply, 460kb/s",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver",
+      "line-driver"
+    ]
+  },
+  {
+    "component": "ADM1491EBR",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS-485, RS-422 full duplex 16Mbps transceiver, SOIC-14",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "ADM3491ExR",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS-485, RS-422 full duplex 12 Mbps transceiver, SOIC-14",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "ADM242",
+    "type": "Interface_UART",
+    "pins": [
+      "~EN",
+      "R2OUT",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "~SHDN",
+      "C1+",
+      "V+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "V-",
+      "T2OUT",
+      "R2IN"
+    ],
+    "description": "Dual RS232 driver/receiver, 5V supply, 200kb/s, separate shutdown/enable pins",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "ADM2481xRW",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD1",
+      "GND2",
+      "NC",
+      "A",
+      "B",
+      "VDD2",
+      "GND1",
+      "RxD",
+      "~RE",
+      "DE",
+      "TxD"
+    ],
+    "description": "Isolated RS485/RS422 Transceiver, Half-Duplex, 500kbps, SOIC-16W",
+    "keywords": [
+      "rs-485",
+      "rs-422",
+      "eia485",
+      "eia-485",
+      "eia422",
+      "eia-422",
+      "serial",
+      "differential"
+    ]
+  },
+  {
+    "component": "ADM2483xRW",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD1",
+      "NC",
+      "A",
+      "B",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "RxD",
+      "~RE",
+      "DE",
+      "TxD",
+      "PV"
+    ],
+    "description": "Isolated RS485/RS422 Transceiver, Half-Duplex, 500kbps, SOIC-16W",
+    "keywords": [
+      "rs-485",
+      "rs-422",
+      "eia485",
+      "eia-485",
+      "eia422",
+      "eia-422",
+      "serial",
+      "differential"
+    ]
+  },
+  {
+    "component": "ADM2484E",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD1",
+      "NC",
+      "Y",
+      "Z",
+      "B",
+      "A",
+      "GND2",
+      "VDD2",
+      "GND1",
+      "RxD",
+      "~RE",
+      "DE",
+      "TxD"
+    ],
+    "description": "Isolated RS485/RS422 Transceiver, Half-/Full-Duplex, 500kbps,SOIC-16W",
+    "keywords": [
+      "RS485",
+      "Transceiver",
+      "RS422",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "ADM2587E",
+    "type": "Interface_UART",
+    "pins": [
+      "GND1",
+      "GND2",
+      "Visoout",
+      "Y",
+      "Z",
+      "B",
+      "A",
+      "Visoin",
+      "VCC",
+      "RxD",
+      "~RE",
+      "DE",
+      "TxD"
+    ],
+    "description": "Isolated RS485/RS422 Transciever,Integrated Isolated DC-DC Converter, 500kbps,SO-20",
+    "keywords": [
+      "RS485",
+      "Transciever",
+      "RS422",
+      "Transciever"
+    ]
+  },
+  {
+    "component": "ADM2582E",
+    "type": "Interface_UART",
+    "pins": [
+      "GND1",
+      "GND2",
+      "Visoout",
+      "Y",
+      "Z",
+      "B",
+      "A",
+      "Visoin",
+      "VCC",
+      "RxD",
+      "~RE",
+      "DE",
+      "TxD"
+    ],
+    "description": "Isolated RS485/RS422 Transciever,Integrated Isolated DC-DC Converter, 16Mbps,SO-20",
+    "keywords": [
+      "RS485",
+      "Transciever",
+      "RS422",
+      "Transciever"
+    ]
+  },
+  {
+    "component": "ADM2682E",
+    "type": "Interface_UART",
+    "pins": [
+      "GND1",
+      "VISOOUT",
+      "Y",
+      "Z",
+      "B",
+      "A",
+      "VISOIN",
+      "GND2",
+      "VCC",
+      "RXD",
+      "~RE",
+      "DE",
+      "TXD"
+    ],
+    "description": "Isolated RS485/RS422 Transciever, Integrated Isolated DC-DC Converter, 16Mbps, SOIC-16W",
+    "keywords": [
+      "RS485",
+      "Transciever",
+      "RS422",
+      "Transciever",
+      "Isopower"
+    ]
+  },
+  {
+    "component": "ADM2687E",
+    "type": "Interface_UART",
+    "pins": [
+      "GND1",
+      "VISOOUT",
+      "Y",
+      "Z",
+      "B",
+      "A",
+      "VISOIN",
+      "GND2",
+      "VCC",
+      "RXD",
+      "~RE",
+      "DE",
+      "TXD"
+    ],
+    "description": "Isolated RS485/RS422 Transciever, Integrated Isolated DC-DC Converter, 500kbps, SOIC-16W",
+    "keywords": [
+      "RS485",
+      "Transciever",
+      "RS422",
+      "Transciever",
+      "Isopower"
+    ]
+  },
+  {
+    "component": "ADM3490ExR",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 full duplex 12 Mbps transceiver, SOIC-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "ADM3488ExR",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 full duplex 250 kbps transceiver, SOIC-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "GD65232DB",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD",
+      "VSS",
+      "GND",
+      "RY5",
+      "DA3",
+      "RY4",
+      "DA2",
+      "DA1",
+      "RY3",
+      "RY2",
+      "RY1",
+      "RA1",
+      "VCC",
+      "RA2",
+      "RA3",
+      "DY1",
+      "DY2",
+      "RA4",
+      "DY3",
+      "RA5"
+    ],
+    "description": "Multiple RS-232 Driver and Receiver, SSOP-20",
+    "keywords": [
+      "RS232",
+      "UART",
+      "Driver",
+      "Receiver",
+      "Interface"
+    ]
+  },
+  {
+    "component": "GD75232DB",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD",
+      "VSS",
+      "GND",
+      "RY5",
+      "DA3",
+      "RY4",
+      "DA2",
+      "DA1",
+      "RY3",
+      "RY2",
+      "RY1",
+      "RA1",
+      "VCC",
+      "RA2",
+      "RA3",
+      "DY1",
+      "DY2",
+      "RA4",
+      "DY3",
+      "RA5"
+    ],
+    "description": "Multiple RS-232 Driver and Receiver, SSOP-20",
+    "keywords": [
+      "RS232",
+      "UART",
+      "Driver",
+      "Receiver",
+      "Interface"
+    ]
+  },
+  {
+    "component": "GD65232DW",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD",
+      "VSS",
+      "GND",
+      "RY5",
+      "DA3",
+      "RY4",
+      "DA2",
+      "DA1",
+      "RY3",
+      "RY2",
+      "RY1",
+      "RA1",
+      "VCC",
+      "RA2",
+      "RA3",
+      "DY1",
+      "DY2",
+      "RA4",
+      "DY3",
+      "RA5"
+    ],
+    "description": "Multiple RS-232 Driver and Receiver, SOIC-20",
+    "keywords": [
+      "RS232",
+      "UART",
+      "Driver",
+      "Receiver",
+      "Interface"
+    ]
+  },
+  {
+    "component": "GD75232DW",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD",
+      "VSS",
+      "GND",
+      "RY5",
+      "DA3",
+      "RY4",
+      "DA2",
+      "DA1",
+      "RY3",
+      "RY2",
+      "RY1",
+      "RA1",
+      "VCC",
+      "RA2",
+      "RA3",
+      "DY1",
+      "DY2",
+      "RA4",
+      "DY3",
+      "RA5"
+    ],
+    "description": "Multiple RS-232 Driver and Receiver, SOIC-20",
+    "keywords": [
+      "RS232",
+      "UART",
+      "Driver",
+      "Receiver",
+      "Interface"
+    ]
+  },
+  {
+    "component": "GD65232PW",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD",
+      "VSS",
+      "GND",
+      "RY5",
+      "DA3",
+      "RY4",
+      "DA2",
+      "DA1",
+      "RY3",
+      "RY2",
+      "RY1",
+      "RA1",
+      "VCC",
+      "RA2",
+      "RA3",
+      "DY1",
+      "DY2",
+      "RA4",
+      "DY3",
+      "RA5"
+    ],
+    "description": "Multiple RS-232 Driver and Receiver, TSSOP-20",
+    "keywords": [
+      "RS232",
+      "UART",
+      "Driver",
+      "Receiver",
+      "Interface"
+    ]
+  },
+  {
+    "component": "GD75232PW",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD",
+      "VSS",
+      "GND",
+      "RY5",
+      "DA3",
+      "RY4",
+      "DA2",
+      "DA1",
+      "RY3",
+      "RY2",
+      "RY1",
+      "RA1",
+      "VCC",
+      "RA2",
+      "RA3",
+      "DY1",
+      "DY2",
+      "RA4",
+      "DY3",
+      "RA5"
+    ],
+    "description": "Multiple RS-232 Driver and Receiver, TSSOP-20",
+    "keywords": [
+      "RS232",
+      "UART",
+      "Driver",
+      "Receiver",
+      "Interface"
+    ]
+  },
+  {
+    "component": "GD75232N",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD",
+      "VSS",
+      "GND",
+      "RY5",
+      "DA3",
+      "RY4",
+      "DA2",
+      "DA1",
+      "RY3",
+      "RY2",
+      "RY1",
+      "RA1",
+      "VCC",
+      "RA2",
+      "RA3",
+      "DY1",
+      "DY2",
+      "RA4",
+      "DY3",
+      "RA5"
+    ],
+    "description": "Multiple RS-232 Driver and Receiver, DIP-20",
+    "keywords": [
+      "RS232",
+      "UART",
+      "Driver",
+      "Receiver",
+      "Interface"
+    ]
+  },
+  {
+    "component": "ISL3280ExHZ",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "GND",
+      "RO",
+      "B",
+      "A"
+    ],
+    "description": "RS485, RS422, 20Mbps Transceiver, 3.0V to 5.5V, SOT-23-5",
+    "keywords": [
+      "Interface",
+      "Driver",
+      "Receiver",
+      "Transciever"
+    ]
+  },
+  {
+    "component": "ISL3281ExHZ",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "GND",
+      "RO",
+      "B",
+      "RE",
+      "A"
+    ],
+    "description": "RS485, RS422, 20Mbps Transceiver, 3.0V to 5.5V, SOT-23-6",
+    "keywords": [
+      "Interface",
+      "-",
+      "Driver",
+      "Receiver",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "ISL3282ExRHZ",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "GND",
+      "NC",
+      "VCC",
+      "A",
+      "VL",
+      "~RE",
+      "B"
+    ],
+    "description": "RS485, RS422, 20Mbps Transceiver, 3.0V to 5.5V, TDFN-8",
+    "keywords": [
+      "Interface",
+      "Driver",
+      "Receiver",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "ISL3283ExHZ",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "GND",
+      "RO",
+      "B",
+      "~RE",
+      "A"
+    ],
+    "description": "RS485, RS422, 20Mbps Transceiver, 3.0V to 5.5V, SOT-23-6",
+    "keywords": [
+      "Interface",
+      "Driver",
+      "Receiver",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "ISL3284ExHZ",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "GND",
+      "RO",
+      "B",
+      "VL",
+      "A"
+    ],
+    "description": "RS485, RS422, 20Mbps Transceiver, 3.0V to 5.5V, SOT-23-6",
+    "keywords": [
+      "Interface",
+      "Driver",
+      "Receiver",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "ISL3295xxH",
+    "type": "Interface_UART",
+    "pins": [
+      "DI",
+      "VCC",
+      "DE",
+      "Z",
+      "GND",
+      "Y"
+    ],
+    "description": "RS485, RS422, 20Mbps Transceiver, 3.0V to 7V, Low-Power, SOT-23",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "ISL3298xxRT",
+    "type": "Interface_UART",
+    "pins": [
+      "VL",
+      "DE",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "VCC"
+    ],
+    "description": "RS485, RS422, 20Mbps Transceiver, 3.0V to 7V, Low-Power, TDFN-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "ISL83491",
+    "type": "Interface_UART",
+    "pins": [
+      "~Z~",
+      "~B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "10Mbps RS485/RS422 transceiver, full duplex, receiver/driver enable, low power shutdown",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "ISO1500",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC1",
+      "VCC2",
+      "NC",
+      "A",
+      "B",
+      "GND2",
+      "GND1",
+      "R",
+      "~RE",
+      "DE",
+      "D"
+    ],
+    "description": "Half duplex RS-485/RS-422 transceiver, 3-kVRMS Isolated, SSOP-16",
+    "keywords": [
+      "RS-485",
+      "RS422",
+      "transceiver",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ISO3082DW",
+    "type": "Interface_UART",
+    "pins": [
+      "Vcc1",
+      "GND2",
+      "NC",
+      "A",
+      "B",
+      "Vcc2",
+      "GND1",
+      "R",
+      "~RE",
+      "DE",
+      "D"
+    ],
+    "description": "200 kbps, Isolated 5-V Half-Duplex RS-485 transceiver, SOIC-16",
+    "keywords": [
+      "RS-485"
+    ]
+  },
+  {
+    "component": "ISO3088DW",
+    "type": "Interface_UART",
+    "pins": [
+      "Vcc1",
+      "GND2",
+      "NC",
+      "A",
+      "B",
+      "Vcc2",
+      "GND1",
+      "R",
+      "~RE",
+      "DE",
+      "D"
+    ],
+    "description": "20 Mbps, Isolated 5-V Half-Duplex RS-485 transceiver, SOIC-16",
+    "keywords": [
+      "RS-485"
+    ]
+  },
+  {
+    "component": "LT1080",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "R2OUT",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "ON/~OFF",
+      "C1+",
+      "V+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "V-",
+      "T2OUT",
+      "R2IN"
+    ],
+    "description": "Dual RS232 driver/receiver, 5V supply, 120kb/s",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "ADM222",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "R2OUT",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "ON/~OFF",
+      "C1+",
+      "V+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "V-",
+      "T2OUT",
+      "R2IN"
+    ],
+    "description": "Dual RS232 driver/receiver, 5V supply, 200kb/s",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "LT1785xN8",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 250kbps transceiver, DIP-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LT1785AxN8",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 250kbps transceiver, fail-safe receiver, DIP-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LT1791xN8",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, DIP-14",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LT1791AxN8",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, fail-safe receiver, DIP-14",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2850xDD",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 20Mbps transceiver, DFN-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2856xDD-1",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 20Mbps transceiver, DFN-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2856xDD-2",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 250kbps transceiver, DFN-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2850xMS8",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 20Mbps transceiver, MSOP-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2856xMS8-1",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 20Mbps transceiver, MSOP-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2856xMS8-2",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 250kbps transceiver, MSOP-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2850xS8",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 20Mbps transceiver, SOIC-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LT1785AxS8",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 250kbps transceiver, fail-safe receiver, SOIC-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LT1785xS8",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "RS-485, RS-422 Half duplex 250kbps transceiver, SOIC-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "half",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2851xDD",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, DFN-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2857xDD-1",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, DFN-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2857xDD-2",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, DFN-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2851xMS8",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, MSOP-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2857xMS8-1",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, MSOP-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2857xMS8-2",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, MSOP-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2851xS8",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, SOIC-8",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2852xDD",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "VCC",
+      "GND",
+      "~RE",
+      "DE",
+      "DI",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, DFN-10",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2858xDD-1",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "VCC",
+      "GND",
+      "~RE",
+      "DE",
+      "DI",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, DFN-10",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2858xDD-2",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "VCC",
+      "GND",
+      "~RE",
+      "DE",
+      "DI",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, DFN-10",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2852xMS",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "VCC",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, MSOP-10",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2858xMS-1",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "VCC",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, MSOP-10",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2858xMS-2",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "VCC",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, MSOP-10",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2852xS",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS-485, RS-422 Full duplex 20Mbps transceiver, SOIC-14",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LT1791xS",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, SOIC-14",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LT1791AxS",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS-485, RS-422 Full duplex 250kbps transceiver, fail-safe receiver, SOIC-14",
+    "keywords": [
+      "RS485",
+      "RS422",
+      "transceiver",
+      "full",
+      "duplex"
+    ]
+  },
+  {
+    "component": "LTC2861",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "SLO",
+      "Y",
+      "~Z~",
+      "~B~",
+      "A",
+      "VCC",
+      "RE",
+      "DE",
+      "DI",
+      "TE",
+      "GND"
+    ],
+    "description": "20Mbps RS485 transceiver with tntegrated switchable termination",
+    "keywords": [
+      "RS485"
+    ]
+  },
+  {
+    "component": "MAX13432EESD",
+    "type": "Interface_UART",
+    "pins": [
+      "Vlogic",
+      "~Z~",
+      "~B",
+      "A",
+      "NC",
+      "VCC",
+      "RO",
+      "DE",
+      "~RE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS485 transceiver, full duplex, dual supply, receiver/driver enable, 500kbps, SOIC-14 package",
+    "keywords": [
+      "rs485",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX13433EESD",
+    "type": "Interface_UART",
+    "pins": [
+      "Vlogic",
+      "~Z~",
+      "~B",
+      "A",
+      "NC",
+      "VCC",
+      "RO",
+      "DE",
+      "~RE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS485 transceiver, full duplex, dual supply, receiver/driver enable, 16Mbps, SOIC-14 package",
+    "keywords": [
+      "rs485",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX13432EETD",
+    "type": "Interface_UART",
+    "pins": [
+      "Vlogic",
+      "~Z~",
+      "~B",
+      "A",
+      "NC",
+      "VCC",
+      "EP",
+      "RO",
+      "DE",
+      "~RE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS485 transceiver, full duplex, dual supply, receiver/driver enable, 500kbps, DFN-14 package",
+    "keywords": [
+      "rs485",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX13433EETD",
+    "type": "Interface_UART",
+    "pins": [
+      "Vlogic",
+      "~Z~",
+      "~B",
+      "A",
+      "NC",
+      "VCC",
+      "EP",
+      "RO",
+      "DE",
+      "~RE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "RS485 transceiver, full duplex, dual supply, receiver/driver enable, 16Mbps, DFN-14 package",
+    "keywords": [
+      "rs485",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX14783ExS",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "High-Speed 3.3V/5V RS-485/RS-422 Transceiver with \u00b135kV HBM ESD Protection, SOIC8",
+    "keywords": [
+      "High-Speed",
+      "3.3V/5V",
+      "RS-485/RS-422",
+      "Transceiver",
+      "ESD",
+      "42Mbps"
+    ]
+  },
+  {
+    "component": "MAX14830",
+    "type": "Interface_UART",
+    "pins": [
+      "SPI/~I2C",
+      "DGND",
+      "GPIO0",
+      "GPIO1",
+      "GPIO2",
+      "GPIO3",
+      "~RTS0",
+      "~CTS0",
+      "RX0",
+      "TX0",
+      "GPIO4",
+      "LDOEN",
+      "GPIO5",
+      "GPIO6",
+      "GPIO7",
+      "~RTS1",
+      "~CTS1",
+      "RX1",
+      "TX1",
+      "GPIO8",
+      "GPIO9",
+      "GPIO10",
+      "MISO/SDA",
+      "GPIO11",
+      "~RTS2",
+      "~CTS2",
+      "RX2",
+      "TX2",
+      "GPIO12",
+      "GPIO13",
+      "GPIO14",
+      "GPIO15",
+      "~RTS3",
+      "SCLK/SCL",
+      "~CTS3",
+      "RX3",
+      "TX3",
+      "VEXT",
+      "XOUT",
+      "XIN",
+      "AGND",
+      "VA",
+      "V18",
+      "~CS~/A0",
+      "MOSI/A1",
+      "~IRQ",
+      "~RST",
+      "VL"
+    ],
+    "description": "Quad UART with I2C/SPI interface, 128 Word FIFOs, IrDA SIR built-in support, TQFN-48",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "128W",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "MAX232",
+    "type": "Interface_UART",
+    "pins": [
+      "C1+",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "VS+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "VS-",
+      "T2OUT",
+      "R2IN",
+      "R2OUT"
+    ],
+    "description": "Dual RS232 driver/receiver, 5V supply, 120kb/s, 0C-70C",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver",
+      "line-driver"
+    ]
+  },
+  {
+    "component": "MAX232I",
+    "type": "Interface_UART",
+    "pins": [
+      "C1+",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "VS+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "VS-",
+      "T2OUT",
+      "R2IN",
+      "R2OUT"
+    ],
+    "description": "Dual RS232 driver/receiver, 5V supply, 120kb/s, -40C-80C",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver",
+      "line-driver"
+    ]
+  },
+  {
+    "component": "MAX202",
+    "type": "Interface_UART",
+    "pins": [
+      "C1+",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "VS+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "VS-",
+      "T2OUT",
+      "R2IN",
+      "R2OUT"
+    ],
+    "description": "Dual RS232 driver/receiver, 5V supply, 120kb/s, 0C-70C",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver",
+      "line-driver"
+    ]
+  },
+  {
+    "component": "ADM232A",
+    "type": "Interface_UART",
+    "pins": [
+      "C1+",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "VS+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "VS-",
+      "T2OUT",
+      "R2IN",
+      "R2OUT"
+    ],
+    "description": "Dual RS232 driver/receiver, 5V supply, 200kb/s",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver",
+      "line-driver"
+    ]
+  },
+  {
+    "component": "MAX3232",
+    "type": "Interface_UART",
+    "pins": [
+      "C1+",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "VS+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "VS-",
+      "T2OUT",
+      "R2IN",
+      "R2OUT"
+    ],
+    "description": "3.0V to 5.5V, Low-Power, up to 1Mbps, True RS-232 Transceivers Using Four 0.1\u03bcF External Capacitors",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver",
+      "line-driver"
+    ]
+  },
+  {
+    "component": "ICL3232",
+    "type": "Interface_UART",
+    "pins": [
+      "C1+",
+      "T2IN",
+      "T1IN",
+      "R1OUT",
+      "R1IN",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "VS+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "VS-",
+      "T2OUT",
+      "R2IN",
+      "R2OUT"
+    ],
+    "description": "3.0V to 5.5V, Low-Power, up to 250kbps, True RS-232 Transceivers Using Four 0.1\u03bcF External Capacitors",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver",
+      "line-driver"
+    ]
+  },
+  {
+    "component": "MAX3051",
+    "type": "Interface_UART",
+    "pins": [
+      "TXD",
+      "GND",
+      "VDD",
+      "RXD",
+      "SHDN",
+      "CANL",
+      "CANH",
+      "RS"
+    ],
+    "description": "High-Speed CAN Transceiver, 1Mbps, 3.3V supply",
+    "keywords": [
+      "High-Speed",
+      "CAN",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "MAX3218",
+    "type": "Interface_UART",
+    "pins": [
+      "LX",
+      "R2OUT",
+      "R2IN",
+      "R1IN",
+      "T2OUT",
+      "T1OUT",
+      "V-",
+      "C1-",
+      "GND",
+      "C1+",
+      "V+",
+      "~INVALID",
+      "FORCEON",
+      "~FORCEOFF",
+      "VCC",
+      "T1IN",
+      "T2IN",
+      "R1OUT"
+    ],
+    "description": "Dual RS-232 Transceiver, 1.8V to 4.25V, AutoShutdown, DIP-20/SSOP-20",
+    "keywords": [
+      "1\u03bcA",
+      "Supply",
+      "Current"
+    ]
+  },
+  {
+    "component": "MAX3221",
+    "type": "Interface_UART",
+    "pins": [
+      "~EN",
+      "~INVALID",
+      "DIN",
+      "FORCEON",
+      "DOUT",
+      "GND",
+      "VCC",
+      "~FORCEOFF",
+      "C1+",
+      "V+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "V-",
+      "RIN",
+      "ROUT"
+    ],
+    "description": "RS232 transceiver with 15kV ESD protection",
+    "keywords": [
+      "serial",
+      "UART",
+      "RS232"
+    ]
+  },
+  {
+    "component": "MAX3226",
+    "type": "Interface_UART",
+    "pins": [
+      "READY",
+      "~INVALID",
+      "T1IN",
+      "FORCEON",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "~FORCEOFF",
+      "C1+",
+      "V+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "V-",
+      "R1IN",
+      "R1OUT"
+    ],
+    "description": "Single RS232 driver/receiver, 3.0V to 5V supply, 250kb/s, AutoShutdown Plus, SSOP-16 package",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX3227",
+    "type": "Interface_UART",
+    "pins": [
+      "READY",
+      "~INVALID",
+      "T1IN",
+      "FORCEON",
+      "T1OUT",
+      "GND",
+      "VCC",
+      "~FORCEOFF",
+      "C1+",
+      "V+",
+      "C1-",
+      "C2+",
+      "C2-",
+      "V-",
+      "R1IN",
+      "R1OUT"
+    ],
+    "description": "Single RS232 driver/receiver, 3.0V to 5V supply, 1Mb/s, AutoShutdown Plus, SSOP-16 package",
+    "keywords": [
+      "rs232",
+      "uart",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX3284E",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "GND",
+      "RO",
+      "B",
+      "VL",
+      "A"
+    ],
+    "description": "\u00b115kV ESD-Protected 52Mbps, 3V to 5.5V RS-485/RS-422 True Fail-Safe Receivers, SOT23",
+    "keywords": [
+      "RS-485",
+      "RS-422",
+      "True",
+      "Fail-Safe",
+      "Receivers",
+      "1/4",
+      "unit",
+      "load",
+      "receiver"
+    ]
+  },
+  {
+    "component": "MAX481E",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Half duplex RS-485/RS-422, 2.5 Mbps, \u00b115kV electro-static discharge (ESD) protection, no slew-rate, with low-power shutdown, with receiver/driver enable, 32 receiver drive kapacitity, DIP-8 and SOIC-8",
+    "keywords": [
+      "Half",
+      "duplex",
+      "RS-485/RS-422",
+      "2.5",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "no",
+      "slew-rate",
+      "with",
+      "low-power",
+      "shutdown",
+      "with",
+      "receiver/driver",
+      "enable",
+      "32",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "DIP-8",
+      "and",
+      "SOIC-8"
+    ]
+  },
+  {
+    "component": "MAX483E",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Half duplex RS-485/RS-422, 0.25 Mbps, \u00b115kV electro-static discharge (ESD) protection, with slew-rate, with low-power shutdown, with receiver/driver enable, 32 receiver drive kapacitity, DIP-8 and SOIC-8",
+    "keywords": [
+      "Half",
+      "duplex",
+      "RS-485/RS-422",
+      "0.25",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "with",
+      "slew-rate",
+      "with",
+      "low-power",
+      "shutdown",
+      "with",
+      "receiver/driver",
+      "enable",
+      "32",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "DIP-8",
+      "and",
+      "SOIC-8"
+    ]
+  },
+  {
+    "component": "MAX485E",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Half duplex RS-485/RS-422, 2.5 Mbps, \u00b115kV electro-static discharge (ESD) protection, no slew-rate, no low-power shutdown, with receiver/driver enable, 32 receiver drive kapacitity, DIP-8 and SOIC-8",
+    "keywords": [
+      "Half",
+      "duplex",
+      "RS-485/RS-422",
+      "2.5",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "no",
+      "slew-rate",
+      "no",
+      "low-power",
+      "shutdown",
+      "with",
+      "receiver/driver",
+      "enable",
+      "32",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "DIP-8",
+      "and",
+      "SOIC-8"
+    ]
+  },
+  {
+    "component": "MAX487E",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Half duplex RS-485/RS-422, 0.25 Mbps, \u00b115kV electro-static discharge (ESD) protection, with slew-rate, with low-power shutdown, with receiver/driver enable, 128 receiver drive kapacitity, DIP-8 and SOIC-8",
+    "keywords": [
+      "Half",
+      "duplex",
+      "RS-485/RS-422",
+      "0.25",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "with",
+      "slew-rate",
+      "with",
+      "low-power",
+      "shutdown",
+      "with",
+      "receiver/driver",
+      "enable",
+      "128",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "DIP-8",
+      "and",
+      "SOIC-8"
+    ]
+  },
+  {
+    "component": "MAX1487E",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Half duplex RS-485/RS-422, 2.5 Mbps, \u00b115kV electro-static discharge (ESD) protection, no slew-rate, no low-power shutdown, with receiver/driver enable, 128 receiver drive kapacitity, DIP-8 and SOIC-8",
+    "keywords": [
+      "Half",
+      "duplex",
+      "RS-485/RS-422",
+      "2.5",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "no",
+      "slew-rate",
+      "no",
+      "low-power",
+      "shutdown",
+      "with",
+      "receiver/driver",
+      "enable",
+      "128",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "DIP-8",
+      "and",
+      "SOIC-8"
+    ]
+  },
+  {
+    "component": "MAX3485",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "True RS-485/RS-422, 10Mbps, Slew-Rate Limited, with low-power shutdown, with receiver/driver enable, 32 receiver drive capacitity, DIP-8 and SOIC-8",
+    "keywords": [
+      "RS-485",
+      "RS-422",
+      "UART",
+      "line-driver",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX3483",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "True RS-485/RS-422, 0.25Mbps, Slew-Rate Limited, with low-power shutdown, with receiver/driver enable, 32 receiver drive capacitity, DIP-8 and SOIC-8",
+    "keywords": [
+      "RS-485",
+      "RS-422",
+      "UART",
+      "line-driver",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX3486",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "True RS-485/RS-422, 2.5Mbps, Slew-Rate Limited, with low-power shutdown, with receiver/driver enable, 32 receiver drive capacitity, DIP-8 and SOIC-8",
+    "keywords": [
+      "RS-485",
+      "RS-422",
+      "UART",
+      "line-driver",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "MAX488E",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "Full duplex RS-485/RS-422, 0.25 Mbps, \u00b115kV electro-static discharge (ESD) protection, slew-rate limited, no low-power shutdown, no with receiver/driver enable, 32 receiver drive kapacitity, 0 to +70 degree Celcius, DIP-8 and SOIC-8",
+    "keywords": [
+      "Full",
+      "duplex",
+      "RS-485/RS-422",
+      "0.25",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "slew-rate",
+      "limited",
+      "no",
+      "low-power",
+      "shutdown",
+      "no",
+      "with",
+      "receiver/driver",
+      "enable",
+      "32",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "0",
+      "to",
+      "+70",
+      "degree",
+      "Celcius",
+      "DIP-8",
+      "and",
+      "SOIC-8"
+    ]
+  },
+  {
+    "component": "MAX490E",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "RO",
+      "DI",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "Full duplex RS-485/RS-422, 2.5 Mbps, \u00b115kV electro-static discharge (ESD) protection, no slew-rate limited, no low-power shutdown, no with receiver/driver enable, 32 receiver drive kapacitity, -40 to +85 degree Celcius, DIP-8 and SOIC-8",
+    "keywords": [
+      "Full",
+      "duplex",
+      "RS-485/RS-422",
+      "2.5",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "no",
+      "slew-rate",
+      "limited",
+      "no",
+      "low-power",
+      "shutdown",
+      "no",
+      "with",
+      "receiver/driver",
+      "enable",
+      "32",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "-40",
+      "to",
+      "+85",
+      "degree",
+      "Celcius",
+      "DIP-8",
+      "and",
+      "SOIC-8"
+    ]
+  },
+  {
+    "component": "MAX489E",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "Full duplex RS-485/RS-422, 0.25 Mbps, \u00b115kV electro-static discharge (ESD) protection, slew-rate limited, no low-power shutdown, with with receiver/driver enable, 32 receiver drive kapacitity, 0 to +70 degree Celcius, DIP-14 and SOIC-14",
+    "keywords": [
+      "Full",
+      "duplex",
+      "RS-485/RS-422",
+      "0.25",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "slew-rate",
+      "limited",
+      "no",
+      "low-power",
+      "shutdown",
+      "with",
+      "with",
+      "receiver/driver",
+      "enable",
+      "32",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "0",
+      "to",
+      "+70",
+      "degree",
+      "Celcius",
+      "DIP-14",
+      "and",
+      "SOIC-14"
+    ]
+  },
+  {
+    "component": "MAX491E",
+    "type": "Interface_UART",
+    "pins": [
+      "NC",
+      "Z",
+      "B",
+      "A",
+      "VCC",
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "Y"
+    ],
+    "description": "Full duplex RS-485/RS-422, 2.5 Mbps, \u00b115kV electro-static discharge (ESD) protection, no slew-rate limited, no low-power shutdown, with receiver/driver enable, 32 receiver drive kapacitity, 0 to +70 degree Celcius, DIP-14 and SOIC-14",
+    "keywords": [
+      "Full",
+      "duplex",
+      "RS-485/RS-422",
+      "2.5",
+      "Mbps",
+      "\u00b115kV",
+      "electro-static",
+      "discharge",
+      "(ESD)",
+      "protection",
+      "no",
+      "slew-rate",
+      "limited",
+      "no",
+      "low-power",
+      "shutdown",
+      "with",
+      "receiver/driver",
+      "enable",
+      "32",
+      "receiver",
+      "drive",
+      "kapacitity",
+      "0",
+      "to",
+      "+70",
+      "degree",
+      "Celcius",
+      "DIP-14",
+      "and",
+      "SOIC-14"
+    ]
+  },
+  {
+    "component": "MC6850",
+    "type": "Interface_UART",
+    "pins": [
+      "VSS",
+      "CS1",
+      "RS",
+      "VCC",
+      "R/~W",
+      "E",
+      "D7",
+      "D6",
+      "D5",
+      "D4",
+      "D3",
+      "Rx_Data",
+      "D2",
+      "D1",
+      "D0",
+      "~DCD",
+      "~CTS",
+      "Rx_CLK",
+      "Tx_CLK",
+      "~RTS",
+      "Tx_Data",
+      "~IRQ",
+      "CS0",
+      "CS2"
+    ],
+    "description": "Asynchronous Communications Interface Adapter 1MHz, DIP-40",
+    "keywords": [
+      "ACIA"
+    ]
+  },
+  {
+    "component": "MC68A50",
+    "type": "Interface_UART",
+    "pins": [
+      "VSS",
+      "CS1",
+      "RS",
+      "VCC",
+      "R/~W",
+      "E",
+      "D7",
+      "D6",
+      "D5",
+      "D4",
+      "D3",
+      "Rx_Data",
+      "D2",
+      "D1",
+      "D0",
+      "~DCD",
+      "~CTS",
+      "Rx_CLK",
+      "Tx_CLK",
+      "~RTS",
+      "Tx_Data",
+      "~IRQ",
+      "CS0",
+      "CS2"
+    ],
+    "description": "Asynchronous Communications Interface Adapter 1.5MHz, DIP-40",
+    "keywords": [
+      "ACIA"
+    ]
+  },
+  {
+    "component": "MC68B50",
+    "type": "Interface_UART",
+    "pins": [
+      "VSS",
+      "CS1",
+      "RS",
+      "VCC",
+      "R/~W",
+      "E",
+      "D7",
+      "D6",
+      "D5",
+      "D4",
+      "D3",
+      "Rx_Data",
+      "D2",
+      "D1",
+      "D0",
+      "~DCD",
+      "~CTS",
+      "Rx_CLK",
+      "Tx_CLK",
+      "~RTS",
+      "Tx_Data",
+      "~IRQ",
+      "CS0",
+      "CS2"
+    ],
+    "description": "Asynchronous Communications Interface Adapter 2MHz, DIP-40",
+    "keywords": [
+      "ACIA"
+    ]
+  },
+  {
+    "component": "SC16IS740",
+    "type": "Interface_UART",
+    "pins": [
+      "VDD",
+      "~RTS",
+      "~CTS",
+      "TX",
+      "RX",
+      "~RESET",
+      "XTAL1",
+      "XTAL2",
+      "A0/~CS",
+      "A1/SI",
+      "SO",
+      "SCL/SCLK",
+      "SDA",
+      "~IRQ",
+      "I2C/~SPI",
+      "VSS"
+    ],
+    "description": "Single UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, TSSOP-16",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SC16IS750xBS",
+    "type": "Interface_UART",
+    "pins": [
+      "~RESET",
+      "SDA",
+      "~IRQ",
+      "GPIO0",
+      "GPIO1",
+      "GPIO2",
+      "GPIO3",
+      "VSS",
+      "GPIO4/~DSR",
+      "GPIO5/~DTR",
+      "GPIO6/~CD",
+      "XTAL1",
+      "GPIO7/~RI",
+      "~RTS",
+      "~CTS",
+      "TX",
+      "RX",
+      "XTAL2",
+      "VDD",
+      "I2C/~SPI",
+      "A0/~CS",
+      "A1/SI",
+      "SO",
+      "SCL/SCLK"
+    ],
+    "description": "Single UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, HVQFN-24",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SC16IS760xBS",
+    "type": "Interface_UART",
+    "pins": [
+      "~RESET",
+      "SDA",
+      "~IRQ",
+      "GPIO0",
+      "GPIO1",
+      "GPIO2",
+      "GPIO3",
+      "VSS",
+      "GPIO4/~DSR",
+      "GPIO5/~DTR",
+      "GPIO6/~CD",
+      "XTAL1",
+      "GPIO7/~RI",
+      "~RTS",
+      "~CTS",
+      "TX",
+      "RX",
+      "XTAL2",
+      "VDD",
+      "I2C/~SPI",
+      "A0/~CS",
+      "A1/SI",
+      "SO",
+      "SCL/SCLK"
+    ],
+    "description": "Single UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, HVQFN-24",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SC16IS750xPW",
+    "type": "Interface_UART",
+    "pins": [
+      "~CTS",
+      "A1/SI",
+      "SO",
+      "SCL/SCLK",
+      "SDA",
+      "~IRQ",
+      "GPIO0",
+      "GPIO1",
+      "GPIO2",
+      "GPIO3",
+      "VSS",
+      "TX",
+      "GPIO4/~DSR",
+      "GPIO5/~DTR",
+      "GPIO6/~CD",
+      "GPIO7/~RI",
+      "~RTS",
+      "RX",
+      "~RESET",
+      "XTAL1",
+      "XTAL2",
+      "VDD",
+      "I2C/~SPI",
+      "A0/~CS"
+    ],
+    "description": "Single UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, TSSOP-24",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SC16IS760xPW",
+    "type": "Interface_UART",
+    "pins": [
+      "~CTS",
+      "A1/SI",
+      "SO",
+      "SCL/SCLK",
+      "SDA",
+      "~IRQ",
+      "GPIO0",
+      "GPIO1",
+      "GPIO2",
+      "GPIO3",
+      "VSS",
+      "TX",
+      "GPIO4/~DSR",
+      "GPIO5/~DTR",
+      "GPIO6/~CD",
+      "GPIO7/~RI",
+      "~RTS",
+      "RX",
+      "~RESET",
+      "XTAL1",
+      "XTAL2",
+      "VDD",
+      "I2C/~SPI",
+      "A0/~CS"
+    ],
+    "description": "Single UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, TSSOP-24",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SC16IS752IBS",
+    "type": "Interface_UART",
+    "pins": [
+      "RXA",
+      "SCL/SCLK",
+      "SDA/VSS",
+      "VSS",
+      "VDD",
+      "~IRQ",
+      "~CTSB",
+      "~RTSB",
+      "GPIO0/~DSRB",
+      "GPIO1/~DTRB",
+      "GPIO2/~CDB",
+      "~RESET",
+      "GPIO3/~RIB",
+      "TXB",
+      "RXB",
+      "GPIO4/~DSRA",
+      "GPIO5/~DTRA",
+      "GPIO6/~CDA",
+      "GPIO7/~RIA",
+      "XTAL1",
+      "~RTSA",
+      "~CTSA",
+      "TXA",
+      "XTAL2",
+      "I2C/~SPI",
+      "A0/~CS",
+      "A1/SI",
+      "n.c./SO"
+    ],
+    "description": "Dual UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, HVQFN-32",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SC16IS762IBS",
+    "type": "Interface_UART",
+    "pins": [
+      "RXA",
+      "SCL/SCLK",
+      "SDA/VSS",
+      "VSS",
+      "VDD",
+      "~IRQ",
+      "~CTSB",
+      "~RTSB",
+      "GPIO0/~DSRB",
+      "GPIO1/~DTRB",
+      "GPIO2/~CDB",
+      "~RESET",
+      "GPIO3/~RIB",
+      "TXB",
+      "RXB",
+      "GPIO4/~DSRA",
+      "GPIO5/~DTRA",
+      "GPIO6/~CDA",
+      "GPIO7/~RIA",
+      "XTAL1",
+      "~RTSA",
+      "~CTSA",
+      "TXA",
+      "XTAL2",
+      "I2C/~SPI",
+      "A0/~CS",
+      "A1/SI",
+      "n.c./SO"
+    ],
+    "description": "Dual UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, HVQFN-32",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SC16IS752IPW",
+    "type": "Interface_UART",
+    "pins": [
+      "~RTSA",
+      "A0/~CS",
+      "A1/SI",
+      "n.c./SO",
+      "SCL/SCLK",
+      "SDA/VSS",
+      "~IRQ",
+      "~CTSB",
+      "~RTSB",
+      "GPIO0/~DSRB",
+      "GPIO1/~DTRB",
+      "~CTSA",
+      "GPIO2/~CDB",
+      "GPIO3/~RIB",
+      "VSS",
+      "TXB",
+      "RXB",
+      "GPIO4/~DSRA",
+      "GPIO5/~DTRA",
+      "GPIO6/~CDA",
+      "GPIO7/~RIA",
+      "TXA",
+      "RXA",
+      "~RESET",
+      "XTAL1",
+      "XTAL2",
+      "VDD",
+      "I2C/~SPI"
+    ],
+    "description": "Dual UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, TSSOP-28",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SC16IS762IPW",
+    "type": "Interface_UART",
+    "pins": [
+      "~RTSA",
+      "A0/~CS",
+      "A1/SI",
+      "n.c./SO",
+      "SCL/SCLK",
+      "SDA/VSS",
+      "~IRQ",
+      "~CTSB",
+      "~RTSB",
+      "GPIO0/~DSRB",
+      "GPIO1/~DTRB",
+      "~CTSA",
+      "GPIO2/~CDB",
+      "GPIO3/~RIB",
+      "VSS",
+      "TXB",
+      "RXB",
+      "GPIO4/~DSRA",
+      "GPIO5/~DTRA",
+      "GPIO6/~CDA",
+      "GPIO7/~RIA",
+      "TXA",
+      "RXA",
+      "~RESET",
+      "XTAL1",
+      "XTAL2",
+      "VDD",
+      "I2C/~SPI"
+    ],
+    "description": "Dual UART with I2C/SPI interface, 64 bytes of transmit and receive FIFOs, IrDA SIR built-in support, TSSOP-28",
+    "keywords": [
+      "UART",
+      "I2C/SPI",
+      "64B",
+      "FIFO",
+      "IrDA",
+      "SIR"
+    ]
+  },
+  {
+    "component": "SN75LBC176D",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential bus transceiver, SOIC-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SN65LBC176D",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential bus transceiver, SOIC-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SN65LBC176QD",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential bus transceiver, SOIC-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SN65LBC176QDR",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential bus transceiver, SOIC-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SN75176AD",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential RS-422/RS-485 bus transceiver, SOIC-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SN75LBC176P",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential bus transceiver, DIP-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SN65LBC176P",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential bus transceiver, DIP-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SNJ55LBC176JG",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential bus transceiver, ceramic DIP-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SN75176AP",
+    "type": "Interface_UART",
+    "pins": [
+      "R",
+      "~RE",
+      "DE",
+      "D",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Differential RS-422/RS-485 bus transceiver, DIP-8",
+    "keywords": [
+      "Differential",
+      "bus",
+      "transceiver"
+    ]
+  },
+  {
+    "component": "SP3481CN",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, SOIC-8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "Transceiver",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "MAX3072E",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "+3.3V, \u00b115kV ESD-Protected, Fail-Safe, Hot-Swap, RS-485/RS-422 Transceivers, SOIC-8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "RS-422",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "MAX3075E",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "+3.3V, \u00b115kV ESD-Protected, Fail-Safe, Hot-Swap, RS-485/RS-422 Transceivers, SOIC-8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "RS-422",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "MAX3078E",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "+3.3V, \u00b115kV ESD-Protected, Fail-Safe, Hot-Swap, RS-485/RS-422 Transceivers, SOIC-8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "RS-422",
+      "Transceiver"
+    ]
+  },
+  {
+    "component": "SP3481EN",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Industrial 3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, SOIC-8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "Transceiver",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "SP3485CN",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, SOIC-8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "Transceiver",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "SP3485EN",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Industrial 3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, SOIC-8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "Transceiver",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "SP3481CP",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, DIP8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "Transceiver",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "SP3481EP",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Industrial 3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, DIP8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "Transceiver",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "SP3485CP",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, DIP8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "Transceiver",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "SP3485EP",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE~",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Industrial 3.3V Low Power Half-Duplex RS-485 Transceiver 10Mbps, DIP8",
+    "keywords": [
+      "Low",
+      "Power",
+      "Half-Duplex",
+      "RS-485",
+      "Transceiver",
+      "10Mbps"
+    ]
+  },
+  {
+    "component": "ST485EBDR",
+    "type": "Interface_UART",
+    "pins": [
+      "RO",
+      "~RE",
+      "DE",
+      "DI",
+      "GND",
+      "A",
+      "B",
+      "VCC"
+    ],
+    "description": "Half duplex RS-485/RS-422, 5 Mbps, \u00b115kV electro-static discharge (ESD) protection, no slew-rate, with low-power shutdown, with receiver/driver enable, 256 transceiver on the bus - 40 to 85 \u00b0C, SOIC-8",
+    "keywords": [
+      "Half",
+      "duplex",
+      "RS-485/RS-422",
+      "5",
+      "Mbps",
+      "\u00b115kV",
+      "256",
+      "transceiver",
+      "bus"
+    ]
+  },
+  {
+    "component": "THVD1451D",
+    "type": "Interface_UART",
+    "pins": [
+      "VCC",
+      "R",
+      "D",
+      "GND",
+      "Y",
+      "Z",
+      "B",
+      "A"
+    ],
+    "description": "RS485 transceiver, 3.3-V to 5-V, 18-kV IEC ESD Protection, SOIC-8",
+    "keywords": [
+      "rs485",
+      "transceiver",
+      "line",
+      "driver"
+    ]
+  },
+  {
+    "component": "Z8530",
+    "type": "Interface_UART",
+    "pins": [
+      "D1",
+      "~W/REQA~",
+      "~SYNCA~",
+      "~RTXCA",
+      "RXDA",
+      "~TRXCA",
+      "TXDA",
+      "~DTR/REQA",
+      "~RTSA",
+      "~CTSA",
+      "~DCDA",
+      "D3",
+      "PCLK",
+      "~DCDB",
+      "~CTSB",
+      "~RTSB",
+      "~DTR/REQB",
+      "TXDB",
+      "~TRXCB",
+      "RXDB",
+      "~RTXCB",
+      "~SYNCB",
+      "D5",
+      "~W/REQB",
+      "GND",
+      "D/~C~",
+      "~CE",
+      "A/~B~",
+      "~WR",
+      "~RD",
+      "D6",
+      "D4",
+      "D2",
+      "D7",
+      "D0",
+      "~INT",
+      "IEO",
+      "IEI",
+      "~INTACK",
+      "VCC"
+    ],
+    "description": "SCC Serial Communication Controller, DIP-40",
+    "keywords": [
+      "SCC",
+      "Serial",
+      "Communication"
+    ]
+  }
+]
