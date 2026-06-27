@@ -614,7 +614,6 @@ import asyncio
 @router.post("/api/design/stream")
 async def generate_robot_design_stream(request: Request, design_request: DesignRequest):
     messages = design_request.messages or []
-    assistant_count = sum(1 for m in messages if m.role == "assistant")
     
     query = ""
     if design_request.query:
@@ -622,39 +621,64 @@ async def generate_robot_design_stream(request: Request, design_request: DesignR
     elif messages:
         query = messages[-1].content.strip()
         
+    dict_messages = [{"role": m.role, "content": m.content} for m in messages]
+    if not dict_messages and query:
+        dict_messages = [{"role": "user", "content": query}]
+
+    # Run semantic state classification to determine if we should generate the design
+    CLASSIFY_SYSTEM_PROMPT = """You are a conversational analyzer. Analyze the chat history and output exactly either 'YES' or 'NO'.
+
+A complete robot design specification requires the user to have explicitly discussed or answered questions about all three of these categories:
+1. PAYLOAD or SCALE (e.g., maximum payload weight or footprint size)
+2. ENVIRONMENT (e.g., indoor/outdoor, terrain type, or surface flatness)
+3. NAVIGATION, MOUNTING, or STEERING (e.g., mobile base vs. stationary bench mount, LiDAR SLAM, magnetic tape guidance)
+
+Check the messages history:
+- Has the user explicitly discussed or answered questions about payload/scale? (Yes/No)
+- Has the user explicitly discussed or answered questions about environment? (Yes/No)
+- Has the user explicitly discussed or answered questions about navigation/mounting? (Yes/No)
+
+If the user has explicitly discussed or answered questions about ALL THREE categories, output exactly: YES
+Otherwise, output exactly: NO"""
+
+    classify_prompt = f"Analyze this conversation history and reply with YES or NO:\n{json.dumps(dict_messages)}"
+    try:
+        classification = _safe_llm_call(
+            prompt=classify_prompt,
+            system_prompt=CLASSIFY_SYSTEM_PROMPT,
+            response_format="text"
+        ).strip().upper()
+    except Exception as e:
+        print(f"[api/design] Classification call failed: {e}")
+        classification = "NO"
+        
+    should_generate = "YES" in classification
+        
     async def event_generator():
-        if assistant_count < 3:
-            if assistant_count == 0:
-                CLARIFYING_SYSTEM_PROMPT = """You are Yantraa, a friendly, concise, and technically sharp AI robotics co-pilot.
-Acknowledge the user's robot idea warmly in ONE short line.
-Then ask exactly ONE single, simple clarifying question about the PAYLOAD (e.g. "What is the maximum payload capacity you are targeting?").
-CRITICAL: Do NOT ask any other questions (such as size, footprint, speed, or application). Ask only ONE question in this turn.
-Do NOT generate any design or components yet.
-Keep it brief and conversational."""
-            elif assistant_count == 1:
-                CLARIFYING_SYSTEM_PROMPT = """You are Yantraa, a friendly, concise, and technically sharp AI robotics co-pilot.
-Acknowledge the user's answer briefly.
-Then ask exactly ONE single, simple clarifying question about the ENVIRONMENT (e.g. "Will this robot operate indoor on flat surfaces, or does it need to handle outdoor terrain?").
-CRITICAL: Do NOT ask any other questions (such as mounting, power source, or speed). Ask only ONE question in this turn.
-Do NOT generate any design or components yet.
-Keep it brief and conversational."""
-            else:
-                CLARIFYING_SYSTEM_PROMPT = """You are Yantraa, a friendly, concise, and technically sharp AI robotics co-pilot.
-Acknowledge the user's answer briefly.
-Then ask exactly ONE single, simple clarifying question about the NAVIGATION or MOUNTING (e.g. "Will this robot be stationary/mounted, or does it need a mobile base?").
-CRITICAL: Do NOT ask any other questions. Ask only ONE question in this turn.
-Do NOT generate any design or components yet.
-Keep it brief and conversational."""
+        if not should_generate:
+            CHAT_GUIDE_SYSTEM_PROMPT = """You are Yantraa, a friendly, concise, and technically sharp AI robotics co-pilot.
             
-            dict_messages = [{"role": m.role, "content": m.content} for m in messages]
-            if not dict_messages and query:
-                dict_messages = [{"role": "user", "content": query}]
-                
+Your goal is to guide the user in designing their robot. Ask exactly ONE single question at a time to collect these missing details in sequence:
+1. PAYLOAD (e.g., "What is the maximum payload capacity you are targeting?")
+2. ENVIRONMENT (e.g., "Will this robot operate indoor on flat surfaces, or does it need to handle outdoor terrain?")
+3. NAVIGATION or MOUNTING (e.g., "Will this robot be stationary/mounted, or does it need a mobile base?")
+
+Follow these rules:
+- If the user is greeting you (like "hello", "hi") or asking who you are, respond conversationally, introduce yourself as Yantraa, and ask them what they are planning to build today. Do NOT ask for payload or environment yet.
+- If they have described their robot but payload/scale is missing, ask exactly ONE simple question about PAYLOAD.
+- If payload is known but environment is missing, ask exactly ONE simple question about ENVIRONMENT.
+- If payload and environment are known but navigation/mounting is missing, ask exactly ONE simple question about NAVIGATION or MOUNTING.
+
+Keep your response brief and conversational. Ask ONLY ONE question in this turn. Do NOT ask multiple questions, and do NOT generate any design or components yet."""
+            
             try:
                 from llm import invoke_yantra_ai_chat_stream
+                stream_messages = [{"role": m.role, "content": m.content} for m in messages]
+                if not stream_messages and query:
+                    stream_messages = [{"role": "user", "content": query}]
                 token_gen = invoke_yantra_ai_chat_stream(
-                    messages=dict_messages,
-                    system_prompt=CLARIFYING_SYSTEM_PROMPT,
+                    messages=stream_messages,
+                    system_prompt=CHAT_GUIDE_SYSTEM_PROMPT,
                     temperature=0.7
                 )
                 for token in token_gen:
@@ -674,10 +698,10 @@ Keep it brief and conversational."""
                 
                 yield f"data: {json.dumps({'type': 'status', 'content': 'Building your BOM...' })}\n\n"
                 
-                dict_messages = [{"role": m.role, "content": m.content} for m in messages]
+                final_messages = [{"role": m.role, "content": m.content} for m in messages]
                 
                 # Execute pipeline
-                res_data = await run_synthesis_pipeline(request, query, dict_messages)
+                res_data = await run_synthesis_pipeline(request, query, final_messages)
                 
                 # Convert the DesignResponse model to dict
                 res_dict = {
