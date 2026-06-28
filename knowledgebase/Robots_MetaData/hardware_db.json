@@ -355,6 +355,17 @@
         {"id": "out", "label": "OUT", "type": "power_out"}
       ]
     },
+    "buck converter": {
+      "label": "LM2596 5V Buck Converter",
+      "type": "regulator",
+      "operating_voltage": [12.0],
+      "ports": [
+        {"id": "vin", "label": "IN+ (12V)", "type": "power_in", "voltage": 12.0},
+        {"id": "gnd_in", "label": "IN- (GND)", "type": "ground"},
+        {"id": "vout", "label": "OUT+ (5V)", "type": "power_out", "voltage": 5.0},
+        {"id": "gnd_out", "label": "OUT- (GND)", "type": "ground"}
+      ]
+    },
     "wheel": {
       "label": "Rubber Wheel 65mm",
       "type": "mechanical",
@@ -369,6 +380,42 @@
       "operating_voltage": [0.0],
       "ports": [
         {"id": "fluid", "label": "Fluid Tube", "type": "mechanical_in"}
+      ]
+    },
+    "power switch": {
+      "label": "Master Power Switch",
+      "type": "protection",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "in", "label": "IN", "type": "power_in"},
+        {"id": "out", "label": "OUT", "type": "power_out"}
+      ]
+    },
+    "100uf capacitor": {
+      "label": "100µF Electrolytic Capacitor",
+      "type": "passive",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "pos", "label": "+", "type": "power_in"},
+        {"id": "neg", "label": "-", "type": "ground"}
+      ]
+    },
+    "0.1uf capacitor": {
+      "label": "0.1µF Ceramic Bypass Cap",
+      "type": "passive",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "pos", "label": "+", "type": "power_in"},
+        {"id": "neg", "label": "-", "type": "ground"}
+      ]
+    },
+    "protection diode": {
+      "label": "1N5408 Protection Diode",
+      "type": "protection",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "anode", "label": "Anode", "type": "power_in"},
+        {"id": "cathode", "label": "Cathode", "type": "power_out"}
       ]
     }
   }

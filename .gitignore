@@ -39,3 +39,4 @@ api_response.json
 .temp_*/
 scratch/
 .scraped_url_cache.json
+*.pem
