@@ -68,7 +68,7 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         "temperature": temperature,
         # Cap max_tokens to prevent OpenRouter from estimating the max context window (65k) 
         # which exceeds free tier limits.
-        "max_tokens": 1500,
+        "max_tokens": 8192,
     }
     if response_format == "json_object":
         payload["response_format"] = {"type": "json_object"}
@@ -143,7 +143,7 @@ def call_llm_stream(messages: list, temperature: float = 0.7, response_format: s
         "model": target_model,
         "messages": messages,
         "temperature": temperature,
-        "max_tokens": 1000,
+        "max_tokens": 4000,
         "stream": True
     }
     if response_format == "json_object":
