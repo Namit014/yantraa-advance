@@ -443,10 +443,10 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
         flexDirection: "column",
         width: "100%",
         height: "100%",
-        backgroundColor: "#06080f",
+        backgroundColor: "#0A0A0A",
         borderRadius: 12,
         overflow: "hidden",
-        border: "1px solid #1a2744",
+        border: "1px solid #2A2A2A",
         position: "relative",
       }}
     >
@@ -457,8 +457,8 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
           alignItems: "center",
           gap: 10,
           padding: "10px 14px",
-          borderBottom: "1px solid #1a2744",
-          backgroundColor: "#080d1a",
+          borderBottom: "1px solid #2A2A2A",
+          backgroundColor: "#161616",
           flexShrink: 0,
           flexWrap: "wrap",
           rowGap: 8,
@@ -472,13 +472,13 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
             display: "flex",
             alignItems: "center",
             gap: 8,
-            backgroundColor: "#0d1528",
-            border: "1px solid #1a2744",
+            backgroundColor: "#1E1E1E",
+            border: "1px solid #2A2A2A",
             borderRadius: 8,
             padding: "6px 12px",
           }}
         >
-          <Sparkles size={13} style={{ color: "#4488ff", flexShrink: 0 }} />
+          <Sparkles size={13} style={{ color: "#888888", flexShrink: 0 }} />
           <input
             type="text"
             value={prompt}
@@ -490,7 +490,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
               background: "none",
               border: "none",
               outline: "none",
-              color: "white",
+              color: "#F0F0F0",
               fontSize: 12,
               fontFamily: "monospace",
             }}
@@ -508,9 +508,9 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
             padding: "7px 16px",
             borderRadius: 8,
             border: "1px solid",
-            borderColor: isGenerating || !prompt.trim() ? "#1a2744" : "#3b82f6",
-            backgroundColor: isGenerating || !prompt.trim() ? "#0d1528" : "#1e3a5f",
-            color: isGenerating || !prompt.trim() ? "#374151" : "#60a5fa",
+            borderColor: isGenerating || !prompt.trim() ? "#2A2A2A" : "#3b82f6",
+            backgroundColor: isGenerating || !prompt.trim() ? "#1E1E1E" : "#1e3a5f",
+            color: isGenerating || !prompt.trim() ? "#555555" : "#60a5fa",
             fontSize: 12,
             fontFamily: "monospace",
             fontWeight: 700,
@@ -564,9 +564,9 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
             gap: 5,
             padding: "6px 10px",
             borderRadius: 6,
-            border: "1px solid #1a2744",
-            backgroundColor: sidebarOpen ? "#1e3a5f" : "#0d1528",
-            color: sidebarOpen ? "#60a5fa" : "#6b7280",
+            border: "1px solid #2A2A2A",
+            backgroundColor: sidebarOpen ? "#1E1E1E" : "#161616",
+            color: sidebarOpen ? "#F0F0F0" : "#888888",
             fontSize: 11,
             fontFamily: "monospace",
             cursor: "pointer",
@@ -652,19 +652,19 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
                   width: 72,
                   height: 72,
                   borderRadius: "50%",
-                  border: "2px dashed #1a2744",
+                  border: "2px dashed #2A2A2A",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                <Sparkles size={28} style={{ color: "#1a2744" }} />
+                <Sparkles size={28} style={{ color: "#2A2A2A" }} />
               </div>
               <div style={{ textAlign: "center" }}>
-                <p style={{ color: "#374151", fontSize: 13, fontFamily: "monospace", fontWeight: 600 }}>
+                <p style={{ color: "#555555", fontSize: 13, fontFamily: "monospace", fontWeight: 600 }}>
                   No circuit yet
                 </p>
-                <p style={{ color: "#1f2937", fontSize: 11, fontFamily: "monospace", marginTop: 4 }}>
+                <p style={{ color: "#3A3A3A", fontSize: 11, fontFamily: "monospace", marginTop: 4 }}>
                   Type a description above and click Generate
                 </p>
               </div>
@@ -682,7 +682,7 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
                 alignItems: "center",
                 justifyContent: "center",
                 zIndex: 10,
-                backgroundColor: "rgba(6,8,15,0.85)",
+                backgroundColor: "rgba(10,10,10,0.85)",
                 backdropFilter: "blur(6px)",
                 gap: 14,
               }}
@@ -714,30 +714,30 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
               type: "circuitWire",
               style: { stroke: WIRE_COLORS.signal, strokeWidth: 1.5 },
             }}
-            style={{ backgroundColor: "#06080f" }}
+            style={{ backgroundColor: "#0A0A0A" }}
             proOptions={{ hideAttribution: true }}
           >
             <Background
               variant={BackgroundVariant.Dots}
               gap={24}
               size={1.2}
-              color="#1a2744"
+              color="#2A2A2A"
             />
             <Controls
               style={{
-                backgroundColor: "#0d1528",
-                border: "1px solid #1a2744",
+                backgroundColor: "#161616",
+                border: "1px solid #2A2A2A",
                 borderRadius: 8,
               }}
             />
             <MiniMap
               style={{
-                backgroundColor: "#080d1a",
-                border: "1px solid #1a2744",
+                backgroundColor: "#161616",
+                border: "1px solid #2A2A2A",
                 borderRadius: 8,
               }}
-              nodeColor="#1a3a5a"
-              maskColor="rgba(6,8,15,0.7)"
+              nodeColor="#2A2A2A"
+              maskColor="rgba(10,10,10,0.7)"
             />
           </ReactFlow>
         </div>
