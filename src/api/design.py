@@ -405,39 +405,40 @@ OUTPUT FORMAT:
     # Extract all text from BOM and subsystems to match against
     matched_cads = set()
     
-    # Check each BOM item
-    if isinstance(bom, list):
-        for b in bom:
-            if not isinstance(b, dict):
-                continue
-            name = b.get("name", "").lower()
-            desc = b.get("description", "").lower()
-            search_text = f"{name} {desc}"
-            
-            for key, filename in known_cads.items():
-                if key in search_text:
-                    matched_cads.add(filename)
-                
-    # Also check subsystems as LLMs sometimes put components there but forget them in BOM
-    if isinstance(subsystems, list):
-        for sub in subsystems:
-            if not isinstance(sub, dict):
-                continue
-            for comp in sub.get("components", []):
-                if not isinstance(comp, dict):
+    # New Intelligence: PRIORITIZE the entire CAD model using closest_robot_type mapped by the LLM Router
+    if closest_robot_type and closest_robot_type.lower() in known_cads:
+        print(f"[api/design] Router mapped query to semantic alias '{closest_robot_type}'. Matching FULL CAD automatically.")
+        matched_cads.add(known_cads[closest_robot_type.lower()])
+        
+    # Check each BOM item and subsystem ONLY IF we didn't find the entire CAD model
+    if not matched_cads:
+        if isinstance(bom, list):
+            for b in bom:
+                if not isinstance(b, dict):
                     continue
-                name = comp.get("name", "").lower()
-                role = comp.get("role", "").lower()
-                search_text = f"{name} {role}"
+                name = b.get("name", "").lower()
+                desc = b.get("description", "").lower()
+                search_text = f"{name} {desc}"
                 
                 for key, filename in known_cads.items():
                     if key in search_text:
                         matched_cads.add(filename)
-                
-    # New Intelligence: Use the closest_robot_type mapped by the LLM Router
-    if not matched_cads and closest_robot_type and closest_robot_type.lower() in known_cads:
-        print(f"[api/design] Router mapped query to semantic alias '{closest_robot_type}'. Matching CAD automatically.")
-        matched_cads.add(known_cads[closest_robot_type.lower()])
+                    
+        # Also check subsystems as LLMs sometimes put components there but forget them in BOM
+        if isinstance(subsystems, list):
+            for sub in subsystems:
+                if not isinstance(sub, dict):
+                    continue
+                for comp in sub.get("components", []):
+                    if not isinstance(comp, dict):
+                        continue
+                    name = comp.get("name", "").lower()
+                    role = comp.get("role", "").lower()
+                    search_text = f"{name} {role}"
+                    
+                    for key, filename in known_cads.items():
+                        if key in search_text:
+                            matched_cads.add(filename)
         
     # Fallback to monolithic robots if modular assembly yielded nothing
     if len(matched_cads) == 0:
