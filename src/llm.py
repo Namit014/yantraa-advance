@@ -6,8 +6,8 @@ load_dotenv(override=True)
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-
 FALLBACK_MODELS = [
+    "openrouter/owl-alpha",
     "meta-llama/llama-3-8b-instruct:free",
     "nvidia/llama-3-8b-instruct:free",
     "openrouter/auto",

@@ -376,6 +376,15 @@ OUTPUT FORMAT:
     missing = data.get("missing", [])
     validation = data.get("validation", [])
     chat_reply = data.get("chat_reply")
+    
+    # Ensure every component has an ID
+    if isinstance(subsystems, list):
+        for sub in subsystems:
+            if isinstance(sub, dict) and isinstance(sub.get("components"), list):
+                for comp in sub.get("components", []):
+                    if isinstance(comp, dict) and not comp.get("id"):
+                        name = comp.get("name", "component")
+                        comp["id"] = re.sub(r"[^a-zA-Z0-9]+", "_", name.lower()).strip("_")
 
     if isinstance(connections, list):
         for conn in connections:
