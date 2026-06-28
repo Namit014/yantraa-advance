@@ -7,7 +7,7 @@ load_dotenv(override=True)
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 # Using a much smarter free model that reliably outputs JSON
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/free")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/owl-alpha")
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 DEFAULT_MODEL = "gemini-2.5-flash"
@@ -28,7 +28,7 @@ def _call_gemini(messages: list, temperature: float = 0.7, response_format: str 
         "contents": contents,
         "generationConfig": {
             "temperature": temperature,
-            "maxOutputTokens": 8192
+            "maxOutputTokens": 4000
         }
     }
     if system_instruction:
@@ -55,8 +55,6 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         except Exception as e:
             print(f"Gemini API failed: {e}. Falling back to OpenRouter...")
             target_model = OPENROUTER_MODEL
-    elif not GEMINI_API_KEY and target_model == DEFAULT_MODEL:
-        target_model = OPENROUTER_MODEL
 
     if not OPENROUTER_API_KEY:
         if not GEMINI_API_KEY:
@@ -70,7 +68,7 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         "temperature": temperature,
         # Cap max_tokens to prevent OpenRouter from estimating the max context window (65k) 
         # which exceeds free tier limits.
-        "max_tokens": 1500,
+        "max_tokens": 8192,
     }
     if response_format == "json_object":
         payload["response_format"] = {"type": "json_object"}
@@ -113,38 +111,18 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
             raise Exception(f"OpenRouter API Error: {response.status_code} {response.reason} - {response.text[:100]}")
         raise Exception(f"Error calling AI: {str(e)}")
 
-import time
-
 def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent robotic system agent.", response_format="text", model=None, temperature=0.7):
     """
     Unified function to call Yantra AI via Google AI Studio or OpenRouter API fallback.
     Supports both standard text output and structured JSON extraction.
-    Includes exponential backoff (2s, 5s, 10s, 20s) for rate limit resiliency.
     """
     if model is None:
         model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
-
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": prompt}
     ]
-    
-    retries = [2, 5, 10, 20]
-    for attempt, delay in enumerate(retries + [0]):
-        try:
-            return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
-        except Exception as e:
-            err_str = str(e).lower()
-            if delay > 0 and ("rate limit" in err_str or "429" in err_str or "busy" in err_str or "afford" in err_str):
-                print(f"[llm.py] Rate limit or credits error hit. Retrying in {delay} seconds... (Attempt {attempt+1}/{len(retries)})")
-                time.sleep(delay)
-            else:
-                if delay > 0:
-                    print(f"[llm.py] Transient error: {e}. Retrying in {delay}s... (Attempt {attempt+1}/{len(retries)})")
-                    time.sleep(delay)
-                else:
-                    print(f"[llm.py] LLM invocation failed after all retries: {e}")
-                    raise
+    return call_llm(messages, temperature=temperature, response_format=response_format, model=model)
 
 
 import json
@@ -165,7 +143,7 @@ def call_llm_stream(messages: list, temperature: float = 0.7, response_format: s
         "model": target_model,
         "messages": messages,
         "temperature": temperature,
-        "max_tokens": 1000,
+        "max_tokens": 4000,
         "stream": True
     }
     if response_format == "json_object":

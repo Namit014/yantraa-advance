@@ -221,4 +221,4 @@ if __name__ == "__main__":
     import uvicorn
     # Allow running directly using `python src/api/main.py`
     print("ALL ROUTES BEFORE RUNNING:", [getattr(r, "path", getattr(r, "name", str(r))) for r in app.routes])
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)

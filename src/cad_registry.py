@@ -22,6 +22,8 @@ S3 Structure:
 
 import os
 import json
+import boto3
+from botocore.exceptions import ClientError
 
 # ── Alias → filename mapping ──────────────────────────────────────────────────
 # Maps user-facing keywords to the exact filename in S3/knowledgebase
@@ -122,27 +124,56 @@ S3_FILE_INDEX = {
 def get_s3_url(filename: str, s3_base_url: str) -> str:
     """
     Build the correct S3 URL for a given STEP filename.
-    Uses the S3_FILE_INDEX for an exact match, or falls back to best guess.
+    If AWS credentials are provided, generates a 15-minute pre-signed URL.
+    Otherwise, builds a standard public URL.
     """
     key = filename.lower()
-    # Exact match
     s3_path = S3_FILE_INDEX.get(key)
-    if s3_path:
-        url = f"{s3_base_url}/{s3_path}"
-        print(f"[cad_registry] S3 exact match for {filename}: {url}")
-        return url
 
-    # Partial match (strip extension and compare)
-    base_noext = os.path.splitext(key)[0]
-    for idx_key, idx_path in S3_FILE_INDEX.items():
-        if os.path.splitext(idx_key)[0] == base_noext:
-            url = f"{s3_base_url}/{idx_path}"
-            print(f"[cad_registry] S3 partial match for {filename}: {url}")
-            return url
+    # Partial match fallback
+    if not s3_path:
+        base_noext = os.path.splitext(key)[0]
+        for idx_key, idx_path in S3_FILE_INDEX.items():
+            if os.path.splitext(idx_key)[0] == base_noext:
+                s3_path = idx_path
+                break
 
-    # Fallback: try knowledgebase root search pattern
-    print(f"[cad_registry] No S3 index match for {filename!r}, using generic path.")
-    return f"{s3_base_url}/knowledgebase/{filename}"
+    # Final fallback if still not found
+    if not s3_path:
+        s3_path = f"knowledgebase/{filename}"
+        print(f"[cad_registry] No S3 index match for {filename!r}, using generic path: {s3_path}")
+
+    # Check for AWS credentials to generate a pre-signed URL
+    bucket_name = os.getenv("S3_BUCKET_NAME")
+    aws_access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
+    aws_secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
+    region_name = os.getenv("AWS_REGION", "ap-south-1")
+
+    if bucket_name and aws_access_key_id and aws_secret_access_key:
+        try:
+            s3_client = boto3.client(
+                's3',
+                region_name=region_name,
+                aws_access_key_id=aws_access_key_id,
+                aws_secret_access_key=aws_secret_access_key
+            )
+            presigned_url = s3_client.generate_presigned_url(
+                'get_object',
+                Params={'Bucket': bucket_name, 'Key': s3_path},
+                ExpiresIn=900  # 15 minutes
+            )
+            print(f"[cad_registry] Generated pre-signed URL for {s3_path}")
+            return presigned_url
+        except Exception as e:
+            print(f"[cad_registry] Error generating pre-signed URL: {e}")
+
+    # Fallback to public URL (if pre-signing fails or keys are missing)
+    if not s3_base_url and bucket_name:
+        s3_base_url = f"https://{bucket_name}.s3.{region_name}.amazonaws.com"
+        
+    url = f"{s3_base_url}/{s3_path}"
+    print(f"[cad_registry] Using public S3 URL for {s3_path}")
+    return url
 
 
 _hebi_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "knowledgebase", "Robots_MetaData", "hebi_components.json"))

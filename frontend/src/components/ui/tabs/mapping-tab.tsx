@@ -723,8 +723,9 @@ const CustomComponentNode = ({ data }: any) => {
     );
 };
 
+const nodeTypes = { customComponent: CustomComponentNode };
+
 export function MappingTab({ aiResponse = "", currentQuery = "", designData, isChatLoading = false }: MappingTabProps) {
-    const nodeTypes = useMemo(() => ({ customComponent: CustomComponentNode }), []);
     const [activeView, setActiveView] = useState<"matrix" | "canvas" | "bom">("matrix");
     
     useEffect(() => {
@@ -986,12 +987,12 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
             lastDesignRef.current = designData;
             lastQueryRef.current = currentQuery; // Sync query ref to prevent fallback trigger
             doFetch(currentQuery || "design");
-        } else if (currentQuery && currentQuery !== lastQueryRef.current && !designData) {
+        } else if (currentQuery && currentQuery !== lastQueryRef.current && !designData && !isChatLoading) {
             // Fallback for standalone query execution
             lastQueryRef.current = currentQuery;
             doFetch(currentQuery);
         }
-    }, [designData, currentQuery, doFetch]);
+    }, [designData, currentQuery, doFetch, isChatLoading]);
 
     const handleClear = useCallback(() => {
         if (!window.confirm("Are you sure you want to clear all mapped components?")) return;
@@ -1106,19 +1107,6 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         URL.revokeObjectURL(url);
     }, [nodes, connections, groupedNodes]);
 
-    if (designData?.status === 'failed') {
-        return (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-neutral-900 text-white p-8 rounded-xl border border-red-900">
-                <h2 className="text-2xl font-bold text-red-500 mb-4">Graph generation failed at Component Mapping</h2>
-                <p className="text-neutral-400 text-center max-w-lg mb-6">{designData.error}</p>
-                <div className="bg-black p-4 rounded-lg border border-neutral-800 w-full max-w-lg">
-                    <p className="text-sm font-mono text-neutral-500">Status: {designData.status}</p>
-                    <p className="text-sm font-mono text-neutral-500">Health: {designData.graph_health_score}/100</p>
-                </div>
-            </div>
-        );
-    }
-
     return (
         <div className="w-full h-full flex flex-col bg-[#0A0A0A] overflow-hidden text-[#888888] font-sans">
             
@@ -1211,7 +1199,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
                 {/* 2. DYNAMIC MAIN VIEW (Middle Column) */}
                 <div className="flex-1 h-full bg-[#0A0A0A] relative border-r border-[#2A2A2A] flex flex-col">
-                    {activeView === "bom" ? (
+                    {isLoading ? (
+                        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+                            <div className="w-16 h-16 border-4 border-sky-500/20 border-t-sky-500 rounded-full animate-spin mb-6"></div>
+                            <h2 className="text-xl font-bold text-white tracking-widest uppercase mb-2">Generating Component Mapping</h2>
+                            <p className="text-neutral-500 text-sm max-w-md">Our AI is analyzing your prompt to generate the optimal mechanical and electronic components, and routing the wiring connections. Please wait...</p>
+                        </div>
+                    ) : activeView === "bom" ? (
                         <div className="flex-1 overflow-y-auto p-8 bg-[#0A0A0A]">
                             <div className="max-w-5xl mx-auto pb-10">
                                 <div className="flex items-center justify-between mb-8">

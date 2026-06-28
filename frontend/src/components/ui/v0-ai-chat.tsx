@@ -72,18 +72,6 @@ function useAutoResizeTextarea({
 const formatAssistantResponse = (data: any) => {
     let text = `### 🤖 Yantraa Robot Design\n\n`;
     
-    if (data.status === 'failed') {
-        return text + `🚨 **Graph Generation Failed**\n\n${data.error || "Unknown error occurred during generation."}\n\n*Health Score: ${data.graph_health_score || 0}/100*`;
-    }
-    
-    if (data.status === 'partial_success') {
-        text += `⚠️ **Partial Graph Recovery**\n${data.error}\n\n`;
-    }
-    
-    if (data.graph_health_score !== undefined) {
-        text += `📊 **Graph Health Score:** ${data.graph_health_score}/100\n\n`;
-    }
-    
     if (data.subsystems && data.subsystems.length > 0) {
         text += `#### Subsystems & Components\n`;
         data.subsystems.forEach((sub: any) => {
@@ -553,7 +541,7 @@ export function VercelV0Chat() {
 
                     {/* Tab Content */}
                     <div className="w-full h-full pt-[60px] pb-4 px-4 relative">
-                        {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
+                        {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} isChatLoading={isLoading} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'cad' && (() => {
                             const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));

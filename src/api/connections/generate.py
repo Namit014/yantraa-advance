@@ -134,7 +134,7 @@ def _call_llm(system: str, user: str) -> str:
     return invoke_yantra_ai(
         prompt=user, 
         system_prompt=system, 
-        response_format="text", 
+        response_format="json_object", 
         temperature=0.3
     )
 
