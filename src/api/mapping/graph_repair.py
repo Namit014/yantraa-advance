@@ -64,13 +64,28 @@ class GraphValidationEngine:
                 connected_ids.add(c.source_component_id)
                 connected_ids.add(c.target_component_id)
 
-        # --- Phase 8: Completeness Check ---
-        found_categories = set(c.category.lower() for c in components)
-        required_cats = {"controller", "power", "driver", "actuator"}
-        missing_cats = required_cats - found_categories
+        # --- Phase 8: Completeness Check (fuzzy keyword matching) ---
+        # Category names from the LLM are verbose (e.g. "Motor Driver", "Servo Actuator").
+        # We do substring matching so "Motor Driver" counts as "driver", etc.
+        all_cat_text = " ".join(c.category.lower() for c in components)
+        REQUIRED_KEYWORDS = {
+            "controller": ["controller", "mcu", "plc", "microcontroller", "raspberry", "arduino", "cnc", "pc", "computer"],
+            "power":      ["power", "battery", "psu", "supply", "buck", "regulator", "ups"],
+            "driver":     ["driver", "drive", "esc", "inverter", "amplifier", "relay"],
+            "actuator":   ["actuator", "motor", "servo", "stepper", "pneumatic", "hydraulic", "cylinder", "linear"],
+        }
+        missing_cats = []
+        for cat, keywords in REQUIRED_KEYWORDS.items():
+            if not any(kw in all_cat_text for kw in keywords):
+                missing_cats.append(cat)
+
         if missing_cats:
-            kinematic_accuracy -= 30.0
-            errors.append(f"Missing critical subsystem categories: {', '.join(missing_cats)}")
+            kinematic_accuracy -= min(20.0 * len(missing_cats), 40.0)  # cap penalty at -40
+            # Demoted to WARNING — missing subsystems are normal for partial/vague queries
+            warnings.append(
+                f"Incomplete architecture: subsystem categories not detected — {', '.join(missing_cats)}. "
+                f"Consider adding: {', '.join(missing_cats)}."
+            )
 
         # --- Phase 9: Detailed Scoring ---
 
@@ -84,8 +99,9 @@ class GraphValidationEngine:
         if components:
             isolated = [c for c in components if c.id not in connected_ids]
             if isolated:
-                connection_accuracy -= (len(isolated) / len(components)) * 100
-                errors.append(f"Found {len(isolated)} isolated components.")
+                connection_accuracy -= (len(isolated) / max(1, len(components))) * 100
+                # Warn rather than hard error — single-component or partial architectures are valid
+                warnings.append(f"Found {len(isolated)} component(s) with no connections yet.")
 
         # 3. Subsystem Accuracy
         if components:
