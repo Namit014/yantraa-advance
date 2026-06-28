@@ -482,8 +482,8 @@ interface ConnectionStore {
 }
 
 export const useConnectionStore = create<ConnectionStore>((set, get) => ({
-  nodes: DEMO_NODES,
-  edges: DEMO_EDGES,
+  nodes: [],
+  edges: [],
   selectedEdgeId: null,
   sidebarOpen: false,
   isGenerating: false,
