@@ -293,7 +293,12 @@ def solve_assembly(
                 transforms[child_id] = child_transform
                 queue.append(child_id)
 
-    # Build result with CAD URLs
+    # Build result with CAD URLs.
+    # Assign deterministic grid positions to orphan nodes (those not reached by BFS)
+    # so they never collapse to the same [0,0,0] point — which triggers false overlap warnings.
+    ORPHAN_SPACING_MM = 150  # horizontal spacing between unplaced components
+    orphan_index = 0
+
     results = []
     for node in graph_nodes:
         nid = node["id"]
@@ -302,17 +307,27 @@ def solve_assembly(
         step_file = meta.get("step_file", f"{part}.STEP")
         category = meta.get("category", "")
 
-        t = transforms.get(nid, {"position": [0, 0, 0], "rotation": [0, 0, 0]})
+        if nid in transforms:
+            t = transforms[nid]
+        else:
+            # Orphan: not reachable via assembly_graph (no parent-child edges defined).
+            # Place it on a spaced grid row so distance != 0 between orphans.
+            t = {
+                "position": [orphan_index * ORPHAN_SPACING_MM, 0, 0],
+                "rotation": [0, 0, 0]
+            }
+            orphan_index += 1
 
         results.append({
             "id": nid,
             "part": part,
             "cad_url": _cad_url(step_file, category),
             "position": t["position"],
-            "rotation": t["rotation"]
+            "rotation": t["rotation"],
+            "is_placed": nid in transforms  # flag: True = real transform, False = auto-spaced
         })
 
-    print(f"[AssemblyEngine] Solved {len(results)} transforms.")
+    print(f"[AssemblyEngine] Solved {len(results)} transforms ({orphan_index} orphan nodes auto-spaced).")
     return results
 
 
@@ -396,7 +411,21 @@ def validate_assembly(transforms: List[dict], metadata: Optional[dict] = None) -
         for j, t2 in enumerate(transforms):
             if i >= j:
                 continue
-            dist = math.sqrt(sum((a - b) ** 2 for a, b in zip(t1["position"], t2["position"])))
+
+            p1 = t1["position"]
+            p2 = t2["position"]
+
+            # Skip collision check if either component is at the origin [0,0,0].
+            # Origin means the component is unplaced (no mount-point data available),
+            # not that it physically overlaps — this was producing false 0.0mm warnings.
+            if p1 == [0, 0, 0] or p2 == [0, 0, 0]:
+                continue
+
+            # Also skip auto-spaced orphan nodes (flagged during solve_assembly).
+            if not t1.get("is_placed", True) or not t2.get("is_placed", True):
+                continue
+
+            dist = math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
             if dist < 5 and t1["part"] != t2["part"]:
                 issues.append({
                     "type": "warning",
