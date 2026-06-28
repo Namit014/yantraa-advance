@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 # Always load .env from the project root, regardless of working directory
 _project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-load_dotenv(os.path.join(_project_root, ".env"))
+load_dotenv(os.path.join(_project_root, ".env"), override=True)
 
 # Force UTF-8 encoding for standard output/error to avoid charmap crashes on Windows
 if sys.platform == "win32":
@@ -46,13 +46,16 @@ app = FastAPI(
 _default_origins = "http://localhost:3000,https://labs.yantraa.tech,https://www.labs.yantraa.tech,https://yantraa.tech,https://www.yantraa.tech,https://api.yantraa.tech"
 ALLOWED_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", _default_origins).split(",") if o.strip()]
 print(f"[Yantra API] CORS Allowed Origins configured in env: {ALLOWED_ORIGINS}")
+# Configure CORSMiddleware with a regex to dynamically match localhost, yantraa.tech, and ngrok origins
+# while supporting credentials.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?|https?://(.*\.)?yantraa\.tech|https?://(.*\.)?ngrok-free\.app|https?://(.*\.)?ngrok\.io",
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Register sub-routers
 try:

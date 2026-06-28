@@ -9,9 +9,6 @@ import {
     Paperclip,
     PlusIcon,
 } from "lucide-react";
-import { Orbitron } from 'next/font/google';
-
-// We will keep the import for now just in case, but won't use it for the logo.
 import { MappingTab } from "./tabs/mapping-tab";
 import { ConnectionTab } from "./tabs/connection-tab";
 import { CADTab } from "./tabs/cad-tab";
@@ -74,7 +71,7 @@ function useAutoResizeTextarea({
 
 const formatAssistantResponse = (data: any) => {
     let text = `### 🤖 Yantraa Robot Design\n\n`;
-
+    
     if (data.subsystems && data.subsystems.length > 0) {
         text += `#### Subsystems & Components\n`;
         data.subsystems.forEach((sub: any) => {
@@ -83,18 +80,18 @@ const formatAssistantResponse = (data: any) => {
                 const rolePart = comp.role ? ` (${comp.role})` : "";
                 const voltPart = comp.voltage ? `Voltage: ${comp.voltage}` : "";
                 const interfacePart = comp.interface ? `Interface: ${comp.interface}` : "";
-
+                
                 let specs = "";
                 if (voltPart && interfacePart) specs = ` — *${voltPart}, ${interfacePart}*`;
                 else if (voltPart) specs = ` — *${voltPart}*`;
                 else if (interfacePart) specs = ` — *${interfacePart}*`;
-
+                
                 text += `- **${comp.name}**${rolePart}${specs}\n`;
             });
             text += `\n`;
         });
     }
-
+    
     if (data.bom && data.bom.length > 0) {
         text += `#### Bill of Materials (BOM)\n`;
         data.bom.forEach((item: any) => {
@@ -102,7 +99,7 @@ const formatAssistantResponse = (data: any) => {
         });
         text += `\n`;
     }
-
+    
     if (data.missing && data.missing.length > 0) {
         text += `⚠️ **Missing Components (Not in local knowledgebase):**\n`;
         data.missing.forEach((item: any) => {
@@ -110,7 +107,7 @@ const formatAssistantResponse = (data: any) => {
         });
         text += `\n`;
     }
-
+    
     if (data.validation && data.validation.length > 0) {
         text += `🔍 **Validation Checks:**\n`;
         data.validation.forEach((val: any) => {
@@ -119,7 +116,7 @@ const formatAssistantResponse = (data: any) => {
         });
         text += `\n`;
     }
-
+    
     return text;
 };
 
@@ -127,6 +124,8 @@ export function VercelV0Chat() {
     const [value, setValue] = useState("");
     const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isThinking, setIsThinking] = useState(false);
+    const [statusMessage, setStatusMessage] = useState("");
     const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad'>('mapping');
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
@@ -159,46 +158,130 @@ export function VercelV0Chat() {
         adjustHeight(true);
         setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
         setIsLoading(true);
+        setIsThinking(true);
+        setStatusMessage("Reading your prompt...");
+
+        const statusStages = [
+            "Reading your prompt...",
+            "Mapping subsystems...",
+            "Selecting components...",
+            "Building your BOM..."
+        ];
+        let statusIndex = 0;
+        const intervalId = setInterval(() => {
+            statusIndex = (statusIndex + 1) % statusStages.length;
+            setStatusMessage(statusStages[statusIndex]);
+        }, 1800);
 
         try {
             const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
-            const response = await fetch(`${apiUrl}/api/design`, {
+            // We need to keep track of the complete message history to send to the backend
+            const completeMessages = [...messages, { role: 'user' as const, content: userMessage }];
+            
+            const response = await fetch(`${apiUrl}/api/design/stream`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "ngrok-skip-browser-warning": "true"
                 },
-                body: JSON.stringify({ query: userMessage })
+                body: JSON.stringify({
+                    query: userMessage,
+                    messages: completeMessages
+                })
             });
 
             if (!response.ok) {
-                throw new Error("Failed to fetch response");
+                throw new Error("Failed to start stream");
             }
 
-            const data = await response.json();
+            const reader = response.body!.getReader();
+            const decoder = new TextDecoder();
+            let buffer = "";
+            let botMessage = "";
+            let isFirstToken = true;
 
-            setRobotDesign(data);
+            // Append empty message bubble for the assistant's stream response
+            setMessages(prev => [...prev, { role: 'assistant', content: "" }]);
 
-            if (data.chat_reply) {
-                setMessages(prev => [...prev, { role: 'assistant', content: data.chat_reply }]);
-            } else {
-                const formattedContent = formatAssistantResponse(data);
-                setMessages(prev => [...prev, { role: 'assistant', content: formattedContent }]);
-            }
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
 
-            if (data.cad_available && data.cad_urls && data.cad_urls.length > 0) {
-                setCadPrompt({ available: true, urls: data.cad_urls });
-            } else if (data.cad_available && data.cad_url) {
-                setCadPrompt({ available: true, urls: [data.cad_url] });
-            } else {
-                setCadPrompt({ available: false, urls: [] });
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split("\n\n");
+                buffer = lines.pop() || "";
+
+                for (const line of lines) {
+                    if (!line.trim()) continue;
+                    const cleanLine = line.replace(/^data:\s*/, "").trim();
+                    if (!cleanLine) continue;
+
+                    try {
+                        const eventData = JSON.parse(cleanLine);
+                        if (eventData.type === "token") {
+                            if (isFirstToken) {
+                                isFirstToken = false;
+                                setIsThinking(false);
+                                clearInterval(intervalId);
+                            }
+                            botMessage += eventData.content;
+                            setMessages(prev => {
+                                const updated = [...prev];
+                                updated[updated.length - 1] = { role: 'assistant', content: botMessage };
+                                return updated;
+                            });
+                        } else if (eventData.type === "status") {
+                            setStatusMessage(eventData.content);
+                        } else if (eventData.type === "final_design") {
+                            const design = eventData.design;
+                            setRobotDesign(design);
+
+                            if (design.chat_reply) {
+                                botMessage = design.chat_reply;
+                            } else {
+                                botMessage = formatAssistantResponse(design);
+                            }
+
+                            setMessages(prev => {
+                                const updated = [...prev];
+                                updated[updated.length - 1] = { role: 'assistant', content: botMessage };
+                                return updated;
+                            });
+
+                            if (design.cad_available && design.cad_urls && design.cad_urls.length > 0) {
+                                setCadPrompt({ available: true, urls: design.cad_urls });
+                            } else if (design.cad_available && design.cad_url) {
+                                setCadPrompt({ available: true, urls: [design.cad_url] });
+                            } else {
+                                setCadPrompt({ available: false, urls: [] });
+                            }
+
+                            setIsThinking(false);
+                            clearInterval(intervalId);
+                        }
+                    } catch (err) {
+                        console.log("Error parsing chunk:", err);
+                    }
+                }
             }
 
         } catch (error) {
             console.log("Error asking question:", error instanceof Error ? error.message : String(error));
-            setMessages(prev => [...prev, { role: 'assistant', content: "Sorry, I encountered an error while processing your request." }]);
+            clearInterval(intervalId);
+            setMessages(prev => {
+                const updated = [...prev];
+                // Replace the last assistant message (which might be empty) with error text
+                if (updated.length > 0 && updated[updated.length - 1].role === 'assistant') {
+                    updated[updated.length - 1] = { role: 'assistant', content: "Sorry, I encountered an error while processing your request." };
+                } else {
+                    updated.push({ role: 'assistant', content: "Sorry, I encountered an error while processing your request." });
+                }
+                return updated;
+            });
         } finally {
             setIsLoading(false);
+            setIsThinking(false);
+            clearInterval(intervalId);
         }
     };
 
@@ -210,113 +293,137 @@ export function VercelV0Chat() {
     };
 
     return (
-        <div className={cn("flex w-full h-screen bg-black overflow-hidden transition-all duration-500", messages.length === 0 ? "justify-center" : "justify-start")}>
+        <div className={cn("flex w-full h-screen bg-[#0A0A0A] overflow-hidden transition-all duration-500", messages.length === 0 ? "justify-center" : "justify-start")}>
             {/* Main Chat Container */}
             <div className={cn("flex flex-col relative transition-all duration-500",
-                messages.length === 0 ? "w-full max-w-4xl p-4 items-center" : "w-[400px] border-r border-neutral-800 bg-neutral-950 shrink-0"
+                messages.length === 0 ? "w-full max-w-4xl p-4 items-center" : "w-[400px] border-r border-[#2A2A2A] bg-[#0A0A0A] shrink-0"
             )}>
                 {messages.length === 0 ? (
-                    <div className="flex-1 flex flex-col items-center justify-center space-y-8 w-full mt-20">
-                        <div className="flex items-center justify-center mb-4">
-                            <img src="/yantra_logo.jpg" alt="Yantraa AI Logo" className="h-16 object-contain" />
+                    <div className="flex-1 flex flex-col items-center justify-center space-y-4 w-full mt-20">
+                        {/* pulsing bot avatar brand icon */}
+                        <div className="mb-2 flex flex-col items-center gap-3">
+                            <div className="w-16 h-16 rounded-2xl bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-xl font-bold text-[#F0F0F0] animate-pulse shadow-2xl">
+                                Y
+                            </div>
+                            <span className="text-xs font-semibold tracking-widest text-[#555555] uppercase">Yantraa co-pilot</span>
+                        </div>
+                        <h1 className="text-3xl font-medium text-[#F0F0F0] text-center leading-tight">
+                            Hey, I'm Yantraa 👋
+                        </h1>
+                        <p className="text-sm text-[#888888] text-center max-w-md">
+                            Tell me what you're building and I'll generate your BOM, wiring diagram, and more.
+                        </p>
+                        
+                        <div className="flex flex-wrap gap-2 justify-center mt-6 max-w-lg">
+                            {[
+                                "Design a warehouse AGV",
+                                "Build a line-following robot",
+                                "Inspection drone for pipelines",
+                                "Autonomous delivery robot for campus"
+                            ].map(chip => (
+                                <button
+                                    key={chip}
+                                    onClick={() => {
+                                        setValue(chip);
+                                        setTimeout(() => {
+                                            if (textareaRef.current) {
+                                                textareaRef.current.style.height = 'auto';
+                                                textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
+                                            }
+                                        }, 50);
+                                    }}
+                                    className="px-3 py-2 bg-[#1E1E1E] hover:bg-[#252525] border border-[#2A2A2A] rounded-xl text-xs text-[#888888] hover:text-[#F0F0F0] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md"
+                                >
+                                    {chip}
+                                </button>
+                            ))}
                         </div>
                     </div>
                 ) : (
-                    <>
-                        {/* Top Logo Header */}
-                        <div className="absolute top-0 left-0 w-full p-6 flex items-center z-10 bg-neutral-950/80 backdrop-blur-md">
-                            <div className="flex items-center">
-                                <img src="/yantra_logo.jpg" alt="Yantraa AI Logo" className="h-14 object-contain" />
-                            </div>
-                        </div>
-
-                        <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-24 px-4 flex flex-col">
-                            {messages.map((msg, idx) => (
+                    <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-8 px-4 flex flex-col">
+                        {messages.map((msg, idx) => {
+                            if (msg.role === 'assistant' && !msg.content) return null;
+                            return (
                                 <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
                                     <div className={cn(
-                                        "max-w-[80%] rounded-2xl px-5 py-4",
+                                        "max-w-[82%] rounded-2xl px-4 py-3",
                                         msg.role === 'user'
-                                            ? "bg-neutral-800 text-white"
-                                            : "bg-transparent text-neutral-200"
+                                            ? "bg-[#1E1E1E] border border-[#2A2A2A] text-[#F0F0F0]"
+                                            : "bg-transparent text-[#F0F0F0]"
                                     )}>
                                         {msg.role === 'assistant' && (
                                             <div className="flex items-center gap-2 mb-2">
-                                                <div className="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800 p-1.5 shrink-0">
-                                                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                                                        <path d="M 5 20 L 95 20 L 50 90 Z" fill="white" />
-                                                        <path d="M 50 45 L 50 95" stroke="#171717" strokeWidth="8" />
-                                                        <path d="M 50 45 L 0 15" stroke="#171717" strokeWidth="8" />
-                                                        <path d="M 50 45 L 100 15" stroke="#171717" strokeWidth="8" />
-                                                        <polygon points="40,35 60,35 65,45 60,55 40,55 35,45" fill="#171717" />
-                                                    </svg>
+                                                <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0]">
+                                                    Y
                                                 </div>
-                                                <span className="font-semibold text-sm text-neutral-400">Yantra AI</span>
+                                                <span className="font-medium text-xs text-[#888888]">Yantraa AI</span>
                                             </div>
                                         )}
-                                        <div className="whitespace-pre-wrap leading-relaxed text-[15px]">
+                                        <div className="whitespace-pre-wrap leading-relaxed text-[14px] text-[#F0F0F0]">
                                             {msg.content}
                                         </div>
                                     </div>
                                 </div>
-                            ))}
-                            {isLoading && (
-                                <div className="flex w-full justify-start">
-                                    <div className="bg-transparent text-neutral-200 rounded-2xl px-5 py-4 flex items-center gap-3">
-                                        <div className="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800 p-1.5 shrink-0 animate-pulse">
-                                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                                                <path d="M 5 20 L 95 20 L 50 90 Z" fill="white" />
-                                                <path d="M 50 45 L 50 95" stroke="#171717" strokeWidth="8" />
-                                                <path d="M 50 45 L 0 15" stroke="#171717" strokeWidth="8" />
-                                                <path d="M 50 45 L 100 15" stroke="#171717" strokeWidth="8" />
-                                                <polygon points="40,35 60,35 65,45 60,55 40,55 35,45" fill="#171717" />
-                                            </svg>
+                            );
+                        })}
+                        {isLoading && (!messages.length || messages[messages.length - 1].role !== 'assistant' || isThinking || !messages[messages.length - 1].content) && (
+                            <div className="flex w-full justify-start">
+                                <div className="bg-transparent text-[#F0F0F0] rounded-2xl px-4 py-3 flex flex-col gap-2">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0] animate-pulse">
+                                            Y
                                         </div>
                                         <div className="flex gap-1 items-center">
-                                            <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                                            <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                                            <div className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></div>
+                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce"></div>
                                         </div>
                                     </div>
+                                    {isThinking && (
+                                        <div className="text-xs text-[#888888] font-mono pl-8 animate-pulse">
+                                            {statusMessage}
+                                        </div>
+                                    )}
                                 </div>
-                            )}
+                            </div>
+                        )}
 
-                            <div ref={messagesEndRef} />
-                        </div>
-                    </>
+                        <div ref={messagesEndRef} />
+                    </div>
                 )}
 
                 {/* Input Area */}
                 <div className={cn("w-full transition-all duration-300",
                     messages.length === 0
-                        ? "max-w-3xl pb-10"
-                        : "absolute bottom-0 left-0 w-full p-4 bg-neutral-950/80 backdrop-blur-md border-t border-neutral-800 z-10"
+                        ? "max-w-[580px] pb-10"
+                        : "absolute bottom-0 left-0 w-full p-4 bg-[#0A0A0A]/90 backdrop-blur-md border-t border-[#2A2A2A] z-10"
                 )}>
                     {cadPrompt.available && (
-                        <div className="mb-4 bg-blue-900/40 border border-blue-500/50 rounded-xl p-4 flex flex-col gap-3 shadow-xl animate-in slide-in-from-bottom-2">
-                            <p className="text-blue-100 text-sm font-medium">
-                                {cadPrompt.urls.length > 1
-                                    ? `A highly detailed 3D CAD assembly with ${cadPrompt.urls.length} parts is available in our knowledge base. Do you want to view it?`
+                        <div className="mb-3 bg-[#1E1E1E] border border-[#2A2A2A] rounded-xl p-4 flex flex-col gap-3 animate-in slide-in-from-bottom-2">
+                            <p className="text-[#F0F0F0] text-sm font-medium">
+                                {cadPrompt.urls.length > 1 
+                                    ? `A highly detailed 3D CAD assembly with ${cadPrompt.urls.length} parts is available in our knowledge base. Do you want to view it?` 
                                     : "A highly detailed 3D CAD model for this robot is available in our knowledge base. Do you want to view it?"}
                             </p>
                             <div className="flex gap-2">
-                                <button
+                                <button 
                                     onClick={() => {
                                         setAcceptedCadUrls(cadPrompt.urls);
                                         setActiveTab('cad');
                                         setCadPrompt({ available: false, urls: [] });
                                     }}
-                                    className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded-lg text-sm transition-colors font-medium">
+                                    className="bg-[#F0F0F0] hover:bg-white text-black px-4 py-1.5 rounded-lg text-xs transition-colors font-semibold">
                                     Yes, View CAD
                                 </button>
-                                <button
+                                <button 
                                     onClick={() => setCadPrompt({ available: false, urls: [] })}
-                                    className="bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-1.5 rounded-lg text-sm transition-colors font-medium">
+                                    className="bg-[#252525] hover:bg-[#333333] text-[#F0F0F0] px-4 py-1.5 rounded-lg text-xs transition-colors font-medium border border-[#2A2A2A]">
                                     No
                                 </button>
                             </div>
                         </div>
                     )}
-                    <div className="relative bg-neutral-900 rounded-xl border border-neutral-800 shadow-2xl">
+                    <div className="relative bg-[#1E1E1E] rounded-2xl border border-[#2A2A2A] shadow-2xl">
                         <div className="overflow-y-auto">
                             <Textarea
                                 ref={textareaRef}
@@ -326,16 +433,16 @@ export function VercelV0Chat() {
                                     adjustHeight();
                                 }}
                                 onKeyDown={handleKeyDown}
-                                placeholder="Ask me anything..."
+                                placeholder={messages.length === 0 ? "Try: Make a pick and place robot..." : "Ask me anything..."}
                                 className={cn(
                                     "w-full px-4 py-4",
                                     "resize-none",
                                     "bg-transparent",
                                     "border-none",
-                                    "text-white text-lg",
+                                    "text-[#F0F0F0] text-[15px]",
                                     "focus:outline-none",
                                     "focus-visible:ring-0 focus-visible:ring-offset-0",
-                                    "placeholder:text-neutral-500 placeholder:text-lg",
+                                    "placeholder:text-[#555555] placeholder:text-[15px]",
                                     "min-h-[60px]"
                                 )}
                                 style={{ overflow: "hidden" }}
@@ -343,14 +450,14 @@ export function VercelV0Chat() {
                             />
                         </div>
 
-                        <div className="flex items-center justify-between p-3">
+                        <div className="flex items-center justify-between px-3 pb-3 pt-1">
                             <div className="flex items-center gap-2">
                                 <button
                                     type="button"
-                                    className="group p-2 hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
+                                    className="group p-2 hover:bg-[#252525] rounded-lg transition-colors flex items-center gap-1"
                                 >
-                                    <Paperclip className="w-4 h-4 text-white" />
-                                    <span className="text-xs text-zinc-400 hidden group-hover:inline transition-opacity">
+                                    <Paperclip className="w-4 h-4 text-[#888888]" />
+                                    <span className="text-xs text-[#555555] hidden group-hover:inline transition-opacity">
                                         Attach
                                     </span>
                                 </button>
@@ -358,7 +465,7 @@ export function VercelV0Chat() {
                             <div className="flex items-center gap-2">
                                 <button
                                     type="button"
-                                    className="px-2 py-1.5 rounded-lg text-sm text-zinc-400 transition-colors border border-dashed border-zinc-700 hover:border-zinc-600 hover:bg-zinc-800 flex items-center justify-between gap-1"
+                                    className="px-2 py-1.5 rounded-lg text-xs text-[#888888] transition-colors border border-[#2A2A2A] hover:border-[#444444] hover:bg-[#252525] flex items-center justify-between gap-1"
                                 >
                                     <PlusIcon className="w-4 h-4" />
                                     Project
@@ -370,8 +477,8 @@ export function VercelV0Chat() {
                                     className={cn(
                                         "px-1.5 py-1.5 rounded-lg text-sm transition-colors border flex items-center justify-between gap-1",
                                         value.trim() && !isLoading
-                                            ? "bg-white text-black border-white hover:bg-neutral-200"
-                                            : "text-zinc-500 border-zinc-800 bg-zinc-900"
+                                            ? "bg-[#F0F0F0] text-black border-[#F0F0F0] hover:bg-white"
+                                            : "text-[#555555] border-[#2A2A2A] bg-[#1E1E1E]"
                                     )}
                                 >
                                     <ArrowUpIcon className="w-5 h-5" />
@@ -380,7 +487,7 @@ export function VercelV0Chat() {
                             </div>
                         </div>
                     </div>
-                    <div className="text-center mt-2 text-xs text-neutral-500">
+                    <div className="text-center mt-2 text-xs text-[#555555]">
                         Agentic AI can make mistakes. Consider verifying important information.
                     </div>
                 </div>
@@ -388,35 +495,63 @@ export function VercelV0Chat() {
 
             {/* Right Side Content (Only visible when messages > 0) */}
             {messages.length > 0 && (
-                <div className="flex-1 relative bg-[#0a0a0a] animate-in fade-in duration-500">
-                    {/* Top Nav */}
-                    <div className="absolute top-6 left-1/2 -translate-x-1/2 z-10 flex items-center gap-6 px-6 py-3 bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-full shadow-2xl">
-                        <div className="flex items-center gap-6 text-sm font-medium text-neutral-300">
-                            <button onClick={() => setActiveTab('mapping')} className={cn("transition-colors", activeTab === 'mapping' ? "text-white" : "hover:text-white")}>Mapping</button>
-                            <button onClick={() => setActiveTab('connection')} className={cn("transition-colors", activeTab === 'connection' ? "text-white" : "hover:text-white")}>Connection</button>
-                            <button onClick={() => {
+                <div className="flex-1 relative bg-[#0A0A0A] animate-in fade-in duration-500">
+                    {/* Top Nav — pill tab bar */}
+                    <div className="absolute top-5 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1 px-1.5 py-1.5 bg-[#161616] border border-[#2A2A2A] rounded-full shadow-2xl">
+                        <button
+                            onClick={() => setActiveTab('mapping')}
+                            className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                                activeTab === 'mapping'
+                                    ? "bg-[#1E1E1E] text-[#F0F0F0] shadow-sm"
+                                    : "text-[#888888] hover:text-[#F0F0F0]"
+                            )}
+                        >
+                            Mapping
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('connection')}
+                            className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                                activeTab === 'connection'
+                                    ? "bg-[#1E1E1E] text-[#F0F0F0] shadow-sm"
+                                    : "text-[#888888] hover:text-[#F0F0F0]"
+                            )}
+                        >
+                            Connection
+                        </button>
+                        <button
+                            onClick={() => {
                                 if (cadPrompt.available) {
                                     setAcceptedCadUrls(cadPrompt.urls);
                                     setCadPrompt({ available: false, urls: [] });
                                 }
                                 setActiveTab('cad');
-                            }} className={cn("transition-colors", activeTab === 'cad' ? "text-white" : "hover:text-white")}>CAD</button>
-                        </div>
+                            }}
+                            className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                                activeTab === 'cad'
+                                    ? "bg-[#1E1E1E] text-[#F0F0F0] shadow-sm"
+                                    : "text-[#888888] hover:text-[#F0F0F0]"
+                            )}
+                        >
+                            CAD
+                        </button>
                     </div>
 
                     {/* Tab Content */}
-                    <div className="w-full h-full pt-20 pb-4 px-4 relative">
+                    <div className="w-full h-full pt-[60px] pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'cad' && (() => {
                             const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
                             const cadUrl = urls[0] || 'default-cad';
                             return (
-                                <CADTab
+                                <CADTab 
                                     key={cadUrl}
-                                    currentQuery={latestUserQuery}
-                                    cadUrls={urls}
-                                    designData={robotDesign}
+                                    currentQuery={latestUserQuery} 
+                                    cadUrls={urls} 
+                                    designData={robotDesign} 
                                     onGeneratedCad={(newUrl) => {
                                         setAcceptedCadUrls(prev => [...prev, newUrl]);
                                         if (robotDesign) {

@@ -43,7 +43,7 @@ export function WorkspaceToolbar({
   return (
     <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between pointer-events-none">
       {/* Left Tools Group */}
-      <div className="flex items-center gap-1 bg-[#0c1220]/90 backdrop-blur-md border border-[#1a2744] rounded-xl p-1 pointer-events-auto">
+      <div className="flex items-center gap-1 bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-xl p-1 pointer-events-auto">
         {TOOLS.map((tool) => (
           <button
             key={tool.id}
@@ -53,7 +53,7 @@ export function WorkspaceToolbar({
               "p-2.5 rounded-lg transition-all duration-150",
               activeTool === tool.id
                 ? "bg-blue-600/20 text-blue-400"
-                : "text-neutral-500 hover:text-white hover:bg-white/5"
+                : "text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525]"
             )}
           >
             <tool.icon className="w-4 h-4" />
@@ -64,26 +64,26 @@ export function WorkspaceToolbar({
       {/* Center Zoom + Legend */}
       <div className="flex items-center gap-3 pointer-events-auto">
         {/* Zoom Controls */}
-        <div className="flex items-center gap-1 bg-[#0c1220]/90 backdrop-blur-md border border-[#1a2744] rounded-xl p-1">
+        <div className="flex items-center gap-1 bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-xl p-1">
           <button
             onClick={onZoomOut}
-            className="p-2 rounded-lg text-neutral-500 hover:text-white hover:bg-white/5 transition-colors"
+            className="p-2 rounded-lg text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525] transition-colors"
           >
             <Minus className="w-3.5 h-3.5" />
           </button>
-          <span className="text-xs text-neutral-300 font-medium min-w-[48px] text-center tabular-nums">
+          <span className="text-xs text-[#F0F0F0] font-medium min-w-[48px] text-center tabular-nums">
             {Math.round(zoom * 100)}%
           </span>
           <button
             onClick={onZoomIn}
-            className="p-2 rounded-lg text-neutral-500 hover:text-white hover:bg-white/5 transition-colors"
+            className="p-2 rounded-lg text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525] transition-colors"
           >
             <Plus className="w-3.5 h-3.5" />
           </button>
         </div>
 
         {/* Legend */}
-        <div className="flex items-center gap-4 bg-[#0c1220]/90 backdrop-blur-md border border-[#1a2744] rounded-xl px-4 py-2">
+        <div className="flex items-center gap-4 bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-xl px-4 py-2">
           {CONNECTION_TYPES.map((type) => (
             <div key={type.name} className="flex items-center gap-1.5">
               <div className="flex items-center gap-0.5">
@@ -100,23 +100,23 @@ export function WorkspaceToolbar({
                   style={{ backgroundColor: type.color }}
                 />
               </div>
-              <span className="text-[10px] text-neutral-400">{type.name}</span>
+              <span className="text-[10px] text-[#888888]">{type.name}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* Right Tools */}
-      <div className="flex items-center gap-1 bg-[#0c1220]/90 backdrop-blur-md border border-[#1a2744] rounded-xl p-1 pointer-events-auto">
+      <div className="flex items-center gap-1 bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-xl p-1 pointer-events-auto">
         <button
           onClick={onZoomFit}
-          className="p-2.5 rounded-lg text-neutral-500 hover:text-white hover:bg-white/5 transition-colors"
+          className="p-2.5 rounded-lg text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525] transition-colors"
           title="Fit to view"
         >
           <Maximize className="w-4 h-4" />
         </button>
         <button
-          className="p-2.5 rounded-lg text-neutral-500 hover:text-white hover:bg-white/5 transition-colors"
+          className="p-2.5 rounded-lg text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525] transition-colors"
           title="Lock canvas"
         >
           <Lock className="w-4 h-4" />
@@ -137,11 +137,11 @@ export function Minimap({ zoom, onZoomIn, onZoomOut, onCenter }: MinimapProps) {
   return (
     <div className="absolute bottom-4 left-4 z-10 flex items-end gap-2">
       {/* Minimap */}
-      <div className="w-[120px] h-[80px] bg-[#0c1220]/90 backdrop-blur-md border border-[#1a2744] rounded-xl overflow-hidden">
+      <div className="w-[120px] h-[80px] bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-xl overflow-hidden">
         <div className="w-full h-full relative p-2">
           {/* Mini grid */}
           <div
-            className="w-full h-full rounded border border-blue-500/30 bg-blue-500/5"
+            className="w-full h-full rounded border border-[#2A2A2A] bg-[#1E1E1E]/30"
             style={{
               backgroundImage: `
                 linear-gradient(to right, rgba(59,130,246,0.1) 1px, transparent 1px),
@@ -166,24 +166,24 @@ export function Minimap({ zoom, onZoomIn, onZoomOut, onCenter }: MinimapProps) {
       </div>
 
       {/* Minimap Controls */}
-      <div className="flex flex-col gap-1 bg-[#0c1220]/90 backdrop-blur-md border border-[#1a2744] rounded-xl p-1">
+      <div className="flex flex-col gap-1 bg-[#161616]/90 backdrop-blur-md border border-[#2A2A2A] rounded-xl p-1">
         <button
           onClick={onCenter}
-          className="p-1.5 rounded-lg text-neutral-500 hover:text-white hover:bg-white/5 transition-colors"
+          className="p-1.5 rounded-lg text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525] transition-colors"
           title="Center view"
         >
           <Crosshair className="w-3.5 h-3.5" />
         </button>
         <button
           onClick={onZoomIn}
-          className="p-1.5 rounded-lg text-neutral-500 hover:text-white hover:bg-white/5 transition-colors"
+          className="p-1.5 rounded-lg text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525] transition-colors"
           title="Zoom in"
         >
           <Plus className="w-3.5 h-3.5" />
         </button>
         <button
           onClick={onZoomOut}
-          className="p-1.5 rounded-lg text-neutral-500 hover:text-white hover:bg-white/5 transition-colors"
+          className="p-1.5 rounded-lg text-[#888888] hover:text-[#F0F0F0] hover:bg-[#252525] transition-colors"
           title="Zoom out"
         >
           <Minus className="w-3.5 h-3.5" />

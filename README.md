@@ -1,4 +1,4 @@
-# Yantra
+# Yantraa
 
 ## AI-Powered Robotics Knowledge System & Physical Product Intelligence Platform
 

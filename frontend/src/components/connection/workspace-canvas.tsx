@@ -115,7 +115,7 @@ export function WorkspaceCanvas({
       ref={canvasRef}
       className={cn(
         "flex-1 relative overflow-hidden",
-        "bg-[#080d19]",
+        "bg-[#0A0A0A]",
         isPanning ? "cursor-grabbing" : activeTool === "move" ? "cursor-grab" : "cursor-default"
       )}
       onDragOver={handleDragOver}
@@ -131,7 +131,7 @@ export function WorkspaceCanvas({
         className="canvas-grid absolute inset-0"
         style={{
           backgroundImage: `
-            radial-gradient(circle, rgba(59,130,246,0.08) 1px, transparent 1px)
+            radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)
           `,
           backgroundSize: `${24 * zoom}px ${24 * zoom}px`,
           backgroundPosition: `${pan.x}px ${pan.y}px`,
@@ -152,10 +152,10 @@ export function WorkspaceCanvas({
             key={comp.id}
             className={cn(
               "absolute group",
-              "bg-[#111a2e] border border-[#1e3058] rounded-xl",
-              "hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]",
+              "bg-[#1E1E1E] border border-[#2A2A2A] rounded-xl",
+              "hover:border-[#444444] hover:shadow-[0_0_12px_rgba(255,255,255,0.04)]",
               "transition-shadow duration-150",
-              draggingComponent === comp.id && "border-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.25)]"
+              draggingComponent === comp.id && "border-[#555555] shadow-[0_0_12px_rgba(255,255,255,0.06)]"
             )}
             style={{
               left: comp.x,
@@ -166,9 +166,9 @@ export function WorkspaceCanvas({
             onMouseDown={(e) => handleComponentMouseDown(e, comp)}
           >
             {/* Component drag handle */}
-            <div className="flex items-center gap-1 px-2 py-1.5 border-b border-[#1e3058]/50">
+            <div className="flex items-center gap-1 px-2 py-1.5 border-b border-[#2A2A2A]">
               <GripVertical className="w-3 h-3 text-neutral-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-grab" />
-              <span className="text-[10px] text-neutral-400 font-medium truncate flex-1">
+              <span className="text-[10px] text-[#888888] font-medium truncate flex-1">
                 {comp.name}
               </span>
               <button
@@ -188,10 +188,10 @@ export function WorkspaceCanvas({
             </div>
 
             {/* Connection ports */}
-            <div className="absolute -left-1.5 top-1/2 w-3 h-3 rounded-full bg-[#1e3058] border-2 border-blue-500/40 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-blue-500 hover:scale-125 cursor-crosshair" />
-            <div className="absolute -right-1.5 top-1/2 w-3 h-3 rounded-full bg-[#1e3058] border-2 border-blue-500/40 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-blue-500 hover:scale-125 cursor-crosshair" />
-            <div className="absolute left-1/2 -top-1.5 w-3 h-3 rounded-full bg-[#1e3058] border-2 border-blue-500/40 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-blue-500 hover:scale-125 cursor-crosshair" />
-            <div className="absolute left-1/2 -bottom-1.5 w-3 h-3 rounded-full bg-[#1e3058] border-2 border-blue-500/40 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-blue-500 hover:scale-125 cursor-crosshair" />
+            <div className="absolute -left-1.5 top-1/2 w-3 h-3 rounded-full bg-[#252525] border-2 border-[#444444] -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#F0F0F0] hover:scale-125 cursor-crosshair" />
+            <div className="absolute -right-1.5 top-1/2 w-3 h-3 rounded-full bg-[#252525] border-2 border-[#444444] -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#F0F0F0] hover:scale-125 cursor-crosshair" />
+            <div className="absolute left-1/2 -top-1.5 w-3 h-3 rounded-full bg-[#252525] border-2 border-[#444444] -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#F0F0F0] hover:scale-125 cursor-crosshair" />
+            <div className="absolute left-1/2 -bottom-1.5 w-3 h-3 rounded-full bg-[#252525] border-2 border-[#444444] -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#F0F0F0] hover:scale-125 cursor-crosshair" />
           </div>
         ))}
       </div>
@@ -201,13 +201,13 @@ export function WorkspaceCanvas({
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="flex flex-col items-center gap-5 text-center pointer-events-auto">
             {/* Robot arm illustration */}
-            <div className="w-[120px] h-[120px] border-2 border-dashed border-neutral-700/50 rounded-2xl flex items-center justify-center">
+            <div className="w-[120px] h-[120px] border-2 border-dashed border-[#2A2A2A] rounded-2xl flex items-center justify-center">
               <svg
                 width="64"
                 height="64"
                 viewBox="0 0 64 64"
                 fill="none"
-                className="text-neutral-600"
+                className="text-[#555555]"
               >
                 <path
                   d="M32 56V40M32 40l-8-12M32 40l8-12M24 28l-4-12M40 28l4-12M20 16l-4-8M44 16l4-8"
@@ -228,16 +228,16 @@ export function WorkspaceCanvas({
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-white mb-1">
+              <h3 className="text-lg font-semibold text-[#F0F0F0] mb-1">
                 Add Components to Start
               </h3>
-              <p className="text-sm text-neutral-500 max-w-[260px] leading-relaxed">
+              <p className="text-sm text-[#888888] max-w-[260px] leading-relaxed">
                 Drag components from the right panel and connect them to build your robot system.
               </p>
             </div>
 
             <button
-              className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-xl transition-colors shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+              className="flex items-center gap-2 px-5 py-2.5 bg-[#F0F0F0] hover:bg-white text-black text-sm font-medium rounded-xl transition-colors"
             >
               <Plus className="w-4 h-4" />
               Add First Component
