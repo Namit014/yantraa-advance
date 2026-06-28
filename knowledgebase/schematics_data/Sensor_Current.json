@@ -1,0 +1,5232 @@
+[
+  {
+    "component": "A1363xKTTN-1",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +0.6 to +1.3mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1363xKTTN-2",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +1.3 to +2.9mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1363xKTTN-5",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +2.9 to +6.4mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1363xKTTN-10",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +6.4 to +14mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1366xKTTN-1",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +1mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1366xKTTN-2",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +2.5mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1366xKTTN-5",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +5mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1366xKTTN-10",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +10mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1367xKTTN-1",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +0.6 to +1.3mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1367xKTTN-2",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +1.3 to +2.9mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1367xKTTN-5",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +2.9 to +6.4mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1367xKTTN-10",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "NC",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +6.4 to +14mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1365xKTTN-1",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "~FAULT",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +0.6 to +1.3mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1365xKTTN-2",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "~FAULT",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +1.3 to +2.9mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1365xKTTN-5",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "~FAULT",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +2.9 to +6.4mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1365xKTTN-10",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "VOUT",
+      "~FAULT",
+      "GND"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +6.4 to +14mV/G, SIP-4",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1369xUA-10",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, -8.5 to -12.5mV/G, SIP-3",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "A1369xUA-24",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, -22 to -26mV/G, SIP-3",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS73369xUAA-010B5",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT"
+    ],
+    "description": "Programmable Linear Hall Effect Sensor, +9 to +13.5mV/G, SIP-3",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS706xLC-05C",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "NC",
+      "VOUT",
+      "VCC"
+    ],
+    "description": "\u00b115A Bidirectional Hall Effect Linear Current Sensor, +5.0V supply, 133mV/A, SOIC-8, OBSOLETE",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated",
+      "obsolete"
+    ]
+  },
+  {
+    "component": "ACS709xLFTR-6BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "NC",
+      "GND",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN"
+    ],
+    "description": "\u00b115A Bidirectional, Hall-Effect Current Sensor, +3.3V to +5.0V supply, 90mV/A @ +3.3V, QSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS709xLFTR-10BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "NC",
+      "GND",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN"
+    ],
+    "description": "\u00b124A Bidirectional, Hall-Effect Current Sensor, +3.3V to +5.0V supply, 85mV/A @ +3.3V, QSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS709xLFTR-20BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "NC",
+      "GND",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN"
+    ],
+    "description": "\u00b137.5A Bidirectional, Hall-Effect Current Sensor, +3.3V to +5.0V supply, 56mV/A @ +3.3V, QSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS709xLFTR-35BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "NC",
+      "GND",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN"
+    ],
+    "description": "\u00b175A Bidirectional, Hall-Effect Current Sensor, +3.3V to +5.0V supply, 28mV/A @ +3.3V, QSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS710xLATR-6BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b16A Bidirectional, Hall-Effect Current Sensor, Latched Fault, +3.3V to +5.0V supply, 151mV/A @ +5.0V, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS710xLATR-10BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b112A Bidirectional, Hall-Effect Current Sensor, Latched Fault, +3.3V to +5.0V supply, 85mV/A @ +5.0V, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS710xLATR-12BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b112.5A Bidirectional, Hall-Effect Current Sensor, Latched Fault, +3.3V to +5.0V supply, 56mV/A @ +5.0V, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS710xLATR-25BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b125A Bidirectional, Hall-Effect Current Sensor, Latched Fault, +3.3V to +5.0V supply, 28mV/A @ +5.0V, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS710xLATR-6BB-NL",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b16A Bidirectional, Hall-Effect Current Sensor, +3.3V to +5.0V supply, 151mV/A @ +5.0V, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS710xLATR-10BB-NL",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b112A Bidirectional, Hall-Effect Current Sensor, +3.3V to +5.0V supply, 85mV/A @ +5.0V, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS710xLATR-12BB-NL",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b112.5A Bidirectional, Hall-Effect Current Sensor, +3.3V to +5.0V supply, 56mV/A @ +5.0V, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS710xLATR-25BB-NL",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b125A Bidirectional, Hall-Effect Current Sensor, +3.3V to +5.0V supply, 28mV/A @ +5.0V, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS716xLATR-6BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b16A Bidirectional, Hall-Effect Current Sensor, Latched Fault, +3.3V supply, 100mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS716xLATR-12BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b112.5A Bidirectional, Hall-Effect Current Sensor, Latched Fault, +3.3V supply, 37mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS716xLATR-25BB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b125A Bidirectional, Hall-Effect Current Sensor, Latched Fault, +3.3V supply, 18.5mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS716xLATR-6BB-NL",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b16A Bidirectional, Hall-Effect Current Sensor, +3.3V supply, 100mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS716xLATR-12BB-NL",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b112.5A Bidirectional, Hall-Effect Current Sensor, +3.3V supply, 37mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS716xLATR-25BB-NL",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VZCR",
+      "FILTER",
+      "VIOUT",
+      "~FAULT",
+      "VCC",
+      "VOC",
+      "FAULT_EN",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b125A Bidirectional, Hall-Effect Current Sensor, +3.3V supply, 18.5mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS711xEXLT-15AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "IP-",
+      "GND",
+      "~FAULT",
+      "NC",
+      "VIOUT"
+    ],
+    "description": "\u00b115A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 90mV/A, QFN-12",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS711xEXLT-31AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "IP-",
+      "GND",
+      "~FAULT",
+      "NC",
+      "VIOUT"
+    ],
+    "description": "\u00b131A Bidirectional, Hall-Effect Current Sensor, +3.3V supply, 45mV/A, QFN-12",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS711xLCTR-12AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "~FAULT",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b112.5A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 110mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS711xLCTR-25AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "~FAULT",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b125A, Bidirectional, Hall-Effect Current Sensor, +3.3V supply, 55mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS712xLCTR-05B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b15A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 185mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS712xLCTR-20A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS712xLCTR-30A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b130A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 66mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS713xLCTR-20A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "20A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 185mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS713xLCTR-30A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "30A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 133mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS714xLCTR-05B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b15A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 185mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS714xLCTR-20A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS714xLCTR-30A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b130A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 66mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS714xLCTR-50A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS715xLCTR-20A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "20A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 185mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS715xLCTR-30A",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "30A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 133mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xLCTR-05AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b15A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 400mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xLCTR-10AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b110A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 200mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xLCTR-10AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "10A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 400mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xLCTR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xLCTR-20AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "20A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 200mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xLCTR-30AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b130A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 66mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xLCTR-30AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "30A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 133mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xLCTR-50AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xLCTR-10AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "10A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 264mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xLCTR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xLCTR-20AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "20A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 132mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xLCTR-30AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b130A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 44mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xLCTR-30AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "30A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 88mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xLCTR-40AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 33mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xLCTR-50AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "FILTER",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 26.4mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS717xMATR-10B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b110A Bidirectional, Hall-Effect Current Sensor, +3.3V supply, 133mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS717xMATR-20B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b120A Bidirectional, Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS718xMATR-10B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b110A Bidirectional, Hall-Effect Current Sensor, +5.0V supply, 200mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS718xMATR-20B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b120A Bidirectional, Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS720xMATR-15B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "~FAULT_S",
+      "FILTER",
+      "VIOUT",
+      "~FAULT_F",
+      "VCC",
+      "VOC_F",
+      "VOC_S",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b115A Bidirectional, Hall-Effect Current Sensor, +5.0V supply, 90mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS720xMATR-35B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "~FAULT_S",
+      "FILTER",
+      "VIOUT",
+      "~FAULT_F",
+      "VCC",
+      "VOC_F",
+      "VOC_S",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b135A Bidirectional, Hall-Effect Current Sensor, +5.0V supply, 38.5mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS720xMATR-65B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "~FAULT_S",
+      "FILTER",
+      "VIOUT",
+      "~FAULT_F",
+      "VCC",
+      "VOC_F",
+      "VOC_S",
+      "IP-",
+      "GND"
+    ],
+    "description": "\u00b165A Bidirectional, Hall-Effect Current Sensor, +5.0V supply, 20.5mV/A, SOIC-16W",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xLCTR-05AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b15A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 264mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xLCTR-10AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b110A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 132mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xLCTR-10AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "10A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 264mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xLCTR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xLCTR-20AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "20A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 132mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xLCTR-40AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 33mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xLCTR-40AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "40A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xLCTR-05AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b15A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 400mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xLCTR-10AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b110A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 200mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xLCTR-10AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "10A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 400mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xLCTR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xLCTR-20AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "20A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 200mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xLCTR-40AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 50mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xLCTR-40AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "BW_SEL",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "40A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xMATR-10AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "BW_SEL",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b110A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 132mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xMATR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "BW_SEL",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS722xMATR-40AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "BW_SEL",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 33mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xMATR-10AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "BW_SEL",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b110A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 200mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xMATR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "BW_SEL",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS723xMATR-40AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "BW_SEL",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 50mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xMATR-12AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "FILTER",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b112A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 166mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xMATR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "FILTER",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xMATR-30AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "FILTER",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b130A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 66mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xMATR-30AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "FILTER",
+      "GND",
+      "IP-"
+    ],
+    "description": "30A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 132mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS724xMATR-65AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "FILTER",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b165A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 30.75mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xMATR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "FILTER",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xMATR-30AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "FILTER",
+      "GND",
+      "IP-"
+    ],
+    "description": "\u00b130A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 44mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS725xMATR-30AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "VCC",
+      "NC",
+      "VIOUT",
+      "FILTER",
+      "GND",
+      "IP-"
+    ],
+    "description": "30A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 88mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS726xLFTR-20B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "NC",
+      "GND",
+      "VOUTN",
+      "VOUTP",
+      "VINGP",
+      "VINGN",
+      "VOUTGN",
+      "VOUTGP",
+      "VCC"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 100mV/A, QSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS726xLFTR-40B",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "NC",
+      "GND",
+      "VOUTN",
+      "VOUTP",
+      "VINGP",
+      "VINGN",
+      "VOUTGN",
+      "VOUTGP",
+      "VCC"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 50mV/A, QSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS730xLCTR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "VZCR",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS730xLCTR-40AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "VZCR",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 50mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS730xLCTR-40AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "VZCR",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "40A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 100mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS730xLCTR-50AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "VZCR",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS730xLCTR-80AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "IP-",
+      "GND",
+      "VZCR",
+      "VIOUT",
+      "VCC"
+    ],
+    "description": "80A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 50mV/A, SOIC-8",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS732xLATR-40AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "GND",
+      "PROGRAM",
+      "VIOUT",
+      "~FAULT",
+      "VOC",
+      "VCC",
+      "IP-"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 50mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS733xLATR-20AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "GND",
+      "PROGRAM",
+      "VIOUT",
+      "~FAULT",
+      "VOC",
+      "VCC",
+      "IP-"
+    ],
+    "description": "\u00b120A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS733xLATR-40AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "GND",
+      "PROGRAM",
+      "VIOUT",
+      "~FAULT",
+      "VOC",
+      "VCC",
+      "IP-"
+    ],
+    "description": "\u00b140A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 33mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS733xLATR-40AU",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "GND",
+      "PROGRAM",
+      "VIOUT",
+      "~FAULT",
+      "VOC",
+      "VCC",
+      "IP-"
+    ],
+    "description": "40A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS733xLATR-65AB",
+    "type": "Sensor_Current",
+    "pins": [
+      "IP+",
+      "GND",
+      "PROGRAM",
+      "VIOUT",
+      "~FAULT",
+      "VOC",
+      "VCC",
+      "IP-"
+    ],
+    "description": "\u00b165A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 20mV/A, SOIC-16",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS756xCB-050B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS756xCB-100B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1100A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-050B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-050U-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "50A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 60mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-100B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1100A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-100U-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "100A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-150B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 13.3mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-150U-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "150A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 26.7mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-200B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1200A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 10mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-200U-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "200A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS759xCB-050B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 26.4mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS759xCB-100B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1100A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 13.2mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS759xCB-150B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1150A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 8.8mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS759xCB-200B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1200A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 6.6mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-050B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-050U-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "50A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 80mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-100B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1100A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-100U-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "100A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-150B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 13.3mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-150U-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "50A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 26.7mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-200B-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 10mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-200U-PFF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "50A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, CB-5 PFF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-100B-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1100A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-150U-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "150A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 26.7mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-200B-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1200A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 10mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-200U-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "200A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-100U-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "100A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-150B-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 13.3mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-150U-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "50A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 26.7mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-200B-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 10mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS770xCB-200U-PSF",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "50A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, CB-5 PSF",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-150B-PSS",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 13.3mV/A, CB-5 PSS",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS758xCB-200B-PSS",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1200A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 10mV/A, CB-5 PSS",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS759xCB-150B-PSS",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1150A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 8.8mV/A, CB-5 PSS",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS759xCB-200B-PSS",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VIOUT",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1200A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 6.6mV/A, CB-5 PSS",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS780xLRTR-050B",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS780xLRTR-050U",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "50A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 60mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS780xLRTR-100B",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1100A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 20mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS780xLRTR-100U",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "100A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 40mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS780xLRTR-150B",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1150A Bidirectional Hall-Effect Current Sensor, +5.0V supply, 13.33mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS780xLRTR-150U",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "150A Unidirectional Hall-Effect Current Sensor, +5.0V supply, 26.66mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS781xLRTR-050B",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b150A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 26.4mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS781xLRTR-050U",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "50A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 39.6mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS781xLRTR-100B",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1100A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 13.2mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS781xLRTR-100U",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "100A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 26.4mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS781xLRTR-150B",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "\u00b1150A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 8.8mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "ACS781xLRTR-150U",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "GND",
+      "VOUT",
+      "NC",
+      "IP+",
+      "IP-"
+    ],
+    "description": "150A Unidirectional Hall-Effect Current Sensor, +3.3V supply, 17.6mV/A, PSOF-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "monitor",
+      "sensor",
+      "isolated"
+    ]
+  },
+  {
+    "component": "CKSR_15-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "Vref",
+      "Vout",
+      "GND",
+      "Uc",
+      "IN",
+      "OUT"
+    ],
+    "description": "Current Transducer, 15A, Unipolar, 0-5V Output",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "CKSR_6-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "Vref",
+      "Vout",
+      "GND",
+      "Uc",
+      "IN",
+      "OUT"
+    ],
+    "description": "Current Transducer, 6A, Unipolar, 0-5V Output",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "CKSR_25-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "Vref",
+      "Vout",
+      "GND",
+      "Uc",
+      "IN",
+      "OUT"
+    ],
+    "description": "Current Transducer, 25A, Unipolar, 0-5V Output",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "CKSR_50-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "Vref",
+      "Vout",
+      "GND",
+      "Uc",
+      "IN",
+      "OUT"
+    ],
+    "description": "Current Transducer, 50A, Unipolar, 0-5V Output",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "CQ-2063",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Bidirectional, -35A to +35A, 60mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2064",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Bidirectional, -54A to +54A, 40mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2065",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Bidirectional, -85A to +85A, 25mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-206A",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Bidirectional, -46A to +46A, 45mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-206B",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Unidirectional, 0A to +45A, 90mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2232",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -21A to +21A, 62.5mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2233",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -35A to +35A, 37.5mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2234",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -54A to +54A, 24.5mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2235",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -85A to +85A, 15.5mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2332",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -21A to +21A, 100mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2333",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -35A to +35A, 60mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2334",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -54A to +54A, 40mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2335",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -85A to +85A, 25mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2336",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small Current Sensor, Bidirectional, -170A to +170A, 12mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-236B",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Unidirectional, 0A to +25A, 160mV/A, CQ-7",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2092",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Bidirectional, -21A to +21A, 100mV/A, CQ-7S",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-2093",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Bidirectional, -35A to +35A, 60mV/A, CQ-7S",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-209A",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Bidirectional, -31.8A to +31.8A, 66mV/A, CQ-7S",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-209B",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Unidirectional, -35A to 0A, 115mV/A, CQ-7S",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-209D",
+    "type": "Sensor_Current",
+    "pins": [
+      "DATA_IO",
+      "VDD",
+      "VSS",
+      "VOUT",
+      "SCLK",
+      "P",
+      "N"
+    ],
+    "description": "High-Speed Small-Sized Current Sensor, Bidirectional, -41A to +41A, 50mV/A, CQ-7S",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3200",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -8.5A to +8.5A, 155mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3201",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -10.1A to +10.1A, 130mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3202",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -21.1A to +21.1A, 62.5mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3203",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -35.7A to +35.7A, 37mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3204",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -44.0A to +44.0A, 30mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-320A",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -29.3A to +29.3A, 45mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-320B",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Unidirectional, -1.1A to +20.9A, 120mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3300",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -6.4A to +6.4A, 325mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3301",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -10.7A to +10.7A, 195mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3302",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -21.0A to +21.0A, 100mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-3303",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -35.0A to +35.0A, 60mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-330A",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -31.8A to +31.8A, 66mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-330B",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Unidirectional, 0A to +21.0A, 195mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-330E",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Unidirectional, 0A to +20.5A, 200mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-330F",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Unidirectional, -2.0A to +42.0A, 80mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-330G",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -4.5A to +4.5A, 450mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-330H",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Bidirectional, -42.0A to +42.0A, 50mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CQ-330J",
+    "type": "Sensor_Current",
+    "pins": [
+      "TAB",
+      "P",
+      "TEST1",
+      "VDD",
+      "TEST2",
+      "VSS",
+      "VOUT",
+      "TEST3",
+      "N"
+    ],
+    "description": "High-Speed Response Coreless Current Sensor, Unidirectional, -2.0A to +42.0A, 82.7mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CSLW6B1",
+    "type": "Sensor_Current",
+    "pins": [
+      "VS",
+      "GND",
+      "OUT",
+      "Iout",
+      "Iin"
+    ],
+    "description": "Miniature Wired Open-Loop Current Sensors, 1A",
+    "keywords": [
+      "hall",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CSLW6B5",
+    "type": "Sensor_Current",
+    "pins": [
+      "VS",
+      "GND",
+      "OUT",
+      "Iout",
+      "Iin"
+    ],
+    "description": "Miniature Wired Open-Loop Current Sensors, 5A",
+    "keywords": [
+      "hall",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CSLW6B40M",
+    "type": "Sensor_Current",
+    "pins": [
+      "VS",
+      "GND",
+      "OUT",
+      "Iout",
+      "Iin"
+    ],
+    "description": "Miniature Wired Open-Loop Current Sensors, 40mA",
+    "keywords": [
+      "hall",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CSLW6B200M",
+    "type": "Sensor_Current",
+    "pins": [
+      "VS",
+      "GND",
+      "OUT",
+      "Iout",
+      "Iin"
+    ],
+    "description": "Miniature Wired Open-Loop Current Sensors, 200mA",
+    "keywords": [
+      "hall",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CZ-3813",
+    "type": "Sensor_Current",
+    "pins": [
+      "VSS",
+      "IP",
+      "OCD",
+      "VDD",
+      "CS",
+      "VOUT",
+      "DIO",
+      "SCLK",
+      "IN"
+    ],
+    "description": "Coreless Current Sensor, Bidirectional, -33.0A to +33.0A, 60mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CZ-3814",
+    "type": "Sensor_Current",
+    "pins": [
+      "VSS",
+      "IP",
+      "OCD",
+      "VDD",
+      "CS",
+      "VOUT",
+      "DIO",
+      "SCLK",
+      "IN"
+    ],
+    "description": "Coreless Current Sensor, Bidirectional, -50.0A to +50.0A, 40mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "CZ-3815",
+    "type": "Sensor_Current",
+    "pins": [
+      "VSS",
+      "IP",
+      "OCD",
+      "VDD",
+      "CS",
+      "VOUT",
+      "DIO",
+      "SCLK",
+      "IN"
+    ],
+    "description": "Coreless Current Sensor, Bidirectional, -60.0A to +60.0A, 33mV/A, VSOP-24",
+    "keywords": [
+      "hall",
+      "effect",
+      "current",
+      "sensor"
+    ]
+  },
+  {
+    "component": "HO40-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "OUT",
+      "GND",
+      "Vout",
+      "Vref",
+      "OCD",
+      "IN"
+    ],
+    "description": "Current Transducer, 40A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO60-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "OUT",
+      "GND",
+      "Vout",
+      "Vref",
+      "OCD",
+      "IN"
+    ],
+    "description": "Current Transducer, 60A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO120-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "OUT",
+      "GND",
+      "Vout",
+      "Vref",
+      "OCD",
+      "IN"
+    ],
+    "description": "Current Transducer, 40A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO150-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "OUT",
+      "GND",
+      "Vout",
+      "Vref",
+      "OCD",
+      "IN"
+    ],
+    "description": "Current Transducer, 40A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO8-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 8A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO15-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 15A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO25-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 25A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO8-NPxSP33",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 8A, Unipolar, 3.3V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO15-NPxSP33",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 15A, Unipolar, 3.3V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO25-NPxSP33",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 25A, Unipolar, 3.3V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO8-NSM",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 8A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO15-NSM",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 15A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HO25-NSM",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Uc",
+      "IN",
+      "OUT",
+      "0V",
+      "Vout",
+      "Vref",
+      "OCD",
+      "Standby",
+      "NA"
+    ],
+    "description": "Current Transducer, 25A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HTFS200-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Vc",
+      "GND",
+      "Vout",
+      "Vref"
+    ],
+    "description": "Current Transducer, 200A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HTFS400-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Vc",
+      "GND",
+      "Vout",
+      "Vref"
+    ],
+    "description": "Current Transducer, 400A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HTFS600-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Vc",
+      "GND",
+      "Vout",
+      "Vref"
+    ],
+    "description": "Current Transducer, 600A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HTFS800-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "+Vc",
+      "GND",
+      "Vout",
+      "Vref"
+    ],
+    "description": "Current Transducer, 800A, Unipolar, 5V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX02-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "-",
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 2A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX03-P-SP2",
+    "type": "Sensor_Current",
+    "pins": [
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 3A, Unipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX04-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "-",
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 4A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX05-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "-",
+      "GND",
+      "+",
+      "OUT",
+      "IN1-",
+      "IN2-",
+      "IN1+",
+      "IN2+"
+    ],
+    "description": "Current Transducer, 5A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX05-P-SP2",
+    "type": "Sensor_Current",
+    "pins": [
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 5A, Unipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX06-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "-",
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 6A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX10-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "-",
+      "GND",
+      "+",
+      "OUT",
+      "IN1-",
+      "IN2-",
+      "IN1+",
+      "IN2+"
+    ],
+    "description": "Current Transducer, 10A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX10-P-SP2",
+    "type": "Sensor_Current",
+    "pins": [
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 10A, Unipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX15-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "-",
+      "GND",
+      "+",
+      "OUT",
+      "IN1-",
+      "IN2-",
+      "IN1+",
+      "IN2+"
+    ],
+    "description": "Current Transducer, 15A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX15-P-SP2",
+    "type": "Sensor_Current",
+    "pins": [
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 15A, Unipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX20-P-SP2",
+    "type": "Sensor_Current",
+    "pins": [
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 20A, Unipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX25-P-SP2",
+    "type": "Sensor_Current",
+    "pins": [
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 25A, Unipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "HX50-P-SP2",
+    "type": "Sensor_Current",
+    "pins": [
+      "GND",
+      "+",
+      "OUT",
+      "IN+",
+      "IN-"
+    ],
+    "description": "Current Transducer, 50A, Unipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "IR2175",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "PO",
+      "COM",
+      "~OC",
+      "NC",
+      "VB",
+      "VS",
+      "VIN+"
+    ],
+    "description": "Linear Current Sensing IC, PWM output, 600V, PDIP-8/SOIC-8",
+    "keywords": [
+      "half",
+      "bridge",
+      "current",
+      "sense"
+    ]
+  },
+  {
+    "component": "IR21771S",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "NC",
+      "G0",
+      "G1",
+      "VS",
+      "VIN-",
+      "VIN+",
+      "VB",
+      "VSS",
+      "OC",
+      "PO",
+      "SYNC"
+    ],
+    "description": "Phase Current Sensor IC for AC Motor Control, PWM output, 600V, SOIC-16W",
+    "keywords": [
+      "half",
+      "bridge",
+      "current",
+      "sense"
+    ]
+  },
+  {
+    "component": "IR22771S",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "NC",
+      "G0",
+      "G1",
+      "VS",
+      "VIN-",
+      "VIN+",
+      "VB",
+      "VSS",
+      "OC",
+      "PO",
+      "SYNC"
+    ],
+    "description": "Phase Current Sensor IC for AC Motor Control, PWM output, 1200V, SOIC-16W",
+    "keywords": [
+      "half",
+      "bridge",
+      "current",
+      "sense"
+    ]
+  },
+  {
+    "component": "IR2177S",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "NC",
+      "G0",
+      "G1",
+      "VS",
+      "VIN-",
+      "VIN+",
+      "VB",
+      "OUT",
+      "VSS",
+      "VRL",
+      "VRH",
+      "OC",
+      "PO",
+      "SYNC"
+    ],
+    "description": "Phase Current Sensor IC for AC Motor Control, PWM and ADC output, 600V, SOIC-16W",
+    "keywords": [
+      "half",
+      "bridge",
+      "current",
+      "sense"
+    ]
+  },
+  {
+    "component": "IR2277S",
+    "type": "Sensor_Current",
+    "pins": [
+      "VCC",
+      "NC",
+      "G0",
+      "G1",
+      "VS",
+      "VIN-",
+      "VIN+",
+      "VB",
+      "OUT",
+      "VSS",
+      "VRL",
+      "VRH",
+      "OC",
+      "PO",
+      "SYNC"
+    ],
+    "description": "Phase Current Sensor IC for AC Motor Control, PWM and ADC output, 1200V, SOIC-16W",
+    "keywords": [
+      "half",
+      "bridge",
+      "current",
+      "sense"
+    ]
+  },
+  {
+    "component": "IR25750L",
+    "type": "Sensor_Current",
+    "pins": [
+      "CS",
+      "NC",
+      "GATE",
+      "COM",
+      "VS"
+    ],
+    "description": "Current Sensing IC, 600V, SOT-23-5",
+    "keywords": [
+      "single",
+      "current",
+      "sense"
+    ]
+  },
+  {
+    "component": "LA25-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "M",
+      "-",
+      "+"
+    ],
+    "description": "Current Transducer, 25A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "LA55-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "M",
+      "-",
+      "+"
+    ],
+    "description": "Current Transducer, 50A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "LA100-P",
+    "type": "Sensor_Current",
+    "pins": [
+      "M",
+      "-",
+      "+"
+    ],
+    "description": "Current Transducer, 100A, Bipolar, +/-15V",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "LTSR6-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "IN1",
+      "+5V",
+      "IN2",
+      "IN3",
+      "OUT4",
+      "OUT5",
+      "OUT6",
+      "Ref",
+      "Out",
+      "0V"
+    ],
+    "description": "Current Transducer, Unipolar, 6A, 5V supply, DC, AC, pulsed",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "LTSR25-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "IN1",
+      "+5V",
+      "IN2",
+      "IN3",
+      "OUT4",
+      "OUT5",
+      "OUT6",
+      "Ref",
+      "Out",
+      "0V"
+    ],
+    "description": "Current Transducer, Unipolar, 25A, 5V supply, DC, AC, pulsed",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  },
+  {
+    "component": "LTSR15-NP",
+    "type": "Sensor_Current",
+    "pins": [
+      "IN1",
+      "+5V",
+      "IN2",
+      "IN3",
+      "OUT4",
+      "OUT5",
+      "OUT6",
+      "Ref",
+      "Out",
+      "0V"
+    ],
+    "description": "Current Transducer, Unipolar, 15A, 5V supply, DC, AC, pulsed",
+    "keywords": [
+      "current",
+      "transducer"
+    ]
+  }
+]

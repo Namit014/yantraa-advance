@@ -1,0 +1,525 @@
+{
+  "project_name": "openarm",
+  "sub_assemblies": [
+    {
+      "folder": "openarm\\cad\\cables_cad",
+      "assembly_file": "cables_L-shapedMold.step",
+      "total_unique_parts": 4,
+      "bom": [
+        {
+          "part_name": "Down_KANA",
+          "quantity": 1
+        },
+        {
+          "part_name": "UP_KANA",
+          "quantity": 1
+        },
+        {
+          "part_name": "XT30(2+2)",
+          "quantity": 1
+        },
+        {
+          "part_name": "\\X2\\30DB30C330C830DC30F330C991D1578B\\X0\\",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "folder": "openarm\\cad\\chestcam_cad",
+      "assembly_file": "chest-camera_D435.step",
+      "total_unique_parts": 1,
+      "bom": [
+        {
+          "part_name": "D435_camera_mount_v2",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "folder": "openarm\\cad\\openarm_cad",
+      "assembly_file": "OpenArm_2.0_w_Head_Camera.STEP",
+      "total_unique_parts": 117,
+      "bom": [
+        {
+          "part_name": "B0495_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "B6802ZZ_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE3-10_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE3-15__simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE3-18_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE3-20_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE3-6",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE3-6_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE3-8_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE4-10__simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE4-6__simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE4-8__simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBE5-10__simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBM6-12_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "CBSTNR3-6_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "DBSY4-6-5_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "DM4310_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "DM4340P_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "DM4340_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "DM8009P_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "FL6700ZZ_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "FL6803ZZ_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "GEAHS1.0-36-6-A-17-QFC24-M3_b_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "HBLFSDW6-SEP_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "HBLFSDW6_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "HFBL30A6-3060-123-SSP_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "HFBL30A6-3060-123_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "HFSB6_6060_750_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "HNTP6-6_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "Head_Cover",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1-J2",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1-J2_cover_v1.1_A",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1-J2_cover_v1.1_B",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1-J2_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1_A",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1_B",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1_C",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1_D",
+          "quantity": 1
+        },
+        {
+          "part_name": "J1_E",
+          "quantity": 1
+        },
+        {
+          "part_name": "J2-J3",
+          "quantity": 1
+        },
+        {
+          "part_name": "J2-J3_cover",
+          "quantity": 1
+        },
+        {
+          "part_name": "J2_A",
+          "quantity": 1
+        },
+        {
+          "part_name": "J2_B",
+          "quantity": 1
+        },
+        {
+          "part_name": "J2_C",
+          "quantity": 1
+        },
+        {
+          "part_name": "J3-J4_cover_v2.0",
+          "quantity": 1
+        },
+        {
+          "part_name": "J3-J5",
+          "quantity": 2
+        },
+        {
+          "part_name": "J4-J5_cover_v1.0",
+          "quantity": 1
+        },
+        {
+          "part_name": "J4_A",
+          "quantity": 1
+        },
+        {
+          "part_name": "J4_B",
+          "quantity": 1
+        },
+        {
+          "part_name": "J4_C",
+          "quantity": 1
+        },
+        {
+          "part_name": "J4_D",
+          "quantity": 1
+        },
+        {
+          "part_name": "J4_D-E",
+          "quantity": 1
+        },
+        {
+          "part_name": "J4_E",
+          "quantity": 1
+        },
+        {
+          "part_name": "J5_A_v2.0",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6-J7_cover",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6-J7_cover_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6_A",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6_B",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6_C",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6_C_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6_D",
+          "quantity": 1
+        },
+        {
+          "part_name": "J6_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "J7",
+          "quantity": 1
+        },
+        {
+          "part_name": "J7_A",
+          "quantity": 1
+        },
+        {
+          "part_name": "J7_B",
+          "quantity": 1
+        },
+        {
+          "part_name": "J7_C",
+          "quantity": 1
+        },
+        {
+          "part_name": "J7_D",
+          "quantity": 1
+        },
+        {
+          "part_name": "J7_D_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "J7_E",
+          "quantity": 1
+        },
+        {
+          "part_name": "J7_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "MR106ZZ1 _simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "MR106ZZ1_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "MSGS3-10_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "MSGS4-8_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "NSK_MR106ZZ1_root_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "OpenArm_2.0_Head_Camera",
+          "quantity": 1
+        },
+        {
+          "part_name": "SCB2-4_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "SCB2-5_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "SCB6-12_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "SETS8-61-SC0-M3-N3",
+          "quantity": 1
+        },
+        {
+          "part_name": "SETS8-74.2-SC0-M3-N3",
+          "quantity": 1
+        },
+        {
+          "part_name": "SHNTP6-6_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "SL-GEAHS1.0-36-6-A-17-QFC24-M3_root__simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "SL-GEAHS1.0-36-6-A-17-QFC24-M3_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "SPWF6_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "SWSPS12-6-0.5_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "UGREEN_typeC",
+          "quantity": 1
+        },
+        {
+          "part_name": "ZED-Mini_root__simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "ZED-Mini_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "ZED_M_simplified",
+          "quantity": 1
+        },
+        {
+          "part_name": "ZED_mount",
+          "quantity": 1
+        },
+        {
+          "part_name": "base_plate.STEP",
+          "quantity": 1
+        },
+        {
+          "part_name": "cable_holder_J4_A",
+          "quantity": 1
+        },
+        {
+          "part_name": "cable_holder_J4_B",
+          "quantity": 1
+        },
+        {
+          "part_name": "camera_mount_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "camera_mount_4310_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "cameramount_head_zed",
+          "quantity": 1
+        },
+        {
+          "part_name": "chest_cover_v2.0",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_J7_joint_A_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_J7_joint_A_4310_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_J7_joint_B_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_J7_joint_C_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_base_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_cover_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_cover_4310_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_finger_L_v5_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_finger_R_v5_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_finger_mount_adapter_A_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_finger_mount_adapter_B_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_shaft_A_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_shaft_B_4310",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_v2.0",
+          "quantity": 1
+        },
+        {
+          "part_name": "end-efector_v2.0_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "openarm_v2.0",
+          "quantity": 1
+        },
+        {
+          "part_name": "openarm_v2.0_mir",
+          "quantity": 1
+        },
+        {
+          "part_name": "pedestal_v1.0",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "folder": "openarm\\cad\\wristcam-cad",
+      "assembly_file": "wrist-camera_D405.step",
+      "total_unique_parts": 1,
+      "bom": [
+        {
+          "part_name": "D405 Casing",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

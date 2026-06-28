@@ -1,0 +1,69 @@
+[
+  {
+    "component": "HTRC11001T",
+    "type": "RF_RFID",
+    "pins": [
+      "VSS",
+      "DOUT",
+      "CEXT",
+      "QGND",
+      "RX",
+      "TX2",
+      "VDD",
+      "TX1",
+      "MODE",
+      "XTAL1",
+      "XTAL2",
+      "SCLK",
+      "DIN"
+    ],
+    "description": "HITAG RF Reader Device, SOIC-14",
+    "keywords": [
+      "HITAG",
+      "RFID"
+    ]
+  },
+  {
+    "component": "PN5120A0HN1",
+    "type": "RF_RFID",
+    "pins": [
+      "A1",
+      "TVSS",
+      "TX1",
+      "TVDD",
+      "TX2",
+      "AVDD",
+      "VMID",
+      "RX",
+      "AVSS",
+      "AUX1",
+      "PVDD",
+      "AUX2",
+      "OSCIN",
+      "OSCOUT",
+      "IRQ",
+      "ALE",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "DVDD",
+      "D6",
+      "D7",
+      "A0",
+      "EP",
+      "DVSS",
+      "PVSS",
+      "~NRSTPD",
+      "SIGIN",
+      "SIGOUT",
+      "SVDD"
+    ],
+    "description": "NFC frontend.  ISO/IEC 14443A&B, MIFARE\u00ae, FeliCa and NFC Forum tag types, HVQFN-32",
+    "keywords": [
+      "PN512",
+      "RFID"
+    ]
+  }
+]

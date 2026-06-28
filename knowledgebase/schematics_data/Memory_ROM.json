@@ -1,0 +1,66 @@
+[
+  {
+    "component": "XC18V01SO20",
+    "type": "Memory_ROM",
+    "pins": [
+      "D0",
+      "CE",
+      "GND",
+      "D7",
+      "CEO",
+      "D5",
+      "D3",
+      "D1",
+      "TDO",
+      "VCC",
+      "VCCO",
+      "D2",
+      "CLK",
+      "TDI",
+      "TMS",
+      "TCK",
+      "D4/CF",
+      "OE/RESET",
+      "D6"
+    ],
+    "description": "",
+    "keywords": []
+  },
+  {
+    "component": "XCF08P",
+    "type": "Memory_ROM",
+    "pins": [
+      "GND",
+      "OE/RST",
+      "D6",
+      "D7",
+      "VCCINT",
+      "VCCO",
+      "CLK",
+      "CE",
+      "D5",
+      "BUSY",
+      "CLKOUT",
+      "D4",
+      "CF",
+      "CEO",
+      "D3",
+      "TMS",
+      "D2",
+      "TDO",
+      "TDI",
+      "REV-SEL0",
+      "REV-SEL1",
+      "VCCJ",
+      "TCK",
+      "/EN-EXT-SEL",
+      "D1",
+      "D0"
+    ],
+    "description": "Platform Flash In-System PROM",
+    "keywords": [
+      "PROM",
+      "FLASH"
+    ]
+  }
+]

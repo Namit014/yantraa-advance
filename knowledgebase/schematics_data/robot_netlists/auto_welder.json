@@ -1,0 +1,87 @@
+{
+  "project": "auto_welder",
+  "robot_type": "Welding Robot",
+  "components": [
+    {
+      "ref": "U1",
+      "part": "PLC",
+      "category": "controller"
+    },
+    {
+      "ref": "M1",
+      "part": "Servo Motors",
+      "category": "motor"
+    },
+    {
+      "ref": "DRV1",
+      "part": "Servo Drivers",
+      "category": "driver"
+    },
+    {
+      "ref": "WELD1",
+      "part": "Pneumatic Valves",
+      "category": "actuator"
+    },
+    {
+      "ref": "CURR1",
+      "part": "Current Sensors",
+      "category": "sensor"
+    },
+    {
+      "ref": "TEMP1",
+      "part": "Temperature Sensors",
+      "category": "sensor"
+    }
+  ],
+  "nets": [
+    {
+      "name": "SERVO_CTRL",
+      "connections": [
+        "U1.AO",
+        "DRV1.ANALOG_IN"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "WELD_TRIG",
+      "connections": [
+        "U1.DO1",
+        "WELD1.SOLENOID"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "CURR_FB",
+      "connections": [
+        "CURR1.OUT",
+        "U1.AI1"
+      ],
+      "inferred": true
+    },
+    {
+      "name": "TEMP_FB",
+      "connections": [
+        "TEMP1.OUT",
+        "U1.AI2"
+      ],
+      "inferred": true
+    }
+  ],
+  "functional_blocks": [
+    {
+      "name": "Positioning",
+      "components": [
+        "DRV1",
+        "M1"
+      ]
+    },
+    {
+      "name": "Welding_End_Effector",
+      "components": [
+        "WELD1",
+        "CURR1",
+        "TEMP1"
+      ]
+    }
+  ]
+}

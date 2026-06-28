@@ -1,0 +1,2103 @@
+[
+  {
+    "component": "ABS2",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 140V Vrms, 0.8A If, ABS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "ABS4",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 280V Vrms, 0.8A If, ABS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "ABS6",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 420V Vrms, 0.8A If, ABS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "ABS8",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 450V Vrms, 0.8A If, ABS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "ABS10",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 700V Vrms, 0.8A If, ABS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B40C1500G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 40V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B80C1500G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 80V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B125C1500G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 125V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B250C1500G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 250V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B380C1500G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 380V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "W005G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 35V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "Bridge",
+      "Rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "W01G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 70V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "Bridge",
+      "Rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "W02G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 140V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "Bridge",
+      "Rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "W04G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 280V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "Bridge",
+      "Rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "W06G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 420V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "Bridge",
+      "Rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "W08G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 560V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "Bridge",
+      "Rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "W10G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 700V Vrms, 1.5A If, WOG package",
+    "keywords": [
+      "Bridge",
+      "Rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B40C2300-1500A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 40V Vrms, 1.5A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B80C2300-1500A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 80V Vrms, 1.5A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B125C2300-1500A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 125V Vrms, 1.5A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B250C2300-1500A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 250V Vrms, 1.5A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B380C2300-1500A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 380V Vrms, 1.5A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B500C2300-1500A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 500V Vrms, 1.5A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B40C2300-1500B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 40V Vrms, 1.5A If, pins=-A+A, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B80C2300-1500B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 80V Vrms, 1.5A If, pins=-A+A, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B125C2300-1500B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 125V Vrms, 1.5A If, pins=-A+A, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B250C2300-1500B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 250V Vrms, 1.5A If, pins=-A+A, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B380C2300-1500B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 380V Vrms, 1.5A If, pins=-A+A, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B700C2300-1500B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 500V Vrms, 1.5A If, pins=-A+A, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B40C5000-3x00A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 40V Vrms, 3.3A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B80C5000-3x00A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 80V Vrms, 3.3A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B125C5000-3x00A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 125V Vrms, 3.3A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B250C5000-3x00A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 250V Vrms, 3.3A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B380C5000-3x00A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 380V Vrms, 3.3A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B500C5000-3x00A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 500V Vrms, 3.3A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B40C3x00-2200A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 40V Vrms, 2.2A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B80C3x00-2200A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 80V Vrms, 2.2A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B125C3x00-2200A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 125V Vrms, 2.2A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B250C3x00-2200A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 250V Vrms, 2.2A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B380C3x00-2200A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 380V Vrms, 2.2A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B500C3x00-2200A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "-",
+      "~~",
+      "+"
+    ],
+    "description": "Silicon Bridge Rectifier, 500V Vrms, 2.2A If, pins=-AA+, SIL-package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B40C800DM",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 40V Vrms, 0.8A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B80C800DM",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 80V Vrms, 0.8A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B125C800DM",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 125V Vrms, 0.8A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B250C800DM",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 250V Vrms, 0.8A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B380C800DM",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Glass Passivated Single-Phase Bridge Rectifier, 380V Vrms, 0.8A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "DF005M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Bridge Rectifiers, 35V Vrms, 1.0A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "DF01M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Bridge Rectifiers, 70V Vrms, 1.0A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "DF02M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Bridge Rectifiers, 140V Vrms, 1.0A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "DF04M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Bridge Rectifiers, 280V Vrms, 1.0A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "DF06M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Bridge Rectifiers, 420V Vrms, 1.0A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "DF08M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Bridge Rectifiers, 560V Vrms, 1.0A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "DF10M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Bridge Rectifiers, 700V Vrms, 1.0A If, DIP-4",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B40R",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 40V Vrms, 1.6A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B80R",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 80V Vrms, 1.6A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B125R",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 125V Vrms, 1.6A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B250R",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 250V Vrms, 1.6A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B380R",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 380V Vrms, 1.6A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "B500R",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 500V Vrms, 1.6A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RB151",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 35V Vrms, 1.5A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RB152",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 70V Vrms, 1.5A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RB153",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 140V Vrms, 1.5A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RB154",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 280V Vrms, 1.5A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RB155",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 420V Vrms, 1.5A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RB156",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 560V Vrms, 1.5A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RB157",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 700V Vrms, 1.5A If, WOG-like package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU4A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 35V Vrms, 4.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU4B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 70V Vrms, 4.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU4D",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 140V Vrms, 4.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU4G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 280V Vrms, 4.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU4J",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 420V Vrms, 4.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU4K",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 560V Vrms, 4.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU4M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 700V Vrms, 4.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU8A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 35V Vrms, 8.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU8B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 70V Vrms, 8.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU8D",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 140V Vrms, 8.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU8G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 280V Vrms, 8.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU8J",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 420V Vrms, 8.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU8K",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 560V Vrms, 8.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU8M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 700V Vrms, 8.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU6A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 35V Vrms, 6.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU6B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 70V Vrms, 6.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU6D",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 140V Vrms, 6.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU6G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 280V Vrms, 6.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU6J",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 420V Vrms, 6.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU6K",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 560V Vrms, 6.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GBU6M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 700V Vrms, 6.0A If, GBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "GUO40-08NO1",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "250V Vrms, 40A If, GUFP(X025B)",
+    "keywords": [
+      "Three-Phase",
+      "Bridge",
+      "Rectifier"
+    ]
+  },
+  {
+    "component": "GUO40-12NO1",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "400V Vrms, 40A If, GUFP(X025B)",
+    "keywords": [
+      "Three-Phase",
+      "Bridge",
+      "Rectifier"
+    ]
+  },
+  {
+    "component": "GUO40-16NO1",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "500V Vrms, 40A If, GUFP(X025B)",
+    "keywords": [
+      "Three-Phase",
+      "Bridge",
+      "Rectifier"
+    ]
+  },
+  {
+    "component": "DMA40U1800GU",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "575V Vrms, 40A If, GUFP(X025B)",
+    "keywords": [
+      "Three-Phase",
+      "Bridge",
+      "Rectifier"
+    ]
+  },
+  {
+    "component": "DNA40U2200GU",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "690V Vrms, 40A If, GUFP(X025B)",
+    "keywords": [
+      "Three-Phase",
+      "Bridge",
+      "Rectifier"
+    ]
+  },
+  {
+    "component": "KBU4A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 35V Vrms, 4.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU4B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 70V Vrms, 4.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU4D",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 140V Vrms, 4.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU4G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 280V Vrms, 4.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU4J",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 420V Vrms, 4.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU4K",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 560V Vrms, 4.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU4M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 700V Vrms, 4.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU8A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 35V Vrms, 8.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU8B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 70V Vrms, 8.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU8D",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 140V Vrms, 8.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU8G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 280V Vrms, 8.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU8J",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 420V Vrms, 8.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU8K",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 560V Vrms, 8.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU8M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 700V Vrms, 8.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU6A",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 35V Vrms, 6.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU6B",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 70V Vrms, 6.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU6D",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 140V Vrms, 6.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU6G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 280V Vrms, 6.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU6J",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 420V Vrms, 6.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU6K",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 560V Vrms, 6.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "KBU6M",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 700V Vrms, 6.0A If, KBU package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "MB2S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "~~",
+      "+",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 140V Vrms, 0.5A If, TO-269AA",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "MB4S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "~~",
+      "+",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 280V Vrms, 0.5A If, TO-269AA",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "MB6S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "~~",
+      "+",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 700V Vrms, 1.0A If, DFS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RMB2S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "~~",
+      "+",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 140V Vrms, 0.5A If, TO-269AA",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "RMB4S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "~~",
+      "+",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 280V Vrms, 0.5A If, TO-269AA",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "MBL104S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 280V Vrms, 1.0A If, MBLS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "MBL106S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 420V Vrms, 1.0A If, MBLS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "MBL108S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 560V Vrms, 1.0A If, MBLS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "MBL110S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Miniature Glass Passivated Single-Phase Surface Mount Bridge Rectifiers, 700V Vrms, 1.0A If, MBLS SMD package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "SC35VB80S-G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "560V Vrms, 35A If, SCVB-L",
+    "keywords": [
+      "Three-Phase",
+      "Bridge",
+      "Rectifier"
+    ]
+  },
+  {
+    "component": "SC35VB160S-G",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "1120V Vrms, 35A If, SCVB-L",
+    "keywords": [
+      "Three-Phase",
+      "Bridge",
+      "Rectifier"
+    ]
+  },
+  {
+    "component": "MDB6S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 420V Vrms, 1A If, TSSOP-4",
+    "keywords": [
+      "bridge",
+      "diode",
+      "rectifier",
+      "ac",
+      "dc",
+      "acdc",
+      "ac-dc"
+    ]
+  },
+  {
+    "component": "MDB8S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 560V Vrms, 1A If, TSSOP-4",
+    "keywords": [
+      "bridge",
+      "diode",
+      "rectifier",
+      "ac",
+      "dc",
+      "acdc",
+      "ac-dc"
+    ]
+  },
+  {
+    "component": "MDB10S",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "-",
+      "~~"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 700V Vrms, 1A If, TSSOP-4",
+    "keywords": [
+      "bridge",
+      "diode",
+      "rectifier",
+      "ac",
+      "dc",
+      "acdc",
+      "ac-dc"
+    ]
+  },
+  {
+    "component": "VS-KBPC1005",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 20V Vrms, 3.0A If, KBPC1 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC101",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 40V Vrms, 3.0A If, KBPC1 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC102",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 80V Vrms, 3.0A If, KBPC1 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC104",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 125V Vrms, 3.0A If, KBPC1 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC106",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 250V Vrms, 3.0A If, KBPC1 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC108",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 380V Vrms, 3.0A If, KBPC1 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC110",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 500V Vrms, 3.0A If, KBPC1 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC6005",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 20V Vrms, 6.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC601",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 40V Vrms, 6.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC602",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 80V Vrms, 6.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC604",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 125V Vrms, 6.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC606",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 250V Vrms, 6.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC608",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 380V Vrms, 6.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC610",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 500V Vrms, 6.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC8005",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 20V Vrms, 8.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC801",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 40V Vrms, 8.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC802",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 80V Vrms, 8.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC804",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 125V Vrms, 8.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC806",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 250V Vrms, 8.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC808",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 380V Vrms, 8.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  },
+  {
+    "component": "VS-KBPC810",
+    "type": "Diode_Bridge",
+    "pins": [
+      "+",
+      "~~",
+      "-"
+    ],
+    "description": "Single-Phase Bridge Rectifier, 500V Vrms, 8.0A If, KBPC6 package",
+    "keywords": [
+      "rectifier",
+      "acdc"
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "component": "PI6C5946002ZH",
+    "type": "Buffer",
+    "pins": [
+      "Q0+",
+      "VREF-AC",
+      "VTH",
+      "REF_IN+",
+      "GND",
+      "VDD",
+      "DNC",
+      "Q0-",
+      "Q1+",
+      "Q1-",
+      "EN",
+      "REF_IN-"
+    ],
+    "description": "6 GHz / 12 Gbps Clock / Data 1:2 Fanout Buffer with Internal Termination, TQFN-16",
+    "keywords": [
+      "buffer",
+      "clock",
+      "data"
+    ]
+  }
+]

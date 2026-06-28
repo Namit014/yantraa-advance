@@ -1,0 +1,146 @@
+[
+  {
+    "component": "DRV8860",
+    "type": "Driver_Relay",
+    "pins": [
+      "VM",
+      "OUT7",
+      "OUT6",
+      "OUT5",
+      "OUT4",
+      "OUT3",
+      "OUT2",
+      "OUT1",
+      "DIN",
+      "SCLK",
+      "Latch",
+      "GND",
+      "DOUT",
+      "FAULT",
+      "ENABLE",
+      "OUT8"
+    ],
+    "description": "8-Channel Serial Interface Low-Side Driver",
+    "keywords": [
+      "Relay",
+      "Driver"
+    ]
+  },
+  {
+    "component": "DRV8860_PWPR",
+    "type": "Driver_Relay",
+    "pins": [
+      "VM",
+      "OUT7",
+      "OUT6",
+      "OUT5",
+      "OUT4",
+      "OUT3",
+      "OUT2",
+      "OUT1",
+      "PAD",
+      "DIN",
+      "SCLK",
+      "Latch",
+      "GND",
+      "DOUT",
+      "FAULT",
+      "ENABLE",
+      "OUT8"
+    ],
+    "description": "8-Channel Serial Interface Low-Side Driver",
+    "keywords": [
+      "Relay",
+      "Driver"
+    ]
+  },
+  {
+    "component": "MAX4820xUP",
+    "type": "Driver_Relay",
+    "pins": [
+      "OUT3",
+      "GND",
+      "OUT2",
+      "OUT1",
+      "VCC",
+      "OUT8",
+      "OUT7",
+      "OUT6",
+      "OUT5",
+      "COM",
+      "OUT4",
+      "~SET",
+      "~RESET",
+      "~CS",
+      "DIN",
+      "SCLK",
+      "DOUT",
+      "NC"
+    ],
+    "description": "8-Channel Serial Interface Low-Side Driver, TSSOP-20",
+    "keywords": [
+      "Relay",
+      "Driver"
+    ]
+  },
+  {
+    "component": "MAX4821xUP",
+    "type": "Driver_Relay",
+    "pins": [
+      "OUT3",
+      "GND",
+      "OUT2",
+      "OUT1",
+      "VCC",
+      "OUT8",
+      "OUT7",
+      "OUT6",
+      "OUT5",
+      "COM",
+      "OUT4",
+      "~SET",
+      "~RESET",
+      "~CS",
+      "LVL",
+      "A0",
+      "A1",
+      "A2"
+    ],
+    "description": "8-Channel Parallel Interface Low-Side Driver, TSSOP-20",
+    "keywords": [
+      "Relay",
+      "Driver"
+    ]
+  },
+  {
+    "component": "TPL9201_TSSOP",
+    "type": "Driver_Relay",
+    "pins": [
+      "ZVS",
+      "GND",
+      "EN1",
+      "Rdelay",
+      "RST",
+      "MOSI",
+      "CS",
+      "SCLK",
+      "5Vout",
+      "Vin",
+      "OUT1",
+      "SYN",
+      "PAD",
+      "OUT2",
+      "OUT3",
+      "OUT4",
+      "OUT5",
+      "OUT6",
+      "OUT7",
+      "OUT8"
+    ],
+    "description": "8-CHANNEL RELAY DRIVER WITH INTEGRATED 5-V LDO AND ZERO-VOLT DETECTION TSSOP-20",
+    "keywords": [
+      "Relay",
+      "Driver"
+    ]
+  }
+]
