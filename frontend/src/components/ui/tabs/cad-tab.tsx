@@ -121,6 +121,7 @@ const CAD_CONFIG: Record<string, { scale: number, rotation: [number, number, num
     "scara": { scale: 1.5, rotation: [0, 0, -Math.PI / 2] },
     "cobot": { scale: 0.15, rotation: [0, 0, 0] },
     "delta": { scale: 0.5, rotation: [0, 0, 0] },
+    "openarm": { scale: 1.0, rotation: [-Math.PI / 2, 0, 0] },
 };
 
 function CameraFlyTo({ selectedMesh, meshes, controlsRef }: { selectedMesh: string | null, meshes: LoadedMesh[], controlsRef: any }) {
@@ -297,7 +298,7 @@ function CADModel({
         return new THREE.Plane(normal, pos);
     }, [clipAxis, clipValue, meshes]);
 
-    let rotation: [number, number, number] = [0, 0, 0];
+    let rotation: [number, number, number] = [-Math.PI / 2, 0, 0]; // Default for Z-up CAD models
     const lowerUrl = url.toLowerCase();
     for (const [key, config] of Object.entries(CAD_CONFIG)) {
         if (lowerUrl.includes(key)) {
