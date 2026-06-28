@@ -728,9 +728,9 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       });
     });
 
-    // Apply Dagre auto-layout with wider spacing to reduce congestion
+    // Apply Dagre auto-layout with tighter spacing to keep components closer
     const g = new dagre.graphlib.Graph();
-    g.setGraph({ rankdir: "TB", nodesep: 350, ranksep: 400, marginx: 100, marginy: 100 });
+    g.setGraph({ rankdir: "TB", nodesep: 150, ranksep: 200, marginx: 50, marginy: 50 });
     g.setDefaultEdgeLabel(() => ({}));
 
     rfNodes.forEach((node) => {
@@ -753,7 +753,12 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       }
     });
 
-    set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false });
+    const loadedComponentNames = designSubsystems.flatMap((sub: any) =>
+      (sub.components || []).map((c: any) => c.name)
+    ).filter(Boolean);
+    const newPrompt = loadedComponentNames.length > 0 ? loadedComponentNames.join(" + ") : get().prompt;
+
+    set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false, prompt: newPrompt });
   },
 
   setNodes: (nodesOrUpdater) =>
