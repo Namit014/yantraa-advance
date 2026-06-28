@@ -46,27 +46,6 @@ async def playwright_download_cad(url: str, dest_dir: str, fallback_filename: st
             
             # Navigate and wait for network to idle to ensure dynamic scripts have loaded
             try:
-                # GrabCAD Login Flow
-                if "grabcad.com" in url:
-                    print("[Playwright Downloader] Detected GrabCAD URL. Attempting authentication...")
-                    email = os.environ.get("GRABCAD_EMAIL")
-                    password = os.environ.get("GRABCAD_PASSWORD")
-                    
-                    if email and password:
-                        try:
-                            await page.goto("https://grabcad.com/login", wait_until="domcontentloaded", timeout=20000)
-                            # GrabCAD specific selectors
-                            await page.fill("input[type='email'], input[name='member[email]']", email)
-                            await page.fill("input[type='password'], input[name='member[password]']", password)
-                            await page.click("input[type='submit'], button[type='submit']")
-                            # Wait for login to complete by waiting for navigation or a logged-in element
-                            await page.wait_for_load_state("domcontentloaded", timeout=15000)
-                            print("[Playwright Downloader] GrabCAD authentication successful.")
-                        except Exception as e:
-                            print(f"[Playwright Downloader] GrabCAD login failed: {e}")
-                    else:
-                        print("[Playwright Downloader] GrabCAD credentials not found in .env, skipping login.")
-                
                 try:
                     await page.goto(url, wait_until="domcontentloaded", timeout=20000)
                 except Exception as e:

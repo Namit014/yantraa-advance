@@ -482,8 +482,8 @@ interface ConnectionStore {
 }
 
 export const useConnectionStore = create<ConnectionStore>((set, get) => ({
-  nodes: DEMO_NODES,
-  edges: DEMO_EDGES,
+  nodes: [],
+  edges: [],
   selectedEdgeId: null,
   sidebarOpen: false,
   isGenerating: false,
@@ -557,7 +557,8 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     const designSubsystems = designData.subsystems || [];
     designSubsystems.forEach((sub: any) => {
       (sub.components || []).forEach((comp: any) => {
-        validCompIds.set(normalizeId(comp.id), comp);
+        const cId = normalizeId(comp.id) || normalizeId(comp.name);
+        validCompIds.set(cId, comp);
       });
     });
 
@@ -601,7 +602,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     designSubsystems.forEach((sub: any) => {
       const components = sub.components || [];
       components.forEach((comp: any) => {
-        const compId = normalizeId(comp.id) || `comp-${Math.random().toString(36).substr(2,9)}`;
+        const compId = normalizeId(comp.id) || normalizeId(comp.name) || `comp-${Math.random().toString(36).substr(2,9)}`;
         const isConnected = collectedPorts.has(compId);
         
         // Skip purely mechanical components (like brackets, mounts) UNLESS they have electrical connections
@@ -728,9 +729,9 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       });
     });
 
-    // Apply Dagre auto-layout with wider spacing to reduce congestion
+    // Apply Dagre auto-layout with tighter spacing to keep components closer
     const g = new dagre.graphlib.Graph();
-    g.setGraph({ rankdir: "TB", nodesep: 350, ranksep: 400, marginx: 100, marginy: 100 });
+    g.setGraph({ rankdir: "TB", nodesep: 150, ranksep: 200, marginx: 50, marginy: 50 });
     g.setDefaultEdgeLabel(() => ({}));
 
     rfNodes.forEach((node) => {
@@ -753,7 +754,12 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       }
     });
 
-    set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false });
+    const loadedComponentNames = designSubsystems.flatMap((sub: any) =>
+      (sub.components || []).map((c: any) => c.name)
+    ).filter(Boolean);
+    const newPrompt = loadedComponentNames.length > 0 ? loadedComponentNames.join(" + ") : get().prompt;
+
+    set({ nodes: rfNodes, edges: rfEdges, error: null, isGenerating: false, prompt: newPrompt });
   },
 
   setNodes: (nodesOrUpdater) =>

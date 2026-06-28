@@ -1,0 +1,653 @@
+Source URL: https://www.scribd.com/document/501869646/GoodBoy-3D-Printed-Arduino-Robot-Dog-1
+Scraped: 2026-06-21T18:16:46.364187
+============================================================
+
+Opens in a new window Opens an external website Opens an external website in a new window
+Close this dialog
+This website utilizes technologies such as cookies to enable essential site functionality, as well as for performance cookies, personalization, and targeted advertising. To learn more, view the following link:  [Privacy Policy](https://support.scribd.com/hc/articles/210129366-Privacy-policy)
+Your Privacy Choices 
+Close Cookie Preferences
+Skip to main content
+[Open navigation menu](https://www.scribd.com/document/501869646/GoodBoy-3D-Printed-Arduino-Robot-Dog-1#sidebar)[![Scribd](https://www.scribd.com/document/501869646/GoodBoy-3D-Printed-Arduino-Robot-Dog-1)](https://www.scribd.com/)
+Close suggestionsSearchSearch
+enChange Language, English
+[Upload](https://www.scribd.com/upload-document)
+Sign in
+Sign in
+[Download free for 30 days](https://www.scribd.com/oauth/signup?doc_id=501869646)
+0 ratings0% found this document useful (0 votes)
+274 views22 pages
+Build Your Own 3D Printed Robot Dog
+This document provides instructions for building a 3D printed quadruped robot dog called GoodBoy using an Arduino Uno microcontroller. It details the 3D printing techniques used to construct…
+Full description
+## Uploaded by
+[Lowell Whitehead](https://www.scribd.com/user/546404115/Lowell-Whitehead)
+AI-enhanced title and description
+Go to previous items
+  * Download
+  * SaveSave GoodBoy 3D Printed Arduino Robot Dog (1) For Later
+  * Share
+  * 0%0% found this document useful, Mark this document as useful
+  * 0%0% found this document not useful, Mark this document as not useful
+  * Print
+  * Embed
+  * Ask AI
+  * Report
+
+Go to next items
+Download
+Save GoodBoy 3D Printed Arduino Robot Dog (1) For Later
+Fullscreen
+You are on page 1
+22
+Zoom outZoom in
+instructables
+GoodBoy - 3D Printed Arduino Robot Dog
+by DentDentArthurDent
+This instructable details how to make a small quadruped robot using 3D printed parts. It is designed to becompact, simple, and inexpensive to build. This project uses an Arduino Uno as the microcontroller. In thisinstructable you will nd complete 3D model les, Arduino programs, and instructions needed to replicate (andhopefully improve upon) this project for yourself! For a few years I've wanted to make a quadruped robot, having been very much inspired by the extraordinaryrobots of Boston Dynamics (in particular the 'Spot'). Being in lockdown, I'm lucky to have some time on my hands,and so when less than four weeks ago a friend mentioned to me that there was a 3D-Printing contest, I thoughtthis wa[s a great e](http://www.instructables.com/member/DentDentArthurDent/)xcuse to try and design a robo-dog for myself! I hope you enjoy reading this instructable, and I look forward to seeing any comments you may have, and possiblyeven some others attempting this build for themselves. Thank you. 
+Please note: 
+Some care needs to be taken when following this instructable. There is some risk posed by the use of a 3D printer, soldering iron, craft knife/scalpel, superglue, and re due to battery short-circuit. Thereare however no dangerous voltages used in this project, and no prior electrical experience isrequired. This instructable will describe to you how to build an exact replica of my own build, but see thepenultimate step 'Potential Improvements' for things I might have done better/dierently withhindsight. I'd like to build a second robot incorporating these changes, but you may wish to buildthese into your rst build yourself if you wish.
+Please also note: 
+https://www.youtube.com/embed/uE5hZhkQkwI
+GoodBoy - 3D Printed Arduino Robot Dog: Page 1
+[](http://www.instructables.com/member/DentDentArthurDent/) [](http://www.instructables.com/id/GoodBoy-3D-Printed-Arduino-Robot-Dog/) [](http://www.instructables.com)
+![](https://html.scribdassets.com/81f1so2y9s8k5j9j/images/1-aa361e74b1.jpg) ![](https://html.scribdassets.com/81f1so2y9s8k5j9j/images/1-aa361e74b1.jpg)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+Step 1: 3D Printing Techniques Used in This Instructable
+GoodBoy robot cannot be expected to come when called.GoodBoy robot not tested in conjunction with cats, squirrels, or rabbits.GoodBoy robot not prone to ticks, lice, etc., but owners should be careful to not subject the dog tocode bugs. The author of this instructable does not hold himself responsible if your real dog becomes scared of their imminent technological redundancy.  There are several unique techniques you'll need to use to make this robot for yourself, for me, it was my rst timetrying some of these so it was an interesting set of prints to do! 1. 
+Embedded electrical cables -Embedded electrical cables -
+The robot's legs use two servo motors each, one in the knee andone in the shoulder. I wanted to hide all electrical cabling from sight with this design, so for the'thigh' part I decided to try embedding the servo cable inside the thigh print. Hidden within the partis a small channel, just large enough for the cable. At the appropriate point in the print, I paused theprinter, laid the cable through the channel, and then resumed the print. After a few more minutes,the channel was covered, and the servo cable is now hidden within the part.2. 
+Meshmixer advanced supports for complex overhangs - Meshmixer advanced supports for complex overhangs - 
+This is a slightly tricky piece of software to use, but can be very useful for creating 'tree' type supports for parts with dicultoverhangs. We'll be using this several times in this build.3. 
+Friction tted parts - Friction tted parts - 
+Many of the parts in this build are not glued, just relying on a tightfriction t between printed parts. We'll use this technique to mount the electronics snugly andsecurely within the body, but also permitting them to be removable if needed.4. 
+Integrated hex nuts for bolts - Integrated hex nuts for bolts - 
+The lid of the body encloses the entire electronics bay, and isheld down using 8 M2.5 bolts. The nuts for these are a push-t into hexagonal cavities in the body,and held in place using superglue.
+GoodBoy - 3D Printed Arduino Robot Dog: Page 2
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+Step 2: What You Will Need
+Main components:Main components:
+Arduino Uno (genuine or clone)Adafruit Powerboost 1000C18650 Li-Ion BatteryHC-SR04 Sensor x 29g Servo x 8 (Towerpro SG90 or similar)LDR x 1
+Minor components:Minor components:
+5mm LED x 2 (red or other colour, your choice!)Stripboard (25 x 60mm)SPDT slide switchHeader pinsHookup wire (narrow gauge)Hookup wire (wider, for battery and power leads)18650 battery holder (recommended, not essential)3k Ohm Resistor x 2470 Ohm Resistor x 1M2.5 Nuts x 8M2.5x8 Bolts x 8Heatshrink tubingElectrical tape
+Tools and equipment:Tools and equipment:
+GoodBoy - 3D Printed Arduino Robot Dog: Page 3
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+Step 3: GoodBoy Design
+3D Printer, print bed at least 210 x 210mm - see below for what 3D printer.Soldering iron and solderSuperglueVaseline (for lubricating printed joints in the robot's legs)Side cutters (useful)Scalpel/craft knife (vital for fettling prints and more)Sandpaper/le (for fettling prints)Micro USB charger (I used my Raspberry Pi charger, a phone charger would be ne too)Arduino USB cablePC/Laptop for programming robot, preparing prints, etc.
+Software:Software:
+Slicing software (I used Ultimaker Cura)Autodesk Meshmixer (for advanced support generation)CAD software (this is if you wish to make modications to the CAD, I use the educational license of Creo Parametric. Tinkercad, Fusion 360, Autodesk Inventor are other CAD options, please usewhatever you are comfortable with!)Arduino IDE
+GoodBoy - 3D Printed Arduino Robot Dog: Page 4
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+## Share this document
+  * [Share on Facebook, opens a new window](https://www.scribd.com/document/501869646/GoodBoy-3D-Printed-Arduino-Robot-Dog-1)
+  * [Share on LinkedIn, opens a new window](https://www.scribd.com/document/501869646/GoodBoy-3D-Printed-Arduino-Robot-Dog-1)
+  * Share with Email, opens mail client
+  * Copy link
+
+[![](https://s-f.scribdassets.com/webpack/assets/images/fallbacks/scribd_inhouse_728x90_en@1x.ec04e4d8.png)Millions of documents at your fingertips, ad-free Subscribe with a free trial](https://www.scribd.com/oauth/signup?doc_id=501869646)
+## You might also like
+  * [3D Printed Arduino Robot Dog Guide](https://www.scribd.com/document/716778695/GoodBoy-3D-Printed-Arduino-Robot-Dog)
+![](https://imgv2-2-f.scribdassets.com/img/document/716778695/149x198/ab2a69b603/1711322029?v=1)PDF
+No ratings yet
+3D Printed Arduino Robot Dog Guide
+27 pages
+  * [3D Printed Arduino Robot Dog Guide](https://www.scribd.com/document/986222713/3D-Printed-Arduino-Robot-Dog-14-Steps-With-Pictures-Instructables)
+![](https://imgv2-1-f.scribdassets.com/img/document/986222713/149x198/b5c225b2ee/1769215008?v=1)PDF
+No ratings yet
+3D Printed Arduino Robot Dog Guide
+15 pages
+  * [Home Depot Receipt with Refund Info](https://www.scribd.com/document/501869649/e-Receipt)
+![](https://imgv2-1-f.scribdassets.com/img/document/501869649/149x198/20ff1bc74b/1617767600?v=1)PDF
+No ratings yet
+Home Depot Receipt with Refund Info
+1 page
+  * [Build Your Own 3D Printed Robot Dog](https://www.scribd.com/document/501869646/GoodBoy-3D-Printed-Arduino-Robot-Dog-1)
+![](https://imgv2-1-f.scribdassets.com/img/document/501869646/149x198/be4304e932/1617767600?v=1)PDF
+No ratings yet
+Build Your Own 3D Printed Robot Dog
+22 pages
+  * [Make An Arduino-Controlled Robot PDF](https://www.scribd.com/document/481148186/Make-an-Arduino-Controlled-Robot-pdf)
+![](https://imgv2-2-f.scribdassets.com/img/document/481148186/149x198/0fb0312c9f/1603390648?v=1)PDF
+No ratings yet
+Make An Arduino-Controlled Robot PDF
+187 pages
+  * [3D Dog Robot and Multiple Servo Motor Control Board - 8 Steps (With Pictures) - Instructables](https://www.scribd.com/document/1000393313/3D-Dog-Robot-and-Multiple-Servo-Motor-Control-Board-8-Steps-With-Pictures-Instructables)
+![](https://imgv2-2-f.scribdassets.com/img/document/1000393313/149x198/de3ea77c3a/1771520693?v=1)PDF
+No ratings yet
+3D Dog Robot and Multiple Servo Motor Control Board - 8 Steps (With Pictures) - Instructables
+9 pages
+  * [Beginner's Guide to Building Robots](https://www.scribd.com/doc/235698097/How-to-Build-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/235698097/149x198/18c9005ad9/1778558394?v=1)PDF
+100% (1)
+Beginner's Guide to Building Robots
+51 pages
+  * [Estate Planning Questionnaire Template](https://www.scribd.com/document/501869675/Estate-Planning-Questionnaire-5)
+![](https://imgv2-1-f.scribdassets.com/img/document/501869675/149x198/c234d04890/1617767600?v=1)PDF
+No ratings yet
+Estate Planning Questionnaire Template
+6 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/248302652/How-to-Make-Your-First-Robot)
+![](https://imgv2-2-f.scribdassets.com/img/document/248302652/149x198/b07cc6aed9/1771454949?v=1)PDF
+100% (1)
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [AR4 Robot Assembly Guide](https://www.scribd.com/document/642287829/AR4-Robot-Manul-V1-5-pdf)
+![](https://imgv2-2-f.scribdassets.com/img/document/642287829/149x198/d496225d8f/1683046752?v=1)PDF
+No ratings yet
+AR4 Robot Assembly Guide
+292 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/35839771/How-to-Make-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/35839771/149x198/6d74760be7/1566525088?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [3D Printed Arduino Quadcopter Guide](https://www.scribd.com/document/626826443/Arduino-Drone-Quadcopter-3D-Printed-1)
+![](https://imgv2-1-f.scribdassets.com/img/document/626826443/149x198/02d48a90c4/1766024212?v=1)PDF
+100% (1)
+3D Printed Arduino Quadcopter Guide
+30 pages
+  * [DogBot V2.0 - Design Your Own Quadruped Robot (Part 1) - 7 Steps (With Pictures) - Instructables](https://www.scribd.com/document/992125376/DogBot-V2-0-Design-Your-Own-Quadruped-Robot-Part-1-7-Steps-with-Pictures-Instructables)
+![](https://imgv2-2-f.scribdassets.com/img/document/992125376/149x198/70a8d665f8/1770193793?v=1)PDF
+No ratings yet
+DogBot V2.0 - Design Your Own Quadruped Robot (Part 1) - 7 Steps (With Pictures) - Instructables
+12 pages
+  * [Build Your Arduino Neural Network Robot](https://www.scribd.com/document/553844146/Arduino-Neural-Network-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/553844146/149x198/4a8b56e32a/1642622081?v=1)PDF
+No ratings yet
+Build Your Arduino Neural Network Robot
+11 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/57990685/How-to-Make-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/57990685/149x198/c46b0db550/1779123113?v=1)PDF
+100% (1)
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [How To Assemble Cheap 3d Printer](https://www.scribd.com/document/354408401/How-to-Assemble-Cheap-3d-Printer)
+![](https://imgv2-2-f.scribdassets.com/img/document/354408401/149x198/2904d87627/1557233865?v=1)PDF
+100% (1)
+How To Assemble Cheap 3d Printer
+21 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/258493664/How-to-Make-Your-First-Robot)
+![](https://imgv2-2-f.scribdassets.com/img/document/258493664/149x198/d6f86bd191/1566602003?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/58284474/How-to-Make-Your-First-Robot)
+![](https://imgv2-2-f.scribdassets.com/img/document/58284474/149x198/3a54476547/1566548304?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [AR4-MK2 Robot Assembly Manual](https://www.scribd.com/document/727627355/AR4-MK2-Robot-Manul-1-3-1)
+![](https://imgv2-1-f.scribdassets.com/img/document/727627355/149x198/d8c1130e7e/1714371112?v=1)PDF
+No ratings yet
+AR4-MK2 Robot Assembly Manual
+384 pages
+  * [Riverlink Invoice Statement Summary](https://www.scribd.com/document/501869635/RiverLinkStatement-3)
+![](https://imgv2-1-f.scribdassets.com/img/document/501869635/149x198/f5d7c2008e/1617767600?v=1)PDF
+No ratings yet
+Riverlink Invoice Statement Summary
+1 page
+  * [Electronic Projects in The Workshop](https://www.scribd.com/document/242763631/Electronic-Projects-In-The-Workshop)
+![](https://imgv2-2-f.scribdassets.com/img/document/242763631/149x198/c47d8a82ee/1612455847?v=1)PDF
+93% (14)
+Electronic Projects in The Workshop
+47 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/84946513/How-to-Make-Your-First-Robot)
+![](https://imgv2-2-f.scribdassets.com/img/document/84946513/149x198/3fe7bbdd35/1566557044?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [3D Printer Setup Guide for Printrbot](https://www.scribd.com/document/217995815/Getting-Started-Guide-3d-Printer)
+![](https://imgv2-2-f.scribdassets.com/img/document/217995815/149x198/65736f16ec/1397436159?v=1)PDF
+No ratings yet
+3D Printer Setup Guide for Printrbot
+26 pages
+  * [Build Your Own 3D Printer Guide](https://www.scribd.com/document/862565050/DIY-3D-Printer-From-Scratch-8-Steps-With-Pictures-Instructables)
+![](https://imgv2-1-f.scribdassets.com/img/document/862565050/149x198/3d0f985ac1/1747395934?v=1)PDF
+No ratings yet
+Build Your Own 3D Printer Guide
+8 pages
+  * [AR3 Robot Assembly and Design Manual](https://www.scribd.com/document/558831985/AR3-Robot-Manul-001-163)
+![](https://imgv2-2-f.scribdassets.com/img/document/558831985/149x198/e92d11c946/1644844729?v=1)PDF
+No ratings yet
+AR3 Robot Assembly and Design Manual
+163 pages
+  * [AR4 MK4 Robot Manul 1.0](https://www.scribd.com/document/1036762902/AR4-MK4-Robot-Manul-1-0-1)
+![](https://imgv2-1-f.scribdassets.com/img/document/1036762902/149x198/2ab0cc75aa/1778294973?v=1)PDF
+No ratings yet
+AR4 MK4 Robot Manul 1.0
+377 pages
+  * [AR3 Robot Assembly and Wiring Guide](https://www.scribd.com/document/496371041/AR3-Robot-Manul-2)
+![](https://imgv2-1-f.scribdassets.com/img/document/496371041/149x198/fe35227290/1764208710?v=1)PDF
+100% (1)
+AR3 Robot Assembly and Wiring Guide
+318 pages
+  * [AR4 Robot Assembly Manual](https://www.scribd.com/document/585485040/AR4-Robot-Manul)
+![](https://imgv2-2-f.scribdassets.com/img/document/585485040/149x198/869fd55df5/1710543744?v=1)PDF
+No ratings yet
+AR4 Robot Assembly Manual
+288 pages
+  * [3D Printed Robot Dog - 10 Steps (With Pictures) - Instructables](https://www.scribd.com/document/1013637408/3D-Printed-Robot-Dog-10-Steps-With-Pictures-Instructables)
+![](https://imgv2-2-f.scribdassets.com/img/document/1013637408/149x198/8827009059/1773722986?v=1)PDF
+No ratings yet
+3D Printed Robot Dog - 10 Steps (With Pictures) - Instructables
+22 pages
+  * [Build Your Mini Arduino Robot](https://www.scribd.com/document/796548027/Mini-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/796548027/149x198/b126afea24/1732518531?v=1)PDF
+No ratings yet
+Build Your Mini Arduino Robot
+2 pages
+  * [Build Your First Robot: A Step-by-Step Guide](https://www.scribd.com/doc/36292135/How-to-Make-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/36292135/149x198/8c9cead691/1566525508?v=1)PDF
+No ratings yet
+Build Your First Robot: A Step-by-Step Guide
+51 pages
+  * [Step-by-Step Guide to Building a Robot](https://www.scribd.com/document/292228598/How-to-Build-a-Robot-at-Home-docx)
+![](https://imgv2-2-f.scribdassets.com/img/document/292228598/149x198/fae7c8ce56/1449305751?v=1)PDF
+No ratings yet
+Step-by-Step Guide to Building a Robot
+37 pages
+  * [Build Your First Robot: Easy Guide](https://www.scribd.com/doc/175544642/How-to-Make-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/175544642/149x198/372235c77b/1566580829?v=1)PDF
+No ratings yet
+Build Your First Robot: Easy Guide
+51 pages
+  * [AR4 Robot Assembly Manual](https://www.scribd.com/document/584206776/AR4-Robot-Manul)
+![](https://imgv2-2-f.scribdassets.com/img/document/584206776/149x198/8319a9d543/1658828514?v=1)PDF
+No ratings yet
+AR4 Robot Assembly Manual
+289 pages
+  * [Build Your First Robot in 2 Hours](https://www.scribd.com/doc/260995019/How-to-Make-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/260995019/149x198/1dadca0371/1566603257?v=1)PDF
+No ratings yet
+Build Your First Robot in 2 Hours
+51 pages
+  * [Step-by-Step Guide to Build Your First Robot](https://www.scribd.com/doc/309926000/How-to-Make-Your-First-Robot1)
+![](https://imgv2-1-f.scribdassets.com/img/document/309926000/149x198/c719b111ed/1566615873?v=1)PDF
+No ratings yet
+Step-by-Step Guide to Build Your First Robot
+51 pages
+  * [Build Your Own 3D Printed Robot Arm](https://www.scribd.com/document/644833747/Make-your-own-3D-Printed-Robot-ARM)
+![](https://imgv2-2-f.scribdassets.com/img/document/644833747/149x198/a41500cc38/1710571547?v=1)PDF
+No ratings yet
+Build Your Own 3D Printed Robot Arm
+7 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/116315464/How-to-Make-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/116315464/149x198/36e6fa6aa2/1566566841?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [Build a Hydraulic Arm Robot Guide](https://www.scribd.com/document/242275421/Hydraulic-Arm-Building-Activity)
+![](https://imgv2-1-f.scribdassets.com/img/document/242275421/149x198/ed595fefd2/1449324788?v=1)PDF
+No ratings yet
+Build a Hydraulic Arm Robot Guide
+42 pages
+  * [Build Your Own Drawing Robot Guide](https://www.scribd.com/document/244813156/Drawing-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/244813156/149x198/98201c164d/1504245517?v=1)PDF
+100% (1)
+Build Your Own Drawing Robot Guide
+9 pages
+  * [Build Your First Robot: A Beginner's Guide](https://www.scribd.com/doc/38136202/How-to-Make-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/38136202/149x198/921c417b0a/1566527528?v=1)PDF
+No ratings yet
+Build Your First Robot: A Beginner's Guide
+51 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/38401894/How-to-Make-Your-First-Robot)
+![](https://imgv2-2-f.scribdassets.com/img/document/38401894/149x198/f29e53e15f/1566527793?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/292532115/How-to-make-your-first-robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/292532115/149x198/47798086fe/1566612601?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [401 - PDFsam - Edstrom, Brent-Arduino For Musicians - A Complete Guide To Arduino and Teensy Microcontrollers-Oxford University Press (2016)](https://www.scribd.com/document/696367913/401-PDFsam-Edstrom-Brent-Arduino-for-musicians-a-complete-guide-to-Arduino-and-teensy-microcontrollers-Oxford-University-Press-2016)
+![](https://imgv2-1-f.scribdassets.com/img/document/696367913/149x198/606c91ee77/1710583695?v=1)PDF
+No ratings yet
+401 - PDFsam - Edstrom, Brent-Arduino For Musicians - A Complete Guide To Arduino and Teensy Microcontrollers-Oxford University Press (2016)
+50 pages
+  * [Quardrupped Bot](https://www.scribd.com/document/782138366/Quardrupped-Bot)
+![](https://imgv2-1-f.scribdassets.com/img/document/782138366/149x198/f563d2aaef/1729432860?v=1)PDF
+No ratings yet
+Quardrupped Bot
+15 pages
+  * [Blank Strip Board Layout](https://www.scribd.com/doc/46215675/Blank-Strip-Board-Layout)
+![](https://imgv2-2-f.scribdassets.com/img/document/46215675/149x198/562d65e328/1353041659?v=1)PDF
+No ratings yet
+Blank Strip Board Layout
+1 page
+  * [RX Antenna Mod for IC-746/IC-746PRO](https://www.scribd.com/document/396219095/ic-746pro-mods)
+![](https://imgv2-1-f.scribdassets.com/img/document/396219095/149x198/b5a6003ce5/1545561447?v=1)PDF
+No ratings yet
+RX Antenna Mod for IC-746/IC-746PRO
+34 pages
+  * [Build Your Own Wrestling Robot](https://www.scribd.com/document/866687836/TCPL-Autonomous-Robot-Wrestling-Tinkercad)
+![](https://imgv2-2-f.scribdassets.com/img/document/866687836/149x198/31509425fd/1748138651?v=1)PDF
+No ratings yet
+Build Your Own Wrestling Robot
+24 pages
+  * [Expandable Arduino Robot Chassis Guide](https://www.scribd.com/document/691377008/WireBeings-an-Expandable-Robot-Chassis-for-Arduino)
+![](https://imgv2-2-f.scribdassets.com/img/document/691377008/149x198/45c65e9d5c/1710527160?v=1)PDF
+No ratings yet
+Expandable Arduino Robot Chassis Guide
+9 pages
+  * [AR4 MK3 Robot Manul 1.7](https://www.scribd.com/document/1016089107/AR4-MK3-Robot-Manul-1-7)
+![](https://imgv2-1-f.scribdassets.com/img/document/1016089107/149x198/92111ecefe/1774238507?v=1)PDF
+No ratings yet
+AR4 MK3 Robot Manul 1.7
+398 pages
+  * [Build an Obstacle-Avoiding Robot](https://www.scribd.com/document/280855298/Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/280855298/149x198/d8c94b8ede/1442226566?v=1)PDF
+No ratings yet
+Build an Obstacle-Avoiding Robot
+10 pages
+  * [DIY 6-Axis Robot Arm Guide](https://www.scribd.com/document/827297688/DIY-Robotics-Educative-6-Axis-Robot-Arm-6-Steps-with-Pictures-Instructables)
+![](https://imgv2-2-f.scribdassets.com/img/document/827297688/149x198/78299c4a28/1739381511?v=1)PDF
+No ratings yet
+DIY 6-Axis Robot Arm Guide
+7 pages
+  * [Mylk - Mylk (386) Layout](https://www.scribd.com/document/437894981/mylk-mylk-386-Layout)
+![](https://imgv2-1-f.scribdassets.com/img/document/437894981/149x198/5afb6f546e/1611079752?v=1)PDF
+No ratings yet
+Mylk - Mylk (386) Layout
+6 pages
+  * [Arduino 4-Axis Robot Arm Project](https://www.scribd.com/document/492818691/Arduino-robot-2)
+![](https://imgv2-2-f.scribdassets.com/img/document/492818691/149x198/c914714aa0/1710572162?v=1)PDF
+No ratings yet
+Arduino 4-Axis Robot Arm Project
+6 pages
+  * [DIY 3D Printed Robotic Arm Project](https://www.scribd.com/document/731494772/41837-diy-robot-arm-a0744979-0873-4cf1-bb00-ca2ed605d9fa)
+![](https://imgv2-1-f.scribdassets.com/img/document/731494772/149x198/ed58cc9e49/1715439766?v=1)PDF
+No ratings yet
+DIY 3D Printed Robotic Arm Project
+4 pages
+  * [Soldering Techniques Overview](https://www.scribd.com/document/783134093/CPE479-Presentation)
+![](https://imgv2-2-f.scribdassets.com/img/document/783134093/149x198/98c908fc5e/1729635691?v=1)PDF
+No ratings yet
+Soldering Techniques Overview
+25 pages
+  * [Build Your Instructables Robot Arm](https://www.scribd.com/document/783352933/How-to-Make-Instructables-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/783352933/149x198/ecb4897e81/1729684044?v=1)PDF
+No ratings yet
+Build Your Instructables Robot Arm
+10 pages
+  * [Arduino Nano Quadcopter Guide](https://www.scribd.com/document/957320448/Arduino-Nano-Quadcopter-8-Steps-with-Pictures-Instructables)
+![](https://imgv2-2-f.scribdassets.com/img/document/957320448/149x198/26977653d8/1764328439?v=1)PDF
+No ratings yet
+Arduino Nano Quadcopter Guide
+29 pages
+  * [IoT-Based Home Automation System Design](https://www.scribd.com/document/649970261/SMARTHOME-PROJECT-1)
+![](https://imgv2-2-f.scribdassets.com/img/document/649970261/149x198/4ff8820f8c/1710559861?v=1)PDF
+No ratings yet
+IoT-Based Home Automation System Design
+47 pages
+  * [Apocalypse-Style 3D Printed RC Tank](https://www.scribd.com/document/501869662/3D-Printed-RC-Tank-Car-Apocalypse-Style-1)
+![](https://imgv2-1-f.scribdassets.com/img/document/501869662/149x198/e83abd3f0d/1617767631?v=1)PDF
+No ratings yet
+Apocalypse-Style 3D Printed RC Tank
+28 pages
+  * [Easy Arduino Animatronics Guide](https://www.scribd.com/document/924646178/Simple-Animatronics-With-Servos-and-Arduino-5-Steps-With-Pictures-Instructables)
+![](https://imgv2-2-f.scribdassets.com/img/document/924646178/149x198/589f0cd96a/1759119721?v=1)PDF
+No ratings yet
+Easy Arduino Animatronics Guide
+6 pages
+  * [An Electric Violin](https://www.scribd.com/document/501869669/An-Electric-Violin-2)
+![](https://imgv2-2-f.scribdassets.com/img/document/501869669/149x198/2ab7f92ee3/1649087180?v=1)PDF
+No ratings yet
+An Electric Violin
+39 pages
+  * [DIY 12V DC Motor Speed Controller](https://www.scribd.com/document/803897174/Variable-Motor-Speed-Controller)
+![](https://imgv2-1-f.scribdassets.com/img/document/803897174/149x198/952b0992e8/1734005366?v=1)PDF
+No ratings yet
+DIY 12V DC Motor Speed Controller
+13 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/104681917/How-to-Make-Your-First-Robot)
+![](https://imgv2-2-f.scribdassets.com/img/document/104681917/149x198/d4a2c8e2e8/1566564561?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [Build Your First Robot: Step-by-Step Guide](https://www.scribd.com/doc/112777523/prorob)
+![](https://imgv2-2-f.scribdassets.com/img/document/112777523/149x198/f8352d55a5/1566565853?v=1)PDF
+No ratings yet
+Build Your First Robot: Step-by-Step Guide
+51 pages
+  * [Build Your First Robot: A Step-by-Step Guide](https://www.scribd.com/doc/105233542/How-to-Make-Your-First-Robot)
+![](https://imgv2-1-f.scribdassets.com/img/document/105233542/149x198/f624c745c0/1566564649?v=1)PDF
+No ratings yet
+Build Your First Robot: A Step-by-Step Guide
+51 pages
+  * [Arduino-Based Transistor Curve Tracer](https://www.scribd.com/document/630440421/Transistor-Curve-Tracer)
+![](https://imgv2-2-f.scribdassets.com/img/document/630440421/149x198/d9c05364ca/1761417315?v=1)PDF
+100% (1)
+Arduino-Based Transistor Curve Tracer
+26 pages
+  * [Dog Adoption Questionnaire Indiana](https://www.scribd.com/document/501869664/NanasAdoption-1)
+![](https://imgv2-1-f.scribdassets.com/img/document/501869664/149x198/63458038d1/1617767600?v=1)PDF
+No ratings yet
+Dog Adoption Questionnaire Indiana
+2 pages
+  * [Rheostat Function and Applications](https://www.scribd.com/document/400623290/Applied-Phy-Lab-Manual)
+![](https://imgv2-2-f.scribdassets.com/img/document/400623290/149x198/b530895528/1710543141?v=1)PDF
+No ratings yet
+Rheostat Function and Applications
+109 pages
+  * [Cardboard Arduino Robot Vacuum Guide](https://www.scribd.com/document/902835681/ss3)
+![](https://imgv2-2-f.scribdassets.com/img/document/902835681/149x198/f6d587a899/1755482077?v=1)PDF
+No ratings yet
+Cardboard Arduino Robot Vacuum Guide
+8 pages
+  * [Types and Uses of Breadboards in Electronics](https://www.scribd.com/document/825231371/Document-4)
+![](https://imgv2-1-f.scribdassets.com/img/document/825231371/149x198/a61f0c5873/1738945488?v=1)PDF
+No ratings yet
+Types and Uses of Breadboards in Electronics
+7 pages
+  * [DIY Pen Plotter Assembly Guide](https://www.scribd.com/document/922769780/How-to-Make-DIY-Pen-Plotter-Homework-Writing-Machine-at-Home-TEST-3D-PRINTS)
+![](https://imgv2-1-f.scribdassets.com/img/document/922769780/149x198/2763c2d113/1758743617?v=1)PDF
+No ratings yet
+DIY Pen Plotter Assembly Guide
+8 pages
+  * [DIY Transistor Curve Tracer Guide](https://www.scribd.com/document/600352154/Transistor-Curve-Tracer-3)
+![](https://imgv2-1-f.scribdassets.com/img/document/600352154/149x198/7423aea033/1710593428?v=1)PDF
+No ratings yet
+DIY Transistor Curve Tracer Guide
+39 pages
+  * [Soldering Techniques and Tools Overview](https://www.scribd.com/document/521300230/GROUP-2-CPE479)
+![](https://imgv2-2-f.scribdassets.com/img/document/521300230/149x198/b6972d75c7/1710592497?v=1)PDF
+No ratings yet
+Soldering Techniques and Tools Overview
+35 pages
+  * [Arduino Projects by Mirza Naiem Beg](https://www.scribd.com/document/887071767/Arduino-Ventures-Mirza-Naiem-Beg)
+![](https://imgv2-1-f.scribdassets.com/img/document/887071767/149x198/6dbf7d190d/1752248113?v=1)PDF
+No ratings yet
+Arduino Projects by Mirza Naiem Beg
+128 pages
+  * [Appliance Repair Invoice Template](https://www.scribd.com/document/501869696/Invoice)
+![](https://imgv2-2-f.scribdassets.com/img/document/501869696/149x198/f330f70edd/1617767601?v=1)PDF
+No ratings yet
+Appliance Repair Invoice Template
+1 page
+  * [11 MDL](https://www.scribd.com/document/500443240/11-MDL)
+![](https://imgv2-2-f.scribdassets.com/img/document/500443240/149x198/e4049320cf/1616777814?v=1)PDF
+No ratings yet
+11 MDL
+215 pages
+  * [DC Motor Speed Controller Project Report](https://www.scribd.com/document/802278421/Project-report-on-DC-motor-speed-controller)
+![](https://imgv2-2-f.scribdassets.com/img/document/802278421/149x198/79afc3623e/1733682582?v=1)PDF
+No ratings yet
+DC Motor Speed Controller Project Report
+13 pages
+  * [TDA2822M DIY Stereo Amplifier Guide](https://www.scribd.com/document/832983936/TDA2822M-D2822A-KA2209-DIY-Guide-Simple-low-power-stereo-amplifier)
+![](https://imgv2-2-f.scribdassets.com/img/document/832983936/149x198/b000290036/1740577364?v=1)PDF
+No ratings yet
+TDA2822M DIY Stereo Amplifier Guide
+24 pages
+  * [Atari Punk Console Build Guide](https://www.scribd.com/document/114913491/Atari-Punk-Console)
+![](https://imgv2-1-f.scribdassets.com/img/document/114913491/149x198/b0f718a8de/1354627100?v=1)PDF
+No ratings yet
+Atari Punk Console Build Guide
+15 pages
+  * [Beginner's Guide to Breadboard Projects](https://www.scribd.com/document/853473099/Project-2-Breadboard-Electronics-Club)
+![](https://imgv2-1-f.scribdassets.com/img/document/853473099/149x198/478d571258/1745496382?v=1)PDF
+No ratings yet
+Beginner's Guide to Breadboard Projects
+3 pages
+  * [Heart](https://www.scribd.com/doc/37764788/Heart)
+![](https://imgv2-1-f.scribdassets.com/img/document/37764788/149x198/e41360b15b/1284957082?v=1)PDF
+No ratings yet
+Heart
+1 page
+  * [PLC-Based 5-Level Smart Elevator System](https://www.scribd.com/document/815099234/INI3601-PJ-Y-2024)
+![](https://imgv2-2-f.scribdassets.com/img/document/815099234/149x198/a488333f8c/1736756632?v=1)PDF
+No ratings yet
+PLC-Based 5-Level Smart Elevator System
+5 pages
+  * [Createch Notes](https://www.scribd.com/document/997928800/Createch-Notes)
+![](https://imgv2-1-f.scribdassets.com/img/document/997928800/149x198/a077d851fd/1771084126?v=1)PDF
+No ratings yet
+Createch Notes
+42 pages
+  * [Analog Electronics Lab Manual](https://www.scribd.com/document/857888437/ANALOG-ELECTRONICS-LAB-MANUAL-ch-2)
+![](https://imgv2-2-f.scribdassets.com/img/document/857888437/149x198/de2117b33d/1746504512?v=1)PDF
+No ratings yet
+Analog Electronics Lab Manual
+19 pages
+  * [Soldering and Circuit Assembly Lab Guide](https://www.scribd.com/document/733954745/Lab-9-Component-Assembly-Soldering-and-Desoldering-1)
+![](https://imgv2-1-f.scribdassets.com/img/document/733954745/149x198/fe1e695f7a/1716112563?v=1)PDF
+No ratings yet
+Soldering and Circuit Assembly Lab Guide
+7 pages
+  * [Invoice for Lowell Whitehead Order](https://www.scribd.com/document/501869702/Invoice-000154918-0011-14-2019-5-18-38-PM)
+![](https://imgv2-2-f.scribdassets.com/img/document/501869702/149x198/435cb0da95/1617767601?v=1)PDF
+No ratings yet
+Invoice for Lowell Whitehead Order
+1 page
+  * [Build Your Own Weather Station](https://www.scribd.com/document/1009554184/Build-Your-Own-Weather-Station)
+![](https://imgv2-2-f.scribdassets.com/img/document/1009554184/149x198/a6b48aed3f/1773021461?v=1)PDF
+No ratings yet
+Build Your Own Weather Station
+54 pages
+  * [Soldering Techniques and Tips Guide](https://www.scribd.com/document/844062679/Soldering-guide-1)
+![](https://imgv2-1-f.scribdassets.com/img/document/844062679/149x198/834baf9ee4/1743178001?v=1)PDF
+No ratings yet
+Soldering Techniques and Tips Guide
+2 pages
+  * [Electronics Technician Assessment Guide](https://www.scribd.com/document/957249462/Electronic-Technician-Prac-Level-II)
+![](https://imgv2-2-f.scribdassets.com/img/document/957249462/149x198/2ef6bdb14d/1764315946?v=1)PDF
+No ratings yet
+Electronics Technician Assessment Guide
+8 pages
+  * [STM32 Nucleo-L746 USB to MIDI Guide](https://www.scribd.com/document/979232246/usbmidicom-l476)
+![](https://imgv2-2-f.scribdassets.com/img/document/979232246/149x198/dedfdcb4b8/1768101785?v=1)PDF
+No ratings yet
+STM32 Nucleo-L746 USB to MIDI Guide
+3 pages
+  * [Build a Line-Following Robot Guide](https://www.scribd.com/document/926627888/Educational-Robotics-Create-your-own-robot)
+![](https://imgv2-2-f.scribdassets.com/img/document/926627888/149x198/6934742b6b/1759630270?v=1)PDF
+No ratings yet
+Build a Line-Following Robot Guide
+6 pages
+
+
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad[Download to read ad-free](https://www.scribd.com/oauth/signup?behavior_tag=download&doc_id=501869646)
+ad
+## Footer menu
+[Back to top](https://www.scribd.com/document/501869646/GoodBoy-3D-Printed-Arduino-Robot-Dog-1#global_header)
+## About
+  * [About Scribd, Inc.](https://www.scribdinc.com/about)
+  * [Slideshare](https://www.slideshare.net/)
+  * [Join our team!](https://www.scribdinc.com/careers)
+  * [Contact us](https://www.scribdinc.com/contact)
+
+
+## Support
+  * [Help / FAQ](http://support.scribd.com/hc/en-us)
+  * [Accessibility](https://support.scribd.com/hc/en-us/articles/210129586-Accessibility-Notice)
+  * [Purchase help](https://support.scribd.com/hc/en-us/sections/202246306)
+  * [AdChoices](https://support.scribd.com/hc/en-us/articles/210129366)
+
+
+## Legal
+  * [Terms](https://support.scribd.com/hc/en-us/articles/210129326-General-Terms-of-Use)
+  * [Privacy](https://www.scribd.com/privacy)
+  * [Copyright](https://support.scribd.com/hc/en-us/sections/202246086)
+  * Your Privacy Choices
+
+
+## Social
+  * [Instagram Instagram](https://www.instagram.com/scribd/)
+  * [Facebook Facebook](https://www.facebook.com/Scribd/)
+  * [Pinterest Pinterest](https://www.pinterest.com/scribd/)
+
+
+## Get our free apps
+  * [](https://apps.apple.com/us/app/6448807714?mt=8&pt=298534)
+  * [](https://play.google.com/store/apps/details?id=com.scribd.app.reader0.docs)
+
+
+## About
+  * [About Scribd, Inc.](https://www.scribdinc.com/about)
+  * [Slideshare](https://www.slideshare.net/)
+  * [Join our team!](https://www.scribdinc.com/careers)
+  * [Contact us](https://www.scribdinc.com/contact)
+
+
+## Legal
+  * [Terms](https://support.scribd.com/hc/en-us/articles/210129326-General-Terms-of-Use)
+  * [Privacy](https://www.scribd.com/privacy)
+  * [Copyright](https://support.scribd.com/hc/en-us/sections/202246086)
+  * Your Privacy Choices
+
+
+## Support
+  * [Help / FAQ](http://support.scribd.com/hc/en-us)
+  * [Accessibility](https://support.scribd.com/hc/en-us/articles/210129586-Accessibility-Notice)
+  * [Purchase help](https://support.scribd.com/hc/en-us/sections/202246306)
+  * [AdChoices](https://support.scribd.com/hc/en-us/articles/210129366)
+
+
+## Social
+  * [Instagram Instagram](https://www.instagram.com/scribd/)
+  * [Facebook Facebook](https://www.facebook.com/Scribd/)
+  * [Pinterest Pinterest](https://www.pinterest.com/scribd/)
+
+
+## Get our free apps
+  * [](https://apps.apple.com/us/app/6448807714?mt=8&pt=298534)
+  * [](https://play.google.com/store/apps/details?id=com.scribd.app.reader0.docs)
+
+
+  * [Documents](https://www.scribd.com/docs)
+
+
+Language:
+English
+Copyright © 2026 Scribd Inc.
+We take content rights seriously. [Learn more](https://support.scribd.com/hc/en-us/articles/210129026-Frequently-Asked-Questions-about-Copyrights-and-the-DMCA) in our FAQs or [report infringement here](https://support.scribd.com/hc/en-us/articles/210129146-REPORT-COPYRIGHT-INFRINGEMENTS-AND-ABUSE-HERE).
+We take content rights seriously. [Learn more](https://support.scribd.com/hc/en-us/articles/210129026-Frequently-Asked-Questions-about-Copyrights-and-the-DMCA) in our FAQs or [report infringement here](https://support.scribd.com/hc/en-us/articles/210129146-REPORT-COPYRIGHT-INFRINGEMENTS-AND-ABUSE-HERE).
+Language:
+English
+Copyright © 2026 Scribd Inc.
+576648e32a3d8b82ca71961b7a986505
+scribd.scribd.scribd.scribd.scribd.
+![](https://bat.bing.com/action/0?ti=15260218&tm=gtm002&Ver=2&mid=19415ac8-2651-42fc-a75a-db18b61b2fad&bo=1&sid=4300b6406d6f11f1aaa4aff3e53029de&vid=430127206d6f11f1b318d98a257c41e6&vids=1&msclkid=N&pi=918639831&lg=en-US&sw=1080&sh=600&sc=24&tl=Build%20Your%20Own%203D%20Printed%20Robot%20Dog%20%7C%20PDF%20%7C%20Arduino%20%7C%203%20D%20Printing&p=https%3A%2F%2Fwww.scribd.com%2Fdocument%2F501869646%2FGoodBoy-3D-Printed-Arduino-Robot-Dog-1&r=&lt=7049&evt=pageLoad&sv=2&cdb=AQAW&rn=728063)

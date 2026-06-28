@@ -34,30 +34,8 @@ def sync_selenium_download(url: str, dest_dir: str, fallback_filename: str) -> O
     driver = uc.Chrome(options=options, headless=False, version_main=149)
     
     try:
-        # GrabCAD Login Flow
-        if "grabcad.com" in url:
-            print("[Selenium Downloader] Detected GrabCAD URL. Attempting authentication...")
-            email = os.environ.get("GRABCAD_EMAIL")
-            password = os.environ.get("GRABCAD_PASSWORD")
-            
-            if email and password:
-                try:
-                    driver.get("https://grabcad.com/login")
-                    # Wait for Cloudflare Turnstile if present, or email field
-                    email_field = WebDriverWait(driver, 30).until(
-                        EC.presence_of_element_located((By.CSS_SELECTOR, "input[type='email'], input[name='member[email]']"))
-                    )
-                    email_field.send_keys(email)
-                    driver.find_element(By.CSS_SELECTOR, "input[type='password'], input[name='member[password]']").send_keys(password)
-                    driver.find_element(By.CSS_SELECTOR, "input[type='submit'], button[type='submit']").click()
-                    print("[Selenium Downloader] Login form submitted. Waiting...")
-                    time.sleep(5)
-                except Exception as e:
-                    print(f"[Selenium Downloader] GrabCAD login failed: {e}")
-            else:
-                print("[Selenium Downloader] GrabCAD credentials not found in .env, skipping login.")
-                
         # Navigate to target URL
+
         try:
             driver.get(url)
             # Wait for cloudflare/load

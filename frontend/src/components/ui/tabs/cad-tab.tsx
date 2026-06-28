@@ -776,7 +776,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
     const [isMeasuring, setIsMeasuring] = useState(false);
     const [measurePoints, setMeasurePoints] = useState<THREE.Vector3[]>([]);
     const [renderMode, setRenderMode] = useState(0); // 0=Styled, 1=Ghost, 2=Actual
-    const [envPreset, setEnvPreset] = useState<"warehouse" | "studio" | "city" | "dawn">("warehouse");
+    const [envPreset, setEnvPreset] = useState<"warehouse" | "studio" | "city" | "dawn">("city");
     const [isAnnotating, setIsAnnotating] = useState(false);
     const [annotations, setAnnotations] = useState<Annotation[]>([]);
 
@@ -1435,7 +1435,7 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                     <spotLight position={[100, 300, 100]} intensity={1.5} angle={0.5} penumbra={1} castShadow color="#fffaf0" />
                     <directionalLight position={[-150, 50, -150]} intensity={1.2} color="#88bbee" />
 
-                    <Environment preset={envPreset} />
+                    {/* <Environment preset={envPreset} /> */}
 
                     {/* Classic CAD Grid */}
                     <Grid

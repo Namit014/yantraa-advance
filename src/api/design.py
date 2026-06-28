@@ -163,12 +163,12 @@ If it is conversational or unrelated to designing a specific robot system:
 - Leave "search_terms" empty.
 - Set "closest_robot_type" to null
 
-If it is a request to design or build a robot:
+If it is a request to design or build a robot (or a continuation like "yes build it", "stationary", etc):
 - Set "is_design_query" to true
 - Leave "response" empty
 - Identify hardware components needed and provide them as a list of strings in "search_terms" (e.g. ["Arduino Uno", "L298N Motor Driver", "LiPo Battery"])
-- Match the user's requested robot to the closest available option from this exact list: {known_robot_types}. 
-  If the user's intent strongly matches one of these (e.g. "I want a machine for carrying boxes" -> "agv" or "mobile robot", "I need to weld" -> "welding"), provide that exact string in "closest_robot_type". 
+- Match the user's requested robot (inferring from the conversation history if necessary) to the closest available option from this exact list: {known_robot_types}. 
+  If the user's intent strongly matches one of these (e.g. "I want a machine for carrying boxes" -> "agv", "I need to weld" -> "welding"), provide that exact string in "closest_robot_type". 
   If none match, set "closest_robot_type" to null.
 
 Output ONLY valid JSON.
@@ -197,6 +197,15 @@ OUTPUT FORMAT:
         conversational_reply = router_data.get("response", "")
         components_to_search = router_data.get("search_terms", [])
         closest_robot_type = router_data.get("closest_robot_type")
+        
+        if not closest_robot_type:
+            # Fallback: scan prompt and history
+            combined_text = router_prompt.lower()
+            # Sort known_robot_types by length descending to match longer specific names first
+            for k in sorted(known_robot_types, key=len, reverse=True):
+                if k.lower() in combined_text:
+                    closest_robot_type = k
+                    break
         
         if not isinstance(components_to_search, list):
             components_to_search = [query]
@@ -376,6 +385,15 @@ OUTPUT FORMAT:
     missing = data.get("missing", [])
     validation = data.get("validation", [])
     chat_reply = data.get("chat_reply")
+    
+    # Ensure every component has an ID
+    if isinstance(subsystems, list):
+        for sub in subsystems:
+            if isinstance(sub, dict) and isinstance(sub.get("components"), list):
+                for comp in sub.get("components", []):
+                    if isinstance(comp, dict) and not comp.get("id"):
+                        name = comp.get("name", "component")
+                        comp["id"] = re.sub(r"[^a-zA-Z0-9]+", "_", name.lower()).strip("_")
 
     if isinstance(connections, list):
         for conn in connections:
@@ -494,13 +512,15 @@ OUTPUT FORMAT:
         local_path = os.path.join(frontend_public_cad, filename)
         kb_search = os.path.abspath(os.path.join(_src_dir, "..", "knowledgebase"))
         import glob as _glob
+        if S3_BUCKET_URL or os.getenv("S3_BUCKET_NAME"):
+            from cad_registry import get_s3_url
+            return get_s3_url(filename, S3_BUCKET_URL)
+            
         kb_matches = _glob.glob(os.path.join(kb_search, "**", filename), recursive=True)
         if kb_matches or os.path.exists(local_path):
             print(f"[api/design] CAD served via local backend: /cad/{filename}")
             return f"/cad/{filename}"
-        if S3_BUCKET_URL:
-            from cad_registry import get_s3_url
-            return get_s3_url(filename, S3_BUCKET_URL)
+            
         print(f"[api/design] WARNING: CAD file {filename!r} not found locally or in S3. Serving /cad/ path anyway.")
         return f"/cad/{filename}"
 
@@ -514,27 +534,7 @@ OUTPUT FORMAT:
     assembly_mode = "side_by_side"
 
     
-    # Try to build assembly graph from LLM synthesis data
-    llm_assembly_graph = data.get("assembly_graph", [])
-    if llm_assembly_graph:
-        # LLM provided assembly graph — use it
-        graph_nodes = []
-        if isinstance(subsystems, list):
-            for sub in subsystems:
-                if not isinstance(sub, dict):
-                    continue
-                for comp in sub.get("components", []):
-                    if not isinstance(comp, dict):
-                        continue
-                    graph_nodes.append({"id": comp["id"], "part": comp["name"]})
-        
-        assembly_transforms = solve_assembly(graph_nodes, llm_assembly_graph)
-        if assembly_transforms:
-            assembly_mode = "assembled"
-            # Override cad_urls with assembly-computed URLs
-            cad_urls = [t["cad_url"] for t in assembly_transforms]
-            cad_available = True
-            cad_url = cad_urls[0] if cad_urls else None
+    # Assembly engine disabled per user request to prioritize full CAD model
     
     # Analyze matched CADs
     extracted_components = set()
