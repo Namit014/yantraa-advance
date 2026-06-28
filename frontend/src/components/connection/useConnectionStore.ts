@@ -557,7 +557,8 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     const designSubsystems = designData.subsystems || [];
     designSubsystems.forEach((sub: any) => {
       (sub.components || []).forEach((comp: any) => {
-        validCompIds.set(normalizeId(comp.id), comp);
+        const cId = normalizeId(comp.id) || normalizeId(comp.name);
+        validCompIds.set(cId, comp);
       });
     });
 
@@ -601,7 +602,7 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
     designSubsystems.forEach((sub: any) => {
       const components = sub.components || [];
       components.forEach((comp: any) => {
-        const compId = normalizeId(comp.id) || `comp-${Math.random().toString(36).substr(2,9)}`;
+        const compId = normalizeId(comp.id) || normalizeId(comp.name) || `comp-${Math.random().toString(36).substr(2,9)}`;
         const isConnected = collectedPorts.has(compId);
         
         // Skip purely mechanical components (like brackets, mounts) UNLESS they have electrical connections
