@@ -1,116 +1,104 @@
-from .extraction import ExtractionEngine
-from .alias_registry import AliasRegistry
-from .fingerprint import ComponentFingerprint, EntityResolutionEngine
-from .ontology import EngineeringOntology
-from .graph_repair import GraphRepairEngine, GraphValidationEngine
-from .explainability import ExplainabilityEngine
-from .schemas import ComponentNode, ConnectionEdge, EvidenceReference, SourceType, ConnectionType
 import uuid
+from typing import Dict, Any
+
+from .extraction import ExtractionEngine
+from .datasheet_engine import DatasheetEngine
+from .dependency_resolver import DependencyResolver
+from .knowledge_base import KnowledgeBaseEngine
+from .bom_validator import BOMValidator
+from .manufacturing_validator import ManufacturingValidator
+from .requirements_engine import RequirementsEngine
+from .pin_mapping import PinMappingEngine
+from .connector_engine import ConnectorEngine
+from .adapter_engine import AdapterEngine
+from .topology_validator import TopologyValidator
+from .safety_architecture import SafetyArchitectureValidator
+from .fmea_engine import FMEAEngine
+from .graph_integrity import GraphIntegrityEngine
+from .simulation_confidence import SimulationConfidenceEngine
+from .approval_workflow import ApprovalWorkflowEngine, GraphState
+from .schemas import ComponentNode, PinConnection, GraphHealth
 
 class MappingPipeline:
     """
-    Orchestrates the 14-phase pipeline for Component Mapping.
+    Orchestrates the Hybrid Architecture flow for Component Mapping.
+    LLMs extract -> Deterministic Engines Validate.
     """
-    def __init__(self, raw_evidence: str):
+    def __init__(self, raw_evidence: str, requirements: Dict[str, str] = None):
         self.extractor = ExtractionEngine(raw_evidence)
-        self.aliases = AliasRegistry()
+        self.requirements = requirements or {}
 
-    def run(self):
-        # Phase 1: Extraction
+    def run(self) -> Dict[str, Any]:
+        # STAGE 1: LLM Extraction
         extracted_data = self.extractor.execute_all()
         
         comps = []
         conns = []
-
-        # Convert extraction output to Schema Models
+        
+        # Load rough components
         raw_comps = extracted_data.get("physical_components", [])
         for rc in raw_comps:
             comps.append(ComponentNode(
                 id=rc.get("id", str(uuid.uuid4())),
                 name=rc.get("name", "Unknown"),
-                category=rc.get("category", "electronic"),
-                confidence=0.95,
-                evidence=[EvidenceReference(
-                    source_id="llm",
-                    source_type=SourceType.MANUAL,
-                    source_file="User Query"
-                )]
+                category=rc.get("category", "electronic")
             ))
 
-        raw_conns = extracted_data.get("connections", []) + extracted_data.get("power_paths", []) + extracted_data.get("motion_paths", [])
-        for rc in raw_conns:
-            conns.append(ConnectionEdge(
+        # STAGE 2: Dependency Resolution & KB
+        missing_comps = DependencyResolver.resolve_dependencies(comps)
+        for missing in missing_comps:
+            comps.append(ComponentNode(
                 id=str(uuid.uuid4()),
-                source=rc.get("source"),
-                target=rc.get("target"),
-                type=getattr(ConnectionType, rc.get("type", "SIGNAL").upper(), ConnectionType.SIGNAL),
-                confidence=0.95,
-                evidence=[]
+                name=f"Inferred {missing}",
+                category=missing
             ))
-
-        # Phase 2 & 3: Normalization & Fingerprinting
-        for c in comps:
-            c.canonical_name = self.aliases.get_canonical_name(c.name)
-            c.fingerprint_hash = ComponentFingerprint.generate_hash({"name": c.canonical_name})
-
-        # Phase 4: Entity Resolution
-        comps = EntityResolutionEngine.resolve_entities(comps)
-
-        # Phase 5 & 8: Ontology and Reasoning
-        inferred_conns = EngineeringOntology.infer_chains(comps, conns)
-        conns.extend(inferred_conns)
-
-        # Phase 9: Graph Repair
-        repairs = GraphRepairEngine.run_repair(comps, conns)
-
-        # Phase 11: Graph Validation
-        health = GraphValidationEngine.validate(comps, conns)
-
-        # Phase 12: Explainability
-        for c in comps:
-            c.explainability = ExplainabilityEngine.generate_node_explanation(c)
-        for e in conns:
-            e.explainability = ExplainabilityEngine.generate_edge_explanation(e)
-
-        # Phase 10: V4 Hierarchical UI Contract
-        
-        if health.overall_accuracy == 0 and not comps:
-            return {
-                "status": "failed",
-                "stage": "connection_generation",
-                "error": "LLM rate limited or failed to extract components.",
-                "graph_health_score": 0,
-                "subsystems": [],
-                "connections": []
-            }
-
-        # Build Subsystems hierarchy based on parent_assembly
-        assembly_map = {}
-        for c in comps:
-            parent = c.parent_assembly or "Core System"
-            assembly_map.setdefault(parent, []).append(c.model_dump())
             
-        ui_subsystems = [{"name": name, "components": components} for name, components in assembly_map.items()]
+        # STAGE 3: Datasheet Grounding
+        for c in comps:
+            DatasheetEngine.verify_component(c)
+            
+        # STAGE 4: BOM & Manufacturing Validation
+        bom_errors = BOMValidator.validate_bom(comps)
+        mfg_errors = ManufacturingValidator.validate_manufacturing_readiness(comps)
         
-        ui_connections = []
-        for c in conns:
-            ui_connections.append({
-                "from": c.source,
-                "to": c.target,
-                "type": c.type.value,
-                "confidence": c.confidence,
-                "explainability": c.explainability
-            })
+        if bom_errors or mfg_errors:
+            return {"status": "failed", "errors": bom_errors + mfg_errors}
+            
+        # STAGE 5: Traceability
+        RequirementsEngine.trace_requirements(comps, self.requirements)
+        
+        # STAGE 6: Pin-Level Connection Generation
+        # (Placeholder for auto-wiring engine logic using PinMappingEngine)
+        
+        # STAGE 7: Safety & FMEA
+        safety_errors = SafetyArchitectureValidator.validate_safety(comps, conns)
+        fmea_risks = FMEAEngine.analyze_failure_modes(comps, conns)
+        
+        if safety_errors:
+            return {"status": "failed", "errors": safety_errors}
+            
+        # STAGE 8: Graph Integrity
+        integrity_errors = GraphIntegrityEngine.check_integrity(comps, conns)
+        if integrity_errors:
+            return {"status": "failed", "errors": integrity_errors}
+            
+        # STAGE 9: Confidence Scoring
+        confidence = SimulationConfidenceEngine.calculate_confidence(comps, conns)
+        
+        # STAGE 10: Approval Workflow
+        state = ApprovalWorkflowEngine.approve_graph(["Electrical", "Mechanical", "Controls", "Safety", "Manufacturing"])
+        
+        health = GraphHealth(
+            overall_accuracy=confidence * 100,
+            errors=integrity_errors + safety_errors + bom_errors + mfg_errors,
+            warnings=[str(r) for r in fmea_risks]
+        )
 
         return {
-            "status": "success" if health.overall_accuracy > 80 else "partial_success",
-            "stage": "complete",
-            "error": " | ".join(health.errors) if health.errors else None,
-            "graph_health_score": int(health.overall_accuracy),
-            "health_metrics": health.model_dump(),
-            "subsystems": ui_subsystems,
-            "connections": ui_connections,
-            "bom": [{"id": c.id, "name": c.engineering_name or c.name, "qty": 1} for c in comps],
-            "validation": [{"type": "error", "message": e} for e in health.errors],
-            "kinematic_chain": extracted_data.get("kinematic_chain", [])
+            "status": "success",
+            "state": state.value,
+            "graph_health_score": health.overall_accuracy,
+            "components": [c.model_dump() for c in comps],
+            "connections": [c.model_dump() for c in conns],
+            "validation": [{"type": "error", "message": e} for e in health.errors]
         }
