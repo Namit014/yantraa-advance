@@ -105,11 +105,7 @@ def _consolidate_bom(bom: List[Any]) -> List[Dict[str, Any]]:
             }
     return list(bom_map.values())
 
-<<<<<<< HEAD
-def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: str = None) -> str:
-=======
 def _safe_llm_call(prompt: str, system_prompt: str, response_format: str = "json_object", model: Optional[str] = None) -> str:
->>>>>>> 3620ca17ad10420102c805512e16d087cb64c022
     if model is None:
         model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
     try:
@@ -311,82 +307,10 @@ OUTPUT FORMAT:
         print(f"[api/design] Could not load component graphs: {e}")
 
     # ─── PHASE 3: Synthesis Agent (Mapping + Connection + Validation) ────────
-<<<<<<< HEAD
     print("[api/design] Phase 3: Running V3 Forensic Mapping Pipeline...")
     
     # Build complete context evidence
     evidence = f"USER REQUEST: {query}\n"
-=======
-    print("[api/design] Phase 3: Running Synthesis Agent...")
-    synthesis_system = """You are Yantraa, a friendly, concise, and technically sharp master robotics design AI. Your job is to assemble a complete, industrial-grade robot according to the USER REQUEST.
-You must construct the robot by selecting individual components, organizing them into subsystems, mapping electrical/logic connections, and generating a Bill of Materials (BOM) with validation checks.
-
-CRITICAL RULES:
-- If the robot is a standard industrial arm, quadruped, humanoid, or mobile base, you MUST use HEBI component names from the AVAILABLE list below.
-- If the user asks for a system that cannot be built with HEBI components (e.g. a flying robot, drone), you should generate standard generic custom components (e.g., `quadcopter_frame`, `brushless_motor`).
-- Any custom component you generate MUST be included in the 'missing' array, e.g. `{"name": "quadcopter_frame"}` so the UI lets the user click to generate its CAD model.
-- If you use custom components or define an assembly, you MUST include 'assembly_graph' in your JSON output detailing the parent-child relationships and connection ports.
-- Output ONLY valid JSON in the exact structure requested.
-
-ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
-1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot. Instead, use a Trunk-and-Branch topology.
-2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node".
-3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power via a Safety Relay or Contactor.
-4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring.
-5. **Power Supply Sizing & Fusing**: Every individual branch from the PSU to a Driver MUST pass through a dedicated Fuse or Circuit Breaker.
-6. **Communication Architecture (Daisy-Chain)**: Wire the Fieldbus in a Daisy-Chain topology to minimize long signal wires.
-7. **Power Isolation**: Strictly separate Logic and Motor power. Use a DC-DC Buck Converter for logic.
-8. **Dynamic Joint Naming**: Explicitly name motors/actuators with their kinematic role (e.g., "J1 Base Rotation Motor").
-9. **Strict Connectivity**: 
-   - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
-   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
-
-OUTPUT FORMAT:
-{{
-  "subsystems": [
-    {{
-      "name": "subsystem name",
-      "components": [
-        {{
-          "id": "unique_id",
-          "name": "exact component name",
-          "role": "what it does",
-          "voltage": "operating voltage",
-          "interface": "communication protocol"
-        }}
-      ]
-    }}
-  ],
-  "connections": [
-    {{
-      "from": "component_id",
-      "from_port": "exact_pin_name",
-      "to": "component_id",
-      "to_port": "exact_pin_name",
-      "wire_type": "power | ground | signal | data | pwm | can",
-      "relation": "powered_by | controlled_by | drives | communicates_with"
-    }}
-  ],
-  "bom": [
-    {{"id": "id", "name": "exact name", "qty": 1}}
-  ],
-  "missing": [
-    {{"name": "component name"}}
-  ],
-  "validation": [
-    {{"type": "error | warning", "message": "validation check"}}
-  ],
-  "assembly_graph": [
-    {{"parent": "parent_id", "child": "child_id", "parent_port": "port_name", "child_port": "port_name"}}
-  ],
-  "chat_reply": "A brief warm conversational line acknowledging the design and describing what you built."
-}}"""
-
-    # Build user prompt
-    user_prompt = f"USER REQUEST: {query}\n\n"
-    if history_str:
-        user_prompt = f"{history_str}USER REQUEST: {query}\n\n"
->>>>>>> 3620ca17ad10420102c805512e16d087cb64c022
     if component_graph_text:
         evidence += f"\n{component_graph_text}\n"
     if rag_results:
@@ -416,7 +340,6 @@ OUTPUT FORMAT:
         report_markdown = final_graph.get("report_markdown")
         
     except Exception as e:
-<<<<<<< HEAD
         print(f"[api/design] V3 Mapping Pipeline failed: {e}")
         status = "failed"
         stage = "connection_generation"
@@ -434,35 +357,6 @@ OUTPUT FORMAT:
         failure_modes = []
         state_model = None
         report_markdown = None
-=======
-        print(f"[api/design] Error parsing LLM JSON: {e}")
-        data = {}
-
-    connections = data.get("connections", [])
-    normalized_connections = []
-    bom = data.get("bom", [])
-    subsystems = data.get("subsystems", [])
-    missing = data.get("missing", [])
-    validation = data.get("validation", [])
-    chat_reply = data.get("chat_reply")
-
-    if isinstance(connections, list):
-        for conn in connections:
-            if not isinstance(conn, dict):
-                continue
-            c_from = conn.get("from") or conn.get("id_from") or conn.get("from_id")
-            c_to = conn.get("to") or conn.get("id_to") or conn.get("to_id")
-            if c_from and c_to:
-                normalized_connections.append({
-                    "from": str(c_from),
-                    "from_port": str(conn.get("from_port") or "IO1"),
-                    "to": str(c_to),
-                    "to_port": str(conn.get("to_port") or "IO1"),
-                    "wire_type": str(conn.get("wire_type") or "signal"),
-                    "relation": conn.get("relation", "connected_to"),
-                    "protocol": conn.get("protocol", "DC")
-                })
->>>>>>> 3620ca17ad10420102c805512e16d087cb64c022
 
     # Check CAD availability based on query
     cad_available = False
@@ -586,7 +480,7 @@ OUTPUT FORMAT:
 
     
     # Try to build assembly graph from LLM synthesis data
-    llm_assembly_graph = data.get("assembly_graph", [])
+    llm_assembly_graph = final_graph.get("assembly_graph", []) if 'final_graph' in locals() else []
     if llm_assembly_graph:
         # LLM provided assembly graph — use it
         graph_nodes = []
@@ -637,7 +531,7 @@ OUTPUT FORMAT:
     print(f"[api/design] Pipeline complete. Subsystems={len(subsystems)}, Connections={len(normalized_connections)}, Validation Errors={len(validation)}")
     print(f"[api/design] Assembly mode: {assembly_mode}, CADs: {len(cad_urls)}")
 
-    chat_reply = data.get("chat_reply")
+    chat_reply = final_graph.get("chat_reply") if 'final_graph' in locals() else None
 
     return DesignResponse(
         status=status,
@@ -656,16 +550,12 @@ OUTPUT FORMAT:
         extracted_components=list(extracted_components),
         assembly_transforms=assembly_transforms,
         assembly_mode=assembly_mode,
-<<<<<<< HEAD
         chat_reply=chat_reply,
         kinematic_chain=kinematic_chain,
         conflicts=conflicts,
         failure_modes=failure_modes,
         state_model=state_model,
         report_markdown=report_markdown
-=======
-        chat_reply=chat_reply
->>>>>>> 3620ca17ad10420102c805512e16d087cb64c022
     )
 
 @router.post("/api/design", response_model=DesignResponse)

@@ -10,7 +10,7 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/free")
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "openrouter/owl-alpha"
 
 def _call_gemini(messages: list, temperature: float = 0.7, response_format: str = "text", model: str = "gemini-2.5-flash") -> str:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
@@ -123,10 +123,7 @@ def invoke_yantra_ai(prompt, system_prompt="You are Yantra AI, an intelligent ro
     """
     if model is None:
         model = os.getenv("OPENROUTER_MODEL", "openrouter/free")
-<<<<<<< HEAD
-        
-=======
->>>>>>> 3620ca17ad10420102c805512e16d087cb64c022
+
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": prompt}
