@@ -6,13 +6,9 @@ load_dotenv(override=True)
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Using a much smarter free model that reliably outputs JSON
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openrouter/owl-alpha")
-=======
-=======
->>>>>>> 0b5e86e35a2451cc2a44a7edcf78a4670dc5ab34
+
+# Primary model: owl-alpha (demo branch requirement)
+# FALLBACK_MODELS: full list from premain for resilience
 FALLBACK_MODELS = [
     "openrouter/owl-alpha",
     "meta-llama/llama-3-8b-instruct:free",
@@ -22,10 +18,6 @@ FALLBACK_MODELS = [
     "mistralai/mistral-7b-instruct:free"
 ]
 OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", FALLBACK_MODELS[0])
-<<<<<<< HEAD
->>>>>>> 0b5e86e35a2451cc2a44a7edcf78a4670dc5ab34
-=======
->>>>>>> 0b5e86e35a2451cc2a44a7edcf78a4670dc5ab34
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 DEFAULT_MODEL = "gemini-2.5-flash"
@@ -84,19 +76,9 @@ def call_llm(messages: list, temperature: float = 0.7, response_format: str = "t
         "model": target_model,
         "messages": messages,
         "temperature": temperature,
-        # Cap max_tokens to prevent OpenRouter from estimating the max context window (65k) 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        # which exceeds free tier limits.
-        "max_tokens": 8192,
-=======
+        # Cap max_tokens to prevent OpenRouter from estimating the max context window (65k)
         # which exceeds free tier limits, but allow enough for large JSON payloads.
         "max_tokens": 4000,
->>>>>>> 0b5e86e35a2451cc2a44a7edcf78a4670dc5ab34
-=======
-        # which exceeds free tier limits, but allow enough for large JSON payloads.
-        "max_tokens": 4000,
->>>>>>> 0b5e86e35a2451cc2a44a7edcf78a4670dc5ab34
     }
     if response_format == "json_object":
         payload["response_format"] = {"type": "json_object"}
@@ -166,31 +148,10 @@ def call_llm_stream(messages: list, temperature: float = 0.7, response_format: s
                 yield res
                 return
             except Exception as e:
-<<<<<<< HEAD
-<<<<<<< HEAD
-                raise Exception(f"Gemini fallback failed: {e}")
-        raise Exception("No API keys available for streaming.")
-        
-    payload = {
-        "model": target_model,
-        "messages": messages,
-        "temperature": temperature,
-        "max_tokens": 4000,
-        "stream": True
-    }
-    if response_format == "json_object":
-        payload["response_format"] = {"type": "json_object"}
-=======
-=======
->>>>>>> 0b5e86e35a2451cc2a44a7edcf78a4670dc5ab34
                 yield "I'm experiencing high traffic. Please try again later."
                 return
         yield "No API keys available for streaming."
         return
-<<<<<<< HEAD
->>>>>>> 0b5e86e35a2451cc2a44a7edcf78a4670dc5ab34
-=======
->>>>>>> 0b5e86e35a2451cc2a44a7edcf78a4670dc5ab34
 
     last_error_str = ""
 
