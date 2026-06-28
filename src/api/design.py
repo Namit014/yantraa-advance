@@ -224,34 +224,12 @@ OUTPUT FORMAT:
     print(f"[api/design] Search terms extracted: {components_to_search}")
 
     # ─── PHASE 1.5: Check Assembly Templates ──────────────────────────────────
-    template = match_template(query)
-    if template:
-        print(f"[api/design] Template matched! Skipping LLM synthesis.")
-        template_data = template_to_design_data(template)
-        
-        # Solve assembly transforms
-        graph_nodes = template_data.get("_template_graph", [])
-        assembly_graph = template_data.get("assembly_graph", [])
-        assembly_transforms = solve_assembly(graph_nodes, assembly_graph)
-        
-        # Validate
-        assembly_validation = validate_assembly(assembly_transforms)
-        
-        # Build CAD URLs from assembly transforms
-        cad_urls = [t["cad_url"] for t in assembly_transforms]
-        
-        return DesignResponse(
-            subsystems=template_data.get("subsystems", []),
-            connections=template_data.get("connections", []),
-            bom=_consolidate_bom(template_data.get("bom", [])),
-            missing=template_data.get("missing", []),
-            validation=template_data.get("validation", []) + assembly_validation,
-            cad_available=len(cad_urls) > 0,
-            cad_url=cad_urls[0] if cad_urls else None,
-            cad_urls=cad_urls,
-            assembly_transforms=assembly_transforms,
-            assembly_mode="assembled"
-        )
+    # DISABLED per user request: We no longer intercept with modular HEBI templates, 
+    # forcing the system to always fetch the full monolithic CAD model instead.
+    # template = match_template(query)
+    # if template:
+    #     ...
+
 
     # ─── PHASE 2: Qdrant RAG Search ─────────────────────────────────────────────
     print("[api/design] Phase 2: Querying Qdrant Database...")
@@ -309,17 +287,28 @@ CRITICAL RULES:
 - Output ONLY valid JSON in the exact structure requested.
 
 ROBOTICS ARCHITECTURE STANDARDS (MANDATORY):
-1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot. Instead, use a Trunk-and-Branch topology.
-2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node".
-3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power via a Safety Relay or Contactor.
-4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring.
-5. **Power Supply Sizing & Fusing**: Every individual branch from the PSU to a Driver MUST pass through a dedicated Fuse or Circuit Breaker.
-6. **Communication Architecture (Daisy-Chain)**: Wire the Fieldbus in a Daisy-Chain topology to minimize long signal wires.
-7. **Power Isolation**: Strictly separate Logic and Motor power. Use a DC-DC Buck Converter for logic.
-8. **Dynamic Joint Naming**: Explicitly name motors/actuators with their kinematic role (e.g., "J1 Base Rotation Motor").
+0. **EXTREME BREVITY**: You are running on a constrained model. Keep your output EXTREMELY short. Generate a maximum of 5-8 essential components total across all subsystems. DO NOT generate extensive wiring or every single sensor/resistor. Keep it minimal to prevent JSON truncation!
+1. **Power Distribution (Trunk-and-Branch Topology)**: DO NOT run a dedicated power wire from the main base PSU to every single driver across the robot (this causes EMI). Instead, use a Trunk-and-Branch topology: Route a thick "Main Power Trunk" to a "Local Distribution Hub" or "Local Busbar" near each joint, and branch off to local drivers.
+2. **Grounding Strategy**: Motor grounds, logic grounds, and sensor grounds MUST be separated and tied together only at a single "Star Ground Node" or "Common Ground Bus". Avoid ground loops.
+3. **Emergency Stop (Hardware Cutoff)**: E-Stops MUST physically cut motor power. Generate an "E-Stop Button" connected to a "Safety Relay" or "Contactor". The Safety Relay MUST sit between the PSU and the Motor Drivers on the 24V/48V lines. Do NOT route E-Stop solely to the MCU.
+4. **Encoder Feedback**: Every actuator MUST have explicit encoder/position feedback wiring. Use differential signals (RS-422) for noise immunity. Encoders MUST route back to the Controller or local Joint Controller.
+5. **Power Supply Sizing & Fusing**: Size power supplies for PEAK stall current (2-3x nominal). Every individual branch from the PSU to a Driver MUST pass through a dedicated "Fuse" or "Circuit Breaker".
+6. **Communication Architecture (Daisy-Chain)**: For complex robots, do NOT wire the MCU directly to every driver with a massive harness. You MUST enforce a Fieldbus Architecture (CAN Bus or EtherCAT). CRITICAL: Wire the Fieldbus in a Daisy-Chain topology (`Main MCU` -> `Joint 1 Controller` -> `Joint 2 Controller` -> `Joint 3 Controller`) to minimize long signal wires.
+7. **Power Isolation**: Strictly separate Logic and Motor power. 24V/48V feeds motor drivers directly. 24V MUST feed a dedicated "DC-DC Buck Converter" which provides isolated 5V/3.3V logic power to the MCU and sensors.
+8. **Dynamic Joint Naming**: You MUST explicitly name motors/actuators with their kinematic role based on the requested robot type (e.g., "J1 Base Rotation Motor", "J2 Arm Motor").
 9. **Strict Connectivity**: 
    - Separate Power vs Signal. Clearly denote the `wire_type` as exactly one of: "power", "ground", "signal", "data", "pwm", "can".
-   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array.
+   - CRITICAL: The `from` and `to` fields in the `connections` array MUST EXACTLY MATCH the `id` of the components defined in the `subsystems` array. DO NOT use the `name` field for connections. Do not invent IDs that do not exist in the components array.
+10. **Actuator & Driver Rule**: Add ALL required motor drivers between controllers and motors. Motors must NEVER be connected directly to the battery. For every actuator, clearly show driver connection, power source, and feedback sensor connection.
+11. **Complete Power Architecture**: Show Battery, Main Power Switch, Fuse protection, Reverse polarity protection, Current protection, Voltage regulators (12V, 5V, 3.3V), Power distribution rails, and Common ground connections. Ensure voltage compatibility: 12V devices receive 12V, 5V receive 5V, 3.3V receive 3.3V. Add level shifters wherever required.
+12. **Complete Sensor Suite**: Include all sensors properly connected with exact names and interfaces (IMU, Ultrasonic sensor, Encoders, Limit switches, Status LEDs, plus any robot-specific sensors).
+13. **Controller Architecture**: If multiple controllers are used, explicitly show UART/I2C/SPI connections, their purpose, and Master/slave relationship. Remove redundant controllers if they don't serve a clear purpose.
+14. **Validation & Completion**: Verify every component connection and ensure no floating, incomplete, or ambiguous connections. Validate that the design can realistically be built without electrical conflicts. Follow real engineering best practices. Apply these rules to all future robot schematics regardless of robot type.
+15. **Validation Report**: Use the `validation` array to output a validation report listing every improvement made (e.g., "Added reverse polarity protection") and assumptions used (e.g., "Assumed 24V for primary joint motors").
+16. **Professional Engineering Documentation Quality**: Every component must have complete power, ground, and signal connections. Every signal path must be identifiable. Every voltage rail must be labeled. Every driver, regulator, sensor, and actuator must show realistic real-world wiring suitable for PCB design, debugging, and robot assembly. Target 9.5-10/10 electrical accuracy.
+17. **Advanced Power Protection**: You MUST include a standard Protection Diode (e.g., 1N5408) for reverse-polarity protection in series with the main battery positive line, placed immediately after the Master Power Switch and before the Fuse. 
+18. **Strict MCU Power Sourcing**: If a 5V Buck Converter is present, route the +5V output directly to the Arduino's 5V pin, NOT the VIN pin. If no 5V buck converter exists, power the Arduino via VIN using the 7-9V/12V source.
+19. **Explicit Signal Documentation**: Explicitly specify the actual hardware pin label (e.g., D2, D3, D5) on the MCU for all signal connections. Do not rely on generic wiring.
 
 OUTPUT FORMAT:
 {{
@@ -416,39 +405,40 @@ OUTPUT FORMAT:
     # Extract all text from BOM and subsystems to match against
     matched_cads = set()
     
-    # Check each BOM item
-    if isinstance(bom, list):
-        for b in bom:
-            if not isinstance(b, dict):
-                continue
-            name = b.get("name", "").lower()
-            desc = b.get("description", "").lower()
-            search_text = f"{name} {desc}"
-            
-            for key, filename in known_cads.items():
-                if key in search_text:
-                    matched_cads.add(filename)
-                
-    # Also check subsystems as LLMs sometimes put components there but forget them in BOM
-    if isinstance(subsystems, list):
-        for sub in subsystems:
-            if not isinstance(sub, dict):
-                continue
-            for comp in sub.get("components", []):
-                if not isinstance(comp, dict):
+    # New Intelligence: PRIORITIZE the entire CAD model using closest_robot_type mapped by the LLM Router
+    if closest_robot_type and closest_robot_type.lower() in known_cads:
+        print(f"[api/design] Router mapped query to semantic alias '{closest_robot_type}'. Matching FULL CAD automatically.")
+        matched_cads.add(known_cads[closest_robot_type.lower()])
+        
+    # Check each BOM item and subsystem ONLY IF we didn't find the entire CAD model
+    if not matched_cads:
+        if isinstance(bom, list):
+            for b in bom:
+                if not isinstance(b, dict):
                     continue
-                name = comp.get("name", "").lower()
-                role = comp.get("role", "").lower()
-                search_text = f"{name} {role}"
+                name = b.get("name", "").lower()
+                desc = b.get("description", "").lower()
+                search_text = f"{name} {desc}"
                 
                 for key, filename in known_cads.items():
                     if key in search_text:
                         matched_cads.add(filename)
-                
-    # New Intelligence: Use the closest_robot_type mapped by the LLM Router
-    if not matched_cads and closest_robot_type and closest_robot_type.lower() in known_cads:
-        print(f"[api/design] Router mapped query to semantic alias '{closest_robot_type}'. Matching CAD automatically.")
-        matched_cads.add(known_cads[closest_robot_type.lower()])
+                    
+        # Also check subsystems as LLMs sometimes put components there but forget them in BOM
+        if isinstance(subsystems, list):
+            for sub in subsystems:
+                if not isinstance(sub, dict):
+                    continue
+                for comp in sub.get("components", []):
+                    if not isinstance(comp, dict):
+                        continue
+                    name = comp.get("name", "").lower()
+                    role = comp.get("role", "").lower()
+                    search_text = f"{name} {role}"
+                    
+                    for key, filename in known_cads.items():
+                        if key in search_text:
+                            matched_cads.add(filename)
         
     # Fallback to monolithic robots if modular assembly yielded nothing
     if len(matched_cads) == 0:
