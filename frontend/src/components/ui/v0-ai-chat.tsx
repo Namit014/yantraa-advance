@@ -250,10 +250,15 @@ export function VercelV0Chat() {
 
                             if (design.cad_available && design.cad_urls && design.cad_urls.length > 0) {
                                 setCadPrompt({ available: true, urls: design.cad_urls });
+                                setAcceptedCadUrls(design.cad_urls);
+                                setActiveTab("cad");
                             } else if (design.cad_available && design.cad_url) {
                                 setCadPrompt({ available: true, urls: [design.cad_url] });
+                                setAcceptedCadUrls([design.cad_url]);
+                                setActiveTab("cad");
                             } else {
                                 setCadPrompt({ available: false, urls: [] });
+                                setActiveTab("connection");
                             }
 
                             setIsThinking(false);

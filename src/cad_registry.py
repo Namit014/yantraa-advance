@@ -29,46 +29,55 @@ from botocore.exceptions import ClientError
 # Maps user-facing keywords to the exact filename in S3/knowledgebase
 KNOWN_CADS = {
     # Robotic Arm / Manipulator
-    "arm": "OpenArm_2.0.STEP",
-    "robotic arm": "OpenArm_2.0.STEP",
-    "6dof arm": "RM65-6F_robot_model.STEP",
-    "6 dof arm": "RM65-6F_robot_model.STEP",
-    "manipulator": "RM65-6F_robot_model.STEP",
-    "articulated": "RM65-6F_robot_model.STEP",
-    "cobot": "OpenArm_2.0.STEP",
-    "collaborative": "OpenArm_2.0.STEP",
-    "open arm": "OpenArm_2.0.STEP",
-    "openarm": "OpenArm_2.0.STEP",
+    "arm": "Robotic_Arm.stp",
+    "robotic arm": "Robotic_Arm.stp",
+    "6dof arm": "Robotic_Arm.stp",
+    "6 dof arm": "Robotic_Arm.stp",
+    "manipulator": "Robotic_Arm.stp",
+    "articulated": "Robotic_Arm.stp",
+    "cobot": "Robotic_Arm.stp",
+    "collaborative": "Robotic_Arm.stp",
+    "fanuc": "FANUC-430_Robot.STEP",
 
-    # AGV / Mobile
-    "agv": "machine_tending_robot.stp",
-    "autonomous mobile": "machine_tending_robot.stp",
-    "amr": "machine_tending_robot.stp",
-    "mobile robot": "machine_tending_robot.stp",
-    "machine tending": "machine_tending_robot.stp",
+    # AGV / Mobile / Automation
+    "agv": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
+    "autonomous mobile": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
+    "amr": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
+    "mobile robot": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
+    "machine tending": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
 
     # Delta
-    "delta": "DeltaRobot2.STEP",
-    "delta robot": "DeltaRobot2.STEP",
-    "parallel": "DeltaRobot2.STEP",
+    "delta": "delta_robot.stp",
+    "delta robot": "delta_robot.stp",
+    "delta drawing": "Delta_Drawing_Robot.STEP",
+    "parallel": "delta_robot.stp",
+    
+    # Hexapod
+    "hexapod": "hexapod.stp",
+    "stewart": "hexapod.stp",
 
-    # Cartesian
-    "cartesian": "scara_robot_cad.stp",
-    "gantry": "scara_robot_cad.stp",
+    # Cartesian / SCARA
+    "scara": "SCARA_ROBOTIC_ASSEMBLY.STEP",
+    "cartesian": "SCARA_ROBOTIC_ASSEMBLY.STEP",
+    "gantry": "SCARA_ROBOTIC_ASSEMBLY.STEP",
+
+    # Welding
+    "welding": "JIG_WELDING.stp",
+    "welding robot": "JIG_WELDING.stp",
+    "aluminium welding": "Aluminium_welding.STEP",
+    "jig welding": "JIG_WELDING.stp",
+    "pallet welding": "PALLET_WELDING.stp",
+
+    # Humanoid
+    "humanoid": "HUMANOID.stp",
+    "bipedal": "HUMANOID.stp",
+    "android": "HUMANOID.stp",
 
     # Other Robots
-    "painting": "Painting_Robot.step",
-    "scara": "scara_robot_cad.stp",
-    "welding": "welding_robot.stp",
-    "inspection": "inspection_robot_cad.STEP",
-    "in-pipe": "inspection_robot_cad.STEP",
-    "in pipe": "inspection_robot_cad.STEP",
-    "pipeline": "inspection_robot_cad.STEP",
-    "corrosion": "inspection_robot_cad.STEP",
-    "palletizing": "ECO63-6F_robot_model.STEP",
-    "palletiser": "ECO63-6F_robot_model.STEP",
-    "rebot": "reBot_B601_DM_v1.1_20260425.step",
-
+    "painting": "Robotic_Arm.stp",
+    "inspection": "hexapod.stp",
+    "palletizing": "PALLET_WELDING.stp",
+    
     # Drone
     "drone": "quadcopter_frame.step",
     "quadcopter": "quadcopter_frame.step",
