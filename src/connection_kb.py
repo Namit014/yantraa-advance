@@ -25,14 +25,29 @@ def validate_connections(nodes, wires):
     validation_logs = []
 
     for wire in wires:
+        if not isinstance(wire, dict):
+            continue
+            
+        from_obj = wire.get("from", {})
+        to_obj = wire.get("to", {})
+        
+        if not isinstance(from_obj, dict) or not isinstance(to_obj, dict):
+            continue
+
         # Check source and target nodes
-        src_id = wire["from"]["nodeId"]
-        tgt_id = wire["to"]["nodeId"]
+        src_id = from_obj.get("nodeId")
+        tgt_id = to_obj.get("nodeId")
+        
+        if not src_id or not tgt_id:
+            continue
         
         src_type = node_types.get(src_id, "other")
         tgt_type = node_types.get(tgt_id, "other")
         
-        wire_type = wire.get("type", "signal").lower()
+        wire_type = wire.get("type", "signal")
+        if not isinstance(wire_type, str):
+            wire_type = "signal"
+        wire_type = wire_type.lower()
         
         # Rule 1: Microcontrollers connect to motor drivers (module/ic-chip), not direct to motor
         if src_type == "microcontroller" and tgt_type == "motor":

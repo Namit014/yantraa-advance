@@ -25,20 +25,34 @@ def validate_and_fix_diagram(diagram: dict) -> dict:
     hw_db = load_hardware_db()
             
     for w in wires:
-        if w.get("type") in ["power", "signal"]:
-            from_node = next((n for n in nodes if n["id"] == w.get("from", {}).get("nodeId")), None)
-            to_node = next((n for n in nodes if n["id"] == w.get("to", {}).get("nodeId")), None)
+        if not isinstance(w, dict):
+            continue
+            
+        w_type = w.get("type")
+        if w_type and isinstance(w_type, str) and w_type in ["power", "signal"]:
+            from_obj = w.get("from", {})
+            to_obj = w.get("to", {})
+            
+            if not isinstance(from_obj, dict) or not isinstance(to_obj, dict):
+                continue
+                
+            from_node = next((n for n in nodes if isinstance(n, dict) and n.get("id") == from_obj.get("nodeId")), None)
+            to_node = next((n for n in nodes if isinstance(n, dict) and n.get("id") == to_obj.get("nodeId")), None)
             
             if from_node and to_node:
-                from_label = from_node.get("label", "").lower()
-                to_label = to_node.get("label", "").lower()
+                from_label = from_node.get("label", "")
+                to_label = to_node.get("label", "")
                 
-                from_hw = next((hw for k, hw in hw_db.items() if k in from_label), None)
-                to_hw = next((hw for k, hw in hw_db.items() if k in to_label), None)
-                
-                if from_hw and to_hw and "power" in w.get("type", ""):
-                    from_port = w.get("from", {}).get("portId")
-                    pass 
+                if isinstance(from_label, str) and isinstance(to_label, str):
+                    from_label_lower = from_label.lower()
+                    to_label_lower = to_label.lower()
+                    
+                    from_hw = next((hw for k, hw in hw_db.items() if k in from_label_lower), None)
+                    to_hw = next((hw for k, hw in hw_db.items() if k in to_label_lower), None)
+                    
+                    if from_hw and to_hw and "power" in w_type:
+                        from_port = from_obj.get("portId")
+                        pass 
 
     fixed_diagram["nodes"] = nodes
     fixed_diagram["wires"] = wires

@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 # Always load .env from the project root, regardless of working directory
 _project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-load_dotenv(os.path.join(_project_root, ".env"))
+load_dotenv(os.path.join(_project_root, ".env"), override=True)
 
 # Force UTF-8 encoding for standard output/error to avoid charmap crashes on Windows
 if sys.platform == "win32":
@@ -46,13 +46,16 @@ app = FastAPI(
 _default_origins = "http://localhost:3000,https://labs.yantraa.tech,https://www.labs.yantraa.tech,https://yantraa.tech,https://www.yantraa.tech,https://api.yantraa.tech"
 ALLOWED_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", _default_origins).split(",") if o.strip()]
 print(f"[Yantra API] CORS Allowed Origins configured in env: {ALLOWED_ORIGINS}")
+# Configure CORSMiddleware with a regex to dynamically match localhost, yantraa.tech, and ngrok origins
+# while supporting credentials.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?|https?://(.*\.)?yantraa\.tech|https?://(.*\.)?ngrok-free\.app|https?://(.*\.)?ngrok\.io",
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Register sub-routers
 try:
@@ -195,6 +198,20 @@ async def get_cad_file(filename: str):
     
     raise HTTPException(status_code=404, detail="CAD file not found in knowledgebase")
 
+@app.get("/api/debug")
+async def debug_env():
+    import os
+    return {
+        "GEMINI_API_KEY": bool(os.getenv("GEMINI_API_KEY")),
+        "OPENROUTER_API_KEY": bool(os.getenv("OPENROUTER_API_KEY")),
+        "GEMINI_PREFIX": os.getenv("GEMINI_API_KEY", "")[:5] if os.getenv("GEMINI_API_KEY") else None
+    }
+
+@app.get("/api/health")
+async def health_check():
+    """Simple health check endpoint"""
+    return {"status": "ok", "message": "API is running."}
+
 @app.get("/health")
 async def health_check():
     """Simple health check endpoint"""
@@ -204,4 +221,4 @@ if __name__ == "__main__":
     import uvicorn
     # Allow running directly using `python src/api/main.py`
     print("ALL ROUTES BEFORE RUNNING:", [getattr(r, "path", getattr(r, "name", str(r))) for r in app.routes])
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)

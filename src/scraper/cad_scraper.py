@@ -13,7 +13,7 @@ _src_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _src_dir not in sys.path:
     sys.path.insert(0, _src_dir)
 
-from .search import search_web
+from scraper.search import search_web
 from llm import invoke_yantra_ai
 from crawl4ai import AsyncWebCrawler, CrawlerRunConfig
 
@@ -38,6 +38,52 @@ async def _download_file(url: str, dest_path: str) -> bool:
     except Exception as e:
         print(f"[CAD Scraper] Failed to download {url}: {e}")
         return False
+
+async def generate_cad_via_zoo(component_name: str, dest_dir: str) -> str:
+    print(f"[Zoo API] Generating CAD for {component_name} using Zoo Text-to-CAD...")
+    try:
+        import kittycad
+        from kittycad.client import Client
+        import asyncio
+        import random
+        
+        zoo_keys_raw = os.getenv("ZOO_API_KEY", "api-8aa07608-c02f-4297-b167-7f71f03deeab")
+        zoo_keys = [k.strip() for k in zoo_keys_raw.split(",") if k.strip()]
+        selected_key = random.choice(zoo_keys)
+        
+        print(f"[Zoo API] Using API Key: {selected_key[:8]}... for generation")
+        client = Client(token=selected_key)
+        ml_api = kittycad.MlAPI(client)
+        
+        result = ml_api.create_text_to_cad(
+            output_format=kittycad.models.FileExportFormat.STEP,
+            body=kittycad.models.TextToCadCreateBody(prompt=f"A highly detailed mechanical industrial part for a {component_name}")
+        )
+        op_id = result.root.id if hasattr(result, 'root') else result.id
+        print(f"[Zoo API] Generation started. Operation ID: {op_id}")
+        
+        for _ in range(30):
+            status = ml_api.get_text_to_cad_part_for_user(id=op_id)
+            s_root = status.root if hasattr(status, 'root') else status
+            if s_root.status == "completed":
+                clean_name = re.sub(r"[^a-z0-9]+", "_", component_name.lower()).strip("_")
+                cad_filename = f"zoo_{clean_name}.step"
+                dest_path = os.path.join(dest_dir, cad_filename)
+                
+                # Get first output
+                for output_name, output_data in s_root.outputs.items():
+                    with open(dest_path, "wb") as f:
+                        f.write(output_data)
+                    print(f"[Zoo API] Generated successfully: {cad_filename}")
+                    return cad_filename
+            elif s_root.status == "failed":
+                print(f"[Zoo API] Failed: {s_root.error}")
+                return None
+            print(f"[Zoo API] Status: {s_root.status}...")
+            await asyncio.sleep(4)
+    except Exception as e:
+        print(f"[Zoo API] Error during generation: {e}")
+    return None
 
 
 async def scrape_missing_component(component_name: str, force_remodel: bool = False):
@@ -71,170 +117,32 @@ async def scrape_missing_component(component_name: str, force_remodel: bool = Fa
     source_url = ""
 
     config = CrawlerRunConfig(page_timeout=15000)
-    
-    grabcad_queries = [
-        f"site:grabcad.com {component_name} step stp model",
-        f"site:grabcad.com {component_name} step download",
-        f"site:grabcad.com {component_name} 3d cad step stp",
-        f"site:grabcad.com {component_name} stp file",
-        f"site:grabcad.com {component_name} step cad"
-    ]
-    
-    urls_tried = set()
+    query = f"{component_name} robotic component datasheet specs"
     
     async with AsyncWebCrawler(verbose=False) as crawler:
-        # Phase 1: 5 attempts on GrabCAD
-        for attempt, g_query in enumerate(grabcad_queries):
-            print(f"[CAD Scraper] GrabCAD Attempt {attempt + 1}/5 for {component_name}...")
-            raw_urls = search_web(g_query, max_results=10)
-            
-            # Filter URLs
-            urls = []
-            for url in raw_urls:
-                if "/library?" in url or "/tag/" in url or "/software/" in url:
-                    continue
-                if url not in urls_tried:
-                    urls.append(url)
-                    urls_tried.add(url)
-                    
-            if force_remodel:
-                random.shuffle(urls)
-            
-            if not urls:
-                print(f"[CAD Scraper] No new GrabCAD links found on attempt {attempt + 1}.")
-                continue
-                
-            # Process URLs: Try Crawl4AI first, then fallback to Selenium immediately for the same URL.
-            for url in urls:
-                print(f"[CAD Scraper] Checking {url} for CAD files using Crawl4AI...")
-                try:
-                    result = await crawler.arun(url=url, config=config)
-                    if not result.success:
-                        continue
-
-                    cad_link = None
-                    if result.links:
-                        all_links = result.links.get("internal", []) + result.links.get("external", [])
-                        for link_data in all_links:
-                            href = link_data.get("href", "").lower()
-                            if href.endswith(".step") or href.endswith(".stp"):
-                                cad_link = urljoin(url, link_data.get("href", ""))
-                                break
-                            
-                    if cad_link:
-                        print(f"[CAD Scraper] Found CAD link: {cad_link}")
-                        clean_name = re.sub(r"[^a-z0-9]+", "_", component_name.lower()).strip("_")
-                        ext = ".step" if cad_link.lower().endswith(".step") else ".stp"
-                        cad_filename = f"{clean_name}{ext}"
-                        dest_path = os.path.join(CAD_SCRAPED_DIR, cad_filename)
-                        
-                        if await _download_file(cad_link, dest_path):
-                            print(f"[CAD Scraper] Successfully downloaded {cad_filename}")
-                            cad_downloaded = True
-                            source_url = url
-                            extracted_text = result.markdown
-                            break
-                except Exception as e:
-                    print(f"[CAD Scraper] Error checking {url}: {e}")
-
-                # If Crawl4AI missed, try Selenium immediately for this URL
-                if not cad_downloaded:
-                    from .selenium_downloader import selenium_download_cad
-                    print(f"[CAD Scraper] Standard crawl missed CAD for {url}, attempting Selenium fallback...")
-                    clean_name = re.sub(r"[^a-z0-9]+", "_", component_name.lower()).strip("_")
-                    fallback_filename = f"{clean_name}.step"
-                    
-                    final_file = await selenium_download_cad(url, CAD_SCRAPED_DIR, fallback_filename)
-                    if final_file:
-                        print(f"[CAD Scraper] Selenium fallback succeeded: {final_file}")
-                        cad_downloaded = True
-                        cad_filename = final_file
+        print(f"[CAD Scraper] Searching web for textual metadata: {query}")
+        raw_urls = search_web(query, max_results=5)
+        
+        for url in raw_urls:
+            print(f"[CAD Scraper] Scraping metadata from {url}...")
+            try:
+                result = await crawler.arun(url=url, config=config)
+                if result.success and result.markdown:
+                    text_str = str(result.markdown).strip()
+                    if len(text_str) > 50:
+                        extracted_text = text_str
                         source_url = url
-                        # Best effort to get text metadata
-                        result = await crawler.arun(url=url, config=config)
-                        if result.success:
-                            extracted_text = result.markdown
+                        print(f"[CAD Scraper] Successfully extracted text from {url}")
                         break
+            except Exception as e:
+                print(f"[CAD Scraper] Error scraping {url}: {e}")
 
-            if cad_downloaded:
-                break
-                
-        # Phase 2: Fallback to another website if GrabCAD fails entirely
-        if not cad_downloaded:
-            print(f"[CAD Scraper] All 5 GrabCAD attempts failed for {component_name}. Falling back to general search...")
-            query = f"{component_name} 3D CAD step stp file download"
-            raw_urls = search_web(query, max_results=10)
-            urls = [u for u in raw_urls if u not in urls_tried]
-            
-            if force_remodel:
-                random.shuffle(urls)
-            
-            # Process URLs: Try Crawl4AI first, then fallback to Selenium immediately for the same URL.
-            for url in urls:
-                print(f"[CAD Scraper] Checking {url} for CAD files using Crawl4AI...")
-                try:
-                    result = await crawler.arun(url=url, config=config)
-                    if not result.success:
-                        continue
-
-                    cad_link = None
-                    if result.links:
-                        all_links = result.links.get("internal", []) + result.links.get("external", [])
-                        for link_data in all_links:
-                            href = link_data.get("href", "").lower()
-                            if href.endswith(".step") or href.endswith(".stp"):
-                                cad_link = urljoin(url, link_data.get("href", ""))
-                                break
-                            
-                    if cad_link:
-                        print(f"[CAD Scraper] Found CAD link: {cad_link}")
-                        clean_name = re.sub(r"[^a-z0-9]+", "_", component_name.lower()).strip("_")
-                        ext = ".step" if cad_link.lower().endswith(".step") else ".stp"
-                        cad_filename = f"{clean_name}{ext}"
-                        dest_path = os.path.join(CAD_SCRAPED_DIR, cad_filename)
-                        
-                        if await _download_file(cad_link, dest_path):
-                            print(f"[CAD Scraper] Successfully downloaded {cad_filename}")
-                            cad_downloaded = True
-                            source_url = url
-                            extracted_text = result.markdown
-                            break
-                except Exception as e:
-                    print(f"[CAD Scraper] Error checking {url}: {e}")
-
-                # If Crawl4AI missed, try Selenium immediately for this URL
-                if not cad_downloaded:
-                    from .selenium_downloader import selenium_download_cad
-                    print(f"[CAD Scraper] Standard crawl missed CAD for {url}, attempting Selenium fallback...")
-                    clean_name = re.sub(r"[^a-z0-9]+", "_", component_name.lower()).strip("_")
-                    fallback_filename = f"{clean_name}.step"
-                    
-                    final_file = await selenium_download_cad(url, CAD_SCRAPED_DIR, fallback_filename)
-                    if final_file:
-                        print(f"[CAD Scraper] Selenium fallback succeeded: {final_file}")
-                        cad_downloaded = True
-                        cad_filename = final_file
-                        source_url = url
-                        result = await crawler.arun(url=url, config=config)
-                        if result.success:
-                            extracted_text = result.markdown
-                        break
-
-                if cad_downloaded:
-                    break
-
-        # Best effort text fallback if absolutely no CAD is found
-        if not cad_downloaded and urls_tried:
-            print(f"[CAD Scraper] Could not find direct CAD link for {component_name} via any method. Will scrape text metadata only from first GrabCAD link.")
-            first_url = list(urls_tried)[0]
-            result = await crawler.arun(url=first_url, config=config)
-            if result.success:
-                extracted_text = result.markdown
-            source_url = first_url
-
-    if not extracted_text:
-        print(f"[CAD Scraper] No textual metadata could be scraped for {component_name}.")
-        return cad_filename if cad_downloaded else None
+    # Normalize extracted text and handle Crawl4Ai empty/blocked results
+    extracted_str = str(extracted_text).strip() if extracted_text else ""
+    
+    if not extracted_str or len(extracted_str) < 5:
+        print(f"[CAD Scraper] No textual metadata could be scraped or generated for {component_name}.")
+        extracted_text = f"Mechanical component '{component_name}' metadata unavailable."
 
     # Use LLM to extract JSON assembly info
     print(f"[CAD Scraper] Extracting assembly metadata using Yantra AI...")

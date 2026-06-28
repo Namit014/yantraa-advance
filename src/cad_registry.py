@@ -22,51 +22,62 @@ S3 Structure:
 
 import os
 import json
+import boto3
+from botocore.exceptions import ClientError
 
 # ── Alias → filename mapping ──────────────────────────────────────────────────
 # Maps user-facing keywords to the exact filename in S3/knowledgebase
 KNOWN_CADS = {
     # Robotic Arm / Manipulator
-    "arm": "OpenArm_2.0.STEP",
-    "robotic arm": "OpenArm_2.0.STEP",
-    "6dof arm": "RM65-6F_robot_model.STEP",
-    "6 dof arm": "RM65-6F_robot_model.STEP",
-    "manipulator": "RM65-6F_robot_model.STEP",
-    "articulated": "RM65-6F_robot_model.STEP",
-    "cobot": "OpenArm_2.0.STEP",
-    "collaborative": "OpenArm_2.0.STEP",
-    "open arm": "OpenArm_2.0.STEP",
-    "openarm": "OpenArm_2.0.STEP",
+    "arm": "Robotic_Arm.stp",
+    "robotic arm": "Robotic_Arm.stp",
+    "6dof arm": "Robotic_Arm.stp",
+    "6 dof arm": "Robotic_Arm.stp",
+    "manipulator": "Robotic_Arm.stp",
+    "articulated": "Robotic_Arm.stp",
+    "cobot": "Robotic_Arm.stp",
+    "collaborative": "Robotic_Arm.stp",
+    "fanuc": "FANUC-430_Robot.STEP",
 
-    # AGV / Mobile
-    "agv": "machine_tending_robot.stp",
-    "autonomous mobile": "machine_tending_robot.stp",
-    "amr": "machine_tending_robot.stp",
-    "mobile robot": "machine_tending_robot.stp",
-    "machine tending": "machine_tending_robot.stp",
+    # AGV / Mobile / Automation
+    "agv": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
+    "autonomous mobile": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
+    "amr": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
+    "mobile robot": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
+    "machine tending": "Klebe_und_Schweissroboteranlage_Reis-01.stp",
 
     # Delta
-    "delta": "DeltaRobot2.STEP",
-    "delta robot": "DeltaRobot2.STEP",
-    "parallel": "DeltaRobot2.STEP",
+    "delta": "delta_robot.stp",
+    "delta robot": "delta_robot.stp",
+    "delta drawing": "Delta_Drawing_Robot.STEP",
+    "parallel": "delta_robot.stp",
+    
+    # Hexapod
+    "hexapod": "hexapod.stp",
+    "stewart": "hexapod.stp",
 
-    # Cartesian
-    "cartesian": "scara_robot_cad.stp",
-    "gantry": "scara_robot_cad.stp",
+    # Cartesian / SCARA
+    "scara": "SCARA_ROBOTIC_ASSEMBLY.STEP",
+    "cartesian": "SCARA_ROBOTIC_ASSEMBLY.STEP",
+    "gantry": "SCARA_ROBOTIC_ASSEMBLY.STEP",
+
+    # Welding
+    "welding": "JIG_WELDING.stp",
+    "welding robot": "JIG_WELDING.stp",
+    "aluminium welding": "Aluminium_welding.STEP",
+    "jig welding": "JIG_WELDING.stp",
+    "pallet welding": "PALLET_WELDING.stp",
+
+    # Humanoid
+    "humanoid": "HUMANOID.stp",
+    "bipedal": "HUMANOID.stp",
+    "android": "HUMANOID.stp",
 
     # Other Robots
-    "painting": "Painting_Robot.step",
-    "scara": "scara_robot_cad.stp",
-    "welding": "welding_robot.stp",
-    "inspection": "inspection_robot_cad.STEP",
-    "in-pipe": "inspection_robot_cad.STEP",
-    "in pipe": "inspection_robot_cad.STEP",
-    "pipeline": "inspection_robot_cad.STEP",
-    "corrosion": "inspection_robot_cad.STEP",
-    "palletizing": "ECO63-6F_robot_model.STEP",
-    "palletiser": "ECO63-6F_robot_model.STEP",
-    "rebot": "reBot_B601_DM_v1.1_20260425.step",
-
+    "painting": "Robotic_Arm.stp",
+    "inspection": "hexapod.stp",
+    "palletizing": "PALLET_WELDING.stp",
+    
     # Drone
     "drone": "quadcopter_frame.step",
     "quadcopter": "quadcopter_frame.step",
@@ -122,27 +133,56 @@ S3_FILE_INDEX = {
 def get_s3_url(filename: str, s3_base_url: str) -> str:
     """
     Build the correct S3 URL for a given STEP filename.
-    Uses the S3_FILE_INDEX for an exact match, or falls back to best guess.
+    If AWS credentials are provided, generates a 15-minute pre-signed URL.
+    Otherwise, builds a standard public URL.
     """
     key = filename.lower()
-    # Exact match
     s3_path = S3_FILE_INDEX.get(key)
-    if s3_path:
-        url = f"{s3_base_url}/{s3_path}"
-        print(f"[cad_registry] S3 exact match for {filename}: {url}")
-        return url
 
-    # Partial match (strip extension and compare)
-    base_noext = os.path.splitext(key)[0]
-    for idx_key, idx_path in S3_FILE_INDEX.items():
-        if os.path.splitext(idx_key)[0] == base_noext:
-            url = f"{s3_base_url}/{idx_path}"
-            print(f"[cad_registry] S3 partial match for {filename}: {url}")
-            return url
+    # Partial match fallback
+    if not s3_path:
+        base_noext = os.path.splitext(key)[0]
+        for idx_key, idx_path in S3_FILE_INDEX.items():
+            if os.path.splitext(idx_key)[0] == base_noext:
+                s3_path = idx_path
+                break
 
-    # Fallback: try knowledgebase root search pattern
-    print(f"[cad_registry] No S3 index match for {filename!r}, using generic path.")
-    return f"{s3_base_url}/knowledgebase/{filename}"
+    # Final fallback if still not found
+    if not s3_path:
+        s3_path = f"knowledgebase/{filename}"
+        print(f"[cad_registry] No S3 index match for {filename!r}, using generic path: {s3_path}")
+
+    # Check for AWS credentials to generate a pre-signed URL
+    bucket_name = os.getenv("S3_BUCKET_NAME")
+    aws_access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
+    aws_secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
+    region_name = os.getenv("AWS_REGION", "ap-south-1")
+
+    if bucket_name and aws_access_key_id and aws_secret_access_key:
+        try:
+            s3_client = boto3.client(
+                's3',
+                region_name=region_name,
+                aws_access_key_id=aws_access_key_id,
+                aws_secret_access_key=aws_secret_access_key
+            )
+            presigned_url = s3_client.generate_presigned_url(
+                'get_object',
+                Params={'Bucket': bucket_name, 'Key': s3_path},
+                ExpiresIn=900  # 15 minutes
+            )
+            print(f"[cad_registry] Generated pre-signed URL for {s3_path}")
+            return presigned_url
+        except Exception as e:
+            print(f"[cad_registry] Error generating pre-signed URL: {e}")
+
+    # Fallback to public URL (if pre-signing fails or keys are missing)
+    if not s3_base_url and bucket_name:
+        s3_base_url = f"https://{bucket_name}.s3.{region_name}.amazonaws.com"
+        
+    url = f"{s3_base_url}/{s3_path}"
+    print(f"[cad_registry] Using public S3 URL for {s3_path}")
+    return url
 
 
 _hebi_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "knowledgebase", "Robots_MetaData", "hebi_components.json"))
