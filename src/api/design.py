@@ -505,13 +505,13 @@ OUTPUT FORMAT:
         import glob as _glob
         kb_matches = _glob.glob(os.path.join(kb_search, "**", filename), recursive=True)
         if kb_matches or os.path.exists(local_path):
-            print(f"[api/design] CAD served via local backend: /cad/{filename}")
-            return f"/cad/{filename}"
+            print(f"[api/design] CAD served via local backend: /api/cad/{filename}")
+            return f"/api/cad/{filename}"
         if S3_BUCKET_URL:
             from cad_registry import get_s3_url
             return get_s3_url(filename, S3_BUCKET_URL)
-        print(f"[api/design] WARNING: CAD file {filename!r} not found locally or in S3. Serving /cad/ path anyway.")
-        return f"/cad/{filename}"
+        print(f"[api/design] WARNING: CAD file {filename!r} not found locally or in S3. Serving /api/cad/ path anyway.")
+        return f"/api/cad/{filename}"
 
     cad_urls = [_build_cad_url(f) for f in primary_cads]
     cad_url = cad_urls[0] if cad_urls else None
