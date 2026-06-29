@@ -540,10 +540,18 @@ OUTPUT FORMAT:
         assembly_transforms = solve_assembly(graph_nodes, llm_assembly_graph)
         if assembly_transforms:
             assembly_mode = "assembled"
-            # Override cad_urls with assembly-computed URLs
-            cad_urls = [t["cad_url"] for t in assembly_transforms]
-            cad_available = True
-            cad_url = cad_urls[0] if cad_urls else None
+            
+            valid_comp_urls = [t["cad_url"] for t in assembly_transforms if t.get("cad_url")]
+            
+            if not valid_comp_urls and cad_url:
+                cad_urls = [cad_url]
+                assembly_mode = "side_by_side" # Fallback to standard rendering
+            else:
+                cad_urls = valid_comp_urls
+                
+            cad_available = len(cad_urls) > 0
+            if cad_urls and not cad_url:
+                cad_url = cad_urls[0]
     
     # Analyze matched CADs
     extracted_components = set()

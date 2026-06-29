@@ -417,6 +417,49 @@
         {"id": "anode", "label": "Anode", "type": "power_in"},
         {"id": "cathode", "label": "Cathode", "type": "power_out"}
       ]
+    },
+    "hebi_delta_arm_motor": {
+      "label": "HEBI Delta Arm Motor",
+      "type": "motor",
+      "operating_voltage": [48.0],
+      "ports": [
+        {"id": "power_in", "label": "POWER_IN", "type": "power_in", "voltage": 48.0},
+        {"id": "power_out", "label": "POWER_OUT", "type": "power_out", "voltage": 48.0},
+        {"id": "eth_in", "label": "ETH_IN", "type": "data"},
+        {"id": "eth_out", "label": "ETH_OUT", "type": "data"}
+      ]
+    },
+    "hebi_motion_controller": {
+      "label": "HEBI Motion Controller",
+      "type": "microcontroller",
+      "operating_voltage": [24.0, 48.0],
+      "ports": [
+        {"id": "power_in", "label": "POWER_IN", "type": "power_in"},
+        {"id": "eth_in", "label": "ETH_IN", "type": "data"},
+        {"id": "eth_out", "label": "ETH_OUT", "type": "data"},
+        {"id": "io_pins", "label": "IO_PINS", "type": "digital_in_out"}
+      ]
+    },
+    "hebi_power_trunk": {
+      "label": "HEBI Power Trunk",
+      "type": "power",
+      "operating_voltage": [0.0],
+      "ports": [
+        {"id": "ac_in", "label": "AC_IN", "type": "power_in"},
+        {"id": "dc_48v_out", "label": "DC_48V_OUT", "type": "power_out", "voltage": 48.0},
+        {"id": "dc_24v_out", "label": "DC_24V_OUT", "type": "power_out", "voltage": 24.0}
+      ]
+    },
+    "hebi_local_busbar": {
+      "label": "HEBI Local Busbar",
+      "type": "power",
+      "operating_voltage": [48.0],
+      "ports": [
+        {"id": "dc_in", "label": "DC_IN", "type": "power_in", "voltage": 48.0},
+        {"id": "dc_out_1", "label": "DC_OUT_1", "type": "power_out", "voltage": 48.0},
+        {"id": "dc_out_2", "label": "DC_OUT_2", "type": "power_out", "voltage": 48.0},
+        {"id": "dc_out_3", "label": "DC_OUT_3", "type": "power_out", "voltage": 48.0}
+      ]
     }
   }
 }

@@ -149,8 +149,8 @@ def get_s3_url(filename: str, s3_base_url: str) -> str:
 
     # Final fallback if still not found
     if not s3_path:
-        s3_path = f"knowledgebase/{filename}"
-        print(f"[cad_registry] No S3 index match for {filename!r}, using generic path: {s3_path}")
+        print(f"[cad_registry] No S3 index match for {filename!r}, returning None so caller knows it's missing.")
+        return None
 
     # Check for AWS credentials to generate a pre-signed URL
     bucket_name = os.getenv("S3_BUCKET_NAME")
