@@ -1,3 +1,5 @@
+"use client";
+
 import { ConnectionWorkspace } from "@/components/connection/connection-workspace";
 
 export function ConnectionTab({ currentQuery, designData }: { currentQuery?: string; designData?: any }) {
