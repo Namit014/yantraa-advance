@@ -53,6 +53,8 @@ interface ComponentNode {
     assembly_parent?: string;
     assembly_depth?: number;
     confidence?: number;
+    power_pins?: string[];
+    signal_pins?: string[];
 }
 
 interface Connection {
@@ -382,54 +384,60 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
 
 // ─── Connection generator ─────────────────────────────────────────────────────
 
-async function generateConnectionsAPI(
-    nodes: ComponentNode[],
-    raw: RawComponent[]
-): Promise<{ connections: Connection[], updatedNodes: ComponentNode[] }> {
+async function generateArchitectureAPI(
+    query: string
+): Promise<{ connections: Connection[], updatedNodes: ComponentNode[], rawComponents: RawComponent[] }> {
     try {
-        // We must map nodes back to RawComponents to send to the backend
-        const rawPayload = raw.map(r => {
-            const n = nodes.find(node => fuzzyMatch(node.label, r.name));
-            return {
-                id: n ? n.id : `rag-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-                ...r,
-                category: n ? n.category : r.category
-            };
-        });
-
-        const res = await fetch(`${API_BASE}/api/mapping/build-graph`, {
+        const res = await fetch(`${API_BASE}/api/mapping/generate_architecture`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ components: rawPayload })
+            body: JSON.stringify({ query: query })
         });
         
         if (!res.ok) throw new Error("Graph API failed");
         
         const data = await res.json();
-        const apiConns = data.connections || [];
-        const enrichedComponents = data.components || [];
+        const components = data.components || [];
+        const conns = data.connections || [];
         
-        // Return updated nodes with canonical info and confidence if provided by backend in the future
-        const newNodes = nodes.map(n => {
-            const enriched = enrichedComponents.find((ec: any) => ec.id === n.id || ec.name === n.label);
-            if (enriched) {
-                return {
-                    ...n,
-                    canonical_id: enriched.canonical_id,
-                    subcategory: enriched.subcategory,
-                    confidence: enriched.confidence,
-                    aliases: enriched.aliases,
-                    assembly_parent: enriched.assembly_parent,
-                    assembly_depth: enriched.assembly_depth
-                };
-            }
-            return n;
-        });
+        const newRaw: RawComponent[] = components.map((c: any) => ({
+            name: c.name,
+            category: c.category,
+            description: c.description || "",
+            connects_to: [],
+            confidence: c.confidence,
+            partNumber: c.partNumber
+        }));
 
-        return { connections: apiConns, updatedNodes: newNodes };
+        const newNodes: ComponentNode[] = components.map((c: any) => ({
+            id: c.id || `rag-${Date.now()}-${Math.random().toString(36).substring(7)}`,
+            label: c.name || "Unknown Component",
+            category: c.category,
+            description: c.description || "",
+            confidence: c.confidence,
+            partNumber: c.partNumber,
+            power_pins: c.power_pins,
+            signal_pins: c.signal_pins,
+            x: 0,
+            y: 0,
+            width: NODE_W,
+            height: NODE_H
+        }));
+
+        const newConns: Connection[] = conns.map((c: any) => ({
+            id: c.id,
+            fromId: c.from,
+            toId: c.to,
+            label: c.reason || c.wire_type || "wire",
+            relation_type: c.relation_type,
+            confidence: c.confidence,
+            isUserEdited: false
+        }));
+
+        return { connections: newConns, updatedNodes: newNodes, rawComponents: newRaw };
     } catch (e) {
-        console.error("API mapping failed, returning empty connections", e);
-        return { connections: [], updatedNodes: nodes };
+        console.error("Architecture mapping failed", e);
+        return { connections: [], updatedNodes: [], rawComponents: [] };
     }
 }
 
@@ -557,29 +565,33 @@ import 'reactflow/dist/style.css';
 const CustomComponentNode = ({ data }: any) => {
     const color = CATEGORY_COLOR[data.category as ComponentCategory] || "#ccc";
     
-    // Generate dynamic mock pins based on component category
+    // Use real pins if available, else mock pins
     let pins: string[] = [];
-    switch (data.category) {
-        case "controller":
-            pins = ["5V", "GND", "TX", "RX", "PWM"];
-            break;
-        case "sensor":
-            pins = ["5V", "GND", "SDA", "SCL"];
-            break;
-        case "actuator":
-            pins = ["PWM", "5V", "GND"];
-            break;
-        case "power":
-            pins = ["12V", "5V", "GND"];
-            break;
-        case "electronic":
-            pins = ["VIN", "GND", "SIG"];
-            break;
-        case "mechanical":
-            pins = [];
-            break;
-        default:
-            pins = ["IO", "GND"];
+    if (data.power_pins || data.signal_pins) {
+        pins = [...(data.power_pins || []), ...(data.signal_pins || [])];
+    } else {
+        switch (data.category) {
+            case "controller":
+                pins = ["5V", "GND", "TX", "RX", "PWM"];
+                break;
+            case "sensor":
+                pins = ["5V", "GND", "SDA", "SCL"];
+                break;
+            case "actuator":
+                pins = ["PWM", "5V", "GND"];
+                break;
+            case "power":
+                pins = ["12V", "5V", "GND"];
+                break;
+            case "electronic":
+                pins = ["VIN", "GND", "SIG"];
+                break;
+            case "mechanical":
+                pins = [];
+                break;
+            default:
+                pins = ["IO", "GND"];
+        }
     }
 
     return (
@@ -809,88 +821,18 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
     const doFetch = useCallback(async (q: string) => {
         setIsLoading(true);
-        let fetchedRaw: RawComponent[] = [];
         
-        // Fast-path optimization: use designData natively if available to avoid 10s LLM delay
-        if (designData && designData.subsystems && designData.subsystems.length > 0) {
-            console.log("[MappingTab] Leveraging designData for instant mapping!");
-            const compMap = new Map<string, string>();
-            designData.subsystems.forEach((sub: any) => {
-                sub.components?.forEach((c: any) => compMap.set(c.id, c.name));
-            });
-            
-            designData.subsystems.forEach((sub: any) => {
-                sub.components?.forEach((c: any) => {
-                    const bomItem = designData.bom?.find((b: any) => fuzzyMatch(b.name, c.name));
-                    const connectsToNames = designData.connections
-                        ?.filter((conn: any) => conn.from === c.id || conn.from_id === c.id || conn.id_from === c.id)
-                        .map((conn: any) => {
-                            const toId = conn.to || conn.to_id || conn.id_to;
-                            return compMap.get(toId);
-                        })
-                        .filter(Boolean) || [];
-                        
-                    fetchedRaw.push({
-                        name: c.name,
-                        category: inferCategory(c.name),
-                        description: bomItem?.description || c.role || "",
-                        quantity: bomItem?.qty || 1,
-                        connects_to: connectsToNames
-                    });
-                });
-            });
-            // Brief artificial delay just for UX smoothness
-            await new Promise(resolve => setTimeout(resolve, 300));
-        } else {
-            fetchedRaw = await fetchComponentsFromRAG(q, aiResponse, nodes);
+        const { connections: newConnections, updatedNodes: nodesFromAPI, rawComponents: newRaw } = await generateArchitectureAPI(q);
+        
+        if (nodesFromAPI.length > 0) {
+            setRawComponents(newRaw);
+            setConnections(newConnections);
+            const layoutedNodes = applyLayout(nodesFromAPI, newConnections);
+            setNodes(layoutedNodes);
         }
-        
-        let updatedRaw = [...rawComponents];
-        let updatedNodes = [...nodes];
-        
-        for (const newRaw of fetchedRaw) {
-            const existingRawIdx = updatedRaw.findIndex(r => fuzzyMatch(r.name, newRaw.name));
-            if (existingRawIdx !== -1) {
-                updatedRaw[existingRawIdx] = {
-                    ...updatedRaw[existingRawIdx],
-                    // Use Math.max since designData is cumulative, we don't want to exponentially multiply qty
-                    quantity: Math.max(updatedRaw[existingRawIdx].quantity || 1, newRaw.quantity || 1),
-                    connects_to: Array.from(new Set([...updatedRaw[existingRawIdx].connects_to, ...newRaw.connects_to]))
-                };
-                
-                const nodeIdx = updatedNodes.findIndex(n => fuzzyMatch(n.label, newRaw.name));
-                if (nodeIdx !== -1) {
-                    updatedNodes[nodeIdx] = {
-                        ...updatedNodes[nodeIdx],
-                        quantity: updatedRaw[existingRawIdx].quantity
-                    };
-                }
-            } else {
-                newRaw.quantity = newRaw.quantity || 1;
-                // Double check to strip out the prefix one more time
-                newRaw.name = newRaw.name.replace(/^\d+\s*[xX]\s*/, "");
-                updatedRaw.push(newRaw);
-                const newNode: ComponentNode = {
-                    id: `rag-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-                    label: newRaw.name,
-                    category: newRaw.category,
-                    description: newRaw.description,
-                    partNumber: newRaw.partNumber,
-                    quantity: newRaw.quantity,
-                    x: 0, y: 0, width: NODE_W, height: NODE_H
-                };
-                updatedNodes.push(newNode);
-            }
-        }
-        setRawComponents(updatedRaw);
-        
-        const { connections: newConnections, updatedNodes: nodesFromAPI } = await generateConnectionsAPI(updatedNodes, updatedRaw);
-        setConnections(newConnections);
-        const layoutedNodes = applyLayout(nodesFromAPI, newConnections);
-        setNodes(layoutedNodes);
         
         setIsLoading(false);
-    }, [aiResponse, rawComponents, nodes, designData]);
+    }, [aiResponse, designData]);
 
     // ONE-TIME DEDUP PASS (Runs on hot-reload to clean up dirty session data)
     useEffect(() => {

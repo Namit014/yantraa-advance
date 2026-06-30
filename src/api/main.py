@@ -84,6 +84,13 @@ except Exception as _e:
     print(f"[Yantra API] WARNING: Could not load mapping router: {_e}")
 
 try:
+    from mapping.architecture import router as architecture_router
+    app.include_router(architecture_router)
+    print("[Yantra API] Registered /api/mapping/generate_architecture")
+except Exception as _e:
+    print(f"[Yantra API] WARNING: Could not load mapping architecture router: {_e}")
+
+try:
     from ros2_export import router as ros2_export_router
     app.include_router(ros2_export_router)
     print("[Yantra API] Registered /api/export-ros2")
