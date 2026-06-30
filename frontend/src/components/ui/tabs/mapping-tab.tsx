@@ -27,6 +27,13 @@ interface RawComponent {
     connects_to: string[];
     quantity?: number;
     partNumber?: string;
+    aliases?: string[];
+    assembly_parent?: string;
+    assembly_depth?: number;
+    relation_types?: Record<string, string>;
+    confidence?: number;
+    subcategory?: string;
+    canonical_id?: string;
 }
 
 interface ComponentNode {
@@ -40,6 +47,12 @@ interface ComponentNode {
     height?: number;
     quantity?: number;
     partNumber?: string;
+    canonical_id?: string;
+    aliases?: string[];
+    subcategory?: string;
+    assembly_parent?: string;
+    assembly_depth?: number;
+    confidence?: number;
 }
 
 interface Connection {
@@ -47,6 +60,9 @@ interface Connection {
     fromId: string;
     toId: string;
     label: string;
+    relation_type?: string;
+    confidence?: number;
+    evidence_sources?: string[];
     isUserEdited: boolean;
 }
 
@@ -62,15 +78,36 @@ const CATEGORY_COLOR: Record<ComponentCategory, string> = {
 };
 
 export const WIRE_COLORS: Record<string, string> = {
-    power: '#ef4444',     // Red
-    ground: '#10b981',    // Emerald Green
-    signal: '#eab308',    // Yellow
-    data: '#a855f7',      // Purple
-    drive: '#f97316',     // Orange
-    pwm: '#3b82f6',       // Blue
-    can: '#14b8a6',       // Teal
-    linkage: '#94a3b8',   // Slate
-    default: '#60a5fa'    // Light Blue
+    // Basic types
+    power: '#ef4444',
+    ground: '#10b981',
+    signal: '#eab308',
+    data: '#a855f7',
+    drive: '#f97316',
+    pwm: '#3b82f6',
+    can: '#14b8a6',
+    linkage: '#94a3b8',
+    
+    // 16 Typed relations
+    mounted_to: '#94a3b8',
+    bolted_to: '#64748b',
+    welded_to: '#78716c',
+    contains: '#6366f1',
+    houses: '#8b5cf6',
+    supports: '#a78bfa',
+    drives: '#f97316',
+    transmits_torque_to: '#fb923c',
+    rotates_about: '#fbbf24',
+    slides_on: '#34d399',
+    limits_motion_of: '#2dd4bf',
+    electrically_connected: '#60a5fa',
+    pneumatically_connected: '#38bdf8',
+    hydraulically_connected: '#0ea5e9',
+    senses: '#06b6d4',
+    controls: '#a855f7',
+    generic_connection: '#60a5fa',
+    
+    default: '#60a5fa'
 };
 
 const CATEGORY_ORDER: ComponentCategory[] = [
@@ -169,6 +206,13 @@ function parseRAGJson(text: string): RawComponent[] | null {
                 connects_to: Array.isArray(item.connects_to)
                     ? item.connects_to.map(String)
                     : [],
+                aliases: Array.isArray(item.aliases) ? item.aliases.map(String) : [],
+                subcategory: item.subcategory ? String(item.subcategory) : undefined,
+                canonical_id: item.canonical_id ? String(item.canonical_id) : undefined,
+                relation_types: item.relation_types && typeof item.relation_types === 'object' ? item.relation_types as Record<string, string> : undefined,
+                assembly_parent: item.assembly_parent && item.assembly_parent !== "null" ? String(item.assembly_parent) : undefined,
+                assembly_depth: Number(item.assembly_depth) || 0,
+                confidence: Number(item.confidence) || undefined
             };
         });
     } catch (e) {
@@ -206,14 +250,25 @@ async function fetchComponentsFromRAG(
         ? existingNodes.map(n => `- ${n.label} (${n.category})`).join("\n") 
         : "None";
 
-    const prompt1 =
-        `Return ONLY a JSON array. No explanation, no markdown, no extra text. ` +
-        `Here is the list of existing components already in the system:\n${existingStr}\n\n` +
-        `For the topic: '${topic}', list a comprehensive and highly detailed set of NEW low-level hardware components needed. ` +
-        `DO NOT duplicate or re-describe ANY of the existing components listed above. If you need to refer to an existing component in 'connects_to', use its EXACT name. ` +
-        `Each item must have exactly these fields: ` +
-        `{"name": string, "category": one of exactly: "actuator"|"sensor"|"controller"|"mechanical"|"power"|"electronic", ` +
-        `"description": string, "connects_to": string[]}`;
+    const prompt1 = `You are a Senior Mechanical Systems Engineer, CAD Intelligence Architect, and Robotics Assembly Analyst.
+Generate an engineering-grade BOM and component mapping for the topic: '${topic}'.
+DO NOT rely solely on filenames. Generate canonical IDs (COMP_XXXXXX) and subcategories.
+Do not duplicate the following existing nodes: ${existingStr}
+
+Return ONLY a JSON array with objects matching exactly this schema:
+{
+  "name": "Component Name",
+  "canonical_id": "COMP_XXXXXX",
+  "aliases": ["Alias1", "Alias2"],
+  "category": "actuator" | "sensor" | "controller" | "mechanical" | "power" | "electronic",
+  "subcategory": "Motor" | "Bearing" | "Fastener" | "PCB" | "Housing" | "Sensor" | "Bracket" | "Connector",
+  "description": "Technical description",
+  "connects_to": ["TargetName"],
+  "relation_types": {"TargetName": "drives" | "mounted_to" | "electrically_connected"},
+  "assembly_parent": "ParentNameOrNull",
+  "assembly_depth": 0,
+  "confidence": 0.95
+}`;
 
     try {
         const res1 = await fetch(`${API_BASE}/api/ask`, {
@@ -231,9 +286,9 @@ async function fetchComponentsFromRAG(
         }
     } catch { /* fall through */ }
 
-    // Second attempt — stricter
+    // Second attempt — stricter fallback
     const prompt2 =
-        `Output only raw JSON, no prose. Array of objects with fields: name, category, description, connects_to. ` +
+        `Output only raw JSON, no prose. Array of objects with fields: name, category, subcategory, description, connects_to, relation_types (map of target to relation type), canonical_id, aliases. ` +
         `Topic: '${topic}'`;
     try {
         const res2 = await fetch(`${API_BASE}/api/ask`, {
@@ -327,188 +382,55 @@ function applyLayout(rawNodes: Omit<ComponentNode, "x" | "y">[], connections: Co
 
 // ─── Connection generator ─────────────────────────────────────────────────────
 
-﻿function generateConnections(
+async function generateConnectionsAPI(
     nodes: ComponentNode[],
     raw: RawComponent[]
-): Connection[] {
-    const connections: Connection[] = [];
-    const seen = new Set<string>();
-
-    let connCounter = 0;
-
-    function addConn(
-        fromId: string,
-        toId: string,
-        label: string,
-        userEdited = false
-    ) {
-        if (!fromId || !toId || fromId === toId) return;
-        const key1 = `${fromId}→${toId}→${label}`;
-        const key2 = `${toId}→${fromId}→${label}`;
-        if (seen.has(key1) || seen.has(key2)) return;
-        seen.add(key1);
-        connections.push({
-            id: `conn-${connCounter++}-${Date.now()}`,
-            fromId,
-            toId,
-            label,
-            isUserEdited: userEdited,
+): Promise<{ connections: Connection[], updatedNodes: ComponentNode[] }> {
+    try {
+        // We must map nodes back to RawComponents to send to the backend
+        const rawPayload = raw.map(r => {
+            const n = nodes.find(node => fuzzyMatch(node.label, r.name));
+            return {
+                id: n ? n.id : `rag-${Date.now()}-${Math.random().toString(36).substring(7)}`,
+                ...r,
+                category: n ? n.category : r.category
+            };
         });
-    }
 
-    const nodeMap = new Map<string, ComponentNode>();
-    nodes.forEach(n => nodeMap.set(n.id, n));
-
-    // Primary pass ΓÇö use RAG connects_to
-    raw.forEach(rc => {
-        const fromNode = nodes.find(n => fuzzyMatch(n.label, rc.name));
-        if (!fromNode) return;
-        rc.connects_to.forEach(targetName => {
-            const toNode = nodes.find(n => fuzzyMatch(n.label, targetName));
-            if (!toNode) return;
-            
-            let srcId = fromNode.id;
-            let dstId = toNode.id;
-
-            // Enforce directionality overrides
-            if (fromNode.category === 'actuator' && toNode.category === 'controller') {
-                srcId = toNode.id;
-                dstId = fromNode.id;
-            } else if (toNode.category === 'power') {
-                srcId = toNode.id;
-                dstId = fromNode.id;
-            }
-
-            const srcNode = nodes.find(n => n.id === srcId)!;
-            const dstNode = nodes.find(n => n.id === dstId)!;
-            const pairKey = `${srcNode.category}-${dstNode.category}`;
-            
-            let label = "connection";
-            if (pairKey.includes("mechanical")) label = "linkage";
-            else if (pairKey === "actuator-controller" || pairKey === "controller-actuator") label = "drive";
-            else if (pairKey.includes("sensor") && pairKey.includes("power")) label = "power";
-            else if (pairKey.includes("sensor")) label = "data";
-            else if (pairKey.includes("power")) label = "power";
-            else if (pairKey.includes("electronic")) label = "signal";
-            
-            if (label === "power") {
-                addConn(srcId, dstId, "power");
-                addConn(srcId, dstId, "ground");
-            } else {
-                addConn(srcId, dstId, label);
-            }
-        });
-    });
-
-    // Secondary fallback for any unconnected nodes
-    const byCategory: Partial<Record<ComponentCategory, ComponentNode[]>> = {};
-    nodes.forEach(n => {
-        if (!byCategory[n.category]) byCategory[n.category] = [];
-        byCategory[n.category]!.push(n);
-    });
-
-    const controllers = byCategory["controller"] ?? [];
-    const actuators = byCategory["actuator"] ?? [];
-    const sensors = byCategory["sensor"] ?? [];
-    const mechanical = byCategory["mechanical"] ?? [];
-    const power = byCategory["power"] ?? [];
-    const electronic = byCategory["electronic"] ?? [];
-
-    // Only connect nodes that have zero connections so far
-    const connectedIds = new Set<string>();
-    connections.forEach(c => {
-        connectedIds.add(c.fromId);
-        connectedIds.add(c.toId);
-    });
-
-    actuators
-        .filter(a => !connectedIds.has(a.id))
-        .forEach(a => controllers.forEach(c => addConn(c.id, a.id, "drive")));
-    sensors
-        .filter(s => !connectedIds.has(s.id))
-        .forEach(s => controllers.forEach(c => addConn(s.id, c.id, "data")));
-        
-    // Chain mechanical parts to reduce crossing lines
-    const unconnectedMechanical = mechanical.filter(m => !connectedIds.has(m.id));
-    if (unconnectedMechanical.length > 0) {
-        if (actuators.length > 0) {
-            addConn(unconnectedMechanical[0].id, actuators[0].id, "linkage");
-        }
-        for (let i = 1; i < unconnectedMechanical.length; i++) {
-            addConn(unconnectedMechanical[i].id, unconnectedMechanical[i-1].id, "linkage");
-        }
-    }
-    
-    // Route power hierarchically: Power -> Controller -> Actuator (removes giant sweeping ground wires)
-    power
-        .filter(p => !connectedIds.has(p.id))
-        .forEach(p => {
-            if (controllers.length > 0) {
-                controllers.forEach(c => { 
-                    addConn(p.id, c.id, "power"); 
-                    addConn(p.id, c.id, "ground"); 
-                });
-            } else {
-                actuators.forEach(a => { 
-                    addConn(p.id, a.id, "power"); 
-                    addConn(p.id, a.id, "ground"); 
-                });
-            }
+        const res = await fetch(`${API_BASE}/api/mapping/build-graph`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ components: rawPayload })
         });
         
-    controllers
-        .filter(c => !connectedIds.has(c.id))
-        .forEach(c => electronic.forEach(e => addConn(c.id, e.id, "signal")));
-
-    // ΓöÇΓöÇΓöÇ Post-processing: Ground Wires & Triple-Driver Resolution ΓöÇΓöÇΓöÇ
-    
-    // 1. Ensure all power wires have a ground return path
-    const currentConns = [...connections];
-    currentConns.forEach(c => {
-        if (c.label === "power") {
-            const hasGround = connections.find(existing => existing.fromId === c.fromId && existing.toId === c.toId && existing.label === "ground");
-            if (!hasGround) {
-                addConn(c.fromId, c.toId, "ground");
-            }
-        }
-    });
-
-    // 2. Resolve Triple-Driver Ambiguity
-    const actIds = actuators.map(a => a.id);
-    actIds.forEach(actId => {
-        const drives = connections.filter(c => c.toId === actId && c.label === "drive");
-        if (drives.length > 1) {
-            const drivers = drives.map(d => nodes.find(n => n.id === d.fromId)).filter(Boolean) as ComponentNode[];
-            // Sort drivers: Shield/Driver > specific MCU > generic controller
-            drivers.sort((a, b) => {
-                const score = (n: ComponentNode) => {
-                    const l = n.label.toLowerCase();
-                    if (l.includes("shield") || l.includes("driver") || l.includes("hat")) return 3;
-                    if (l.includes("arduino") || l.includes("raspberry") || l.includes("mega") || l.includes("esp")) return 2;
-                    return 1;
+        if (!res.ok) throw new Error("Graph API failed");
+        
+        const data = await res.json();
+        const apiConns = data.connections || [];
+        const enrichedComponents = data.components || [];
+        
+        // Return updated nodes with canonical info and confidence if provided by backend in the future
+        const newNodes = nodes.map(n => {
+            const enriched = enrichedComponents.find((ec: any) => ec.id === n.id || ec.name === n.label);
+            if (enriched) {
+                return {
+                    ...n,
+                    canonical_id: enriched.canonical_id,
+                    subcategory: enriched.subcategory,
+                    confidence: enriched.confidence,
+                    aliases: enriched.aliases,
+                    assembly_parent: enriched.assembly_parent,
+                    assembly_depth: enriched.assembly_depth
                 };
-                return score(b) - score(a);
-            });
-            const bestDriver = drivers[0];
-            
-            // Remove weaker drives to actuator, daisy-chain to bestDriver instead
-            for (let i = 1; i < drivers.length; i++) {
-                const weaker = drivers[i];
-                const idx = connections.findIndex(c => c.fromId === weaker.id && c.toId === actId && c.label === "drive");
-                if (idx !== -1) connections.splice(idx, 1);
-                
-                const existing = connections.find(c => 
-                    (c.fromId === weaker.id && c.toId === bestDriver.id) || 
-                    (c.toId === weaker.id && c.fromId === bestDriver.id)
-                );
-                if (!existing) {
-                    addConn(weaker.id, bestDriver.id, "signal");
-                }
             }
-        }
-    });
+            return n;
+        });
 
-    return connections;
+        return { connections: apiConns, updatedNodes: newNodes };
+    } catch (e) {
+        console.error("API mapping failed, returning empty connections", e);
+        return { connections: [], updatedNodes: nodes };
+    }
 }
 
 
@@ -528,7 +450,7 @@ const SEED_BASE_NODES = SEED_RAW.map((r, i) => ({
     partNumber: r.partNumber,
 }));
 
-const SEED_CONNECTIONS = generateConnections(SEED_BASE_NODES as ComponentNode[], SEED_RAW);
+const SEED_CONNECTIONS: Connection[] = [];
 const SEED_NODES: ComponentNode[] = applyLayout(SEED_BASE_NODES as ComponentNode[], SEED_CONNECTIONS);
 
 // ─── Inline SVG icons ─────────────────────────────────────────────────────────
@@ -693,9 +615,30 @@ const CustomComponentNode = ({ data }: any) => {
             </div>
             
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: "4px" }}>
-                <div style={{ fontSize: "9px", color: color, textTransform: "uppercase", letterSpacing: "1px" }}>
-                    {data.category}
+                <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                    <div style={{ fontSize: "9px", color: color, textTransform: "uppercase", letterSpacing: "1px" }}>
+                        {data.category}
+                    </div>
+                    {data.subcategory && (
+                        <div style={{ fontSize: "8px", color: "#8b949e" }}>
+                            {data.subcategory}
+                        </div>
+                    )}
                 </div>
+                
+                {/* Confidence Badge */}
+                {data.confidence !== undefined && (
+                    <div style={{ 
+                        fontSize: "9px", 
+                        padding: "2px 4px", 
+                        borderRadius: "4px", 
+                        background: data.confidence >= 0.95 ? "#064e3b" : data.confidence >= 0.80 ? "#713f12" : "#7f1d1d",
+                        color: data.confidence >= 0.95 ? "#34d399" : data.confidence >= 0.80 ? "#fbbf24" : "#f87171",
+                        border: `1px solid ${data.confidence >= 0.95 ? "#059669" : data.confidence >= 0.80 ? "#d97706" : "#dc2626"}`
+                    }}>
+                        {(data.confidence * 100).toFixed(0)}%
+                    </div>
+                )}
                 
                 {/* Pins render */}
                 {pins.length > 0 && (
@@ -747,7 +690,13 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
             id: n.id,
             type: 'customComponent',
             position: { x: n.x ?? (i * 200 % 800), y: n.y ?? (Math.floor(i * 200 / 800) * 150) },
-            data: { label: n.label, category: n.category, description: n.description },
+            data: { 
+                label: n.label, 
+                category: n.category, 
+                description: n.description,
+                subcategory: n.subcategory,
+                confidence: n.confidence 
+            },
             ...(n.width && { width: n.width }),
             ...(n.height && { height: n.height })
         })));
@@ -790,18 +739,23 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
 
     const [inspectorConnTarget, setInspectorConnTarget] = useState("");
     const [inspectorConnLabel, setInspectorConnLabel] = useState("wire");
+    
+    const [confidenceThreshold, setConfidenceThreshold] = useState(0.80);
 
     const lastQueryRef = useRef<string>("");
     const rfEdges: Edge[] = useMemo(() => {
         const edgeGroups = new Map<string, Connection[]>();
-        connections.forEach(c => {
+        
+        const filteredConnections = connections.filter(c => c.confidence === undefined || c.confidence >= confidenceThreshold);
+        
+        filteredConnections.forEach(c => {
             const key = c.fromId < c.toId ? `${c.fromId}-${c.toId}` : `${c.toId}-${c.fromId}`;
             if (!edgeGroups.has(key)) edgeGroups.set(key, []);
             edgeGroups.get(key)!.push(c);
         });
 
-        return connections.map(c => {
-            const edgeColor = WIRE_COLORS[c.label?.toLowerCase()] || WIRE_COLORS.default;
+        return filteredConnections.map(c => {
+            const edgeColor = WIRE_COLORS[c.relation_type?.toLowerCase() || c.label?.toLowerCase()] || WIRE_COLORS.default;
             
             const key = c.fromId < c.toId ? `${c.fromId}-${c.toId}` : `${c.toId}-${c.fromId}`;
             const group = edgeGroups.get(key)!;
@@ -817,21 +771,28 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                 if (c.label === 'power') edgeType = 'smoothstep';
             }
 
+            const isLowConfidence = c.confidence !== undefined && c.confidence < 0.90;
+
             return {
                 id: c.id,
                 source: c.fromId,
                 target: c.toId,
-                label: c.label,
+                label: c.relation_type || c.label,
                 type: edgeType,
-                animated: false,
-                style: { stroke: edgeColor, strokeWidth: 1.5 },
+                animated: isLowConfidence,
+                style: { 
+                    stroke: edgeColor, 
+                    strokeWidth: 1.5,
+                    strokeDasharray: isLowConfidence ? '5,5' : undefined,
+                    opacity: isLowConfidence ? 0.6 : 1
+                },
                 labelStyle: { fill: '#a3a3a3', fontWeight: 600, fontSize: 11, className: 'edge-label-text' },
                 labelBgStyle: { fill: '#13161c', className: 'edge-label-bg' },
                 markerEnd: { type: MarkerType.ArrowClosed, color: edgeColor },
                 className: 'custom-edge-hover'
             };
         });
-    }, [connections]);
+    }, [connections, confidenceThreshold]);
 
 
     const onConnect = useCallback((params: RFConnection) => {
@@ -923,9 +884,9 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
         }
         setRawComponents(updatedRaw);
         
-        const newConnections = generateConnections(updatedNodes, updatedRaw);
+        const { connections: newConnections, updatedNodes: nodesFromAPI } = await generateConnectionsAPI(updatedNodes, updatedRaw);
         setConnections(newConnections);
-        const layoutedNodes = applyLayout(updatedNodes, newConnections);
+        const layoutedNodes = applyLayout(nodesFromAPI, newConnections);
         setNodes(layoutedNodes);
         
         setIsLoading(false);
@@ -1134,6 +1095,21 @@ export function MappingTab({ aiResponse = "", currentQuery = "", designData, isC
                 </div>
                 <div className="flex items-center gap-2">
                     {isLoading && <div className="text-xs text-[#888888] animate-pulse mr-4">Updating from AI...</div>}
+                    
+                    {/* Confidence Threshold Filter */}
+                    <div className="flex items-center gap-2 mr-4 bg-[#1E1E1E] px-3 py-1 rounded-lg border border-[#2A2A2A]">
+                        <span className="text-[10px] uppercase font-semibold text-[#888888] tracking-widest">Conf &ge; {(confidenceThreshold * 100).toFixed(0)}%</span>
+                        <input 
+                            type="range" 
+                            min="0.50" 
+                            max="0.99" 
+                            step="0.05"
+                            value={confidenceThreshold}
+                            onChange={(e) => setConfidenceThreshold(parseFloat(e.target.value))}
+                            className="w-20 accent-sky-500 h-1 bg-[#2A2A2A] rounded-lg appearance-none cursor-pointer"
+                        />
+                    </div>
+                    
                     {activeView === 'bom' && (
                         <button onClick={handleExportBOM} className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-[#F0F0F0] bg-[#1E1E1E] hover:bg-[#252525] rounded border border-[#2A2A2A] transition-colors">Export CSV</button>
                     )}
