@@ -49,6 +49,7 @@ const LEGEND: { type: WireType; label: string }[] = [
   { type: "power", label: "Power" },
   { type: "ground", label: "Ground" },
   { type: "signal", label: "Control/Signal" },
+  { type: "data", label: "Data/Comm" },
   { type: "feedback", label: "Sensor/Feedback" },
   { type: "safety", label: "Safety/E-Stop" },
 ];

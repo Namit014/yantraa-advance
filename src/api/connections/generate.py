@@ -253,7 +253,7 @@ CONNECTION RULES (you must follow these exactly):
 WIRE COLOR CONVENTION:
 - power (3.3V/5V/12V): #FF4444
 - ground: #888888
-- control/signal/PWM: #FFD700
+- control/signal/PWM: #FFA500
 - data (I2C/SPI/UART): #4488FF
 - sensor/feedback: #00FF00
 - safety/e-stop: #FFFF00
@@ -267,6 +267,7 @@ NODE SHAPE RULES:
 - Use "generic-board" for everything else
 
 ROBOTICS STANDARDS & REQUIREMENTS (MAXIMUM ELECTRICAL & LOGICAL ACCURACY - 100% UNIVERSAL):
+- DYNAMIC USE-CASE ADAPTATION: Always adapt component selection based strictly on the robot's actual use case, payload, environment, and motion requirements. For example, for a stationary painting robot (10kg payload, indoor flat surface), you MUST include: Rotary Encoders (position feedback), Limit Switches (end-stop protection), and Pressure/Flow Sensors (paint monitoring). Do not add generic components; select only what the specific robot function demands.
 - REDUCE CLUTTER AGGRESSIVELY: Simplify wire routing. Minimize line crossings and overlaps. Increase spacing between modules. Use cleaner bus-based architecture for repeated connections. Remove unnecessary wire bends and prioritize clarity over visual complexity.
 - REMOVE DUPLICATES/UNNECESSARY COMPONENTS: Detect duplicate modules, redundant sensors, or repeated functional blocks. Keep only essential components required for robot functionality. Consolidate repeated logic where possible to avoid overengineering.
 - IMPROVE POWER ARCHITECTURE: Separate high-power actuator rails from low-power logic and sensor rails. Ensure proper voltage regulation. Add main fuse, reverse polarity protection, overcurrent protection, and voltage filtering.
@@ -318,9 +319,7 @@ IMPORTANT:
   offsetPercent = 100/(n+1) * k  where n=total ports on that side, k=1..n.
   Examples: 1 port→50, 2 ports→33,67, 3 ports→25,50,75, 4 ports→20,40,60,80.
   NEVER place two ports at the same offsetPercent on the same side.
-- LAYOUT: Group power nodes at top, microcontrollers in the middle row,
-  sensors and peripherals at the bottom. This makes right-angle wire routing
-  cleaner and minimises crossings.
+- LAYOUT AND SPACING (CRITICAL): Do NOT put all components in a single vertical column. Use a wide 2D canvas. Place Power Systems on the far left (x=100), Microcontrollers in the center-left (x=500), Motor Drivers in the center-right (x=900), Motors on the far right (x=1300), and Sensors/Safety components at the bottom or top of the controller (y=600 or y=-300). Ensure components of the same type (like multiple motors) are spaced vertically by at least 300px (e.g., y=0, y=300, y=600). This wide horizontal flow is critical to prevent overlapping wires and messy diagrams.
 """
 
     # ── Step 3: Call LLM ───────────────────────────────────────────────────────

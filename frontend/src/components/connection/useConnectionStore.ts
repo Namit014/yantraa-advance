@@ -53,12 +53,12 @@ export type CircuitEdge = Edge<WireData>;
 export const WIRE_COLORS: Record<WireType, string> = {
   power: "#FF4444",
   ground: "#444444",
-  signal: "#FFD700",
+  signal: "#FFA500",
   data: "#4488FF",
-  pwm: "#4488FF",
+  pwm: "#FFA500",
   can: "#4488FF",
   feedback: "#00FF00",
-  safety: "#FFD700",
+  safety: "#FFFF00",
 };
 
 const toNodeId = (name: string, existingIds: Set<string>): string => {
