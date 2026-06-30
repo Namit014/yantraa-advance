@@ -816,7 +816,8 @@ export const useConnectionStore = create<ConnectionStore>((set, get) => ({
       let retries = 3;
       while (retries > 0) {
         try {
-          res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/connections/generate`, {
+          const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
+          res = await fetch(`${apiBase}/api/connections/generate`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

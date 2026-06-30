@@ -50,7 +50,7 @@ print(f"[Yantra API] CORS Allowed Origins configured in env: {ALLOWED_ORIGINS}")
 # while supporting credentials.
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?|https?://(.*\.)?yantraa\.tech|https?://(.*\.)?ngrok-free\.app|https?://(.*\.)?ngrok\.io",
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?|https?://(.*\.)?yantraa\.tech|https?://(.*\.)?ngrok-free\.app|https?://(.*\.)?ngrok\.io|https?://(.*\.)?vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -978,8 +978,9 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                 const headUrls = cadUrls || [];
                 const firstUrl = headUrls[0];
                 if (firstUrl) {
-                    const fetchUrl = firstUrl.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL
-                        ? `${process.env.NEXT_PUBLIC_API_URL}${firstUrl}`
+                    const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
+                    const fetchUrl = firstUrl.startsWith('/api') 
+                        ? `${apiBase}${firstUrl}`
                         : firstUrl;
                     
                     // Attempt HEAD request just to check size, but ignore if it fails (e.g., S3 pre-signed URLs reject HEAD)
@@ -1012,8 +1013,9 @@ export function CADTab({ currentQuery, cadUrls, designData, onRemodel, isRemodel
                 // Load all step files concurrently — skip missing files gracefully
                 const fetchPromises = cadUrls!.map(async (url, fileIndex) => {
                     try {
-                        const fetchUrl = url.startsWith('/api') && process.env.NEXT_PUBLIC_API_URL
-                            ? `${process.env.NEXT_PUBLIC_API_URL}${url}`
+                        const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://api.yantraa.tech";
+                        const fetchUrl = url.startsWith('/api') 
+                            ? `${apiBase}${url}`
                             : url;
                         const res = await fetch(fetchUrl);
                         if (!res.ok) {

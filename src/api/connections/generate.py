@@ -268,7 +268,7 @@ NODE SHAPE RULES:
 
 ROBOTICS STANDARDS & REQUIREMENTS:
 - SENSORS & LOGICAL COMPLETENESS: If the prompt implies a standard robot (e.g. "2 wheel robot", "rover", "arm"), automatically include common necessary sensors (like ultrasonic sensors, IMU, encoders, limits) to make the design functionally complete. DO NOT omit core functional sensors.
-- SIMPLICITY FIRST (CRITICAL): ONLY generate the strictly necessary functional components. DO NOT add unnecessary passive components like decoupling capacitors or flyback diodes unless explicitly requested.
+- GRANULAR SCHEMATICS (CRITICAL): Generate highly detailed, granular wire-level schematics. Do not use abstract logical blocks for power or data if pin-level details are known. For Ethernet/EtherCAT, route distinct data channels (e.g. daisy-chaining ETH_IN to ETH_OUT) and route distinct power channels accurately.
 - STRICTLY ELECTRICAL: DO NOT include purely mechanical brackets, adapters, tubes, or structural mounts in the diagram. Only electrical/electronic components (motors, controllers, sensors, power) are allowed.
 - CORE ELECTRONICS: You MUST include the main microcontroller (e.g., Arduino/Raspberry Pi), required motor drivers (e.g., L298N or A4988) for any actuators provided, and a main power supply/battery.
 - SEMANTIC LABELING: Assign role-based labels to EACH component. NEVER use generic duplicate names for multiple parts.
