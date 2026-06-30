@@ -12,6 +12,7 @@ import {
 import { MappingTab } from "./tabs/mapping-tab";
 import { ConnectionTab } from "./tabs/connection-tab";
 import { CADTab } from "./tabs/cad-tab";
+import { SchematicsTab } from "./tabs/schematics-tab";
 
 interface UseAutoResizeTextareaProps {
     minHeight: number;
@@ -126,7 +127,7 @@ export function VercelV0Chat() {
     const [isLoading, setIsLoading] = useState(false);
     const [isThinking, setIsThinking] = useState(false);
     const [statusMessage, setStatusMessage] = useState("");
-    const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad'>('mapping');
+    const [activeTab, setActiveTab] = useState<'mapping' | 'connection' | 'cad' | 'schematics'>('mapping');
     const [cadPrompt, setCadPrompt] = useState<{ available: boolean, urls: string[] }>({ available: false, urls: [] });
     const [acceptedCadUrls, setAcceptedCadUrls] = useState<string[]>([]);
     const [robotDesign, setRobotDesign] = useState<any | null>(null);
@@ -526,6 +527,17 @@ export function VercelV0Chat() {
                             Connection
                         </button>
                         <button
+                            onClick={() => setActiveTab('schematics')}
+                            className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                                activeTab === 'schematics'
+                                    ? "bg-[#1E1E1E] text-[#F0F0F0] shadow-sm"
+                                    : "text-[#888888] hover:text-[#F0F0F0]"
+                            )}
+                        >
+                            Schematics
+                        </button>
+                        <button
                             onClick={() => {
                                 if (cadPrompt.available) {
                                     setAcceptedCadUrls(cadPrompt.urls);
@@ -548,6 +560,7 @@ export function VercelV0Chat() {
                     <div className="w-full h-full pt-[60px] pb-4 px-4 relative">
                         {activeTab === 'mapping' && <MappingTab aiResponse={latestAIResponse} currentQuery={latestUserQuery} designData={robotDesign} isChatLoading={isLoading} />}
                         {activeTab === 'connection' && <ConnectionTab currentQuery={latestUserQuery} designData={robotDesign} />}
+                        {activeTab === 'schematics' && <SchematicsTab currentQuery={latestUserQuery} designData={robotDesign} />}
                         {activeTab === 'cad' && (() => {
                             const urls = acceptedCadUrls.length > 0 ? acceptedCadUrls : (robotDesign?.cad_urls || (robotDesign?.cad_url ? [robotDesign.cad_url] : []));
                             const cadUrl = urls[0] || 'default-cad';
