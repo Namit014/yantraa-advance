@@ -266,15 +266,18 @@ NODE SHAPE RULES:
 - Use "ic-chip" for ICs, drivers, H-bridges
 - Use "generic-board" for everything else
 
-ROBOTICS STANDARDS & REQUIREMENTS:
-- SENSORS & LOGICAL COMPLETENESS: If the prompt implies a standard robot (e.g. "2 wheel robot", "rover", "arm"), automatically include common necessary sensors (like ultrasonic sensors, IMU, encoders, limits) to make the design functionally complete. DO NOT omit core functional sensors.
-- GRANULAR SCHEMATICS (CRITICAL): Generate highly detailed, granular wire-level schematics. Do not use abstract logical blocks for power or data if pin-level details are known. For Ethernet/EtherCAT, route distinct data channels (e.g. daisy-chaining ETH_IN to ETH_OUT) and route distinct power channels accurately.
-- STRICTLY ELECTRICAL: DO NOT include purely mechanical brackets, adapters, tubes, or structural mounts in the diagram. Only electrical/electronic components (motors, controllers, sensors, power) are allowed.
-- CORE ELECTRONICS: You MUST include the main microcontroller (e.g., Arduino/Raspberry Pi), required motor drivers (e.g., L298N or A4988) for any actuators provided, and a main power supply/battery.
-- SEMANTIC LABELING: Assign role-based labels to EACH component. NEVER use generic duplicate names for multiple parts.
-- SIGNAL ARCHITECTURE: Clearly separate and label Power lines, Signal lines, and Ground lines. ALWAYS use "feedback" type and "#00FF00" color for wires connected to sensors!
-- MOTOR CONTROL: Enforce a strict 1:1 relationship between drivers and motors where appropriate.
-- Layout Readability: Improve text readability by avoiding overlapping labels and maintaining uniform spacing. Distribute nodes using a cleaner hierarchical visual flow from left to right: Power -> Controller -> Drivers -> Motors.
+ROBOTICS STANDARDS & REQUIREMENTS (MAXIMUM ELECTRICAL & LOGICAL ACCURACY - 100% UNIVERSAL):
+- REDUCE CLUTTER AGGRESSIVELY: Simplify wire routing. Minimize line crossings and overlaps. Increase spacing between modules. Use cleaner bus-based architecture for repeated connections. Remove unnecessary wire bends and prioritize clarity over visual complexity.
+- REMOVE DUPLICATES/UNNECESSARY COMPONENTS: Detect duplicate modules, redundant sensors, or repeated functional blocks. Keep only essential components required for robot functionality. Consolidate repeated logic where possible to avoid overengineering.
+- IMPROVE POWER ARCHITECTURE: Separate high-power actuator rails from low-power logic and sensor rails. Ensure proper voltage regulation. Add main fuse, reverse polarity protection, overcurrent protection, and voltage filtering.
+- IMPROVE GROUNDING SYSTEM: Create one explicit and centralized common ground bus. Ensure all modules share proper ground reference. Avoid ambiguous distributed grounding.
+- ADD POWER STABILITY COMPONENTS: Add bulk capacitors near high-current actuators. Add decoupling capacitors near controllers, sensors, and drivers. Add noise suppression where required.
+- VALIDATE COMPONENT COMPATIBILITY: Check if motor drivers, controllers, regulators, and comms modules are optimal. Replace inefficient components with better alternatives.
+- OPTIMIZE SIGNAL ROUTING: Separate power, ground, data, and communication buses to reduce interference. Keep high-current and signal lines isolated.
+- IMPROVE LABELING: Clearly label voltage levels, signal types, communication protocols, motor outputs, sensor inputs, safety lines, and switch logic (NO/NC).
+- IMPROVE MODULAR GROUPING: Group all components strictly into: Power System, Control System, Motion System, Sensor System, Communication System, and Safety System.
+- ADD SAFETY FEATURES: Include Emergency stop circuit, fault detection lines, thermal protection, end-stop/limit protections, and sensor fail-safe logic.
+- STRICTLY ELECTRICAL: DO NOT include purely mechanical brackets or structural mounts. Only electrical/electronic components are allowed.
 
 Return ONLY this JSON structure (no markdown fences):
 {{

@@ -79,10 +79,14 @@ def llm_validate_diagram(diagram: dict, user_prompt: str) -> dict:
     system_prompt = (
         "You are a Senior Electrical Engineer reviewing a generated circuit diagram. "
         "The current diagram may contain overly complex routing or unnecessary passive components (like excess decoupling caps) that clutter the UI. "
-        "Your job is to SIMPLIFY the diagram while ensuring it still strictly works. "
-        "DO NOT REMOVE any functional sensors (like ultrasonic, IMU, cameras), motor drivers, motors, or microcontrollers! "
-        "Ensure all grounds are logically routed to the main controller or power supply without creating unnecessary 'STAR GND' blocks. "
-        "Fix any floating power or signal connections for the remaining essential parts. "
+        "Your job is to SIMPLIFY the diagram while ensuring 100% electrical and logical accuracy for ANY robot type. "
+        "DO NOT REMOVE any functional sensors, but aggressively remove redundant modules, duplicate sensors, or non-essential connections. "
+        "Create an explicit power hierarchy: separate high-power actuator rails from low-power logic and sensor rails with proper voltage regulation. "
+        "Ensure all modules share ONE explicit and centralized common ground bus. Avoid ambiguous distributed grounding. "
+        "Add necessary power stability components (bulk capacitors, decoupling capacitors, noise suppression) and safety features (E-stop, thermal, fault detection, limit switches). "
+        "Clearly separate power, ground, data, and communication buses to reduce interference, minimizing line crossings. "
+        "Validate component compatibility and replace inefficient components with better alternatives. "
+        "Improve labeling for voltage levels, NO/NC switches, and protocol types, and group components strictly into: Power, Control, Motion, Sensor, Communication, and Safety systems. "
         "Return the EXACT updated JSON containing ONLY the 'nodes' and 'wires' arrays, AND add a third top-level key called 'erc_report' containing a short 2-3 sentence string explaining what you fixed or removed to simplify it. "
         "DO NOT output Markdown fences. Return raw JSON."
     )

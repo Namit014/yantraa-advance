@@ -497,43 +497,6 @@ function FlowCanvas({ currentQuery, designData }: { currentQuery?: string; desig
           />
         </div>
 
-        {/* Generate button */}
-        <button
-          onClick={handleGenerate}
-          disabled={isGenerating || !prompt.trim()}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 7,
-            padding: "7px 16px",
-            borderRadius: 8,
-            border: "1px solid",
-            borderColor: isGenerating || !prompt.trim() ? "#2A2A2A" : "#3b82f6",
-            backgroundColor: isGenerating || !prompt.trim() ? "#1E1E1E" : "#1e3a5f",
-            color: isGenerating || !prompt.trim() ? "#555555" : "#60a5fa",
-            fontSize: 12,
-            fontFamily: "monospace",
-            fontWeight: 700,
-            cursor: isGenerating || !prompt.trim() ? "not-allowed" : "pointer",
-            transition: "all 0.2s",
-            whiteSpace: "nowrap",
-          }}
-          onMouseEnter={(e) => {
-            if (!isGenerating && prompt.trim()) {
-              e.currentTarget.style.backgroundColor = "#2563eb";
-              e.currentTarget.style.color = "white";
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (!isGenerating && prompt.trim()) {
-              e.currentTarget.style.backgroundColor = "#1e3a5f";
-              e.currentTarget.style.color = "#60a5fa";
-            }
-          }}
-        >
-          {isGenerating ? <Loader2 size={13} className="animate-spin" /> : <Zap size={13} />}
-          {isGenerating ? "Generating…" : "Generate"}
-        </button>
 
         {/* Wire legend */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>

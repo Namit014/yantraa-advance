@@ -6,7 +6,12 @@ CONNECTION_RULES = [
     "Power supply connects to all components requiring Vin.",
     "Sensors connect to microcontrollers via I2C, SPI, Analog, or Digital signals.",
     "Communication modules connect to microcontrollers via UART, SPI, or I2C.",
-    "Displays connect to microcontrollers via I2C, SPI, or parallel data lines."
+    "Displays connect to microcontrollers via I2C, SPI, or parallel data lines.",
+    "Battery connects to Motor Drivers or Power Distribution for high current.",
+    "Voltage Regulators connect Battery to Microcontrollers for low-power logic.",
+    "All components must share ONE explicit and centralized common ground bus.",
+    "Include main fuse and reverse polarity protection near the battery.",
+    "Add bulk capacitors near high-current actuators and decoupling capacitors near logic ICs."
 ]
 
 def validate_connections(nodes, wires):
