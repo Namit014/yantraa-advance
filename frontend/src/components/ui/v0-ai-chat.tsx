@@ -415,9 +415,7 @@ export function VercelV0Chat() {
                 <div className="flex flex-1 flex-col relative z-20 items-center justify-center">
                     {/* Upgrade button top right */}
                     <button className="absolute top-6 right-6 px-4 py-2 border border-[#333333] hover:border-[#555555] bg-transparent text-[#F0F0F0] text-xs font-medium flex items-center gap-2 transition-colors z-50 rounded-sm">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                        <img src="/yantraa-logo.png" alt="Yantraa" className="w-3.5 h-3.5 object-contain" />
                         Upgrade
                     </button>
 

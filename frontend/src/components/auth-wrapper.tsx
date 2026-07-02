@@ -65,17 +65,24 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
             -webkit-text-fill-color: #F0F0F0 !important;
         }
       `}</style>
-      {/* Background Ambient Grid/Crosshairs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[80px] left-0 right-0 h-px bg-[#111111]" />
-        <div className="absolute bottom-[80px] left-0 right-0 h-px bg-[#111111]" />
-        <div className="absolute left-[240px] top-0 bottom-0 w-px bg-[#111111]" />
-        <div className="absolute right-[240px] top-0 bottom-0 w-px bg-[#111111]" />
+      {/* Background Ambient Grid/Crosshairs (Anchored to Card Corners) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="relative w-[725px] h-[662px] scale-[0.85] transform-gpu">
+          {/* Horizontal Top Line */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200vw] h-[1.18px] bg-[#111111]" />
+          {/* Horizontal Bottom Line */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200vw] h-[1.18px] bg-[#111111]" />
+          {/* Vertical Left Line */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[200vh] w-[1.18px] bg-[#111111]" />
+          {/* Vertical Right Line */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[200vh] w-[1.18px] bg-[#111111]" />
 
-        <div className="absolute top-[75px] left-[235px] w-2.5 h-2.5 border border-[#333333]" />
-        <div className="absolute top-[75px] right-[235px] w-2.5 h-2.5 border border-[#333333]" />
-        <div className="absolute bottom-[75px] left-[235px] w-2.5 h-2.5 border border-[#333333]" />
-        <div className="absolute bottom-[75px] right-[235px] w-2.5 h-2.5 border border-[#333333]" />
+          {/* Intersection Markers (Crosses) */}
+          <div className="absolute top-0 left-0 w-3 h-3 transform -translate-x-1/2 -translate-y-1/2 text-[rgba(255,255,255,0.18)]"><div className="absolute top-1/2 left-0 right-0 h-[0.5px] bg-current"/><div className="absolute left-1/2 top-0 bottom-0 w-[0.5px] bg-current"/></div>
+          <div className="absolute top-0 right-0 w-3 h-3 transform translate-x-1/2 -translate-y-1/2 text-[rgba(255,255,255,0.18)]"><div className="absolute top-1/2 left-0 right-0 h-[0.5px] bg-current"/><div className="absolute left-1/2 top-0 bottom-0 w-[0.5px] bg-current"/></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 transform -translate-x-1/2 translate-y-1/2 text-[rgba(255,255,255,0.18)]"><div className="absolute top-1/2 left-0 right-0 h-[0.5px] bg-current"/><div className="absolute left-1/2 top-0 bottom-0 w-[0.5px] bg-current"/></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 transform translate-x-1/2 translate-y-1/2 text-[rgba(255,255,255,0.18)]"><div className="absolute top-1/2 left-0 right-0 h-[0.5px] bg-current"/><div className="absolute left-1/2 top-0 bottom-0 w-[0.5px] bg-current"/></div>
+        </div>
       </div>
 
       {/* Top Left Text */}
@@ -86,30 +93,17 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
 
       {/* Top Right Logo */}
       <div className="absolute top-6 right-6 z-10 flex items-center gap-3">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" stroke="#888888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        <img src="/yantraa-logo.png" alt="Yantraa" className="w-[18px] h-[18px] object-contain opacity-70 grayscale" />
         <span className="text-[#666666] font-medium tracking-wide">Yantraa</span>
-        <div className="ml-4 w-4 h-4 relative">
-          <div className="absolute top-1/2 left-0 right-0 h-px bg-[#444444]" />
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#444444]" />
-        </div>
       </div>
 
       {/* Bottom Left Text */}
       <div className="absolute bottom-6 left-6 text-[#333333] text-[10px] font-medium tracking-wider z-10">
         Yantraa Inc.
       </div>
-
-      {/* Bottom Right Waveform */}
-      <div className="absolute bottom-6 right-6 z-10">
-        <svg width="24" height="12" viewBox="0 0 24 12" fill="none" stroke="#333333" strokeWidth="1.5">
-          <path d="M2 6 L6 2 L10 10 L14 4 L18 8 L22 6" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </div>
       
       {/* Login Card Wrapper for Border Effect */}
-      <div className="relative z-20" style={{ filter: "drop-shadow(0 0 40px rgba(0,0,0,0.8))" }}>
+      <div className="relative z-20 scale-[0.85] transform-gpu" style={{ filter: "drop-shadow(0 0 40px rgba(0,0,0,0.8))" }}>
         
         {/* Main Card */}
         <div className="relative w-[725px] h-[662px] flex flex-col items-center justify-center">
@@ -159,9 +153,7 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
 
             {/* Logo / Brand */}
             <div className="text-center mb-10 flex flex-col items-center">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-6">
-                  <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="#F0F0F0" />
-              </svg>
+              <img src="/yantraa-logo.png" alt="Yantraa" className="w-[32px] h-[32px] object-contain mb-6" />
               <h2 
                 className={cn("text-[#FFF] text-center mb-3", dmSans.className)}
                 style={{
@@ -171,9 +163,21 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
                   letterSpacing: "-2.4px"
                 }}
               >
-                Welcome Back
+                Welcome
               </h2>
-              <p className="text-[14px] text-[#777777] font-medium tracking-wide">Sign in to access Yantraa Advance</p>
+              <p 
+                className={dmSans.className}
+                style={{
+                  color: "rgba(255, 255, 255, 0.21)",
+                  textAlign: "center",
+                  fontSize: "15px",
+                  fontWeight: 300,
+                  lineHeight: "102%",
+                  letterSpacing: "-1.2px"
+                }}
+              >
+                Sign in to access Yantraa Advance
+              </p>
             </div>
 
             <form onSubmit={handleLogin} className="w-full max-w-[440px] space-y-10 mt-6">
@@ -201,10 +205,10 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
                 </svg>
                 
                 {/* Top Border */}
-                <div className="absolute top-0 left-[6px] right-[16px] h-[0.5px] bg-[rgba(255,255,255,0.18)]" />
+                <div className="absolute top-0 left-[90px] right-[16px] h-[0.5px] bg-[rgba(255,255,255,0.18)]" />
                 
-                {/* Label (Placed over the top border to hide it) */}
-                <div className="absolute top-[-9px] left-[16px] px-3 bg-[#2A2A2B] z-10 flex items-center gap-1.5">
+                {/* Label */}
+                <div className="absolute top-[-9px] left-[16px] z-10 flex items-center gap-1.5">
                   <span className="text-[#666666] font-bold text-[13px] font-mono tracking-widest">///</span>
                   <span className="text-[#999999] text-[14px] font-medium tracking-wide">Email</span>
                 </div>
@@ -242,10 +246,10 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
                 </svg>
                 
                 {/* Top Border */}
-                <div className="absolute top-0 left-[6px] right-[16px] h-[0.5px] bg-[rgba(255,255,255,0.18)]" />
+                <div className="absolute top-0 left-[115px] right-[16px] h-[0.5px] bg-[rgba(255,255,255,0.18)]" />
                 
                 {/* Label */}
-                <div className="absolute top-[-9px] left-[16px] px-3 bg-[#2A2A2B] z-10 flex items-center gap-1.5">
+                <div className="absolute top-[-9px] left-[16px] z-10 flex items-center gap-1.5">
                   <span className="text-[#666666] font-bold text-[13px] font-mono tracking-widest">///</span>
                   <span className="text-[#999999] text-[14px] font-medium tracking-wide">Password</span>
                 </div>
@@ -278,7 +282,23 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
                   ) : (
                     <>
                       <span className="text-[14px] font-medium tracking-wide">Sign In</span>
-                      <ArrowRight className="w-4 h-4 text-[#888888] group-hover:text-[#F0F0F0] group-hover:translate-x-1 transition-all" />
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        width="13" 
+                        height="11" 
+                        viewBox="0 0 13 11" 
+                        fill="none"
+                        className="text-[#888888] group-hover:text-[#F0F0F0] group-hover:translate-x-1 transition-all"
+                      >
+                        <circle cx="4.20185" cy="5.44445" r="1.12499" transform="rotate(90 4.20185 5.44445)" fill="currentColor"/>
+                        <circle cx="1.12501" cy="5.44445" r="1.12499" transform="rotate(90 1.12501 5.44445)" fill="currentColor"/>
+                        <circle cx="11.0915" cy="5.44445" r="1.12499" transform="rotate(90 11.0915 5.44445)" fill="currentColor"/>
+                        <circle cx="7.71571" cy="1.12501" r="1.12499" transform="rotate(-180 7.71571 1.12501)" fill="currentColor"/>
+                        <circle cx="9.52845" cy="3.19447" r="1.12499" transform="rotate(-180 9.52845 3.19447)" fill="currentColor"/>
+                        <circle cx="7.27845" cy="5.34999" r="1.12499" transform="rotate(-180 7.27845 5.34999)" fill="currentColor"/>
+                        <circle cx="7.47279" cy="9.57496" r="1.12499" transform="rotate(-180 7.47279 9.57496)" fill="currentColor"/>
+                        <circle cx="9.30982" cy="7.59999" r="1.12499" transform="rotate(-180 9.30982 7.59999)" fill="currentColor"/>
+                      </svg>
                     </>
                   )}
                 </button>
