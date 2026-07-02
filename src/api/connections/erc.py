@@ -64,15 +64,12 @@ def llm_validate_diagram(diagram: dict, user_prompt: str) -> dict:
     Validates wiring, checks for missing safety features (fuses, estops),
     and redelivers a corrected diagram along with an explanation report.
     """
-    import requests
-    from dotenv import load_dotenv
-    load_dotenv()
-    
-    OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
-    if not OPENROUTER_API_KEY:
-        print("[ERC Pass 2] No OpenRouter API key found. Skipping.")
-        diagram["erc_report"] = "Pass 2 skipped: No API Key."
-        return diagram
+    try:
+        from llm import invoke_yantra_ai
+    except ImportError:
+        import sys
+        sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+        from src.llm import invoke_yantra_ai
 
     diagram_str = json.dumps(diagram, indent=2)
 
@@ -93,23 +90,13 @@ def llm_validate_diagram(diagram: dict, user_prompt: str) -> dict:
 
     user_message = f"User Prompt: {user_prompt}\n\nCurrent Diagram JSON:\n{diagram_str}\n\nPlease perform ERC validation, remove unnecessary clutter/components, fix wiring, and return the simplified JSON with your erc_report."
 
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json"
-    }
-    payload = {
-        "model": os.environ.get("OPENROUTER_MODEL", "openrouter/owl-alpha"),
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_message}
-        ]
-    }
-
     try:
         print("[ERC Pass 2] Calling LLM to validate and simplify diagram...")
-        response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload, timeout=30)
-        response.raise_for_status()
-        result_text = response.json()["choices"][0]["message"]["content"].strip()
+        result_text = invoke_yantra_ai(
+            prompt=user_message,
+            system_prompt=system_prompt,
+            response_format="json_object"
+        )
         
         # Clean markdown if present
         if result_text.startswith("```"):

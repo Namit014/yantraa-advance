@@ -30,6 +30,11 @@ from contextlib import asynccontextmanager
 async def lifespan(app: FastAPI):
     # Initialize the Retriever on startup
     app.state.retriever = Retriever()
+    try:
+        from llm import LLM_PROVIDER
+        print(f"[Yantra API] Started with LLM_PROVIDER={LLM_PROVIDER}")
+    except ImportError:
+        pass
     yield
     # Shutdown logic (if any)
 
@@ -211,6 +216,14 @@ async def debug_env():
 async def health_check():
     """Simple health check endpoint"""
     return {"status": "ok", "message": "API is running."}
+
+@app.get("/api/llm-status")
+async def llm_status():
+    from llm import LLM_PROVIDER, check_vllm_health
+    return {
+        "provider": LLM_PROVIDER,
+        "vllm_health": "ok" if check_vllm_health() else "down"
+    }
 
 @app.get("/health")
 async def health_check():

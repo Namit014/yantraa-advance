@@ -1,0 +1,22 @@
+[Unit]
+Description=vLLM Serving Qwen3-14B-FP8
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu
+Environment="CUDA_VISIBLE_DEVICES=0"
+Environment="VLLM_WORKER_MULTIPROC_METHOD=spawn"
+
+ExecStart=/home/ubuntu/vllm-env/bin/vllm serve Qwen/Qwen3-14B-FP8 --host 0.0.0.0 --port 8000 --max-model-len 4096 --gpu-memory-utilization 0.90
+ExecStartPost=/bin/bash /home/ubuntu/yantraa-advance/devops/wait-for-vllm.sh
+
+Restart=always
+RestartSec=10
+TimeoutStartSec=600
+
+[Install]
+WantedBy=multi-user.target
