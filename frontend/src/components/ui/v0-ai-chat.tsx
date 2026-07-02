@@ -13,6 +13,7 @@ import { MappingTab } from "./tabs/mapping-tab";
 import { ConnectionTab } from "./tabs/connection-tab";
 import { CADTab } from "./tabs/cad-tab";
 import { Sidebar } from "./sidebar";
+import { ProjectSidebar } from "./project-sidebar";
 
 interface UseAutoResizeTextareaProps {
     minHeight: number;
@@ -298,267 +299,416 @@ export function VercelV0Chat() {
         }
     };
 
-    return (
-        <div className="flex w-full h-screen bg-[#0A0A0A] overflow-hidden relative">
-            {/* Viewport Crosshairs/Grid Lines */}
-            <div className="absolute left-[59px] top-0 bottom-0 w-px bg-[#222222] pointer-events-none z-10" />
-            <div className="absolute right-[59px] top-0 bottom-0 w-px bg-[#222222] pointer-events-none z-10" />
-            <div className="absolute top-[59px] left-0 right-0 h-px bg-[#222222] pointer-events-none z-10" />
-            <div className="absolute bottom-[59px] left-0 right-0 h-px bg-[#222222] pointer-events-none z-10" />
-            
-            {/* Corner Markers */}
-            <div className="absolute top-[55px] left-[55px] w-[9px] h-[9px] border border-[#555555] pointer-events-none z-10" />
-            <div className="absolute top-[55px] right-[55px] w-[9px] h-[9px] border border-[#555555] pointer-events-none z-10" />
-            <div className="absolute bottom-[55px] left-[55px] w-[9px] h-[9px] border border-[#555555] pointer-events-none z-10" />
-            <div className="absolute bottom-[55px] right-[55px] w-[9px] h-[9px] border border-[#555555] pointer-events-none z-10" />
+    const [isChatOpen, setIsChatOpen] = useState(true);
 
-            <Sidebar />
-            <div className={cn("flex flex-1 transition-all duration-500 relative z-20", messages.length === 0 ? "justify-center" : "justify-start")}>
-                {/* Main Chat Container */}
-                <div className={cn("flex flex-col relative transition-all duration-500",
-                    messages.length === 0 ? "w-full max-w-4xl p-4 items-center justify-center" : "w-[400px] border-r border-[#2A2A2A] bg-[#0A0A0A] shrink-0"
-                )}>
-                {/* Top Right Upgrade Button */}
-                {messages.length === 0 && (
+    const [isProjectSidebarOpen, setIsProjectSidebarOpen] = useState(false);
+
+    // Auto-open project sidebar on first message
+    useEffect(() => {
+        if (messages.length === 1 && !robotDesign) {
+            setIsProjectSidebarOpen(true);
+        }
+    }, [messages.length, robotDesign]);
+
+    if (!robotDesign) {
+        // Shared input box rendering for both states of Phase 1
+        const renderInputBox = () => (
+            <div className="w-full max-w-3xl px-6">
+                <div className="relative flex flex-col bg-[#111111] border border-[#222222]">
+                    {/* Corner Crosshairs */}
+                    <div className="absolute -top-1 -left-1 w-2 h-2 pointer-events-none flex items-center justify-center">
+                        <div className="absolute w-full h-[1px] bg-[#555555]" />
+                        <div className="absolute h-full w-[1px] bg-[#555555]" />
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-2 h-2 pointer-events-none flex items-center justify-center">
+                        <div className="absolute w-full h-[1px] bg-[#555555]" />
+                        <div className="absolute h-full w-[1px] bg-[#555555]" />
+                    </div>
+                    <div className="absolute -bottom-1 -left-1 w-2 h-2 pointer-events-none flex items-center justify-center">
+                        <div className="absolute w-full h-[1px] bg-[#555555]" />
+                        <div className="absolute h-full w-[1px] bg-[#555555]" />
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-2 h-2 pointer-events-none flex items-center justify-center">
+                        <div className="absolute w-full h-[1px] bg-[#555555]" />
+                        <div className="absolute h-full w-[1px] bg-[#555555]" />
+                    </div>
+
+                    <div className="overflow-y-auto max-h-[140px] min-h-[60px] flex items-center">
+                        <Textarea
+                            ref={textareaRef}
+                            value={value}
+                            onChange={(e) => {
+                                setValue(e.target.value);
+                                adjustHeight();
+                            }}
+                            onKeyDown={handleKeyDown}
+                            placeholder="Make a pick and place robot |"
+                            className={cn(
+                                "w-full px-5 py-5",
+                                "resize-none bg-transparent border-none",
+                                "text-[#F0F0F0] text-[14px] leading-relaxed",
+                                "focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0",
+                                "placeholder:text-[#555555]"
+                            )}
+                            style={{ overflow: "hidden" }}
+                            disabled={isLoading}
+                        />
+                    </div>
+
+                    <div className="flex items-center justify-between px-3 pb-3 pt-2">
+                        <div className="flex items-center gap-1.5">
+                            <button type="button" className="p-1.5 hover:bg-[#252525] rounded transition-colors text-[#888888] hover:text-[#F0F0F0]">
+                                <Paperclip className="w-[16px] h-[16px]" />
+                            </button>
+                            <button type="button" className="p-1.5 hover:bg-[#252525] rounded transition-colors text-[#888888] hover:text-[#F0F0F0]">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="22"></line></svg>
+                            </button>
+                            <button type="button" className="px-3 py-1 ml-2 rounded text-[11px] text-[#E0E0E0] font-medium transition-colors border border-[#333333] hover:border-[#555555] hover:bg-[#252525] flex items-center gap-2">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                                Prompt Library
+                            </button>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-1.5 text-[#888888] text-xs font-medium cursor-pointer hover:text-[#F0F0F0] transition-colors">
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#888888]" />
+                                Yantraa 1.0
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-0.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={handleSubmit}
+                                disabled={isLoading || !value.trim()}
+                                className={cn(
+                                    "w-8 h-8 flex items-center justify-center transition-colors rounded-sm",
+                                    value.trim() && !isLoading
+                                        ? "bg-[#F0F0F0] text-black hover:bg-white"
+                                        : "bg-[#F0F0F0] text-black opacity-90"
+                                )}
+                            >
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                                <span className="sr-only">Send</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+
+        return (
+            <div className="flex w-full h-screen bg-[#0A0A0A] overflow-hidden relative">
+                {/* Viewport Crosshairs/Grid Lines */}
+                <div className={cn("absolute top-0 bottom-0 w-px bg-[#222222] pointer-events-none z-10 transition-all duration-300", isProjectSidebarOpen ? "left-[396px]" : "left-[59px]")} />
+                <div className="absolute top-[59px] left-0 right-0 h-px bg-[#222222] pointer-events-none z-10" />
+                <div className="absolute bottom-[59px] left-0 right-0 h-px bg-[#222222] pointer-events-none z-10" />
+
+                {/* Sidebar toggle */}
+                <div className={cn("shrink-0 transition-all duration-300 h-full", isProjectSidebarOpen ? "w-[396px]" : "w-[60px]")}>
+                    {isProjectSidebarOpen ? (
+                        <ProjectSidebar onClose={() => setIsProjectSidebarOpen(false)} />
+                    ) : (
+                        <Sidebar onOpen={() => setIsProjectSidebarOpen(true)} />
+                    )}
+                </div>
+
+                <div className="flex flex-1 flex-col relative z-20 items-center justify-center">
+                    {/* Upgrade button top right */}
                     <button className="absolute top-6 right-6 px-4 py-2 border border-[#333333] hover:border-[#555555] bg-transparent text-[#F0F0F0] text-xs font-medium flex items-center gap-2 transition-colors z-50 rounded-sm">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                         Upgrade
                     </button>
-                )}
 
-                {messages.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center w-full">
-                        <h1 className="text-[28px] font-normal text-[#F0F0F0] text-center mb-8">
-                            What would you like to build today?
-                        </h1>
-                    </div>
-                ) : (
-                    <div className="flex-1 w-full overflow-y-auto space-y-6 pb-48 pt-8 px-4 flex flex-col">
-                        {messages.map((msg, idx) => {
-                            if (msg.role === 'assistant' && !msg.content) return null;
-                            return (
-                                <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
-                                    <div className={cn(
-                                        "max-w-[82%] rounded-2xl px-4 py-3",
-                                        msg.role === 'user'
-                                            ? "bg-[#1E1E1E] border border-[#2A2A2A] text-[#F0F0F0]"
-                                            : "bg-transparent text-[#F0F0F0]"
-                                    )}>
-                                        {msg.role === 'assistant' && (
-                                            <div className="flex items-center gap-2 mb-2">
-                                                <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0]">
-                                                    Y
+                    {messages.length === 0 ? (
+                        // Phase 1A: Landing Page
+                        <div className="w-full h-full flex flex-col items-center justify-center relative -mt-10">
+                            <h1 className="text-[28px] font-medium text-[#F0F0F0] text-center mb-8 tracking-tight">
+                                What would you like to build today?
+                            </h1>
+                            
+                            {renderInputBox()}
+
+                            {/* Suggestion Cards */}
+                            <div className="grid grid-cols-3 gap-4 mt-4 w-full max-w-3xl px-6">
+                                <div onClick={() => setValue("Design a Pick & Place Robot")} className="bg-[#111111] border border-transparent hover:border-[#222222] p-5 cursor-pointer transition-colors group">
+                                    <div className="flex items-center gap-2 mb-3 text-[#E0E0E0] text-xs font-medium group-hover:text-white transition-colors">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>
+                                        Design a Pick & Place Robot
+                                    </div>
+                                    <p className="text-[10px] text-[#777777] leading-relaxed">
+                                        Generate CAD, component mapping, and connections for a pick-and-place robotic system.
+                                    </p>
+                                </div>
+                                <div onClick={() => setValue("Design a Delta Robot")} className="bg-[#111111] border border-transparent hover:border-[#222222] p-5 cursor-pointer transition-colors group">
+                                    <div className="flex items-center gap-2 mb-3 text-[#E0E0E0] text-xs font-medium group-hover:text-white transition-colors">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                                        Design a Delta Robot
+                                    </div>
+                                    <p className="text-[10px] text-[#777777] leading-relaxed">
+                                        Validate requirements, assess technical viability, and refine your robot before generating designs.
+                                    </p>
+                                </div>
+                                <div onClick={() => setValue("Check Feasibility")} className="bg-[#111111] border border-transparent hover:border-[#222222] p-5 cursor-pointer transition-colors group">
+                                    <div className="flex items-center gap-2 mb-3 text-[#E0E0E0] text-xs font-medium group-hover:text-white transition-colors">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                        Check Feasibility
+                                    </div>
+                                    <p className="text-[10px] text-[#777777] leading-relaxed">
+                                        Evaluate cost, complexity, technical viability and understand the process before building your robot.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        // Phase 1B: Chatting
+                        <div className="w-full max-w-4xl h-full flex flex-col relative pb-32">
+                            {/* Messages */}
+                            <div className="flex-1 w-full overflow-y-auto space-y-8 pt-24 px-6 flex flex-col custom-scrollbar">
+                                {messages.map((msg, idx) => {
+                                    if (msg.role === 'assistant' && !msg.content) return null;
+                                    return (
+                                        <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
+                                            <div className={cn(
+                                                "max-w-[85%] px-5 py-4",
+                                                msg.role === 'user'
+                                                    ? "bg-[#1A1A1A] text-[#F0F0F0] border-t border-r border-[#2A2A2A]"
+                                                    : "bg-transparent text-[#F0F0F0]"
+                                            )}
+                                            style={msg.role === 'user' ? { clipPath: "polygon(0 0, 100% 0, 100% 100%, 16px 100%, 0 calc(100% - 16px))" } : {}}
+                                            >
+                                                <div className="whitespace-pre-wrap leading-relaxed text-[14px] text-[#E0E0E0]">
+                                                    {msg.content}
                                                 </div>
-                                                <span className="font-medium text-xs text-[#888888]">Yantraa AI</span>
                                             </div>
-                                        )}
-                                        <div className="whitespace-pre-wrap leading-relaxed text-[14px] text-[#F0F0F0]">
-                                            {msg.content}
+                                        </div>
+                                    );
+                                })}
+                                {isLoading && (!messages.length || messages[messages.length - 1].role !== 'assistant' || isThinking || !messages[messages.length - 1].content) && (
+                                    <div className="flex w-full justify-start">
+                                        <div className="bg-transparent text-[#F0F0F0] px-4 py-3 flex flex-col gap-2">
+                                            <div className="flex items-center gap-3">
+                                                <div className="flex gap-1 items-center">
+                                                    <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                                                    <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                                                    <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce"></div>
+                                                </div>
+                                            </div>
+                                            {isThinking && (
+                                                <div className="text-[12px] text-[#888888] font-mono animate-pulse">
+                                                    {statusMessage}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })}
-                        {isLoading && (!messages.length || messages[messages.length - 1].role !== 'assistant' || isThinking || !messages[messages.length - 1].content) && (
-                            <div className="flex w-full justify-start">
-                                <div className="bg-transparent text-[#F0F0F0] rounded-2xl px-4 py-3 flex flex-col gap-2">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0] animate-pulse">
-                                            Y
-                                        </div>
-                                        <div className="flex gap-1 items-center">
-                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                                            <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce"></div>
-                                        </div>
-                                    </div>
-                                    {isThinking && (
-                                        <div className="text-xs text-[#888888] font-mono pl-8 animate-pulse">
-                                            {statusMessage}
-                                        </div>
-                                    )}
-                                </div>
+                                )}
+                                <div ref={messagesEndRef} />
                             </div>
-                        )}
 
-                        <div ref={messagesEndRef} />
-                    </div>
-                )}
+                            {/* Input Area anchored at bottom */}
+                            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-full flex flex-col items-center">
+                                {renderInputBox()}
+                                <p className="text-[#444444] text-[10px] text-center mt-4 tracking-wide">
+                                    Yantraa can make mistakes. Consider verifying important information.
+                                </p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        );
+    }
 
-                {/* Input Area */}
-                <div className={cn("w-full transition-all duration-300 relative",
-                    messages.length === 0
-                        ? "max-w-[760px] w-[90%]"
-                        : "absolute bottom-0 left-0 w-full p-4 bg-[#0A0A0A]/90 backdrop-blur-md border-t border-[#2A2A2A] z-10"
+    // Result Phase (robotDesign != null)
+    return (
+        <div className="flex w-full h-screen bg-[#0A0A0A] overflow-hidden relative">
+            {/* Viewport Crosshairs/Grid Lines */}
+            <div className="absolute left-[59px] top-0 bottom-0 w-px bg-[#222222] pointer-events-none z-10" />
+            <div className="absolute top-[59px] left-0 right-0 h-px bg-[#222222] pointer-events-none z-10" />
+            <div className="absolute bottom-[59px] left-0 right-0 h-px bg-[#222222] pointer-events-none z-10" />
+            
+            <Sidebar />
+
+            <div className="flex flex-1 relative z-20">
+                {/* Chat Sidebar Panel */}
+                <div className={cn(
+                    "flex flex-col relative transition-all duration-300 ease-in-out shrink-0 h-full",
+                    isChatOpen ? "w-[396px]" : "w-0"
                 )}>
-                    {cadPrompt.available && (
-                        <div className="mb-3 bg-[#1A1A1A] border border-[#2A2A2A] p-4 flex flex-col gap-3 animate-in slide-in-from-bottom-2">
-                            <p className="text-[#F0F0F0] text-sm font-medium">
-                                {cadPrompt.urls.length > 1 
-                                    ? `A highly detailed 3D CAD assembly with ${cadPrompt.urls.length} parts is available in our knowledge base. Do you want to view it?` 
-                                    : "A highly detailed 3D CAD model for this robot is available in our knowledge base. Do you want to view it?"}
-                            </p>
-                            <div className="flex gap-2">
-                                <button 
-                                    onClick={() => {
-                                        setAcceptedCadUrls(cadPrompt.urls);
-                                        setActiveTab('cad');
-                                        setCadPrompt({ available: false, urls: [] });
-                                    }}
-                                    className="bg-[#F0F0F0] hover:bg-white text-black px-4 py-1.5 text-xs transition-colors font-semibold">
-                                    Yes, View CAD
-                                </button>
-                                <button 
-                                    onClick={() => setCadPrompt({ available: false, urls: [] })}
-                                    className="bg-[#252525] hover:bg-[#333333] text-[#F0F0F0] px-4 py-1.5 text-xs transition-colors font-medium border border-[#2A2A2A]">
-                                    No
-                                </button>
-                            </div>
-                        </div>
-                    )}
-                    
-                    {messages.length === 0 && (
-                        <>
-                            {/* Crosshairs for empty state input box */}
-                            <div className="absolute -top-[5px] -left-[5px] w-2.5 h-2.5 border-t border-l border-[#555555] pointer-events-none" />
-                            <div className="absolute -top-[5px] -right-[5px] w-2.5 h-2.5 border-t border-r border-[#555555] pointer-events-none" />
-                            <div className="absolute -bottom-[5px] -left-[5px] w-2.5 h-2.5 border-b border-l border-[#555555] pointer-events-none" />
-                            <div className="absolute -bottom-[5px] -right-[5px] w-2.5 h-2.5 border-b border-r border-[#555555] pointer-events-none" />
-                        </>
-                    )}
+                    {/* SVG Background */}
+                    <div className="absolute inset-0 pointer-events-none z-0 w-[396px] overflow-hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 396 1032" fill="none" preserveAspectRatio="none">
+                            <path d="M0 608.5V835.5L29.4377 878.18V984L55.5 1032H396V516V0H55.5L29.4377 42.5V558.979L0 608.5Z" fill="#121212"/>
+                        </svg>
+                    </div>
 
+                    {/* Chat Content wrapper - hide when closed to prevent text bleeding */}
                     <div className={cn(
-                        "relative flex flex-col border shadow-2xl overflow-hidden transition-all",
-                        messages.length === 0 ? "bg-[#111111] border-[#2A2A2A] rounded-sm min-h-[140px]" : "bg-[#1A1A1A] border-[#2A2A2A] rounded-[24px]"
+                        "relative z-10 flex flex-col h-full w-[396px] transition-opacity duration-300",
+                        isChatOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                     )}>
-                        <div className="overflow-y-auto flex-1">
-                            <Textarea
-                                ref={textareaRef}
-                                value={value}
-                                onChange={(e) => {
-                                    setValue(e.target.value);
-                                    adjustHeight();
-                                }}
-                                onKeyDown={handleKeyDown}
-                                placeholder={messages.length === 0 ? "Make a pick and place robot |" : "Ask me anything..."}
-                                className={cn(
-                                    "w-full px-5 py-5",
-                                    "resize-none",
-                                    "bg-transparent",
-                                    "border-none",
-                                    "text-[#F0F0F0] text-[15px] leading-relaxed",
-                                    "focus:outline-none",
-                                    "focus-visible:ring-0 focus-visible:ring-offset-0",
-                                    "placeholder:text-[#555555] placeholder:text-[15px]",
-                                    "min-h-[60px]"
-                                )}
-                                style={{ overflow: "hidden" }}
-                                disabled={isLoading}
-                            />
+                        {/* Messages Area */}
+                        <div className="flex-1 w-full overflow-y-auto space-y-6 pb-32 pt-8 px-6 flex flex-col custom-scrollbar">
+                            {messages.length === 0 ? (
+                                <div className="flex flex-col items-center justify-center w-full h-full opacity-50">
+                                    <h2 className="text-xl font-medium text-[#F0F0F0] text-center">
+                                        Ask Yantraa
+                                    </h2>
+                                    <p className="text-xs text-[#888888] text-center mt-2">
+                                        Design your next robotic system.
+                                    </p>
+                                </div>
+                            ) : (
+                                <>
+                                    {messages.map((msg, idx) => {
+                                        if (msg.role === 'assistant' && !msg.content) return null;
+                                        return (
+                                            <div key={idx} className={cn("flex w-full", msg.role === 'user' ? "justify-end" : "justify-start")}>
+                                                <div className={cn(
+                                                    "max-w-[85%] rounded-2xl px-4 py-3",
+                                                    msg.role === 'user'
+                                                        ? "bg-[#252525] border border-[#333333] text-[#F0F0F0]"
+                                                        : "bg-transparent text-[#F0F0F0]"
+                                                )}>
+                                                    {msg.role === 'assistant' && (
+                                                        <div className="flex items-center gap-2 mb-2">
+                                                            <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0]">
+                                                                Y
+                                                            </div>
+                                                            <span className="font-medium text-xs text-[#888888]">Yantraa AI</span>
+                                                        </div>
+                                                    )}
+                                                    <div className="whitespace-pre-wrap leading-relaxed text-[13px] text-[#E0E0E0]">
+                                                        {msg.content}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                    {isLoading && (!messages.length || messages[messages.length - 1].role !== 'assistant' || isThinking || !messages[messages.length - 1].content) && (
+                                        <div className="flex w-full justify-start">
+                                            <div className="bg-transparent text-[#F0F0F0] rounded-2xl px-4 py-3 flex flex-col gap-2">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-5 h-5 rounded-md bg-[#1E1E1E] border border-[#2A2A2A] flex items-center justify-center text-[10px] font-bold text-[#F0F0F0] animate-pulse">
+                                                        Y
+                                                    </div>
+                                                    <div className="flex gap-1 items-center">
+                                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                                                        <div className="w-1.5 h-1.5 bg-[#555555] rounded-full animate-bounce"></div>
+                                                    </div>
+                                                </div>
+                                                {isThinking && (
+                                                    <div className="text-[11px] text-[#888888] font-mono pl-8 animate-pulse">
+                                                        {statusMessage}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+                                    <div ref={messagesEndRef} />
+                                </>
+                            )}
                         </div>
 
-                        <div className="flex items-center justify-between px-4 pb-3 pt-2">
-                            <div className="flex items-center gap-3">
-                                <button
-                                    type="button"
-                                    className="p-1.5 hover:bg-[#252525] rounded transition-colors text-[#888888] hover:text-[#F0F0F0]"
-                                >
-                                    <Paperclip className="w-[18px] h-[18px]" />
-                                </button>
-                                <button
-                                    type="button"
-                                    className="p-1.5 hover:bg-[#252525] rounded transition-colors text-[#888888] hover:text-[#F0F0F0]"
-                                >
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="22"></line></svg>
-                                </button>
-                                <button
-                                    type="button"
-                                    className="px-3 py-1.5 rounded text-xs text-[#E0E0E0] font-medium transition-colors border border-[#333333] hover:border-[#555555] hover:bg-[#252525] flex items-center gap-2 ml-1"
-                                >
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
-                                    Prompt Library
-                                </button>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                {messages.length === 0 && (
-                                    <div className="flex items-center gap-1.5 text-[#888888] text-xs font-medium cursor-pointer hover:text-[#F0F0F0] transition-colors">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#888888]" />
-                                        Yantraa 1.0
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-0.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        {/* Input Area inside the sidebar */}
+                        <div className="w-full p-4 absolute bottom-0 left-0 bg-gradient-to-t from-[#121212] via-[#121212] to-transparent pt-10 z-10">
+                            {cadPrompt.available && (
+                                <div className="mb-3 bg-[#1A1A1A] border border-[#2A2A2A] p-4 flex flex-col gap-3 animate-in slide-in-from-bottom-2">
+                                    <p className="text-[#F0F0F0] text-xs font-medium">
+                                        {cadPrompt.urls.length > 1 
+                                            ? `A 3D CAD assembly with ${cadPrompt.urls.length} parts is available. View it?` 
+                                            : "A highly detailed 3D CAD model is available. View it?"}
+                                    </p>
+                                    <div className="flex gap-2">
+                                        <button 
+                                            onClick={() => {
+                                                setAcceptedCadUrls(cadPrompt.urls);
+                                                setActiveTab('cad');
+                                                setCadPrompt({ available: false, urls: [] });
+                                            }}
+                                            className="bg-[#F0F0F0] hover:bg-white text-black px-3 py-1.5 text-[11px] transition-colors font-semibold">
+                                            Yes, View
+                                        </button>
+                                        <button 
+                                            onClick={() => setCadPrompt({ available: false, urls: [] })}
+                                            className="bg-[#252525] hover:bg-[#333333] text-[#F0F0F0] px-3 py-1.5 text-[11px] transition-colors font-medium border border-[#2A2A2A]">
+                                            No
+                                        </button>
                                     </div>
-                                )}
-                                <button
-                                    type="button"
-                                    onClick={handleSubmit}
-                                    disabled={isLoading || !value.trim()}
-                                    className={cn(
-                                        "p-2 transition-colors flex items-center justify-center",
-                                        messages.length === 0 ? "rounded-sm" : "rounded-full",
-                                        value.trim() && !isLoading
-                                            ? "bg-[#F0F0F0] text-black hover:bg-white"
-                                            : messages.length === 0 ? "bg-[#F0F0F0] text-black hover:bg-white" : "text-[#555555] border-[#2A2A2A] bg-[#222222] border"
-                                    )}
-                                >
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
-                                    <span className="sr-only">Send</span>
-                                </button>
+                                </div>
+                            )}
+
+                            <div className="relative flex flex-col bg-[#1A1A1A] border border-[#2A2A2A] rounded-[24px] shadow-2xl overflow-hidden">
+                                <div className="overflow-y-auto max-h-[140px] min-h-[50px] flex items-center">
+                                    <Textarea
+                                        ref={textareaRef}
+                                        value={value}
+                                        onChange={(e) => {
+                                            setValue(e.target.value);
+                                            adjustHeight();
+                                        }}
+                                        onKeyDown={handleKeyDown}
+                                        placeholder="Ask me anything..."
+                                        className={cn(
+                                            "w-full px-5 py-3.5",
+                                            "resize-none bg-transparent border-none",
+                                            "text-[#F0F0F0] text-[13px] leading-relaxed",
+                                            "focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0",
+                                            "placeholder:text-[#555555]"
+                                        )}
+                                        style={{ overflow: "hidden" }}
+                                        disabled={isLoading}
+                                    />
+                                </div>
+
+                                <div className="flex items-center justify-between px-3 pb-2">
+                                    <div className="flex items-center gap-1">
+                                        <button type="button" className="p-1.5 hover:bg-[#252525] rounded-full transition-colors text-[#888888] hover:text-[#F0F0F0]">
+                                            <Paperclip className="w-[14px] h-[14px]" />
+                                        </button>
+                                        <button type="button" className="p-1.5 hover:bg-[#252525] rounded-full transition-colors text-[#888888] hover:text-[#F0F0F0]">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="22"></line></svg>
+                                        </button>
+                                        <button type="button" className="px-2 py-1 ml-1 rounded text-[10px] text-[#E0E0E0] font-medium transition-colors border border-[#333333] hover:border-[#555555] hover:bg-[#252525] flex items-center gap-1.5">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                                            Prompt Library
+                                        </button>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={handleSubmit}
+                                        disabled={isLoading || !value.trim()}
+                                        className={cn(
+                                            "p-1.5 rounded-full transition-colors flex items-center justify-center",
+                                            value.trim() && !isLoading
+                                                ? "bg-[#F0F0F0] text-black hover:bg-white"
+                                                : "text-[#555555] bg-[#222222]"
+                                        )}
+                                    >
+                                        <ArrowUpIcon className="w-3.5 h-3.5" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    {/* Toggle Button for the Sidebar */}
+                    <button 
+                        onClick={() => setIsChatOpen(!isChatOpen)}
+                        className={cn(
+                            "absolute bottom-8 -right-4 w-8 h-8 bg-[#1A1A1A] border border-[#333333] hover:border-[#555555] hover:bg-[#222222] flex items-center justify-center text-[#F0F0F0] font-bold text-[10px] z-50 transition-transform duration-300 shadow-xl",
+                            !isChatOpen && "-translate-x-4 translate-y-0"
+                        )}
+                        style={{ clipPath: "polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px)" }}
+                    >
+                        N
+                    </button>
                 </div>
 
-                {messages.length === 0 && (
-                    <div className="w-full max-w-[760px] flex gap-4 mt-6">
-                        {/* Card 1 */}
-                        <div 
-                            className="flex-1 bg-[#161616] border border-[#222222] p-4 flex flex-col gap-2 cursor-pointer hover:bg-[#1A1A1A] hover:border-[#333333] transition-all"
-                            onClick={() => setValue("Make a pick and place robot")}
-                        >
-                            <div className="flex items-center gap-2 text-[#E0E0E0] font-medium text-xs mb-1">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                                Design a Pick & Place Robot
-                            </div>
-                            <p className="text-[#888888] text-[11px] leading-relaxed">
-                                Generate CAD, component mapping, and connections for a pick-and-place robotic system.
-                            </p>
-                        </div>
-                        {/* Card 2 */}
-                        <div 
-                            className="flex-1 bg-[#161616] border border-[#222222] p-4 flex flex-col gap-2 cursor-pointer hover:bg-[#1A1A1A] hover:border-[#333333] transition-all"
-                            onClick={() => setValue("Design a Delta Robot")}
-                        >
-                            <div className="flex items-center gap-2 text-[#E0E0E0] font-medium text-xs mb-1">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
-                                Design a Delta Robot
-                            </div>
-                            <p className="text-[#888888] text-[11px] leading-relaxed">
-                                Validate requirements, assess technical viability, and refine your robot before generating designs.
-                            </p>
-                        </div>
-                        {/* Card 3 */}
-                        <div 
-                            className="flex-1 bg-[#161616] border border-[#222222] p-4 flex flex-col gap-2 cursor-pointer hover:bg-[#1A1A1A] hover:border-[#333333] transition-all"
-                            onClick={() => setValue("Check Feasibility")}
-                        >
-                            <div className="flex items-center gap-2 text-[#E0E0E0] font-medium text-xs mb-1">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg>
-                                Check Feasibility
-                            </div>
-                            <p className="text-[#888888] text-[11px] leading-relaxed">
-                                Evaluate cost, complexity, technical viability and understand the process before building your robot.
-                            </p>
-                        </div>
-                    </div>
-                )}
-            </div>
-
-            {/* Right Side Content (Only visible when messages > 0) */}
-            {messages.length > 0 && (
-                <div className="flex-1 relative bg-[#0A0A0A] animate-in fade-in duration-500">
+                {/* Right Side Content (Main Tabs) */}
+                <div className="flex-1 relative bg-[#0A0A0A] border-l border-[#222222]">
                     {/* Top Nav — pill tab bar */}
                     <div className="absolute top-5 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1 px-1.5 py-1.5 bg-[#161616] border border-[#2A2A2A] rounded-full shadow-2xl">
                         <button
@@ -630,7 +780,6 @@ export function VercelV0Chat() {
                         })()}
                     </div>
                 </div>
-            )}
             </div>
         </div>
     );
